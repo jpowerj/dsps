@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Probability and Statistics (Fourth Edition)"
+  author:
+    - "Morris H. DeGroot"
+    - "Mark J. Schervish"
+    - "(Digitized by Jeff Jacobs, Georgetown University)"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - 01-intro.qmd
+    - 02-conditional-probability.qmd
+    - 03-random-variables.qmd
+    - 04-expectation.qmd
+    - 05-special-distributions.qmd
+    - 06-large-random-samples.qmd
+    - 07-estimation.qmd
+    - 08-sampling-distributions.qmd
+    - 09-testing-hypotheses.qmd
+    - 10-categorical-data.qmd
+    - 11-linear-statistical-models.qmd
+    - 12-simulation.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: materia
+  #pdf:
+  #  documentclass: scrreprt
+
+
+
