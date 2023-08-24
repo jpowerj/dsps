@@ -1,41 +1,44 @@
 ---
-title: "Random Variables and Distributions"
 cache: true
+number-depth: 2
+callout-appearance: simple
+callout-icon: false
 ---
 
-## Random Variables and Discrete Distributions
+# Random Variables and Distributions {#sec-3}
+
+## Random Variables and Discrete Distributions {#sec-3-1}
 
 *A random variable is a real-valued function defined on a sample space. Random variables are the main tools used for modeling unknown quantities in statistical analyses. For each random variable X and each set C of real numbers, we could calculate the probability that X takes its value in C. The collection of all of these probabilities is the distribution of X. There are two major classes of distributions and random variables: discrete (this section) and continuous (Sec. 3.2). Discrete distributions are those that assign positive probability to at most countably many different values. A discrete distribution can be characterized by its probability function (p.f.), which specifies the probability that the random variable takes each of the different possible values. A random variable with a discrete distribution will be called a discrete random variable.*
 
 ### Definition of a Random Variable
 
-::: {.callout-tip title="Example 3.1.1: Tossing a Coin"}
+::: {.callout-tip icon="false" appearance="simple"}
 
-Consider an experiment in which a fair coin is tossed 10 times. In this
-experiment, the sample space S can be regarded as the set of outcomes consisting of
-the 210 different sequences of 10 heads and/or tails that are possible. We might be
-interested in the number of heads in the observed outcome.We can letX stand for the
-real-valued function defined on S that counts the number of heads in each outcome.
-For example, if s is the sequence HHTTTHTTTH, then X(s) = 4. For each possible
-sequence s consisting of 10 heads and/or tails, the value X(s) equals the number of
-heads in the sequence. The possible values for the function X are 0, 1, . . . , 10.  
+::: {#exm-3-1-1}
+
+# Example 3.1.1: Tossing a Coin (DeGroot and Schervish, p. 93)
+
+Consider an experiment in which a fair coin is tossed 10 times. In this experiment, the sample space $S$ can be regarded as the set of outcomes consisting of the 210 different sequences of 10 heads and/or tails that are possible. We might be interested in the number of heads in the observed outcome. We can let $X$ stand for the real-valued function defined on $S$ that counts the number of heads in each outcome. For example, if $s$ is the sequence `HHTTTHTTTH`, then $X(s) = 4$. For each possible sequence $s$ consisting of 10 heads and/or tails, the value $X(s)$ equals the number of heads in the sequence. The possible values for the function $X$ are $0, 1, \ldots, 10$.
 
 :::
 
-::: {.callout-tip title="Definition 3.1.1: Random Variable"}
+:::
 
-Let S be the sample space for an experiment. A real-valued function that is defined on S is called a random variable.
+::: {.callout-tip appearance="simple" title="Definition 3.1.1: Random Variable"}
+
+::: {#def-3-1-1}
+
+Let $S$ be the sample space for an experiment. A real-valued function that is defined on $S$ is called a **random variable**.
 
 :::
 
-For example, in Example 3.1.1, the number X of heads in the 10 tosses is a random
-variable. Another random variable in that example is Y = 10 − X, the number of
-tails.
-93
-94 Chapter 3 Random Variables and Distributions
-Figure 3.1 The event that
-at least one utility demand is
-high in Example 3.1.3.
+:::
+
+For example, in @exm-3-1-1 the number $X$ of heads in the 10 tosses is a random variable. Another random variable in that example is $Y = 10 − X$, the number of tails.
+
+::: {#fig-3-1}
+
 1
 150
 115
@@ -44,51 +47,63 @@ Water
 Electric
 200
 A B
-Example
-3.1.2
-Measuring a Person’s Height. Consider an experiment in which a person is selected at
-random from some population and her height in inches is measured. This height is a
-random variable.  
-Example
-3.1.3
-Demands for Utilities. Consider the contractor in Example 1.5.4 on page 19 who is
-concerned about the demands for water and electricity in a new office complex. The
-sample space was pictured in Fig. 1.5 on page 12, and it consists of a collection of
-points of the form (x, y), where x is the demand for water and y is the demand
-for electricity. That is, each point s ∈ S is a pair s = (x, y). One random variable
-that is of interest in this problem is the demand for water. This can be expressed
-as X(s) = x when s = (x, y). The possible values of X are the numbers in the interval
-[4, 200]. Another interesting random variable is Y , equal to the electricity demand,
-which can be expressed as Y(s) = y when s = (x, y). The possible values of Y are the
-numbers in the interval [1, 150].Athird possible random variable Z is an indicator of
-whether or not at least one demand is high. Let A and B be the two events described
-in Example 1.5.4. That is, A is the event that water demand is at least 100, and B is
-the event that electric demand is at least 115. Define
-Z(s) =
- 
-1 ifs ∈ A ∪ B,
-0 ifs  ∈ A ∪ B.
-The possible values of Z are the numbers 0 and 1. The event A ∪ B is indicated in
-Fig. 3.1.  
-The Distribution of a Random Variable
-When a probability measure has been specified on the sample space of an experiment,
-we can determine probabilities associated with the possible values of each random
-variable X. Let C be a subset of the real line such that {X ∈ C} is an event, and let
-Pr(X ∈ C) denote the probability that the value of X will belong to the subset C.
-Then Pr(X ∈ C) is equal to the probability that the outcome s of the experiment will
-be such that X(s) ∈ C. In symbols,
-Pr(X ∈ C) = Pr({s: X(s) ∈ C}). (3.1.1)
-Definition
-3.1.2
-Distribution. Let X be a random variable. The distribution of X is the collection of all
-probabilities of the form Pr(X ∈ C) for all sets C of real numbers such that {X ∈ C}
-is an event.
-It is a straightforward consequence of the definition of the distribution of X that
-this distribution is itself a probability measure on the set of real numbers. The set
-3.1 Random Variables and Discrete Distributions 95
-Figure 3.2 The event that
-water demand is between 50
-and 175 in Example 3.1.5.
+
+The event that at least one utility demand is high in @exm-3-1-3.
+:::
+
+::: {#exm-3-1-2}
+
+# Example 3.1.2: Measuring a Person’s Height.
+
+Consider an experiment in which a person is selected at random from some population and her height in inches is measured. This height is a random variable.  
+
+:::
+
+::: {.callout-tip}
+
+::: {#exm-3-1-3}
+
+# Example 3.1.3: Demands for Utilities
+
+Consider the contractor in Example 1.5.4 on page 19 who is concerned about the demands for water and electricity in a new office complex. The sample space was pictured in Fig. 1.5 on page 12, and it consists of a collection of points of the form $(x, y)$, where $x$ is the demand for water and $y$ is the demand for electricity. That is, each point $s \in S$ is a pair $s = (x, y)$. One random variable that is of interest in this problem is the demand for water. This can be expressed as $X(s) = x$ when $s = (x, y)$. The possible values of $X$ are the numbers in the interval $[4, 200]$. Another interesting random variable is $Y$, equal to the electricity demand, which can be expressed as $Y(s) = y$ when $s = (x, y)$. The possible values of $Y$ are the numbers in the interval $[1, 150]$. A third possible random variable $Z$ is an indicator of whether or not at least one demand is high. Let $A$ and $B$ be the two events described in Example 1.5.4. That is, $A$ is the event that water demand is at least 100, and $B$ is the event that electric demand is at least 115. Define
+
+$$
+Z(s) = \begin{cases}
+1 &\text{if }s \in A \cup B, \\
+0 &\text{if }s \notin A \cup B.
+\end{cases}
+$$
+
+The possible values of $Z$ are the numbers $0$ and $1$. The event $A \cup B$ is indicated in @fig-3-1.  
+
+:::
+
+:::
+
+### The Distribution of a Random Variable
+
+When a probability measure has been specified on the sample space of an experiment, we can determine probabilities associated with the possible values of each random variable $X$. Let $C$ be a subset of the real line such that $\{X \in C\}$ is an event, and let $\Pr(X \in C)$ denote the probability that the value of $X$ will belong to the subset $C$. Then $\Pr(X \in C)$ is equal to the probability that the outcome $s$ of the experiment will be such that $X(s) \in C$. In symbols,
+
+$$
+\Pr(X \in C) = \Pr(\{s: X(s) \in C\}).
+$$ {#eq-3-1-1}
+
+::: {.callout-tip}
+
+::: {#def-3-1-2}
+
+# Definition 3.1.2: Distribution
+
+Let $X$ be a random variable. The distribution of $X$ is the collection of all probabilities of the form $\Pr(X \in C)$ for all sets $C$ of real numbers such that $\{X \in C\}$ is an event.
+
+:::
+
+:::
+
+It is a straightforward consequence of the definition of the distribution of $X$ that this distribution is itself a probability measure on the set of real numbers. The set $\{X \in C\}$ will be an event for every set $C$ of real numbers that most readers will be able to imagine.
+
+::: {#fig-3-2}
+
 1
 150
 115
@@ -96,11 +111,17 @@ and 175 in Example 3.1.5.
 Water
 Electric
 175 200
-{X ∈ C} will be an event for every set C of real numbers that most readers will be
-able to imagine.
-Example
-3.1.4
-Tossing a Coin. Consider again an experiment in which a fair coin is tossed 10 times,
+
+The event that water demand is between 50 and 175 in @exm-3-1-5.
+:::
+
+::: {.callout-tip}
+
+::: {#exm-3-1-4}
+
+# Example 3.1.4: Tossing a Coin
+
+Consider again an experiment in which a fair coin is tossed 10 times,
 and let X be the number of heads that are obtained. In this experiment, the possible
 values of X are 0, 1, 2, . . . , 10. For each x, Pr(X = x) is the sum of the probabilities
 of all of the outcomes in the event {X = x}. Because the coin is fair, each outcome
@@ -120,10 +141,19 @@ Pr(X = x) =
 x
  
 1
-210 for x = 0, 1, 2, . . . , 10.  
-Example
-3.1.5
-Demands for Utilities. In Example 1.5.4, we actually calculated some features of the
+210 for x = 0, 1, 2, . . . , 10.
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#exm-3-1-5}
+
+# Example 3.1.5: Demands for Utilities
+
+In Example 1.5.4, we actually calculated some features of the
 distributions of the three random variables X, Y , and Z defined in Example 3.1.3.
 For example, the event A, defined as the event that water demand is at least 100, can
 be expressed as A = {X ≥ 100}, and Pr(A) = 0.5102. This means that Pr(X ≥ 100) =
@@ -136,7 +166,12 @@ Pr(X ∈ C) = (150 − 1) × (length of interval C)
 . (3.1.2)
 For example, if C is the interval [50,175], then its length is 125, and Pr(X ∈ C) =
 149 × 125/29,204 = 0.6378. The subset of the sample space whose probability was
-just calculated is drawn in Fig. 3.2.  
+just calculated is drawn in Fig. 3.2.
+
+:::
+
+:::
+
 The general definition of distribution in Definition 3.1.2 is awkward, and it will
 be useful to find alternative ways to specify the distributions of random variables. In
 the remainder of this section, we shall introduce a few such alternatives.
@@ -172,12 +207,20 @@ f (z) =
 0.65253 if z = 1,
 0.34747 if z = 0,
 0 otherwise.
-The support of Z is the set {0, 1}, which has only two elements.  
-Example
-3.1.7
-Tossing a Coin. The random variableXin Example 3.1.4 has only 11 different possible
-values. Its p.f. f is given at the end of that example for the values x = 0, . . . , 10 that
-constitute the support of X; f (x) = 0 for all other values of x.  
+The support of Z is the set {0, 1}, which has only two elements. 
+
+::: {.callout-tip}
+
+::: {#exm-3-1-7}
+
+# Example 3.1.7: Tossing a Coin
+
+The random variable $X$ in @exm-3-1-4 has only 11 different possible values. Its PMF $f$ is given at the end of that example for the values $x = 0, \ldots, 10$ that constitute the support of $X$; $f(x) = 0$ for all other values of $x$.  
+
+:::
+
+:::
+
 Here are some simple facts about probability functions
 Theorem
 3.1.1
@@ -209,9 +252,15 @@ f (xi).
 Some random variables have distributions that appear so frequently that the
 distributions are given names. The random variable Z in Example 3.1.6 is one such.
 
-::: {,callout-tip title="Definition 3.1.5: Bernoulli Distribution/Random Variable (DeGroot and Schervish, p. 97)"}
+::: {.callout-tip}
 
-A random variable Z that takes only two values 0 and 1 with Pr(Z = 1) = p has the **Bernoulli distribution** with parameter p. We also say that Z is a Bernoulli random variable with parameter p.
+::: {#def-3-1-5}
+
+# Definition 3.1.5: Bernoulli Distribution/Random Variable (DeGroot and Schervish, p. 97)
+
+A random variable $Z$ that takes only two values $0$ and $1$ with $\Pr(Z = 1) = p$ has the **Bernoulli distribution** with parameter $p$. We also say that $Z$ is a **Bernoulli random variable** with parameter $p$.
+
+:::
 
 :::
 
@@ -223,15 +272,16 @@ distributions that arise often enough to have names.
 
 ### Uniform Distributions on Integers
 
-::: {.callout-tip title="Example 3.1.8: Daily Numbers"}
+::: {.callout-tip}
 
-A popular state lottery game requires participants to select a threedigit
-number (leading 0s allowed). Then three balls, each with one digit, are chosen at
-random from well-mixed bowls. The sample space here consists of all triples (i1, i2, i3)
-where ij
-∈ {0, . . . , 9} for j = 1, 2, 3. If s = (i1, i2, i3), define X(s) = 100i1 + 10i2 + i3.
-For example, X(0, 1, 5) = 15. It is easy to check that Pr(X = x) = 0.001 for each
-integer x ∈ {0, 1, . . . , 999}.
+::: {#exm-3-1-8}
+
+# Example 3.1.8: Daily Numbers
+
+A popular state lottery game requires participants to select a three-digit number (leading $0$s allowed). Then three balls, each with one digit, are chosen at random from well-mixed bowls. The sample space here consists of all triples $(i_1, i_2, i_3)$ where $i_j \in \{0, \ldots, 9\}$ for $j = 1, 2, 3$. If $s = (i_1, i_2, i_3)$, define $X(s) = 100i_1 + 10i_2 + i_3$. For example, $X(0, 1, 5) = 15$. It is easy to check that $\Pr(X = x) = 0.001$ for each integer $x \in \{0, 1, \ldots, 999\}$.
+
+:::
+
 :::
 
 ::: {.callout-tip title="Definition 3.1.6: Uniform Distribution on Integers (DeGroot and Schervish, p. 97)"}
@@ -247,19 +297,27 @@ A uniform distribution on a set of k integers has probability 1/k on each intege
 If b > a, there are b − a + 1 integers from a to b including a and b. The next result
 follows immediately from what we have just seen, and it illustrates how the name of
 the distribution characterizes the distribution.
-Theorem
-3.1.3
-If X has the uniform distribution on the integers a, . . . , b, the p.f. of X is
-f (x) =
-⎧⎨
-⎩
-1
-b − a + 1
-for x = a, . . . , b,
-0 otherwise.
-The uniform distribution on the integers a, . . . , b represents the outcome of an
-experiment that is often described by saying that one of the integersa, . . . , b is chosen
-at random. In this context, the phrase “at random” means that each of the b − a + 1
+
+::: {.callout-tip}
+
+::: {#thm-3-1-3}
+
+# Theorem 3.1.3
+
+If $X$ has the uniform distribution on the integers $a, \ldots, b$, the PMF of $X$ is
+
+$$
+f(x) = \begin{cases}
+\frac{1}{b-a+1} &\text{for }x = a, \ldots, b, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+:::
+
+:::
+
+The uniform distribution on the integers $a, \ldots, b$ represents the outcome of an experiment that is often described by saying that one of the integers $a, \ldots, b$ is chosen at random. In this context, the phrase “at random” means that each of the b − a + 1
 integers is equally likely to be chosen. In this same sense, it is not possible to choose
 an integer at random from the set of all positive integers, because it is not possible
 98 Chapter 3 Random Variables and Distributions
@@ -267,22 +325,16 @@ to assign the same probability to every one of the positive integers and still m
 sum of these probabilities equal to 1. In other words, a uniform distribution cannot
 be assigned to an infinite sequence of possible values, but such a distribution can be
 assigned to any finite sequence.
-Note: Random Variables Can Have the Same Distribution without Being the
-Same Random Variable. Consider two consecutive daily number draws as in Example
-3.1.8. The sample space consists of all 6-tuples (i1, . . . , i6), where the first
-three coordinates are the numbers drawn on the first day and the last three are the
-numbers drawn on the second day (all in the order drawn). If s = (i1, . . . , i6), let
-X1(s) = 100i1 + 10i2 + i3 and let X2(s) = 100i4 + 10i5 + i6. It is easy to see that X1
-and X2 are different functions of s and are not the same random variable. Indeed,
-there is only a small probability that they will take the same value. But they have
-the same distribution because they assume the same values with the same probabilities.
-If a businessman has 1000 customers numbered 0, . . . , 999, and he selects one
-at random and records the number Y , the distribution of Y will be the same as the
-distribution of X1 and of X2, but Y is not like X1 or X2 in any other way.
+
+**Note: Random Variables Can Have the Same Distribution without Being the Same Random Variable**. Consider two consecutive daily number draws as in @exm-3-1-8. The sample space consists of all 6-tuples $(i_1, \ldots, i_6)$, where the first three coordinates are the numbers drawn on the first day and the last three are the numbers drawn on the second day (all in the order drawn). If $s = (i_1, \ldots, i_6)$, let $X_1(s) = 100i_1 + 10i_2 + i_3$ and let $X_2(s) = 100i_4 + 10i_5 + i_6$. It is easy to see that $X_1$ and $X_2$ are different functions of $s$ and are not the same random variable. Indeed, there is only a small probability that they will take the same value. But they have the same distribution because they assume the same values with the same probabilities. If a businessman has 1000 customers numbered $0, \ldots, 999$, and he selects one at random and records the number $Y$, the distribution of $Y$ will be the same as the distribution of $X_1$ and of $X_2$, but $Y$ is not like $X_1$ or $X_2$ in any other way.
 
 ### Binomial Distributions
 
-::: {.callout-tip title="Example 3.1.9: Defective Parts (DeGroot and Schervish, p. 98)"}
+::: {.callout-tip}
+
+::: {#exm-3-1-9}
+
+# Example 3.1.9: Defective Parts (DeGroot and Schervish, p. 98)
 
 Consider again Example 2.2.5 from page 69. In that example, a machine
 produces a defective item with probability p (0<p <1) and produces a nondefective
@@ -297,7 +349,10 @@ say, n = 6, then some of the possible outcomes are
 We will let X denote the number of these items that are defective. Then the random
 variable X will have a discrete distribution, and the possible values of X will be
 0, 1, 2, . . . , n. For example, the first four outcomes listed in Eq. (3.1.3) all have
-X(s) = 2. The last outcome listed has X(s) = 0.  
+X(s) = 2. The last outcome listed has X(s) = 0.
+
+:::
+
 :::
 
 Example 3.1.9 is a generalization of Example 2.2.5 with n items inspected rather
@@ -326,13 +381,23 @@ x
 px(1− p)n−x for x = 0, 1, . . . , n,
 0 otherwise.
 (3.1.4)
-Definition
-3.1.7
-Binomial Distribution/Random Variable. The discrete distribution represented by the
-p.f. in (3.1.4) is called the binomial distribution with parameters n and p. A random
+
+::: {.callout-tip}
+
+::: {#def-3-1-7}
+
+# Definition 3.1.7: Binomial Distribution/Random Variable
+
+The discrete distribution represented by the
+PMF in (3.1.4) is called the binomial distribution with parameters n and p. A random
 3.1 Random Variables and Discrete Distributions 99
 variable with this distribution is said to be a binomial random variable with parameters
 n and p.
+
+:::
+
+:::
+
 The reader should be able to verify that the random variable X in Example 3.1.4,
 the number of heads in a sequence of 10 independent tosses of a fair coin, has the
 binomial distribution with parameters 10 and 1/2.
@@ -365,7 +430,9 @@ apply to all of the named distributions that we introduce elsewhere in the book.
 attempting to specify the distribution of a random variable by giving its name, one
 must give the full name, including the values of any parameters. Only the full name
 is sufficient for determining the distribution.
-Summary
+
+### Summary
+
 A random variable is a real-valued function defined on a sample space. The distribution
 of a random variable X is the collection of all probabilities Pr(X ∈ C) for all
 subsets C of the real numbers such that {X ∈ C} is an event. A random variable X is
@@ -378,51 +445,115 @@ of binomial distributions whose parameters are n and p, where n is a positive
 integer and 0<p <1, having p.f. (3.1.4). The binomial distribution with parameters
 n = 1 and p is also called the Bernoulli distribution with parameter p. The names of
 these distributions also characterize the distributions.
-100 Chapter 3 Random Variables and Distributions
 
 ### Exercises
 
-1. Suppose that a random variable X has the uniform distribution
-on the integers 10, . . . , 20. Find the probability
-that X is even.
-2. Suppose that a random variable X has a discrete distribution
+::: {#exr-3-1-1}
+
+# Exercise 3.1.1
+
+Suppose that a random variable $X$ has the uniform distribution on the integers $10, \ldots, 20$. Find the probability that $X$ is even.
+
+:::
+
+::: {#exr-3-1-2}
+
+# Exercise 3.1.2
+
+Suppose that a random variable X has a discrete distribution
 with the following p.f.:
 f (x) =
  
 cx for x = 1, . . . , 5,
 0 otherwise.
 Determine the value of the constant c.
-3. Suppose that two balanced dice are rolled, and let X
+
+:::
+
+::: {#exr-3-1-3}
+
+# Exercise 3.1.3
+
+Suppose that two balanced dice are rolled, and let X
 denote the absolute value of the difference between the
 two numbers that appear. Determine and sketch the p.f.
 of X.
-4. Suppose that a fair coin is tossed 10 times independently.
+
+:::
+
+::: {#exr-3-1-4}
+
+# Exercise 3.1.4
+
+Suppose that a fair coin is tossed 10 times independently.
 Determine the p.f. of the number of heads that will
 be obtained.
-5. Suppose that a box contains seven red balls and three
+
+:::
+
+::: {#exr-3-1-5}
+
+# Exercise 3.1.5
+
+Suppose that a box contains seven red balls and three
 blue balls. If five balls are selected at random, without
 replacement, determine the p.f. of the number of red balls
 that will be obtained.
-6. Suppose that a random variableX has the binomial distribution
+
+:::
+
+::: {#exr-3-1-6}
+
+# Exercise 3.1.6
+
+Suppose that a random variableX has the binomial distribution
 with parameters n = 15 and p = 0.5. Find Pr(X <
 6).
-7. Suppose that a random variableX has the binomial distribution
+
+:::
+
+::: {#exr-3-1-7}
+
+# Exercise 3.1.7
+
+Suppose that a random variableX has the binomial distribution
 with parameters n = 8 and p = 0.7. Find Pr(X ≥
 5) by using the table given at the end of this book. Hint:
 Use the fact that Pr(X ≥ 5) = Pr(Y ≤ 3), where Y has the
 binomial distribution with parameters n = 8 and p = 0.3.
-8. If 10 percent of the balls in a certain box are red, and
+
+:::
+
+::: {#exr-3-1-8}
+
+# Exercise 3.1.8
+
+If 10 percent of the balls in a certain box are red, and
 if 20 balls are selected from the box at random, with replacement,
 what is the probability that more than three
 red balls will be obtained?
-9. Suppose that a random variable X has a discrete distribution
+
+:::
+
+::: {#exr-3-1-9}
+
+# Exercise 3.1.9
+
+Suppose that a random variable X has a discrete distribution
 with the following p.f.:
 f (x) =
   c
 2x for x = 0, 1, 2, . . . ,
 0 otherwise.
 Find the value of the constant c.
-10. A civil engineer is studying a left-turn lane that is
+
+:::
+
+::: {#exr-3-1-10}
+
+# Exercise 3.1.10
+
+A civil engineer is studying a left-turn lane that is
 long enough to hold seven cars. Let X be the number
 of cars in the lane at the end of a randomly chosen red
 light. The engineer believes that the probability that X =
@@ -430,20 +561,33 @@ x is proportional to (x + 1)(8 − x) for x = 0, . . . , 7 (the
 possible values of X).
 a. Find the p.f. of X.
 b. Find the probability that X will be at least 5.
-11. Show that there does not exist any number c such that
+
+:::
+
+::: {#exr-3-1-11}
+
+# Exercise 3.1.11
+
+Show that there does not exist any number c such that
 the following function would be a p.f.:
 f (x) =
   c
 x for x = 1, 2, . . . ,
 0 otherwise.
 
+:::
+
 ## Continuous Distributions
 
-*Next, we focus on random variables that can assume every value in an interval (bounded or unbounded). If a random variable $X$ has associated with it a function $f$ such that the integral of $f$ over each interval gives the probability that X is in the interval, then we call $f$ the probability density function (PDF) of $X$ and we say that $X$ has a continuous distribution.
+*Next, we focus on random variables that can assume every value in an interval (bounded or unbounded). If a random variable $X$ has associated with it a function $f$ such that the integral of $f$ over each interval gives the probability that X is in the interval, then we call $f$ the probability density function (PDF) of $X$ and we say that $X$ has a continuous distribution.*
 
 ### The Probability Density Function
 
-::: {.callout-tip title="Example 3.2.1: Demands for Utilities"}
+::: {.callout-tip}
+
+::: {#exm-3-2-1}
+
+# Example 3.2.1: Demands for Utilities
 
 In Example 3.1.5, we determined the distribution of the demand
 for water, X. From Fig. 3.2, we see that the smallest possible value of X is 4
@@ -477,15 +621,27 @@ Because we defined f (x) to be 0 for x outside of the interval [4, 200], we see 
 (3.2.2) holds for all c0 ≤ c1, even if c0 =−∞and/or c1=∞.
 
 :::
+
+:::
  
-The water demand X in Example 3.2.1 is an example of the following.
-Definition
-3.2.1
-Continuous Distribution/Random Variable. We say that a random variable X has a
+The water demand $X$ in @exm-3-2-1 is an example of the following.
+
+::: {.callout-tip}
+
+::: {#def-3-2-1}
+
+# Definition 3.2.1: Continuous Distribution/Random Variable
+
+We say that a random variable X has a
 continuous distribution or that X is a continuous random variable if there exists a
 nonnegative function f , defined on the real line, such that for every interval of real
 numbers (bounded or unbounded), the probability thatX takes a value in the interval
 is the integral of f over the interval.
+
+:::
+
+:::
+
 For example, in the situation described in Definition 3.2.1, for each bounded closed
 interval [a, b],
 Pr(a ≤ X ≤ b) =
@@ -501,31 +657,43 @@ We see that the function f characterizes the distribution of a continuous random
 variable in much the same way that the probability function characterizes the
 distribution of a discrete random variable. For this reason, the function f plays an
 important role, and hence we give it a name.
-Definition
-3.2.2
-Probability Density Function/p.d.f./Support. If X has a continuous distribution, the
-function f described in Definition 3.2.1 is called the probability density function
-(abbreviated p.d.f.) of X. The closure of the set {x : f (x)>0} is called the support
-of (the distribution of) X.
-Example 3.2.1 demonstrates that the water demand X has p.d.f. given by (3.2.1).
-Every p.d.f. f must satisfy the following two requirements:
+
+::: {.callout-tip}
+
+::: {#def-3-2-2}
+
+# Definition 3.2.2: Probability Density Function/PDF/Support
+
+If $X$ has a continuous distribution, the function f described in @def-3-2-1 is called the **probability density function**
+(abbreviated PDF) of $X$. The closure of the set $\{x : f(x) > 0\}$ is called the **support** of (the distribution of) $X$.
+
+:::
+
+:::
+
+@exm-3-2-1 demonstrates that the water demand $X$ has PDF given by (3.2.1).
+
+Every PDF $f$ must satisfy the following two requirements:
+
+$$
 f (x) ≥ 0, for all x, (3.2.4)
+$$
+
 and
+
+$$
   ∞
 −∞
 f (x) dx = 1. (3.2.5)
-Atypical p.d.f. is sketched in Fig. 3.4. In that figure, the total area under the curve
+$$
+
+A typical PDF is sketched in Fig. 3.4. In that figure, the total area under the curve
 must be 1, and the value of Pr(a ≤ X ≤ b) is equal to the area of the shaded region.
-Note: Continuous Distributions Assign Probability 0 to Individual Values. The
-integral in Eq. (3.2.3) also equals Pr(a < X ≤ b) as well as Pr(a <X < b) and Pr(a ≤
-X <b). Hence, it follows from the definition of continuous distributions that, if X
+
+**Note: Continuous Distributions Assign Probability 0 to Individual Values**. The integral in Eq. (3.2.3) also equals Pr(a < X ≤ b) as well as $\Pr(a < X < b)$ and $\Pr(a \leq X < b)$. Hence, it follows from the definition of continuous distributions that, if X
 has a continuous distribution, Pr(X = a) = 0 for each number a. As we noted on
-page 20, the fact that Pr(X = a) = 0 does not imply that X = a is impossible. If it did,
-102 Chapter 3 Random Variables and Distributions
-Figure 3.4 An example of a
-p.d.f.
-a b x
-f (x)
+page 20, the fact that Pr(X = a) = 0 does not imply that X = a is impossible. If it did, 
+
 all values of X would be impossible and X couldn’t assume any value.What happens
 is that the probability in the distribution of X is spread so thinly that we can only see
 it on sets like nondegenerate intervals. It is much the same as the fact that lines have
@@ -533,7 +701,17 @@ it on sets like nondegenerate intervals. It is much the same as the fact that li
 vertical lines indicated under the curve in Fig. 3.4 have 0 area, and this signifies that
 Pr(X = a) = Pr(X = b) = 0. However, for each   > 0 and each a such that f (a)>0,
 Pr(a −   ≤ X ≤ a +  ) ≈ 2 f (a) > 0.
-Nonuniqueness of the p.d.f.
+
+::: {#fig-3-4}
+
+a b x
+f (x)
+
+An example of a PDF
+:::
+
+### Nonuniqueness of the PDF
+
 If a random variable X has a continuous distribution, then Pr(X = x) = 0 for every
 individual value x. Because of this property, the values of each p.d.f. can be changed
 at a finite number of points, or even at certain infinite sequences of points, without
@@ -568,39 +746,46 @@ The reader should note that “continuous distribution” is not the name of a
 distribution, just as “discrete distribution” is not the name of a distribution. There are
 many distributions that are discrete and many that are continuous. Some distributions
 of each type have names that we either have introduced or will introduce later.
-We shall now present several examples of continuous distributions and their
-p.d.f.’s.
+We shall now present several examples of continuous distributions and their PDFs.
 
 ### Uniform Distributions on Intervals
 
-::: {.callout-tip title="Example 3.2.2: Temperature Forecasts"}
+::: {.callout-tip}
 
-Television weather forecasters announce high and low temperature
-forecasts as integer numbers of degrees. These forecasts, however, are the
-results of very sophisticated weather models that provide more precise forecasts that
-the television personalities round to the nearest integer for simplicity. Suppose that
-the forecaster announces a high temperature of y. If we wanted to know what temperature
-X the weather models actually produced, it might be safe to assume that X
-was equally likely to be any number in the interval from y − 1/2 to y + 1/2.  
+::: {#exm-3-2-2}
+
+# Example 3.2.2: Temperature Forecasts
+
+Television weather forecasters announce high and low temperature forecasts as integer numbers of degrees. These forecasts, however, are the results of very sophisticated weather models that provide more precise forecasts that the television personalities round to the nearest integer for simplicity. Suppose that the forecaster announces a high temperature of y. If we wanted to know what temperature $X$ the weather models actually produced, it might be safe to assume that $X$ was equally likely to be any number in the interval from $y − 1/2$ to $y + 1/2$.  
+
 :::
 
-The distribution of X in Example 3.2.2 is a special case of the following.
-Definition
-3.2.3
-Uniform Distribution on an Interval. Let a and b be two given real numbers such that
-a < b. Let X be a random variable such that it is known that a ≤ X ≤ b and, for
-every subinterval of [a, b], the probability that X will belong to that subinterval is
-proportional to the length of that subinterval.We then say that the random variable
-X has the uniform distribution on the interval [a, b].
-A random variable X with the uniform distribution on the interval [a, b] represents
-the outcome of an experiment that is often described by saying that a point is chosen
-at random from the interval [a, b]. In this context, the phrase “at random” means
-that the point is just as likely to be chosen from any particular part of the interval as
-from any other part of the same length.
-Theorem
-3.2.1
-UniformDistribution p.d.f. IfX has the uniform distribution on an interval [a, b], then
-the p.d.f. of X is
+:::
+
+The distribution of $X$ in @exm-3-2-2 is a special case of the following.
+
+::: {.callout-tip}
+
+::: {#def-3-2-3}
+
+# Definition 3.2.3: Uniform Distribution on an Interval
+
+Let $a$ and $b$ be two given real numbers such that $a < b$. Let $X$ be a random variable such that it is known that $a \leq X \leq b$ and, for every subinterval of $[a, b]$, the probability that $X$ will belong to that subinterval is proportional to the length of that subinterval. We then say that the random variable $X$ has the **uniform distribution** on the interval $[a, b]$.
+
+:::
+
+:::
+
+A random variable $X$ with the uniform distribution on the interval $[a, b]$ represents the outcome of an experiment that is often described by saying that a point is chosen at random from the interval $[a, b]$. In this context, the phrase "at random" means that the point is just as likely to be chosen from any particular part of the interval as from any other part of the same length.
+
+::: {.callout-tip}
+
+::: {#thm-3-2-1}
+
+# Theorem 3.2.1: Uniform Distribution PDF
+
+If $X$ has the uniform distribution on an interval $[a, b]$, then
+the PDF of $X$ is
 f (x) =
  
 1
@@ -622,7 +807,11 @@ a
 f (x) dx = 1. (3.2.7)
 Therefore, the constant value of f (x) throughout [a, b] must be 1/(b − a), and the
 p.d.f. of X must be (3.2.6).
-104 Chapter 3 Random Variables and Distributions
+
+:::
+
+:::
+
 Figure 3.5 The p.d.f. for the
 uniform distribution on the
 interval [a, b].
@@ -632,7 +821,7 @@ Th p.d.f. (3.2.6) is sketched in Fig. 3.5. As an example, the random variableX(d
 for water) in Example 3.2.1 has the uniform distribution on the interval [4, 200].
 Note: Density Is Not Probability. The reader should note that the p.d.f. in (3.2.6) can
 be greater than 1, particularly if b −a <1. Indeed, p.d.f.’s can be unbounded, as we
-shall see in Example 3.2.6. The p.d.f. of X, f (x), itself does not equal the probability
+shall see in @exm-3-2-6. The PDF of X, f (x), itself does not equal the probability
 that X is near x. The integral of f over values near x gives the probability that X is
 near x, and the integral is never greater than 1.
 It is seen from Eq. (3.2.6) that the p.d.f. representing a uniform distribution on
@@ -692,36 +881,45 @@ be 1. It will often happen, especially in Chapter 8 where we find sampling distr
 of summaries of observed data, that we can determine the p.d.f. of a random
 variable except for a constant factor. That constant factor must be the unique value
 such that the integral of the p.d.f. is 1, even if we cannot calculate it directly.
-Example
-3.2.4
-Calculating Probabilities from a p.d.f. Suppose that the p.d.f. ofX is as in Example 3.2.3,
-namely,
-f (x) =
-  x
-8
-for 0 < x <4,
-0 otherwise.
-We shall now determine the values of Pr(1≤ X ≤ 2) and Pr(X > 2). Apply Eq. (3.2.3)
-to get
-Pr(1≤ X ≤ 2) =
-  2
-1
-1
-8
-x dx = 3
-16
+
+::: {.callout-tip}
+
+::: {#exm-3-2-4}
+
+# Example 3.2.4: Calculating Probabilities from a PDF (DeGroot and Schervish, p. 105)
+
+Suppose that the PDF of $X$ is as in @exm-3-2-3, namely,
+
+$$
+f(x) = \begin{cases}
+\frac{x}{8} &\text{for }0 < x < 4, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+We shall now determine the values of $\Pr(1 \leq X \leq 2)$ and $\Pr(X > 2)$. Apply Eq. (3.2.3) to get
+
+$$
+\Pr(1 \leq X \leq 2) = \int_1^2 \frac{1}{8}xdx = \frac{3}{16}
+$$
+
 and
-Pr(X > 2) =
-  4
-2
-1
-8
-x dx = 3
-4
-.  
-Example
-3.2.5
-Unbounded Random Variables. It is often convenient and useful to represent a continuous
+
+$$
+\Pr(X > 2) = \int_2^4 \frac{1}{8}xdx = \frac{3}{4}.
+$$
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#exm-3-2-5}
+
+# Example 3.2.5: Unbounded Random Variables
+
+It is often convenient and useful to represent a continuous
 distribution by a p.d.f. that is positive over an unbounded interval of the real
 line. For example, in a practical problem, the voltage X in a certain electrical system
 might be a random variable with a continuous distribution that can be approximately
@@ -741,95 +939,122 @@ range of values. For example, suppose that it is known that the maximum possible
 value of X is 1000, in which case Pr(X > 1000) = 0. When the p.d.f. (3.2.8) is used,
 we compute Pr(X > 1000) = 0.001. If (3.2.8) adequately represents the variability
 of X over the interval (0, 1000), then it may be more convenient to use the p.d.f.
-(3.2.8) than a p.d.f. that is similar to (3.2.8) for x ≤ 1000, except for a new normalizing
-106 Chapter 3 Random Variables and Distributions
-constant, and is 0 forx >1000. This can be especially true if we do not know for sure
-that the maximum voltage is only 1000.  
-Example
-3.2.6
-Unbounded p.d.f.’s. Since a value of a p.d.f. is a probability density, rather than a
-probability, such a value can be larger than 1. In fact, the values of the following
-p.d.f. are unbounded in the neighborhood of x = 0:
-f (x) =
- 
-2
-3x
-−1/3 for 0 < x <1,
-0 otherwise.
-(3.2.9)
-It can be verified that even though the p.d.f. (3.2.9) is unbounded, it satisfies the
-properties (3.2.4) and (3.2.5) required of a p.d.f. 
+(3.2.8) than a p.d.f. that is similar to (3.2.8) for x ≤ 1000, except for a new normalizing constant, and is 0 forx >1000. This can be especially true if we do not know for sure
+that the maximum voltage is only 1000.
 
-::: {.callout-tip appearance="simple" title="Mixed Distributions"}
+:::
 
-Most distributions that are encountered in practical problems are either discrete or
-continuous.We shall show, however, that it may sometimes be necessary to consider a
-distribution that is a mixture of a discrete distribution and a continuous distribution.
+:::
 
-::: {.callout-tip title="Example 3.2.7: Truncated Voltage (DeGroot and Schervish, p. 106)"}
+::: {.callout-tip}
 
-Suppose that in the electrical system considered in Example 3.2.5,
-the voltage X is to be measured by a voltmeter that will record the actual value of
-X if X ≤ 3 but will simply record the value 3 if X >3. If we let Y denote the value
-recorded by the voltmeter, then the distribution of Y can be derived as follows.
-First, Pr(Y = 3) = Pr(X ≥ 3) = 1/4. Since the single value Y = 3 has probability
-1/4, it follows that Pr(0<Y <3) = 3/4. Furthermore, since Y = X for 0<X<3, this
-probability 3/4 for Y is distributed over the interval (0, 3) according to the same p.d.f.
-(3.2.8) as that of X over the same interval. Thus, the distribution of Y is specified by
-the combination of a p.d.f. over the interval (0, 3) and a positive probability at the point $Y = 3$.
+::: {#exm-3-2-6}
+
+# Example 3.2.6: Unbounded PDFs
+
+Since a value of a PDF is a probability density, rather than a
+probability, such a value can be larger than $1$. In fact, the values of the following PDF are unbounded in the neighborhood of $x = 0$:
+
+$$
+f(x) = \begin{cases}
+\frac{2}{3}x^{-1/3} &\text{for }0 < x < 1, \\
+0 &\text{otherwise.}
+\end{cases}
+$$ {#eq-3-2-9}
+
+It can be verified that even though the PDF @eq-3-2-9 is unbounded, it satisfies the properties (3.2.4) and (3.2.5) required of a PDF.
+
+:::
+
+:::
+
+### Mixed Distributions
+
+Most distributions that are encountered in practical problems are either discrete or continuous. We shall show, however, that it may sometimes be necessary to consider a distribution that is a mixture of a discrete distribution and a continuous distribution.
+
+::: {.callout-tip}
+
+::: {#exm-3-2-7}
+
+# Example 3.2.7: Truncated Voltage (DeGroot and Schervish, p. 106)
+
+Suppose that in the electrical system considered in @exm-3-2-5, the voltage $X$ is to be measured by a voltmeter that will record the actual value of $X$ if $X \leq 3$ but will simply record the value $3$ if $X > 3$. If we let $Y$ denote the value recorded by the voltmeter, then the distribution of $Y$ can be derived as follows.
+
+First, $Pr(Y = 3) = Pr(X \geq 3) = 1/4$. Since the single value $Y = 3$ has probability $1/4$, it follows that $\Pr(0 < Y < 3) = 3/4$. Furthermore, since $Y = X$ for $0 < X < 3$, this probability $3/4$ for $Y$ is distributed over the interval $(0, 3)$ according to the same PDF (3.2.8) as that of $X$ over the same interval. Thus, the distribution of $Y$ is specified by the combination of a PDF over the interval $(0, 3)$ and a positive probability at the point $Y = 3$.
+
+:::
 
 :::
 
 ### Summary
 
-A continuous distribution is characterized by its probability density function (p.d.f.).
-A nonnegative function f is the p.d.f. of the distribution of X if, for every interval
-[a, b], Pr(a ≤ X ≤ b) =
-  b
-a f (x) dx. Continuous random variables satisfy Pr(X = x) =
-0 for every value x. If the p.d.f. of a distribution is constant on an interval [a, b] and
-is 0 off the interval, we say that the distribution is uniform on the interval [a, b].
+A continuous distribution is characterized by its probability density function (PDF). A nonnegative function $f$ is the PDF of the distribution of $X$ if, for every interval $[a, b]$, $\Pr(a \leq X \leq b) = \int_a^b f(x)dx$. Continuous random variables satisfy $\Pr(X = x) = 0$ for every value $x$. If the PDF of a distribution is constant on an interval $[a, b]$ and is 0 off the interval, we say that the distribution is uniform on the interval $[a, b]$.
 
 ### Exercises
 
-1. Let X be a random variable with the p.d.f. specified in
-Example 3.2.6. Compute Pr(X ≤ 8/27).
-2. Suppose that the p.d.f. of a random variable X is as
-follows:
-f (x) =
- 
-4
-3 (1− x3) for 0 < x <1,
-0 otherwise.
-Sketch this p.d.f. and determine the values of the following
-probabilities: a. Pr
+::: {#exr-3-2-1}
 
+# Exercise 3.2.1
 
-X<
-1
-2
- 
-b. Pr 1
-4
-<X <
-3
-4
- 
-c. Pr
- 
-X> 1
-3
- 
-.
-3. Suppose that the p.d.f. of a random variable X is as
+Let X be a random variable with the PDF specified in
+@exm-3-2-6. Compute $\Pr(X \leq 8/27)$.
+
+:::
+
+::: {#exr-3-2-2}
+
+# Exercise 3.2.2
+
+Suppose that the PDF of a random variable $X$ is as
 follows:
-f (x) =
-1
-36 (9 − x2) for −3 ≤ x ≤ 3,
-0 otherwise.
+
+$$
+f(x) = \begin{cases}
+\frac{4}{3}(1-x^3) &\text{for }0 < x < 1, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+Sketch this PDF and determine the values of the following
+probabilities:
+
+(a) $\Pr\left(X < \frac{1}{2}\right)$
+
+(b) $\Pr\left(\frac{1}{4} < X < \frac{3}{4}\right)$
+
+(c) $\Pr\left(X > \frac{1}{3}\right)$
+
+:::
+
+::: {#exr-3-2-3}
+
+# Exercise 3.2.3
+
+Suppose that the PDF of a random variable $X$ is as
+follows:
+
+$$
+f(x) = \begin{cases}
+\frac{1}{36}(9 - x^2) &\text{for }-3 \leq x \leq 3, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
 Sketch this p.d.f. and determine the values of the following
-probabilities: a. Pr(X < 0) b. Pr(−1≤ X ≤ 1)
-c. Pr(X > 2).
+probabilities:
+
+(a) $\Pr(X < 0)$
+
+(b) $\Pr(−1 \leq X \leq 1)$
+
+(c) $\Pr(X > 2)$.
+
+:::
+
+::: {#exr-3-2-4}
+
+# Exercise 3.2.4
+
 4. Suppose that the p.d.f. of a random variable X is as
 follows:
 f (x) =
@@ -838,7 +1063,14 @@ cx2 for 1≤ x ≤ 2,
 0 otherwise.
 a. Find the value of the constant c and sketch the p.d.f.
 b. Find the value of Pr(X > 3/2).
-5. Suppose that the p.d.f. of a random variable X is as
+
+:::
+
+::: {#exr-3-2-5}
+
+# Exercise 3.2.5
+
+Suppose that the p.d.f. of a random variable X is as
 follows:
 f (x) =
  
@@ -847,29 +1079,68 @@ f (x) =
 0 otherwise.
 a. Find the value of t such that Pr(X ≤ t) = 1/4.
 b. Find the value of t such that Pr(X ≥ t) = 1/2.
-6. Let X be a random variable for which the p.d.f. is as
+
+:::
+
+::: {#exr-3-2-6}
+
+# Exercise 3.2.6
+
+Let X be a random variable for which the p.d.f. is as
 given in Exercise 5. After the value of X has been observed,
 let Y be the integer closest to X. Find the p.f. of
 the random variable Y .
-7. Suppose that a random variable X has the uniform
+
+:::
+
+::: {#exr-3-2-7}
+
+# Exercise 3.2.7
+
+Suppose that a random variable X has the uniform
 distribution on the interval [−2, 8]. Find the p.d.f. ofX and
 the value of Pr(0<X <7).
-8. Suppose that the p.d.f. of a random variable X is as
+
+:::
+
+::: {#exr-3-2-8}
+
+# Exercise 3.2.8
+
+Suppose that the p.d.f. of a random variable X is as
 follows:
-f (x) =
- 
-ce
-−2x for x >0,
-0 otherwise.
-a. Find the value of the constant c and sketch the p.d.f.
-b. Find the value of Pr(1<X <2).
-9. Show that there does not exist any number c such that
+
+$$
+f(x) = \begin{cases}
+ce^{-2x} &\text{for }x > 0, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+(a) Find the value of the constant $c$ and sketch the PDF.
+
+(b) Find the value of $\Pr(1 < X < 2)$.
+
+:::
+
+::: {#exr-3-2-9}
+
+# Exercise 3.2.9
+
+Show that there does not exist any number c such that
 the following function f (x) would be a p.d.f.:
 f (x) =
   c
 1+x for x >0,
 0 otherwise.
-10. Suppose that the p.d.f. of a random variable X is as
+
+:::
+
+::: {#exr-3-2-10}
+
+# Exercise 3.2.10
+
+Suppose that the p.d.f. of a random variable X is as
 follows:
 f (x) =
   c
@@ -877,16 +1148,37 @@ f (x) =
 0 otherwise.
 a. Find the value of the constant c and sketch the p.d.f.
 b. Find the value of Pr(X ≤ 1/2).
-11. Show that there does not exist any number c such that
+
+:::
+
+::: {#exr-3-2-11}
+
+# Exercise 3.2.11
+
+Show that there does not exist any number c such that
 the following function f (x) would be a p.d.f.:
 f (x) =
   c
 x for 0 < x <1,
 0 otherwise.
-12. In Example 3.1.3 on page 94, determine the distribution
+
+:::
+
+::: {#exr-3-2-12}
+
+# Exercise 3.2.12
+
+In Example 3.1.3 on page 94, determine the distribution
 of the random variable Y , the electricity demand.
 Also, find Pr(Y < 50).
-13. An ice cream seller takes 20 gallons of ice cream in
+
+:::
+
+::: {#exr-3-2-13}
+
+# Exercise 3.2.13
+
+An ice cream seller takes 20 gallons of ice cream in
 her truck each day. Let X stand for the number of gallons
 that she sells. The probability is 0.1 that X = 20. If she
 doesn’t sell all 20 gallons, the distribution of X follows a
@@ -898,11 +1190,17 @@ cx for 0 < x <20,
 where c is a constant that makes Pr(X < 20) = 0.9. Find the
 constant c so that Pr(X < 20) = 0.9 as described above.
 
+:::
+
 ## The Cumulative Distribution Function {#sec-3-3}
 
-*Although a discrete distribution is characterized by its p.f. and a continuous distribution is characterized by its p.d.f., every distribution has a common characterization through its (cumulative) distribution function (c.d.f.). The inverse of the c.d.f. is called the quantile function, and it is useful for indicating where the probability is located in a distribution.*
+*Although a discrete distribution is characterized by its PMF and a continuous distribution is characterized by its PDF, every distribution has a common characterization through its (cumulative) distribution function (CDF). The inverse of the CDF is called the quantile function, and it is useful for indicating where the probability is located in a distribution.*
 
-::: {.callout-tip title="Example 3.3.1: Voltage (DeGroot and Schervish, pp. 107-108)"}
+::: {.callout-tip}
+
+::: {#exm-3-3-1}
+
+# Example 3.3.1: Voltage (DeGroot and Schervish, pp. 107-108)
 
 Consider again the voltage X from Example 3.2.5. The distribution of X
 is characterized by the p.d.f. in Eq. (3.2.8). An alternative characterization that is
@@ -924,6 +1222,8 @@ dy
 for x >0.
 (3.3.1)
 So, for example, Pr(X ≤ 3) = F(3) = 3/4.  
+
+:::
 
 :::
 

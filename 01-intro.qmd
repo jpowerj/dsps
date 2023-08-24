@@ -5,9 +5,7 @@ cache: true
 
 ## The History of Probability
 
-The use of probability to measure uncertainty and variability dates back hundreds
-of years. Probability has found application in areas as diverse as medicine, gambling,
-weather forecasting, and the law.
+The use of probability to measure uncertainty and variability dates back hundreds of years. Probability has found application in areas as diverse as medicine, gambling, weather forecasting, and the law.
 The concepts of chance and uncertainty are as old as civilization itself. People have
 always had to cope with uncertainty about the weather, their food supply, and other
 aspects of their environment, and have striven to reduce this uncertainty and its

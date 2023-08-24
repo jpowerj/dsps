@@ -29,7 +29,9 @@ bibliography: references.bib
 
 format:
   html:
-    theme: materia
+    #theme: materia
+    #theme: default
+    theme: cosmo
   #pdf:
   #  documentclass: scrreprt
 
