@@ -1,6 +1,6 @@
-# Conditional Probability
+# Conditional Probability {#sec-2}
 
-## The Definition of Conditional Probability
+## The Definition of Conditional Probability {#sec-2-1}
 
 A major use of probability in statistical inference is the updating of probabilities
 when certain events are observed. The updated probability of event A after we
@@ -782,7 +782,9 @@ that he will choose brand B is 3/4.What is the probability
 that his second purchase will be brand B?
 17. Prove the conditional version of the law of total probability
 (2.1.5).
-2.2 Independent Events
+
+## Independent Events {#sec-2-2}
+
 If learning that B has occurred does not change the probability of A, then we say
 that A and B are independent. There are many cases in which events A and B
 are not independent, but they would be independent if we learned that some other
@@ -1532,7 +1534,9 @@ programs will compile given B.
 b. Compute the probability that exactly 8 out of 11
 programs will compile given Bc.
 24. Prove Theorem 2.2.3 on page 72.
-2.3 Bayes’ Theorem
+
+## Bayes' Theorem {#sec-2-3}
+
 Suppose that we are interested in which of several disjoint events B1, . . . , Bk will
 occur and that we will get to observe some other event A. If Pr(A|Bi) is available
 for each i, then Bayes’ theorem is a useful formula for computing the conditional
@@ -2185,7 +2189,9 @@ event that occurs is E = Dc1
 Dc6
 . That is, the third and fourth items are defective,
 but the other four are not. Compute Pr(B|D).
-  2.4 The Gambler’s Ruin Problem
+
+## The Gambler's Ruin Problem {#sec-2-4}
+
 Consider two gamblers with finite resources who repeatedly play the same game
 against each other. Using the tools of conditional probability, we can calculate the
 probability that each of the gamblers will eventually lose all of his money to the
@@ -2489,10 +2495,13 @@ box at random and transferring one ball from that box to
 the other box is repeated indefinitely, what is the probability
 that box A will become empty before box B becomes
 empty?
-2.5 Supplementary Exercises
-1. Suppose thatA, B, andD are any three events such that
+
+## Supplementary Exercises {#sec-2-5}
+
+1. Suppose that $A$, $B$, and $D$ are any three events such that
 Pr(A|D) ≥ Pr(B|D) and Pr(A|Dc) ≥ Pr(B|Dc). Prove that
 Pr(A) ≥ Pr(B).
+
 2. Suppose that a fair coin is tossed repeatedly and independently
 until both a head and a tail have appeared at
 least once. (a) Describe the sample space of this experiment.

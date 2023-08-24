@@ -1,6 +1,6 @@
-# Expectation
+# Expectation {#sec-4}
 
-## The Expectation of a Rando Variable
+## The Expectation of a Random Variable {#sec-4-1}
 
 The distribution of a random variable X contains all of the probabilistic information
 about X. The entire distribution of X, however, is usually too cumbersome
@@ -621,9 +621,7 @@ E[F(Yn)].
 of the stock at the end of a one-year period beX, which will
 take one of the values $100 or $300. Suppose that you have
 the option to buy shares of this stock at $150 per share
-at the end of that one-year period. Suppose that money
-4.2 Properties of Expectations 217
-could earn 5.8% risk-free over that one-year period. Find
+at the end of that one-year period. Suppose that money could earn 5.8% risk-free over that one-year period. Find
 the risk-neutral price for the option to buy one share.
 14. Consider the situation of pricing a stock option as in
 Example 4.1.14.We want to prove that a price other than
@@ -677,7 +675,9 @@ year at a price of $220.
 16. Let Y be a discrete random variable whose p.f. is the
 function f in Example 4.1.4. Let X = |Y |. Prove that the
 distribution of X has the p.d.f. in Example 4.1.5.
-4.2 Properties of Expectations
+
+## Properties of Expectations {#sec-4-2}
+
 In this section, we present some results that simplify the calculation of expectations
 for some common functions of random variables.
 Basic Theorems
@@ -1191,7 +1191,7 @@ sample of size n from a given continuous distribution on
 the real line for which the p.d.f. is f . Find the expectation
 of the number of observations in the sample that fall
 within a specified interval a ≤ x ≤ b.
-4.3 Variance 225
+
 6. Suppose that a particle starts at the origin of the real
 line and moves along the line in jumps of one unit. For
 each jump, the probability is p (0 ≤ p ≤ 1) that the particle
@@ -1261,7 +1261,9 @@ g(x) = g(x0) + (x − x0)g
 g
   
 (y).
-4.3 Variance
+
+## Variance {#sec-4-3}
+
 Although the mean of a distribution is a useful summary, it does not convey
 very much information about the distribution. For example, a random variable
 X with mean 2 has the same mean as the constant random variable Y such that
@@ -1746,11 +1748,14 @@ f (x) = 0 for x <0. Find the IQR of X.
 13. Let X have the binomial distribution with parameters
 5 and 0.3. Find the IQR of X. Hint: Return to Example
 3.3.9 and Table 3.1.
+
 14. Let X be a random variable whose interquartile range
 is η. Let Y = 2X. Prove that the interquartile range of Y is
 2η.
-4.4 Moments
-For a random variable X, the means of powers Xk (called moments) for k >
+
+## Moments {#sec-4-4}
+
+For a random variable $X$, the means of powers Xk (called moments) for k >
 2 have useful theoretical properties, and some of them are used for additional
 summaries of a distribution. The moment generating function is a related tool
 that aids in deriving distributions of sums of independent random variables and
@@ -2228,7 +2233,7 @@ x
 0 otherwise.
 Prove that the m.g.f. ψ(t) is finite for all t ≤ 0 but for no
 t > 0.
-4.5 The Mean and the Median 241
+
 15. Prove the following extension of Theorem 4.4.1: If
 E(|X|a) <∞for some positive number a, then E(|X|b) <
 ∞for every positive numberb <a. Give the proof for the
@@ -2239,7 +2244,9 @@ n and 1− p. Prove that the skewness of Y is the
 negative of the skewness of X. Hint: Let Z = n − X and
 show that Z has the same distribution as Y .
 17. Find the skewness of the distribution in Example 4.4.3.
-4.5 The Mean and the Median
+
+## The Mean and the Median {#sec-4-5}
+
 Although the mean of a distribution is a measure of central location, the median
 (see Definition 3.3.3) is also a measure of central location for a distribution.
 This section presents some comparisons and contrasts between these two location
@@ -2696,12 +2703,16 @@ of X.
 m be the p quantile of the random variable X. (See Definition
 3.3.2.) If r is a strictly increasing function, then r(m)
 is the p quantile of r(X).
-4.6 Covariance and Correlation
+
+## Covariance and Correlation {#sec-4-6}
+
 When we are interested in the joint distribution of two random variables, it is useful
 to have a summary of how much the two random variables depend on each other.
 The covariance and correlation are attempts to measure that dependence, but they
 only capture a particular type of dependence, namely linear dependence.
-Covariance
+
+### Covariance
+
 Example
 4.6.1
 Test Scores. When applying for college, high school students often take a number of
@@ -3209,8 +3220,9 @@ f (x, y) =
 x + y for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1,
 0 otherwise.
 Compute the covariance Cov(X, Y ).
-256 Chapter 4 Expectation
-4.7 Conditional Expectation
+
+## Conditional Expectation {#sec-4-7}
+
 Since expectations (including variances and covariances) are properties of distributions,
 there will exist conditional versions of all such distributional summaries
 as well as conditional versions of all theorems that we have proven or will later
@@ -3816,8 +3828,9 @@ to write all of the necessary conditional p.f.’s in terms of
 the joint p.f. of X and Y and the marginal p.f. of X. To
 facilitate this, for each x and z, give a name to the set of y
 values such that r(x, y) = z.
-4.8 Utility 265
-  4.8 Utility
+
+## Utility {#sec-4-8}
+
 Much of statistical inference consists of choosing between several available actions.
 Generally, we do not know for certain which choice will be best, because some
 important random variable has not yet been observed. For some values of that
@@ -3827,7 +3840,9 @@ probabilities that the various choices turn out to be best. Utility is one tool 
 assigning values to the costs and benefits of our choices. The expected value of the
 utility then balances the costs and benefits according to how likely the uncertain
 possibilities are.
-Utility Functions
+
+### Utility Functions
+
 Example
 4.8.1
 Choice of Gambles. Consider two gambles between which a gambler must choose.
@@ -4273,8 +4288,9 @@ x if x <0.
 Suppose also that P has p.d.f. f (p) = 56p6(1− p) for 0 <
 p <1. Decide whether or not it is better to abandon the
 treatment.
-272 Chapter 4 Expectation
-4.9 Supplementary Exercises
+
+## Supplementary Exercises {#sec-4-9}
+
 1. Suppose that the random variable X has a continuous
 distribution with c.d.f. F(x) and p.d.f. f . Suppose also that
 E(X) exists. Prove that

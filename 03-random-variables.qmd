@@ -1229,7 +1229,11 @@ So, for example, Pr(X ≤ 3) = F(3) = 3/4.  
 
 ### Definition and Basic Properties
 
-::: {.callout-tip title="Definition 3.3.1: Cumulative Distribution Function (DeGroot and Schervish)"}
+::: {.callout-tip}
+
+::: {#def-3-3-1}
+
+# Definition 3.3.1: Cumulative Distribution Function (DeGroot and Schervish, p. 108)
 
 The distribution function or cumulative distribution
 function (abbreviated c.d.f.) F of a random variable X is the function
@@ -1237,13 +1241,20 @@ F(x) = Pr(X ≤ x) for −∞< x <∞. (3.3.2)
 
 :::
 
+:::
+
 It should be emphasized that the cumulative distribution function is defined as above
 for every random variable X, regardless of whether the distribution of X is discrete,
 continuous, or mixed. For the continuous random variable in Example 3.3.1, the c.d.f.
 was calculated in Eq. (3.3.1). Here is a discrete example:
-Example
-3.3.2
-Bernoulli c.d.f. Let X have the Bernoulli distribution with parameter p defined in
+
+::: {.callout-tip}
+
+::: {#exm-3-3-2}
+
+# Example 3.3.2: Bernoulli CDF
+
+Let $X$ have the Bernoulli distribution with parameter p defined in
 Definition 3.1.5. Then Pr(X = 0) = 1− p and Pr(X = 1) = p. Let F be the c.d.f. of X.
 It is easy to see that F(x) = 0 forx <0 because X ≥ 0 for sure. Similarly, F(x) = 1 for
 x ≥ 1 because X ≤ 1 for sure. For 0 ≤x <1, Pr(X ≤ x) = Pr(X = 0) = 1− p because
@@ -1254,6 +1265,11 @@ F(x) =
 0 for x <0,
 1− p for 0 ≤x <1,
 1 for x ≥ 1.  
+
+:::
+
+:::
+
 We shall soon see (Theorem 3.3.2) that the c.d.f. allows calculation of all interval
 probabilities; hence, it characterizes the distribution of a random variable. It follows
 from Eq. (3.3.2) that the c.d.f. of each random variable X is a function F defined on
@@ -1261,23 +1277,34 @@ the real line. The value of F at every point x must be a number F(x) in the inte
 [0, 1] because F(x) is the probability of the event {X ≤ x}. Furthermore, it follows
 from Eq. (3.3.2) that the c.d.f. of every random variable X must have the following
 three properties.
+
+::: {.callout-tip}
+
 Property
 3.3.1
 Nondecreasing. The function F(x) is nondecreasing as x increases; that is, if x1< x2,
 then F(x1) ≤ F(x2).
 Proof If x1 < x2, then the event {X ≤ x1} is a subset of the event {X ≤ x2}. Hence,
 Pr{X ≤ x1} ≤ Pr{X ≤ x2} according to Theorem 1.5.4.
+
+:::
+
+
 An example of a c.d.f. is sketched in Fig. 3.6. It is shown in that figure that 0 ≤
 F(x) ≤ 1 over the entire real line. Also, F(x) is always nondecreasing as x increases,
 although F(x) is constant over the interval x1 ≤ x ≤ x2 and for x ≥ x4.
+
+::: {.callout-tip}
+
 Property
 3.3.2
 Limits at ±∞. limx→−∞ F(x) = 0 and limx→∞ F(x) = 1.
 Proof As in the proof of Property 3.3.1, note that {X ≤ x1} ⊂ {X ≤ x2} whenever x1<
-x2. The fact that Pr(X ≤ x) approaches 0 as x→−∞now follows from Exercise 13 in
-3.3 The Cumulative Distribution Function 109
-Figure 3.6 An example of a
-c.d.f.
+x2. The fact that Pr(X ≤ x) approaches 0 as x→−∞now follows from Exercise 13 in Section 1.10. Similarly, the fact that Pr(X ≤ x) approaches 1 as x→∞follows from
+Exercise 12 in Sec. 1.10.
+
+::: {#fig-3-6}
+
 1
 z3
 z2
@@ -1286,8 +1313,10 @@ z0
 0 x1 x2 x3 x4
 x
 F(x)
-Section 1.10. Similarly, the fact that Pr(X ≤ x) approaches 1 as x→∞follows from
-Exercise 12 in Sec. 1.10.
+
+An example of a CDF
+:::
+
 The limiting values specified in Property 3.3.2 are indicated in Fig. 3.6. In this
 figure, the value of F(x) actually becomes 1 at x = x4 and then remains 1 for x >x4.
 Hence, it may be concluded that Pr(X ≤ x4) = 1 and Pr(X > x4) = 0. On the other
@@ -1301,27 +1330,22 @@ F(x
 −
 ) denote the limit of the values of F(y) as y approaches x from the left, that is,
 as y approaches x through values smaller than x. In symbols,
-F(x
-−
-) = lim
-y→x
-y<x
-F(y).
-Similarly, we shall define F(x
-+
-) as the limit of the values of F(y) as y approaches x
+
+$$
+F(x^{-}) = \lim_{y \rightarrow x, y < x}F(y).
+$$
+
+Similarly, we shall define $F(x^+)$ as the limit of the values of $F(y)$ as $y$ approaches $x$
 from the right. Thus,
-F(x
-+
-) = lim
-y→x
-y>x
-F(y).
-If the c.d.f. is continuous at a given point x, then F(x
-−
-) = F(x
-+
-) = F(x) at that point.
+
+$$
+F(x^+) = \lim_{y \rightarrow x, y > x}F(y).
+$$
+
+If the CDF is continuous at a given point $x$, then $F(x^{-}) = F(x^+) = F(x)$ at that point.
+
+::: {.callout-tip}
+
 Property
 3.3.3
 Continuity from the Right. A c.d.f. is always continuous from the right; that is, F(x) =
@@ -1337,17 +1361,26 @@ F(x) = Pr(X ≤ x) = lim
 n→∞ Pr(X ≤ yn) = F(x
 +
 ).
+
+:::
+
 It follows from Property 3.3.3 that at every point x at which a jump occurs,
 F(x
 +
 ) = F(x) and F(x
 −
 ) < F(x).
-110 Chapter 3 Random Variables and Distributions
+
 In Fig. 3.6 this property is illustrated by the fact that, at the points of discontinuity
 x = x1 and x = x3, the value of F(x1) is taken as z1 and the value of F(x3) is taken as
 z3.
-Determining Probabilities from the Distribution Function
+
+### Determining Probabilities from the Distribution Function
+
+::: {.callout-tip}
+
+::: {#exm-3-3-3}
+
 Example
 3.3.3
 Voltage. In Example 3.3.1, suppose that we want to know the probability that X lies
@@ -1363,7 +1396,11 @@ Pr(A) = Pr(C) − Pr(B) = F(4) − F(2) = 4
 4
 = 1
 20
-.  
+
+:::
+
+:::
+
 The type of reasoning used in Example 3.3.3 can be extended to find the probability
 that an arbitrary random variable X will lie in any specified interval of the
 real line from the c.d.f. We shall derive this probability for four different types of
@@ -1391,8 +1428,13 @@ It is important to distinguish carefully between the strict inequalities and the
 weak inequalities that appear in all of the preceding relations and also in the next
 theorem. If there is a jump in F(x) at a given value x, then the values of Pr(X ≤ x)
 and Pr(X < x) will be different.
-Theorem
-3.3.3
+
+::: {.callout-tip}
+
+::: {#thm-3-3-3}
+
+# Theorem 3.3.3
+
 For each value x,
 Pr(X < x) = F(x
 −
@@ -1414,11 +1456,21 @@ n→∞
 F(yn) = F(x
 −
 ).
+
+:::
+
+:::
+
 For example, for the c.d.f. sketched in Fig. 3.6, Pr(X < x3) = z2 and Pr(X < x4)
 = 1.
 Finally, we shall show that for every value x, Pr(X = x) is equal to the amount
 of the jump that occurs in F at the point x. If F is continuous at the point x, that is,
 if there is no jump in F at x, then Pr(X = x) = 0.
+
+::: {.callout-tip}
+
+::: {#thm-3-3-4}
+
 Theorem
 3.3.4
 For every value x,
@@ -1427,9 +1479,16 @@ Pr(X = x) = F(x) − F(x
 ). (3.3.6)
 Proof It is always true that Pr(X = x) = Pr(X ≤ x) − Pr(X < x). The relation (3.3.6)
 follows from the fact that Pr(X ≤ x) = F(x) at every point and from Theorem 3.3.3.
+
+:::
+
+:::
+
 In Fig. 3.6, for example, Pr(X = x1) = z1 − z0, Pr(X = x3) = z3 − z2, and the
 probability of every other individual value of X is 0.
-The c.d.f. of a Discrete Distribution
+
+### The CDF of a Discrete Distribution
+
 From the definition and properties of a c.d.f. F(x), it follows that if a < b and
 if Pr(a <X < b) = 0, then F(x) will be constant and horizontal over the interval
 a <x <b. Furthermore, aswe have just seen, at every point x such that Pr(X = x)>0,
@@ -1439,9 +1498,15 @@ of a c.d.f. imply that F(x) must have the following form: F(x) will have a jump
 of magnitude f (xi) at each possible value xi of X, and F(x) will be constant between
 every pair of successive jumps. The distribution of a discrete random variable X can
 be represented equally well by either the p.f. or the c.d.f. of X.
-The c.d.f. of a Continuous Distribution
-Theorem
-3.3.5
+
+### The CDF of a Continuous Distribution
+
+::: {.callout-tip}
+
+::: {#thm-3-3-5}
+
+# Theorem 3.3.5
+
 Let X have a continuous distribution, and let f (x) and F(x) denote its p.d.f. and the
 c.d.f., respectively. Then F is continuous at every x,
 F(x) =
@@ -1453,7 +1518,7 @@ dF(x)
 dx
 = f (x), (3.3.8)
 at all x such that f is continuous.
-112 Chapter 3 Random Variables and Distributions
+
 Proof Since the probability of each individual point x is 0, the c.d.f. F(x) will have
 no jumps. Hence, F(x) will be a continuous function over the entire real line.
 By definition, F(x) = Pr(X ≤ x). Since f is the p.d.f. of X, we have from the
@@ -1461,6 +1526,11 @@ definition of p.d.f. that Pr(X ≤ x) is the right-hand side of Eq. (3.3.7).
 It follows from Eq. (3.3.7) and the relation between integrals and derivatives
 (the fundamental theorem of calculus) that, for every x at which f is continuous,
 Eq. (3.3.8) holds.
+
+:::
+
+:::
+
 Thus, the c.d.f. of a continuous random variable X can be obtained from the p.d.f.
 and vice versa. Eq. (3.3.7) is how we found the c.d.f. in Example 3.3.1. Notice that
 the derivative of the F in Example 3.3.1 is
@@ -1496,11 +1566,16 @@ be assigned arbitrarily.When the derivative F
 (x) is calculated, it is found that f (x)
 is as given by Eq. (3.2.9) in Example 3.2.6. Conversely, if the p.d.f. of X is given by
 Eq. (3.2.9), then by using Eq. (3.3.7) it is found that F(x) is as given in this example.
- 
-The Quantile Function
-Example
-3.3.5
-Fair Bets. Suppose that X is the amount of rain that will fall tomorrow, and X has
+
+### The Quantile Function
+
+::: {.callout-tip}
+
+::: {#exm-3-3-5}
+
+# Example 3.3.5: Fair Bets
+
+Suppose that X is the amount of rain that will fall tomorrow, and X has
 c.d.f. F. Suppose that we want to place an even-money bet on X as follows: If X ≤ x0,
 we win one dollar and ifX>x0 we lose one dollar. In order to make this bet fair, we
 need Pr(X ≤ x0) = Pr(X > x0) = 1/2.We could search through all of the real numbers
@@ -1508,43 +1583,60 @@ x trying to find one such that F(x) = 1/2, and then we would let x0 equal the va
 found. If F is a one-to-one function, then F has an inverse F
 −1 and x0 = F
 −1(1/2).
- 
-The value x0 that we seek in Example 3.3.5 is called the 0.5 quantile of X or the
-50th percentile of X because 50% of the distribution of X is at or below x0.
-Definition
-3.3.2
-Quantiles/Percentiles. Let X be a random variable with c.d.f. F. For each p strictly
+
+:::
+
+:::
+
+The value $x_0$ that we seek in @exm-3-3-5 is called the **0.5 quantile** of $X$ or the
+**50th percentile** of $X$ because 50% of the distribution of $X$ is at or below $x_0$.
+
+::: {.callout-tip}
+
+::: {#def-3-3-2}
+
+# Definition 3.3.2: Quantiles/Percentiles
+
+Let X be a random variable with c.d.f. F. For each p strictly
 between 0 and 1, define F
 −1(p) to be the smallest value x such that F(x) ≥ p. Then
 F
 −1(p) is called the p quantile of X or the 100p percentile of X. The function F
 −1
 defined here on the open interval (0, 1) is called the quantile function of X.
-3.3 The Cumulative Distribution Function 113
-Example
-3.3.6
-Standardized Test Scores. Many universities in the United States rely on standardized
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#exm-3-3-6}
+
+# Example 3.3.6: Standardized Test Scores
+
+Many universities in the United States rely on standardized
 test scores as part of their admissions process. Thousands of people take these tests
 each time that they are offered. Each examinee’s score is compared to the collection
 of scores of all examinees to see where it fits in the overall ranking. For example, if
 83% of all test scores are at or below your score, your test report will say that you
 scored at the 83rd percentile.  
-The notation F
-−1(p) in Definition 3.3.2 deserves some justification. Suppose first
-that the c.d.f. F of X is continuous and one-to-one over the whole set of possible
-values of X. Then the inverse F
-−1 of F exists, and for each 0 <p <1, there is one
-and only one x such that F(x) = p. That x is F
-−1(p). Definition 3.3.2 extends the
-concept of inverse function to nondecreasing functions (such as c.d.f.’s) that may be
-neither one-to-one nor continuous.
-Quantiles of Continuous Distributions When the c.d.f. of a random variable X is
-continuous and one-to-one over the whole set of possible values of X, the inverse
-F
-−1 of F exists and equals the quantile function of X.
-Example
-3.3.7
-Value at Risk. The manager of an investment portfolio is interested in how much
+
+:::
+
+:::
+
+The notation $F^{-1}(p)$ in @def-3-3-2 deserves some justification. Suppose first that the CDF $F$ of $X$ is continuous and one-to-one over the whole set of possible values of $X$. Then the inverse $F^{-1}$ of $F$ exists, and for each $0 < p < 1$, there is one and only one $x$ such that $F(x) = p$. That $x$ is $F^{−1}(p)$. @def-3-3-2 extends the concept of inverse function to nondecreasing functions (such as CDFs) that may be neither one-to-one nor continuous.
+
+**Quantiles of Continuous Distributions**: When the CDF of a random variable $X$ is continuous and one-to-one over the whole set of possible values of $X$, the inverse $F^{-1}$ of $F$ exists and equals the quantile function of $X$.
+
+::: {.callout-tip}
+
+::: {#exm-3-3-7}
+
+# Example 3.3.7: Value at Risk
+
+The manager of an investment portfolio is interested in how much
 money the portfolio might lose over a fixed time horizon. Let X be the change
 in value of the given portfolio over a period of one month. Suppose that X has
 the p.d.f. in Fig. 3.7. The manager computes a quantity known in the world of risk
@@ -1558,9 +1650,13 @@ the distribution of X. The 0.01 quantile x0 has the property that Pr(X < x0) = 0
 But Pr(X < x0) = Pr(Y > −x0) = 1− Pr(Y ≤−x0). Hence, −x0 is a 0.99 quantile of
 Y . For the p.d.f. in Fig. 3.7, we see that x0 =−4.14, as the shaded region indicates.
 Then y0 = 4.14 is VaR for one month at probability level 0.99.  
-Figure 3.7 The p.d.f. of the
-change in value of a portfolio
-with lower 1% indicated.
+
+:::
+
+:::
+
+::: {#fig-3-7}
+
 0.02
 0
 0.12
@@ -1575,11 +1671,13 @@ Density
 0.99
 0.01
  20  10 0
-114 Chapter 3 Random Variables and Distributions
-Figure 3.8 The c.d.f. of a
-uniform distribution indicating
-how to solve for a
-quantile.
+
+
+The p.d.f. of the change in value of a portfolio with lower 1% indicated.
+:::
+
+::: {#fig-3-8}
+
 0.2
 1.0
 0.8
@@ -1589,9 +1687,18 @@ p
 0 1 2F 1( p)
 Cumulative distribution function
 3 4 x
-Example
-3.3.8
-Uniform Distribution on an Interval. Let X have the uniform distribution on the
+
+
+The CDF of a uniform distribution indicating how to solve for a quantile.
+:::
+
+::: {.callout-tip}
+
+::: {#exm-3-3-8}
+
+# Example 3.3.8: Uniform Distribution on an Interval
+
+Let X have the uniform distribution on the
 interval [a, b]. The c.d.f. of X is
 F(x) = Pr(X ≤ x) =
 ⎧⎪⎪⎨
@@ -1613,15 +1720,15 @@ x − a = p(b − a),
 x = a + p(b − a) = pb + (1− p)a.
 Figure 3.8 illustrates how the calculation of a quantile relates to the c.d.f.
 The quantile function ofX is F
-−1(p) = pb + (1− p)a for 0<p<1. In particular,
-F
-−1(1/2) = (b + a)/2.  
-Note: Quantiles, Like c.d.f.’s, Depend on the Distribution Only. Any two random
-variables with the same distribution have the same quantile function.When we refer
-to a quantile of X, we mean a quantile of the distribution of X.
-Quantiles of Discrete Distributions It is convenient to be able to calculate quantiles
-for discrete distributions as well.The quantile function of Definition 3.3.2 exists for all
-distributions whether discrete, continuous, or otherwise. For example, in Fig. 3.6, let
+−1(p) = pb + (1− p)a for $0 < p < 1$. In particular, $F^{-1}(1/2) = (b + a)/2$.  
+
+:::
+
+:::
+
+**Note: Quantiles, Like CDFs, Depend on the Distribution Only**: Any two random variables with the same distribution have the same quantile function. When we refer to a quantile of $X$, we mean a quantile of the distribution of $X$.
+
+**Quantiles of Discrete Distributions**: It is convenient to be able to calculate quantiles for discrete distributions as well. The quantile function of @def-3-3-2 exists for all distributions whether discrete, continuous, or otherwise. For example, in @fig-3-6, let
 z0 ≤ p ≤ z1. Then the smallest x such that F(x) ≥ p is x1. For every value of x <x1,
 we have F(x) < z0 ≤ p and F(x1) = z1. Notice that F(x) = z1 for all x between x1
 and x2, but since x1 is the smallest of all those numbers, x1 is the p quantile. Because

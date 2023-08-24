@@ -1,6 +1,6 @@
-# Special Distributions
+# Special Distributions {#sec-5}
 
-## Introduction
+## Introduction {#sec-5-1}
 
 In this chapter, we shall define and discuss several special families of distributions
 that are widely used in applications of probability and statistics. The distributions that
@@ -25,7 +25,9 @@ Our purpose in providing in-depth presentations of the most popular distribution
 here is to give the reader a feel for how to use probablity to model the variation and
 uncertainty in applied problems as well as some of the tools that get used during
 probability modeling.
-5.2 The Bernoulli and Binomial Distributions
+
+## The Bernoulli and Binomial Distributions {#sec-5-2}
+
 The simplest type of experiment has only two possible outcomes, call them 0 and
 1. If X equals the outcome from such an experiment, then X has the simplest
 type of nondegenerate distribution, which is a member of the family of Bernoulli
@@ -359,9 +361,7 @@ successes as the second group.
 14. In Exercise 1, we assumed that there could be at
 most one distribution with moments E(Xk) = 1/3 for
 k = 1, 2, . . . . In this exercise, we shall prove that there
-can be only one such distribution. Prove the following
-5.3 The Hypergeometric Distributions 281
-facts and show that they imply that at most one distribution
+can be only one such distribution. Prove the following facts and show that they imply that at most one distribution
 has the given moments.
 a. Pr(|X| ≤ 1) = 1. (If not, show that limk→∞ E(X2k) =
 ∞.)
@@ -382,7 +382,9 @@ tests positive, further divide it into five sub-subgroups of
 size 8 each. For each sub-subgroup that tests positive, test
 all eight people. Find the expected number and maximum
 number of tests.
-5.3 The Hypergeometric Distributions
+
+## The Hypergeometric Distributions {#sec-5-3}
+
 In this section, we consider dependent Bernoulli random variables. A common
 source of dependent Bernoulli random variables is sampling without replacement
 from a finite population. Suppose that a finite population consists of a known
@@ -859,8 +861,9 @@ r
  
 is defined for all real numbers m and all positive
 integers r.
-5.4 The Poisson Distributions 287
-Exercises
+
+### Exercises
+
 1. In Example 5.3.2, compute the probability that all 10
 success patients appear in the subsample of size 11 from
 the Placebo group.
@@ -927,7 +930,9 @@ cn log(1+ an) − ancn
 by applying Taylor’s theorem with remainder (see Exercise
 13 in Sec. 4.2) to the functionf (x)=log(1+x) around
 x = 0.
-5.4 The Poisson Distributions
+
+## The Poisson Distributions {#sec-5-4}
+
 Many experiments consist of observing the occurrence times of random arrivals.
 Examples include arrivals of customers for service, arrivals of calls at a switchboard,
 occurrences of floods and other natural and man-made disasters, and so
@@ -1613,7 +1618,7 @@ c. Show that limn→∞ Pr(Wn
 limn→∞ n!/[nk(n − k)!]= 1.
 d. Show that X has the Poisson distribution with mean
 λt.
-5.5 The Negative Binomial Distributions 297
+
 17. Prove Theorem 5.4.6. One approach is to adapt the
 proof of Theorem 5.3.4 by replacing n by nT in that proof.
 The steps of the proof that are significanlty different are
@@ -1655,7 +1660,9 @@ to∞as T →∞. Prove that limT→∞ nTAT /(AT
 + BT ) = λ
 if and only if limT→∞ nTAT /BT
 = λ.
-5.5 The Negative Binomial Distributions
+
+## The Negative Binomial Distributions {#sec-5-5}
+
 Earlier we learned that, in n Bernoulli trials with probability of success p, the
 number of successes has the binomial distribution with parameters n and p. Instead
 of counting successes in a fixed number of trials, it is often necessary to observe
@@ -1998,13 +2005,17 @@ b. Prove that  (t + h) =  (t) +  (h) for all integers t, h >
 0.
 c. Prove that  (t) = t (1) for every integer t > 0.
 d. Prove that F must be the c.d.f. of a geometric distribution.
-5.6 The Normal Distributions
+
+## The Normal Distributions {#sec-5-6}
+
 The most widely used model for random variables with continuous distributions is
 the family of normal distributions. These distributions are the first ones we shall see
 whose p.d.f.’s cannot be integrated in closed form, and hence tables of the c.d.f. or
 computer programs are necessary in order to compute probabilities and quantiles
 for normal distributions.
-Importance of the Normal Distributions
+
+### Importance of the Normal Distributions
+
 Example
 5.6.1
 Automobile Emissions. Automobile engines emit a number of undesirable pollutants
@@ -3103,7 +3114,9 @@ of each of the n intervals, the principal gets multiplied by
 26. Let X have the normal distribution whose p.d.f. is
 given by (5.6.6). Instead of using the m.g.f., derive the
 variance of X using integration by parts.
-5.7 The Gamma Distributions
+
+## The Gamma Distributions {#sec-5-7}
+
 The family of gamma distributions is a popular model for random variables that
 are known to be positive. The family of exponential distributions is a subfamily of
 the gamma distributions. The times between successive occurrences in a Poisson
@@ -3966,12 +3979,15 @@ S0
 − ru.
 c. Find the price for the option being considered when
 u = 1, q = S0, r = 0.06, α = 1, and β = 10.
-5.8 The Beta Distributions 327
-5.8 The Beta Distributions
+
+## The Beta Distributions {#sec-5-8}
+
 The family of beta distributions is a popular model for random variables that are
 known to take values in the interval [0, 1]. One common example of such a random
 variable is the unknown proportion of successes in a sequence of Bernoulli trials.
-The Beta Function
+
+### The Beta Function
+
 Example
 5.8.1
 Defective Parts. A machine produces parts that are either defective or not, as in
@@ -4313,9 +4329,7 @@ right side of (5.8.8) as the p.d.f. of the beta distribution with parameters α 
 Summary
 The family of beta distributions is a popular model for random variables that lie in
 the interval (0, 1), such as unknown proportions of success for sequences of Bernoulli
-trials. The mean of the beta distribution with parameters α and β is α/(α + β). If X
-5.9 The Multinomial Distributions 333
-has the binomial distribution with parameters n and p conditional on P = p, and if
+trials. The mean of the beta distribution with parameters α and β is α/(α + β). If X has the binomial distribution with parameters n and p conditional on P = p, and if
 P has the beta distribution with parameters α and β, then, conditional on X = x, the
 distribution of P is the beta distribution with parameters α + x and β + n − x.
 Exercises
@@ -4368,7 +4382,9 @@ then observes 25 customers and only six buy the product.
 If the customers were conditionally independent given P,
 find the conditional distribution of P given the observed
 customers.
-5.9 The Multinomial Distributions
+
+## The Multinomial Distributions {#sec-5-9}
+
 Many times we observe data that can assume three or more possible values. The
 family of multinomial distributions is an extension of the family of binomial
 distributions to handle these cases. The multinomial distributions are multivariate
@@ -4648,19 +4664,22 @@ independent given p, and among those 10 parts, eight
 are working and two are impaired. Find the conditional
 p.d.f. of p given the observed parts. Hint: You might find
 Eq. (5.8.2) helpful.
-5.10 The Bivariate Normal Distributions
-The first family of multivariate continuous distributions for which we have a name
-is a generalization of the family of normal distributions to two coordinates. There
-is more structure to a bivariate normal distribution than just a pair of normal
-marginal distributions.
-Definition and Derivation of Bivariate Normal Distributions
-Example
-5.10.1
-Thyroid Hormones. Production of rocket fuel produces a chemical, perchlorate, that
+
+## The Bivariate Normal Distributions {#sec-5-10}
+
+*The first family of multivariate continuous distributions for which we have a name is a generalization of the family of normal distributions to two coordinates. There is more structure to a bivariate normal distribution than just a pair of normal marginal distributions.
+
+### Definition and Derivation of Bivariate Normal Distributions
+
+::: {.callout-tip}
+
+::: {#exm-5-10-1}
+
+# Example 5.10.1: Thyroid Hormones
+
+Production of rocket fuel produces a chemical, perchlorate, that
 has found its way into drinking water supplies. Perchlorate is suspected of inhibiting
-thyroid function. Experiments have been performed in which laboratory rats have
-338 Chapter 5 Special Distributions
-been dosed with perchlorate in their drinking water. After several weeks, rats were
+thyroid function. Experiments have been performed in which laboratory rats have been dosed with perchlorate in their drinking water. After several weeks, rats were
 sacrificed, and a number of thyroid hormones were measured.The levels of these hormones
 were then compared to the levels of the same hormones in rats that received
 no perchlorate in their water. Two hormones, TSH and T4, were of particular interest.
@@ -4669,7 +4688,13 @@ each of the hormones might be modeled with a normal distribution, a bivariate di
 is needed in order to model the two hormone levels jointly. Knowledge of
 thyroid activity suggests that the levels of these hormones will not be independent,
 because one of them is actually used by the thyroid to stimulate production of the
-other.  
+other.
+
+:::
+
+:::
+
+
 If researchers are comfortable using the family of normal distributions to model
 each of two random variables separately, such as the hormones in Example 5.10.1,
 then they need a bivariate generalization of the family of normal distributions that
@@ -4680,8 +4705,13 @@ normal random variables has a normal distribution. If we create two different
 linear combinations X1 and X2 of the same independent normal random variables,
 then X1 and X2 will each have a normal distribution and they might be dependent.
 The following result formalizes this idea.
-Theorem
-5.10.1
+
+::: {.callout-tip}
+
+::: {#thm-5-10-1}
+
+# Theorem 5.10.1
+
 Suppose that Z1 and Z2 are independent random variables, each of which has the
 standard normal distribution. Let μ1, μ2, σ1, σ2, and ρ be constants such that −∞<
 μi <∞(i = 1, 2), σi > 0 (i = 1, 2), and −1<ρ <1. Define two new random variables
@@ -4723,7 +4753,8 @@ x2 − μ2
  2
  0
 .
-Proof This proof relies on Theorem 3.9.5 (multivariate transformation of random
+
+**Proof**: This proof relies on Theorem 3.9.5 (multivariate transformation of random
 variables). If you did not study Theorem 3.9.5, you won’t be able to follow this proof.
 The joint p.d.f. g(z1, z2) of Z1 and Z2 is
 g(z1, z2) = 1
@@ -4756,7 +4787,7 @@ x1 − μ1
  
 .
 (5.10.4)
-5.10 The Bivariate Normal Distributions 339
+
 The Jacobian J of the transformation is
 J = det
 ⎡
@@ -4776,10 +4807,20 @@ J = det
 If one substitutes si(x1, x2) for zi (i = 1, 2) in Eq. (5.10.3) and then multiplies by
 |J |, one obtains Eq. (5.10.2), which is the joint p.d.f. of (X1, X2) according to Theorem
 3.9.5.
+
+:::
+
+:::
+
 Some simple properties of the distribution with p.d.f. in Eq. (5.10.2) are worth
 deriving before giving a name to the joint distribution.
-Theorem
-5.10.2
+
+::: {.callout-tip}
+
+::: {#thm-5-10-2}
+
+# Theorem 5.10.2
+
 Suppose thatX1 andX2 have the joint distribution whose p.d.f. is given by Eq. (5.10.2).
 Then there exist independent standard normal random variables Z1 and Z2 such
 that Eqs. (5.10.1) hold. Also, the mean of Xi is μi and the variance of Xi is σ2
@@ -4796,6 +4837,11 @@ The values of the means and variances ofX1 andX2 are easily obtained by applying
 Corollary 5.6.1 to Eq. (5.10.1). If one applies the result in Exercise 8 of Sec. 4.6,
 one obtains Cov(X1, X2) = σ1σ2ρ. It now follows that ρ is the correlation. The claim
 about the marginal distributions of X1 and X2 is immediate from Corollary 5.6.1.
+
+:::
+
+:::
+
 We are now ready to define the family of bivariate normal distributions.
 Definition
 5.10.1
@@ -4858,6 +4904,7 @@ When the correlation is not zero, Theorem 5.10.2 gives the marginal distribution
 of bivariate normal random variables. Combining the marginal and joint distributions
 allows us to find the conditional distributions of eachXi given the other one. The next
 theorem derives the conditional distributions using another technique.
+
 Theorem
 5.10.4
 Conditional Distributions. LetX1 andX2 have the bivariate normal distribution whose
@@ -4875,9 +4922,7 @@ Proof We will make liberal use of Theorem 5.10.2 and its notation in this proof.
 on X1 = x1 is the same as conditioning on Z1 = (x1 − μ1)/σ1.When we want
 to find the conditional distribution of X2 given Z1 = (x1 − μ1)/σ1, we can subtitute
 (x1 − μ1)/σ1 for Z2 in the formula for X2 in Eq. (5.10.1) and find the conditional distribution
-for the rest of the formula. That is, the conditional distribution of X2 given
-5.10 The Bivariate Normal Distributions 341
-that X1 = x1 is the same as the conditional distribution of
+for the rest of the formula. That is, the conditional distribution of X2 given that X1 = x1 is the same as the conditional distribution of
 (1− ρ2)1/2σ2Z2 + μ2 + ρσ2
 
 
@@ -4965,7 +5010,9 @@ Var(Y ) = E[Var(Y |X)]+ Var[E(Y|X)]
 = τ 2 + σ2.
 Hence, the distribution of Y is the normal distribution with mean μ and variance
 τ 2 + σ2.  
-Linear Combinations
+
+### Linear Combinations
+
 Example
 5.10.5
 Heights of Husbands andWives. Suppose that a married couple is selected at random
@@ -4976,6 +5023,7 @@ the husband?  
 The question asked at the end of Example 5.10.5 can be expressed in terms of
 the distribution of the difference between a wife’s and husband’s heights. This is a
 special case of a linear combination of a bivariate normal vector.
+
 Theorem
 5.10.5
 Linear Combination of Bivariate Normals. Suppose that two random variables X1 and
@@ -5003,6 +5051,8 @@ Var(Y ) = a2
 1 Var(X1) + a2
 2 Var(X2) + 2a1a2 Cov(X1, X2).
 That Var(Y ) is given by Eq. (5.10.9) now follows easily.
+
+
 Example
 5.10.6
 Heights of Husbands and Wives. Consider again Example 5.10.5. Suppose that the
@@ -5033,7 +5083,9 @@ conditional variance being constant in y. (Similarly, for the conditional distri
 of Y given X = x.) A more thorough treatment of the bivariate normal distributions
 and higher-dimensional generalizations can be found in the book by D. F. Morrison
 (1990).
-Exercises
+
+### Exercises
+
 1. Consider again the joint distribution of heights of husbands
 and wives in Example 5.10.6. Find the 0.95 quantile
 of the conditional distribution of the height of the wife
@@ -5047,7 +5099,7 @@ have a bivariate normal distribution; and the correlation
 of the two scores is 0.8. If the student’s score on test A is
 80, what is the probability that her score on test B will be
 higher than 90?
-344 Chapter 5 Special Distributions
+
 3. Consider again the two tests A and B described in Exercise
 2. If a student is chosen at random, what is the
 probability that the sum of her scores on the two tests will
@@ -5310,6 +5362,5 @@ and correlation ρ. Determine the distribution ofX1− 3X2.
 and the conditional distribution of Y givenX is the normal
 distribution with mean 2X − 3and variance 12. Determine
 the marginal distribution of Y and the value of ρ(X, Y).
-26. Suppose that X1 and X2 have a bivariate normal distribution
-with E(X2) = 0. Evaluate E(X2
-1X2).
+26. Suppose that $X_1$ and $X_2$ have a bivariate normal distribution with $\mathbb{E}[X2] = 0$. Evaluate $\mathbb{E}[X_1^2X_2]$.
+
