@@ -53,16 +53,15 @@ Rice (1995); and Wackerly, Mendenhall, and Schaeffer (2008).
 
 ## Interpretations of Probability
 
-This section describes three common operational interpretations of probability.
-Although the interpretations may seem incompatible, it is fortunate that the calculus
-of probability (the subject matter of the first six chapters of this book) applies
-equally well no matter which interpretation one prefers.
+*This section describes three common operational interpretations of probability. Although the interpretations may seem incompatible, it is fortunate that the calculus of probability (the subject matter of the first six chapters of this book) applies equally well no matter which interpretation one prefers.*
+
 In addition to the many formal applications of probability theory, the concept of
 probability enters our everyday life and conversation. We often hear and use such
 expressions as “It probably will rain tomorrow afternoon,” “It is very likely that
 the plane will arrive late,” or “The chances are good that he will be able to join us
 for dinner this evening.” Each of these expressions is based on the concept of the
 probability, or the likelihood, that some specific event will occur.
+
 Despite the fact that the concept of probability is such a common and natural
 part of our experience, no single scientific interpretation of the term probability is
 accepted by all statisticians, philosophers, and other authorities. Through the years,
@@ -72,7 +71,9 @@ controversial subject and is involved in many current philosophical discussions 
 to the foundations of statistics. Three different interpretations of probability
 will be described here. Each of these interpretations can be very useful in applying
 probability theory to practical problems.
-The Frequency Interpretation of Probability
+
+### The Frequency Interpretation of Probability
+
 In many problems, the probability that some specific outcome of a process will be
 obtained can be interpreted to mean the relative frequency with which that outcome
 would be obtained if the process were repeated a large number of times under similar
@@ -81,17 +82,17 @@ considered to be 1/2 because the relative frequency of heads should be approxima
 1/2 when the coin is tossed a large number of times under similar conditions. In other
 words, it is assumed that the proportion of tosses on which a head is obtained would
 be approximately 1/2.
+
 Of course, the conditions mentioned in this example are too vague to serve as the
 basis for a scientific definition of probability. First, a “large number” of tosses of the
-coin is specified, but there is no definite indication of an actual number that would
-1.2 Interpretations of Probability 3
-be considered large enough. Second, it is stated that the coin should be tossed each
+coin is specified, but there is no definite indication of an actual number that would be considered large enough. Second, it is stated that the coin should be tossed each
 time “under similar conditions,” but these conditions are not described precisely. The
 conditions under which the coin is tossed must not be completely identical for each
 toss because the outcomes would then be the same, and there would be either all
 heads or all tails. In fact, a skilled person can toss a coin into the air repeatedly and
 catch it in such a way that a head is obtained on almost every toss. Hence, the tosses
 must not be completely controlled but must have some “random” features.
+
 Furthermore, it is stated that the relative frequency of heads should be “approximately
 1/2,” but no limit is specified for the permissible variation from 1/2. If a coin
 were tossed 1,000,000 times, we would not expect to obtain exactly 500,000 heads.
@@ -100,6 +101,7 @@ the other hand, neither would we expect the number of heads to be very far from
 500,000. It would be desirable to be able to make a precise statement of the likelihoods
 of the different possible numbers of heads, but these likelihoods would of
 necessity depend on the very concept of probability that we are trying to define.
+
 Another shortcoming of the frequency interpretation of probability is that it
 applies only to a problem in which there can be, at least in principle, a large number of
 similar repetitions of a certain process. Many important problems are not of this type.
@@ -107,7 +109,9 @@ For example, the frequency interpretation of probability cannot be applied direc
 to the probability that a specific acquaintance will get married within the next two
 years or to the probability that a particular medical research project will lead to the
 development of a new treatment for a certain disease within a specified period of time.
-The Classical Interpretation of Probability
+
+### The Classical Interpretation of Probability
+
 The classical interpretation of probability is based on the concept of equally likely
 outcomes. For example, when a coin is tossed, there are two possible outcomes: a
 head or a tail. If it may be assumed that these outcomes are equally likely to occur,
@@ -115,7 +119,8 @@ then they must have the same probability. Since the sum of the probabilities mus
 be 1, both the probability of a head and the probability of a tail must be 1/2. More
 generally, if the outcome of some process must be one of n different outcomes, and
 if these n outcomes are equally likely to occur, then the probability of each outcome
-is 1/n.
+is $1/n$.
+
 Two basic difficulties arise when an attempt is made to develop a formal definition
 of probability from the classical interpretation. First, the concept of equally
 likely outcomes is essentially based on the concept of probability that we are trying
@@ -129,7 +134,9 @@ problem is to guess whether an acquaintance will get married or whether a resear
 project will be successful, the possible outcomes would not typically be considered
 to be equally likely, and a different method is needed for assigning probabilities to
 these outcomes.
-The Subjective Interpretation of Probability
+
+### The Subjective Interpretation of Probability
+
 According to the subjective, or personal, interpretation of probability, the probability
 that a person assigns to a possible outcome of some process represents her own judgment of the likelihood that the outcome will be obtained. This judgment will be
 based on each person’s beliefs and information about the process. Another person,
@@ -137,6 +144,7 @@ who may have different beliefs or different information, may assign a different
 probability to the same outcome. For this reason, it is appropriate to speak of a
 certain person’s subjective probability of an outcome, rather than to speak of the
 true probability of that outcome.
+
 As an illustration of this interpretation, suppose that a coin is to be tossed once.
 A person with no special information about the coin or the way in which it is tossed
 might regard a head and a tail to be equally likely outcomes. That person would
@@ -150,6 +158,7 @@ card is chosen from a well-shuffled deck containing four red cards and one black
 Because those people would assign a probability of 4/5 to the possibility of obtaining
 a red card, they should also assign a probability of 4/5 to the possibility of obtaining
 a head when the coin is tossed.
+
 This subjective interpretation of probability can be formalized. In general, if
 people’s judgments of the relative likelihoods of various combinations of outcomes
 satisfy certain conditions of consistency, then it can be shown that their subjective
@@ -161,6 +170,7 @@ attainable, unless a person is simply willing to adopt a collection of judgments
 to be consistent. Second, the subjective interpretation provides no “objective” basis
 for two or more scientists working together to reach a common evaluation of the
 state of knowledge in some scientific area of common interest.
+
 On the other hand, recognition of the subjective interpretation of probability
 has the salutary effect of emphasizing some of the subjective aspects of science. A
 particular scientist’s evaluation of the probability of some uncertain outcome must
@@ -170,33 +180,40 @@ since the scientist may take into account the relative frequency of occurrence o
 outcome or similar outcomes in the past. It may also be based in part on the classical
 interpretation of probability, since the scientist may take into account the total number
 of possible outcomes that are considered equally likely to occur. Nevertheless,
-the final assignment of numerical probabilities is the responsibility of the scientist
-herself.
+the final assignment of numerical probabilities is the responsibility of the scientist herself.
+
 The subjective nature of science is also revealed in the actual problem that a
 particular scientist chooses to study from the class of problems that might have
 been chosen, in the experiments that are selected in carrying out this study, and
 in the conclusions drawn from the experimental data. The mathematical theory of
 probability and statistics can play an important part in these choices, decisions, and
 conclusions.
-Note: The Theory of Probability Does Not Depend on Interpretation. The mathematical
+
+**Note: The Theory of Probability Does Not Depend on Interpretation**. The mathematical
 theory of probability is developed and presented in Chapters 1–6 of this
 book without regard to the controversy surrounding the different interpretations of the term probability. This theory is correct and can be usefully applied, regardless of
 which interpretation of probability is used in a particular problem. The theories and
 techniques that will be presented in this book have served as valuable guides and
 tools in almost all aspects of the design and analysis of effective experimentation.
 
-## Experiments and Events
+## Experiments and Events {#sec-1-3}
 
-*Probability will be the way that we quantify how likely something is to occur (in the sense of one of the interpretations in Sec. 1.2). In this section, we give examples of the types of situations in which probability will be used.*
+*Probability will be the way that we quantify how likely something is to occur (in the sense of one of the interpretations in @sec-1-2). In this section, we give examples of the types of situations in which probability will be used.*
 
 ### Types of Experiments
 
 The theory of probability pertains to the various possible outcomes that might be
 obtained and the possible events that might occur when an experiment is performed.
 
-::: {.callout-tip icon="false" title="Definition 1.3.1: Experiment and Event"}
+::: {.callout-tip}
+
+::: {#def-1-3-1}
+
+# Definition 1.3.1: Experiment and Event
 
 An **experiment** is any process, real or hypothetical, in which the possible outcomes can be identified ahead of time. An **event** is a well-defined set of possible outcomes of the experiment.
+
+:::
 
 :::
 
@@ -204,7 +221,7 @@ The breadth of this definition allows us to call almost any imaginable process a
 experiment whether or not its outcome will ever be known. The probability of each
 event will be our way of saying how likely it is that the outcome of the experiment is
 in the event. Not every set of possible outcomes will be called an event.We shall be
-more specific about which subsets count as events in Sec. 1.4.
+more specific about which subsets count as events in @sec-1-4.
 
 Probability will be most useful when applied to a real experiment in which the
 outcome is not known in advance, but there are many hypothetical experiments that
@@ -229,7 +246,7 @@ to determine the probability that Jefferson was born in the year 1741.
 
 ### The Mathematical Theory of Probability
 
-As was explained in Sec. 1.2, there is controversy in regard to the proper meaning
+As was explained in @sec-1-2, there is controversy in regard to the proper meaning
 and interpretation of some of the probabilities that are assigned to the outcomes
 of many experiments. However, once probabilities have been assigned to some
 simple outcomes in an experiment, there is complete agreement among all authorities
@@ -249,16 +266,26 @@ the first six chapters of this book is to present these techniques, which, toget
 
 ### The Sample Space
 
-::: {,callout-tip icon=false title="Definition 1.4.1: Sample Space"}
+::: {.callout-tip}
+
+::: {#def-1-4-1}
+
+# Definition 1.4.1: Sample Space
 
 The collection of all possible outcomes of an experiment is called the **sample space** of the experiment.
+
+:::
 
 :::
 
 The sample space of an experiment can be thought of as a set, or collection, of different possible outcomes; and each outcome can be thought of as a point, or an
 element, in the sample space. Similarly, events can be thought of as subsets of the sample space.
 
-::: {.callout-tip icon=false title="Example 1.4.1: Rolling a Die"}
+::: {.callout-tip}
+
+::: {#exm-1-4-1}
+
+# Example 1.4.1: Rolling a Die
 
 When a six-sided die is rolled, the sample space can be regarded as containing the six numbers 1, 2, 3, 4, 5, 6, each representing a possible side of the die that shows after the roll. Symbolically, we write
 
@@ -270,13 +297,16 @@ One event $A$ is that an even number is obtained, and it can be represented as t
 
 :::
 
+:::
+
 Because we can interpret outcomes as elements of a set and events as subsets
 of a set, the language and concepts of set theory provide a natural context for the
 development of probability theory. The basic ideas and notation of set theory will
 now be reviewed.
-1.4 Set Theory 7
-Relations of Set Theory
-Let S denote the sample space of some experiment. Then each possible outcome s
+
+### Relations of Set Theory
+
+Let $S$ denote the sample space of some experiment. Then each possible outcome s
 of the experiment is said to be a member of the space S, or to belong to the space S.
 The statement that s is a member of S is denoted symbolically by the relation s ∈ S.
 When an experiment has been performed and we say that some event E has
@@ -303,54 +333,116 @@ discuss and that satisfies the three conditions, and the reader should assume th
 a collection has been chosen as the events. For a sample space S with only finitely
 many outcomes, the collection of all subsets of S satisfies the conditions, as the reader
 can show in Exercise 12 in this section.
+
 The first of the three conditions can be stated immediately.
-Condition
-1
+
+::: {.callout-tip}
+
+Condition 1
+
 The sample space S must be an event.
+
+:::
+
 That is, we must include the sample space S in our collection of events. The other two
 conditions will appear later in this section because they require additional definitions.
 Condition 2 is on page 9, and Condition 3 is on page 10.
-Definition
-1.4.2
-Containment. It is said that a set A is contained in another set B if every element
+
+::: {.callout-tip}
+
+::: {#def-1-4-1}
+
+# Definition 1.4.2: Containment
+
+It is said that a set A is contained in another set B if every element
 of the set A also belongs to the set B. This relation between two events is expressed
 symbolically by the expressionA ⊂ B, which is the set-theoretic expression for saying
 that A is a subset of B. Equivalently, if A ⊂ B, we may say that B contains A and may
 write B ⊃ A.
+
+:::
+
+:::
+
 For events, to say that A ⊂ B means that if A occurs then so does B.
+
 The proof of the following result is straightforward and is omitted.
-Theorem
-1.4.1
+
+::: {.callout-tip}
+
+::: {#thm-1-4-1}
+
+# Theorem 1.4.1
+
 Let A, B, and C be events. Then A ⊂ S. If A ⊂ B and B ⊂ A, then A = B. If A ⊂ B
 and B ⊂ C, then A ⊂ C.
-Example
-1.4.2
-Rolling a Die. In Example 1.4.1, suppose that A is the event that an even number
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#exm-1-4-2}
+
+# Example 1.4.2: Rolling a Die
+
+In Example 1.4.1, suppose that A is the event that an even number
 is obtained and C is the event that a number greater than 1 is obtained. Since
-A = {2, 4, 6} and C = {2, 3, 4, 5, 6}, it follows that A ⊂ C.  
-8 Chapter 1 Introduction to Probability
-The Empty Set Some events are impossible. For example, when a die is rolled, it
-is impossible to obtain a negative number. Hence, the event that a negative number
-will be obtained is defined by the subset of S that contains no outcomes.
-Definition
-1.4.3
-Empty Set. The subset of S that contains no elements is called the empty set, or null
-set, and it is denoted by the symbol ∅.
+A = {2, 4, 6} and C = {2, 3, 4, 5, 6}, it follows that A ⊂ C.
+
+:::
+
+:::
+
+**The Empty Set**: Some events are impossible. For example, when a die is rolled, it is impossible to obtain a negative number. Hence, the event that a negative number will be obtained is defined by the subset of $S$ that contains no outcomes.
+
+::: {.callout-tip}
+
+::: {#def-1-4-3}
+
+# Definition 1.4.3: Empty Set
+
+The subset of $S$ that contains no elements is called the **empty set**, or **null set**, and it is denoted by the symbol $\varnothing$.
+
+:::
+
+:::
+
 In terms of events, the empty set is any event that cannot occur.
-Theorem
-1.4.2
+
+::: {.callout-tip}
+
+::: {#thm-1-4-2}
+
+# Theorem 1.4.2
+
 Let A be an event. Then ∅⊂A.
 Proof Let A be an arbitrary event. Since the empty set ∅ contains no points, it is
 logically correct to say that every point belonging to ∅ also belongs to A, or ∅ ⊂ A.
-Finite and Infinite Sets Some sets contain only finitely many elements, while others
-have infinitely many elements. There are two sizes of infinite sets that we need to
+
+:::
+
+:::
+
+**Finite and Infinite Sets**: Some sets contain only finitely many elements, while others have infinitely many elements. There are two sizes of infinite sets that we need to
 distinguish.
-Definition
-1.4.4
-Countable/Uncountable. An infinite set A is countable if there is a one-to-one correspondence
+
+::: {.callout-tip}
+
+::: {#def-1-4-4}
+
+# Definition 1.4.4: Countable/Uncountable
+
+An infinite set A is countable if there is a one-to-one correspondence
 between the elements of A and the set of natural numbers {1, 2, 3, . . .}. A
 set is uncountable if it is neither finite nor countable. If we say that a set has at most
 countably many elements, we mean that the set is either finite or countable.
+
+:::
+
+:::
+
 Examples of countably infinite sets include the integers, the even integers, the odd
 integers, the prime numbers, and any infinite sequence. Each of these can be put
 in one-to-one correspondence with the natural numbers. For example, the following
@@ -367,13 +459,25 @@ include the real numbers, the positive reals, the numbers in the interval [0, 1]
 set of all ordered pairs of real numbers. An argument to show that the real numbers
 are uncountable appears at the end of this section. Every subset of the integers has
 at most countably many elements.
-Operations of Set Theory
-Definition
-1.4.5
-Complement. The complement of a set A is defined to be the set that contains all
+
+### Operations of Set Theory
+
+::: {.callout-tip}
+
+::: {#def-1-4-5}
+
+# Definition 1.4.5: Complement
+
+The complement of a set A is defined to be the set that contains all
 elements of the sample space S that do not belong to A. The notation for the
 complement of A is Ac.
-In terms of events, the event Ac is the event that A does not occur.
+
+:::
+
+:::
+
+In terms of events, the event $A^c$ is the event that $A$ does not occur.
+
 Example
 1.4.3
 Rolling a Die. In Example 1.4.1, suppose again thatAis the event that an even number
@@ -396,6 +500,8 @@ complement Ac an event.
 A generic version of the relationship between A and Ac is sketched in Fig. 1.1.
 A sketch of this type is called a Venn diagram.
 Some properties of the complement are stated without proof in the next result.
+
+
 Theorem
 1.4.3
 Let A be an event. Then
@@ -473,6 +579,8 @@ Theorem
 Associative Property. For every three events A, B, and C, the following associative
 relations are satisfied:
 A ∪ B ∪ C = (A ∪ B) ∪ C = A ∪ (B ∪ C).
+
+
 Definition
 1.4.8
 Intersection of Two Sets. If A and B are any two sets, the intersection of A and B is
@@ -485,7 +593,8 @@ The rest of the proof is straightforward.
 Figure 1.3 The set A ∩ B.
 A B
 S
-1.4 Set Theory 11
+
+
 Theorem
 1.4.7
 If A and B are events, then so is A ∩ B. For all events A and B,
@@ -493,6 +602,8 @@ A ∩ B = B ∩ A, A ∩ A = A, A ∩ Ac =∅,
 A ∩ ∅ = ∅, A∩ S = A.
 Furthermore, if A ⊂ B, then A ∩ B = A.
 The concept of intersection extends to more than two sets.
+
+
 Definition
 1.4.9
 Intersection of Many Sets. The intersection of n sets A1, . . . ,An is defined to be the
@@ -506,6 +617,7 @@ In terms of events, the intersection of a collection of events is the event that
 event in the collection occurs.
 The following result concerning the intersection of three events is straightforward
 to prove.
+
 Theorem
 1.4.8
 Associative Property. For every three events A, B, and C, the following associative
@@ -550,7 +662,7 @@ A1 A2 A3
 A3
 A2 A1
 S
-12 Chapter 1 Introduction to Probability
+
 Example
 1.4.4
 Tossing a Coin. Suppose that a coin is tossed three times. Then the sample space S
@@ -578,6 +690,8 @@ D = {s8}.
 Various relations among these events can be derived. Some of these relations
 are B ⊂ A, Ac = D, B ∩ D = ∅, A ∪ C = S, B ∩ C = {s4, s6}, (B ∪ C)c = {s3, s7}, and
 A ∩ (B ∪ C) = {s1, s2, s4, s5, s6}.  
+
+
 Example
 1.4.5
 Demands for Utilities. A contractor is building an office complex and needs to plan
@@ -615,6 +729,8 @@ more sets that are difficult to describe and which we will have no need to consi
 events.  
 Additional Properties of Sets The proof of the following useful result is left to
 Exercise 3 in this section.
+
+
 Theorem
 1.4.9
 De Morgan’s Laws. For every two sets A and B,
@@ -629,6 +745,8 @@ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) and A ∪ (B ∩ C) = (A ∪ B) ∩ (A
 The following result is useful for computing probabilities of events that can be
 partitioned into smaller pieces. Its proof is left to Exercise 4 in this section, and is
 illuminated by Fig. 1.6.
+
+
 Theorem
 1.4.11
 Partitioning a Set. For every two sets A and B, A ∩ B and A ∩ Bc are disjoint and
@@ -643,7 +761,7 @@ n=1 as follows. First, a1(x) =  10x
 , where  y
  stands for the greatest integer
 less than or equal to y (round nonintegers down to the closest integer below). Then
-14 Chapter 1 Introduction to Probability
+
 0 2 3 0 7 1 3 . . .
 1 9 9 2 1 0 0 . . .
 2 7 3 6 0 1 1 . . .
@@ -993,25 +1111,53 @@ From the axioms and theorems just given, we shall now derive four other general
 properties of probability measures. Because of the fundamental nature of these four
 properties, they will be presented in the form of four theorems, each one of which is
 easily proved.
-Theorem
-1.5.3
+
+::: {.callout-tip}
+
+::: {#thm-1-5-3}
+
+# Theorem 1.5.3
 For every event A, Pr(Ac) = 1− Pr(A).
 Proof Since A and Ac are disjoint events and A ∪ Ac = S, it follows from Theorem
 1.5.2 that Pr(S) = Pr(A) + Pr(Ac). Since Pr(S) = 1 by Axiom 2, then Pr(Ac) =
 1− Pr(A).
-Theorem
-1.5.4
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#thm-1-5-4}
+
+# Theorem 1.5.4
+
 If A ⊂ B, then Pr(A) ≤ Pr(B).
 Proof As illustrated in Fig. 1.8, the event B may be treated as the union of the
 two disjoint events A and B ∩ Ac. Therefore, Pr(B) = Pr(A) + Pr(B ∩ Ac). Since
 Pr(B ∩ Ac) ≥ 0, then Pr(B) ≥ Pr(A).
-Theorem
-1.5.5
+
+:::
+
+::: {.callout-tip}
+
+::: {#thm-1-5-5}
+
+# Theorem 1.5.5
 For every event A, 0 ≤ Pr(A) ≤ 1.
 Proof It is known from Axiom 1 that Pr(A) ≥ 0. Since A ⊂ S for every event A,
 Theorem 1.5.4 implies Pr(A) ≤ Pr(S) = 1, by Axiom 2.
-Theorem
-1.5.6
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#thm1-5-6}
+
+# Theorem 1.5.6
+
 For every two events A and B,
 Pr(A ∩ Bc) = Pr(A) − Pr(A ∩ B).
 Figure 1.8 B = A ∪ (B ∩ Ac)
@@ -1020,14 +1166,23 @@ A
 B
 B Ac
 S
-1.5 The Definition of Probability 19
+
 Proof According to Theorem 1.4.11, the events A ∩ Bc and A ∩ B are disjoint and
 A = (A ∩ B) ∪ (A ∩ Bc).
 It follows from Theorem 1.5.2 that
 Pr(A) = Pr(A ∩ B) + Pr(A ∩ Bc).
 Subtract Pr(A ∩ B) from both sides of this last equation to complete the proof.
-Theorem
-1.5.7
+
+:::
+
+:::
+
+::: {.callout-tip}
+
+::: {#thm-1-5-7}
+
+# Theorem 1.5.7
+
 For every two events A and B,
 Pr(A ∪ B) = Pr(A) + Pr(B) − Pr(A ∩ B). (1.5.1)
 Proof From Theorem 1.4.11, we have
@@ -1037,6 +1192,11 @@ Pr(A ∪ B) = Pr(B) + Pr(A ∩ Bc)
 = Pr(B) + Pr(A) − Pr(A ∩ B),
 where the first equation follows from Theorem 1.5.2, and the second follows from
 Theorem 1.5.6.
+
+:::
+
+:::
+
 Example
 1.5.3
 Diagnosing Diseases. A patient arrives at a doctor’s office with a sore throat and lowgrade
@@ -3130,10 +3290,10 @@ s
 ) equals the number of outcomes
 in S.
 
-## 1.10 The Probability of a Union of Events {#sec-1-10}
+## The Probability of a Union of Events {#sec-1-10}
 
 The axioms of probability tell us directly how to find the probability of the union
-of disjoint events. Theorem 1.5.7 showed how to find the probability for the union
+of disjoint events. @thm-1-5-7 showed how to find the probability for the union
 of two arbitrary events. This theorem is generalized to the union of an arbitrary
 finite collection of events.
 We shall now consider again an arbitrary sample space S that may contain either a
@@ -3155,7 +3315,7 @@ Ai
 i=1
 Pr(Ai).
 Furthermore, for every two events A1 and A2, regardless of whether or not they are
-disjoint, we know from Theorem 1.5.7 of Sec. 1.5 that
+disjoint, we know from @thm-1-5-7 of Sec. 1.5 that
 Pr(A1 ∪ A2) = Pr(A1) + Pr(A2) − Pr(A1 ∩ A2).
 In this section, we shall extend this result, first to three events and then to an arbitrary
 finite number of events.
@@ -3169,15 +3329,16 @@ Pr(A1 ∪ A2 ∪ A3) = Pr(A1) + Pr(A2) + Pr(A3)
 + Pr(A1 ∩ A2 ∩ A3). (1.10.1)
 Proof By the associative property of unions (Theorem 1.4.6), we can write
 A1 ∪ A2 ∪ A3 = (A1 ∪ A2) ∪ A3.
-Apply Theorem 1.5.7 to the two events A = A1 ∪ A2 and B = A3 to obtain
+
+Apply @thm-1-5-7 to the two events A = A1 ∪ A2 and B = A3 to obtain
 Pr(A1 ∪ A2 ∪ A3) = Pr(A ∪ B)
 = Pr(A) + Pr(B) − Pr(A ∩ B). (1.10.2)
 We next compute the three probabilities on the far right side of (1.10.2) and combine
-them to get (1.10.1). First, apply Theorem 1.5.7 to the two events A1 and A2 to obtain
+them to get (1.10.1). First, apply @thm-1-5-7 to the two events A1 and A2 to obtain
 Pr(A) = Pr(A1) + Pr(A2) − Pr(A1 ∩ A2). (1.10.3)
 Next, use the first distributive property in Theorem 1.4.10 to write
 A ∩ B = (A1 ∪ A2) ∩ A3 = (A1 ∩ A3) ∪ (A2 ∩ A3). (1.10.4)
-Apply Theorem 1.5.7 to the events on the far right side of (1.10.4) to obtain
+Apply @thm-1-5-7 to the events on the far right side of (1.10.4) to obtain
 Pr(A ∩ B) = Pr(A1 ∩ A3) + Pr(A2 ∩ A3) − Pr(A1 ∩ A2 ∩ A3). (1.10.5)
 Substitute (1.10.3), Pr(B) = Pr(A3), and (1.10.5) into (1.10.2) to complete the proof.
 Example
@@ -3253,7 +3414,7 @@ true for all n ≤ m, then (1.10.6) is also true for n = m + 1. The case of n = 
 and the case of n = 2 is Theorem 1.5.7. To complete the proof, assume that (1.10.6)
 is true for all n ≤ m. Let A1, . . . , Am+1 be events. Define A = m
 i=1 Ai and B = Am+1.
-Theorem 1.5.7 says that
+@thm-1-5-7 says that
 Pr
  
  n
