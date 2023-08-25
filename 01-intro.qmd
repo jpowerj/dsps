@@ -9,24 +9,16 @@ callout-icon: false
 
 ## The History of Probability {#sec-1-1}
 
-The use of probability to measure uncertainty and variability dates back hundreds of years. Probability has found application in areas as diverse as medicine, gambling, weather forecasting, and the law.
-The concepts of chance and uncertainty are as old as civilization itself. People have
-always had to cope with uncertainty about the weather, their food supply, and other
-aspects of their environment, and have striven to reduce this uncertainty and its
-effects. Even the idea of gambling has a long history. By about the year 3500 b.c.,
-games of chance played with bone objects that could be considered precursors of
-dice were apparently highly developed in Egypt and elsewhere. Cubical dice with
-markings virtually identical to those on modern dice have been found in Egyptian
-tombs dating from 2000 b.c.We know that gambling with dice has been popular ever
-since that time and played an important part in the early development of probability
-theory.
-It is generally believed that the mathematical theory of probability was started by
-the French mathematicians Blaise Pascal (1623–1662) and Pierre Fermat (1601–1665)
+*The use of probability to measure uncertainty and variability dates back hundreds of years. Probability has found application in areas as diverse as medicine, gambling, weather forecasting, and the law.*
+
+The concepts of chance and uncertainty are as old as civilization itself. People have always had to cope with uncertainty about the weather, their food supply, and other aspects of their environment, and have striven to reduce this uncertainty and its effects. Even the idea of gambling has a long history. By about the year 3500 BC, games of chance played with bone objects that could be considered precursors of dice were apparently highly developed in Egypt and elsewhere. Cubical dice with markings virtually identical to those on modern dice have been found in Egyptian tombs dating from 2000 BC. We know that gambling with dice has been popular ever since that time and played an important part in the early development of probability theory.
+
+It is generally believed that the mathematical theory of probability was started by the French mathematicians Blaise Pascal (1623–1662) and Pierre Fermat (1601–1665)
 when they succeeded in deriving exact probabilities for certain gambling problems
 involving dice. Some of the problems that they solved had been outstanding for about
 300 years. However, numerical probabilities of various dice combinations had been
-calculated previously by Girolamo Cardano (1501–1576) and Galileo Galilei (1564–
-1642).
+calculated previously by Girolamo Cardano (1501–1576) and Galileo Galilei (1564-1642).
+
 The theory of probability has been developed steadily since the seventeenth
 century and has been widely applied in diverse fields of study. Today, probability
 theory is an important tool in most areas of engineering, science, and management.
@@ -40,8 +32,8 @@ and statistical calculations to help support their cases.
 ### References {.unnumbered}
 
 The ancient history of gambling and the origins of the mathematical theory of probability
-are discussed by David (1988), Ore (1960), Stigler (1986), and Todhunter
-(1865).
+are discussed by David (1988), Ore (1960), Stigler (1986), and Todhunter (1865).
+
 Some introductory books on probability theory, which discuss many of the same
 topics that will be studied in this book, are Feller (1968); Hoel, Port, and Stone (1971);
 Meyer (1970); and Olkin, Gleser, and Derman (1980). Other introductory books,
@@ -51,16 +43,11 @@ and Tanis (1997); Kempthorne and Folks (1971); Larsen and Marx (2001); Larson
 (1974); Lindgren (1976); Miller and Miller (1999); Mood, Graybill, and Boes (1974);
 Rice (1995); and Wackerly, Mendenhall, and Schaeffer (2008).
 
-## Interpretations of Probability
+## Interpretations of Probability {#sec-1-2}
 
 *This section describes three common operational interpretations of probability. Although the interpretations may seem incompatible, it is fortunate that the calculus of probability (the subject matter of the first six chapters of this book) applies equally well no matter which interpretation one prefers.*
 
-In addition to the many formal applications of probability theory, the concept of
-probability enters our everyday life and conversation. We often hear and use such
-expressions as “It probably will rain tomorrow afternoon,” “It is very likely that
-the plane will arrive late,” or “The chances are good that he will be able to join us
-for dinner this evening.” Each of these expressions is based on the concept of the
-probability, or the likelihood, that some specific event will occur.
+In addition to the many formal applications of probability theory, the concept of probability enters our everyday life and conversation. We often hear and use such expressions as "It probably will rain tomorrow afternoon," "It is very likely that the plane will arrive late," or "The chances are good that he will be able to join us for dinner this evening." Each of these expressions is based on the concept of the probability, or the likelihood, that some specific event will occur.
 
 Despite the fact that the concept of probability is such a common and natural
 part of our experience, no single scientific interpretation of the term probability is
@@ -306,17 +293,13 @@ now be reviewed.
 
 ### Relations of Set Theory
 
-Let $S$ denote the sample space of some experiment. Then each possible outcome s
-of the experiment is said to be a member of the space S, or to belong to the space S.
-The statement that s is a member of S is denoted symbolically by the relation s ∈ S.
-When an experiment has been performed and we say that some event E has
-occurred, we mean two equivalent things. One is that the outcome of the experiment
-satisfied the conditions that specified that event E. The other is that the outcome,
-considered as a point in the sample space, is an element of E.
+Let $S$ denote the sample space of some experiment. Then each possible outcome $s$ of the experiment is said to be a member of the space $S$, or to belong to the space $S$. The statement that s is a member of $S$ is denoted symbolically by the relation $s \in S$.
+
+When an experiment has been performed and we say that some event $E$ has occurred, we mean two equivalent things. One is that the outcome of the experiment satisfied the conditions that specified that event $E$. The other is that the outcome,
+considered as a point in the sample space, is an element of $E$.
+
 To be precise, we should say which sets of outcomes correspond to events as defined
-above. In many applications, such as Example 1.4.1, it will be clear which sets of
-outcomes should correspond to events. In other applications (such as Example 1.4.5
-coming up later), there are too many sets available to have them all be events. Ideally,
+above. In many applications, such as @exm-1-4-1, it will be clear which sets of outcomes should correspond to events. In other applications (such as @exm-1-4-5 coming up later), there are too many sets available to have them all be events. Ideally,
 we would like to have the largest possible collection of sets called events so that
 we have the broadest possible applicability of our probability calculations. However,
 when the sample space is too large (as in Example 1.4.5) the theory of probability
@@ -330,9 +313,7 @@ that we might find interesting, there are three simple conditions that must
 be met by the collection of sets that we call events. In every problem that we see in
 this text, there exists a collection of sets that includes all the sets that we will need to
 discuss and that satisfies the three conditions, and the reader should assume that such
-a collection has been chosen as the events. For a sample space S with only finitely
-many outcomes, the collection of all subsets of S satisfies the conditions, as the reader
-can show in Exercise 12 in this section.
+a collection has been chosen as the events. For a sample space $S$ with only finitely many outcomes, the collection of all subsets of S satisfies the conditions, as the reader can show in @exr-3-2-1 in this section.
 
 The first of the three conditions can be stated immediately.
 
@@ -354,17 +335,13 @@ Condition 2 is on page 9, and Condition 3 is on page 10.
 
 # Definition 1.4.2: Containment
 
-It is said that a set A is contained in another set B if every element
-of the set A also belongs to the set B. This relation between two events is expressed
-symbolically by the expressionA ⊂ B, which is the set-theoretic expression for saying
-that A is a subset of B. Equivalently, if A ⊂ B, we may say that B contains A and may
-write B ⊃ A.
+It is said that a set $A$ is **contained in** another set $B$ if every element of the set $A$ also belongs to the set $B$. This relation between two events is expressed symbolically by the expression $A \subset B$, which is the set-theoretic expression for saying that $A$ is a subset of $B$. Equivalently, if $A \subset B$, we may say that $B$ **contains** $A$ and may write $B \supset A$.
 
 :::
 
 :::
 
-For events, to say that A ⊂ B means that if A occurs then so does B.
+For events, to say that $A \subset B$ means that if $A$ occurs then so does $B$.
 
 The proof of the following result is straightforward and is omitted.
 
@@ -417,16 +394,15 @@ In terms of events, the empty set is any event that cannot occur.
 
 # Theorem 1.4.2
 
-Let A be an event. Then ∅⊂A.
-Proof Let A be an arbitrary event. Since the empty set ∅ contains no points, it is
-logically correct to say that every point belonging to ∅ also belongs to A, or ∅ ⊂ A.
+Let $A$ be an event. Then $\varnothing \subset A$.
+
+**Proof**: Let $A$ be an arbitrary event. Since the empty set $\varnothing$ contains no points, it is logically correct to say that every point belonging to $\varnothing$ also belongs to $A$, or $\varnothing \subset A$.
 
 :::
 
 :::
 
-**Finite and Infinite Sets**: Some sets contain only finitely many elements, while others have infinitely many elements. There are two sizes of infinite sets that we need to
-distinguish.
+**Finite and Infinite Sets**: Some sets contain only finitely many elements, while others have infinitely many elements. There are two sizes of infinite sets that we need to distinguish.
 
 ::: {.callout-tip}
 
@@ -434,31 +410,22 @@ distinguish.
 
 # Definition 1.4.4: Countable/Uncountable
 
-An infinite set A is countable if there is a one-to-one correspondence
-between the elements of A and the set of natural numbers {1, 2, 3, . . .}. A
-set is uncountable if it is neither finite nor countable. If we say that a set has at most
-countably many elements, we mean that the set is either finite or countable.
+An infinite set $A$ is **countable** if there is a one-to-one correspondence between the elements of $A$ and the set of natural numbers $\{1, 2, 3, \ldots\}$. A set is **uncountable** if it is neither finite nor countable. If we say that a set has **at most countably many** elements, we mean that the set is either finite or countable.
 
 :::
 
 :::
 
-Examples of countably infinite sets include the integers, the even integers, the odd
-integers, the prime numbers, and any infinite sequence. Each of these can be put
-in one-to-one correspondence with the natural numbers. For example, the following
-function f puts the integers in one-to-one correspondence with the natural numbers:
-f (n) =
- 
-n−1
-2 if n is odd,
-−n2
-if n is even.
-Every infinite sequence of distinct items is a countable set, as its indexing puts it in
-one-to-one correspondence with the natural numbers. Examples of uncountable sets
-include the real numbers, the positive reals, the numbers in the interval [0, 1], and the
-set of all ordered pairs of real numbers. An argument to show that the real numbers
-are uncountable appears at the end of this section. Every subset of the integers has
-at most countably many elements.
+Examples of countably infinite sets include the integers, the even integers, the odd integers, the prime numbers, and any infinite sequence. Each of these can be put in one-to-one correspondence with the natural numbers. For example, the following function $f$ puts the integers in one-to-one correspondence with the natural numbers:
+
+$$
+f(n) = \begin{cases}
+\frac{n-1}{2} &\text{if }n\text{ is odd,} \\
+-\frac{n}{2} &\text{if }n\text{ is even.}
+\end{cases}
+$$
+
+Every infinite sequence of distinct items is a countable set, as its indexing puts it in one-to-one correspondence with the natural numbers. Examples of uncountable sets include the real numbers, the positive reals, the numbers in the interval $[0, 1]$, and the set of all ordered pairs of real numbers. An argument to show that the real numbers are uncountable appears at the end of this section. Every subset of the integers has at most countably many elements.
 
 ### Operations of Set Theory
 
@@ -468,9 +435,7 @@ at most countably many elements.
 
 # Definition 1.4.5: Complement
 
-The complement of a set A is defined to be the set that contains all
-elements of the sample space S that do not belong to A. The notation for the
-complement of A is Ac.
+The **complement** of a set $A$ is defined to be the set that contains all elements of the sample space $S$ that **do not** belong to $A$. The notation for the complement of $A$ is $A^c$.
 
 :::
 
@@ -478,168 +443,257 @@ complement of A is Ac.
 
 In terms of events, the event $A^c$ is the event that $A$ does not occur.
 
-Example
-1.4.3
-Rolling a Die. In Example 1.4.1, suppose again thatAis the event that an even number
-is rolled; then Ac = {1, 3, 5} is the event that an odd number is rolled.  
+::: {.callout-tip}
+::: {#exm-1-4-3}
+
+# Example 1.4.3: Rolling a Die
+
+In @exm-1-4-1, suppose again that $A$ is the event that an even number is rolled; then $A^c = \{1, 3, 5\}$ is the event that an odd number is rolled.  
+
+:::
+:::
+
 We can now state the second condition that we require of the collection of events.
-1.4 Set Theory 9
-Figure 1.1 The event Ac.
+
+::: {#fig-1-1}
+
 Ac
 A
 S
-Figure 1.2 The set A ∪ B.
+
+Figure 1.1 The event $A^c$.
+:::
+
+::: {#fig-1-2}
+
 A
 A B
 S
-Condition
-2
-If A is an event, then Ac is also an event.
-That is, for each set A of outcomes that we call an event, we must also call its
-complement Ac an event.
-A generic version of the relationship between A and Ac is sketched in Fig. 1.1.
-A sketch of this type is called a Venn diagram.
+
+Figure 1.2 The set $A \cup B$.
+:::
+
+::: {.callout-tip}
+
+Condition 2
+
+If $A$ is an event, then $A^c$ is also an event.
+
+:::
+
+That is, for each set $A$ of outcomes that we call an event, we must also call its complement $A^c$ an event.
+
+A generic version of the relationship between $A$ and $A^c$ is sketched in @fig-1-1.
+
+A sketch of this type is called a **Venn diagram**.
+
 Some properties of the complement are stated without proof in the next result.
 
+::: {.callout-tip}
+::: {#thm-1-4-3}
 
-Theorem
-1.4.3
-Let A be an event. Then
-(Ac)c = A, ∅c = S, Sc =∅.
-The empty event ∅ is an event.
-Definition
-1.4.6
-Union of Two Sets. If A and B are any two sets, the union of A and B is defined to be
-the set containing all outcomes that belong to A alone, to B alone, or to both A and
-B. The notation for the union of A and B is A ∪ B.
-The set A ∪ B is sketched in Fig. 1.2. In terms of events, A ∪ B is the event that either
-A or B or both occur.
+# Theorem 1.4.3
+
+Let $A$ be an event. Then
+
+$$
+(A^c)^c = A, \; \varnothing^c = S, \; S^c = \varnothing.
+$$
+
+The empty event $\varnothing$ is an event.
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#def-1-4-6}
+
+# Definition 1.4.6: Union of Two Sets
+
+If $A$ and $B$ are any two sets, the **union** of $A$ and $B$ is defined to be the set containing all outcomes that belong to $A$ alone, to $B$ alone, or to both $A$ and
+$B$. The notation for the union of $A$ and $B$ is $A \cup B$.
+
+:::
+:::
+
+The set $A \cup B$ is sketched in @fig-1-2. In terms of events, $A \cup B$ is the event that either $A$ or $B$ or both occur.
+
 The union has the following properties whose proofs are left to the reader.
-Theorem
-1.4.4
-For all sets A and B,
-A ∪ B = B ∪ A, A ∪ A = A, A ∪ Ac = S,
-A∪∅=A, A ∪ S = S.
+
+::: {.callout-tip}
+::: {#thm-1-4-4}
+
+# Theorem 1.4.4
+
+For all sets $A$ and $B$,
+
+$$
+\begin{align*}
+A \cup B &= B \cup A, \; & A \cup A &= A, \; & A \cup A^c = S, \\
+A \cup \varnothing &= A, & \; A \cup S &= S. & \; &
+\end{align*}
+$$
+
 Furthermore, if A ⊂ B, then A ∪ B = B.
+
+:::
+:::
+
 The concept of union extends to more than two sets.
-Definition
-1.4.7
-Union of Many Sets. The union of n sets A1, . . . , An is defined to be the set that
-contains all outcomes that belong to at least one of these n sets. The notation for this
-union is either of the following:
-A1 ∪ A2 ∪ . . . ∪ An or
- n
-i=1
-Ai .
-10 Chapter 1 Introduction to Probability
-Similarly, the union of an infinite sequence of sets A1, A2, . . . is the set that contains
-all outcomes that belong to at least one of the events in the sequence. The infinite
-union is denoted by
- ∞
-i=1 Ai .
-In terms of events, the union of a collection of events is the event that at least
-one of the events in the collection occurs.
-We can now state the final condition that we require for the collection of sets
-that we call events.
-Condition
-3
-If A1, A2, . . . is a countable collection of events, then
- ∞
-i=1 Ai is also an event.
-In other words, if we choose to call each set of outcomes in some countable collection
-an event, we are required to call their union an event also. We do not require that
-the union of an arbitrary collection of events be an event. To be clear, let I be an
-arbitrary set that we use to index a general collection of events {Ai : i ∈ I }. The union
-of the events in this collection is the set of outcomes that are in at least one of the
-events in the collection. The notation for this union is
- 
-i∈I Ai . We do not require
-that
- 
-i∈I Ai be an event unless I is countable.
-Condition 3 refers to a countable collection of events. We can prove that the
-condition also applies to every finite collection of events.
-Theorem
-1.4.5
-The union of a finite number of events A1, . . . , An is an event.
-Proof For each m = n + 1, n + 2, . . ., define Am
-=∅. Because ∅ is an event, we now
- have a countable collection A1, A2, . . . of events. It follows from Condition 3 that ∞
-m=1 Am is an event. But it is easy to see that
- ∞
-m=1 Am
-= n
-m=1 Am.
-The union of three events A, B, and C can be constructed either directly from the
-definition of A ∪ B ∪ C or by first evaluating the union of any two of the events and
-then forming the union of this combination of events and the third event. In other
-words, the following result is true.
-Theorem
-1.4.6
-Associative Property. For every three events A, B, and C, the following associative
-relations are satisfied:
-A ∪ B ∪ C = (A ∪ B) ∪ C = A ∪ (B ∪ C).
 
+::: {.callout-tip}
+::: {#def-1-4-7}
 
-Definition
-1.4.8
-Intersection of Two Sets. If A and B are any two sets, the intersection of A and B is
-defined to be the set that contains all outcomes that belong both to A and to B. The
-notation for the intersection of A and B is A ∩ B.
-The set A ∩ B is sketched in a Venn diagram in Fig. 1.3. In terms of events, A ∩ B is
-the event that both A and B occur.
-The proof of the first part of the next result follows from Exercise 3 in this section.
-The rest of the proof is straightforward.
-Figure 1.3 The set A ∩ B.
+# Definition 1.4.7: Union of Many Sets
+
+The **union** of $n$ sets $A_1, \ldots, A_n$ is defined to be the set that contains all outcomes that belong to at least one of these $n$ sets. The notation for this union is either of the following:
+
+$$
+A_1 \cup A_2 \cup \cdots A_n\text{ or }\bigcup_{i=1}^n A_i.
+$$
+
+:::
+:::
+
+Similarly, the **union** of an infinite sequence of sets $A_1, A_2, \ldots$ is the set that contains all outcomes that belong to at least one of the events in the sequence. The infinite union is denoted by $\bigcup_{i=1}^{\infty}A_i$.
+
+In terms of events, the union of a collection of events is the event that at least one of the events in the collection occurs.
+
+We can now state the final condition that we require for the collection of sets that we call events.
+
+::: {.callout-tip}
+
+Condition 3
+
+If $A_1, A_2, \ldots$ is a countable collection of events, then $\bigcup_{i=1}^{\infty}A_i$ is also an event.
+
+:::
+
+In other words, if we choose to call each set of outcomes in some countable collection an event, we are required to call their union an event also. We do **not** require that the union of an arbitrary collection of events be an event. To be clear, let $I$ be an arbitrary set that we use to index a general collection of events $\{A_i : i \in I \}$. The union of the events in this collection is the set of outcomes that are in at least one of the events in the collection. The notation for this union is $\bigcup_{i \in I}A_i$. We do not require that $\bigcup_{i \in I}A_i$ be an event unless $I$ is countable.
+
+Condition 3 refers to a countable collection of events. We can prove that the condition also applies to every finite collection of events.
+
+::: {.callout-tip}
+::: {#thm-1-4-5}
+
+# Theorem 1.4.5
+
+The union of a finite number of events $A_1, \ldots, A_n$ is an event.
+
+**Proof**: For each $m = n + 1, n + 2, \ldots$, define $A_m = \varnothing$. Because $\varnothing$ is an event, we now have a countable collection $A_1, A_2, \ldots$ of events. It follows from Condition 3 that $\bigcup_{m=1}^{\infty}A_m$ is an event. But is it easy to see that $\bigcup_{m=1}^{\infty}A_m = \bigcup_{m=1}^nA_m.
+
+:::
+:::
+
+The union of three events $A$, $B$, and $C$ can be constructed either directly from the definition of $A \cup B \cup C$ or by first evaluating the union of any two of the events and then forming the union of this combination of events and the third event. In other words, the following result is true.
+
+::: {.callout-tip}
+::: {#thm-1-4-6}
+
+# Theorem 1.4.6: Associative Property
+
+For every three events $A$, $B$, and $C$, the following associative relations are satisfied:
+
+$$
+A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C).
+$$
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#def-1-4-8}
+
+# Definition 1.4.8: Intersection of Two Sets
+
+If $A$ and $B$ are any two sets, the **intersection** of $A$ and $B$ is defined to be the set that contains all outcomes that belong **both to $A$ and to $B$**. The notation for the intersection of $A$ and $B$ is $A \cap B$.
+
+:::
+:::
+
+The set $A \cap B$ is sketched in a Venn diagram in @fig-1-3. In terms of events, $A \cap B$ is the event that both $A$ and $B$ occur.
+
+The proof of the first part of the next result follows from @ex-1-4-3 in this section. The rest of the proof is straightforward.
+
+::: {#fig-1-3}
+
 A B
 S
 
+Figure 1.3 The set $A \cap B$.
+:::
 
-Theorem
-1.4.7
+::: {.callout-tip}
+::: {#thm-1-4-7}
+
+# Theorem 1.4.7
+
 If A and B are events, then so is A ∩ B. For all events A and B,
 A ∩ B = B ∩ A, A ∩ A = A, A ∩ Ac =∅,
 A ∩ ∅ = ∅, A∩ S = A.
 Furthermore, if A ⊂ B, then A ∩ B = A.
+
+:::
+:::
+
 The concept of intersection extends to more than two sets.
 
+::: {.callout-tip}
+::: {#def-1-4-9}
 
-Definition
-1.4.9
-Intersection of Many Sets. The intersection of n sets A1, . . . ,An is defined to be the
+# Definition 1.4.9: Intersection of Many Sets
+
+The **intersection** of n sets A1, . . . ,An is defined to be the
 set that contains the elements that are common to all these n sets. The notation for
 this intersection is A1 ∩ A2 ∩ . . . ∩ An or
  n
 i=1 Ai . Similar notations are used for the
 intersection of an infinite sequence of sets or for the intersection of an arbitrary
 collection of sets.
-In terms of events, the intersection of a collection of events is the event that every
-event in the collection occurs.
-The following result concerning the intersection of three events is straightforward
-to prove.
 
-Theorem
-1.4.8
-Associative Property. For every three events A, B, and C, the following associative
+:::
+:::
+
+In terms of events, the intersection of a collection of events is the event that every event in the collection occurs.
+
+The following result concerning the intersection of three events is straightforward to prove.
+
+::: {.callout-tip}
+::: {#thm-1-4-8}
+
+# Theorem 1.4.8: Associative Property
+
+For every three events A, B, and C, the following associative
 relations are satisfied:
 A ∩ B ∩ C = (A ∩ B) ∩ C = A ∩ (B ∩ C).
-Definition
-1.4.10
-Disjoint/Mutually Exclusive. It is said that two sets A and B are disjoint, or mutually
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#def-1-4-10}
+
+# Definition 1.4.10: Disjoint/Mutually Exclusive
+
+It is said that two sets A and B are disjoint, or mutually
 exclusive, if A and B have no outcomes in common, that is, if A ∩ B = ∅. The sets
 A1, . . . , An or the sets A1, A2, . . . are disjoint if for every i  = j , we have that Ai and
 Aj are disjoint, that is, Ai
 ∩ Aj
 =∅ for all i  = j . The events in an arbitrary collection
 are disjoint if no two events in the collection have any outcomes in common.
+
+:::
+:::
+
 In terms of events, A and B are disjoint if they cannot both occur.
-As an illustration of these concepts, a Venn diagram for three events A1, A2, and
-A3 is presented in Fig. 1.4. This diagram indicates that the various intersections of
+
+As an illustration of these concepts, a Venn diagram for three events A1, A2, and A3 is presented in Fig. 1.4. This diagram indicates that the various intersections of
 A1, A2, and A3 and their complements will partition the sample space S into eight
 disjoint subsets.
-Figure 1.4 Partition of
-S determined by three
-events A1, A2, A3.
+
+::: {#fig-1-4}
+
 A1
 c A2
 c  A3
@@ -663,9 +717,15 @@ A3
 A2 A1
 S
 
-Example
-1.4.4
-Tossing a Coin. Suppose that a coin is tossed three times. Then the sample space S
+Figure 1.4 Partition of $S$ determined by three events $A_1, A_2, A_3$.
+:::
+
+::: {.callout-tip}
+::: {#exm-1-4-4}
+
+# Example 1.4.4: Tossing a Coin
+
+Suppose that a coin is tossed three times. Then the sample space S
 contains the following eight possible outcomes s1, . . . , s8:
 s1: HHH,
 s2: THH,
@@ -691,10 +751,15 @@ Various relations among these events can be derived. Some of these relations
 are B ⊂ A, Ac = D, B ∩ D = ∅, A ∪ C = S, B ∩ C = {s4, s6}, (B ∪ C)c = {s3, s7}, and
 A ∩ (B ∪ C) = {s1, s2, s4, s5, s6}.  
 
+:::
+:::
 
-Example
-1.4.5
-Demands for Utilities. A contractor is building an office complex and needs to plan
+::: {.callout-tip}
+::: {#exm-1-4-5}
+
+# Example 1.4.5: Demands for Utilities
+
+A contractor is building an office complex and needs to plan
 for water and electricity demand (sizes of pipes, conduit, and wires). After consulting
 with prospective tenants and examining historical data, the contractor decides that
 the demand for electricity will range somewhere between 1 million and 150 million
@@ -727,24 +792,39 @@ along with intersections, unions, and complements of such sets. This sample spac
 has infinitely many points. Indeed, the sample space is uncountable. There are many
 more sets that are difficult to describe and which we will have no need to consider as
 events.  
-Additional Properties of Sets The proof of the following useful result is left to
-Exercise 3 in this section.
 
+:::
+:::
 
-Theorem
-1.4.9
-De Morgan’s Laws. For every two sets A and B,
+**Additional Properties of Sets**: The proof of the following useful result is left to @exr-1-4-3 in this section.
+
+::: {.callout-tip}
+::: {#thm-1-4-9}
+
+# Theorem 1.4.9: De Morgan's Laws
+
+For every two sets A and B,
 (A ∪ B)c = Ac ∩ Bc and (A ∩ B)c = Ac ∪ Bc.
-The generalization of Theorem 1.4.9 is the subject of Exercise 5 in this section.
-The proofs of the following distributive properties are left to Exercise 2 in this
-section. These properties also extend in natural ways to larger collections of events.
-Theorem
-1.4.10
-Distributive Properties. For every three sets A, B, and C,
+
+:::
+:::
+
+The generalization of @thm-1-4-9 is the subject of @exr-1-4-5 in this section.
+
+The proofs of the following distributive properties are left to @exr-1-4-2 in this section. These properties also extend in natural ways to larger collections of events.
+
+::: {.callout-tip}
+::: {#thm-1-4-10}
+
+# Theorem 1.4.10: Distributive Properties
+
+For every three sets A, B, and C,
 A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) and A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C).
-The following result is useful for computing probabilities of events that can be
-partitioned into smaller pieces. Its proof is left to Exercise 4 in this section, and is
-illuminated by Fig. 1.6.
+
+:::
+:::
+
+The following result is useful for computing probabilities of events that can be partitioned into smaller pieces. Its proof is left to @exr-1-4-4 in this section, and is illuminated by @fig-1-6.
 
 
 Theorem
@@ -832,10 +912,34 @@ both occur if the sets are disjoint. An event fails to occur if the outcome is i
 complement of the set. The empty set stands for every event that cannot possibly occur.
 The collection of events is assumed to contain the sample space, the complement
 of each event, and the union of each countable collection of events.
-Exercises
-1. Suppose that A ⊂ B. Show that Bc ⊂ Ac.
-2. Prove the distributive properties in Theorem 1.4.10.
-3. Prove De Morgan’s laws (Theorem 1.4.9).
+
+### Exercises
+
+::: {#exr-1-4-1}
+
+# Exercise 1.4.1
+
+Suppose that A ⊂ B. Show that Bc ⊂ Ac.
+
+:::
+
+::: {#exr-1-4-2}
+
+# Exercise 1.4.2
+
+Prove the distributive properties in Theorem 1.4.10.
+
+:::
+
+::: {#exr-1-4-3}
+
+# Exercise 1.4.3
+
+Prove De Morgan’s laws (@thm-1-4-9).
+
+:::
+
+
 4. Prove Theorem 1.4.11.
 5. For every collection of events Ai (i ∈ I), show that
  
@@ -1178,7 +1282,6 @@ Subtract Pr(A ∩ B) from both sides of this last equation to complete the proof
 :::
 
 ::: {.callout-tip}
-
 ::: {#thm-1-5-7}
 
 # Theorem 1.5.7
@@ -1194,12 +1297,14 @@ where the first equation follows from Theorem 1.5.2, and the second follows from
 Theorem 1.5.6.
 
 :::
-
 :::
 
-Example
-1.5.3
-Diagnosing Diseases. A patient arrives at a doctor’s office with a sore throat and lowgrade
+::: {.callout-tip}
+::: {#exm-1-5-3}
+
+# Example 1.5.3: Diagnosing Diseases
+
+A patient arrives at a doctor’s office with a sore throat and lowgrade
 fever. After an exam, the doctor decides that the patient has either a bacterial
 infection or a viral infection or both. The doctor decides that there is a probability of
 0.7 that the patient has a bacterial infection and a probability of 0.4 that the person
@@ -1213,9 +1318,16 @@ Since S = B ∪ V , the left-hand side of (1.5.2) is 1, while the first two term
 right-hand side are 0.7 and 0.4. The result is
 1= 0.7 + 0.4 − Pr(B ∩ V ),
 which leads to Pr(B ∩ V ) = 0.1, the probability that the patient has both infections. 
-Example
-1.5.4
-Demands for Utilities. Consider, once again, the contractor who needs to plan for
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#exm-1-5-4}
+
+# Example 1.5.4: Demands for Utilities
+
+Consider, once again, the contractor who needs to plan for
 water and electricity demands in Example 1.4.5. There are many possible choices
 for how to spread the probability around the sample space (pictured in Fig. 1.5 on
 page 12). One simple choice is to make the probability of an event E proportional to
@@ -1251,32 +1363,29 @@ is (150 − 115) × (200 − 100) = 3,500, so Pr(A ∩ B) = 3,500/29,204 = 0.119
 contractor wishes to compute the probability that at least one of the two demands
 will be high, that probability is
 Pr(A ∪ B) = Pr(A) + Pr(B) − Pr(A ∩ B) = 0.5102 + 0.2349 − 0.1198 = 0.6253,
-according to Theorem 1.5.7.  
-The proof of the following useful result is left to Exercise 13.
-Theorem
-1.5.8
-Bonferroni Inequality. For all events A1, . . . , An,
-Pr
- 
- n
-i=1
-Ai
- 
-≤
- n
-i=1
-Pr(Ai) and Pr
- 
-n
-i=1
-Ai
- 
-≥ 1−
- n
-i=1
-Pr(Ac
-i ).
-(The second inequality above is known as the Bonferroni inequality.)
+according to Theorem 1.5.7.
+
+:::
+:::
+
+The proof of the following useful result is left to @exr-1-3-13.
+
+::: {.callout-tip}
+::: {#thm-1-5-8}
+
+# Theorem 1.5.8: Bonferroni Inequality
+
+For all events $A_1, \ldots, A_n$,
+
+$$
+\Pr\left( \bigcup_{i=1}^n A_i \right) \leq \sum_{i=1}^n \Pr(A_i)\text{ and }\Pr\left( \bigcap_{i=1}^n A_i \right) \geq 1 - \sum_{i=1}^n\Pr(A_i^c).
+$$
+
+(The second inequality above is known as the **Bonferroni inequality**.)
+
+:::
+:::
+
 Note: Probability Zero Does Not Mean Impossible. When an event has probability
 0, it does not mean that the event is impossible. In Example 1.5.4, there are many
 events with 0 probability, but they are not all impossible. For example, for every x, the
