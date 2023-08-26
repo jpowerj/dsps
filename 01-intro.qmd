@@ -2663,7 +2663,7 @@ P20,8 = C20,8 × 8!= 125,970 × 8!= 5,078,110,400.  
 :::
 :::
 
-Examples -@exm-1-8-2 and -@exm-1-8-3 illustrate the difference and relationship between combinations and permutations. In @exm-1-8-3, we count the same group of people in a different order as a different outcome, while in @exm-1-8-2, we count the same group in different orders as the same outcome. The two numerical values differ by a factor of $8!$, the number of ways to reorder each of the combinations in @exm-1-8-2 to get a permutation in @exm-1-8-3.
+Examples [-@exm-1-8-2] and [-@exm-1-8-3] illustrate the difference and relationship between combinations and permutations. In @exm-1-8-3, we count the same group of people in a different order as a different outcome, while in @exm-1-8-2, we count the same group in different orders as the same outcome. The two numerical values differ by a factor of $8!$, the number of ways to reorder each of the combinations in @exm-1-8-2 to get a permutation in @exm-1-8-3.
 
 ### Binomial Coefficients
 
