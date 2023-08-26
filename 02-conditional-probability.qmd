@@ -2,12 +2,14 @@
 
 ## The Definition of Conditional Probability {#sec-2-1}
 
-A major use of probability in statistical inference is the updating of probabilities
-when certain events are observed. The updated probability of event A after we
-learn that event B has occurred is the conditional probability of A given B.
-Example
-2.1.1
-Lottery Ticket. Consider a state lottery game in which six numbers are drawn without
+*A major use of probability in statistical inference is the updating of probabilities when certain events are observed. The updated probability of event $A$ after we learn that event $B$ has occurred is the conditional probability of $A$ given $B$.*
+
+::: {.callout-tip}
+::: {#exm-2-1-1}
+
+# Example 2.1.1: Lottery Ticket
+
+Consider a state lottery game in which six numbers are drawn without
 replacement from a bin containing the numbers 1–30. Each player tries to match the
 set of six numbers that will be drawn without regard to the order in which the numbers
 are drawn. Suppose that you hold a ticket in such a lottery with the numbers 1, 14,
@@ -16,8 +18,12 @@ one number, 15, being drawn when the power suddenly goes off in your house. You
 don’t even know whether 15 was the first, last, or some in-between draw. However,
 now that you know that 15 appears in the winning draw, the probability that your
 ticket is a winner must be higher than it was before you saw the draw. How do you
-calculate the revised probability?  
-Example 2.1.1 is typical of the following situation. An experiment is performed
+calculate the revised probability?
+
+:::
+:::
+
+@exm-2-1-1 is typical of the following situation. An experiment is performed
 for which the sample space S is given (or can be constructed easily) and the probabilities
 are available for all of the events of interest.We then learn that some event B
 has occuured, and we want to know how the probability of another event A changes
@@ -32,33 +38,48 @@ A will occur, we must consider the set of those outcomes in B that also result i
 the occurrence of A. As sketched in Fig. 2.1, this set is precisely the set A ∩ B. It is
 therefore natural to calculate the revised probability of A according to the following
 definition.
-55
-56 Chapter 2 Conditional Probability
-Figure 2.1 The outcomes in
-the event B that also belong
-to the event A. A
+
+::: {#fig-2-1}
+
 B
 S
 A B
-Definition
-2.1.1
-Conditional Probability. Suppose that we learn that an event B has occurred and that
-we wish to compute the probability of another event A taking into account that
-we know that B has occurred. The new probability of A is called the conditional
-probability of the event A given that the event B has occurred and is denoted Pr(A|B).
-If Pr(B) > 0, we compute this probability as
-Pr(A|B) = Pr(A ∩ B)
-Pr(B)
-. (2.1.1)
-The conditional probability Pr(A|B) is not defined if Pr(B) = 0.
-For convenience, the notation in Definition 2.1.1 is read simply as the conditional
-probability of A given B. Eq. (2.1.1) indicates that Pr(A|B) is computed as the
-proportion of the total probability Pr(B) that is represented by Pr(A ∩ B), intuitively
-the proportion of B that is also part of A.
-Example
-2.1.2
-Lottery Ticket. In Example 2.1.1, you learned that the event
-B = {one of the numbers drawn is 15}
+
+
+Figure 2.1 The outcomes in
+the event B that also belong
+to the event A. A
+:::
+
+::: {.callout-tip}
+::: {#def-2-1-1}
+
+# Definition 2.1.1: Conditional Probability
+
+Suppose that we learn that an event $B$ has occurred and that we wish to compute the probability of another event $A$ taking into account that we know that $B$ has occurred. The new probability of $A$ is called the **conditional probability** of the event $A$ given that the event $B$ has occurred and is denoted $\Pr(A \mid B)$. If $\Pr(B) > 0$, we compute this probability as
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}.
+$$ {#eq-2-1-1}
+
+The conditional probability $\Pr(A \mid B)$ is not defined if $\Pr(B) = 0$.
+
+:::
+:::
+
+For convenience, the notation in @def-2-1-1 is read simply as the conditional probability of $A$ given $B$. @eq-2-1-1 indicates that $\Pr(A \mid B)$ is computed as the proportion of the total probability $\Pr(B)$ that is represented by $\Pr(A \cap B)$, intuitively the proportion of $B$ that is also part of $A$.
+
+::: {.callout-tip}
+::: {#exm-2-1-2}
+
+# Example 2.1.2: Lottery Ticket.
+
+In @exm-2-1-1, you learned that the event
+
+$$
+B = \{\text{one of the numbers drawn is }15\}
+$$
+
 has occurred. You want to calculate the probability of the event A that your ticket
 is a winner. Both events A and B are expressible in the sample space that consists of
 the
@@ -97,19 +118,16 @@ Pr(A|B) =
 0.2
 = 8.4 × 10−6.
 This is five times as large as Pr(A) before you learned that B had occurred.  
-Definition 2.1.1 for the conditional probability Pr(A|B) is worded in terms of
-the subjective interpretation of probability in Sec. 1.2. Eq. (2.1.1) also has a simple
-meaning in terms of the frequency interpretation of probability. According to the
-2.1 The Definition of Conditional Probability 57
-frequency interpretation, if an experimental process is repeated a large number of
-times, then the proportion of repetitions in which the event B will occur is approximately
-Pr(B) and the proportion of repetitions in which both the event A and the
-event B will occur is approximately Pr(A ∩ B). Therefore, among those repetitions
-in which the event B occurs, the proportion of repetitions in which the event A will
-also occur is approximately equal to
-Pr(A|B) = Pr(A ∩ B)
-Pr(B)
-.
+
+:::
+:::
+
+@def-2-1-1 for the conditional probability $\Pr(A \mid B)$ is worded in terms of the subjective interpretation of probability in @sec-1-2. @eq-2-1-1 also has a simple meaning in terms of the frequency interpretation of probability. According to the frequency interpretation, if an experimental process is repeated a large number of times, then the proportion of repetitions in which the event $B$ will occur is approximately $\Pr(B)$ and the proportion of repetitions in which both the event $A$ and the event $B$ will occur is approximately $\Pr(A \cap B)$. Therefore, among those repetitions in which the event $B$ occurs, the proportion of repetitions in which the event $A$ will also occur is approximately equal to
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}
+$$
+
 Example
 2.1.3
 Rolling Dice. Suppose that two dice were rolled and it was observed that the sum T of
@@ -2498,9 +2516,19 @@ empty?
 
 ## Supplementary Exercises {#sec-2-5}
 
+::: {#exr-2-5-1}
+
+# Exercise 2.5.1
+
 1. Suppose that $A$, $B$, and $D$ are any three events such that
 Pr(A|D) ≥ Pr(B|D) and Pr(A|Dc) ≥ Pr(B|Dc). Prove that
 Pr(A) ≥ Pr(B).
+
+:::
+
+::: {#exr-2-5-2}
+
+# Exercise 2.5.2
 
 2. Suppose that a fair coin is tossed repeatedly and independently
 until both a head and a tail have appeared at
