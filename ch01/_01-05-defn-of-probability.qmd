@@ -203,7 +203,7 @@ Subtract $\Pr(A \cap B)$ from both sides of this last equation to complete the p
 :::
 :::
 
-![$B = A ∪ (B ∩ Ac)$ in the proof of @thm-1-5-4.](images/fig-1-8.png){#fig-1-8}
+![$B = A ∪ (B ∩ Ac)$ in the proof of @thm-1-5-4.](ch01/images/fig-1-8.png){#fig-1-8}
 
 ::: {.callout-tip}
 ::: {#thm-1-5-7}
@@ -285,7 +285,7 @@ according to @thm-1-5-7.
 :::
 :::
 
-![The two events of interest in utility demand sample space for @exm-1-5-4.](images/fig-1-9.png){#fig-1-9}
+![The two events of interest in utility demand sample space for @exm-1-5-4.](ch01/images/fig-1-9.png){#fig-1-9}
 
 The proof of the following useful result is left to @exr-1-5-13.
 
