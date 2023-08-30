@@ -25,7 +25,7 @@ book:
     - 12-simulation.qmd
     - references.qmd
 
-bibliography: references.bib
+bibliography: assets/DeGroot_Schervish.bib
 
 format:
   html:
