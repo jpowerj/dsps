@@ -345,7 +345,7 @@ in different subsets of the sample space. The birthday problem, which follows,
 is another example in which we need more than one counting method in the same
 problem.
 
-### The Birthday Problem
+### The Birthday Problem {#sec-bday-problem}
 
 In the following problem, which is often called the birthday problem, it is required to
 determine the probability p that at least two people in a group of k people will have
@@ -408,8 +408,7 @@ $$
 \frac{n!}{a_n} = e^{\log(n!) - \log(a_n)}.
 $$
 
-Compared to computing $n!$, it takes a much larger $n$ before $\log(n!)$ becomes difficult to represent. Furthermore, if we had a simple approximation $s_n$ to $\log(n!)$ such that $\lim_{n \rightarrow \infty}|s_n - \log(n!)| = 0$, then the ratio of $n!/a_n$ to $s_n/a_n$ would be close to 1 for large $n$. The following result, whose proof can be found in @feller-1968, provides such an
-approximation.
+Compared to computing $n!$, it takes a much larger $n$ before $\log(n!)$ becomes difficult to represent. Furthermore, if we had a simple approximation $s_n$ to $\log(n!)$ such that $\lim_{n \rightarrow \infty}|s_n - \log(n!)| = 0$, then the ratio of $n!/a_n$ to $s_n/a_n$ would be close to 1 for large $n$. The following result, whose proof can be found in @feller_introduction_1968, provides such an approximation.
 
 ::: {.callout-tip}
 ::: {#thm-1-7-5}
@@ -463,10 +462,7 @@ Under these conditions, there are $n_1 \cdots n_k$ elements of the set. The thir
 
 # Exercise 1.7.1
 
-1. Each year starts on one of the seven days (Sunday
-through Saturday). Each year is either a leap year (i.e.,
-it includes February 29) or not. How many different calendars
-are possible for a year?
+Each year starts on one of the seven days (Sunday through Saturday). Each year is either a leap year (i.e., it includes February 29) or not. How many different calendars are possible for a year?
 
 :::
 
@@ -474,11 +470,7 @@ are possible for a year?
 
 # Exercise 1.7.2
 
-2. Three different classes contain 20, 18, and 25 students,
-respectively, and no student is a member of more than one
-class. If a team is to be composed of one student from each
-of these three classes, in how many different ways can the
-members of the team be chosen?
+2. Three different classes contain 20, 18, and 25 students, respectively, and no student is a member of more than one class. If a team is to be composed of one student from each of these three classes, in how many different ways can the members of the team be chosen?
 
 :::
 
@@ -486,8 +478,7 @@ members of the team be chosen?
 
 # Exercise 1.7.3
 
-3. In how many different ways can the five letters a, b, c,
-d, and e be arranged?
+In how many different ways can the five letters `a`, `b`, `c`, `d`, and `e` be arranged?
 
 :::
 
@@ -495,9 +486,7 @@ d, and e be arranged?
 
 # Exercise 1.7.4
 
-4. If a man has six different sportshirts and four different
-pairs of slacks, how many different combinations can he
-wear?
+If a man has six different sportshirts and four different pairs of slacks, how many different combinations can he wear?
 
 :::
 
@@ -505,8 +494,7 @@ wear?
 
 # Exercise 1.7.5
 
-5. If four dice are rolled, what is the probability that each
-of the four numbers that appear will be different?
+5. If four dice are rolled, what is the probability that each of the four numbers that appear will be different?
 
 :::
 
@@ -514,8 +502,7 @@ of the four numbers that appear will be different?
 
 # Exercise 1.7.6
 
-6. If six dice are rolled, what is the probability that each
-of the six different numbers will appear exactly once?
+If six dice are rolled, what is the probability that each of the six different numbers will appear exactly once?
 
 :::
 
@@ -523,9 +510,7 @@ of the six different numbers will appear exactly once?
 
 # Exercise 1.7.7
 
-7. If 12 balls are thrown at random into 20 boxes, what
-is the probability that no box will receive more than one
-ball?
+7. If 12 balls are thrown at random into 20 boxes, what is the probability that no box will receive more than one ball?
 
 :::
 
@@ -533,11 +518,7 @@ ball?
 
 # Exercise 1.7.8
 
-8. An elevator in a building starts with five passengers
-and stops at seven floors. If every passenger is equally
-likely to get off at each floor and all the passengers leave
-independently of each other, what is the probability that
-no two passengers will get off at the same floor?
+An elevator in a building starts with five passengers and stops at seven floors. If every passenger is equally likely to get off at each floor and all the passengers leave independently of each other, what is the probability that no two passengers will get off at the same floor?
 
 :::
 
@@ -545,12 +526,7 @@ no two passengers will get off at the same floor?
 
 # Exercise 1.7.9
 
-9. Suppose that three runners from team A and three runners
-from team B participate in a race. If all six runners
-have equal ability and there are no ties, what is the probability
-that the three runners from team A will finish first,
-second, and third, and the three runners from team B will
-finish fourth, fifth, and sixth?
+Suppose that three runners from team A and three runners from team B participate in a race. If all six runners have equal ability and there are no ties, what is the probability that the three runners from team A will finish first, second, and third, and the three runners from team B will finish fourth, fifth, and sixth?
 
 :::
 
@@ -558,12 +534,7 @@ finish fourth, fifth, and sixth?
 
 # Exercise 1.7.10
 
-10. A box contains 100 balls, of which r are red. Suppose
-that the balls are drawn from the box one at a time, at random,
-without replacement. Determine (a) the probability
-that the first ball drawn will be red; (b) the probability that
-the 50th ball drawn will be red; and (c) the probability that
-the last ball drawn will be red.
+A box contains 100 balls, of which $r$ are red. Suppose that the balls are drawn from the box one at a time, at random, without replacement. Determine (a) the probability that the first ball drawn will be red; (b) the probability that the 50th ball drawn will be red; and (c) the probability that the last ball drawn will be red.
 
 :::
 
@@ -571,8 +542,6 @@ the last ball drawn will be red.
 
 # Exercise 1.7.11
 
-11. Let n and k be positive integers such that both n and
-n − k are large. Use Stirling’s formula to write as simple
-an approximation as you can for Pn,k.
+Let $n$ and $k$ be positive integers such that both $n$ and $n − k$ are large. Use Stirling's formula to write as simple an approximation as you can for $P_{n,k}$.
 
 :::

@@ -256,7 +256,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#multiplication-rule" id="toc-multiplication-rule" class="nav-link" data-scroll-target="#multiplication-rule">Multiplication Rule</a></li>
   <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations">Permutations</a></li>
-  <li><a href="#the-birthday-problem" id="toc-the-birthday-problem" class="nav-link" data-scroll-target="#the-birthday-problem">The Birthday Problem</a></li>
+  <li><a href="#sec-bday-problem" id="toc-sec-bday-problem" class="nav-link" data-scroll-target="#sec-bday-problem">The Birthday Problem</a></li>
   <li><a href="#stirlings-formula" id="toc-stirlings-formula" class="nav-link" data-scroll-target="#stirlings-formula">Stirling’s Formula</a></li>
   <li><a href="#summary-3" id="toc-summary-3" class="nav-link" data-scroll-target="#summary-3">Summary</a></li>
   <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3">Exercises</a></li>
@@ -715,7 +715,7 @@ A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C).
 </div>
 </div>
 <p>The set <span class="math inline">\(A \cap B\)</span> is sketched in a Venn diagram in <a href="#fig-1-3">Figure&nbsp;<span>1.3</span></a>. In terms of events, <span class="math inline">\(A \cap B\)</span> is the event that both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur.</p>
-<p>The proof of the first part of the next result follows from <span class="citation" data-cites="ex-1-4-3">(<a href="references.html#ref-ex-1-4-3" role="doc-biblioref"><strong>ex-1-4-3?</strong></a>)</span> in this section. The rest of the proof is straightforward.</p>
+<p>The proof of the first part of the next result follows from <a href="#exm-1-4-3">Example&nbsp;<span>1.3</span></a> in this section. The rest of the proof is straightforward.</p>
 <div id="fig-1-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ch01/images/fig-1-3.png" class="img-fluid figure-img"></p>
@@ -1786,8 +1786,8 @@ p = \frac{P_{n,k}}{n^k} = \frac{n!}{(n-k)!n^k}.
 </div>
 <p><strong>Note: Using Two Different Methods in the Same Problem</strong>. <a href="#exm-1-7-11">Example&nbsp;<span>1.25</span></a> illustrates a combination of techniques that might seem confusing at first. The method used to count the number of outcomes in the sample space was based on sampling with replacement, since the experiment allows repeat numbers in each outcome. The method used to count the number of outcomes in the eventE was permutations (sampling without replacement) because E consists of those outcomes without repeats. It often happens that one needs to use different methods to count the numbers of outcomes in different subsets of the sample space. The birthday problem, which follows, is another example in which we need more than one counting method in the same problem.</p>
 </section>
-<section id="the-birthday-problem" class="level3">
-<h3 class="anchored" data-anchor-id="the-birthday-problem">The Birthday Problem</h3>
+<section id="sec-bday-problem" class="level3">
+<h3 class="anchored" data-anchor-id="sec-bday-problem">The Birthday Problem</h3>
 <p>In the following problem, which is often called the birthday problem, it is required to determine the probability p that at least two people in a group of k people will have the same birthday, that is, will have been born on the same day of the same month but not necessarily in the same year. For the solution presented here, we assume that the birthdays of the k people are unrelated (in particular, we assume that twins are not present) and that each of the 365 days of the year is equally likely to be the birthday of any person in the group. In particular, we ignore the fact that the birth rate actually varies during the year and we assume that anyone actually born on February 29 will consider his birthday to be another day, such as March 1. When these assumptions are made, this problem becomes similar to the one in Example 1.7.11. Since there are 365 possible birthdays for each of k people, the sample space S will contain 365k outcomes, all of which will be equally probable. If k &gt; 365, there are not enough birthdays for every one to be different, and hence at least two people must have the same birthday. So, we assume that k ≤ 365. Counting the number of outcomes in which at least two birthdays are the same is tedious. However, the number of outcomes in S for which all k birthdays will be different is P365, k, since the first person’s birthday could be any one of the 365 days, the second person’s birthday could then be any of the other 364 days, and so on. Hence, the probability that all k persons will have different birthdays is P365, k 365k . The probability p that at least two of the people will have the same birthday is therefore p = 1− P365, k 365k = 1− (365)! (365 − k)!365k . Numerical values of this probability p for various values of k are given in Table 1.1. These probabilities may seem surprisingly large to anyone who has not thought about them before. Many persons would guess that in order to obtain a value of p greater than 1/2, the number of people in the group would have to be about 100. However, according to Table 1.1, there would have to be only 23 people in the group. As a matter of fact, for k = 100 the value of p is 0.9999997.</p>
 <div id="tbl-1-1" class="anchored">
 <table class="table">
@@ -1848,7 +1848,7 @@ p = \frac{P_{n,k}}{n^k} = \frac{n!}{(n-k)!n^k}.
 <p><span class="math display">\[
 \frac{n!}{a_n} = e^{\log(n!) - \log(a_n)}.
 \]</span></p>
-<p>Compared to computing <span class="math inline">\(n!\)</span>, it takes a much larger <span class="math inline">\(n\)</span> before <span class="math inline">\(\log(n!)\)</span> becomes difficult to represent. Furthermore, if we had a simple approximation <span class="math inline">\(s_n\)</span> to <span class="math inline">\(\log(n!)\)</span> such that <span class="math inline">\(\lim_{n \rightarrow \infty}|s_n - \log(n!)| = 0\)</span>, then the ratio of <span class="math inline">\(n!/a_n\)</span> to <span class="math inline">\(s_n/a_n\)</span> would be close to 1 for large <span class="math inline">\(n\)</span>. The following result, whose proof can be found in <span class="citation" data-cites="feller-1968">(<a href="references.html#ref-feller-1968" role="doc-biblioref"><strong>feller-1968?</strong></a>)</span>, provides such an approximation.</p>
+<p>Compared to computing <span class="math inline">\(n!\)</span>, it takes a much larger <span class="math inline">\(n\)</span> before <span class="math inline">\(\log(n!)\)</span> becomes difficult to represent. Furthermore, if we had a simple approximation <span class="math inline">\(s_n\)</span> to <span class="math inline">\(\log(n!)\)</span> such that <span class="math inline">\(\lim_{n \rightarrow \infty}|s_n - \log(n!)| = 0\)</span>, then the ratio of <span class="math inline">\(n!/a_n\)</span> to <span class="math inline">\(s_n/a_n\)</span> would be close to 1 for large <span class="math inline">\(n\)</span>. The following result, whose proof can be found in <span class="citation" data-cites="feller_introduction_1968">Feller (<a href="references.html#ref-feller_introduction_1968" role="doc-biblioref">1968</a>)</span>, provides such an approximation.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1898,10 +1898,7 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 <section id="exercises-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercises-3">Exercises</h3>
 <div id="exr-1-7-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.37 (Exercise 1.7.1) </strong></span>&nbsp;</p>
-<ol type="1">
-<li>Each year starts on one of the seven days (Sunday through Saturday). Each year is either a leap year (i.e., it includes February 29) or not. How many different calendars are possible for a year?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.37 (Exercise 1.7.1) </strong></span>Each year starts on one of the seven days (Sunday through Saturday). Each year is either a leap year (i.e., it includes February 29) or not. How many different calendars are possible for a year?</p>
 </div>
 <div id="exr-1-7-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.38 (Exercise 1.7.2) </strong></span>&nbsp;</p>
@@ -1910,16 +1907,10 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 </ol>
 </div>
 <div id="exr-1-7-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.39 (Exercise 1.7.3) </strong></span>&nbsp;</p>
-<ol start="3" type="1">
-<li>In how many different ways can the five letters a, b, c, d, and e be arranged?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.39 (Exercise 1.7.3) </strong></span>In how many different ways can the five letters <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, and <code>e</code> be arranged?</p>
 </div>
 <div id="exr-1-7-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.40 (Exercise 1.7.4) </strong></span>&nbsp;</p>
-<ol start="4" type="1">
-<li>If a man has six different sportshirts and four different pairs of slacks, how many different combinations can he wear?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.40 (Exercise 1.7.4) </strong></span>If a man has six different sportshirts and four different pairs of slacks, how many different combinations can he wear?</p>
 </div>
 <div id="exr-1-7-5" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.41 (Exercise 1.7.5) </strong></span>&nbsp;</p>
@@ -1928,10 +1919,7 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 </ol>
 </div>
 <div id="exr-1-7-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.42 (Exercise 1.7.6) </strong></span>&nbsp;</p>
-<ol start="6" type="1">
-<li>If six dice are rolled, what is the probability that each of the six different numbers will appear exactly once?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.42 (Exercise 1.7.6) </strong></span>If six dice are rolled, what is the probability that each of the six different numbers will appear exactly once?</p>
 </div>
 <div id="exr-1-7-7" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.43 (Exercise 1.7.7) </strong></span>&nbsp;</p>
@@ -1940,28 +1928,16 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 </ol>
 </div>
 <div id="exr-1-7-8" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.44 (Exercise 1.7.8) </strong></span>&nbsp;</p>
-<ol start="8" type="1">
-<li>An elevator in a building starts with five passengers and stops at seven floors. If every passenger is equally likely to get off at each floor and all the passengers leave independently of each other, what is the probability that no two passengers will get off at the same floor?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.44 (Exercise 1.7.8) </strong></span>An elevator in a building starts with five passengers and stops at seven floors. If every passenger is equally likely to get off at each floor and all the passengers leave independently of each other, what is the probability that no two passengers will get off at the same floor?</p>
 </div>
 <div id="exr-1-7-9" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.45 (Exercise 1.7.9) </strong></span>&nbsp;</p>
-<ol start="9" type="1">
-<li>Suppose that three runners from team A and three runners from team B participate in a race. If all six runners have equal ability and there are no ties, what is the probability that the three runners from team A will finish first, second, and third, and the three runners from team B will finish fourth, fifth, and sixth?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.45 (Exercise 1.7.9) </strong></span>Suppose that three runners from team A and three runners from team B participate in a race. If all six runners have equal ability and there are no ties, what is the probability that the three runners from team A will finish first, second, and third, and the three runners from team B will finish fourth, fifth, and sixth?</p>
 </div>
 <div id="exr-1-7-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.46 (Exercise 1.7.10) </strong></span>&nbsp;</p>
-<ol start="10" type="1">
-<li>A box contains 100 balls, of which r are red. Suppose that the balls are drawn from the box one at a time, at random, without replacement. Determine (a) the probability that the first ball drawn will be red; (b) the probability that the 50th ball drawn will be red; and (c) the probability that the last ball drawn will be red.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.46 (Exercise 1.7.10) </strong></span>A box contains 100 balls, of which <span class="math inline">\(r\)</span> are red. Suppose that the balls are drawn from the box one at a time, at random, without replacement. Determine (a) the probability that the first ball drawn will be red; (b) the probability that the 50th ball drawn will be red; and (c) the probability that the last ball drawn will be red.</p>
 </div>
 <div id="exr-1-7-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.47 (Exercise 1.7.11) </strong></span>&nbsp;</p>
-<ol start="11" type="1">
-<li>Let n and k be positive integers such that both n and n − k are large. Use Stirling’s formula to write as simple an approximation as you can for Pn,k.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.47 (Exercise 1.7.11) </strong></span>Let <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> be positive integers such that both <span class="math inline">\(n\)</span> and <span class="math inline">\(n − k\)</span> are large. Use Stirling’s formula to write as simple an approximation as you can for <span class="math inline">\(P_{n,k}\)</span>.</p>
 </div>
 </section>
 </section>
@@ -1977,13 +1953,17 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.27 (Example 1.8.1: Choosing Subsets) </strong></span>Consider the set {a, b, c, d} containing the four different letters. We want to count the number of distinct subsets of size two. In this case, we can list all of the subsets of size two: {a, b}, {a, c}, {a, d}, {b, c}, {b, d}, and {c, d}.</p>
-<p>We see that there are six distinct subsets of size two. This is different from counting permutaions because {a, b} and {b, a} are the same subset.  </p>
+<p><span class="theorem-title"><strong>Example 1.27 (Example 1.8.1: Choosing Subsets) </strong></span>Consider the set <span class="math inline">\(\{a, b, c, d\}\)</span> containing the four different letters. We want to count the number of distinct subsets of size two. In this case, we can list all of the subsets of size two:</p>
+<p><span class="math display">\[
+\{a, b\}, \; \{a, c\}, \; \{a, d\}, \; \{b, c\}, \; \{b, d\}, \; and \{c, d\}.
+\]</span></p>
+<p>We see that there are six distinct subsets of size two. This is different from counting permutaions because <span class="math inline">\(\{a, b\}\)</span> and <span class="math inline">\(\{b, a\}\)</span> are the same subset.</p>
 </div>
 </div>
 </div>
 </div>
-<p>For large sets, it would be tedious, if not impossible, to enumerate all of the subsets of a given size and count them as we did in Example 1.8.1. However, there is a connection between counting subsets and counting permutations that will allow us to derive the general formula for the number of subsets. Suppose that there is a set of n distinct elements from which it is desired to choose a subset containing k elements (1≤ k ≤ n).We shall determine the number of different subsets that can be chosen. In this problem, the arrangement of the elements in a subset is irrelevant and each subset is treated as a unit.</p>
+<p>For large sets, it would be tedious, if not impossible, to enumerate all of the subsets of a given size and count them as we did in <a href="#exm-1-8-1">Example&nbsp;<span>1.27</span></a>. However, there is a connection between counting subsets and counting permutations that will allow us to derive the general formula for the number of subsets.</p>
+<p>Suppose that there is a set of n distinct elements from which it is desired to choose a subset containing <span class="math inline">\(k\)</span> elements (<span class="math inline">\(1 \leq k \leq n\)</span>).We shall determine the number of different subsets that can be chosen. In this problem, the arrangement of the elements in a subset is irrelevant and each subset is treated as a unit.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1996,7 +1976,8 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 </div>
 </div>
 </div>
-<p>No two combinations will consist of exactly the same elements because two subsets with the same elements are the same subset. At the end of Example 1.8.1, we noted that two different permutations (a, b) and (b, a) both correspond to the same combination or subset {a, b}.We can think of permutations as being constructed in two steps. First, a combination of k elements is chosen out of n, and second, those k elements are arranged in a specific order. There are Cn, k ways to choose the k elements out of n, and for each such choice there are k! ways to arrange those k elements in different orders. Using the multiplication rule from Sec. 1.7, we see that the number of permutations of n elements taken k at a time is Pn, k = Cn, kk!; hence, we have the following.</p>
+<p>No two combinations will consist of exactly the same elements because two subsets with the same elements are the same subset.</p>
+<p>At the end of <a href="#exm-1-8-1">Example&nbsp;<span>1.27</span></a>, we noted that two different permutations <span class="math inline">\((a, b)\)</span> and <span class="math inline">\((b, a)\)</span> both correspond to the same combination or subset <span class="math inline">\(\{a, b\}\)</span>. We can think of permutations as being constructed in two steps. First, a combination of <span class="math inline">\(k\)</span> elements is chosen out of <span class="math inline">\(n\)</span>, and second, those <span class="math inline">\(k\)</span> elements are arranged in a specific order. There are <span class="math inline">\(C_{n, k}\)</span> ways to choose the <span class="math inline">\(k\)</span> elements out of <span class="math inline">\(n\)</span>, and for each such choice there are <span class="math inline">\(k!\)</span> ways to arrange those <span class="math inline">\(k\)</span> elements in different orders. Using the multiplication rule from <a href="#sec-1-7"><span>Section&nbsp;1.7</span></a>, we see that the number of permutations of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time is <span class="math inline">\(P_{n, k} = C_{n, k}k!\)</span>; hence, we have the following.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2035,7 +2016,10 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.29 (Example 1.8.3: Choosing Jobs) </strong></span>Suppose that, in Example 1.8.2, the eight people in the committee each get a different job to perform on the committee. The number of ways to choose eight people out of 20 and assign them to the eight different jobs is the number of permutations of 20 elements taken eight at a time, or P20,8 = C20,8 × 8!= 125,970 × 8!= 5,078,110,400.  </p>
+<p><span class="theorem-title"><strong>Example 1.29 (Example 1.8.3: Choosing Jobs) </strong></span>Suppose that, in <a href="#exm-1-8-2">Example&nbsp;<span>1.28</span></a>, the eight people in the committee each get a different job to perform on the committee. The number of ways to choose eight people out of 20 and assign them to the eight different jobs is the number of permutations of 20 elements taken eight at a time, or</p>
+<p><span class="math display">\[
+P_{20,8} = C_{20,8} \cdot 8! = 125,970 \cdot 8!= 5,078,110,400.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2055,7 +2039,7 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 <p><span id="eq-1-8-1"><span class="math display">\[
 \binom{n}{k} = \frac{n!}{k!(n-k)!}.
 \tag{1.4}\]</span></span></p>
-<p>When this notation is used, this number is called a binomial coefficient.</p>
+<p>When this notation is used, this number is called a <strong>binomial coefficient</strong>.</p>
 </div>
 </div>
 </div>
@@ -2068,8 +2052,10 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="thm-1-8-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.26 (Theorem 1.8.2: Binomial Theorem) </strong></span>For all numbers x and y and each positive integer n, (x + y)n =  n k=0</p>
-<p>n k   xkyn−k.</p>
+<p><span class="theorem-title"><strong>Theorem 1.26 (Theorem 1.8.2: Binomial Theorem) </strong></span>For all numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> and each positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+(x + y)^n = \sum_{k=0}^n \binom{n}{k}x^ky^{n-k}.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2082,16 +2068,22 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="thm-1-8-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.27 (Theorem 1.8.3) </strong></span>For all n,</p>
-<p>n 0   =</p>
-<p>n n   = 1. For all n and all k = 0, 1, . . . , n,</p>
-<p>n k   =</p>
-<p>n n − k   . Proof The first equation follows from the fact that 0!= 1. The second equation follows from Eq. (1.8.1). The second equation can also be derived from the fact that selecting k elements to form a subset is equivalent to selecting the remaining n − k elements to form the complement of the subset.</p>
+<p><span class="theorem-title"><strong>Theorem 1.27 (Theorem 1.8.3) </strong></span>For all <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\binom{n}{0} = \binom{n}{n} = 1.
+\]</span></p>
+<p>For all <span class="math inline">\(n\)</span> and all <span class="math inline">\(k = 0, 1, \ldots, n\)</span>,</p>
+<p><span class="math display">\[
+\binom{n}{k} = \binom{n}{n-k}.
+\]</span>  </p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The first equation follows from the fact that <span class="math inline">\(0! = 1\)</span>. The second equation follows from <a href="#eq-1-8-1">Equation&nbsp;<span>1.4</span></a>. The second equation can also be derived from the fact that selecting <span class="math inline">\(k\)</span> elements to form a subset is equivalent to selecting the remaining <span class="math inline">\(n − k\)</span> elements to form the complement of the subset.</p>
 </div>
 </div>
 </div>
 </div>
-<p>It is sometimes convenient to use the expression “n choose k” for the value of Cn, k. Thus, the same quantity is represented by the two different notations Cn, k   and n k   , and we may refer to this quantity in three different ways: as the number of combinations of n elements taken k at a time, as the binomial coefficient of n and k, or simply as “n choose k.”</p>
+</div>
+<p>It is sometimes convenient to use the expression “<span class="math inline">\(n\)</span> choose <span class="math inline">\(k\)</span>” for the value of <span class="math inline">\(C_{n, k}\)</span>. Thus, the same quantity is represented by the two different notations <span class="math inline">\(C_{n, k}\)</span> and <span class="math inline">\(\binom{n}{k}\)</span>, and we may refer to this quantity in three different ways: as the number of combinations of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time, as the binomial coefficient of <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span>, or simply as “<span class="math inline">\(n\)</span> choose <span class="math inline">\(k\)</span>.”</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2099,11 +2091,16 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.30 (Example 1.8.4: Blood Types.) </strong></span>In Example 1.6.4 on page 23, we defined genes, alleles, and genotypes. The gene for human blood type consists of a pair of alleles chosen from the three alleles commonly called O, A, and B. For example, two possible combinations of alleles (called genotypes) to form a blood-type gene would be BB and AO. We will not distinguish the same two alleles in different orders, so OA represents the same genotype as AO. How many genotypes are there for blood type? The answer could easily be found by counting, but it is an example of a more general calculation. Suppose that a gene consists of a pair chosen from a set of n different alleles. Assuming that we cannot distinguish the same pair in different orders, there are n pairs where both alleles are the same, and there are  n2   pairs where the two alleles are different. The total number of genotypes is n +</p>
-<p>n 2   = n + n(n − 1) 2 = n(n + 1) 2 =</p>
-<p>n + 1 2  </p>
-<p>For the case of blood type, we have n = 3, so there are</p>
-<p>4 2   = 4 × 3 2 = 6 genotypes, as could easily be verified by counting.</p>
+<p><span class="theorem-title"><strong>Example 1.30 (Example 1.8.4: Blood Types.) </strong></span>In <a href="#exm-1-6-4">Example&nbsp;<span>1.13</span></a>, we defined genes, alleles, and genotypes. The gene for human blood type consists of a pair of alleles chosen from the three alleles commonly called O, A, and B. For example, two possible combinations of alleles (called genotypes) to form a blood-type gene would be BB and AO. We will not distinguish the same two alleles in different orders, so OA represents the same genotype as AO. How many genotypes are there for blood type?</p>
+<p>The answer could easily be found by counting, but it is an example of a more general calculation. Suppose that a gene consists of a pair chosen from a set of <span class="math inline">\(n\)</span> different alleles. Assuming that we cannot distinguish the same pair in different orders, there are <span class="math inline">\(n\)</span> pairs where both alleles are the same, and there are <span class="math inline">\(\binom{n}{2}\)</span> pairs where the two alleles are different. The total number of genotypes is</p>
+<p><span class="math display">\[
+n + \binom{n}{2} = n + \frac{n(n-1)}{2} = \frac{n(n+1)}{2} = \binom{n+1}{2}.
+\]</span>  </p>
+<p>For the case of blood type, we have <span class="math inline">\(n = 3\)</span>, so there are</p>
+<p><span class="math display">\[
+\binom{4}{2} = \frac{4 \cdot 3}{2} = 6
+\]</span></p>
+<p>genotypes, as could easily be verified by counting.</p>
 </div>
 </div>
 </div>
@@ -2116,7 +2113,7 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.31 (Example 1.8.5: Selecting Baked Goods) </strong></span>You go to a bakery to select some baked goods for a dinner party. You need to choose a total of 12 items. The baker has seven different types of items from which to choose, with lots of each type available. How many different boxfuls of 12 items are possible for you to choose? Here we will not distinguish the same collection of 12 items arranged in different orders in the box. This is an example of unordered sampling with replacement because we can (indeed we must) choose the same type of item more than once, but we are not distinguishing the same items in different orders. There are  7+12−1 12   = 18,564 different boxfuls.  </p>
+<p><span class="theorem-title"><strong>Example 1.31 (Example 1.8.5: Selecting Baked Goods) </strong></span>You go to a bakery to select some baked goods for a dinner party. You need to choose a total of 12 items. The baker has seven different types of items from which to choose, with lots of each type available. How many different boxfuls of 12 items are possible for you to choose? Here we will not distinguish the same collection of 12 items arranged in different orders in the box. This is an example of unordered sampling with replacement because we can (indeed we must) choose the same type of item more than once, but we are not distinguishing the same items in different orders. There are <span class="math inline">\(\binom{7 + 12 - 1}{12} = 18,564\)</span> different boxfuls.  </p>
 </div>
 </div>
 </div>
@@ -2124,7 +2121,10 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 <p><a href="#exm-1-8-5">Example&nbsp;<span>1.31</span></a> raises an issue that can cause confusion if one does not carefully determine the elements of the sample space and carefully specify which outcomes (if any) are equally likely. The next example illustrates the issue in the context of <a href="#exm-1-8-5">Example&nbsp;<span>1.31</span></a>.</p>
 <div class="{.callout-tip">
 <div id="exm-1-8-6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.32 (Example 1.8.6: Selecting Baked Goods) </strong></span>Imagine two different ways of choosing a boxful of 12 baked goods selected from the seven different types available. In the first method, you choose one item at random from the seven available. Then, without regard to what item was chosen first, you choose the second item at random from the seven available. Then you continue in this way choosing the next item at random from the seven available without regard to what has already been chosen until you have chosen 12. For this method of choosing, it is natural to let the outcomes be the possible sequences of the 12 types of items chosen. The sample space would contain 712 = 1.38 × 1010 different outcomes that would be equally likely. In the second method of choosing, the baker tells you that she has available 18,564 different boxfuls freshly packed. You then select one at random. In this case, the sample space would consist of 18,564 different equally likely outcomes. In spite of the different sample spaces that arise in the two methods of choosing, there are some verbal descriptions that identify an event in both sample spaces. For example, both sample spaces contain an event that could be described as {all 12 items are of the same type} even though the outcomes are different types of mathematical objects in the two sample spaces. The probability that all 12 items are of the same type will actually be different depending on which method you use to choose the boxful. In the first method, seven of the 712 equally likely outcomes contain 12 of the same type of item. Hence, the probability that all 12 items are of the same type is 7/712 = 5.06 × 10−10. In the second method, there are seven equally liklely boxes that contain 12 of the same type of item. Hence, the probability that all 12 items are of the same type is 7/18,564 = 3.77 × 10−4. Before one can compute the probability for an event such as {all 12 items are of the same type}, one must be careful about defining the experiment and its outcomes.  </p>
+<p><span class="theorem-title"><strong>Example 1.32 (Example 1.8.6: Selecting Baked Goods) </strong></span>Imagine two different ways of choosing a boxful of 12 baked goods selected from the seven different types available. In the first method, you choose one item at random from the seven available. Then, without regard to what item was chosen first, you choose the second item at random from the seven available. Then you continue in this way choosing the next item at random from the seven available without regard to what has already been chosen until you have chosen 12. For this method of choosing, it is natural to let the outcomes be the possible sequences of the 12 types of items chosen. The sample space would contain <span class="math inline">\(7^{12} = 1.38 \times 10^{10}\)</span> different outcomes that would be equally likely.</p>
+<p>In the second method of choosing, the baker tells you that she has available 18,564 different boxfuls freshly packed. You then select one at random. In this case, the sample space would consist of 18,564 different equally likely outcomes.</p>
+<p>In spite of the different sample spaces that arise in the two methods of choosing, there are some verbal descriptions that identify an event in both sample spaces. For example, both sample spaces contain an event that could be described as <span class="math inline">\(\{\text{all 12 items are of the same type}\}\)</span> even though the outcomes are different types of mathematical objects in the two sample spaces. The probability that all 12 items are of the same type will actually be different depending on which method you use to choose the boxful.</p>
+<p>In the first method, seven of the <span class="math inline">\(7^{12}\)</span> equally likely outcomes contain 12 of the same type of item. Hence, the probability that all 12 items are of the same type is <span class="math inline">\(7/7^{12} = 5.06 \times 10^{−10}\)</span>. In the second method, there are seven equally liklely boxes that contain 12 of the same type of item. Hence, the probability that all 12 items are of the same type is <span class="math inline">\(7/18,564 = 3.77 \times 10^{−4}\)</span>. Before one can compute the probability for an event such as <span class="math inline">\(\{\text{all 12 items are of the same type}\}\)</span>, one must be careful about defining the experiment and its outcomes.  </p>
 </div>
 </div>
 <p><strong>Arrangements of Elements of Two Distinct Types</strong>: When a set contains only elements of two distinct types, a binomial coefficient can be used to represent the number of different arrangements of all the elements in the set. Suppose, for example, that <span class="math inline">\(k\)</span> similar red balls and <span class="math inline">\(n − k\)</span> similar green balls are to be arranged in a row. Since the red balls will occupy <span class="math inline">\(k\)</span> positions in the row, each different arrangement of the <span class="math inline">\(n\)</span> balls corresponds to a different choice of the <span class="math inline">\(k\)</span> positions occupied by the red balls. Hence, the number of different arrangements of the <span class="math inline">\(n\)</span> balls will be equal to the number of different ways in which <span class="math inline">\(k\)</span> positions can be selected for the red balls from the <span class="math inline">\(n\)</span> available positions. Since this number of ways is specified by the binomial coefficient <span class="math inline">\(\binom{n}{k}\)</span>, the number of different arrangements of the <span class="math inline">\(n\)</span> balls is also <span class="math inline">\(\binom{n}{k}\)</span>. In other words, the number of different arrangements of <span class="math inline">\(n\)</span> objects consisting of <span class="math inline">\(k\)</span> similar objects of one type and <span class="math inline">\(n − k\)</span> similar objects of a second type is <span class="math inline">\(\binom{n}{k}\)</span>.</p>
@@ -2135,7 +2135,24 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.33 (Example 1.8.7: Tossing a Coin) </strong></span>Suppose that a fair coin is to be tossed 10 times, and it is desired to determine (a) the probability p of obtaining exactly three heads and (b) the probability p   of obtaining three or fewer heads. (a) The total possible number of different sequences of 10 heads and tails is 210, and it may be assumed that each of these sequences is equally probable. The number of these sequences that contain exactly three heads will be equal to the number of different arrangements that can be formed with three heads and seven tails. Here are some of those arrangements: HHHTTTTTTT, HHTHTTTTTT, HHTTHTTTTT, TTHTHTHTTT, etc. Each such arrangement is equivalent to a choice of where to put the 3 heads among the 10 tosses, so there are  10 3   such arrangements. The probability of obtaining exactly three heads is then p =   10 3   210 = 0.1172. (b) Using the same reasoning as in part (a), the number of sequences in the sample space that contain exactly k heads (k = 0, 1, 2, 3) is  10 k   . Hence, the probability of obtaining three or fewer heads is p   =   10 0   +   10 1   +   10 2   +   10 3   210 = 1+ 10 + 45 + 120 210 = 176 210 = 0.1719.  </p>
+<p><span class="theorem-title"><strong>Example 1.33 (Example 1.8.7: Tossing a Coin) </strong></span>Suppose that a fair coin is to be tossed 10 times, and it is desired to determine (a) the probability <span class="math inline">\(p\)</span> of obtaining exactly three heads and (b) the probability <span class="math inline">\(p'\)</span> of obtaining three or fewer heads.</p>
+<ol type="a">
+<li><p>The total possible number of different sequences of 10 heads and tails is <span class="math inline">\(2^{10}\)</span>, and it may be assumed that each of these sequences is equally probable. The number of these sequences that contain exactly three heads will be equal to the number of different arrangements that can be formed with three heads and seven tails. Here are some of those arrangements:</p>
+<p><code>HHHTTTTTTT</code>, <code>HHTHTTTTTT</code>, <code>HHTTHTTTTT</code>, <code>TTHTHTHTTT</code>, etc.</p>
+<p>Each such arrangement is equivalent to a choice of where to put the 3 heads among the 10 tosses, so there are <span class="math inline">\(\binom{10}{3}\)</span> such arrangements. The probability of obtaining exactly three heads is then</p></li>
+</ol>
+<p><span class="math display">\[
+p = \frac{\binom{10}{3}}{2^{10}} = 0.1172.
+\]</span></p>
+<ol start="2" type="a">
+<li>Using the same reasoning as in part (a), the number of sequences in the sample space that contain exactly <span class="math inline">\(k\)</span> heads (<span class="math inline">\(k = 0, 1, 2, 3\)</span>) is</li>
+</ol>
+<p><span class="math display">\[
+\begin{align*}
+p' &amp;= \frac{\binom{10}{0} + \binom{10}{1} + \binom{10}{2} + \binom{10}{3}}{2^{10}} \\
+&amp;= \frac{1 + 10 + 45 + 120}{2^{10}} = \frac{176}{2^{10}} = 0.1719.
+\end{align*}
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2148,7 +2165,12 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.34 (Example 1.8.8: Sampling without Replacement) </strong></span>Suppose that a class contains 15 boys and 30 girls, and that 10 students are to be selected at random for a special assignment. We shall determine the probability p that exactly three boys will be selected. The number of different combinations of the 45 students that might be obtained in the sample of 10 students is  45 10   , and the statement that the 10 students are selected at random means that each of these  45 10   possible combinations is equally probable. Therefore, we must find the number of these combinations that contain exactly three boys and seven girls. When a combination of three boys and seven girls is formed, the number of different combinations in which three boys can be selected from the 15 available boys is  15 3   , and the number of different combinations in which seven girls can be selected from the 30 available girls is  30 7   . Since each of these combinations of three boys can be paired with each of the combinations of seven girls to form a distinct sample, the number of combinations containing exactly three boys is  15 3   30 7   . Therefore, the desired probability is p =   15 3    30 7     45 10   = 0.2904.</p>
+<p><span class="theorem-title"><strong>Example 1.34 (Example 1.8.8: Sampling without Replacement) </strong></span>Suppose that a class contains 15 boys and 30 girls, and that 10 students are to be selected at random for a special assignment. We shall determine the probability <span class="math inline">\(p\)</span> that exactly three boys will be selected.</p>
+<p>The number of different combinations of the 45 students that might be obtained in the sample of 10 students is <span class="math inline">\(\binom{45}{10}\)</span>, and the statement that the 10 students are selected at random means that each of these <span class="math inline">\(\binom{45}{10}\)</span> possible combinations is equally probable. Therefore, we must find the number of these combinations that contain exactly three boys and seven girls.</p>
+<p>When a combination of three boys and seven girls is formed, the number of different combinations in which three boys can be selected from the 15 available boys is <span class="math inline">\(\binom{15}{3}\)</span>, and the number of different combinations in which seven girls can be selected from the 30 available girls is <span class="math inline">\(\binom{30}{7}\)</span>. Since each of these combinations of three boys can be paired with each of the combinations of seven girls to form a distinct sample, the number of combinations containing exactly three boys is <span class="math inline">\(\binom{15}{3}\binom{30}{7}\)</span>. Therefore, the desired probability is</p>
+<p><span class="math display">\[
+p = \frac{\binom{15}{3}\binom{30}{7}}{\binom{45}{10}} = 0.2904.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2160,12 +2182,17 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.35 (Example 1.8.9: Playing Cards) </strong></span>Suppose that a deck of 52 cards containing four aces is shuffled thoroughly and the cards are then distributed among four players so that each player receives 13 cards. We shall determine the probability that each player will receive one ace. The number of possible different combinations of the four positions in the deck occupied by the four aces is  52 4   , and it may be assumed that each of these  52 4   combinations is equally probable. If each player is to receive one ace, then there must be exactly one ace among the 13 cards that the first player will receive and one ace among each of the remaining three groups of 13 cards that the other three players will receive. In other words, there are 13 possible positions for the ace that the first player is to receive, 13 other possible positions for the ace that the second player is to receive, and so on. Therefore, among the  52 4   possible combinations of the positions for the four aces, exactly 134 of these combinations will lead to the desired result. Hence, the probability p that each player will receive one ace is p = 134   52 4   = 0.1055.  </p>
+<p><span class="theorem-title"><strong>Example 1.35 (Example 1.8.9: Playing Cards) </strong></span>Suppose that a deck of 52 cards containing four aces is shuffled thoroughly and the cards are then distributed among four players so that each player receives 13 cards. We shall determine the probability that each player will receive one ace.</p>
+<p>The number of possible different combinations of the four positions in the deck occupied by the four aces is <span class="math inline">\(\binom{52}{4}\)</span>, and it may be assumed that each of these <span class="math inline">\(\binom{52}{4}\)</span> combinations is equally probable. If each player is to receive one ace, then there must be exactly one ace among the 13 cards that the first player will receive and one ace among each of the remaining three groups of 13 cards that the other three players will receive. In other words, there are 13 possible positions for the ace that the first player is to receive, 13 other possible positions for the ace that the second player is to receive, and so on. Therefore, among the <span class="math inline">\(\binom{52}{4}\)</span> possible combinations of the positions for the four aces, exactly <span class="math inline">\(13^4\)</span> of these combinations will lead to the desired result. Hence, the probability <span class="math inline">\(p\)</span> that each player will receive one ace is</p>
+<p><span class="math display">\[
+p = \frac{13^4}{\binom{52}{4}} = 0.1055.
+\]</span></p>
 </div>
 </div>
 </div>
 </div>
-<p><strong>Ordered versus Unordered Samples</strong>: Several of the examples in this section and the previous section involved counting the numbers of possible samples that could arise using various sampling schemes. Sometimes we treated the same collection of elements in different orders as different samples, and sometimes we treated the same elements in different orders as the same sample. In general, how can one tell which is the correct way to count in a given problem? Sometimes, the problem description will make it clear which is needed. For example, ifwe are asked to find the probability that the items in a sample arrive in a specified order, then we cannot even specify the event of interest unless we treat different arrangements of the same items as different outcomes. Examples 1.8.5 and 1.8.6 illustrate how different problem descriptions can lead to very different calculations. However, there are cases in which the problem description does not make it clear whether or not one must count the same elements in different orders as different outcomes. Indeed, there are some problems that can be solved correctly both ways. Example 1.8.9 is one such problem. In that problem, we needed to decide what we would call an outcome, and then we needed to count how many outcomes were in the whole sample space S and how many were in the event E of interest. In the solution presented in Example 1.8.9, we chose as our outcomes the positions in the 52-card deck that were occupied by the four aces. We did not count different arrangements of the four aces in those four positions as different outcomes when we counted the number of outcomes in S. Hence, when we calculated the number of outcomes in E, we also did not count the different arrangements of the four aces in the four possible positions as different outcomes. In general, this is the principle that should guide the choice of counting method. If we have the choice between whether or not to count the same elements in different orders as different outcomes, then we need to make our choice and be consistent throughout the problem. If we count the same elements in different orders as different outcomes when counting the outcomes in S, we must do the same when counting the elements of E. If we do not count them as different outcomes when counting S, we should not count them as different when counting E.</p>
+<p><strong>Ordered versus Unordered Samples</strong>: Several of the examples in this section and the previous section involved counting the numbers of possible samples that could arise using various sampling schemes. Sometimes we treated the same collection of elements in different orders as different samples, and sometimes we treated the same elements in different orders as the same sample. In general, how can one tell which is the correct way to count in a given problem? Sometimes, the problem description will make it clear which is needed. For example, if we are asked to find the probability that the items in a sample arrive in a specified order, then we cannot even specify the event of interest unless we treat different arrangements of the same items as different outcomes. Examples <a href="#exm-1-8-5"><span>1.31</span></a> and <a href="#exm-1-8-6"><span>1.32</span></a> illustrate how different problem descriptions can lead to very different calculations.</p>
+<p>However, there are cases in which the problem description does not make it clear whether or not one must count the same elements in different orders as different outcomes. Indeed, there are some problems that can be solved correctly both ways. <a href="#exm-1-8-9">Example&nbsp;<span>1.35</span></a> is one such problem. In that problem, we needed to decide what we would call an outcome, and then we needed to count how many outcomes were in the whole sample space <span class="math inline">\(S\)</span> and how many were in the event <span class="math inline">\(E\)</span> of interest. In the solution presented in <a href="#exm-1-8-9">Example&nbsp;<span>1.35</span></a>, we chose as our outcomes the positions in the 52-card deck that were occupied by the four aces. We did not count different arrangements of the four aces in those four positions as different outcomes when we counted the number of outcomes in <span class="math inline">\(S\)</span>. Hence, when we calculated the number of outcomes in <span class="math inline">\(E\)</span>, we also did not count the different arrangements of the four aces in the four possible positions as different outcomes. In general, this is the principle that should guide the choice of counting method. If we have the choice between whether or not to count the same elements in different orders as different outcomes, then we need to make our choice and be consistent throughout the problem. If we count the same elements in different orders as different outcomes when counting the outcomes in <span class="math inline">\(S\)</span>, we must do the same when counting the elements of <span class="math inline">\(E\)</span>. If we do not count them as different outcomes when counting <span class="math inline">\(S\)</span>, we should not count them as different when counting <span class="math inline">\(E\)</span>.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2173,7 +2200,10 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-10" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.36 (Example 1.8.10: Playing Cards, Revisited.) </strong></span>We shall solve the problem in <a href="#exm-1-8-9">Example&nbsp;<span>1.35</span></a> again, but this time, we shall distinguish outcomes with the same cards in different orders. To go to the extreme, let each outcome be a complete ordering of the 52 cards. So, there are 52! possible outcomes. How many of these have one ace in each of the four sets of 13 cards received by the four players? As before, there are 134 ways to choose the four positions for the four aces, one among each of the four sets of 13 cards. No matter which of these sets of positions we choose, there are 4! ways to arrange the four aces in these four positions. No matter how the aces are arranged, there are 48! ways to arrange the remaining 48 cards in the 48 remaining positions. So, there are 134 × 4!× 48! outcomes in the event of interest.We then calculate p = 134 × 4!× 48! 52! = 0.1055.  </p>
+<p><span class="theorem-title"><strong>Example 1.36 (Example 1.8.10: Playing Cards, Revisited.) </strong></span>We shall solve the problem in <a href="#exm-1-8-9">Example&nbsp;<span>1.35</span></a> again, but this time, we shall distinguish outcomes with the same cards in different orders. To go to the extreme, let each outcome be a complete ordering of the 52 cards. So, there are <span class="math inline">\(52!\)</span> possible outcomes. How many of these have one ace in each of the four sets of 13 cards received by the four players? As before, there are <span class="math inline">\(13^4\)</span> ways to choose the four positions for the four aces, one among each of the four sets of 13 cards. No matter which of these sets of positions we choose, there are <span class="math inline">\(4!\)</span> ways to arrange the four aces in these four positions. No matter how the aces are arranged, there are <span class="math inline">\(48!\)</span> ways to arrange the remaining 48 cards in the 48 remaining positions. So, there are <span class="math inline">\(13^4 \cdot 4! \cdot 48!\)</span> outcomes in the event of interest. We then calculate</p>
+<p><span class="math display">\[
+p = \frac{13^4 \cdot 4! \cdot 48!}{52!} = 0.1055.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2186,12 +2216,28 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-11" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.37 (Example 1.8.11: Lottery Tickets) </strong></span>In a lottery game, six numbers from 1 to 30 are drawn at random from a bin without replacement, and each player buys a ticket with six different numbers from 1 to 30. If all six numbers drawn match those on the player’s ticket, the player wins. We assume that all possible draws are equally likely. One way to construct a sample space for the experiment of drawing the winning combination is to consider the possible sequences of draws. That is, each outcome consists of an ordered subset of six numbers chosen from the 30 available numbers. There are P30,6 = 30!/24! such outcomes.With this sample space S, we can calculate probabilities for events such as A = {the draw contains the numbers 1, 14, 15, 20, 23, and 27}, B = {one of the numbers drawn is 15}, and C = {the first number drawn is less than 10}. 1.8 Combinatorial Methods 39 There is another natural sample space, which we shall denote S  , for this experiment. It consists solely of the different combinations of six numbers drawn from the 30 available.There are  30 6   = 30!/(6!24!) such outcomes. It also seems natural to consider all of these outcomes equally likely. With this sample space, we can calculate the probabilities of the events A and B above, but C is not a subset of the sample space S  , so we cannot calculate its probability using this smaller sample space. When the sample space for an experiment could naturally be constructed in more than one way, one needs to choose based on for which events one wants to compute probabilities.</p>
+<p><span class="theorem-title"><strong>Example 1.37 (Example 1.8.11: Lottery Tickets) </strong></span>In a lottery game, six numbers from 1 to 30 are drawn at random from a bin without replacement, and each player buys a ticket with six different numbers from 1 to 30. If all six numbers drawn match those on the player’s ticket, the player wins. We assume that all possible draws are equally likely. One way to construct a sample space for the experiment of drawing the winning combination is to consider the possible sequences of draws. That is, each outcome consists of an ordered subset of six numbers chosen from the 30 available numbers. There are <span class="math inline">\(P_{30,6} = 30!/24!\)</span> such outcomes. With this sample space <span class="math inline">\(S\)</span>, we can calculate probabilities for events such as</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= \{\text{the draw contains the numbers 1, 14, 15, 20, 23, and 27}\}, \\
+B &amp;= \{\text{one of the numbers drawn is }15\},\text{ and} \\
+C &amp;= \{\text{the first number drawn is less than }10\}.
+\end{align*}
+\]</span></p>
+<p>There is another natural sample space, which we shall denote <span class="math inline">\(S'\)</span>, for this experiment. It consists solely of the different combinations of six numbers drawn from the 30 available. There are <span class="math inline">\(\binom{30}{6} = 30!/(6!24!)\)</span> such outcomes. It also seems natural to consider all of these outcomes equally likely. With this sample space, we can calculate the probabilities of the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> above, but <span class="math inline">\(C\)</span> is not a subset of the sample space <span class="math inline">\(S'\)</span>, so we cannot calculate its probability using this smaller sample space. When the sample space for an experiment could naturally be constructed in more than one way, one needs to choose based on for which events one wants to compute probabilities.</p>
 </div>
 </div>
 </div>
 </div>
-<p><a href="#exm-1-8-11">Example&nbsp;<span>1.37</span></a> raises the question of whether one will compute the same probabilities using two different sample spaces when the event, such as A or B, exists in both sample spaces. In the example, each outcome in the smaller sample space S   corresponds to an event in the larger sample space S. Indeed, each outcome s   in S   corresponds to the event in S containing the 6! permutations of the single combination s  . For example, the event A in the example has only one outcome s   = (1, 14, 15, 20, 23, 27) in the sample space S  , while the corresponding event in the sample space S has 6! permutations including (1, 14, 15, 20, 23, 27), (14, 20, 27, 15, 23, 1), (27, 23, 20, 15, 14, 1), etc. In the sample space S, the probability of the event A is Pr(A) = 6! P30,6 = 6!24! 30! = 1  30 6   . In the sample space S  , the event A has this same probability because it has only one of the  30 6   equally likely outcomes. The same reasoning applies to every outcome in S  . Hence, if the same event can be expressed in both sample spaces S and S  , we will compute the same probability using either sample space. This is a special feature of examples like Example 1.8.11 in which each outcome in the smaller sample space corresponds to an event in the larger sample space with the same number of elements. There are examples in which this feature is not present, and one cannot treat both sample spaces as simple sample spaces.</p>
+<p><a href="#exm-1-8-11">Example&nbsp;<span>1.37</span></a> raises the question of whether one will compute the same probabilities using two different sample spaces when the event, such as <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>, exists in both sample spaces. In the example, each outcome in the smaller sample space <span class="math inline">\(S'\)</span> corresponds to an event in the larger sample space <span class="math inline">\(S\)</span>. Indeed, each outcome <span class="math inline">\(s'\)</span> in <span class="math inline">\(S'\)</span> corresponds to the event in <span class="math inline">\(S\)</span> containing the <span class="math inline">\(6!\)</span> permutations of the single combination <span class="math inline">\(s'\)</span>. For example, the event <span class="math inline">\(A\)</span> in the example has only one outcome <span class="math inline">\(s' = (1, 14, 15, 20, 23, 27)\)</span> in the sample space <span class="math inline">\(S\)</span>, while the corresponding event in the sample space <span class="math inline">\(S\)</span> has <span class="math inline">\(6!\)</span> permutations including</p>
+<p><span class="math display">\[
+(1, 14, 15, 20, 23, 27), \; (14, 20, 27, 15, 23, 1), \; (27, 23, 20, 15, 14, 1), \; \text{etc.}
+\]</span></p>
+<p>In the sample space <span class="math inline">\(S\)</span>, the probability of the event <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+\Pr(A) = \frac{6!}{P_{30,6}} = \frac{6!24!}{30!} = \frac{1}{\binom{30}{6}}.
+\]</span></p>
+<p>In the sample space <span class="math inline">\(S'\)</span>, the event <span class="math inline">\(A\)</span> has this same probability because it has only one of the <span class="math inline">\(\binom{30}{6}\)</span> equally likely outcomes. The same reasoning applies to every outcome in <span class="math inline">\(S'\)</span>. Hence, if the same event can be expressed in both sample spaces <span class="math inline">\(S\)</span> and <span class="math inline">\(S'\)</span>, we will compute the same probability using either sample space. This is a special feature of examples like <a href="#exm-1-8-11">Example&nbsp;<span>1.37</span></a> in which each outcome in the smaller sample space corresponds to an event in the larger sample space with the same number of elements. There are examples in which this feature is not present, and one cannot treat both sample spaces as simple sample spaces.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2199,7 +2245,8 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-8-12" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.38 (Example 1.8.12: Tossing Coins) </strong></span>An experiment consists of tossing a coin two times. If we want to distinguish H followed by T from T followed by H, we should use the sample space S = {HH, HT, TH, TT}, which might naturally be assumed a simple sample space. On the other hand, we might be interested solely in the number of H’s tossed. In this case, we might consider the smaller sample space S   = {0, 1, 2} where each outcome merely counts the number of H’s. The outcomes 0 and 2 in S   each correspond to a single outcome in S, but 1 ∈ S   corresponds to the event {HT, TH} ⊂ S with two outcomes. If we think of S as a simple sample space, then S   will not be a simple sample space, because the outcome 1 will have probability 1/2 while the other two outcomes each have probability 1/4. There are situations in which one would be justified in treating S   as a simple sample space and assigning each of its outcomes probability 1/3. One might do this if one believed that the coin was not fair, but one had no idea how unfair it was or which side were more likely to land up. In this case, S would not be a simple sample space, because two of its outcomes would have probability 1/3 and the other two would have probabilities that add up to 1/3.  </p>
+<p><span class="theorem-title"><strong>Example 1.38 (Example 1.8.12: Tossing Coins) </strong></span>An experiment consists of tossing a coin two times. If we want to distinguish <span class="math inline">\(H\)</span> followed by <span class="math inline">\(T\)</span> from <span class="math inline">\(T\)</span> followed by <span class="math inline">\(H\)</span>, we should use the sample space <span class="math inline">\(S = \{HH, HT, TH, TT\}\)</span>, which might naturally be assumed a simple sample space. On the other hand, we might be interested solely in the number of <span class="math inline">\(H\)</span>’s tossed. In this case, we might consider the smaller sample space <span class="math inline">\(S' = \{0, 1, 2\}\)</span> where each outcome merely counts the number of <span class="math inline">\(H\)</span>’s. The outcomes 0 and 2 in <span class="math inline">\(S'\)</span> each correspond to a single outcome in <span class="math inline">\(S\)</span>, but <span class="math inline">\(1 \in S'\)</span> corresponds to the event <span class="math inline">\(\{HT, TH\} \subset S\)</span> with two outcomes. If we think of <span class="math inline">\(S\)</span> as a simple sample space, then <span class="math inline">\(S'\)</span> will not be a simple sample space, because the outcome 1 will have probability <span class="math inline">\(1/2\)</span> while the other two outcomes each have probability <span class="math inline">\(1/4\)</span>.</p>
+<p>There are situations in which one would be justified in treating <span class="math inline">\(S'\)</span> as a simple sample space and assigning each of its outcomes probability <span class="math inline">\(1/3\)</span>. One might do this if one believed that the coin was not fair, but one had no idea how unfair it was or which side were more likely to land up. In this case, <span class="math inline">\(S\)</span> would not be a simple sample space, because two of its outcomes would have probability <span class="math inline">\(1/3\)</span> and the other two would have probabilities that add up to <span class="math inline">\(1/3\)</span>.  </p>
 </div>
 </div>
 </div>
@@ -2208,7 +2255,10 @@ C_{20,8} = \frac{20!}{8!12!} = 125,970.
 </section>
 <section id="the-tennis-tournament" class="level3">
 <h3 class="anchored" data-anchor-id="the-tennis-tournament">The Tennis Tournament</h3>
-<p>We shall now present a difficult problem that has a simple and elegant solution. Suppose that n tennis players are entered in a tournament. In the first round, the players are paired one against another at random. The loser in each pair is eliminated from the tournament, and the winner in each pair continues into the second round. If the number of players n is odd, then one player is chosen at random before the pairings are made for the first round, and that player automatically continues into the second round. All the players in the second round are then paired at random. Again, the loser in each pair is eliminated, and the winner in each pair continues into the third round. If the number of players in the second round is odd, then one of these players is chosen at random before the others are paired, and that player automatically continues into the third round. The tournament continues in this way until only two players remain in the final round. They then play against each other, and the winner of this match is the winner of the tournament. We shall assume that all n players have equal ability, and we shall determine the probability p that two specific players A and B will ever play against each other during the tournament. We shall first determine the total number of matches that will be played during the tournament. After each match has been played, one player—the loser of that match—is eliminated from the tournament. The tournament ends when everyone has been eliminated from the tournament except the winner of the final match. Since exactly n − 1 players must be eliminated, it follows that exactly n − 1 matches must be played during the tournament. The number of possible pairs of players is  n2   . Each of the two players in every match is equally likely to win that match, and all initial pairings are made in a random manner. Therefore, before the tournament begins, every possible pair of players is equally likely to appear in each particular one of the n − 1 matches to be played during the tournament. Accordingly, the probability that players A and B will meet in some particular match that is specified in advance is 1/  n2   . If A and B do meet in that particular match, one of them will lose and be eliminated. Therefore, these same two players cannot meet in more than one match. It follows from the preceding explanation that the probability p that players A and B will meet at some time during the tournament is equal to the product of the probability 1/  n2   that they will meet in any particular specified match and the total number n − 1 of different matches in which they might possibly meet. Hence,</p>
+<p>We shall now present a difficult problem that has a simple and elegant solution. Suppose that <span class="math inline">\(n\)</span> tennis players are entered in a tournament. In the first round, the players are paired one against another at random. The loser in each pair is eliminated from the tournament, and the winner in each pair continues into the second round. If the number of players <span class="math inline">\(n\)</span> is odd, then one player is chosen at random before the pairings are made for the first round, and that player automatically continues into the second round. All the players in the second round are then paired at random. Again, the loser in each pair is eliminated, and the winner in each pair continues into the third round. If the number of players in the second round is odd, then one of these players is chosen at random before the others are paired, and that player automatically continues into the third round. The tournament continues in this way until only two players remain in the final round. They then play against each other, and the winner of this match is the winner of the tournament. We shall assume that all <span class="math inline">\(n\)</span> players have equal ability, and we shall determine the probability <span class="math inline">\(p\)</span> that two specific players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will ever play against each other during the tournament.</p>
+<p>We shall first determine the total number of matches that will be played during the tournament. After each match has been played, one player—–the loser of that match—–is eliminated from the tournament. The tournament ends when everyone has been eliminated from the tournament except the winner of the final match. Since exactly <span class="math inline">\(n − 1\)</span> players must be eliminated, it follows that exactly <span class="math inline">\(n − 1\)</span> matches must be played during the tournament.</p>
+<p>The number of possible pairs of players is <span class="math inline">\(\binom{n}{2}\)</span>. Each of the two players in every match is equally likely to win that match, and all initial pairings are made in a random manner. Therefore, before the tournament begins, every possible pair of players is equally likely to appear in each particular one of the <span class="math inline">\(n − 1\)</span> matches to be played during the tournament. Accordingly, the probability that players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will meet in some particular match that is specified in advance is <span class="math inline">\(1/\binom{n}{2}\)</span>. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do meet in that particular match, one of them will lose and be eliminated. Therefore, these same two players cannot meet in more than one match.</p>
+<p>It follows from the preceding explanation that the probability <span class="math inline">\(p\)</span> that players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will meet at some time during the tournament is equal to the product of the probability <span class="math inline">\(1/\binom{n}{2}\)</span> that they will meet in any particular specified match and the total number <span class="math inline">\(n − 1\)</span> of different matches in which they might possibly meet. Hence,</p>
 <p><span class="math display">\[
 p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 \]</span></p>
@@ -2220,22 +2270,13 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 <section id="exercises-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercises-4">Exercises</h3>
 <div id="exr-1-8-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.48 (Exercise 1.8.1) </strong></span>&nbsp;</p>
-<ol type="1">
-<li>Two pollsters will canvas a neighborhood with 20 houses. Each pollster will visit 10 of the houses.Howmany different assignments of pollsters to houses are possible?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.48 (Exercise 1.8.1) </strong></span>Two pollsters will canvas a neighborhood with 20 houses. Each pollster will visit 10 of the houses.How many different assignments of pollsters to houses are possible?</p>
 </div>
 <div id="exr-1-8-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.49 (Exercise 1.8.2) </strong></span>&nbsp;</p>
-<ol start="2" type="1">
-<li>Which of the following two numbers is larger:  93 30   or  93 31   ?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.49 (Exercise 1.8.2) </strong></span>Which of the following two numbers is larger: <span class="math inline">\(\binom{93}{30}\)</span> or <span class="math inline">\(\binom{93}{31}\)</span>?</p>
 </div>
 <div id="exr-1-8-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.50 (Exercise 1.8.3) </strong></span>&nbsp;</p>
-<ol start="3" type="1">
-<li>Which of the following two numbers is larger:  93 30   or  93 63   ?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.50 (Exercise 1.8.3) </strong></span>Which of the following two numbers is larger: <span class="math inline">\(\binom{93}{30}\)</span> or <span class="math inline">\(\binom{93}{63}\)</span>?</p>
 </div>
 <div id="exr-1-8-4" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.51 (Exercise 1.8.4) </strong></span>&nbsp;</p>
@@ -2244,126 +2285,77 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </ol>
 </div>
 <div id="exr-1-8-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.52 (Exercise 1.8.5) </strong></span>&nbsp;</p>
-<ol start="5" type="1">
-<li>Prove that the following number is an integer: 4155 × 4156 × . . . × 4250 × 4251 2 × 3 × . . . × 96 × 97 .</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.52 (Exercise 1.8.5) </strong></span>Prove that the following number is an integer:</p>
+<p><span class="math display">\[
+\frac{4155 \cdot 4156 \cdot \cdots \cdot 4250 \cdot 4251}{2 \cdot 3 \cdot \cdots \cdot 96 \cdot 97}.
+\]</span></p>
 </div>
 <div id="exr-1-8-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.53 (Exercise 1.8.6) </strong></span>&nbsp;</p>
-<ol start="6" type="1">
-<li>Suppose that n people are seated in a random manner in a row of n theater seats. What is the probability that two particular people A and B will be seated next to each other?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.53 (Exercise 1.8.6) </strong></span>Suppose that <span class="math inline">\(n\)</span> people are seated in a random manner in a row of <span class="math inline">\(n\)</span> theater seats. What is the probability that two particular people <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will be seated next to each other?</p>
 </div>
 <div id="exr-1-8-7" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.54 (Exercise 1.8.7) </strong></span>&nbsp;</p>
-<ol start="7" type="1">
-<li>If k people are seated in a random manner in a row containing n seats (n &gt; k), what is the probability that the people will occupy k adjacent seats in the row?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.54 (Exercise 1.8.7) </strong></span>If <span class="math inline">\(k\)</span> people are seated in a random manner in a row containing <span class="math inline">\(n\)</span> seats (<span class="math inline">\(n &gt; k\)</span>), what is the probability that the people will occupy <span class="math inline">\(k\)</span> adjacent seats in the row?</p>
 </div>
 <div id="exr-1-8-8" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.55 (Exercise 1.8.8) </strong></span>&nbsp;</p>
-<ol start="8" type="1">
-<li>If k people are seated in a random manner in a circle containing n chairs (n &gt; k), what is the probability that the people will occupy k adjacent chairs in the circle?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.55 (Exercise 1.8.8) </strong></span>If <span class="math inline">\(k\)</span> people are seated in a random manner in a circle containing <span class="math inline">\(n\)</span> chairs (<span class="math inline">\(n &gt; k\)</span>), what is the probability that the people will occupy <span class="math inline">\(k\)</span> adjacent chairs in the circle?</p>
 </div>
 <div id="exr-1-8-9" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.56 (Exercise 1.8.9) </strong></span>&nbsp;</p>
-<ol start="9" type="1">
-<li>If n people are seated in a random manner in a row containing 2n seats, what is the probability that no two people will occupy adjacent seats?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.56 (Exercise 1.8.9) </strong></span>If <span class="math inline">\(n\)</span> people are seated in a random manner in a row containing <span class="math inline">\(2n\)</span> seats, what is the probability that no two people will occupy adjacent seats?</p>
 </div>
 <div id="exr-1-8-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.57 (Exercise 1.8.10) </strong></span>&nbsp;</p>
-<ol start="10" type="1">
-<li>A box contains 24 light bulbs, of which two are defective. If a person selects 10 bulbs at random, without replacement, what is the probability that both defective bulbs will be selected?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.57 (Exercise 1.8.10) </strong></span>A box contains 24 light bulbs, of which two are defective. If a person selects 10 bulbs at random, without replacement, what is the probability that both defective bulbs will be selected?</p>
 </div>
 <div id="exr-1-8-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.58 (Exercise 1.8.11) </strong></span>&nbsp;</p>
-<ol start="11" type="1">
-<li>Suppose that a committee of 12 people is selected in a random manner from a group of 100 people. Determine the probability that two particular people A and B will both be selected.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.58 (Exercise 1.8.11) </strong></span>Suppose that a committee of 12 people is selected in a random manner from a group of 100 people. Determine the probability that two particular people <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will both be selected.</p>
 </div>
 <div id="exr-1-8-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.59 (Exercise 1.8.12) </strong></span>&nbsp;</p>
-<ol start="12" type="1">
-<li>Suppose that 35 people are divided in a random manner into two teams in such a way that one team contains 10 people and the other team contains 25 people.What is the probability that two particular people A and B will be on the same team?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.59 (Exercise 1.8.12) </strong></span>Suppose that 35 people are divided in a random manner into two teams in such a way that one team contains 10 people and the other team contains 25 people. What is the probability that two particular people <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will be on the same team?</p>
 </div>
 <div id="exr-1-8-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.60 (Exercise 1.8.13) </strong></span>&nbsp;</p>
-<ol start="13" type="1">
-<li>A box contains 24 light bulbs of which four are defective. If one person selects 10 bulbs from the box in a random manner, and a second person then takes the remaining 14 bulbs, what is the probability that all four defective bulbs will be obtained by the same person?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.60 (Exercise 1.8.13) </strong></span>A box contains 24 light bulbs of which four are defective. If one person selects 10 bulbs from the box in a random manner, and a second person then takes the remaining 14 bulbs, what is the probability that all four defective bulbs will be obtained by the same person?</p>
 </div>
 <div id="exr-1-8-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.61 (Exercise 1.8.14) </strong></span>&nbsp;</p>
-<ol start="14" type="1">
-<li>Prove that, for all positive integers n and k (n ≥ k),</li>
-</ol>
-<p>n k   +</p>
-<p>n k − 1   =</p>
-<p>n + 1 k</p>
+<p><span class="theorem-title"><strong>Exercise 1.61 (Exercise 1.8.14) </strong></span>Prove that, for all positive integers <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> (<span class="math inline">\(n \geq k\)</span>),</p>
+<p><span class="math display">\[
+\binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}.
+\]</span></p>
 </div>
 <div id="exr-1-8-15" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.62 (Exercise 1.8.15) </strong></span>&nbsp;</p>
 <ol type="a">
 <li>Prove that</li>
 </ol>
-<p>n 0   +</p>
-<p>n 1   +</p>
-<p>n 2   + . . . +</p>
-<p>n n   = 2n. b. Prove that</p>
-<p>n 0   −</p>
-<p>n 1   +</p>
-<p>n 2   −</p>
-<p>n 3   + . . . + (−1)n</p>
-<p>n n   = 0. Hint: Use the binomial theorem.</p>
+<p><span class="math display">\[
+\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = 2^n.
+\]</span></p>
+<ol start="2" type="a">
+<li>Prove that</li>
+</ol>
+<p><span class="math display">\[
+\binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \binom{n}{3} + \cdots + (-1)^n\binom{n}{n} = 0.
+\]</span></p>
+<p><em>Hint</em>: Use the binomial theorem.</p>
 </div>
 <div id="exr-1-8-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.63 (Exercise 1.8.16) </strong></span>&nbsp;</p>
-<ol start="16" type="1">
-<li>The United States Senate contains two senators from each of the 50 states. (a) If a committee of eight senators is selected at random, what is the probability that it will contain at least one of the two senators from a certain specified state? (b) What is the probability that a group of 50 senators selected at random will contain one senator from each state?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.63 (Exercise 1.8.16) </strong></span>The United States Senate contains two senators from each of the 50 states. <strong>(a)</strong> If a committee of eight senators is selected at random, what is the probability that it will contain at least one of the two senators from a certain specified state? <strong>(b)</strong> What is the probability that a group of 50 senators selected at random will contain one senator from each state?</p>
 </div>
 <div id="exr-1-8-17" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.64 (Exerise 1.8.17) </strong></span>&nbsp;</p>
-<ol start="17" type="1">
-<li>A deck of 52 cards contains four aces. If the cards are shuffled and distributed in a random manner to four players so that each player receives 13 cards, what is the probability that all four aces will be received by the same player?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.64 (Exerise 1.8.17) </strong></span>A deck of 52 cards contains four aces. If the cards are shuffled and distributed in a random manner to four players so that each player receives 13 cards, what is the probability that all four aces will be received by the same player?</p>
 </div>
 <div id="exr-1-8-18" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.65 (Exercise 1.8.18) </strong></span>&nbsp;</p>
-<ol start="18" type="1">
-<li>Suppose that 100 mathematics students are divided into five classes, each containing 20 students, and that awards are to be given to 10 of these students. If each student is equally likely to receive an award, what is the probability that exactly two students in each class will receive awards?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.65 (Exercise 1.8.18) </strong></span>Suppose that 100 mathematics students are divided into five classes, each containing 20 students, and that awards are to be given to 10 of these students. If each student is equally likely to receive an award, what is the probability that exactly two students in each class will receive awards?</p>
 </div>
 <div id="exr-1-8-19" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.66 (Exercise 1.8.19) </strong></span>&nbsp;</p>
-<ol start="19" type="1">
-<li>A restaurant has n items on its menu. During a particular day, k customers will arrive and each one will choose one item. The manager wants to count how many different collections of customer choices are possible without regard to the order in which the choices are made. (For example, if k = 3 and a1, . . . , an are the menu items, then a1a3a1 is not distinguished from a1a1a3.) Prove that t he number of different collections of customer choices is n+k−1 k   . Hint: Assume that the menu items are a1, . . . , an. Show that each collection of customer choices, arranged with the a1’s first, the a2’s second, etc., can be identified with a sequence of k zeros and n − 1 ones, where each 0 stands for a customer choice and each 1 indicates a point in the sequence where the menu item number increases by 1. For example, if k = 3 and n = 5, then a1a1a3 becomes</li>
-<li></li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.66 (Exercise 1.8.19) </strong></span>A restaurant has <span class="math inline">\(n\)</span> items on its menu. During a particular day, <span class="math inline">\(k\)</span> customers will arrive and each one will choose one item. The manager wants to count how many different collections of customer choices are possible without regard to the order in which the choices are made. (For example, if <span class="math inline">\(k = 3\)</span> and <span class="math inline">\(a_1, \ldots, a_n\)</span> are the menu items, then <span class="math inline">\(a_1a_3a_1\)</span> is not distinguished from <span class="math inline">\(a_1a_1a_3\)</span>.) Prove that the number of different collections of customer choices is <span class="math inline">\(\binom{n+k-1}{k}\)</span>. <em>Hint</em>: Assume that the menu items are <span class="math inline">\(a_1, \ldots, a_n\)</span>. Show that each collection of customer choices, arranged with the <span class="math inline">\(a_1\)</span>’s first, the <span class="math inline">\(a_2\)</span>’s second, etc., can be identified with a sequence of <span class="math inline">\(k\)</span> zeros and <span class="math inline">\(n − 1\)</span> ones, where each 0 stands for a customer choice and each 1 indicates a point in the sequence where the menu item number increases by 1. For example, if <span class="math inline">\(k = 3\)</span> and <span class="math inline">\(n = 5\)</span>, then <span class="math inline">\(a_1a_1a_3\)</span> becomes <code>0011011</code>.</p>
 </div>
 <div id="exr-1-8-20" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.67 (Exercise 1.8.20) </strong></span>&nbsp;</p>
-<ol start="20" type="1">
-<li>Prove the binomial theorem 1.8.2. Hint: You may use an induction argument. That is, first prove that the result is true if n = 1. Then, under the assumption that there is n0 such that the result is true for all n ≤ n0, prove that it is also true for n = n0 + 1.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.67 (Exercise 1.8.20) </strong></span>Prove the binomial theorem, <a href="#thm-1-8-2">Theorem&nbsp;<span>1.26</span></a>. <em>Hint</em>: You may use an induction argument. That is, first prove that the result is true if <span class="math inline">\(n = 1\)</span>. Then, under the assumption that there is <span class="math inline">\(n_0\)</span> such that the result is true for all <span class="math inline">\(n \leq n_0\)</span>, prove that it is also true for <span class="math inline">\(n = n_0 + 1\)</span>.</p>
 </div>
 <div id="exr-1-8-21" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.68 (Exercise 1.8.21) </strong></span>&nbsp;</p>
-<ol start="21" type="1">
-<li>Return to the birthday problem on page 30. How many different sets of birthdays are available with k people and 365 days when we don’t distinguish the same birthdays in different orders? For example, if k = 3, we would count (Jan.&nbsp;1, Mar.&nbsp;3, Jan.1) the same as (Jan.&nbsp;1, Jan.&nbsp;1, Mar.&nbsp;3).</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.68 (Exercise 1.8.21) </strong></span>Return to the birthday problem (<a href="#sec-bday-problem"><span>Section&nbsp;1.7.3</span></a>). How many different sets of birthdays are available with <span class="math inline">\(k\)</span> people and 365 days when we don’t distinguish the same birthdays in different orders? For example, if <span class="math inline">\(k = 3\)</span>, we would count (Jan.&nbsp;1, Mar.&nbsp;3, Jan.1) the same as (Jan.&nbsp;1, Jan.&nbsp;1, Mar.&nbsp;3).</p>
 </div>
 <div id="exr-1-8-22" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.69 (Exercise 1.8.22) </strong></span>&nbsp;</p>
-<ol start="22" type="1">
-<li>Let n be a large even integer. Use Stirlings’ formula (Theorem 1.7.5) to find an approximation to the binomial coefficient   n n/2   . Compute the approximation with n =</li>
-<li></li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.69 (Exercise 1.8.22) </strong></span>Let <span class="math inline">\(n\)</span> be a large even integer. Use Stirlings’ formula (<a href="#thm-1-7-5">Theorem&nbsp;<span>1.24</span></a>) to find an approximation to the binomial coefficient <span class="math inline">\(\binom{n}{n/2}\)</span>. Compute the approximation with <span class="math inline">\(n = 500\)</span>.</p>
 </div>
 </section>
 </section>
@@ -2377,21 +2369,25 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-9-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.39 (Example 1.9.1: Choosing Committees) </strong></span>Suppose that 20 members of an organization are to be divided into three committees A, B, and C in such a way that each of the committees A and B is to have eight members and committee C is to have four members. We shall determine the number of different ways in which members can be assigned to these committees. Notice that each of the 20 members gets assigned to one and only one committee. One way to think of the assignments is to form committee A first by choosing its eight members and then split the remaining 12 members into committees B and C. Each of these operations is choosing a combination, and every choice of committee A can be paired with every one of the splits of the remaining 12 members into committees B and C. Hence, the number of assignments into three committees is the product of the numbers of combinations for the two parts of the assignment. Specifically, to form committee A, we must choose eight out of 20 members, and this can be done in  20 8   ways. Then to split the remaining 12 members into committees B and C there are are  12 8   ways to do it. Here, the answer is</p>
-<p>20 8  </p>
-<p>12 8   = 20! 8!12! 12! 8!4! = 20! 8!8!4! = 62,355,150.  </p>
+<p><span class="theorem-title"><strong>Example 1.39 (Example 1.9.1: Choosing Committees) </strong></span>Suppose that 20 members of an organization are to be divided into three committees <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> in such a way that each of the committees <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is to have eight members and committee <span class="math inline">\(C\)</span> is to have four members. We shall determine the number of different ways in which members can be assigned to these committees. Notice that each of the 20 members gets assigned to one and only one committee.</p>
+<p>One way to think of the assignments is to form committee <span class="math inline">\(A\)</span> first by choosing its eight members and then split the remaining 12 members into committees <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>. Each of these operations is choosing a combination, and every choice of committee <span class="math inline">\(A\)</span> can be paired with every one of the splits of the remaining 12 members into committees <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>. Hence, the number of assignments into three committees is the product of the numbers of combinations for the two parts of the assignment. Specifically, to form committee <span class="math inline">\(A\)</span>, we must choose eight out of 20 members, and this can be done in <span class="math inline">\(\binom{20}{8}\)</span> ways. Then to split the remaining 12 members into committees <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> there are are <span class="math inline">\(\binom{12}{8}\)</span> ways to do it. Here, the answer is</p>
+<p><span class="math display">\[
+\binom{20}{8}\binom{12}{8} = \frac{20!}{8!12!}\cdot \frac{12!}{8!4!} = \frac{20!}{8!8!4!} = 62,355,150.
+\]</span></p>
 </div>
 </div>
 </div>
 </div>
-<p>Notice how the <span class="math inline">\(12!\)</span> that appears in the denominator of  20 8   divides out with the 12! that appears in the numerator of  12 8   . This fact is the key to the general formula that we shall derive next. In general, suppose that n distinct elements are to be divided into k different groups (k ≥ 2) in such a way that, for j = 1, . . . , k, the jth group contains exactly nj elements, where n1 + n2 + . . . + nk = n.&nbsp;It is desired to determine the number of different ways in which the n elements can be divided into the k groups. The 1.9 Multinomial Coefficients 43 n1 elements in the first group can be selected from the n available elements in   n n1   different ways. After the n1 elements in the first group have been selected, the n2 elements in the second group can be selected from the remaining n − n1 elements in  n−n1 n2   different ways. Hence, the total number of different ways of selecting the elements for both the first group and the second group is   n n1   n−n1 n2   . After the n1 + n2 elements in the first two groups have been selected, the number of different ways in which the n3 elements in the third group can be selected is  n−n1−n2 n3   . Hence, the total number of different ways of selecting the elements for the first three groups is</p>
-<p>n n1  </p>
-<p>n − n1 n2  </p>
-<p>n − n1 − n2 n3   . It follows from the preceding explanation that, for each j = 1, . . . , k − 2 after the first j groups have been formed, the number of different ways in which the nj+1 elements in the next group (j + 1) can be selected from the remaining n − n1 − . . . − nj elements is  n−n1−…−nj nj+1   . After the elements of group k − 1 have been selected, the remaining nk elements must then form the last group. Hence, the total number of different ways of dividing the n elements into the k groups is</p>
-<p>n n1  </p>
-<p>n − n1 n2  </p>
-<p>n − n1 − n2 n3   . . .</p>
-<p>n − n1 − . . . − nk−2 nk−1   = n! n1!n2! . . . nk! , where the last formula follows from writing the binomial coefficients in terms of factorials.</p>
+<p>Notice how the <span class="math inline">\(12!\)</span> that appears in the denominator of <span class="math inline">\(\binom{20}{8}\)</span> divides out with the <span class="math inline">\(12!\)</span> that appears in the numerator of <span class="math inline">\(\binom{12}{8}\)</span>. This fact is the key to the general formula that we shall derive next.</p>
+<p>In general, suppose that <span class="math inline">\(n\)</span> distinct elements are to be divided into <span class="math inline">\(k\)</span> different groups (<span class="math inline">\(k \geq 2\)</span>) in such a way that, for <span class="math inline">\(j = 1, \ldots, k\)</span>, the <span class="math inline">\(j\)</span>th group contains exactly <span class="math inline">\(n_j\)</span> elements, where <span class="math inline">\(n_1 + n2 + \cdots + n_k = n\)</span>. It is desired to determine the number of different ways in which the <span class="math inline">\(n\)</span> elements can be divided into the <span class="math inline">\(k\)</span> groups. The <span class="math inline">\(n_1\)</span> elements in the first group can be selected from the <span class="math inline">\(n\)</span> available elements in <span class="math inline">\(\binom{n}{n_1}\)</span> different ways. After the <span class="math inline">\(n_1\)</span> elements in the first group have been selected, the <span class="math inline">\(n_2\)</span> elements in the second group can be selected from the remaining <span class="math inline">\(n − n_1\)</span> elements in <span class="math inline">\(\binom{n-n_1}{n_2}\)</span> different ways. Hence, the total number of different ways of selecting the elements for both the first group and the second group is <span class="math inline">\(\binom{n}{n_1}\binom{n-n_1}{n_2}\)</span>. After the <span class="math inline">\(n_1 + n_2\)</span> elements in the first two groups have been selected, the number of different ways in which the <span class="math inline">\(n_3\)</span> elements in the third group can be selected is <span class="math inline">\(\binom{n-n_1-n_2}{n_3}\)</span>. Hence, the total number of different ways of selecting the elements for the first three groups is</p>
+<p><span class="math display">\[
+\binom{n}{n_1}\binom{n-n_1}{n_2}\binom{n-n_1-n_2}{n_3}.
+\]</span></p>
+<p>It follows from the preceding explanation that, for each <span class="math inline">\(j = 1, \ldots, k-2\)</span> after the first <span class="math inline">\(j\)</span> groups have been formed, the number of different ways in which the <span class="math inline">\(n_{j+1}\)</span> elements in the next group (<span class="math inline">\(j + 1\)</span>) can be selected from the remaining <span class="math inline">\(n − n_1 − \cdots − n_j\)</span> elements is <span class="math inline">\(\binom{n-n_1-\cdots - n_j}{n_{j+1}}\)</span>. After the elements of group <span class="math inline">\(k − 1\)</span> have been selected, the remaining <span class="math inline">\(n_k\)</span> elements must then form the last group. Hence, the total number of different ways of dividing the <span class="math inline">\(n\)</span> elements into the <span class="math inline">\(k\)</span> groups is</p>
+<p><span class="math display">\[
+\binom{n}{n_1}\binom{n-n_1}{n_2}\binom{n-n_1-n_2}{n_3}\cdots \binom{n-n_1-\cdots - n_{k-2}}{n_{k-1}} = \frac{n!}{n_1!n_2!\cdots n_k!},
+\]</span></p>
+<p>where the last formula follows from writing the binomial coefficients in terms of factorials.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2408,7 +2404,7 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </div>
 </div>
 </div>
-<p>The name multinomial coefficient derives from the appearance of the symbol in the multinomial theorem, whose proof is left as <a href="#exr-1-9-11">Exercise&nbsp;<span>1.80</span></a> in this section.</p>
+<p>The name <strong>multinomial coefficient</strong> derives from the appearance of the symbol in the multinomial theorem, whose proof is left as <a href="#exr-1-9-11">Exercise&nbsp;<span>1.80</span></a> in this section.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2444,7 +2440,7 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </div>
 </div>
 </div>
-<p><strong>Arrangements of Elements of More Than Two Distinct Types</strong>: Just as binomial coefficients can be used to represent the number of different arrangements of the elements of a set containing elements of only two distinct types, multinomial coefficients can be used to represent the number of different arrangements of the elements of a set containing elements of k different types (k ≥ 2). Suppose, for example, that n balls of k different colors are to be arranged in a row and that there are nj balls of color j (j = 1, . . . , k), where n1 + n2 + . . . + nk = n.&nbsp;Then each different arrangement of the n balls corresponds to a different way of dividing the n available positions in the row into a group of n1 positions to be occupied by the balls of color 1, a second group of n2 positions to be occupied by the balls of color 2, and so on. Hence, the total number of different possible arrangements of the n balls must be</p>
+<p><strong>Arrangements of Elements of More Than Two Distinct Types</strong>: Just as binomial coefficients can be used to represent the number of different arrangements of the elements of a set containing elements of only two distinct types, multinomial coefficients can be used to represent the number of different arrangements of the elements of a set containing elements of k different types (<span class="math inline">\(k \geq 2\)</span>). Suppose, for example, that <span class="math inline">\(n\)</span> balls of <span class="math inline">\(k\)</span> different colors are to be arranged in a row and that there are <span class="math inline">\(n_j\)</span> balls of color <span class="math inline">\(j\)</span> (<span class="math inline">\(j = 1, \ldots, k\)</span>), where <span class="math inline">\(n_1 + n_2 + \cdots + n_k = n\)</span>. Then each different arrangement of the <span class="math inline">\(n\)</span> balls corresponds to a different way of dividing the <span class="math inline">\(n\)</span> available positions in the row into a group of <span class="math inline">\(n_1\)</span> positions to be occupied by the balls of color 1, a second group of <span class="math inline">\(n_2\)</span> positions to be occupied by the balls of color 2, and so on. Hence, the total number of different possible arrangements of the <span class="math inline">\(n\)</span> balls must be</p>
 <p><span class="math display">\[
 \binom{n}{n_1, n_2, \ldots, n_k} = \frac{n!}{n_1!n_2!\cdots n_k!}.
 \]</span></p>
@@ -2455,8 +2451,15 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-9-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.41 (Example 1.9.3: Rolling Dice) </strong></span>Suppose that 12 dice are to be rolled.We shall determine the probability p that each of the six different numbers will appear twice. Each outcome in the sample space S can be regarded as an ordered sequence of 12 numbers, where the ith number in the sequence is the outcome of the ith roll. Hence, there will be 612 possible outcomes in S, and each of these outcomes can be regarded as equally probable. The number of these outcomes that would contain each of the six numbers 1, 2, . . . , 6 exactly twice will be equal to the number of different possible arrangements of these 12 elements.This number can be determined by evaluating the multinomial coefficient for which n = 12, k = 6, and n1= n2 = . . . = n6 = 2. Hence, the number of such outcomes is</p>
-<p>12 2, 2, 2, 2, 2, 2   = 12! (2!)6 , and the required probability p is p = 12! 26612 = 0.0034.  </p>
+<p><span class="theorem-title"><strong>Example 1.41 (Example 1.9.3: Rolling Dice) </strong></span>Suppose that 12 dice are to be rolled. We shall determine the probability <span class="math inline">\(p\)</span> that each of the six different numbers will appear twice.</p>
+<p>Each outcome in the sample space <span class="math inline">\(S\)</span> can be regarded as an ordered sequence of 12 numbers, where the <span class="math inline">\(i\)</span>th number in the sequence is the outcome of the <span class="math inline">\(i\)</span>th roll. Hence, there will be <span class="math inline">\(6^{12}\)</span> possible outcomes in <span class="math inline">\(S\)</span>, and each of these outcomes can be regarded as equally probable. The number of these outcomes that would contain each of the six numbers <span class="math inline">\(1, 2, \ldots , 6\)</span> exactly twice will be equal to the number of different possible arrangements of these 12 elements. This number can be determined by evaluating the multinomial coefficient for which <span class="math inline">\(n = 12\)</span>, <span class="math inline">\(k = 6\)</span>, and <span class="math inline">\(n_1 = n_2 = \cdots = n_6 = 2\)</span>. Hence, the number of such outcomes is</p>
+<p><span class="math display">\[
+\binom{12}{2,2,2,2,2,2} = \frac{12!}{(2!)^6}
+\]</span></p>
+<p>and the required probability <span class="math inline">\(p\)</span> is</p>
+<p><span class="math display">\[
+o = \frac{12!}{2^6 6^{12}} = 0.0034.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2468,13 +2471,32 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-9-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.42 (Example 1.9.4: Playing Cards) </strong></span>A deck of 52 cards contains 13 hearts. Suppose that the cards are shuffled and distributed among four players A, B, C, and D so that each player receives 13 cards. We shall determine the probability p that player A will receive six hearts, player B will receive four hearts, player C will receive two hearts, and player D will receive one heart. The total number N of different ways in which the 52 cards can be distributed among the four players so that each player receives 13 cards is N =</p>
-<p>52 13, 13, 13, 13   = 52! (13!)4 . It may be assumed that each of these ways is equally probable.We must now calculate the number M of ways of distributing the cards so that each player receives the required number of hearts. The number of different ways in which the hearts can be distributed to players A, B, C, and D so that the numbers of hearts they receive are 6, 4, 2, and 1, respectively, is</p>
-<p>13 6, 4, 2, 1   = 13! 6!4!2!1!</p>
+<p><span class="theorem-title"><strong>Example 1.42 (Example 1.9.4: Playing Cards) </strong></span>A deck of 52 cards contains 13 hearts. Suppose that the cards are shuffled and distributed among four players <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span> so that each player receives 13 cards. We shall determine the probability <span class="math inline">\(p\)</span> that player <span class="math inline">\(A\)</span> will receive six hearts, player <span class="math inline">\(B\)</span> will receive four hearts, player <span class="math inline">\(C\)</span> will receive two hearts, and player <span class="math inline">\(D\)</span> will receive one heart.</p>
+<p>The total number <span class="math inline">\(N\)</span> of different ways in which the 52 cards can be distributed among the four players so that each player receives 13 cards is</p>
+<p><span class="math display">\[
+N = \binom{52}{13, 13, 13, 13} = \frac{52!}{(13!)^4}.
+\]</span></p>
+<p>It may be assumed that each of these ways is equally probable. We must now calculate the number <span class="math inline">\(M\)</span> of ways of distributing the cards so that each player receives the required number of hearts. The number of different ways in which the hearts can be distributed to players <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span> so that the numbers of hearts they receive are 6, 4, 2, and 1, respectively, is</p>
+<p><span class="math display">\[
+\binom{13}{6, 4, 2, 1} = \frac{13!}{6!4!2!1!}.
+\]</span></p>
 <p>Also, the number of different ways in which the other 39 cards can then be distributed to the four players so that each will have a total of 13 cards is</p>
-<p>39 7, 9, 11, 12   = 39! 7!9!11!12! . Therefore, M = 13! 6!4!2!1! . 39! 7!9!11!12! , and the required probability p is p = M N = 13!39!(13!)4 6!4!2!1!7!9!11!12!52! = 0.00196.</p>
-<p>There is another approach to this problem along the lines indicated in <a href="#exm-1-8-9">Example&nbsp;<span>1.35</span></a>. The number of possible different combinations of the 13 positions in the deck occupied by the hearts is</p>
-<p> 52 13   . If player A is to receive six hearts, there are  13 6   possible combinations of the six positions these hearts occupy among the 13 cards that A will receive. Similarly, if player B is to receive four hearts, there are  13 4   possible combinations of their positions among the 13 cards that B will receive. There are  13 2   possible combinations for player C, and there are  13 1   possible combinations for player D. Hence, p =   13 6     13 4     13 2     13 1     52 13   , which produces the same value as the one obtained by the first method of solution.</p>
+<p><span class="math display">\[
+\binom{39}{7, 9, 11, 12} = \frac{39!}{7!9!11!12!}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+M = \frac{13!}{6!4!2!1!} \cdot \frac{39!}{7!9!11!12!},
+\]</span></p>
+<p>and the required probability <span class="math inline">\(p\)</span> is</p>
+<p><span class="math display">\[
+p = \frac{M}{N} = \frac{13!39!(13!)^4}{6!4!2!1!7!9!11!12!52!} = 0.00196.
+\]</span></p>
+<p>There is another approach to this problem along the lines indicated in <a href="#exm-1-8-9">Example&nbsp;<span>1.35</span></a>. The number of possible different combinations of the 13 positions in the deck occupied by the hearts is <span class="math inline">\(\binom{52}{13}\)</span>. If player <span class="math inline">\(A\)</span> is to receive six hearts, there are <span class="math inline">\(\binom{13}{6}\)</span> possible combinations of the six positions these hearts occupy among the 13 cards that <span class="math inline">\(A\)</span> will receive. Similarly, if player <span class="math inline">\(B\)</span> is to receive four hearts, there are <span class="math inline">\(\binom{13}{4}\)</span> possible combinations of their positions among the 13 cards that <span class="math inline">\(B\)</span> will receive. There are <span class="math inline">\(\binom{13}{2}\)</span> possible combinations for player C, and there are <span class="math inline">\(\binom{13}{1}\)</span> possible combinations for player <span class="math inline">\(D\)</span>. Hence,</p>
+<p><span class="math display">\[
+p = \frac{\binom{13}{6} \binom{13}{4} \binom{13}{2} \binom{13}{1}}{\binom{52}{13}},
+\]</span></p>
+<p>which produces the same value as the one obtained by the first method of solution.</p>
 </div>
 </div>
 </div>
@@ -2486,64 +2508,34 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 <section id="exercises-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercises-5">Exercises</h3>
 <div id="exr-1-9-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.70 (Exercise 1.9.1) </strong></span>&nbsp;</p>
-<ol type="1">
-<li>Three pollsters will canvas a neighborhood with 21 houses. Each pollster will visit seven of the houses. How many different assignments of pollsters to houses are possible?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.70 (Exercise 1.9.1) </strong></span>Three pollsters will canvas a neighborhood with 21 houses. Each pollster will visit seven of the houses. How many different assignments of pollsters to houses are possible?</p>
 </div>
 <div id="exr-1-9-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.71 (Exercise 1.9.2) </strong></span>&nbsp;</p>
-<ol start="2" type="1">
-<li>Suppose that 18 red beads, 12 yellow beads, eight blue beads, and 12 black beads are to be strung in a row. How many different arrangements of the colors can be formed?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.71 (Exercise 1.9.2) </strong></span>Suppose that 18 red beads, 12 yellow beads, eight blue beads, and 12 black beads are to be strung in a row. How many different arrangements of the colors can be formed?</p>
 </div>
 <div id="exr-1-9-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.72 (Exercise 1.9.3) </strong></span>&nbsp;</p>
-<ol start="3" type="1">
-<li>Suppose that two committees are to be formed in an organization that has 300 members. If one committee is to have five members and the other committee is to have eight members, in how many different ways can these committees be selected?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.72 (Exercise 1.9.3) </strong></span>Suppose that two committees are to be formed in an organization that has 300 members. If one committee is to have five members and the other committee is to have eight members, in how many different ways can these committees be selected?</p>
 </div>
 <div id="exr-1-9-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.73 (Exercise 1.9.4) </strong></span>&nbsp;</p>
-<ol start="4" type="1">
-<li>If the letters s, s, s, t , t , t , i, i, a, c are arranged in a random order, what is the probability that they will spell the word “statistics”?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.73 (Exercise 1.9.4) </strong></span>If the letters <code>s</code>, <code>s</code>, <code>s</code>, <code>t</code>, <code>t</code>, <code>t</code>, <code>i</code>, <code>i</code>, <code>a</code>, <code>c</code> are arranged in a random order, what is the probability that they will spell the word “statistics”?</p>
 </div>
 <div id="exr-1-9-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.74 (Exercise 1.9.5) </strong></span>&nbsp;</p>
-<ol start="5" type="1">
-<li>Suppose that n balanced dice are rolled. Determine the probability that the number j will appear exactly nj times (j = 1, . . . , 6), where n1 + n2 + . . . + n6 = n.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.74 (Exercise 1.9.5) </strong></span>Suppose that <span class="math inline">\(n\)</span> balanced dice are rolled. Determine the probability that the number <span class="math inline">\(j\)</span> will appear exactly <span class="math inline">\(n_j\)</span> times (<span class="math inline">\(j = 1, \ldots, 6\)</span>), where <span class="math inline">\(n_1 + n_2 + \cdots + n_6 = n\)</span>.</p>
 </div>
 <div id="exr-1-9-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.75 (Exercise 1.9.6) </strong></span>&nbsp;</p>
-<ol start="6" type="1">
-<li>If seven balanced dice are rolled, what is the probability that each of the six different numbers will appear at least once?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.75 (Exercise 1.9.6) </strong></span>If seven balanced dice are rolled, what is the probability that each of the six different numbers will appear at least once?</p>
 </div>
 <div id="exr-1-9-7" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.76 (Exercise 1.9.7) </strong></span>&nbsp;</p>
-<ol start="7" type="1">
-<li>Suppose that a deck of 25 cards contains 12 red cards. Suppose also that the 25 cards are distributed in a random manner to three players A, B, and C in such a way that player A receives 10 cards, player B receives eight cards, and player C receives seven cards. Determine the probability that player A will receive six red cards, player B will receive two red cards, and player C will receive four red cards.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.76 (Exercise 1.9.7) </strong></span>Suppose that a deck of 25 cards contains 12 red cards. Suppose also that the 25 cards are distributed in a random manner to three players <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> in such a way that player <span class="math inline">\(A\)</span> receives 10 cards, player <span class="math inline">\(B\)</span> receives eight cards, and player <span class="math inline">\(C\)</span> receives seven cards. Determine the probability that player <span class="math inline">\(A\)</span> will receive six red cards, player <span class="math inline">\(B\)</span> will receive two red cards, and player <span class="math inline">\(C\)</span> will receive four red cards.</p>
 </div>
 <div id="exr-1-9-8" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.77 (Exercise 1.9.8) </strong></span>&nbsp;</p>
-<ol start="8" type="1">
-<li>A deck of 52 cards contains 12 picture cards. If the 52 cards are distributed in a random manner among four players in such a way that each player receives 13 cards, what is the probability that each player will receive three picture cards?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.77 (Exercise 1.9.8) </strong></span>A deck of 52 cards contains 12 picture cards. If the 52 cards are distributed in a random manner among four players in such a way that each player receives 13 cards, what is the probability that each player will receive three picture cards?</p>
 </div>
 <div id="exr-1-9-9" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.78 (Exercise 1.9.9) </strong></span>&nbsp;</p>
-<ol start="9" type="1">
-<li>Suppose that a deck of 52 cards contains 13 red cards, 13 yellow cards, 13 blue cards, and 13 green cards. If the 52 cards are distributed in a random manner among four players in such a way that each player receives 13 cards, what is the probability that each player will receive 13 cards of the same color?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.78 (Exercise 1.9.9) </strong></span>Suppose that a deck of 52 cards contains 13 red cards, 13 yellow cards, 13 blue cards, and 13 green cards. If the 52 cards are distributed in a random manner among four players in such a way that each player receives 13 cards, what is the probability that each player will receive 13 cards of the same color?</p>
 </div>
 <div id="exr-1-9-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.79 (Exercise 1.9.10) </strong></span>&nbsp;</p>
-<ol start="10" type="1">
-<li>Suppose that two boys named Davis, three boys named Jones, and four boys named Smith are seated at random in a row containing nine seats. What is the probability that the Davis boys will occupy the first two seats in the row, the Jones boys will occupy the next three seats, and the Smith boys will occupy the last four seats?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.79 (Exercise 1.9.10) </strong></span>Suppose that two boys named Davis, three boys named Jones, and four boys named Smith are seated at random in a row containing nine seats. What is the probability that the Davis boys will occupy the first two seats in the row, the Jones boys will occupy the next three seats, and the Smith boys will occupy the last four seats?</p>
 </div>
 <div id="exr-1-9-11" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1.80 (Exercise 1.9.11) </strong></span>Prove the multinomial theorem, <a href="#thm-1-9-1">Theorem&nbsp;<span>1.28</span></a>. (You may wish to use the same hint as in <a href="#exr-1-8-20">Exercise&nbsp;<span>1.67</span></a> in <a href="#sec-1-8"><span>Section&nbsp;1.8</span></a>.)</p>
@@ -2580,10 +2572,38 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 <div class="callout-body-container">
 <div id="thm-1-10-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1.29 (Theorem 1.10.1) </strong></span>For every three events <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span>,</p>
-<p>Pr(A1 ∪ A2 ∪ A3) = Pr(A1) + Pr(A2) + Pr(A3) − [Pr(A1 ∩ A2) + Pr(A2 ∩ A3) + Pr(A1 ∩ A3)] + Pr(A1 ∩ A2 ∩ A3). (1.10.1)</p>
+<p><span id="eq-1-10-1"><span class="math display">\[
+\begin{align*}
+\Pr(A_1 \cup A_2 \cup A_3) = &amp;\Pr(A_1) + \Pr(A_2) + \Pr(A_3) \\
+&amp;− [\Pr(A_1 \cap A_2) + \Pr(A_2 \cap A_3) + \Pr(A_1 \cap A_3)] \\
+&amp;+ \Pr(A_1 \cap A_2 \cap A_3).
+\end{align*}
+\tag{1.5}\]</span></span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By the associative property of unions (Theorem 1.4.6), we can write A1 ∪ A2 ∪ A3 = (A1 ∪ A2) ∪ A3.</p>
-<p>Apply <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> to the two events A = A1 ∪ A2 and B = A3 to obtain Pr(A1 ∪ A2 ∪ A3) = Pr(A ∪ B) = Pr(A) + Pr(B) − Pr(A ∩ B). (1.10.2) We next compute the three probabilities on the far right side of (1.10.2) and combine them to get (1.10.1). First, apply <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> to the two events A1 and A2 to obtain Pr(A) = Pr(A1) + Pr(A2) − Pr(A1 ∩ A2). (1.10.3) Next, use the first distributive property in Theorem 1.4.10 to write A ∩ B = (A1 ∪ A2) ∩ A3 = (A1 ∩ A3) ∪ (A2 ∩ A3). (1.10.4) Apply <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> to the events on the far right side of (1.10.4) to obtain Pr(A ∩ B) = Pr(A1 ∩ A3) + Pr(A2 ∩ A3) − Pr(A1 ∩ A2 ∩ A3). (1.10.5) Substitute (1.10.3), Pr(B) = Pr(A3), and (1.10.5) into (1.10.2) to complete the proof.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By the associative property of unions (<a href="#thm-1-4-6">Theorem&nbsp;<span>1.6</span></a>), we can write</p>
+<p><span class="math display">\[
+A_1 \cup A_2 \cup A_3 = (A_1 \cup A_2) \cup A_3.
+\]</span></p>
+<p>Apply <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> to the two events <span class="math inline">\(A = A_1 \cup A_2\)</span> and <span class="math inline">\(B = A_3\)</span> to obtain</p>
+<p><span id="eq-1-10-2"><span class="math display">\[
+\begin{align*}
+\Pr(A_1 \cup A_2 \cup A_3) &amp;= \Pr(A \cup B) \\
+&amp;= \Pr(A) + \Pr(B) − \Pr(A \cap B).
+\end{align*}
+\tag{1.6}\]</span></span></p>
+<p>We next compute the three probabilities on the far right side of <a href="#eq-1-10-2">Equation&nbsp;<span>1.6</span></a> and combine them to get <a href="#eq-1-10-1">Equation&nbsp;<span>1.5</span></a>. First, apply <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> to the two events <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> to obtain</p>
+<p><span id="eq-1-10-3"><span class="math display">\[
+\Pr(A) = \Pr(A_1) + \Pr(A_2) − \Pr(A_1 \cap A_2).
+\tag{1.7}\]</span></span></p>
+<p>Next, use the first distributive property in <a href="#thm-1-4-10">Theorem&nbsp;<span>1.10</span></a> to write</p>
+<p><span id="eq-1-10-4"><span class="math display">\[
+A \cap B = (A_1 \cup A_2) \cap A_3 = (A_1 \cap A_3) \cup (A_2 \cap A_3).
+\tag{1.8}\]</span></span></p>
+<p>Apply <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> to the events on the far right side of <a href="#eq-1-10-4">Equation&nbsp;<span>1.8</span></a> to obtain</p>
+<p><span id="eq-1-10-5"><span class="math display">\[
+\Pr(A \cap B) = \Pr(A_1 \cap A_3) + \Pr(A_2 \cap A_3) − \Pr(A_1 \cap A_2 \cap A_3).
+\tag{1.9}\]</span></span></p>
+<p>Substitute <a href="#eq-1-10-3">Equation&nbsp;<span>1.7</span></a>, <span class="math inline">\(\Pr(B) = \Pr(A_3)\)</span>, and <a href="#eq-1-10-5">Equation&nbsp;<span>1.9</span></a> into <a href="#eq-1-10-2">Equation&nbsp;<span>1.6</span></a> to complete the proof.</p>
 </div>
 </div>
 </div>
@@ -2596,7 +2616,16 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </div>
 <div class="callout-body-container">
 <div id="exm-1-10-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.43 (Example 1.10.1: Student Enrollment) </strong></span>Among a group of 200 students, 137 students are enrolled in a mathematics class, 50 students are enrolled in a history class, and 124 students are enrolled in a music class. Furthermore, the number of students enrolled in both the mathematics and history classes is 33, the number enrolled in both the history and music classes is 29, and the number enrolled in both the mathematics and music classes is 92. Finally, the number of students enrolled in all three classes is 18. We shall determine the probability that a student selected at random from the group of 200 students will be enrolled in at least one of the three classes. Let A1 denote the event that the selected student is enrolled in the mathematics class, let A2 denote the event that he is enrolled in the history class, and let A3 denote the event that he is enrolled in the music class. To solve the problem, we must determine the value of Pr(A1 ∪ A2 ∪ A3). From the given numbers, Pr(A1) = 137 200 , Pr(A2) = 50 200 , Pr(A3) = 124 200 , Pr(A1 ∩ A2) = 33 200 , Pr(A2 ∩ A3) = 29 200 , Pr(A1 ∩ A3) = 92 200 , Pr(A1 ∩ A2 ∩ A3) = 18 200 . It follows from Eq. (1.10.1) that <span class="math inline">\(\Pr(A_1 \cup A_2 \cup A_3) = 175/200 = 7/8\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 1.43 (Example 1.10.1: Student Enrollment) </strong></span>Among a group of 200 students, 137 students are enrolled in a mathematics class, 50 students are enrolled in a history class, and 124 students are enrolled in a music class. Furthermore, the number of students enrolled in both the mathematics and history classes is 33, the number enrolled in both the history and music classes is 29, and the number enrolled in both the mathematics and music classes is 92. Finally, the number of students enrolled in all three classes is 18. We shall determine the probability that a student selected at random from the group of 200 students will be enrolled in at least one of the three classes.</p>
+<p>Let <span class="math inline">\(A_1\)</span> denote the event that the selected student is enrolled in the mathematics class, let <span class="math inline">\(A_2\)</span> denote the event that he is enrolled in the history class, and let <span class="math inline">\(A_3\)</span> denote the event that he is enrolled in the music class. To solve the problem, we must determine the value of <span class="math inline">\(\Pr(A_1 \cup A_2 \cup A3)\)</span>. From the given numbers,</p>
+<p><span class="math display">\[
+\begin{align*}
+&amp;\Pr(A_1) = \frac{137}{200}, \; \Pr(A_2) = \frac{50}{200}, \; \Pr(A_3) = \frac{124}{200}, \\
+&amp;\Pr(A_1 \cap A_2) = \frac{33}{200}, \; \Pr(A_2 \cap A_3) = \frac{29}{200}, \; \Pr(A_1 \cap A_3) = \frac{92}{200}, \\
+&amp;\Pr(A_1 \cap A_2 \cap A_3) = \frac{18}{200}.
+\end{align*}
+\]</span></p>
+<p>It follows from <a href="#eq-1-10-1">Equation&nbsp;<span>1.5</span></a> that <span class="math inline">\(\Pr(A_1 \cup A_2 \cup A_3) = 175/200 = 7/8\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2613,9 +2642,32 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 <div class="callout-body-container">
 <div id="thm-1-10-2" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1.30 (Theorem 1.10.2) </strong></span>For every <span class="math inline">\(n\)</span> events <span class="math inline">\(A_1, \ldots, A_n\)</span>,</p>
-<p>Pr    n i=1 Ai   =  n i=1 Pr(Ai) −   i&lt;j Pr(Ai ∩ Aj ) +   i&lt;j&lt;k Pr(Ai ∩ Aj ∩ Ak) −   i&lt;j&lt;k&lt;l Pr(Ai ∩ Aj ∩ Ak ∩ Al) + . . . + (−1)n+1 Pr(A1 ∩ A2 ∩ . . . ∩ An). (1.10.6)</p>
+<p><span id="eq-1-10-6"><span class="math display">\[
+\begin{align*}
+\Pr\left( \bigcup_{i=1}^nA_i \right) = &amp;\sum_{i=1}^n \Pr(A_i) - \sum_{i &lt; j}\Pr(A_i \cap A_j) + \sum_{i &lt; j &lt; k}\Pr(A_i \cap A_j \cap A_k) \\
+&amp;- \sum_{i &lt; j &lt; k &lt; \ell}\Pr(A_i \cap A_j \cap A_k \cap A_\ell) + \cdots \\
+&amp;+ (-1)^{n+1}\Pr(A_1 \cap A_2 \cap \cdots \cap A_n).
+\end{align*}
+\tag{1.10}\]</span></span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof proceeds by induction. In particular, we first establish that (1.10.6) is true for n = 1 and n = 2. Next, we show that if there exists m such that (1.10.6) is true for all n ≤ m, then (1.10.6) is also true for n = m + 1. The case of n = 1 is trivial, and the case of n = 2 is Theorem 1.5.7. To complete the proof, assume that (1.10.6) is true for all n ≤ m. Let A1, . . . , Am+1 be events. Define A = m i=1 Ai and B = Am+1. <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> says that Pr    n i=1 Ai   = Pr(A ∪ B) = Pr(A) + Pr(B) − Pr(A ∩ B). (1.10.7) We have assumed that Pr(A) equals (1.10.6) with n = m.We need to show that when we add Pr(A) to Pr(B) − Pr(A ∩ B), we get (1.10.6) with n = m + 1. The difference between (1.10.6) with n = m + 1 and Pr(A) is all of the terms in which one of the subscripts (i, j , k, etc.) equals m + 1. Those terms are the following: Pr(Am+1) −  m i=1 Pr(Ai ∩ Am+1) +   i&lt;j Pr(Ai ∩ Aj ∩ Am+1) −   i&lt;j&lt;k Pr(Ai ∩ Aj ∩ Ak ∩ Am+1) + . . . + (−1)m+2 Pr(A1 ∩ A2 ∩ . . . ∩ Am ∩ Am+1). (1.10.8) The first term in (1.10.8) is Pr(B) = Pr(Am+1). All that remains is to show that − Pr(A ∩ B) equals all but the first term in (1.10.8). Use the natural generalization of the distributive property (Theorem 1.4.10) to write A ∩ B =    m i=1 Ai   ∩ Am+1 =  m i=1 (Ai ∩ Am+1). (1.10.9) The union in (1.10.9) contains m events, and hence we can apply (1.10.6) with n = m and each Ai replaced by Ai ∩ Am+1. The result is that − Pr(A ∩ B) equals all but the first term in (1.10.8).</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The proof proceeds by induction. In particular, we first establish that <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> is true for <span class="math inline">\(n = 1\)</span> and <span class="math inline">\(n = 2\)</span>. Next, we show that if there exists <span class="math inline">\(m\)</span> such that <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> is true for all <span class="math inline">\(n \leq m\)</span>, then <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> is also true for <span class="math inline">\(n = m + 1\)</span>. The case of <span class="math inline">\(n = 1\)</span> is trivial, and the case of <span class="math inline">\(n = 2\)</span> is <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a>. To complete the proof, assume that <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> is true for all <span class="math inline">\(n \leq m\)</span>. Let <span class="math inline">\(A_1, \ldots, A_{m+1}\)</span> be events. Define <span class="math inline">\(A = \bigcup_{i=1}^mA_i\)</span> and <span class="math inline">\(B = A_{m + 1}\)</span>. <a href="#thm-1-5-7">Theorem&nbsp;<span>1.18</span></a> says that</p>
+<p><span id="eq-1-10-7"><span class="math display">\[
+\Pr\left(\bigcup_{i=1}^n\right) \Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B).
+\tag{1.11}\]</span></span></p>
+<p>We have assumed that <span class="math inline">\(\Pr(A)\)</span> equals <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> with <span class="math inline">\(n = m\)</span>. We need to show that when we add <span class="math inline">\(\Pr(A)\)</span> to <span class="math inline">\(\Pr(B) − \Pr(A \cap B)\)</span>, we get <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> with <span class="math inline">\(n = m + 1\)</span>. The difference between <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> with <span class="math inline">\(n = m + 1\)</span> and <span class="math inline">\(\Pr(A)\)</span> is all of the terms in which one of the subscripts (<span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>, <span class="math inline">\(k\)</span>, etc.) equals <span class="math inline">\(m + 1\)</span>. Those terms are the following:</p>
+<p><span id="eq-1-10-8"><span class="math display">\[
+\begin{align*}
+&amp;\Pr(A_{m+1}) - \sum_{i=1}^m\Pr(A_i \cap A_{m+1}) + \sum_{i &lt; j}\Pr(A_i \cap A_j \cap A_{m+1}) \\
+&amp;- \sum_{i &lt; j &lt; k}\Pr(A_i \cap A_j \cap A_k \cap A_{m+1}) + \cdots \\
+&amp;+ (-1)^{m+2}\Pr(A_1 \cap A_2 \cap \cdots \cap A_m \cap A_{m+1}).
+\end{align*}
+\tag{1.12}\]</span></span></p>
+<p>The first term in <a href="#eq-1-10-8">Equation&nbsp;<span>1.12</span></a> is <span class="math inline">\(\Pr(B) = \Pr(A_{m+1})\)</span>. All that remains is to show that <span class="math inline">\(− \Pr(A \cap B)\)</span> equals all but the first term in <a href="#eq-1-10-8">Equation&nbsp;<span>1.12</span></a>.</p>
+<p>Use the natural generalization of the distributive property (<a href="#thm-1-4-10">Theorem&nbsp;<span>1.10</span></a>) to write</p>
+<p><span id="eq-1-10-9"><span class="math display">\[
+A \cap B = \left( \bigcup_{i=1}^mA_i \right) \cap A_{m+1} = \bigcup_{i=1}^m (A_i \cap A_{m+1}).
+\tag{1.13}\]</span></span></p>
+<p>The union in <a href="#eq-1-10-9">Equation&nbsp;<span>1.13</span></a> contains <span class="math inline">\(m\)</span> events, and hence we can apply <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> with <span class="math inline">\(n = m\)</span> and each <span class="math inline">\(A_i\)</span> replaced by <span class="math inline">\(A_i \cap A_{m+1}\)</span>. The result is that <span class="math inline">\(− \Pr(A \cap B)\)</span> equals all but the first term in <a href="#eq-1-10-8">Equation&nbsp;<span>1.12</span></a>.</p>
 </div>
 </div>
 </div>
@@ -2625,10 +2677,30 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 </section>
 <section id="the-matching-problem" class="level3">
 <h3 class="anchored" data-anchor-id="the-matching-problem">The Matching Problem</h3>
-<p>Suppose that all the cards in a deck of n different cards are placed in a row, and that the cards in another similar deck are then shuffled and placed in a row on top of the cards in the original deck. It is desired to determine the probability pn that there will be at least one match between the corresponding cards from the two decks. The same problem can be expressed in various entertaining contexts. For example, we could suppose that a person types n letters, types the corresponding addresses on n envelopes, and then places the n letters in the n envelopes in a random manner. It could be desired to determine the probability pn that at least one letter will be placed in the correct envelope.As another example, we could suppose that the photographs of n famous film actors are paired in a random manner with n photographs of the same actors taken when they were babies. It could then be desired to determine the probability pn that the photograph of at least one actor will be paired correctly with this actor’s own baby photograph. Here we shall discuss this matching problem in the context of letters being placed in envelopes. Thus, we shall let Ai be the event that letter i is placed in the correct envelope (i = 1, . . . , n), and we shall determine the value of pn = Pr   n i=1 Ai   by using Eq. (1.10.6). Since the letters are placed in the envelopes at random, the probability Pr(Ai) that any particular letter will be placed in the correct envelope is 1/n.&nbsp;Therefore, the value of the first summation on the right side of Eq. (1.10.6) is  n i=1 Pr(Ai) = n . 1 n = 1. Furthermore, since letter 1 could be placed in any one of n envelopes and letter 2 could then be placed in any one of the other n − 1 envelopes, the probability Pr(A1 ∩ A2) that both letter 1 and letter 2 will be placed in the correct envelopes is 1/[n(n − 1)]. Similarly, the probability Pr(Ai ∩ Aj ) that any two specific letters i and j (i  = j) will both be placed in the correct envelopes is 1/[n(n − 1)]. Therefore, the value of the second summation on the right side of Eq. (1.10.6) is   i&lt;j Pr(Ai ∩ Aj ) =</p>
-<p>n 2   1 n(n − 1) = 1 2! . By similar reasoning, it can be determined that the probability Pr(Ai ∩ Aj ∩ Ak) that any three specific letters i, j , and k (i&lt;j &lt;k) will be placed in the correct envelopes is 1/[n(n − 1)(n − 2)]. Therefore, the value of the third summation is   i&lt;j&lt;k Pr(Ai ∩ Aj ∩ Ak) =</p>
-<p>n 3   1 n(n − 1)(n − 2) = 1 3! . This procedure can be continued until it is found that the probability Pr(A1 ∩ A2 . . . ∩ An) that all n letters will be placed in the correct envelopes is 1/(n!). It now follows from Eq. (1.10.6) that the probability pn that at least one letter will be placed in the correct envelope is pn = 1− 1 2! + 1 3! − 1 4! + . . . + (−1)n+1 1 n! . (1.10.10) This probability has the following interesting features. As n→∞, the value of pn approaches the following limit: lim n→∞ pn = 1− 1 2! + 1 3! − 1 4! + . . . .</p>
-<p>It is shown in books on elementary calculus that the sum of the infinite series on the right side of this equation is 1− (1/e), where e = 2.71828. . . . Hence, 1− (1/e) = 0.63212. . . . It follows that for a large value of n, the probability pn that at least one letter will be placed in the correct envelope is approximately 0.63212. The exact values of pn, as given in Eq. (1.10.10), will form an oscillating sequence as n increases. As n increases through the even integers 2, 4, 6, . . . , the values of pn will increase toward the limiting value 0.63212; and as n increases through the odd integers 3, 5, 7, . . . , the values of pn will decrease toward this same limiting value. The values of pn converge to the limit very rapidly. In fact, for n = 7 the exact value p7 and the limiting value of pn agree to four decimal places. Hence, regardless of whether seven letters are placed at random in seven envelopes or seven million letters are placed at random in seven million envelopes, the probability that at least one letter will be placed in the correct envelope is 0.6321.</p>
+<p>Suppose that all the cards in a deck of <span class="math inline">\(n\)</span> different cards are placed in a row, and that the cards in another similar deck are then shuffled and placed in a row on top of the cards in the original deck. It is desired to determine the probability <span class="math inline">\(p_n\)</span> that there will be at least one match between the corresponding cards from the two decks. The same problem can be expressed in various entertaining contexts. For example, we could suppose that a person types <span class="math inline">\(n\)</span> letters, types the corresponding addresses on <span class="math inline">\(n\)</span> envelopes, and then places the <span class="math inline">\(n\)</span> letters in the <span class="math inline">\(n\)</span> envelopes in a random manner. It could be desired to determine the probability <span class="math inline">\(p_n\)</span> that at least one letter will be placed in the correct envelope. As another example, we could suppose that the photographs of <span class="math inline">\(n\)</span> famous film actors are paired in a random manner with <span class="math inline">\(n\)</span> photographs of the same actors taken when they were babies. It could then be desired to determine the probability <span class="math inline">\(p_n\)</span> that the photograph of at least one actor will be paired correctly with this actor’s own baby photograph.</p>
+<p>Here we shall discuss this matching problem in the context of letters being placed in envelopes. Thus, we shall let <span class="math inline">\(A_i\)</span> be the event that letter <span class="math inline">\(i\)</span> is placed in the correct envelope (<span class="math inline">\(i = 1, \ldots, n\)</span>), and we shall determine the value of <span class="math inline">\(p_n = \Pr(\bigcup_{i=1}^nA_i)\)</span> by using <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a>. Since the letters are placed in the envelopes at random, the probability <span class="math inline">\(\Pr(A_i)\)</span> that any particular letter will be placed in the correct envelope is <span class="math inline">\(1/n\)</span>. Therefore, the value of the first summation on the right side of <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> is</p>
+<p><span class="math display">\[
+\sum_{i=1}^n\Pr(A_i) = n \cdot \frac{1}{n} = 1.
+\]</span></p>
+<p>Furthermore, since letter 1 could be placed in any one of <span class="math inline">\(n\)</span> envelopes and letter 2 could then be placed in any one of the other <span class="math inline">\(n − 1\)</span> envelopes, the probability <span class="math inline">\(\Pr(A_1 \cap A_2)\)</span> that both letter 1 and letter 2 will be placed in the correct envelopes is <span class="math inline">\(1/[n(n − 1)]\)</span>. Similarly, the probability <span class="math inline">\(\Pr(A_i \cap A_j)\)</span> that any two specific letters <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> (<span class="math inline">\(i \neq j\)</span>) will both be placed in the correct envelopes is <span class="math inline">\(1/[n(n − 1)]\)</span>. Therefore, the value of the second summation on the right side of <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> is</p>
+<p><span class="math display">\[
+\sum_{i &lt; j}\Pr(A_i \cap A_j) = \binom{n}{2}\frac{1}{n(n-1)} = \frac{1}{2!}.
+\]</span></p>
+<p>By similar reasoning, it can be determined that the probability <span class="math inline">\(\Pr(A_i \cap A_j \cap A_k)\)</span> that any three specific letters <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>, and <span class="math inline">\(k\)</span> (<span class="math inline">\(i &lt; j &lt; k\)</span>) will be placed in the correct envelopes is <span class="math inline">\(1/[n(n − 1)(n − 2)]\)</span>. Therefore, the value of the third summation is</p>
+<p><span class="math display">\[
+\sum_{i &lt; j &lt; k}\Pr(A_i \cap A_j \cap A_k) = \binom{n}{3}\frac{1}{n(n-1)(n-2)} = \frac{1}{3!}.
+\]</span></p>
+<p>This procedure can be continued until it is found that the probability <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_n)\)</span> that all <span class="math inline">\(n\)</span> letters will be placed in the correct envelopes is <span class="math inline">\(1/(n!)\)</span>. It now follows from <a href="#eq-1-10-6">Equation&nbsp;<span>1.10</span></a> that the probability $p_n $ that at least one letter will be placed in the correct envelope is</p>
+<p><span id="eq-1-10-10"><span class="math display">\[
+p_n = 1 - \frac{1}{2!} + \frac{1}{3!} - \frac{1}{4!} + \cdots + (-1)^{n+1}\frac{1}{n!}.
+\tag{1.14}\]</span></span></p>
+<p>This probability has the following interesting features. As <span class="math inline">\(n \rightarrow \infty\)</span>, the value of <span class="math inline">\(p_n\)</span> approaches the following limit:</p>
+<p><span class="math display">\[
+\lim_{n \rightarrow \infty}p_n = 1 - \frac{1}{2!} + \frac{1}{3!} - \frac{1}{4!} + \cdots .
+\]</span></p>
+<p>It is shown in books on elementary calculus that the sum of the infinite series on the right side of this equation is <span class="math inline">\(1 − (1/e)\)</span>, where <span class="math inline">\(e = 2.71828\ldots\)</span>. Hence, <span class="math inline">\(1 − (1/e) = 0.63212\ldots\)</span>. It follows that for a large value of <span class="math inline">\(n\)</span>, the probability <span class="math inline">\(p_n\)</span> that at least one letter will be placed in the correct envelope is approximately <span class="math inline">\(0.63212\)</span>.</p>
+<p>The exact values of <span class="math inline">\(p_n\)</span>, as given in <a href="#eq-1-10-10">Equation&nbsp;<span>1.14</span></a>, will form an oscillating sequence as <span class="math inline">\(n\)</span> increases. As <span class="math inline">\(n\)</span> increases through the even integers <span class="math inline">\(2, 4, 6, \ldots\)</span>, the values of <span class="math inline">\(p_n\)</span> will increase toward the limiting value <span class="math inline">\(0.63212\)</span>; and as <span class="math inline">\(n\)</span> increases through the odd integers <span class="math inline">\(3, 5, 7, \ldots\)</span>, the values of <span class="math inline">\(p_n\)</span> will decrease toward this same limiting value.</p>
+<p>The values of <span class="math inline">\(p_n\)</span> converge to the limit very rapidly. In fact, for <span class="math inline">\(n = 7\)</span> the exact value <span class="math inline">\(p_7\)</span> and the limiting value of <span class="math inline">\(p_n\)</span> agree to four decimal places. Hence, regardless of whether seven letters are placed at random in seven envelopes or seven million letters are placed at random in seven million envelopes, the probability that at least one letter will be placed in the correct envelope is <span class="math inline">\(0.6321\)</span>.</p>
 </section>
 <section id="summary-6" class="level3">
 <h3 class="anchored" data-anchor-id="summary-6">Summary</h3>
@@ -2637,43 +2709,54 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 <section id="exercises-6" class="level3">
 <h3 class="anchored" data-anchor-id="exercises-6">Exercises</h3>
 <div id="exr-1-10-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.82 (Exercise 1.10.1) </strong></span>&nbsp;</p>
-<ol type="1">
-<li>Three players are each dealt, in a random manner, five cards from a deck containing 52 cards. Four of the 52 cards are aces. Find the probability that at least one person receives exactly two aces in their five cards.</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.82 (Exercise 1.10.1) </strong></span>Three players are each dealt, in a random manner, five cards from a deck containing 52 cards. Four of the 52 cards are aces. Find the probability that at least one person receives exactly two aces in their five cards.</p>
 </div>
-<ol start="2" type="1">
-<li>In a certain city, three newspapers A, B, and C are published. Suppose that 60 percent of the families in the city subscribe to newspaper A, 40 percent of the families subscribe to newspaper B, and 30 percent subscribe to newspaper C. Suppose also that 20 percent of the families subscribe to both A and B, 10 percent subscribe to both A and C, 20 percent subscribe to both B and C, and 5 percent subscribe to all three newspapers A, B, and C. What percentage of the families in the city subscribe to at least one of the three newspapers?</li>
-<li>For the conditions of Exercise 2, what percentage of the families in the city subscribe to exactly one of the three newspapers?</li>
-<li>Suppose that three compact discs are removed from their cases, and that after they have been played, they are put back into the three empty cases in a random manner. Determine the probability that at least one of the CD’s will be put back into the proper cases.</li>
-<li>Suppose that four guests check their hats when they arrive at a restaurant, and that these hats are returned to them in a random order when they leave. Determine the probability that no guest will receive the proper hat.</li>
-<li>A box contains 30 red balls, 30 white balls, and 30 blue balls. If 10 balls are selected at random, without replacement, what is the probability that at least one color will be missing from the selection?</li>
-<li>Suppose that a school band contains 10 students from the freshman class, 20 students from the sophomore class, 30 students from the junior class, and 40 students from the senior class. If 15 students are selected at random from the band, what is the probability that at least one student will be selected from each of the four classes? Hint: First determine the probability that at least one of the four classes will not be represented in the selection.</li>
-<li>If n letters are placed at random in n envelopes, what is the probability that exactly n − 1 letters will be placed in the correct envelopes?</li>
-<li>Suppose that n letters are placed at random in n envelopes, and let qn denote the probability that no letter is placed in the correct envelope. For which of the following four values of n is qn largest: n = 10, n = 21, n = 53, or n = 300?</li>
-</ol>
+<div id="exr-1-10-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.83 (Exercise 1.10.2) </strong></span>In a certain city, three newspapers <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are published. Suppose that 60 percent of the families in the city subscribe to newspaper <span class="math inline">\(A\)</span>, 40 percent of the families subscribe to newspaper <span class="math inline">\(B\)</span>, and 30 percent subscribe to newspaper <span class="math inline">\(C\)</span>. Suppose also that 20 percent of the families subscribe to both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, 10 percent subscribe to both <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>, 20 percent subscribe to both <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, and 5 percent subscribe to all three newspapers <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>. What percentage of the families in the city subscribe to at least one of the three newspapers?</p>
+</div>
+<div id="exr-1-10-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.84 (Exercise 1.10.3) </strong></span>For the conditions of <a href="#exr-1-10-2">Exercise&nbsp;<span>1.83</span></a>, what percentage of the families in the city subscribe to exactly one of the three newspapers?</p>
+</div>
+<div id="exr-1-10-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.85 (Exercise 1.10.4) </strong></span>Suppose that three compact discs are removed from their cases, and that after they have been played, they are put back into the three empty cases in a random manner. Determine the probability that at least one of the CD’s will be put back into the proper cases.</p>
+</div>
+<div id="exr-1-10-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.86 (Exercise 1.10.5) </strong></span>Suppose that four guests check their hats when they arrive at a restaurant, and that these hats are returned to them in a random order when they leave. Determine the probability that no guest will receive the proper hat.</p>
+</div>
+<div id="exr-1-10-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.87 (Exercise 1.10.6) </strong></span>A box contains 30 red balls, 30 white balls, and 30 blue balls. If 10 balls are selected at random, without replacement, what is the probability that at least one color will be missing from the selection?</p>
+</div>
+<div id="exr-1-10-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.88 (Exerise 1.10.7) </strong></span>Suppose that a school band contains 10 students from the freshman class, 20 students from the sophomore class, 30 students from the junior class, and 40 students from the senior class. If 15 students are selected at random from the band, what is the probability that at least one student will be selected from each of the four classes? <em>Hint</em>: First determine the probability that at least one of the four classes will not be represented in the selection.</p>
+</div>
+<div id="exr-1-10-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.89 (Exercise 1.10.8) </strong></span>If <span class="math inline">\(n\)</span> letters are placed at random in <span class="math inline">\(n\)</span> envelopes, what is the probability that exactly <span class="math inline">\(n − 1\)</span> letters will be placed in the correct envelopes?</p>
+</div>
+<div id="exr-1-10-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.90 (Exercise 1.10.9) </strong></span>Suppose that <span class="math inline">\(n\)</span> letters are placed at random in <span class="math inline">\(n\)</span> envelopes, and let <span class="math inline">\(q_n\)</span> denote the probability that no letter is placed in the correct envelope. For which of the following four values of <span class="math inline">\(n\)</span> is <span class="math inline">\(q_n\)</span> largest: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 21\)</span>, <span class="math inline">\(n = 53\)</span>, or <span class="math inline">\(n = 300\)</span>?</p>
+</div>
 <div id="exr-1-10-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.83 (Exercise 1.10.10) </strong></span>&nbsp;</p>
-<ol start="10" type="1">
-<li>If three letters are placed at random in three envelopes, what is the probability that exactly one letter will be placed in the correct envelope?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.91 (Exercise 1.10.10) </strong></span>If three letters are placed at random in three envelopes, what is the probability that exactly one letter will be placed in the correct envelope?</p>
 </div>
-<ol start="11" type="1">
-<li>Suppose that 10 cards, of which five are red and five are green, are placed at random in 10 envelopes, of which five are red and five are green. Determine the probability that exactly x envelopes will contain a card with a matching color (x = 0, 1, . . . , 10).</li>
-</ol>
+<div id="exr-1-10-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.92 (Exercise 1.10.11) </strong></span>Suppose that 10 cards, of which five are red and five are green, are placed at random in 10 envelopes, of which five are red and five are green. Determine the probability that exactly <span class="math inline">\(x\)</span> envelopes will contain a card with a matching color (<span class="math inline">\(x = 0, 1, \ldots, 10\)</span>).</p>
+</div>
 <div id="exr-1-10-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.84 (Exercise 1.10.12) </strong></span>&nbsp;</p>
-<ol start="12" type="1">
-<li>Let A1, A2, . . . be an infinite sequence of events such that A1 ⊂ A2 ⊂ . . .. Prove that Pr   ∞  i=1 Ai   = lim n→∞ Pr(An). Hint: Let the sequence B1, B2, . . . be defined as in Exercise 12 of Sec. 1.5, and show that Pr   ∞  i=1 Ai   = lim n→∞ Pr    n i=1 Bi   = lim n→∞ Pr(An).</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.93 (Exercise 1.10.12) </strong></span>Let <span class="math inline">\(A_1, A_2, \ldots\)</span> be an infinite sequence of events such that <span class="math inline">\(A_1 \subset A_2 \subset \cdots\)</span>. Prove that</p>
+<p><span class="math display">\[
+\Pr\left(\bigcup_{i=1}^{\infty}A_i\right) \lim_{n \rightarrow \infty}\Pr(A_n).
+\]</span></p>
+<p><em>Hint</em>: Let the sequence <span class="math inline">\(B_1, B_2, \ldots\)</span> be defined as in <a href="#exr-1-5-12">Exercise&nbsp;<span>1.26</span></a> of <a href="#sec-1-5"><span>Section&nbsp;1.5</span></a>, and show that</p>
+<p><span class="math display">\[
+\Pr\left( \bigcup_{i=1}^{\infty}A_i \right) = \lim_{n \rightarrow \infty}\Pr\left( \bigcup_{i=1}^n B_i \right) = \lim_{n \rightarrow \infty}\Pr(A_n).
+\]</span></p>
 </div>
 <div id="exr-1-10-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.85 (Exercise 1.10.13) </strong></span>&nbsp;</p>
-<ol start="13" type="1">
-<li>Let A1, A2, . . . be an infinite sequence of events such that A1 ⊃ A2 ⊃ . . .. Prove that Pr   ∞</li>
-</ol>
-<p>i=1 Ai   = lim n→∞ Pr(An).</p>
-<p><em>Hint</em>: Consider the sequence <span class="math inline">\(A_1^c, A_2^c, \ldots\)</span>, and apply <a href="#exr-1-10-12">Exercise&nbsp;<span>1.84</span></a>.</p>
+<p><span class="theorem-title"><strong>Exercise 1.94 (Exercise 1.10.13) </strong></span>Let <span class="math inline">\(A_1, A_2, \ldots\)</span> be an infinite sequence of events such that <span class="math inline">\(A_1 \supset A2 \supset \cdots\)</span>. Prove that</p>
+<p><span class="math display">\[
+\Pr\left( \bigcap_{i=1}^{\infty}A_i \right) = \lim_{n \rightarrow \infty}\Pr(A_n).
+\]</span></p>
+<p><em>Hint</em>: Consider the sequence <span class="math inline">\(A_1^c, A_2^c, \ldots\)</span>, and apply <a href="#exr-1-10-12">Exercise&nbsp;<span>1.93</span></a>.</p>
 </div>
 </section>
 </section>
@@ -2682,55 +2765,85 @@ p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 <p><em>This section presents some examples of how one can be misled by arguments that require one to ignore the calculus of probability.</em></p>
 <section id="misleading-use-of-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="misleading-use-of-statistics">Misleading Use of Statistics</h3>
-<p>The field of statistics has a poor image in the minds of many people because there is a widespread belief that statistical data and statistical analyses can easily be manipulated in an unscientific and unethical fashion in an effort to show that a particular conclusion or point of view is correct. We all have heard the sayings that “There are three kinds of lies: lies, damned lies, and statistics” (Mark Twain [1924, p.&nbsp;246] says that this line has been attributed to Benjamin Disraeli) and that “you can prove anything with statistics.” One benefit of studying probability and statistics is that the knowledge we gain enables us to analyze statistical arguments that we read in newspapers, magazines, or elsewhere. We can then evaluate these arguments on their merits, rather than accepting them blindly. In this section, we shall describe three schemes that have been used to induce consumers to send money to the operators of the schemes in exchange for certain types of information. The first two schemes are not strictly statistical in nature, but they are strongly based on undertones of probability.</p>
+<p>The field of statistics has a poor image in the minds of many people because there is a widespread belief that statistical data and statistical analyses can easily be manipulated in an unscientific and unethical fashion in an effort to show that a particular conclusion or point of view is correct. We all have heard the sayings that “There are three kinds of lies: lies, damned lies, and statistics” (<span class="citation" data-cites="twain_mark_1924">Twain (<a href="references.html#ref-twain_mark_1924" role="doc-biblioref">1924</a>)</span>, p.&nbsp;246, says that this line has been attributed to Benjamin Disraeli) and that “you can prove anything with statistics.”</p>
+<p>One benefit of studying probability and statistics is that the knowledge we gain enables us to analyze statistical arguments that we read in newspapers, magazines, or elsewhere. We can then evaluate these arguments on their merits, rather than accepting them blindly. In this section, we shall describe three schemes that have been used to induce consumers to send money to the operators of the schemes in exchange for certain types of information. The first two schemes are not strictly statistical in nature, but they are strongly based on undertones of probability.</p>
 </section>
 <section id="perfect-forecasts" class="level3">
 <h3 class="anchored" data-anchor-id="perfect-forecasts">Perfect Forecasts</h3>
-<p>Suppose that one Monday morning you receive in the mail a letter from a firm with which you are not familiar, stating that the firm sells forecasts about the stock market for very high fees. To indicate the firm’s ability in forecasting, it predicts that a particular stock, or a particular portfolio of stocks, will rise in value during the coming week.You do not respond to this letter, but you do watch the stock market during the week and notice that the prediction was correct. On the following Monday morning you receive another letter from the same firm containing another prediction, this one specifying that a particular stock will drop in value during the coming week. Again the prediction proves to be correct. 52 Chapter 1 Introduction to Probability This routine continues for seven weeks. Every Monday morning you receive a prediction in the mail from the firm, and each of these seven predictions proves to be correct. On the eighth Monday morning, you receive another letter from the firm. This letter states that for a large fee the firm will provide another prediction, on the basis of which you can presumably make a large amount of money on the stock market. How should you respond to this letter? Since the firm has made seven successive correct predictions, it would seem that it must have some special information about the stock market and is not simply guessing. After all, the probability of correctly guessing the outcomes of seven successive tosses of a fair coin is only (1/2)7 = 0.008. Hence, if the firm had only been guessing each week, then the firm had a probability less than 0.01 of being correct seven weeks in a row. The fallacy here is that you may have seen only a relatively small number of the forecasts that the firm made during the seven-week period. Suppose, for example, that the firm started the entire process with a list of 27 = 128 potential clients. On the first Monday, the firm could send the forecast that a particular stock will rise in value to half of these clients and send the forecast that the same stock will drop in value to the other half. On the second Monday, the firm could continue writing to those 64 clients for whom the first forecast proved to be correct. It could again send a new forecast to half of those 64 clients and the opposite forecast to the other half. At the end of seven weeks, the firm (which usually consists of only one person and a computer) must necessarily have one client (and only one client) for whom all seven forecasts were correct. By following this procedure with several different groups of 128 clients, and starting new groups each week, the firm may be able to generate enough positive responses from clients for it to realize significant profits.</p>
+<p>Suppose that one Monday morning you receive in the mail a letter from a firm with which you are not familiar, stating that the firm sells forecasts about the stock market for very high fees. To indicate the firm’s ability in forecasting, it predicts that a particular stock, or a particular portfolio of stocks, will rise in value during the coming week. You do not respond to this letter, but you do watch the stock market during the week and notice that the prediction was correct. On the following Monday morning you receive another letter from the same firm containing another prediction, this one specifying that a particular stock will drop in value during the coming week. Again the prediction proves to be correct.</p>
+<p>This routine continues for seven weeks. Every Monday morning you receive a prediction in the mail from the firm, and each of these seven predictions proves to be correct. On the eighth Monday morning, you receive another letter from the firm. This letter states that for a large fee the firm will provide another prediction, on the basis of which you can presumably make a large amount of money on the stock market. How should you respond to this letter?</p>
+<p>Since the firm has made seven successive correct predictions, it would seem that it must have some special information about the stock market and is not simply guessing. After all, the probability of correctly guessing the outcomes of seven successive tosses of a fair coin is only <span class="math inline">\((1/2)^7 = 0.008\)</span>. Hence, if the firm had only been guessing each week, then the firm had a probability less than 0.01 of being correct seven weeks in a row.</p>
+<p>The fallacy here is that you may have seen only a relatively small number of the forecasts that the firm made during the seven-week period. Suppose, for example, that the firm started the entire process with a list of <span class="math inline">\(2^7 = 128\)</span> potential clients. On the first Monday, the firm could send the forecast that a particular stock will rise in value to half of these clients and send the forecast that the same stock will drop in value to the other half. On the second Monday, the firm could continue writing to those 64 clients for whom the first forecast proved to be correct. It could again send a new forecast to half of those 64 clients and the opposite forecast to the other half. At the end of seven weeks, the firm (which usually consists of only one person and a computer) must necessarily have one client (and only one client) for whom all seven forecasts were correct.</p>
+<p>By following this procedure with several different groups of 128 clients, and starting new groups each week, the firm may be able to generate enough positive responses from clients for it to realize significant profits.</p>
 </section>
 <section id="guaranteed-winners" class="level3">
 <h3 class="anchored" data-anchor-id="guaranteed-winners">Guaranteed Winners</h3>
-<p>There is another scheme that is somewhat related to the one just described but that is even more elegant because of its simplicity. In this scheme, a firm advertises that for a fixed fee, usually 10 or 20 dollars, it will send the client its forecast of the winner of any upcoming baseball game, football game, boxing match, or other sports event that the client might specify. Furthermore, the firm offers a money-back guarantee that this forecast will be correct; that is, if the team or person designated as the winner in the forecast does not actually turn out to be the winner, the firm will return the full fee to the client. How should you react to such an advertisement? At first glance, it would appear that the firm must have some special knowledge about these sports events, because otherwise it could not afford to guarantee its forecasts. Further reflection reveals, however, that the firm simply cannot lose, because its only expenses are those for advertising and postage. In effect, when this scheme is used, the firm holds the client’s fee until the winner has been decided. If the forecast was correct, the firm keeps the fee; otherwise, it simply returns the fee to the client. On the other hand, the client can very well lose. He presumably purchases the firm’s forecast because he desires to bet on the sports event. If the forecast proves to be wrong, the client will not have to pay any fee to the firm, but he will have lost any money that he bet on the predicted winner. Thus, when there are “guaranteed winners,” only the firm is guaranteed to win. In fact, the firm knows that it will be able to keep the fees from all the clients for whom the forecasts were correct.</p>
+<p>There is another scheme that is somewhat related to the one just described but that is even more elegant because of its simplicity. In this scheme, a firm advertises that for a fixed fee, usually 10 or 20 dollars, it will send the client its forecast of the winner of any upcoming baseball game, football game, boxing match, or other sports event that the client might specify. Furthermore, the firm offers a money-back guarantee that this forecast will be correct; that is, if the team or person designated as the winner in the forecast does not actually turn out to be the winner, the firm will return the full fee to the client.</p>
+<p>How should you react to such an advertisement? At first glance, it would appear that the firm must have some special knowledge about these sports events, because otherwise it could not afford to guarantee its forecasts. Further reflection reveals, however, that the firm simply cannot lose, because its only expenses are those for advertising and postage. In effect, when this scheme is used, the firm holds the client’s fee until the winner has been decided. If the forecast was correct, the firm keeps the fee; otherwise, it simply returns the fee to the client.</p>
+<p>On the other hand, the client can very well lose. He presumably purchases the firm’s forecast because he desires to bet on the sports event. If the forecast proves to be wrong, the client will not have to pay any fee to the firm, but he will have lost any money that he bet on the predicted winner.</p>
+<p>Thus, when there are “guaranteed winners,” only the firm is guaranteed to win. In fact, the firm knows that it will be able to keep the fees from all the clients for whom the forecasts were correct.</p>
 </section>
 <section id="improving-your-lottery-chances" class="level3">
 <h3 class="anchored" data-anchor-id="improving-your-lottery-chances">Improving Your Lottery Chances</h3>
-<p>State lotteries have become very popular in America. People spend millions of dollars each week to purchase tickets with very small chances of winning medium to enormous prizes.With so much money being spent on lottery tickets, it should not be surprising that a few enterprising individuals have concocted schemes to cash in on the probabilistic na¨ıvet ´e of the ticket-buying public. There are now several books and videos available that claim to help lottery players improve their performance. People actually pay money for these items. Some of the advice is just common sense, but some of it is misleading and plays on subtle misconceptions about probability. For concreteness, suppose that we have a game in which there are 40 balls numbered 1 to 40 and six are drawn without replacement to determine the winning combination. A ticket purchase requires the customer to choose six different numbers from 1 to 40 and pay a fee. This game has  40 6   = 3,838,380 different winning combinations and the same number of possible tickets. One piece of advice often found in published lottery aids is not to choose the six numbers on your ticket too far apart. Many people tend to pick their six numbers uniformly spread out from 1 to 40, but the winning combination often has two consecutive numbers or at least two numbers very close together. Some of these “advisors” recommend that, since it is more likely that there will be numbers close together, players should bunch some of their six numbers close together. Such advice might make sense in order to avoid choosing the same numbers as other players in a parimutuel game (i.e., a game in which all winners share the jackpot). But the idea that any strategy can improve your chances of winning is misleading. To see why this advice is misleading, let E be the event that the winning combination contains at least one pair of consecutive numbers. The reader can calculate Pr(E) in Exercise 13 in Sec. 1.12. For this example, Pr(E) = 0.577. So the lottery aids are correct thatE has high probability. However, by claiming that choosing a ticket in E increases your chance of winning, they confuse the probability of the event E with the probability of each outcome in E. If you choose the ticket (5, 7, 14, 23, 24, 38), your probability of winning is only 1/3,828,380, just as it would be if you chose any other ticket. The fact that this ticket happens to be in E doesn’t make your probability of winning equal to 0.577. The reason that Pr(E) is so big is that so many different combinations are in E. Each of those combinations still has probability 1/3,828,380 of winning, and you only get one combination on each ticket. The fact that there are so many combinations in E does not make each one any more likely than anything else.</p>
+<p>State lotteries have become very popular in America. People spend millions of dollars each week to purchase tickets with very small chances of winning medium to enormous prizes. With so much money being spent on lottery tickets, it should not be surprising that a few enterprising individuals have concocted schemes to cash in on the probabilistic naïveté of the ticket-buying public. There are now several books and videos available that claim to help lottery players improve their performance. People actually pay money for these items. Some of the advice is just common sense, but some of it is misleading and plays on subtle misconceptions about probability.</p>
+<p>For concreteness, suppose that we have a game in which there are 40 balls numbered 1 to 40 and six are drawn without replacement to determine the winning combination. A ticket purchase requires the customer to choose six different numbers from 1 to 40 and pay a fee. This game has <span class="math inline">\(\binom{40}{6} = 3,838,380\)</span> different winning combinations and the same number of possible tickets. One piece of advice often found in published lottery aids is not to choose the six numbers on your ticket too far apart. Many people tend to pick their six numbers uniformly spread out from 1 to 40, but the winning combination often has two consecutive numbers or at least two numbers very close together. Some of these “advisors” recommend that, since it is more likely that there will be numbers close together, players should bunch some of their six numbers close together. Such advice might make sense in order to avoid choosing the same numbers as other players in a parimutuel game (i.e., a game in which all winners share the jackpot). But the idea that any strategy can improve your chances of winning is misleading.</p>
+<p>To see why this advice is misleading, let <span class="math inline">\(E\)</span> be the event that the winning combination contains at least one pair of consecutive numbers. The reader can calculate <span class="math inline">\(\Pr(E)\)</span> in <a href="#exr-1-12-13">Exercise&nbsp;<span>1.106</span></a>. For this example, <span class="math inline">\(\Pr(E) = 0.577\)</span>. So the lottery aids are correct that <span class="math inline">\(E\)</span> has high probability. However, by claiming that choosing a ticket in <span class="math inline">\(E\)</span> increases your chance of winning, they confuse the probability of the event <span class="math inline">\(E\)</span> with the probability of each outcome in <span class="math inline">\(E\)</span>. If you choose the ticket <span class="math inline">\((5, 7, 14, 23, 24, 38)\)</span>, your probability of winning is only <span class="math inline">\(1/3,828,380\)</span>, just as it would be if you chose any other ticket. The fact that this ticket happens to be in <span class="math inline">\(E\)</span> doesn’t make your probability of winning equal to 0.577. The reason that <span class="math inline">\(\Pr(E)\)</span> is so big is that so many different combinations are in <span class="math inline">\(E\)</span>. Each of those combinations still has probability <span class="math inline">\(1/3,828,380\)</span> of winning, and you only get one combination on each ticket. The fact that there are so many combinations in <span class="math inline">\(E\)</span> does not make each one any more likely than anything else.</p>
 </section>
 </section>
 <section id="sec-1-12" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="sec-1-12"><span class="header-section-number">1.12</span> Supplementary Exercises</h2>
 <div id="exr-1-12-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.86 (Exercise 1.12.1) </strong></span>&nbsp;</p>
-<ol type="1">
-<li>Suppose that a coin is tossed seven times. Let A denote the event that a head is obtained on the first toss, and let B denote the event that a head is obtained on the fifth toss. Are A and B disjoint?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 1.95 (Exercise 1.12.1) </strong></span>Suppose that a coin is tossed seven times. Let <span class="math inline">\(A\)</span> denote the event that a head is obtained on the first toss, and let <span class="math inline">\(B\)</span> denote the event that a head is obtained on the fifth toss. Are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> disjoint?</p>
 </div>
-<ol start="2" type="1">
-<li>If A, B, and D are three events such that Pr(A ∪ B ∪</li>
-</ol>
-<ol start="4" type="A">
-<li>= 0.7, what is the value of Pr(Ac ∩ Bc ∩ Dc)?</li>
-</ol>
-<ol start="3" type="1">
-<li>Suppose that a certain precinct contains 350 voters, of which 250 are Democrats and 100 are Republicans. If 30 voters are chosen at random from the precinct, what is the probability that exactly 18 Democrats will be selected?</li>
-<li>Suppose that in a deck of 20 cards, each card has one of the numbers 1, 2, 3, 4, or 5 and there are four cards with each number. If 10 cards are chosen from the deck at random, without replacement, what is the probability that each of the numbers 1, 2, 3, 4, and 5 will appear exactly twice?</li>
-<li>Consider the contractor in Example 1.5.4 on page 19. He wishes to compute the probability that the total utility demand is high, meaning that the sum of water and electrical demand (in the units of Example 1.4.5) is at least 54 Chapter 1 Introduction to Probability</li>
-<li>Draw a picture of this event on a graph like Fig. 1.5 or Fig. 1.9 and find its probability.</li>
-<li>Suppose that a box contains r red balls and w white balls. Suppose also that balls are drawn from the box one at a time, at random, without replacement. (a)What is the probability that all r red balls will be obtained before any white balls are obtained? (b) What is the probability that all r red balls will be obtained before two white balls are obtained?</li>
-<li>Suppose that a box contains r red balls, w white balls, and b blue balls. Suppose also that balls are drawn from the box one at a time, at random, without replacement. What is the probability that all r red balls will be obtained before any white balls are obtained?</li>
-<li>Suppose that 10 cards, of which seven are red and three are green, are put at random into 10 envelopes, of which seven are red and three are green, so that each envelope contains one card. Determine the probability that exactly k envelopes will contain a card with a matching color (k = 0, 1, . . . , 10).</li>
-<li>Suppose that 10 cards, of which five are red and five are green, are put at random into 10 envelopes, of which seven are red and three are green, so that each envelope contains one card. Determine the probability that exactly k envelopes will contain a card with a matching color (k = 0, 1, . . . , 10).</li>
-<li>Suppose that the events A and B are disjoint. Under what conditions are Ac and Bc disjoint?</li>
-<li>LetA1,A2, andA3 be three arbitrary events. Show that the probability that exactly one of these three events will occur is Pr(A1) + Pr(A2) + Pr(A3) − 2 Pr(A1 ∩ A2) − 2 Pr(A1 ∩ A3) − 2 Pr(A2 ∩ A3)</li>
-</ol>
-<ul>
-<li>3 Pr(A1 ∩ A2 ∩ A3).</li>
-</ul>
+<div id="exr-1-12-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.96 (Exercise 1.12.2) </strong></span>If <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(D\)</span> are three events such that <span class="math inline">\(\Pr(A \cup B \cup D) = 0.7\)</span>, what is the value of <span class="math inline">\(\Pr(A^c \cap B^c \cap D^c)\)</span>?</p>
+</div>
+<div id="exr-1-12-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.97 (Exercise 1.12.3) </strong></span>Suppose that a certain precinct contains 350 voters, of which 250 are Democrats and 100 are Republicans. If 30 voters are chosen at random from the precinct, what is the probability that exactly 18 Democrats will be selected?</p>
+</div>
+<div id="exr-1-12-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.98 (Exercise 1.12.4) </strong></span>Suppose that in a deck of 20 cards, each card has one of the numbers 1, 2, 3, 4, or 5 and there are four cards with each number. If 10 cards are chosen from the deck at random, without replacement, what is the probability that each of the numbers 1, 2, 3, 4, and 5 will appear exactly twice?</p>
+</div>
+<div id="exr-1-12-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.99 (Exercise 1.12.5) </strong></span>Consider the contractor in <a href="#exm-1-5-4">Example&nbsp;<span>1.9</span></a>. He wishes to compute the probability that the total utility demand is high, meaning that the sum of water and electrical demand (in the units of <a href="#exm-1-4-5">Example&nbsp;<span>1.5</span></a>) is at least 215. Draw a picture of this event on a graph like <a href="#fig-1-5">Figure&nbsp;<span>1.5</span></a> or <a href="#fig-1-9">Figure&nbsp;<span>1.9</span></a> and find its probability.</p>
+</div>
+<div id="exr-1-12-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.100 (Exercise 1.12.6) </strong></span>Suppose that a box contains <span class="math inline">\(r\)</span> red balls and <span class="math inline">\(w\)</span> white balls. Suppose also that balls are drawn from the box one at a time, at random, without replacement. <strong>(a)</strong> What is the probability that all <span class="math inline">\(r\)</span> red balls will be obtained before any white balls are obtained? <strong>(b)</strong> What is the probability that all <span class="math inline">\(r\)</span> red balls will be obtained before two white balls are obtained?</p>
+</div>
+<div id="exr-1-12-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.101 (Exercise 1.12.7) </strong></span>Suppose that a box contains <span class="math inline">\(r\)</span> red balls, <span class="math inline">\(w\)</span> white balls, and <span class="math inline">\(b\)</span> blue balls. Suppose also that balls are drawn from the box one at a time, at random, without replacement. What is the probability that all <span class="math inline">\(r\)</span> red balls will be obtained before any white balls are obtained?</p>
+</div>
+<div id="exr-1-12-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.102 (Exercise 1.12.8) </strong></span>Suppose that 10 cards, of which seven are red and three are green, are put at random into 10 envelopes, of which seven are red and three are green, so that each envelope contains one card. Determine the probability that exactly <span class="math inline">\(k\)</span> envelopes will contain a card with a matching color (<span class="math inline">\(k = 0, 1, \ldots, 10\)</span>).</p>
+</div>
+<div id="exr-1-12-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.103 (Exercise 1.12.9) </strong></span>Suppose that 10 cards, of which five are red and five are green, are put at random into 10 envelopes, of which seven are red and three are green, so that each envelope contains one card. Determine the probability that exactly <span class="math inline">\(k\)</span> envelopes will contain a card with a matching color (<span class="math inline">\(k = 0, 1, \ldots, 10\)</span>).</p>
+</div>
+<div id="exr-1-12-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.104 (Exercise 1.12.10) </strong></span>Suppose that the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint. Under what conditions are <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B^c\)</span> disjoint?</p>
+</div>
+<div id="exr-1-12-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.105 (Exercise 1.12.11) </strong></span>Let <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> be three arbitrary events. Show that the probability that exactly one of these three events will occur is</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(A_1) &amp;+ \Pr(A_2) + \Pr(A_3) \\
+&amp;− 2 \Pr(A_1 \cap A_2) − 2 \Pr(A_1 \cap A_3) − 2 \Pr(A_2 \cap A_3) \\
+&amp;+ 3 \Pr(A_1 \cap A_2 \cap A_3).
+\end{align*}
+\]</span></p>
+</div>
 <ol start="12" type="1">
-<li>Let A1, . . . , An be n arbitrary events. Show that the probability that exactly one of these n events will occur is  n i=1 Pr(Ai) − 2   i&lt;j Pr(Ai ∩ Aj ) + 3   i&lt;j&lt;k Pr(Ai ∩ Aj ∩ Ak) − . . . + (−1)n+1n Pr(A1 ∩ A2 . . . ∩ An).</li>
+<li>Let <span class="math inline">\(A_1, \ldots, A_n\)</span> be <span class="math inline">\(n\)</span> arbitrary events. Show that the probability that exactly one of these <span class="math inline">\(n\)</span> events will occur is</li>
 </ol>
+<p><span class="math display">\[
+\begin{align*}
+\sum_{i=1}^n\Pr(A_i) &amp;- 2\sum_{i &lt; j}\Pr(A_i \cap A_j) + 3\sum_{i &lt; j &lt; k}\Pr(A_i \cap A_j \cap A_k) \\
+&amp;- \cdots + (-1)^{n+1}n \Pr(A_1 \cap A_2 \cap \cdots \cap A_n).
+\end{align*}
+\]</span></p>
+<p>:::</p>
 <div id="exr-1-12-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.87 (Exercise 1.12.13) </strong></span>Consider a state lottery game in which each winning combination and each ticket consists of one set of <span class="math inline">\(k\)</span> numbers chosen from the numbers <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> without replacement. We shall compute the probability that the winning combination contains at least one pair of consecutive numbers.</p>
+<p><span class="theorem-title"><strong>Exercise 1.106 (Exercise 1.12.13) </strong></span>Consider a state lottery game in which each winning combination and each ticket consists of one set of <span class="math inline">\(k\)</span> numbers chosen from the numbers <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> without replacement. We shall compute the probability that the winning combination contains at least one pair of consecutive numbers.</p>
 <ol type="a">
 <li><p>Prove that if <span class="math inline">\(n &lt; 2k − 1\)</span>, then every winning combination has at least one pair of consecutive numbers. For the rest of the problem, assume that <span class="math inline">\(n \geq 2k − 1\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(i_1 &lt; \cdots &lt; i_k\)</span> be an arbitrary possible winning combination arranged in order from smallest to largest. For <span class="math inline">\(s = 1, \ldots, k\)</span>, let <span class="math inline">\(j_s = i_s - (s-1)\)</span>. That is, <span class="math display">\[
@@ -2806,6 +2919,9 @@ Stigler, S. M. 1986. <em>The History of Statistics</em>. <span>Cambridge, MA</sp
 </div>
 <div id="ref-todhunter_history_1865" class="csl-entry" role="listitem">
 Todhunter, I. 1865. <em>A History of the Mathematical Theory of Probability from the Time of <span>Pascal</span> to <span>That</span> of <span>Laplace</span></em>. <span>New York</span>: <span>G. E. Stechert</span>.
+</div>
+<div id="ref-twain_mark_1924" class="csl-entry" role="listitem">
+Twain, M. 1924. <em>Mark Twain’s Autobiography</em>. Vol. 1. <span>New York</span>: <span>Harper Brothers</span>.
 </div>
 <div id="ref-wackerly_mathematical_1996" class="csl-entry" role="listitem">
 Wackerly, D. D., W. Mendenhall, and R. L. Scheaffer. 1996. <em>Mathematical <span>Statistics</span> with <span>Applications</span></em>. 7th ed. <span>Belmont, CA</span>: <span>Duxbury Press</span>.

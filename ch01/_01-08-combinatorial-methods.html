@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>combinatorial-methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="_01-08-combinatorial-methods_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_01-08-combinatorial-methods_files/libs/quarto-html/quarto.js"></script>
+<script src="_01-08-combinatorial-methods_files/libs/quarto-html/popper.min.js"></script>
+<script src="_01-08-combinatorial-methods_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_01-08-combinatorial-methods_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_01-08-combinatorial-methods_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_01-08-combinatorial-methods_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_01-08-combinatorial-methods_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_01-08-combinatorial-methods_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_01-08-combinatorial-methods_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="sec-1-8" class="level2">
+<h2 class="anchored" data-anchor-id="sec-1-8">Combinatorial Methods</h2>
+<p><em>Many problems of counting the number of outcomes in an event amount to counting how many subsets of a certain size are contained in a fixed set. This section gives examples of how to do such counting and where it can arise.</em></p>
+<section id="combinations" class="level3">
+<h3 class="anchored" data-anchor-id="combinations">Combinations</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Example 1.8.1: Choosing Subsets) </strong></span>Consider the set <span class="math inline">\(\{a, b, c, d\}\)</span> containing the four different letters. We want to count the number of distinct subsets of size two. In this case, we can list all of the subsets of size two:</p>
+<p><span class="math display">\[
+\{a, b\}, \; \{a, c\}, \; \{a, d\}, \; \{b, c\}, \; \{b, d\}, \; and \{c, d\}.
+\]</span></p>
+<p>We see that there are six distinct subsets of size two. This is different from counting permutaions because <span class="math inline">\(\{a, b\}\)</span> and <span class="math inline">\(\{b, a\}\)</span> are the same subset.</p>
+</div>
+</div>
+</div>
+<p>For large sets, it would be tedious, if not impossible, to enumerate all of the subsets of a given size and count them as we did in <a href="#exm-1-8-1">Example&nbsp;1</a>. However, there is a connection between counting subsets and counting permutations that will allow us to derive the general formula for the number of subsets.</p>
+<p>Suppose that there is a set of n distinct elements from which it is desired to choose a subset containing <span class="math inline">\(k\)</span> elements (<span class="math inline">\(1 \leq k \leq n\)</span>).We shall determine the number of different subsets that can be chosen. In this problem, the arrangement of the elements in a subset is irrelevant and each subset is treated as a unit.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-1-8-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Definition 1.8.1: Combinations) </strong></span>Consider a set with <span class="math inline">\(n\)</span> elements. Each subset of size <span class="math inline">\(k\)</span> chosen from this set is called a combination of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time. We denote the number of distinct such combinations by the symbol <span class="math inline">\(C_{n, k}\)</span>.</p>
+</div>
+</div>
+</div>
+<p>No two combinations will consist of exactly the same elements because two subsets with the same elements are the same subset.</p>
+<p>At the end of <a href="#exm-1-8-1">Example&nbsp;1</a>, we noted that two different permutations <span class="math inline">\((a, b)\)</span> and <span class="math inline">\((b, a)\)</span> both correspond to the same combination or subset <span class="math inline">\(\{a, b\}\)</span>. We can think of permutations as being constructed in two steps. First, a combination of <span class="math inline">\(k\)</span> elements is chosen out of <span class="math inline">\(n\)</span>, and second, those <span class="math inline">\(k\)</span> elements are arranged in a specific order. There are <span class="math inline">\(C_{n, k}\)</span> ways to choose the <span class="math inline">\(k\)</span> elements out of <span class="math inline">\(n\)</span>, and for each such choice there are <span class="math inline">\(k!\)</span> ways to arrange those <span class="math inline">\(k\)</span> elements in different orders. Using the multiplication rule from <strong>?@sec-1-7</strong>, we see that the number of permutations of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time is <span class="math inline">\(P_{n, k} = C_{n, k}k!\)</span>; hence, we have the following.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-1-8-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 1.8.1: Combinations) </strong></span>The number of distinct subsets of size <span class="math inline">\(k\)</span> that can be chosen from a set of size <span class="math inline">\(n\)</span> is</p>
+<p><span class="math display">\[
+C_{n,k} = \frac{P_{n,k}}{k!} = \frac{n!}{k!(n-k)!}.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>In <a href="#exm-1-8-1">Example&nbsp;1</a>, we see that <span class="math inline">\(C_{4,2} = 4!/[2!2!] = 6\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Example 1.8.2: Selecting a Committee) </strong></span>Suppose that a committee composed of eight people is to be selected from a group of 20 people. The number of different groups of people that might be on the committee is</p>
+<p><span class="math display">\[
+C_{20,8} = \frac{20!}{8!12!} = 125,970.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Example 1.8.3: Choosing Jobs) </strong></span>Suppose that, in <a href="#exm-1-8-2">Example&nbsp;2</a>, the eight people in the committee each get a different job to perform on the committee. The number of ways to choose eight people out of 20 and assign them to the eight different jobs is the number of permutations of 20 elements taken eight at a time, or</p>
+<p><span class="math display">\[
+P_{20,8} = C_{20,8} \cdot 8! = 125,970 \cdot 8!= 5,078,110,400.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Examples <a href="#exm-1-8-2">2</a> and <a href="#exm-1-8-3">3</a> illustrate the difference and relationship between combinations and permutations. In <a href="#exm-1-8-3">Example&nbsp;3</a>, we count the same group of people in a different order as a different outcome, while in <a href="#exm-1-8-2">Example&nbsp;2</a>, we count the same group in different orders as the same outcome. The two numerical values differ by a factor of <span class="math inline">\(8!\)</span>, the number of ways to reorder each of the combinations in <a href="#exm-1-8-2">Example&nbsp;2</a> to get a permutation in <a href="#exm-1-8-3">Example&nbsp;3</a>.</p>
+</section>
+<section id="binomial-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="binomial-coefficients">Binomial Coefficients</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-1-8-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Definition 1.8.2: Binomial Coefficients) </strong></span>The number <span class="math inline">\(C_{n, k}\)</span> is also denoted by the symbol <span class="math inline">\(\binom{n}{k}\)</span>. That is, for <span class="math inline">\(k = 0, 1, \ldots, n\)</span>,</p>
+<p><span id="eq-1-8-1"><span class="math display">\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+\tag{1}\]</span></span></p>
+<p>When this notation is used, this number is called a <strong>binomial coefficient</strong>.</p>
+</div>
+</div>
+</div>
+<p>The name <strong>binomial coefficient</strong> derives from the appearance of the symbol in the binomial theorem, whose proof is left as <a href="#exr-1-8-20">Exercise&nbsp;20</a> in this section.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-1-8-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 1.8.2: Binomial Theorem) </strong></span>For all numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> and each positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+(x + y)^n = \sum_{k=0}^n \binom{n}{k}x^ky^{n-k}.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>There are a couple of useful relations between binomial coefficients.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-1-8-3" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 1.8.3) </strong></span>For all <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\binom{n}{0} = \binom{n}{n} = 1.
+\]</span></p>
+<p>For all <span class="math inline">\(n\)</span> and all <span class="math inline">\(k = 0, 1, \ldots, n\)</span>,</p>
+<p><span class="math display">\[
+\binom{n}{k} = \binom{n}{n-k}.
+\]</span>  </p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The first equation follows from the fact that <span class="math inline">\(0! = 1\)</span>. The second equation follows from <a href="#eq-1-8-1">Equation&nbsp;1</a>. The second equation can also be derived from the fact that selecting <span class="math inline">\(k\)</span> elements to form a subset is equivalent to selecting the remaining <span class="math inline">\(n − k\)</span> elements to form the complement of the subset.</p>
+</div>
+</div>
+</div>
+</div>
+<p>It is sometimes convenient to use the expression “<span class="math inline">\(n\)</span> choose <span class="math inline">\(k\)</span>” for the value of <span class="math inline">\(C_{n, k}\)</span>. Thus, the same quantity is represented by the two different notations <span class="math inline">\(C_{n, k}\)</span> and <span class="math inline">\(\binom{n}{k}\)</span>, and we may refer to this quantity in three different ways: as the number of combinations of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time, as the binomial coefficient of <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span>, or simply as “<span class="math inline">\(n\)</span> choose <span class="math inline">\(k\)</span>.”</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Example 1.8.4: Blood Types.) </strong></span>In <strong>?@exm-1-6-4</strong>, we defined genes, alleles, and genotypes. The gene for human blood type consists of a pair of alleles chosen from the three alleles commonly called O, A, and B. For example, two possible combinations of alleles (called genotypes) to form a blood-type gene would be BB and AO. We will not distinguish the same two alleles in different orders, so OA represents the same genotype as AO. How many genotypes are there for blood type?</p>
+<p>The answer could easily be found by counting, but it is an example of a more general calculation. Suppose that a gene consists of a pair chosen from a set of <span class="math inline">\(n\)</span> different alleles. Assuming that we cannot distinguish the same pair in different orders, there are <span class="math inline">\(n\)</span> pairs where both alleles are the same, and there are <span class="math inline">\(\binom{n}{2}\)</span> pairs where the two alleles are different. The total number of genotypes is</p>
+<p><span class="math display">\[
+n + \binom{n}{2} = n + \frac{n(n-1)}{2} = \frac{n(n+1)}{2} = \binom{n+1}{2}.
+\]</span>  </p>
+<p>For the case of blood type, we have <span class="math inline">\(n = 3\)</span>, so there are</p>
+<p><span class="math display">\[
+\binom{4}{2} = \frac{4 \cdot 3}{2} = 6
+\]</span></p>
+<p>genotypes, as could easily be verified by counting.</p>
+</div>
+</div>
+</div>
+<p><strong>Note: Sampling with Replacement</strong>. The counting method described in <a href="#exm-1-8-4">Example&nbsp;4</a> is a type of sampling with replacement that is different from the type described in <strong>?@exm-1-7-10</strong>. In <strong>?@exm-1-7-10</strong>, we sampled with replacement, but we distinguished between samples having the same balls in different orders. This could be called <strong>ordered sampling with replacement</strong>. In <a href="#exm-1-8-4">Example&nbsp;4</a>, samples containing the same genes in different orders were considered the same outcome. This could be called unordered sampling with replacement. The general formula for the number of unordered samples of size <span class="math inline">\(k\)</span> with replacement from <span class="math inline">\(n\)</span> elements is <span class="math inline">\(\binom{n+k-1}{k}\)</span>, and can be derived in <a href="#exr-1-8-19">Exercise&nbsp;19</a>. It is possible to have <span class="math inline">\(k\)</span> larger than <span class="math inline">\(n\)</span> when sampling with replacement.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-5" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Example 1.8.5: Selecting Baked Goods) </strong></span>You go to a bakery to select some baked goods for a dinner party. You need to choose a total of 12 items. The baker has seven different types of items from which to choose, with lots of each type available. How many different boxfuls of 12 items are possible for you to choose? Here we will not distinguish the same collection of 12 items arranged in different orders in the box. This is an example of unordered sampling with replacement because we can (indeed we must) choose the same type of item more than once, but we are not distinguishing the same items in different orders. There are <span class="math inline">\(\binom{7 + 12 - 1}{12} = 18,564\)</span> different boxfuls.  </p>
+</div>
+</div>
+</div>
+<p><a href="#exm-1-8-5">Example&nbsp;5</a> raises an issue that can cause confusion if one does not carefully determine the elements of the sample space and carefully specify which outcomes (if any) are equally likely. The next example illustrates the issue in the context of <a href="#exm-1-8-5">Example&nbsp;5</a>.</p>
+<div class="{.callout-tip">
+<div id="exm-1-8-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Example 1.8.6: Selecting Baked Goods) </strong></span>Imagine two different ways of choosing a boxful of 12 baked goods selected from the seven different types available. In the first method, you choose one item at random from the seven available. Then, without regard to what item was chosen first, you choose the second item at random from the seven available. Then you continue in this way choosing the next item at random from the seven available without regard to what has already been chosen until you have chosen 12. For this method of choosing, it is natural to let the outcomes be the possible sequences of the 12 types of items chosen. The sample space would contain <span class="math inline">\(7^{12} = 1.38 \times 10^{10}\)</span> different outcomes that would be equally likely.</p>
+<p>In the second method of choosing, the baker tells you that she has available 18,564 different boxfuls freshly packed. You then select one at random. In this case, the sample space would consist of 18,564 different equally likely outcomes.</p>
+<p>In spite of the different sample spaces that arise in the two methods of choosing, there are some verbal descriptions that identify an event in both sample spaces. For example, both sample spaces contain an event that could be described as <span class="math inline">\(\{\text{all 12 items are of the same type}\}\)</span> even though the outcomes are different types of mathematical objects in the two sample spaces. The probability that all 12 items are of the same type will actually be different depending on which method you use to choose the boxful.</p>
+<p>In the first method, seven of the <span class="math inline">\(7^{12}\)</span> equally likely outcomes contain 12 of the same type of item. Hence, the probability that all 12 items are of the same type is <span class="math inline">\(7/7^{12} = 5.06 \times 10^{−10}\)</span>. In the second method, there are seven equally liklely boxes that contain 12 of the same type of item. Hence, the probability that all 12 items are of the same type is <span class="math inline">\(7/18,564 = 3.77 \times 10^{−4}\)</span>. Before one can compute the probability for an event such as <span class="math inline">\(\{\text{all 12 items are of the same type}\}\)</span>, one must be careful about defining the experiment and its outcomes.  </p>
+</div>
+</div>
+<p><strong>Arrangements of Elements of Two Distinct Types</strong>: When a set contains only elements of two distinct types, a binomial coefficient can be used to represent the number of different arrangements of all the elements in the set. Suppose, for example, that <span class="math inline">\(k\)</span> similar red balls and <span class="math inline">\(n − k\)</span> similar green balls are to be arranged in a row. Since the red balls will occupy <span class="math inline">\(k\)</span> positions in the row, each different arrangement of the <span class="math inline">\(n\)</span> balls corresponds to a different choice of the <span class="math inline">\(k\)</span> positions occupied by the red balls. Hence, the number of different arrangements of the <span class="math inline">\(n\)</span> balls will be equal to the number of different ways in which <span class="math inline">\(k\)</span> positions can be selected for the red balls from the <span class="math inline">\(n\)</span> available positions. Since this number of ways is specified by the binomial coefficient <span class="math inline">\(\binom{n}{k}\)</span>, the number of different arrangements of the <span class="math inline">\(n\)</span> balls is also <span class="math inline">\(\binom{n}{k}\)</span>. In other words, the number of different arrangements of <span class="math inline">\(n\)</span> objects consisting of <span class="math inline">\(k\)</span> similar objects of one type and <span class="math inline">\(n − k\)</span> similar objects of a second type is <span class="math inline">\(\binom{n}{k}\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Example 1.8.7: Tossing a Coin) </strong></span>Suppose that a fair coin is to be tossed 10 times, and it is desired to determine (a) the probability <span class="math inline">\(p\)</span> of obtaining exactly three heads and (b) the probability <span class="math inline">\(p'\)</span> of obtaining three or fewer heads.</p>
+<ol type="a">
+<li><p>The total possible number of different sequences of 10 heads and tails is <span class="math inline">\(2^{10}\)</span>, and it may be assumed that each of these sequences is equally probable. The number of these sequences that contain exactly three heads will be equal to the number of different arrangements that can be formed with three heads and seven tails. Here are some of those arrangements:</p>
+<p><code>HHHTTTTTTT</code>, <code>HHTHTTTTTT</code>, <code>HHTTHTTTTT</code>, <code>TTHTHTHTTT</code>, etc.</p>
+<p>Each such arrangement is equivalent to a choice of where to put the 3 heads among the 10 tosses, so there are <span class="math inline">\(\binom{10}{3}\)</span> such arrangements. The probability of obtaining exactly three heads is then</p></li>
+</ol>
+<p><span class="math display">\[
+p = \frac{\binom{10}{3}}{2^{10}} = 0.1172.
+\]</span></p>
+<ol start="2" type="a">
+<li>Using the same reasoning as in part (a), the number of sequences in the sample space that contain exactly <span class="math inline">\(k\)</span> heads (<span class="math inline">\(k = 0, 1, 2, 3\)</span>) is</li>
+</ol>
+<p><span class="math display">\[
+\begin{align*}
+p' &amp;= \frac{\binom{10}{0} + \binom{10}{1} + \binom{10}{2} + \binom{10}{3}}{2^{10}} \\
+&amp;= \frac{1 + 10 + 45 + 120}{2^{10}} = \frac{176}{2^{10}} = 0.1719.
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Note: Using Two Different Methods in the Same Problem</strong>. Part (a) of <a href="#exm-1-8-7">Example&nbsp;7</a> is another example of using two different counting methods in the same problem. Part (b) illustrates another general technique. In this part, we broke the event of interest into several disjoint subsets and counted the numbers of outcomes separately for each subset and then added the counts together to get the total. In many problems, it can require several applications of the same or different counting methods in order to count the number of outcomes in an event. The next example is one in which the elements of an event are formed in two parts (multiplication rule), but we need to perform separate combination calculations to determine the numbers of outcomes for each part.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (Example 1.8.8: Sampling without Replacement) </strong></span>Suppose that a class contains 15 boys and 30 girls, and that 10 students are to be selected at random for a special assignment. We shall determine the probability <span class="math inline">\(p\)</span> that exactly three boys will be selected.</p>
+<p>The number of different combinations of the 45 students that might be obtained in the sample of 10 students is <span class="math inline">\(\binom{45}{10}\)</span>, and the statement that the 10 students are selected at random means that each of these <span class="math inline">\(\binom{45}{10}\)</span> possible combinations is equally probable. Therefore, we must find the number of these combinations that contain exactly three boys and seven girls.</p>
+<p>When a combination of three boys and seven girls is formed, the number of different combinations in which three boys can be selected from the 15 available boys is <span class="math inline">\(\binom{15}{3}\)</span>, and the number of different combinations in which seven girls can be selected from the 30 available girls is <span class="math inline">\(\binom{30}{7}\)</span>. Since each of these combinations of three boys can be paired with each of the combinations of seven girls to form a distinct sample, the number of combinations containing exactly three boys is <span class="math inline">\(\binom{15}{3}\binom{30}{7}\)</span>. Therefore, the desired probability is</p>
+<p><span class="math display">\[
+p = \frac{\binom{15}{3}\binom{30}{7}}{\binom{45}{10}} = 0.2904.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-9" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (Example 1.8.9: Playing Cards) </strong></span>Suppose that a deck of 52 cards containing four aces is shuffled thoroughly and the cards are then distributed among four players so that each player receives 13 cards. We shall determine the probability that each player will receive one ace.</p>
+<p>The number of possible different combinations of the four positions in the deck occupied by the four aces is <span class="math inline">\(\binom{52}{4}\)</span>, and it may be assumed that each of these <span class="math inline">\(\binom{52}{4}\)</span> combinations is equally probable. If each player is to receive one ace, then there must be exactly one ace among the 13 cards that the first player will receive and one ace among each of the remaining three groups of 13 cards that the other three players will receive. In other words, there are 13 possible positions for the ace that the first player is to receive, 13 other possible positions for the ace that the second player is to receive, and so on. Therefore, among the <span class="math inline">\(\binom{52}{4}\)</span> possible combinations of the positions for the four aces, exactly <span class="math inline">\(13^4\)</span> of these combinations will lead to the desired result. Hence, the probability <span class="math inline">\(p\)</span> that each player will receive one ace is</p>
+<p><span class="math display">\[
+p = \frac{13^4}{\binom{52}{4}} = 0.1055.
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Ordered versus Unordered Samples</strong>: Several of the examples in this section and the previous section involved counting the numbers of possible samples that could arise using various sampling schemes. Sometimes we treated the same collection of elements in different orders as different samples, and sometimes we treated the same elements in different orders as the same sample. In general, how can one tell which is the correct way to count in a given problem? Sometimes, the problem description will make it clear which is needed. For example, if we are asked to find the probability that the items in a sample arrive in a specified order, then we cannot even specify the event of interest unless we treat different arrangements of the same items as different outcomes. Examples <a href="#exm-1-8-5">5</a> and <a href="#exm-1-8-6">6</a> illustrate how different problem descriptions can lead to very different calculations.</p>
+<p>However, there are cases in which the problem description does not make it clear whether or not one must count the same elements in different orders as different outcomes. Indeed, there are some problems that can be solved correctly both ways. <a href="#exm-1-8-9">Example&nbsp;9</a> is one such problem. In that problem, we needed to decide what we would call an outcome, and then we needed to count how many outcomes were in the whole sample space <span class="math inline">\(S\)</span> and how many were in the event <span class="math inline">\(E\)</span> of interest. In the solution presented in <a href="#exm-1-8-9">Example&nbsp;9</a>, we chose as our outcomes the positions in the 52-card deck that were occupied by the four aces. We did not count different arrangements of the four aces in those four positions as different outcomes when we counted the number of outcomes in <span class="math inline">\(S\)</span>. Hence, when we calculated the number of outcomes in <span class="math inline">\(E\)</span>, we also did not count the different arrangements of the four aces in the four possible positions as different outcomes. In general, this is the principle that should guide the choice of counting method. If we have the choice between whether or not to count the same elements in different orders as different outcomes, then we need to make our choice and be consistent throughout the problem. If we count the same elements in different orders as different outcomes when counting the outcomes in <span class="math inline">\(S\)</span>, we must do the same when counting the elements of <span class="math inline">\(E\)</span>. If we do not count them as different outcomes when counting <span class="math inline">\(S\)</span>, we should not count them as different when counting <span class="math inline">\(E\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-10" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Example 1.8.10: Playing Cards, Revisited.) </strong></span>We shall solve the problem in <a href="#exm-1-8-9">Example&nbsp;9</a> again, but this time, we shall distinguish outcomes with the same cards in different orders. To go to the extreme, let each outcome be a complete ordering of the 52 cards. So, there are <span class="math inline">\(52!\)</span> possible outcomes. How many of these have one ace in each of the four sets of 13 cards received by the four players? As before, there are <span class="math inline">\(13^4\)</span> ways to choose the four positions for the four aces, one among each of the four sets of 13 cards. No matter which of these sets of positions we choose, there are <span class="math inline">\(4!\)</span> ways to arrange the four aces in these four positions. No matter how the aces are arranged, there are <span class="math inline">\(48!\)</span> ways to arrange the remaining 48 cards in the 48 remaining positions. So, there are <span class="math inline">\(13^4 \cdot 4! \cdot 48!\)</span> outcomes in the event of interest. We then calculate</p>
+<p><span class="math display">\[
+p = \frac{13^4 \cdot 4! \cdot 48!}{52!} = 0.1055.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>In the following example, whether one counts the same items in different orders as different outcomes is allowed to depend on which events one wishes to use.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-11" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11 (Example 1.8.11: Lottery Tickets) </strong></span>In a lottery game, six numbers from 1 to 30 are drawn at random from a bin without replacement, and each player buys a ticket with six different numbers from 1 to 30. If all six numbers drawn match those on the player’s ticket, the player wins. We assume that all possible draws are equally likely. One way to construct a sample space for the experiment of drawing the winning combination is to consider the possible sequences of draws. That is, each outcome consists of an ordered subset of six numbers chosen from the 30 available numbers. There are <span class="math inline">\(P_{30,6} = 30!/24!\)</span> such outcomes. With this sample space <span class="math inline">\(S\)</span>, we can calculate probabilities for events such as</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= \{\text{the draw contains the numbers 1, 14, 15, 20, 23, and 27}\}, \\
+B &amp;= \{\text{one of the numbers drawn is }15\},\text{ and} \\
+C &amp;= \{\text{the first number drawn is less than }10\}.
+\end{align*}
+\]</span></p>
+<p>There is another natural sample space, which we shall denote <span class="math inline">\(S'\)</span>, for this experiment. It consists solely of the different combinations of six numbers drawn from the 30 available. There are <span class="math inline">\(\binom{30}{6} = 30!/(6!24!)\)</span> such outcomes. It also seems natural to consider all of these outcomes equally likely. With this sample space, we can calculate the probabilities of the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> above, but <span class="math inline">\(C\)</span> is not a subset of the sample space <span class="math inline">\(S'\)</span>, so we cannot calculate its probability using this smaller sample space. When the sample space for an experiment could naturally be constructed in more than one way, one needs to choose based on for which events one wants to compute probabilities.</p>
+</div>
+</div>
+</div>
+<p><a href="#exm-1-8-11">Example&nbsp;11</a> raises the question of whether one will compute the same probabilities using two different sample spaces when the event, such as <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>, exists in both sample spaces. In the example, each outcome in the smaller sample space <span class="math inline">\(S'\)</span> corresponds to an event in the larger sample space <span class="math inline">\(S\)</span>. Indeed, each outcome <span class="math inline">\(s'\)</span> in <span class="math inline">\(S'\)</span> corresponds to the event in <span class="math inline">\(S\)</span> containing the <span class="math inline">\(6!\)</span> permutations of the single combination <span class="math inline">\(s'\)</span>. For example, the event <span class="math inline">\(A\)</span> in the example has only one outcome <span class="math inline">\(s' = (1, 14, 15, 20, 23, 27)\)</span> in the sample space <span class="math inline">\(S\)</span>, while the corresponding event in the sample space <span class="math inline">\(S\)</span> has <span class="math inline">\(6!\)</span> permutations including</p>
+<p><span class="math display">\[
+(1, 14, 15, 20, 23, 27), \; (14, 20, 27, 15, 23, 1), \; (27, 23, 20, 15, 14, 1), \; \text{etc.}
+\]</span></p>
+<p>In the sample space <span class="math inline">\(S\)</span>, the probability of the event <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+\Pr(A) = \frac{6!}{P_{30,6}} = \frac{6!24!}{30!} = \frac{1}{\binom{30}{6}}.
+\]</span></p>
+<p>In the sample space <span class="math inline">\(S'\)</span>, the event <span class="math inline">\(A\)</span> has this same probability because it has only one of the <span class="math inline">\(\binom{30}{6}\)</span> equally likely outcomes. The same reasoning applies to every outcome in <span class="math inline">\(S'\)</span>. Hence, if the same event can be expressed in both sample spaces <span class="math inline">\(S\)</span> and <span class="math inline">\(S'\)</span>, we will compute the same probability using either sample space. This is a special feature of examples like <a href="#exm-1-8-11">Example&nbsp;11</a> in which each outcome in the smaller sample space corresponds to an event in the larger sample space with the same number of elements. There are examples in which this feature is not present, and one cannot treat both sample spaces as simple sample spaces.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-1-8-12" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (Example 1.8.12: Tossing Coins) </strong></span>An experiment consists of tossing a coin two times. If we want to distinguish <span class="math inline">\(H\)</span> followed by <span class="math inline">\(T\)</span> from <span class="math inline">\(T\)</span> followed by <span class="math inline">\(H\)</span>, we should use the sample space <span class="math inline">\(S = \{HH, HT, TH, TT\}\)</span>, which might naturally be assumed a simple sample space. On the other hand, we might be interested solely in the number of <span class="math inline">\(H\)</span>’s tossed. In this case, we might consider the smaller sample space <span class="math inline">\(S' = \{0, 1, 2\}\)</span> where each outcome merely counts the number of <span class="math inline">\(H\)</span>’s. The outcomes 0 and 2 in <span class="math inline">\(S'\)</span> each correspond to a single outcome in <span class="math inline">\(S\)</span>, but <span class="math inline">\(1 \in S'\)</span> corresponds to the event <span class="math inline">\(\{HT, TH\} \subset S\)</span> with two outcomes. If we think of <span class="math inline">\(S\)</span> as a simple sample space, then <span class="math inline">\(S'\)</span> will not be a simple sample space, because the outcome 1 will have probability <span class="math inline">\(1/2\)</span> while the other two outcomes each have probability <span class="math inline">\(1/4\)</span>.</p>
+<p>There are situations in which one would be justified in treating <span class="math inline">\(S'\)</span> as a simple sample space and assigning each of its outcomes probability <span class="math inline">\(1/3\)</span>. One might do this if one believed that the coin was not fair, but one had no idea how unfair it was or which side were more likely to land up. In this case, <span class="math inline">\(S\)</span> would not be a simple sample space, because two of its outcomes would have probability <span class="math inline">\(1/3\)</span> and the other two would have probabilities that add up to <span class="math inline">\(1/3\)</span>.  </p>
+</div>
+</div>
+</div>
+<p><a href="#exm-1-8-6">Example&nbsp;6</a> is another case of two different sample spaces in which each outcome in one sample space corresponds to a different number of outcomes in the other space. See <strong>?@exr-1-9-12</strong> in <strong>?@sec-1-9</strong> for a more complete analysis of <a href="#exm-1-8-6">Example&nbsp;6</a>.</p>
+</section>
+<section id="the-tennis-tournament" class="level3">
+<h3 class="anchored" data-anchor-id="the-tennis-tournament">The Tennis Tournament</h3>
+<p>We shall now present a difficult problem that has a simple and elegant solution. Suppose that <span class="math inline">\(n\)</span> tennis players are entered in a tournament. In the first round, the players are paired one against another at random. The loser in each pair is eliminated from the tournament, and the winner in each pair continues into the second round. If the number of players <span class="math inline">\(n\)</span> is odd, then one player is chosen at random before the pairings are made for the first round, and that player automatically continues into the second round. All the players in the second round are then paired at random. Again, the loser in each pair is eliminated, and the winner in each pair continues into the third round. If the number of players in the second round is odd, then one of these players is chosen at random before the others are paired, and that player automatically continues into the third round. The tournament continues in this way until only two players remain in the final round. They then play against each other, and the winner of this match is the winner of the tournament. We shall assume that all <span class="math inline">\(n\)</span> players have equal ability, and we shall determine the probability <span class="math inline">\(p\)</span> that two specific players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will ever play against each other during the tournament.</p>
+<p>We shall first determine the total number of matches that will be played during the tournament. After each match has been played, one player—–the loser of that match—–is eliminated from the tournament. The tournament ends when everyone has been eliminated from the tournament except the winner of the final match. Since exactly <span class="math inline">\(n − 1\)</span> players must be eliminated, it follows that exactly <span class="math inline">\(n − 1\)</span> matches must be played during the tournament.</p>
+<p>The number of possible pairs of players is <span class="math inline">\(\binom{n}{2}\)</span>. Each of the two players in every match is equally likely to win that match, and all initial pairings are made in a random manner. Therefore, before the tournament begins, every possible pair of players is equally likely to appear in each particular one of the <span class="math inline">\(n − 1\)</span> matches to be played during the tournament. Accordingly, the probability that players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will meet in some particular match that is specified in advance is <span class="math inline">\(1/\binom{n}{2}\)</span>. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do meet in that particular match, one of them will lose and be eliminated. Therefore, these same two players cannot meet in more than one match.</p>
+<p>It follows from the preceding explanation that the probability <span class="math inline">\(p\)</span> that players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will meet at some time during the tournament is equal to the product of the probability <span class="math inline">\(1/\binom{n}{2}\)</span> that they will meet in any particular specified match and the total number <span class="math inline">\(n − 1\)</span> of different matches in which they might possibly meet. Hence,</p>
+<p><span class="math display">\[
+p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
+\]</span></p>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>We showed that the number of size <span class="math inline">\(k\)</span> subsets of a set of size <span class="math inline">\(n\)</span> is <span class="math inline">\(\binom{n}{k} = n!/[k!(n-k)!]\)</span>. This turns out to be the number of possible samples of size <span class="math inline">\(k\)</span> drawn without replacement from a population of size <span class="math inline">\(n\)</span> as well as the number of arrangements of <span class="math inline">\(n\)</span> items of two types with <span class="math inline">\(k\)</span> of one type and <span class="math inline">\(n − k\)</span> of the other type. We also saw several examples in which more than one counting technique was required at different points in the same problem. Sometimes, more than one technique is required to count the elements of a single set.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<div id="exr-1-8-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 1.8.1) </strong></span>Two pollsters will canvas a neighborhood with 20 houses. Each pollster will visit 10 of the houses.How many different assignments of pollsters to houses are possible?</p>
+</div>
+<div id="exr-1-8-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 1.8.2) </strong></span>Which of the following two numbers is larger: <span class="math inline">\(\binom{93}{30}\)</span> or <span class="math inline">\(\binom{93}{31}\)</span>?</p>
+</div>
+<div id="exr-1-8-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 1.8.3) </strong></span>Which of the following two numbers is larger: <span class="math inline">\(\binom{93}{30}\)</span> or <span class="math inline">\(\binom{93}{63}\)</span>?</p>
+</div>
+<div id="exr-1-8-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 1.8.4) </strong></span>&nbsp;</p>
+<ol start="4" type="1">
+<li>A box contains 24 light bulbs, of which four are defective. If a person selects four bulbs from the box at random, without replacement, what is the probability that all four bulbs will be defective?</li>
+</ol>
+</div>
+<div id="exr-1-8-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 1.8.5) </strong></span>Prove that the following number is an integer:</p>
+<p><span class="math display">\[
+\frac{4155 \cdot 4156 \cdot \cdots \cdot 4250 \cdot 4251}{2 \cdot 3 \cdot \cdots \cdot 96 \cdot 97}.
+\]</span></p>
+</div>
+<div id="exr-1-8-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 1.8.6) </strong></span>Suppose that <span class="math inline">\(n\)</span> people are seated in a random manner in a row of <span class="math inline">\(n\)</span> theater seats. What is the probability that two particular people <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will be seated next to each other?</p>
+</div>
+<div id="exr-1-8-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 1.8.7) </strong></span>If <span class="math inline">\(k\)</span> people are seated in a random manner in a row containing <span class="math inline">\(n\)</span> seats (<span class="math inline">\(n &gt; k\)</span>), what is the probability that the people will occupy <span class="math inline">\(k\)</span> adjacent seats in the row?</p>
+</div>
+<div id="exr-1-8-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 1.8.8) </strong></span>If <span class="math inline">\(k\)</span> people are seated in a random manner in a circle containing <span class="math inline">\(n\)</span> chairs (<span class="math inline">\(n &gt; k\)</span>), what is the probability that the people will occupy <span class="math inline">\(k\)</span> adjacent chairs in the circle?</p>
+</div>
+<div id="exr-1-8-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 1.8.9) </strong></span>If <span class="math inline">\(n\)</span> people are seated in a random manner in a row containing <span class="math inline">\(2n\)</span> seats, what is the probability that no two people will occupy adjacent seats?</p>
+</div>
+<div id="exr-1-8-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 1.8.10) </strong></span>A box contains 24 light bulbs, of which two are defective. If a person selects 10 bulbs at random, without replacement, what is the probability that both defective bulbs will be selected?</p>
+</div>
+<div id="exr-1-8-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 1.8.11) </strong></span>Suppose that a committee of 12 people is selected in a random manner from a group of 100 people. Determine the probability that two particular people <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will both be selected.</p>
+</div>
+<div id="exr-1-8-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12 (Exercise 1.8.12) </strong></span>Suppose that 35 people are divided in a random manner into two teams in such a way that one team contains 10 people and the other team contains 25 people. What is the probability that two particular people <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will be on the same team?</p>
+</div>
+<div id="exr-1-8-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13 (Exercise 1.8.13) </strong></span>A box contains 24 light bulbs of which four are defective. If one person selects 10 bulbs from the box in a random manner, and a second person then takes the remaining 14 bulbs, what is the probability that all four defective bulbs will be obtained by the same person?</p>
+</div>
+<div id="exr-1-8-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14 (Exercise 1.8.14) </strong></span>Prove that, for all positive integers <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> (<span class="math inline">\(n \geq k\)</span>),</p>
+<p><span class="math display">\[
+\binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}.
+\]</span></p>
+</div>
+<div id="exr-1-8-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 15 (Exercise 1.8.15) </strong></span>&nbsp;</p>
+<ol type="a">
+<li>Prove that</li>
+</ol>
+<p><span class="math display">\[
+\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = 2^n.
+\]</span></p>
+<ol start="2" type="a">
+<li>Prove that</li>
+</ol>
+<p><span class="math display">\[
+\binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \binom{n}{3} + \cdots + (-1)^n\binom{n}{n} = 0.
+\]</span></p>
+<p><em>Hint</em>: Use the binomial theorem.</p>
+</div>
+<div id="exr-1-8-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16 (Exercise 1.8.16) </strong></span>The United States Senate contains two senators from each of the 50 states. <strong>(a)</strong> If a committee of eight senators is selected at random, what is the probability that it will contain at least one of the two senators from a certain specified state? <strong>(b)</strong> What is the probability that a group of 50 senators selected at random will contain one senator from each state?</p>
+</div>
+<div id="exr-1-8-17" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17 (Exerise 1.8.17) </strong></span>A deck of 52 cards contains four aces. If the cards are shuffled and distributed in a random manner to four players so that each player receives 13 cards, what is the probability that all four aces will be received by the same player?</p>
+</div>
+<div id="exr-1-8-18" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 18 (Exercise 1.8.18) </strong></span>Suppose that 100 mathematics students are divided into five classes, each containing 20 students, and that awards are to be given to 10 of these students. If each student is equally likely to receive an award, what is the probability that exactly two students in each class will receive awards?</p>
+</div>
+<div id="exr-1-8-19" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19 (Exercise 1.8.19) </strong></span>A restaurant has <span class="math inline">\(n\)</span> items on its menu. During a particular day, <span class="math inline">\(k\)</span> customers will arrive and each one will choose one item. The manager wants to count how many different collections of customer choices are possible without regard to the order in which the choices are made. (For example, if <span class="math inline">\(k = 3\)</span> and <span class="math inline">\(a_1, \ldots, a_n\)</span> are the menu items, then <span class="math inline">\(a_1a_3a_1\)</span> is not distinguished from <span class="math inline">\(a_1a_1a_3\)</span>.) Prove that the number of different collections of customer choices is <span class="math inline">\(\binom{n+k-1}{k}\)</span>. <em>Hint</em>: Assume that the menu items are <span class="math inline">\(a_1, \ldots, a_n\)</span>. Show that each collection of customer choices, arranged with the <span class="math inline">\(a_1\)</span>’s first, the <span class="math inline">\(a_2\)</span>’s second, etc., can be identified with a sequence of <span class="math inline">\(k\)</span> zeros and <span class="math inline">\(n − 1\)</span> ones, where each 0 stands for a customer choice and each 1 indicates a point in the sequence where the menu item number increases by 1. For example, if <span class="math inline">\(k = 3\)</span> and <span class="math inline">\(n = 5\)</span>, then <span class="math inline">\(a_1a_1a_3\)</span> becomes <code>0011011</code>.</p>
+</div>
+<div id="exr-1-8-20" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20 (Exercise 1.8.20) </strong></span>Prove the binomial theorem, <a href="#thm-1-8-2">Theorem&nbsp;2</a>. <em>Hint</em>: You may use an induction argument. That is, first prove that the result is true if <span class="math inline">\(n = 1\)</span>. Then, under the assumption that there is <span class="math inline">\(n_0\)</span> such that the result is true for all <span class="math inline">\(n \leq n_0\)</span>, prove that it is also true for <span class="math inline">\(n = n_0 + 1\)</span>.</p>
+</div>
+<div id="exr-1-8-21" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 21 (Exercise 1.8.21) </strong></span>Return to the birthday problem (<strong>?@sec-bday-problem</strong>). How many different sets of birthdays are available with <span class="math inline">\(k\)</span> people and 365 days when we don’t distinguish the same birthdays in different orders? For example, if <span class="math inline">\(k = 3\)</span>, we would count (Jan.&nbsp;1, Mar.&nbsp;3, Jan.1) the same as (Jan.&nbsp;1, Jan.&nbsp;1, Mar.&nbsp;3).</p>
+</div>
+<div id="exr-1-8-22" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22 (Exercise 1.8.22) </strong></span>Let <span class="math inline">\(n\)</span> be a large even integer. Use Stirlings’ formula (<strong>?@thm-1-7-5</strong>) to find an approximation to the binomial coefficient <span class="math inline">\(\binom{n}{n/2}\)</span>. Compute the approximation with <span class="math inline">\(n = 500\)</span>.</p>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
