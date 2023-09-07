@@ -1,143 +1,130 @@
-
 ## Independent Events {#sec-2-2}
 
-If learning that B has occurred does not change the probability of A, then we say
-that A and B are independent. There are many cases in which events A and B
-are not independent, but they would be independent if we learned that some other
-event C had occurred. In this case, A and B are conditionally independent given C.
+*If learning that $B$ has occurred does not change the probability of $A$, then we say that $A$ and $B$ are independent. There are many cases in which events $A$ and $B$ are not independent, but they would be independent if we learned that some other event $C$ had occurred. In this case, $A$ and $B$ are conditionally independent given $C$.*
 
-Example
-2.2.1
-Tossing Coins. Suppose that a fair coin is tossed twice. The experiment has four
-outcomes, HH, HT, TH, and TT, that tell us how the coin landed on each of the
-two tosses.We can assume that this sample space is simple so that each outcome has
-probability 1/4. Suppose that we are interested in the second toss. In particular, we
-want to calculate the probability of the eventA = {H on second toss}.We see thatA =
-{HH,TH}, so that Pr(A) = 2/4 = 1/2. If we learn that the first coin landed T, we might
-wish to compute the conditional probability Pr(A|B) where B = {T on first toss}.
-Using the definition of conditional probability, we easily compute
-Pr(A|B) = Pr(A ∩ B)
-Pr(B)
-= 1/4
-1/2
-= 1
-2
-,
-because A ∩ B = {TH} has probability 1/4. We see that Pr(A|B) = Pr(A); hence, we
-don’t change the probability of A even after we learn that B has occurred.  
-Definition of Independence
-The conditional probability of the event A given that the event B has occurred is
-the revised probability of A after we learn that B has occurred. It might be the case,
-however, that no revision is necessary to the probability of A even after we learn that
-B occurs. This is precisely what happened in Example 2.2.1. In this case, we say that
-A and B are independent events. As another example, if we toss a coin and then roll
-a die, we could let A be the event that the die shows 3 and let B be the event that the
-coin lands with heads up. If the tossing of the coin is done in isolation of the rolling
-of the die, we might be quite comfortable assigning Pr(A|B) = Pr(A) = 1/6. In this
-case, we say that A and B are independent events.
-In general, if Pr(B) > 0, the equation Pr(A|B) = Pr(A) can be rewritten as Pr(A ∩
-B)/ Pr(B) = Pr(A). If we multiply both sides of this last equation by Pr(B), we obtain
-the equation Pr(A ∩ B) = Pr(A) Pr(B). In order to avoid the condition Pr(B) > 0, the
-mathematical definition of the independence of two events is stated as follows:
-Definition
-2.2.1
-Independent Events. Two events A and B are independent if
-Pr(A ∩ B) = Pr(A) Pr(B).
-2.2 Independent Events 67
-Suppose that Pr(A) > 0 and Pr(B) > 0. Then it follows easily from the definitions
-of independence and conditional probability thatAandB are independent if and only
-if Pr(A|B) = Pr(A) and Pr(B|A) = Pr(B).
-Independence of Two Events
-If two events A and B are considered to be independent because the events are
-physically unrelated, and if the probabilities Pr(A) and Pr(B) are known, then the
-definition can be used to assign a value to Pr(A ∩ B).
-Example
-2.2.2
-Machine Operation. Suppose that two machines 1 and 2 in a factory are operated independently
-of each other. LetAbe the event that machine 1 will become inoperative
-during a given 8-hour period, let B be the event that machine 2 will become inoperative
-during the same period, and suppose that Pr(A) = 1/3 and Pr(B) = 1/4.We shall
-determine the probability that at least one of the machines will become inoperative
-during the given period.
-The probability Pr(A ∩ B) that both machines will become inoperative during
-the period is
-Pr(A ∩ B) = Pr(A) Pr(B) =
+::: {.callout-tip}
+::: {#exm-2-2-1}
+
+# Example 2.2.1: Tossing Coins
+
+Suppose that a fair coin is tossed twice. The experiment has four outcomes, $HH$, $HT$, $TH$, and $TT$, that tell us how the coin landed on each of the two tosses. We can assume that this sample space is simple so that each outcome has probability $1/4$. Suppose that we are interested in the second toss. In particular, we want to calculate the probability of the event $A = \{H\text{ on second toss}\}$. We see that $A = \{HH, TH\}$, so that $\Pr(A) = 2/4 = 1/2$. If we learn that the first coin landed $T$, we might wish to compute the conditional probability $\Pr(A \mid B)$ where $B = \{T\text{ on first toss}\}$. Using the definition of conditional probability, we easily compute
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)} = \frac{1/4}{1/2} = \frac{1}{2},
+$$
+
+because $A \cap B = \{TH\}$ has probability $1/4$. We see that $\Pr(A \mid B) = \Pr(A)$; hence, we don't change the probability of $A$ even after we learn that $B$ has occurred.
+
+:::
+:::
+
+### Definition of Independence
+
+The conditional probability of the event $A$ given that the event $B$ has occurred is the revised probability of $A$ after we learn that $B$ has occurred. It might be the case, however, that no revision is necessary to the probability of $A$ even after we learn that $B$ occurs. This is precisely what happened in @exm-2-2-1. In this case, we say that $A$ and $B$ are **independent events**. As another example, if we toss a coin and then roll a die, we could let $A$ be the event that the die shows 3 and let $B$ be the event that the coin lands with heads up. If the tossing of the coin is done in isolation of the rolling of the die, we might be quite comfortable assigning $\Pr(A \mid B) = \Pr(A) = 1/6$. In this case, we say that $A$ and $B$ are independent events.
+
+In general, if $\Pr(B) > 0$, the equation $\Pr(A \mid B) = \Pr(A)$ can be rewritten as $\Pr(A \cap B) / \Pr(B) = \Pr(A)$. If we multiply both sides of this last equation by $\Pr(B)$, we obtain the equation $\Pr(A \cap B) = \Pr(A)\Pr(B)$. In order to avoid the condition $\Pr(B) > 0$, the mathematical definition of the independence of two events is stated as follows:
+
+::: {.callout-tip}
+::: {#def-2-2-1}
+
+# Definition 2.2.1: Independent Events
+
+Two events $A$ and $B$ are **independent** if
+
+$$
+\Pr(A \cap B) = \Pr(A)\Pr(B).
+$$
+
+:::
+:::
+
+Suppose that $\Pr(A) > 0$ and $\Pr(B) > 0$. Then it follows easily from the definitions of independence and conditional probability that $A$ and $B$ are independent if and only if $\Pr(A \mid B) = \Pr(A)$ and $\Pr(B \mid A) = \Pr(B)$.
+
+### Independence of Two Events
+
+If two events $A$ and $B$ are considered to be independent because the events are physically unrelated, and if the probabilities $\Pr(A)$ and $\Pr(B)$ are known, then the definition can be used to assign a value to $\Pr(A \cap B)$.
+
+::: {.callout-tip}
+::: {#exm-2-2-2}
+
+# Example 2.2.2: Machine Operation
+
+Suppose that two machines 1 and 2 in a factory are operated independently of each other. Let $A$ be the event that machine 1 will become inoperative during a given 8-hour period, let $B$ be the event that machine 2 will become inoperative during the same period, and suppose that $\Pr(A) = 1/3$ and $\Pr(B) = 1/4$. We shall determine the probability that at least one of the machines will become inoperative during the given period.
+
+The probability $\Pr(A \cap B)$ that both machines will become inoperative during the period is
+
+$$
+\Pr(A \cap B) = \Pr(A)\Pr(B) = \left(\frac{1}{3}\right)\left(\frac{1}{4}\right) = \frac{1}{12}.
+$$
+
+Therefore, the probability $\Pr(A \cup B)$ that at least one of the machines will become inoperative during the period is
+
+$$
+\begin{align*}
+\Pr(A \cup B) &= \Pr(A) + \Pr(B) − \Pr(A \cap B) \\
+&= \frac{1}{3} + \frac{1}{4} - \frac{1}{12} = \frac{1}{2}.
+\end{align*}
+$$
+
+:::
+:::
+
+The next example shows that two events $A$ and $B$, which are physically related, can, nevertheless, satisfy the definition of independence.
+
+::: {.callout-tip}
+::: {#exm-2-2-3}
+
+# Example 2.2.3: Rolling a Die
+
+Suppose that a balanced die is rolled. Let $A$ be the event that an even number is obtained, and let $B$ be the event that one of the numbers 1, 2, 3, or 4 is obtained. We shall show that the events $A$ and $B$ are independent.
+
+In this example, $\Pr(A) = 1/2$ and $\Pr(B) = 2/3$. Furthermore, since $A \cap B$ is the event that either the number 2 or the number 4 is obtained, $\Pr(A \cap B) = 1/3$. Hence, $\Pr(A \cap B) = \Pr(A)\Pr(B)$. It follows that the events $A$ and $B$ are independent events, even though the occurrence of each event depends on the same roll of a die.  
+
+:::
+:::
+
+The independence of the events $A$ and $B$ in @exm-2-2-3 can also be interpreted as follows: Suppose that a person must bet on whether the number obtained on the die will be even or odd, that is, on whether or not the event $A$ will occur. Since three of the possible outcomes of the roll are even and the other three are odd, the person will typically have no preference between betting on an even number and betting on an odd number.
+
+Suppose also that after the die has been rolled, but before the person has learned the outcome and before she has decided whether to bet on an even outcome or on an odd outcome, she is informed that the actual outcome was one of the numbers 1, 2, 3, or 4, i.e., that the event $B$ has occurred. The person now knows that the outcome was 1, 2, 3, or 4. However, since two of these numbers are even and two are odd, the person will typically still have no preference between betting on an even number and betting on an odd number. In other words, the information that the event $B$ has occurred is of no help to the person who is trying to decide whether or not the event $A$ has occurred.
+
+**Independence of Complements**: In the foregoing discussion of independent events, we stated that if $A$ and $B$ are independent, then the occurrence or nonoccurrence of $A$ should not be related to the occurrence or nonoccurrence of $B$. Hence, if $A$ and $B$ satisfy the mathematical definition of independent events, then it should also be true that $A$ and $B^c$ are independent events, that $A^c$ and $B$ are independent events, and that $A^c$ and $B^c$ are independent events. One of these results is established in the next theorem.
+
+::: {.callout-tip}
+::: {#thm-2-2-1}
+
+# Theorem 2.2.1
+
+If two events $A$ and $B$ are independent, then the events $A$ and $B^c$ are also independent.
+
+::: {.proof}
+@thm-1-5-6 says that
+
+$$
+\Pr(A \cap B^c) = \Pr(A) − \Pr(A \cap B).
+$$
+
+Furthermore, since $A$ and $B$ are independent events, $\Pr(A \cap B) = \Pr(A)\Pr(B)$. It now follows that
+
+$$
+\begin{align*}
+\Pr(A \cap B^c) &= \Pr(A) − \Pr(A)\Pr(B) = \Pr(A)[1 − \Pr(B)] \\
+&= \Pr(A)\Pr(B^c).
+\end{align*}
+$$
+
+Therefore, the events $A$ and $B^c$ are independent.
+:::
+
+:::
+:::
+
+The proof of the analogous result for the events $A^c$ and $B$ is similar, and the proof for the events $A^c$ and $B^c$ is required in @exr-2-2-2 at the end of this section.
+
+### Independence of Several Events
+
+The definition of independent events can be extended to any number of events, $A_1, \ldots, A_k$. Intuitively, if learning that some of these events do or do not occur does not change our probabilities for any events that depend only on the remaining events, we would say that all $k$ events are independent. The mathematical definition is the following analog to @def-2-2-1.
 
 
-1
-3
- 
-
-1
-4
- 
-= 1
-12
-.
-Therefore, the probability Pr(A ∪ B) that at least one of the machines will become
-inoperative during the period is
-Pr(A ∪ B) = Pr(A) + Pr(B) − Pr(A ∩ B)
-= 1
-3
-+ 1
-4
-− 1
-12
-= 1
-2
-.  
-The next example shows that two events A and B, which are physically related,
-can, nevertheless, satisfy the definition of independence.
-Example
-2.2.3
-Rolling a Die. Suppose that a balanced die is rolled. Let A be the event that an even
-number is obtained, and let B be the event that one of the numbers 1, 2, 3, or 4 is
-obtained. We shall show that the events A and B are independent.
-In this example, Pr(A) = 1/2 and Pr(B) = 2/3. Furthermore, since A ∩ B is the
-event that either the number 2 or the number 4 is obtained, Pr(A ∩ B) = 1/3. Hence,
-Pr(A ∩ B) = Pr(A) Pr(B). It follows that the events A and B are independent events,
-even though the occurrence of each event depends on the same roll of a die.  
-The independence of the eventsAand B in Example 2.2.3 can also be interpreted
-as follows: Suppose that a person must bet on whether the number obtained on the
-die will be even or odd, that is, on whether or not the event A will occur. Since three
-of the possible outcomes of the roll are even and the other three are odd, the person
-will typically have no preference between betting on an even number and betting on
-an odd number.
-Suppose also that after the die has been rolled, but before the person has learned
-the outcome and before she has decided whether to bet on an even outcome or on an
-odd outcome, she is informed that the actual outcome was one of the numbers 1, 2, 3,
-or 4, i.e., that the event B has occurred. The person now knows that the outcome was
-1, 2, 3, or 4. However, since two of these numbers are even and two are odd, the
-person will typically still have no preference between betting on an even number
-and betting on an odd number. In other words, the information that the event B has
-68 Chapter 2 Conditional Probability
-occurred is of no help to the person who is trying to decide whether or not the event
-A has occurred.
-Independence of Complements In the foregoing discussion of independent events,
-we stated that if A and B are independent, then the occurrence or nonoccurrence of
-A should not be related to the occurrence or nonoccurrence of B. Hence, if A and
-B satisfy the mathematical definition of independent events, then it should also be
-true that A and Bc are independent events, that Ac and B are independent events,
-and that Ac and Bc are independent events. One of these results is established in the
-next theorem.
-Theorem
-2.2.1
-If two events A and B are independent, then the events A and Bc are also independent.
-Proof Theorem 1.5.6 says that
-Pr(A ∩ Bc) = Pr(A) − Pr(A ∩ B).
-Furthermore, since A and B are independent events, Pr(A ∩ B) = Pr(A) Pr(B). It
-now follows that
-Pr(A ∩ Bc) = Pr(A) − Pr(A) Pr(B) = Pr(A)[1− Pr(B)]
-= Pr(A) Pr(Bc).
-Therefore, the events A and Bc are independent.
-The proof of the analogous result for the eventsAc and B is similar, and the proof
-for the events Ac and Bc is required in Exercise 2 at the end of this section.
-Independence of Several Events
-The definition of independent events can be extended to any number of events,
-A1, . . . ,Ak. Intuitively, if learning that some of these events do or do not occur does
-not change our probabilities for any events that depend only on the remaining events,
-we would say that all k events are independent. The mathematical definition is the
-following analog to Definition 2.2.1.
 Definition
 2.2.2
 (Mutually) Independent Events. Thek eventsA1, . . . , Ak are independent (or mutually
