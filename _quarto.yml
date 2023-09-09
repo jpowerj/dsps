@@ -31,9 +31,10 @@ format:
   html:
     #theme: materia
     #theme: default
-    theme: cosmo
+    theme: [cosmo, "assets/jj_dsps.scss"]
+    # Note to self: Quarto callout classes
+    # 1. note = definitions (#def)
+    # 2. tip = example (#exm)
+    # 3. caution = theorem (#thm)
   #pdf:
   #  documentclass: scrreprt
-
-
-

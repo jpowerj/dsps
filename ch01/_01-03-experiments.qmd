@@ -7,8 +7,7 @@
 The theory of probability pertains to the various possible outcomes that might be
 obtained and the possible events that might occur when an experiment is performed.
 
-::: {.callout-tip}
-
+::: {.callout-note}
 ::: {#def-1-3-1}
 
 # Definition 1.3.1: Experiment and Event

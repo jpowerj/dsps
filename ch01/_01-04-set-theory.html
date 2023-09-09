@@ -252,13 +252,13 @@ Tip
 <p>We can now state the second condition that we require of the collection of events.</p>
 <div id="fig-1-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/fig-1-1.png" class="img-fluid figure-img"></p>
+<p><img src="ch01/images/fig-1-1.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: The event <span class="math inline">\(A^c\)</span></figcaption>
 </figure>
 </div>
 <div id="fig-1-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/fig-1-2.png" class="img-fluid figure-img"></p>
+<p><img src="ch01/images/fig-1-2.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: The set <span class="math inline">\(A \cup B\)</span></figcaption>
 </figure>
 </div>
@@ -427,10 +427,10 @@ Tip
 </div>
 </div>
 <p>The set <span class="math inline">\(A \cap B\)</span> is sketched in a Venn diagram in <a href="#fig-1-3">Figure&nbsp;3</a>. In terms of events, <span class="math inline">\(A \cap B\)</span> is the event that both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur.</p>
-<p>The proof of the first part of the next result follows from <span class="citation" data-cites="ex-1-4-3">@ex-1-4-3</span> in this section. The rest of the proof is straightforward.</p>
+<p>The proof of the first part of the next result follows from <a href="#exm-1-4-3">Example&nbsp;3</a> in this section. The rest of the proof is straightforward.</p>
 <div id="fig-1-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/fig-1-3.png" class="img-fluid figure-img"></p>
+<p><img src="ch01/images/fig-1-3.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: The set <span class="math inline">\(A \cap B\)</span>.</figcaption>
 </figure>
 </div>
@@ -501,7 +501,7 @@ Tip
 <p>As an illustration of these concepts, a Venn diagram for three events <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> is presented in <a href="#fig-1-4">Figure&nbsp;4</a>. This diagram indicates that the various intersections of <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> and their complements will partition the sample space <span class="math inline">\(S\)</span> into eight disjoint subsets.</p>
 <div id="fig-1-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/fig-1-4.png" class="img-fluid figure-img"></p>
+<p><img src="ch01/images/fig-1-4.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;4: Partition of <span class="math inline">\(S\)</span> determined by three events <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span>.</figcaption>
 </figure>
 </div>
@@ -532,9 +532,28 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-1-4-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Example 1.4.5: Demands for Utilities) </strong></span>A contractor is building an office complex and needs to plan for water and electricity demand (sizes of pipes, conduit, and wires). After consulting with prospective tenants and examining historical data, the contractor decides that the demand for electricity will range somewhere between 1 million and 150 million kilowatt-hours per day and water demand will be between 4 and 200 (in thousands of gallons per day). All combinations of electrical and water demand are considered possible. The shaded region in Fig. 1.5 shows the sample space for the experiment, consisting of learning the actual water and electricity demands for the office complex. We can express the sample space as the set of ordered pairs {(x, y) : 4 ≤ x ≤ 200, 1≤ y ≤ 150}, where x stands for water demand in thousands of gallons per day and y Figure 1.5 Sample space for water and electric demand in Example 1.4.5 1 150 0 4 Water Electric 200 1.4 Set Theory 13 Figure 1.6 Partition of A ∪ B in Theorem 1.4.11. A B A B A B c Ac B S stands for the electric demand in millions of kilowatt-hours per day. The types of sets that we want to call events include sets like {water demand is at least 100} = {(x, y) : x ≥ 100}, and {electric demand is no more than 35} = {(x, y) : y ≤ 35}, along with intersections, unions, and complements of such sets. This sample space has infinitely many points. Indeed, the sample space is uncountable. There are many more sets that are difficult to describe and which we will have no need to consider as events.  </p>
+<p><span class="theorem-title"><strong>Example 5 (Example 1.4.5: Demands for Utilities) </strong></span>A contractor is building an office complex and needs to plan for water and electricity demand (sizes of pipes, conduit, and wires). After consulting with prospective tenants and examining historical data, the contractor decides that the demand for electricity will range somewhere between 1 million and 150 million kilowatt-hours per day and water demand will be between 4 and 200 (in thousands of gallons per day). All combinations of electrical and water demand are considered possible. The shaded region in <a href="#fig-1-5">Figure&nbsp;5</a> shows the sample space for the experiment, consisting of learning the actual water and electricity demands for the office complex. We can express the sample space as the set of ordered pairs <span class="math inline">\(\{(x, y) : 4 \leq x \leq 200, 1 \leq y \leq 150\}\)</span>, where <span class="math inline">\(x\)</span> stands for water demand in thousands of gallons per day and <span class="math inline">\(y\)</span> stands for the electric demand in millions of kilowatt-hours per day. The types of sets that we want to call events include sets like</p>
+<p><span class="math display">\[
+\begin{align*}
+\{\text{water demand is at least }100\} &amp;= \{(x, y) : x \geq 100\},\text{ and} \\
+\{\text{electric demand is no more than }35\} &amp;= \{(x, y) : y \leq 35\},
+\end{align*}
+\]</span></p>
+<p>along with intersections, unions, and complements of such sets. This sample space has infinitely many points. Indeed, the sample space is uncountable. There are many more sets that are difficult to describe and which we will have no need to consider as events.  </p>
 </div>
 </div>
+</div>
+<div id="fig-1-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ch01/images/fig-1-5.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Sample space for water and electric demand in <a href="#exm-1-4-5">Example&nbsp;5</a></figcaption>
+</figure>
+</div>
+<div id="fig-1-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ch01/images/fig-1-6.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: Partition of <span class="math inline">\(A \cup B\)</span> in <a href="#thm-1-4-11">Theorem&nbsp;11</a></figcaption>
+</figure>
 </div>
 <p><strong>Additional Properties of Sets</strong>: The proof of the following useful result is left to <a href="#exr-1-4-3">Exercise&nbsp;3</a> in this section.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -569,7 +588,7 @@ Tip
 </div>
 </div>
 </div>
-<p>The following result is useful for computing probabilities of events that can be partitioned into smaller pieces. Its proof is left to <a href="#exr-1-4-4">Exercise&nbsp;4</a> in this section, and is illuminated by <strong>?@fig-1-6</strong>.</p>
+<p>The following result is useful for computing probabilities of events that can be partitioned into smaller pieces. Its proof is left to <a href="#exr-1-4-4">Exercise&nbsp;4</a> in this section, and is illuminated by <a href="#fig-1-6">Figure&nbsp;6</a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -599,8 +618,8 @@ A \cup B = B \cup (A \cap B^c).
 <p><span id="eq-1-4-1"><span class="math display">\[
 x = \sum_{n=1}^{\infty}a_n(x)10^{-n}.
 \tag{1}\]</span></span></p>
-<p>By construction, each number of the form <span class="math inline">\(x = k/10^m\)</span> for some nonnegative integers <span class="math inline">\(k\)</span> and <span class="math inline">\(m\)</span> will have <span class="math inline">\(a_n(x) = 0\)</span> for <span class="math inline">\(n &gt; m\)</span>. The numbers of the form <span class="math inline">\(k/10^m\)</span> are the only ones that have an alternate decimal expansion <span class="math inline">\(x = \sum_{n=1}^{\infty}c_n(x)10^{-n}\)</span>. When <span class="math inline">\(k\)</span> is not a multiple of 10, this alternate expansion satisfies <span class="math inline">\(c_n(x) = a_n(x)\)</span> for <span class="math inline">\(n = 1, \ldots, m-1\)</span>, <span class="math inline">\(c_m(x) = a_m(x) − 1\)</span>, and <span class="math inline">\(c_n(x) = 9\)</span> for <span class="math inline">\(n &gt; m\)</span>. Let <span class="math inline">\(C = \{0, 1, \ldots, 9\}^{\infty}\)</span> stand for the set of all infinite sequences of digits. Let <span class="math inline">\(B\)</span> denote the subset of <span class="math inline">\(C\)</span> consisting of those sequences that don’t end in repeating 9’s. Then we have just constructed a function a from the interval <span class="math inline">\([0, 1)\)</span> onto <span class="math inline">\(B\)</span> that is one-to-one and whose inverse is given in <a href="#eq-1-4-1">Equation&nbsp;1</a>. We now show that the set <span class="math inline">\(B\)</span> is uncountable, hence <span class="math inline">\([0, 1)\)</span> is uncountable. Take any countable subset of <span class="math inline">\(B\)</span> and arrange the sequences into a rectangular array with the <span class="math inline">\(k\)</span>th sequence running across the <span class="math inline">\(k\)</span>th row of the array for <span class="math inline">\(k = 1, 2, \ldots\)</span>. <a href="#fig-1-7">Figure&nbsp;5</a> gives an example of part of such an array.</p>
-<p>In <a href="#fig-1-7">Figure&nbsp;5</a>, we have underlined the <span class="math inline">\(k\)</span>th digit in the <span class="math inline">\(k\)</span>th sequence for each <span class="math inline">\(k\)</span>. This portion of the array is called the <strong>diagonal</strong> of the array. We now show that there must exist a sequence in <span class="math inline">\(B\)</span> that is not part of this array. This will prove that the whole set <span class="math inline">\(B\)</span> cannot be put into such an array, and hence cannot be countable. Construct the sequence <span class="math inline">\(\{d_n\}_{n=1}^{\infty}\)</span> as follows. For each <span class="math inline">\(n\)</span>, let <span class="math inline">\(d_n = 2\)</span> if the <span class="math inline">\(n\)</span>th digit in the <span class="math inline">\(n\)</span>th sequence is 1, and <span class="math inline">\(d_n = 1\)</span> otherwise. This sequence does not end in repeating 9’s; hence, it is in <span class="math inline">\(B\)</span>. We conclude the proof by showing that <span class="math inline">\(\{d_n\}_{n=1}^{\infty}\)</span> does not appear anywhere in the array. If the sequence did appear in the array, say, in the <span class="math inline">\(k\)</span>th row, then its <span class="math inline">\(k\)</span>th element would be the <span class="math inline">\(k\)</span>th diagonal element of the array. But we constructed the sequence so that for every <span class="math inline">\(n\)</span> (including <span class="math inline">\(n = k\)</span>), its <span class="math inline">\(n\)</span>th element never matched the <span class="math inline">\(n\)</span>th diagonal element. Hence, the sequence can’t be in the <span class="math inline">\(k\)</span>th row, no matter what <span class="math inline">\(k\)</span> is. The argument given here is essentially that of the nineteenth-century German mathematician Georg Cantor.</p>
+<p>By construction, each number of the form <span class="math inline">\(x = k/10^m\)</span> for some nonnegative integers <span class="math inline">\(k\)</span> and <span class="math inline">\(m\)</span> will have <span class="math inline">\(a_n(x) = 0\)</span> for <span class="math inline">\(n &gt; m\)</span>. The numbers of the form <span class="math inline">\(k/10^m\)</span> are the only ones that have an alternate decimal expansion <span class="math inline">\(x = \sum_{n=1}^{\infty}c_n(x)10^{-n}\)</span>. When <span class="math inline">\(k\)</span> is not a multiple of 10, this alternate expansion satisfies <span class="math inline">\(c_n(x) = a_n(x)\)</span> for <span class="math inline">\(n = 1, \ldots, m-1\)</span>, <span class="math inline">\(c_m(x) = a_m(x) − 1\)</span>, and <span class="math inline">\(c_n(x) = 9\)</span> for <span class="math inline">\(n &gt; m\)</span>. Let <span class="math inline">\(C = \{0, 1, \ldots, 9\}^{\infty}\)</span> stand for the set of all infinite sequences of digits. Let <span class="math inline">\(B\)</span> denote the subset of <span class="math inline">\(C\)</span> consisting of those sequences that don’t end in repeating 9’s. Then we have just constructed a function a from the interval <span class="math inline">\([0, 1)\)</span> onto <span class="math inline">\(B\)</span> that is one-to-one and whose inverse is given in <a href="#eq-1-4-1">Equation&nbsp;1</a>. We now show that the set <span class="math inline">\(B\)</span> is uncountable, hence <span class="math inline">\([0, 1)\)</span> is uncountable. Take any countable subset of <span class="math inline">\(B\)</span> and arrange the sequences into a rectangular array with the <span class="math inline">\(k\)</span>th sequence running across the <span class="math inline">\(k\)</span>th row of the array for <span class="math inline">\(k = 1, 2, \ldots\)</span>. <a href="#fig-1-7">Figure&nbsp;7</a> gives an example of part of such an array.</p>
+<p>In <a href="#fig-1-7">Figure&nbsp;7</a>, we have underlined the <span class="math inline">\(k\)</span>th digit in the <span class="math inline">\(k\)</span>th sequence for each <span class="math inline">\(k\)</span>. This portion of the array is called the <strong>diagonal</strong> of the array. We now show that there must exist a sequence in <span class="math inline">\(B\)</span> that is not part of this array. This will prove that the whole set <span class="math inline">\(B\)</span> cannot be put into such an array, and hence cannot be countable. Construct the sequence <span class="math inline">\(\{d_n\}_{n=1}^{\infty}\)</span> as follows. For each <span class="math inline">\(n\)</span>, let <span class="math inline">\(d_n = 2\)</span> if the <span class="math inline">\(n\)</span>th digit in the <span class="math inline">\(n\)</span>th sequence is 1, and <span class="math inline">\(d_n = 1\)</span> otherwise. This sequence does not end in repeating 9’s; hence, it is in <span class="math inline">\(B\)</span>. We conclude the proof by showing that <span class="math inline">\(\{d_n\}_{n=1}^{\infty}\)</span> does not appear anywhere in the array. If the sequence did appear in the array, say, in the <span class="math inline">\(k\)</span>th row, then its <span class="math inline">\(k\)</span>th element would be the <span class="math inline">\(k\)</span>th diagonal element of the array. But we constructed the sequence so that for every <span class="math inline">\(n\)</span> (including <span class="math inline">\(n = k\)</span>), its <span class="math inline">\(n\)</span>th element never matched the <span class="math inline">\(n\)</span>th diagonal element. Hence, the sequence can’t be in the <span class="math inline">\(k\)</span>th row, no matter what <span class="math inline">\(k\)</span> is. The argument given here is essentially that of the nineteenth-century German mathematician Georg Cantor.</p>
 <div id="fig-1-7" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><span class="math display">\[
@@ -616,7 +635,7 @@ x = \sum_{n=1}^{\infty}a_n(x)10^{-n}.
 \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots \\
 \end{matrix}
 \]</span></p>
-<figcaption class="figure-caption">Figure&nbsp;5: An array of a countable collection of sequences of digits with the diagonal underlined.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;7: An array of a countable collection of sequences of digits with the diagonal underlined.</figcaption>
 </figure>
 </div>
 </section>

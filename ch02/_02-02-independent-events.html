@@ -73,13 +73,13 @@ Tip
 <h3 class="anchored" data-anchor-id="definition-of-independence">Definition of Independence</h3>
 <p>The conditional probability of the event <span class="math inline">\(A\)</span> given that the event <span class="math inline">\(B\)</span> has occurred is the revised probability of <span class="math inline">\(A\)</span> after we learn that <span class="math inline">\(B\)</span> has occurred. It might be the case, however, that no revision is necessary to the probability of <span class="math inline">\(A\)</span> even after we learn that <span class="math inline">\(B\)</span> occurs. This is precisely what happened in <a href="#exm-2-2-1">Example&nbsp;1</a>. In this case, we say that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>independent events</strong>. As another example, if we toss a coin and then roll a die, we could let <span class="math inline">\(A\)</span> be the event that the die shows 3 and let <span class="math inline">\(B\)</span> be the event that the coin lands with heads up. If the tossing of the coin is done in isolation of the rolling of the die, we might be quite comfortable assigning <span class="math inline">\(\Pr(A \mid B) = \Pr(A) = 1/6\)</span>. In this case, we say that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events.</p>
 <p>In general, if <span class="math inline">\(\Pr(B) &gt; 0\)</span>, the equation <span class="math inline">\(\Pr(A \mid B) = \Pr(A)\)</span> can be rewritten as <span class="math inline">\(\Pr(A \cap B) / \Pr(B) = \Pr(A)\)</span>. If we multiply both sides of this last equation by <span class="math inline">\(\Pr(B)\)</span>, we obtain the equation <span class="math inline">\(\Pr(A \cap B) = \Pr(A)\Pr(B)\)</span>. In order to avoid the condition <span class="math inline">\(\Pr(B) &gt; 0\)</span>, the mathematical definition of the independence of two events is stated as follows:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -142,17 +142,7 @@ Tip
 <p>The independence of the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in <a href="#exm-2-2-3">Example&nbsp;3</a> can also be interpreted as follows: Suppose that a person must bet on whether the number obtained on the die will be even or odd, that is, on whether or not the event <span class="math inline">\(A\)</span> will occur. Since three of the possible outcomes of the roll are even and the other three are odd, the person will typically have no preference between betting on an even number and betting on an odd number.</p>
 <p>Suppose also that after the die has been rolled, but before the person has learned the outcome and before she has decided whether to bet on an even outcome or on an odd outcome, she is informed that the actual outcome was one of the numbers 1, 2, 3, or 4, i.e., that the event <span class="math inline">\(B\)</span> has occurred. The person now knows that the outcome was 1, 2, 3, or 4. However, since two of these numbers are even and two are odd, the person will typically still have no preference between betting on an even number and betting on an odd number. In other words, the information that the event <span class="math inline">\(B\)</span> has occurred is of no help to the person who is trying to decide whether or not the event <span class="math inline">\(A\)</span> has occurred.</p>
 <p><strong>Independence of Complements</strong>: In the foregoing discussion of independent events, we stated that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then the occurrence or nonoccurrence of <span class="math inline">\(A\)</span> should not be related to the occurrence or nonoccurrence of <span class="math inline">\(B\)</span>. Hence, if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> satisfy the mathematical definition of independent events, then it should also be true that <span class="math inline">\(A\)</span> and <span class="math inline">\(B^c\)</span> are independent events, that <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B\)</span> are independent events, and that <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B^c\)</span> are independent events. One of these results is established in the next theorem.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div id="thm-2-2-1" class="theorem">
+<div id="thm-2-2-1" class="thm theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Theorem 2.2.1) </strong></span>If two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B^c\)</span> are also independent.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><strong>?@thm-1-5-6</strong> says that</p>
@@ -169,27 +159,408 @@ Tip
 <p>Therefore, the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B^c\)</span> are independent.</p>
 </div>
 </div>
-</div>
-</div>
-<p>The proof of the analogous result for the events <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B\)</span> is similar, and the proof for the events <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B^c\)</span> is required in <strong>?@exr-2-2-2</strong> at the end of this section.</p>
+<p>The proof of the analogous result for the events <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B\)</span> is similar, and the proof for the events <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B^c\)</span> is required in <a href="#exr-2-2-2">Exercise&nbsp;2</a> at the end of this section.</p>
 </section>
 <section id="independence-of-several-events" class="level3">
 <h3 class="anchored" data-anchor-id="independence-of-several-events">Independence of Several Events</h3>
 <p>The definition of independent events can be extended to any number of events, <span class="math inline">\(A_1, \ldots, A_k\)</span>. Intuitively, if learning that some of these events do or do not occur does not change our probabilities for any events that depend only on the remaining events, we would say that all <span class="math inline">\(k\)</span> events are independent. The mathematical definition is the following analog to <a href="#def-2-2-1">Definition&nbsp;1</a>.</p>
-<p>Definition 2.2.2 (Mutually) Independent Events. Thek eventsA1, . . . , Ak are independent (or mutually independent) if, for every subset Ai1, . . . , Aij of j of these events (j = 2, 3, . . . , k), Pr(Ai1 ∩ . . . ∩ Aij ) = Pr(Ai1) . . . Pr(Aij ). As an example, in order for three eventsA, B, and C to be independent, the following four relations must be satisfied: Pr(A ∩ B) = Pr(A) Pr(B), Pr(A ∩ C) = Pr(A) Pr(C), Pr(B ∩ C) = Pr(B) Pr(C), (2.2.1) and Pr(A ∩ B ∩ C) = Pr(A) Pr(B) Pr(C). (2.2.2) It is possible that Eq. (2.2.2) will be satisfied, but one or more of the three relations (2.2.1) will not be satisfied. On the other hand, as is shown in the next example, 2.2 Independent Events 69 it is also possible that each of the three relations (2.2.1) will be satisfied but Eq. (2.2.2) will not be satisfied. Example 2.2.4 Pairwise Independence. Suppose that a fair coin is tossed twice so that the sample space S = {HH, HT, TH, TT} is simple. Define the following three events: A = {H on first toss} = {HH, HT}, B = {H on second toss} = {HH, TH}, and C = {Both tosses the same} = {HH, TT}. Then A ∩ B = A ∩ C = B ∩ C = A ∩ B ∩ C = {HH}. Hence, Pr(A) = Pr(B) = Pr(C) = 1/2 and Pr(A ∩ B) = Pr(A ∩ C) = Pr(B ∩ C) = Pr(A ∩ B ∩ C) = 1/4. It follows that each of the three relations of Eq. (2.2.1) is satisfied but Eq. (2.2.2) is not satisfied. These results can be summarized by saying that the events A, B, and C are pairwise independent, but all three events are not independent.   We shall now present some examples that will illustrate the power and scope of the concept of independence in the solution of probability problems. Example 2.2.5 Inspecting Items. Suppose that a machine produces a defective item with probability p (0 &lt; p &lt;1) and produces a nondefective item with probability 1− p.&nbsp;Suppose further that six items produced by the machine are selected at random and inspected, and that the results (defective or nondefective) for these six items are independent. We shall determine the probability that exactly two of the six items are defective. It can be assumed that the sample space S contains all possible arrangements of six items, each one of which might be either defective or nondefective. For j = 1, . . . , 6, we shall let Dj denote the event that the jth item in the sample is defective so that Dc j is the event that this item is nondefective. Since the outcomes for the six different items are independent, the probability of obtaining any particular sequence of defective and nondefective items will simply be the product of the individual probabilities for the items. For example, Pr(Dc1 ∩ D2 ∩ Dc3 ∩ Dc4 ∩ D5 ∩ Dc6 ) = Pr(Dc1 ) Pr(D2) Pr(Dc3 ) Pr(Dc4 ) Pr(D5) Pr(Dc6 ) = (1− p)p(1− p)(1− p)p(1− p) = p2(1− p)4. It can be seen that the probability of any other particular sequence in S containing two defective items and four nondefective items will also be p2(1− p)4. Hence, the probability that there will be exactly two defectives in the sample of six items can be found by multiplying the probability p2(1− p)4 of any particular sequence containing two defectives by the possible number of such sequences. Since there are  6 2   distinct arrangements of two defective items and four nondefective items, the probability of obtaining exactly two defectives is  6 2   p2(1− p)4.   Example 2.2.6 Obtaining a Defective Item. For the conditions of Example 2.2.5, we shall now determine the probability that at least one of the six items in the sample will be defective. Since the outcomes for the different items are independent, the probability that all six items will be nondefective is (1− p)6. Therefore, the probability that at least one item will be defective is 1− (1− p)6.   70 Chapter 2 Conditional Probability Example 2.2.7 Tossing a Coin Until a Head Appears. Suppose that a fair coin is tossed until a head appears for the first time, and assume that the outcomes of the tosses are independent. We shall determine the probability pn that exactly n tosses will be required. The desired probability is equal to the probability of obtaining n − 1 tails in succession and then obtaining a head on the next toss. Since the outcomes of the tosses are independent, the probability of this particular sequence of n outcomes is pn = (1/2)n. The probability that a head will be obtained sooner or later (or, equivalently, that tails will not be obtained forever) is ∞  n=1 pn = 1 2 + 1 4 + 1 8 + . . . = 1. Since the sum of the probabilities pn is 1, it follows that the probability of obtaining an infinite sequence of tails without ever obtaining a head must be 0.   Example 2.2.8 Inspecting Items One at a Time. Consider again a machine that produces a defective item with probability p and produces a nondefective item with probability 1− p. Suppose that items produced by the machine are selected at random and inspected one at a time until exactly five defective items have been obtained. We shall determine the probability pn that exactly n items (n ≥ 5) must be selected to obtain the five defectives. The fifth defective item will be the nth item that is inspected if and only if there are exactly four defectives among the first n − 1 items and then the nth item is defective. By reasoning similar to that given in Example 2.2.5, it can be shown that the probability of obtaining exactly four defectives and n − 5 nondefectives among the first n − 1 items is  n−1 4   p4(1− p)n−5. The probability that the nth item will be defective is p.&nbsp;Since the first event refers to outcomes for only the first n − 1 items and the second event refers to the outcome for only the nth item, these two events are independent. Therefore, the probability that both events will occur is equal to the product of their probabilities. It follows that pn =</p>
-<p>n − 1 4   p5(1− p)n−5.   Example 2.2.9 People v. Collins. Finkelstein and Levin (1990) describe a criminal case whose verdict was overturned by the Supreme Court of California in part due to a probability calculation involving both conditional probability and independence. The case, People v. Collins, 68 Cal. 2d 319, 438 P.2d 33 (1968), involved a purse snatching in which witnesses claimed to see a young woman with blond hair in a ponytail fleeing from the scene in a yellow car driven by a black man with a beard. A couple meeting the description was arrested a few days after the crime, but no physical evidence was found. A mathematician calculated the probability that a randomly selected couple would possess the described characteristics as about 8.3 × 10−8, or 1 in 12 million. Faced with such overwhelming odds and no physical evidence, the jury decided that the defendants must have been the only such couple and convicted them. The Supreme Court thought that a more useful probability should have been calculated. Based on the testimony of the witnesses, there was a couple that met the above description. Given that there was already one couple who met the description, what is the conditional probability that there was also a second couple such as the defendants? Let p be the probability that a randomly selected couple from a population of n couples has certain characteristics. Let A be the event that at least one couple in the population has the characteristics, and let B be the event that at least two couples 2.2 Independent Events 71 have the characteristics. What we seek is Pr(B|A). Since B ⊂ A, it follows that Pr(B|A) = Pr(B ∩ A) Pr(A) = Pr(B) Pr(A) . We shall calculate Pr(B) and Pr(A) by breaking each event into more manageable pieces. Suppose that we number the n couples in the population from 1 to n.&nbsp;Let Ai be the event that couple number i has the characteristics in question for i = 1, . . . , n, and let C be the event that exactly one couple has the characteristics. Then A = (Ac 1 ∩ Ac 2 . . . ∩ Ac n)c, C = (A1 ∩ Ac 2 . . . ∩ Ac n) ∪ (Ac 1 ∩ A2 ∩ Ac 3 . . . ∩ Ac n) ∪ . . . ∪ (Ac 1 ∩ . . . ∩ Ac n−1 ∩ An), B = A ∩ Cc. Assuming that the n couples are mutually independent, Pr(Ac) = (1 − p)n, and Pr(A) = 1− (1− p)n.&nbsp;The n events whose union is C are disjoint and each one has probability p(1− p)n−1, so Pr(C) = np(1− p)n−1. Since A = B ∪ C with B and C disjoint, we have Pr(B) = Pr(A) − Pr(C) = 1− (1− p)n − np(1− p)n−1. So, Pr(B|A) = 1− (1− p)n − np(1− p)n−1 1− (1− p)n . (2.2.3) The Supreme Court of California reasoned that, since the crime occurred in a heavily populated area, n would be in the millions. For example, with p = 8.3× 10−8 and n = 8,000,000, the value of (2.2.3) is 0.2966. Such a probability suggests that there is a reasonable chance that there was another couple meeting the same description as the witnesses provided. Of course, the court did not know how large n was, but the fact that (2.2.3) could easily be so large was grounds enough to rule that reasonable doubt remained as to the guilt of the defendants.   Independence and Conditional Probability Two events A and B with positive probability are independent if and only if Pr(A|B) = Pr(A). Similar results hold for larger collections of independent events. The following theorem, for example, is straightforward to prove based on the definition of independence. Theorem 2.2.2 Let A1, . . . , Ak be events such that Pr(A1 ∩ . . . ∩ Ak) &gt; 0. Then A1, . . . , Ak are independent if and only if, for every two disjoint subsets {i1, . . . , im } and {j1, . . . , j  } of {1, . . . , k}, we have Pr(Ai1 ∩ . . . ∩ Aim |Aj1 ∩ . . . ∩ Aj  ) = Pr(Ai1 ∩ . . . ∩ Aim ). Theorem 2.2.2 says that k events are independent if and only if learning that some of the events occur does not change the probability that any combination of the other events occurs. The Meaning of Independence We have given a mathematical definition of independent events in Definition 2.2.1.We have also given some interpretations for what it means for events to be independent. The most instructive interpretation is the one based on conditional probability. If learning that B occurs does not change the probability of A, then A and B are independent. In simple examples such as tossing what we believe to be a fair coin, we would generally not expect to change our minds 72 Chapter 2 Conditional Probability about what is likely to happen on later flips after we observe earlier flips; hence, we declare the events that concern different flips to be independent. However, consider a situation similar to Example 2.2.5 in which items produced by a machine are inspected to see whether or not they are defective. In Example 2.2.5, we declared that the different items were independent and that each item had probability p of being defective. This might make sense if we were confident that we knew how well the machine was performing. But if we were unsure of how the machine were performing, we could easily imagine changing our mind about the probability that the 10th item is defective depending on how many of the first nine items are defective. To be specific, suppose that we begin by thinking that the probability is 0.08 that an item will be defective. If we observe one or zero defective items in the first nine, we might not make much revision to the probability that the 10th item is defective. On the other hand, if we observe eight or nine defectives in the first nine items, we might be uncomfortable keeping the probability at 0.08 that the 10th item will be defective. In summary, when deciding whether to model events as independent, try to answer the following question: “If I were to learn that some of these events occurred, would I change the probabilities of any of the others?” If we feel that we already know everything that we could learn from these events about how likely the others should be, we can safely model them as independent. If, on the other hand, we feel that learning some of these events could change our minds about how likely some of the others are, then we should be more careful about determining the conditional probabilities and not model the events as independent. Mutually Exclusive Events and Mutually Independent Events Two similar-sounding definitions have appeared earlier in this text. Definition 1.4.10 defines mutually exclusive events, and Definition 2.2.2 defines mutually independent events. It is almost never the case that the same set of events satisfies both definitions. The reason is that if events are disjoint (mutually exclusive), then learning that one occurs means that the others definitely did not occur. Hence, learning that one occurs would change the probabilities for all the others to 0, unless the others already had probability 0. Indeed, this suggests the only condition in which the two definitions would both apply to the same collection of events. The proof of the following result is left to Exercise 24 in this section. Theorem 2.2.3 Let n &gt; 1 and let A1, . . . ,An be events that are mutually exclusive. The events are also mutually independent if and only if all the events except possibly one of them has probability 0. Conditionally Independent Events Conditional probability and independence combine into one of the most versatile models of data collection. The idea is that, in many circumstances, we are unwilling to say that certain events are independent because we believe that learning some of them will provide information about how likely the others are to occur. But if we knew the frequency with which such events would occur, we might then be willing to assume that they are independent. This model can be illustrated using one of the examples from earlier in this section. Example 2.2.10 Inspecting Items. Consider again the situation in Example 2.2.5. This time, however, suppose that we believe that we would change our minds about the probabilities of later items being defective were we to learn that certain numbers of early items 2.2 Independent Events 73 were defective. Suppose that we think of the number p from Example 2.2.5 as the proportion of defective items that we would expect to see if we were to inspect a very large sample of items. If we knew this proportion p, and if we were to sample only a few, say, six or 10 items now, we might feel confident maintaining that the probability of a later item being defective remains p even after we inspect some of the earlier items.On the other hand, if we are not sure what would be the proportion of defective items in a large sample, we might not feel confident keeping the probability the same as we continue to inspect. To be precise, suppose that we treat the proportion p of defective items as unknown and that we are dealing with an augmented experiment as described in Definition 2.1.3. For simplicity, suppose that p can take one of two values, either 0.01 or 0.4, the first corresponding to normal operation and the second corresponding to a need for maintenance. Let B1 be the event that p = 0.01, and let B2 be the event that p = 0.4. If we knew that B1 had occurred, then we would proceed under the assumption that the events D1, D2, . . . were independent with Pr(Di |B1) = 0.01 for all i. For example, we could do the same calculations as in Examples 2.2.5 and 2.2.8 with p = 0.01. Let A be the event that we observe exactly two defectives in a random sample of six items. Then Pr(A|B1) =  6 2   0.0120.994 = 1.44 × 10−3. Similarly, if we knew that B2 had occurred, then we would assume thatD1, D2, . . . were independent with Pr(Di |B2) = 0.4. In this case, Pr(A|B2) =  6 2   0.420.64 = 0.311.   In Example 2.2.10, there is no reason that p must be required to assume at most two different values. We could easily allow p to take a third value or a fourth value, etc. Indeed, in Chapter 3we shall learn how to handle the case in which every number between 0 and 1 is a possible value of p.The point of the simple example is to illustrate the concept of assuming that events are independent conditional on another event, such as B1 or B2 in the example. The formal concept illustrated in Example 2.2.10 is the following: Definition 2.2.3 Conditional Independence. We say that events A1, . . . , Ak are conditionally independent given B if, for every subcollection Ai1, . . . , Aij of j of these events (j = 2, 3, . . . , k), Pr   Ai1 ∩ . . . ∩ Aij     B   = Pr(Ai1 |B) . . . Pr(Aij |B). Definition 2.2.3 is identical to Definition 2.2.2 for independent events with the modification that all probabilities in the definition are now conditional on B. As a note, even if we assume that events A1, . . . , Ak are conditionally independent given B, it is not necessary that they be conditionally independent given Bc. In Example 2.2.10, the events D1, D2, . . . were conditionally independent given both B1 and B2 = Bc 1, which is the typical situation. Exercise 16 in Sec. 2.3 is an example in which events are conditionally independent given one event B but are not conditionally independent given the complement Bc. Recall that two events A1 and A2 (with Pr(A1) &gt; 0) are independent if and only if Pr(A2|A1) = Pr(A2). A similar result holds for conditionally independent events. Theorem 2.2.4 Suppose that A1, A2, and B are events such that Pr(A1 ∩ B) &gt; 0. Then A1 and A2 are conditionally independent given B if and only if Pr(A2|A1 ∩ B) = Pr(A2|B). This is another example of the claim we made earlier that every result we can prove has an analog conditional on an event B. The reader can prove this theorem in Exercise 22. 74 Chapter 2 Conditional Probability The Collector’s Problem Suppose that n balls are thrown in a random manner into r boxes (r ≤ n). We shall assume that the n throws are independent and that each of the r boxes is equally likely to receive any given ball. The problem is to determine the probability p that every box will receive at least one ball. This problem can be reformulated in terms of a collector’s problem as follows: Suppose that each package of bubble gum contains the picture of a baseball player, that the pictures of r different players are used, that the picture of each player is equally likely to be placed in any given package of gum, and that pictures are placed in different packages independently of each other. The problem now is to determine the probability p that a person who buys n packages of gum (n ≥ r) will obtain a complete set of r different pictures. For i = 1, . . . , r, let Ai denote the event that the picture of player i is missing from all n packages. Then  r i=1 Ai is the event that the picture of at least one player is missing. We shall find Pr(  r i=1 Ai) by applying Eq. (1.10.6). Since the picture of each of the r players is equally likely to be placed in any particular package, the probability that the picture of player i will not be obtained in any particular package is (r − 1)/r. Since the packages are filled independently, the probability that the picture of player i will not be obtained in any of the n packages is [(r − 1)/r]n.&nbsp;Hence, Pr(Ai) =</p>
-<p>r − 1 r  n for i = 1, . . . , r. Now consider any two players i and j . The probability that neither the picture of player i nor the picture of player j will be obtained in any particular package is (r − 2)/r. Therefore, the probability that neither picture will be obtained in any of the n packages is [(r − 2)/r]n.&nbsp;Thus, Pr(Ai ∩ Aj ) =</p>
-<p>r − 2 r  n . If we next consider any three players i, j , and k, we find that Pr(Ai ∩ Aj ∩ Ak) =</p>
-<p>r − 3 r  n . By continuing in this way, we finally arrive at the probability Pr(A1 ∩ A2 ∩ . . . ∩ Ar) that the pictures of all r players are missing from the n packages. Of course, this probability is 0. Therefore, by Eq. (1.10.6) of Sec. 1.10, Pr    r i=1 Ai   = r</p>
-<p>r − 1 r  n −</p>
-<p>r 2  </p>
-<p>r − 2 r  n + . . . + (−1)r</p>
-<p>r r − 1  </p>
-<p>1 r  n =  r−1 j=1 (−1)j+1</p>
-<p>r j  </p>
-<p>1− j r  n . Since the probability p of obtaining a complete set of r different pictures is equal to 1− Pr(  r i=1 Ai), it follows from the foregoing derivation that p can be written in the form p =  r−1 j=0 (−1)j</p>
-<p>r j  </p>
-<p>1− j r  n . 2.2 Independent Events 75 Summary A collection of events is independent if and only if learning that some of them occur does not change the probabilities that any combination of the rest of them occurs. Equivalently, a collection of events is independent if and only if the probability of the intersection of every subcollection is the product of the individual probabilities. The concept of independence has a version conditional on another event. A collection of events is independent conditional on B if and only if the conditional probability of the intersection of every subcollection given B is the product of the individual conditional probabilities given B. Equivalently, a collection of events is conditionally independent given B if and only if learning that some of them (and B) occur does not change the conditional probabilities given B that any combination of the rest of them occur. The full power of conditional independence will become more apparent after we introduce Bayes’ theorem in the next section. Exercises 1. If A and B are independent events and Pr(B) &lt; 1, what is the value of Pr(Ac|Bc)? 2. Assuming that A and B are independent events, prove that the events Ac and Bc are also independent. 3. Suppose that A is an event such that Pr(A) = 0 and that B is any other event. Prove that A and B are independent events. 4. Suppose that a person rolls two balanced dice three times in succession. Determine the probability that on each of the three rolls, the sum of the two numbers that appear will be 7. 5. Suppose that the probability that the control system used in a spaceship will malfunction on a given flight is 0.001. Suppose further that a duplicate, but completely independent, control system is also installed in the spaceship to take control in case the first system malfunctions. Determine the probability that the spaceship will be under the control of either the original system or the duplicate system on a given flight. 6. Suppose that 10,000 tickets are sold in one lottery and 5000 tickets are sold in another lottery. If a person owns 100 tickets in each lottery, what is the probability that she will win at least one first prize? 7. Two students A and B are both registered for a certain course. Assume that student A attends class 80 percent of the time, student B attends class 60 percent of the time, and the absences of the two students are independent. a. What is the probability that at least one of the two students will be in class on a given day? b. If at least one of the two students is in class on a given day, what is the probability that A is in class that day? 8. If three balanced dice are rolled, what is the probability that all three numbers will be the same? 9. Consider an experiment in which a fair coin is tossed until a head is obtained for the first time. If this experiment is performed three times, what is the probability that exactly the same number of tosses will be required for each of the three performances? 10. The probability that any child in a certain family will have blue eyes is 1/4, and this feature is inherited independently by different children in the family. If there are five children in the family and it is known that at least one of these children has blue eyes, what is the probability that at least three of the children have blue eyes? 11. Consider the family with five children described in Exercise 10. a. If it is known that the youngest child in the family has blue eyes, what is the probability that at least three of the children have blue eyes? b. Explain why the answer in part (a) is different from the answer in Exercise 10. 12. Suppose that A, B, and C are three independent events such that Pr(A) = 1/4, Pr(B) = 1/3, and Pr(C) = 1/2. (a) Determine the probability that none of these three events will occur. (b) Determine the probability that exactly one of these three events will occur. 13. Suppose that the probability that any particle emitted by a radioactive material will penetrate a certain shield is 0.01. If 10 particles are emitted, what is the probability that exactly one of the particles will penetrate the shield? 76 Chapter 2 Conditional Probability 14. Consider again the conditions of Exercise 13. If 10 particles are emitted, what is the probability that at least one of the particles will penetrate the shield? 15. Consider again the conditions of Exercise 13. How many particles must be emitted in order for the probability to be at least 0.8 that at least one particle will penetrate the shield? 16. In the World Series of baseball, two teams A and B play a sequence of games against each other, and the first team that wins a total of four games becomes the winner of the World Series. If the probability that team A will win any particular game against team B is 1/3, what is the probability that team A will win theWorld Series? 17. Two boys A and B throw a ball at a target. Suppose that the probability that boy A will hit the target on any throw is 1/3 and the probability that boy B will hit the target on any throw is 1/4. Suppose also that boy A throws first and the two boys take turns throwing. Determine the probability that the target will be hit for the first time on the third throw of boy A. 18. For the conditions of Exercise 17, determine the probability that boy A will hit the target before boy B does. 19. A box contains 20 red balls, 30 white balls, and 50 blue balls. Suppose that 10 balls are selected at random one at a time, with replacement; that is, each selected ball is replaced in the box before the next selection is made. Determine the probability that at least one color will be missing from the 10 selected balls. 20. Suppose that A1, . . . ,Ak form a sequence of k independent events. Let B1, . . . , Bk be another sequence of k events such that for each value of j (j = 1, . . . , k), either Bj = Aj or Bj = Ac j . Prove that B1, . . . , Bk are also independent events. Hint: Use an induction argument based on the number of events Bj for which Bj = Ac j . 21. Prove Theorem 2.2.2 on page 71. Hint: The “only if” direction is direct from the definition of independence on page 68. For the “if” direction, use induction on the value of j in the definition of independence. Let m = j − 1 and let   = 1 with j1 = ij . 22. Prove Theorem 2.2.4 on page 73. 23. A programmer is about to attempt to compile a series of 11 similar programs. Let Ai be the event that the ith program compiles successfully for i = 1, . . . , 11.When the programming task is easy, the programmer expects that 80 percent of programs should compile. When the programming task is difficult, she expects that only 40 percent of the programs will compile. Let B be the event that the programming task was easy. The programmer believes that the events A1, . . . ,A11 are conditionally independent given B and given Bc. a. Compute the probability that exactly 8 out of 11 programs will compile given B. b. Compute the probability that exactly 8 out of 11 programs will compile given Bc. 24. Prove Theorem 2.2.3 on page 72.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-2-2-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Definition 2.2.2: (Mutually) Independent Events) </strong></span>The <span class="math inline">\(k\)</span> events <span class="math inline">\(A_1, \ldots, A_k\)</span> are <strong>independent</strong> (or <strong>mutually independent</strong>) if, for every subset <span class="math inline">\(A_{i_1}, \ldots, A_{i_j}\)</span> of <span class="math inline">\(j\)</span> of these events (<span class="math inline">\(j = 2, 3, \ldots, k\)</span>),</p>
+<p><span class="math display">\[
+\Pr(A_{i_1} \cap \cdots \cap A_{i_j}) = \Pr(A_{i_1}) \cdots \Pr(A_{i_j}).
+\]</span></p>
+</div>
+</div>
+</div>
+<p>As an example, in order for three events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> to be independent, the following four relations must be satisfied:</p>
+<p><span id="eq-2-2-1"><span class="math display">\[
+\begin{align*}
+\Pr(A \cap B) = \Pr(A)\Pr(B), \\
+\Pr(A \cap C) = \Pr(A)\Pr(C), \\
+\Pr(B \cap C) = \Pr(B)\Pr(C),
+\end{align*}
+\tag{1}\]</span></span></p>
+<p>and</p>
+<p><span id="eq-2-2-2"><span class="math display">\[
+\Pr(A \cap B \cap C) = \Pr(A)\Pr(B)\Pr(C).
+\tag{2}\]</span></span></p>
+<p>It is possible that <a href="#eq-2-2-2">Equation&nbsp;2</a> will be satisfied, but one or more of the three relations <a href="#eq-2-2-1">Equation&nbsp;1</a> will not be satisfied. On the other hand, as is shown in the next example, it is also possible that each of the three relations <a href="#eq-2-2-1">Equation&nbsp;1</a> will be satisfied but <a href="#eq-2-2-2">Equation&nbsp;2</a> will not be satisfied.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Example 2.2.4: Pairwise Independence) </strong></span>Suppose that a fair coin is tossed twice so that the sample space <span class="math inline">\(S = \{HH, HT, TH, TT\}\)</span> is simple. Define the following three events:</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= \{H\text{ on first toss}\} = \{HH, HT\}, \\
+B &amp;= \{H\text{ on second toss}\} = \{HH, TH\},\text{ and} \\
+C &amp;= \{\text{Both tosses the same}\} = \{HH, TT\}.
+\end{align*}
+\]</span></p>
+<p>Then <span class="math inline">\(A \cap B = A \cap C = B \cap C = A \cap B \cap C = \{HH\}\)</span>. Hence,</p>
+<p><span class="math display">\[
+\Pr(A) = \Pr(B) = \Pr(C) = 1/2
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\Pr(A \cap B) = \Pr(A \cap C) = \Pr(B \cap C) = \Pr(A \cap B \cap C) = 1/4.
+\]</span></p>
+<p>It follows that each of the three relations of <a href="#eq-2-2-1">Equation&nbsp;1</a> is satisfied but <a href="#eq-2-2-2">Equation&nbsp;2</a> is not satisfied. These results can be summarized by saying that the events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are <strong>pairwise independent</strong>, but all three events are not independent.</p>
+</div>
+</div>
+</div>
+<p>We shall now present some examples that will illustrate the power and scope of the concept of independence in the solution of probability problems.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-5" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Example 2.2.5: Inspecting Items) </strong></span>Suppose that a machine produces a defective item with probability <span class="math inline">\(p\)</span> (<span class="math inline">\(0 &lt; p &lt; 1\)</span>) and produces a nondefective item with probability <span class="math inline">\(1 − p\)</span>. Suppose further that six items produced by the machine are selected at random and inspected, and that the results (defective or nondefective) for these six items are independent. We shall determine the probability that exactly two of the six items are defective.</p>
+<p>It can be assumed that the sample space <span class="math inline">\(S\)</span> contains all possible arrangements of six items, each one of which might be either defective or nondefective. For <span class="math inline">\(j = 1, \ldots, 6\)</span>, we shall let <span class="math inline">\(D_j\)</span> denote the event that the <span class="math inline">\(j\)</span>th item in the sample is defective so that <span class="math inline">\(D_j^c\)</span> is the event that this item is nondefective. Since the outcomes for the six different items are independent, the probability of obtaining any particular sequence of defective and nondefective items will simply be the product of the individual probabilities for the items. For example,</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(D_1^c \cap D_2 \cap D_3^c \cap D_4^c \cap D_5 \cap D_6^c) &amp;= \Pr(D_1^c)\Pr(D_2)\Pr(D_3^c)\Pr(D_4^c)\Pr(D_5)\Pr(D_6^c) \\
+&amp;= (1-p)p(1-p)(1-p)p(1-p) = p^2(1-p)^4.
+\end{align*}
+\]</span></p>
+<p>It can be seen that the probability of any other particular sequence in <span class="math inline">\(S\)</span> containing two defective items and four nondefective items will also be <span class="math inline">\(p^2(1− p)^4\)</span>. Hence, the probability that there will be exactly two defectives in the sample of six items can be found by multiplying the probability <span class="math inline">\(p^2(1− p)^4\)</span> of any particular sequence containing two defectives by the possible number of such sequences. Since there are <span class="math inline">\(\binom{6}{2}\)</span> distinct arrangements of two defective items and four nondefective items, the probability of obtaining exactly two defectives is <span class="math inline">\(\binom{6}{2}p^2(1-p)^4\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Example 2.2.6: Obtaining a Defective Item) </strong></span>For the conditions of <a href="#exm-2-2-5">Example&nbsp;5</a>, we shall now determine the probability that at least one of the six items in the sample will be defective.</p>
+<p>Since the outcomes for the different items are independent, the probability that all six items will be nondefective is <span class="math inline">\((1−p)^6\)</span>. Therefore, the probability that at least one item will be defective is <span class="math inline">\(1 − (1 − p)^6\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Example 2.2.7: Tossing a Coin Until a Head Appears) </strong></span>Suppose that a fair coin is tossed until a head appears for the first time, and assume that the outcomes of the tosses are independent. We shall determine the probability <span class="math inline">\(p_n\)</span> that exactly <span class="math inline">\(n\)</span> tosses will be required.</p>
+<p>The desired probability is equal to the probability of obtaining <span class="math inline">\(n − 1\)</span> tails in succession and then obtaining a head on the next toss. Since the outcomes of the tosses are independent, the probability of this particular sequence of <span class="math inline">\(n\)</span> outcomes is <span class="math inline">\(p_n = (1/2)^n\)</span>.</p>
+<p>The probability that a head will be obtained sooner or later (or, equivalently, that tails will not be obtained forever) is</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}p_n = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots = 1.
+\]</span></p>
+<p>Since the sum of the probabilities <span class="math inline">\(p_n\)</span> is 1, it follows that the probability of obtaining an infinite sequence of tails without ever obtaining a head must be 0.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (Example 2.2.8: Inspecting Items One at a Time) </strong></span>Consider again a machine that produces a defective item with probability <span class="math inline">\(p\)</span> and produces a nondefective item with probability <span class="math inline">\(1 − p\)</span>. Suppose that items produced by the machine are selected at random and inspected one at a time until exactly five defective items have been obtained. We shall determine the probability <span class="math inline">\(p_n\)</span> that exactly <span class="math inline">\(n\)</span> items (<span class="math inline">\(n \geq 5\)</span>) must be selected to obtain the five defectives.</p>
+<p>The fifth defective item will be the <span class="math inline">\(n\)</span>th item that is inspected if and only if there are exactly four defectives among the first <span class="math inline">\(n − 1\)</span> items and then the <span class="math inline">\(n\)</span>th item is defective. By reasoning similar to that given in <a href="#exm-2-2-5">Example&nbsp;5</a>, it can be shown that the probability of obtaining exactly four defectives and <span class="math inline">\(n − 5\)</span> nondefectives among the first <span class="math inline">\(n − 1\)</span> items is <span class="math inline">\(\binom{n-1}{4}p^4(1-p)^{n-5}\)</span>. The probability that the <span class="math inline">\(n\)</span>th item will be defective is <span class="math inline">\(p\)</span>. Since the first event refers to outcomes for only the first <span class="math inline">\(n − 1\)</span> items and the second event refers to the outcome for only the <span class="math inline">\(n\)</span>th item, these two events are independent. Therefore, the probability that both events will occur is equal to the product of their probabilities. It follows that</p>
+<p><span class="math display">\[
+p_n = \binom{n-1}{4}p^5(1-p)^{n-5}
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-9" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (Example 2.2.9: People v. Collins.) </strong></span><span class="citation" data-cites="finkelstein_statistics_1990">@finkelstein_statistics_1990</span> describe a criminal case whose verdict was overturned by the Supreme Court of California in part due to a probability calculation involving both conditional probability and independence. The case, <em>People v. Collins</em>, 68 Cal. 2d 319, 438 P.2d 33 (1968), involved a purse snatching in which witnesses claimed to see a young woman with blond hair in a ponytail fleeing from the scene in a yellow car driven by a black man with a beard. A couple meeting the description was arrested a few days after the crime, but no physical evidence was found. A mathematician calculated the probability that a randomly selected couple would possess the described characteristics as about <span class="math inline">\(8.3 \times 10^{−8}\)</span>, or 1 in 12 million. Faced with such overwhelming odds and no physical evidence, the jury decided that the defendants must have been the only such couple and convicted them. The Supreme Court thought that a more useful probability should have been calculated. Based on the testimony of the witnesses, there was a couple that met the above description. Given that there was already one couple who met the description, what is the conditional probability that there was also a second couple such as the defendants?</p>
+<p>Let <span class="math inline">\(p\)</span> be the probability that a randomly selected couple from a population of <span class="math inline">\(n\)</span> couples has certain characteristics. Let <span class="math inline">\(A\)</span> be the event that at least one couple in the population has the characteristics, and let <span class="math inline">\(B\)</span> be the event that at least two couples have the characteristics. What we seek is <span class="math inline">\(\Pr(B \mid A)\)</span>. Since <span class="math inline">\(B \subset A\)</span>, it follows that</p>
+<p><span class="math display">\[
+\Pr(B \mid A) = \frac{B \cap A}{\Pr(A)} = \frac{\Pr(B)}{\Pr(A)}.
+\]</span></p>
+<p>We shall calculate <span class="math inline">\(\Pr(B)\)</span> and <span class="math inline">\(\Pr(A)\)</span> by breaking each event into more manageable pieces. Suppose that we number the <span class="math inline">\(n\)</span> couples in the population from 1 to <span class="math inline">\(n\)</span>. Let <span class="math inline">\(A_i\)</span> be the event that couple number <span class="math inline">\(i\)</span> has the characteristics in question for <span class="math inline">\(i = 1, \ldots, n\)</span>, and let <span class="math inline">\(C\)</span> be the event that exactly one couple has the characteristics. Then</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= (A_1^c \cap A_2^c \cap \cdots \cap A_n^c)^c, \\
+C &amp;= (A_1 \cap A_2^c \cap \cdots \cap A_n^c) \cup (A_1^c \cap A_2 \cap A_3^c \cap \cdots \cap A_n^c) \cup \cdots \cup (A_1^c \cap \cdots \cap A_{n-1}^c \cap A_n), \\
+B &amp;= A \cap C^c.
+\end{align*}
+\]</span></p>
+<p>Assuming that the <span class="math inline">\(n\)</span> couples are mutually independent, <span class="math inline">\(\Pr(A^c) = (1 − p)^n\)</span>, and <span class="math inline">\(\Pr(A) = 1− (1 − p)^n\)</span>. The <span class="math inline">\(n\)</span> events whose union is <span class="math inline">\(C\)</span> are disjoint and each one has probability <span class="math inline">\(p(1− p)^{n−1}\)</span>, so <span class="math inline">\(\Pr(C) = np(1 − p)^{n−1}\)</span>. Since <span class="math inline">\(A = B \cup C\)</span> with <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> disjoint, we have</p>
+<p><span class="math display">\[
+\Pr(B) = \Pr(A) − \Pr(C) = 1− (1 − p)^n − np(1− p)^{n−1}.
+\]</span></p>
+<p>So,</p>
+<p><span id="eq-2-2-3"><span class="math display">\[
+\Pr(B \mid A) = \frac{1 - (1-p)^n - np(1-p)^{n-1}}{1 - (1-p)^n}.
+\tag{3}\]</span></span></p>
+<p>The Supreme Court of California reasoned that, since the crime occurred in a heavily populated area, <span class="math inline">\(n\)</span> would be in the millions. For example, with <span class="math inline">\(p = 8.3 \times 10^{−8}\)</span> and <span class="math inline">\(n = 8,000,000\)</span>, the value of <a href="#eq-2-2-3">Equation&nbsp;3</a> is 0.2966. Such a probability suggests that there is a reasonable chance that there was another couple meeting the same description as the witnesses provided. Of course, the court did not know how large <span class="math inline">\(n\)</span> was, but the fact that <a href="#eq-2-2-3">Equation&nbsp;3</a> could easily be so large was grounds enough to rule that reasonable doubt remained as to the guilt of the defendants.</p>
+</div>
+</div>
+</div>
+<p><strong>Independence and Conditional Probability</strong>: Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with positive probability are independent if and only if <span class="math inline">\(\Pr(A \mid B) = \Pr(A)\)</span>. Similar results hold for larger collections of independent events. The following theorem, for example, is straightforward to prove based on the definition of independence.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-2-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 2.2.2) </strong></span>Let <span class="math inline">\(A_1, \ldots, A_k\)</span> be events such that <span class="math inline">\(\Pr(A_1 \cap \cdots \cap A_k) &gt; 0\)</span>. Then <span class="math inline">\(A_1, \ldots, A_k\)</span> are independent if and only if, for every two disjoint subsets <span class="math inline">\(\{i_1, \ldots, i_m\}\)</span> and <span class="math inline">\(\{j_1, \ldots, j_\ell\}\)</span> of <span class="math inline">\(\{1, \ldots, k\}\)</span>, we have</p>
+<p><span class="math display">\[
+\Pr(A_{i_1} \cap \cdots \cap A_{i_m} \mid A_{j_1} \cap \cdots \cap A_{j_\ell}) = \Pr(A_{i_1} \cap \cdots \cap A_{i_m}).
+\]</span></p>
+</div>
+</div>
+</div>
+<p><a href="#thm-2-2-2">Theorem&nbsp;2</a> says that <span class="math inline">\(k\)</span> events are independent if and only if learning that some of the events occur does not change the probability that any combination of the other events occurs.</p>
+<p><strong>The Meaning of Independence</strong>: We have given a mathematical definition of independent events in <a href="#def-2-2-1">Definition&nbsp;1</a>. We have also given some interpretations for what it means for events to be independent. The most instructive interpretation is the one based on conditional probability. If learning that <span class="math inline">\(B\)</span> occurs does not change the probability of <span class="math inline">\(A\)</span>, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent. In simple examples such as tossing what we believe to be a fair coin, we would generally not expect to change our minds about what is likely to happen on later flips after we observe earlier flips; hence, we declare the events that concern different flips to be independent. However, consider a situation similar to <a href="#exm-2-2-5">Example&nbsp;5</a> in which items produced by a machine are inspected to see whether or not they are defective. In <a href="#exm-2-2-5">Example&nbsp;5</a>, we declared that the different items were independent and that each item had probability <span class="math inline">\(p\)</span> of being defective. This might make sense if we were confident that we knew how well the machine was performing. But if we were unsure of how the machine were performing, we could easily imagine changing our mind about the probability that the 10th item is defective depending on how many of the first nine items are defective. To be specific, suppose that we begin by thinking that the probability is 0.08 that an item will be defective. If we observe one or zero defective items in the first nine, we might not make much revision to the probability that the 10th item is defective. On the other hand, if we observe eight or nine defectives in the first nine items, we might be uncomfortable keeping the probability at 0.08 that the 10th item will be defective. In summary, when deciding whether to model events as independent, try to answer the following question: <strong>“If I were to learn that some of these events occurred, would I change the probabilities of any of the others?”</strong> If we feel that we already know everything that we could learn from these events about how likely the others should be, we can safely model them as independent. If, on the other hand, we feel that learning some of these events could change our minds about how likely some of the others are, then we should be more careful about determining the conditional probabilities and not model the events as independent.</p>
+<p><strong>Mutually Exclusive Events and Mutually Independent Events</strong>: Two similar-sounding definitions have appeared earlier in this text. <strong>?@def-1-4-10</strong> defines mutually exclusive events, and <a href="#def-2-2-2">Definition&nbsp;2</a> defines mutually independent events. It is almost never the case that the same set of events satisfies both definitions. The reason is that if events are disjoint (mutually exclusive), then learning that one occurs means that the others definitely did not occur. Hence, learning that one occurs would change the probabilities for all the others to 0, unless the others already had probability 0. Indeed, this suggests the only condition in which the two definitions would both apply to the same collection of events. The proof of the following result is left to <a href="#exr-2-2-24">Exercise&nbsp;24</a> in this section.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-2-3" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 2.2.3) </strong></span>Let <span class="math inline">\(n &gt; 1\)</span> and let <span class="math inline">\(A_1, \ldots, A_n\)</span> be events that are mutually exclusive. The events are also mutually independent if and only if all the events except possibly one of them has probability 0.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="conditionally-independent-events" class="level3">
+<h3 class="anchored" data-anchor-id="conditionally-independent-events">Conditionally Independent Events</h3>
+<p>Conditional probability and independence combine into one of the most versatile models of data collection. The idea is that, in many circumstances, we are unwilling to say that certain events are independent because we believe that learning some of them will provide information about how likely the others are to occur. But if we knew the frequency with which such events would occur, we might then be willing to assume that they are independent. This model can be illustrated using one of the examples from earlier in this section.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-2-10" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Example 2.2.10: Inspecting Items) </strong></span>Consider again the situation in <a href="#exm-2-2-5">Example&nbsp;5</a>. This time, however, suppose that we believe that we would change our minds about the probabilities of later items being defective were we to learn that certain numbers of early items were defective. Suppose that we think of the number <span class="math inline">\(p\)</span> from <a href="#exm-2-2-5">Example&nbsp;5</a> as the proportion of defective items that we would expect to see if we were to inspect a very large sample of items. If we knew this proportion <span class="math inline">\(p\)</span>, and if we were to sample only a few, say, six or 10 items now, we might feel confident maintaining that the probability of a later item being defective remains <span class="math inline">\(p\)</span> even after we inspect some of the earlier items. On the other hand, if we are not sure what would be the proportion of defective items in a large sample, we might not feel confident keeping the probability the same as we continue to inspect.</p>
+<p>To be precise, suppose that we treat the proportion <span class="math inline">\(p\)</span> of defective items as unknown and that we are dealing with an augmented experiment as described in <strong>?@def-2-1-3</strong>. For simplicity, suppose that <span class="math inline">\(p\)</span> can take one of two values, either 0.01 or 0.4, the first corresponding to normal operation and the second corresponding to a need for maintenance. Let <span class="math inline">\(B_1\)</span> be the event that <span class="math inline">\(p = 0.01\)</span>, and let <span class="math inline">\(B_2\)</span> be the event that <span class="math inline">\(p = 0.4\)</span>. If we knew that <span class="math inline">\(B_1\)</span> had occurred, then we would proceed under the assumption that the events <span class="math inline">\(D_1, D_2, \ldots\)</span> were independent with <span class="math inline">\(\Pr(D_i \mid B_1) = 0.01\)</span> for all <span class="math inline">\(i\)</span>. For example, we could do the same calculations as in Examples <a href="#exm-2-2-5">5</a> and <a href="#exm-2-2-8">8</a> with <span class="math inline">\(p = 0.01\)</span>. Let <span class="math inline">\(A\)</span> be the event that we observe exactly two defectives in a random sample of six items. Then <span class="math inline">\(\Pr(A \mid B_1) = \binom{6}{2}(0.01)^2(0.99)^4 = 1.44 \times 10^{-3}\)</span>. Similarly, if we knew that <span class="math inline">\(B_2\)</span> had occurred, then we would assume that <span class="math inline">\(D_1, D_2, \ldots\)</span> were independent with <span class="math inline">\(\Pr(D_i \mid B_2) = 0.4\)</span>. In this case, <span class="math inline">\(\Pr(A \mid B_2) = \binom{6}{2}(0.4)^2(0.6)^4 = 0.311\)</span>. </p>
+</div>
+</div>
+</div>
+<p>In <a href="#exm-2-2-10">Example&nbsp;10</a>, there is no reason that <span class="math inline">\(p\)</span> must be required to assume at most two different values. We could easily allow <span class="math inline">\(p\)</span> to take a third value or a fourth value, etc. Indeed, in <strong>?@sec-3</strong> we shall learn how to handle the case in which every number between 0 and 1 is a possible value of <span class="math inline">\(p\)</span>. The point of the simple example is to illustrate the concept of assuming that events are independent conditional on another event, such as <span class="math inline">\(B_1\)</span> or <span class="math inline">\(B_2\)</span> in the example.</p>
+<p>The formal concept illustrated in <a href="#exm-2-2-10">Example&nbsp;10</a> is the following:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-2-2-3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Definition 2.2.3: Conditional Independence) </strong></span>We say that events <span class="math inline">\(A_1, \ldots, A_k\)</span> are <strong>conditionally independent</strong> given <span class="math inline">\(B\)</span> if, for every subcollection <span class="math inline">\(A_{i_1}, \ldots, A_{i_j}\)</span> of <span class="math inline">\(j\)</span> of these events (<span class="math inline">\(j = 2, 3, \ldots, k\)</span>),</p>
+<p><span class="math display">\[
+\Pr\left( A_{i_1} \cap \cdots \cap A_{i_j} \mid B \right) = \Pr(A_{i_1} \mid B)\cdots \Pr(A_{i_j} \mid B).
+\]</span></p>
+</div>
+</div>
+</div>
+<p><a href="#def-2-2-3">Definition&nbsp;3</a> is identical to <a href="#def-2-2-2">Definition&nbsp;2</a> for independent events with the modification that <strong>all</strong> probabilities in the definition are now conditional on <span class="math inline">\(B\)</span>. As a note, even if we assume that events <span class="math inline">\(A_1, \ldots, A_k\)</span> are conditionally independent given <span class="math inline">\(B\)</span>, it is not necessary that they be conditionally independent given <span class="math inline">\(B^c\)</span>. In <a href="#exm-2-2-10">Example&nbsp;10</a>, the events <span class="math inline">\(D_1, D_2, \ldots\)</span> were conditionally independent given both <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2 = B_1^c\)</span>, which is the typical situation. <strong>?@exr-2-3-16</strong> in <strong>?@sec-2-3</strong> is an example in which events are conditionally independent given one event <span class="math inline">\(B\)</span> but are not conditionally independent given the complement <span class="math inline">\(B^c\)</span>.</p>
+<p>Recall that two events <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> (with <span class="math inline">\(\Pr(A_1) &gt; 0\)</span>) are independent if and only if <span class="math inline">\(\Pr(A_2 \mid A_1) = \Pr(A_2)\)</span>. A similar result holds for conditionally independent events.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-2-4" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Theorem 2.2.4) </strong></span>Suppose that <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(B\)</span> are events such that <span class="math inline">\(\Pr(A_1 \cap B) &gt; 0\)</span>. Then <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are conditionally independent given <span class="math inline">\(B\)</span> if and only if <span class="math inline">\(\Pr(A_2 \mid A_1 \cap B) = \Pr(A_2 \mid B)\)</span>.</p>
+</div>
+</div>
+</div>
+<p>This is another example of the claim we made earlier that every result we can prove has an analog conditional on an event <span class="math inline">\(B\)</span>. The reader can prove this theorem in <a href="#exr-2-2-22">Exercise&nbsp;22</a>.</p>
+</section>
+<section id="the-collectors-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-collectors-problem">The Collector’s Problem</h3>
+<p>Suppose that <span class="math inline">\(n\)</span> balls are thrown in a random manner into <span class="math inline">\(r\)</span> boxes (<span class="math inline">\(r \leq n\)</span>). We shall assume that the <span class="math inline">\(n\)</span> throws are independent and that each of the <span class="math inline">\(r\)</span> boxes is equally likely to receive any given ball. The problem is to determine the probability <span class="math inline">\(p\)</span> that every box will receive at least one ball. This problem can be reformulated in terms of a collector’s problem as follows: Suppose that each package of bubble gum contains the picture of a baseball player, that the pictures of <span class="math inline">\(r\)</span> different players are used, that the picture of each player is equally likely to be placed in any given package of gum, and that pictures are placed in different packages independently of each other. The problem now is to determine the probability <span class="math inline">\(p\)</span> that a person who buys <span class="math inline">\(n\)</span> packages of gum (<span class="math inline">\(n \geq r\)</span>) will obtain a complete set of <span class="math inline">\(r\)</span> different pictures.</p>
+<p>For <span class="math inline">\(i = 1, \ldots, r\)</span>, let <span class="math inline">\(A_i\)</span> denote the event that the picture of player <span class="math inline">\(i\)</span> is missing from all <span class="math inline">\(n\)</span> packages. Then <span class="math inline">\(\bigcup_{i=1}^r A_i\)</span> is the event that the picture of at least one player is missing. We shall find $(_{i=1}^r A_i) by applying <strong>?@eq-1-10-6</strong>.</p>
+<p>Since the picture of each of the <span class="math inline">\(r\)</span> players is equally likely to be placed in any particular package, the probability that the picture of player <span class="math inline">\(i\)</span> will not be obtained in any particular package is <span class="math inline">\((r − 1)/r\)</span>. Since the packages are filled independently, the probability that the picture of player <span class="math inline">\(i\)</span> will not be obtained in any of the <span class="math inline">\(n\)</span> packages is <span class="math inline">\([(r − 1)/r]n\)</span>. Hence,</p>
+<p><span class="math display">\[
+\Pr(A_i) = \left(\frac{r-1}{r}\right)^n \; \text{ for }i = 1, \ldots, r.
+\]</span></p>
+<p>Now consider any two players <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. The probability that neither the picture of player <span class="math inline">\(i\)</span> nor the picture of player <span class="math inline">\(j\)</span> will be obtained in any particular package is <span class="math inline">\((r − 2)/r\)</span>. Therefore, the probability that neither picture will be obtained in any of the <span class="math inline">\(n\)</span> packages is <span class="math inline">\([(r − 2)/r]n\)</span>. Thus,</p>
+<p><span class="math display">\[
+\Pr(A_i \cap A_j) = \left(\frac{r-2}{r}\right)^n.
+\]</span></p>
+<p>If we next consider any three players <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>, and <span class="math inline">\(k\)</span>, we find that</p>
+<p><span class="math display">\[
+\Pr(A_i \cap A_j \cap A_k) = \left(\frac{r - 3}{r}\right)^3.
+\]</span></p>
+<p>By continuing in this way, we finally arrive at the probability <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_r)\)</span> that the pictures of all <span class="math inline">\(r\)</span> players are missing from the <span class="math inline">\(n\)</span> packages. Of course, this probability is 0. Therefore, by <strong>?@eq-1-10-6</strong> of <strong>?@sec-1-10</strong>,</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr\left( \bigcup_{i=1}^r A_i \right) &amp;= r \left(\frac{r-1}{r}\right)^n - \binom{r}{2}\left(\frac{r-2}{r}\right)^n + \cdots + (-1)^r\binom{r}{r-1}\left(\frac{1}{r}\right)^n \\
+&amp;= \sum_{j=1}^{r-1}(-1)^{j+1}\binom{r}{j}\left(1 - \frac{j}{r}\right)^n.
+\end{align*}
+\]</span></p>
+<p>Since the probability <span class="math inline">\(p\)</span> of obtaining a complete set of <span class="math inline">\(r\)</span> different pictures is equal to <span class="math inline">\(1 - \Pr(\bigcup_{i=1}^r A_i)\)</span>, it follows from the foregoing derivation that <span class="math inline">\(p\)</span> can be written in the form</p>
+<p><span class="math display">\[
+p = \sum_{j=0}^{r-1}(-1)^j \binom{r}{j}\left(1 - \frac{j}{r}\right)^n.
+\]</span></p>
+<p>::: :::</p>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>A collection of events is independent if and only if learning that some of them occur does not change the probabilities that any combination of the rest of them occurs. Equivalently, a collection of events is independent if and only if the probability of the intersection of every subcollection is the product of the individual probabilities. The concept of independence has a version conditional on another event. A collection of events is independent conditional on <span class="math inline">\(B\)</span> if and only if the conditional probability of the intersection of every subcollection given <span class="math inline">\(B\)</span> is the product of the individual conditional probabilities given <span class="math inline">\(B\)</span>. Equivalently, a collection of events is conditionally independent given <span class="math inline">\(B\)</span> if and only if learning that some of them (and <span class="math inline">\(B\)</span>) occur does not change the conditional probabilities given <span class="math inline">\(B\)</span> that any combination of the rest of them occur. The full power of conditional independence will become more apparent after we introduce Bayes’ theorem in the next section.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<div id="exr-2-2-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 2.2.1) </strong></span>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events and <span class="math inline">\(\Pr(B) &lt; 1\)</span>, what is the value of <span class="math inline">\(\Pr(A^c \mid B^c)\)</span>?</p>
+</div>
+<div id="exr-2-2-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 2.2.2) </strong></span>Assuming that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events, prove that the events <span class="math inline">\(A^c\)</span> and <span class="math inline">\(B^c\)</span> are also independent.</p>
+</div>
+<div id="exr-2-2-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 2.2.3) </strong></span>Suppose that <span class="math inline">\(A\)</span> is an event such that <span class="math inline">\(\Pr(A) = 0\)</span> and that <span class="math inline">\(B\)</span> is any other event. Prove that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events.</p>
+</div>
+<div id="exr-2-2-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 2.2.4) </strong></span>Suppose that a person rolls two balanced dice three times in succession. Determine the probability that on each of the three rolls, the sum of the two numbers that appear will be 7.</p>
+</div>
+<div id="exr-2-2-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 2.2.5) </strong></span>Suppose that the probability that the control system used in a spaceship will malfunction on a given flight is 0.001. Suppose further that a duplicate, but completely independent, control system is also installed in the spaceship to take control in case the first system malfunctions. Determine the probability that the spaceship will be under the control of either the original system or the duplicate system on a given flight.</p>
+</div>
+<div id="exr-2-2-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 2.2.6) </strong></span>Suppose that 10,000 tickets are sold in one lottery and 5000 tickets are sold in another lottery. If a person owns 100 tickets in each lottery, what is the probability that she will win at least one first prize?</p>
+</div>
+<div id="exr-2-2-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 2.2.7) </strong></span>Two students <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both registered for a certain course. Assume that student <span class="math inline">\(A\)</span> attends class 80 percent of the time, student <span class="math inline">\(B\)</span> attends class 60 percent of the time, and the absences of the two students are independent.</p>
+<ol type="a">
+<li>What is the probability that at least one of the two students will be in class on a given day?</li>
+<li>If at least one of the two students is in class on a given day, what is the probability that <span class="math inline">\(A\)</span> is in class that day?</li>
+</ol>
+</div>
+<div id="exr-2-2-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 2.2.8) </strong></span>If three balanced dice are rolled, what is the probability that all three numbers will be the same?</p>
+</div>
+<div id="exr-2-2-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 2.2.9) </strong></span>Consider an experiment in which a fair coin is tossed until a head is obtained for the first time. If this experiment is performed three times, what is the probability that exactly the same number of tosses will be required for each of the three performances?</p>
+</div>
+<div id="exr-2-2-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 2.2.10) </strong></span>The probability that any child in a certain family will have blue eyes is <span class="math inline">\(1/4\)</span>, and this feature is inherited independently by different children in the family. If there are five children in the family and it is known that at least one of these children has blue eyes, what is the probability that at least three of the children have blue eyes?</p>
+</div>
+<div id="exr-2-2-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 2.2.11) </strong></span>Consider the family with five children described in <a href="#exr-2-2-10">Exercise&nbsp;10</a>.</p>
+<ol type="a">
+<li>If it is known that the youngest child in the family has blue eyes, what is the probability that at least three of the children have blue eyes?</li>
+<li>Explain why the answer in part (a) is different from the answer in <a href="#exr-2-2-10">Exercise&nbsp;10</a>.</li>
+</ol>
+</div>
+<div id="exr-2-2-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12 (Exercise 2.2.12) </strong></span>Suppose that <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are three independent events such that <span class="math inline">\(\Pr(A) = 1/4\)</span>, <span class="math inline">\(\Pr(B) = 1/3\)</span>, and <span class="math inline">\(\Pr(C) = 1/2\)</span>.</p>
+<ol type="a">
+<li>Determine the probability that none of these three events will occur.</li>
+<li>Determine the probability that exactly one of these three events will occur.</li>
+</ol>
+</div>
+<div id="exr-2-2-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13 (Exercise 2.2.13) </strong></span>Suppose that the probability that any particle emitted by a radioactive material will penetrate a certain shield is 0.01. If 10 particles are emitted, what is the probability that exactly one of the particles will penetrate the shield?</p>
+</div>
+<div id="exr-2-2-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14 (Exercise 2.2.14) </strong></span>Consider again the conditions of <a href="#exr-2-2-13">Exercise&nbsp;13</a>. If 10 particles are emitted, what is the probability that at least one of the particles will penetrate the shield?</p>
+</div>
+<div id="exr-2-2-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 15 (Exercise 2.2.15) </strong></span>Consider again the conditions of <a href="#exr-2-2-13">Exercise&nbsp;13</a>. How many particles must be emitted in order for the probability to be at least 0.8 that at least one particle will penetrate the shield?</p>
+</div>
+<div id="exr-2-2-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16 (Exercise 2.2.16) </strong></span>In the World Series of baseball, two teams <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> play a sequence of games against each other, and the first team that wins a total of four games becomes the winner of the World Series. If the probability that team <span class="math inline">\(A\)</span> will win any particular game against team <span class="math inline">\(B\)</span> is <span class="math inline">\(1/3\)</span>, what is the probability that team <span class="math inline">\(A\)</span> will win the World Series?</p>
+</div>
+<div id="exr-2-2-17" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17 (Exercise 2.2.17) </strong></span>Two boys <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> throw a ball at a target. Suppose that the probability that boy <span class="math inline">\(A\)</span> will hit the target on any throw is <span class="math inline">\(1/3\)</span> and the probability that boy <span class="math inline">\(B\)</span> will hit the target on any throw is <span class="math inline">\(1/4\)</span>. Suppose also that boy <span class="math inline">\(A\)</span> throws first and the two boys take turns throwing. Determine the probability that the target will be hit for the first time on the third throw of boy <span class="math inline">\(A\)</span>.</p>
+</div>
+<div id="exr-2-2-18" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 18 (Exercise 2.2.18) </strong></span>For the conditions of <a href="#exr-2-2-17">Exercise&nbsp;17</a>, determine the probability that boy <span class="math inline">\(A\)</span> will hit the target before boy <span class="math inline">\(B\)</span> does.</p>
+</div>
+<div id="exr-2-2-19" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19 (Exercise 2.2.19) </strong></span>A box contains 20 red balls, 30 white balls, and 50 blue balls. Suppose that 10 balls are selected at random one at a time, with replacement; that is, each selected ball is replaced in the box before the next selection is made. Determine the probability that at least one color will be missing from the 10 selected balls.</p>
+</div>
+<div id="exr-2-2-20" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20 (Exercise 2.2.20) </strong></span>Suppose that <span class="math inline">\(A_1, \ldots, A_k\)</span> form a sequence of <span class="math inline">\(k\)</span> independent events. Let <span class="math inline">\(B_1, \ldots, B_k\)</span> be another sequence of <span class="math inline">\(k\)</span> events such that for each value of <span class="math inline">\(j\)</span> (<span class="math inline">\(j = 1, \ldots, k\)</span>), either <span class="math inline">\(B_j = A_j\)</span> or <span class="math inline">\(B_j = A_j^c\)</span>. Prove that <span class="math inline">\(B_1, \ldots, B_k\)</span> are also independent events. <em>Hint</em>: Use an induction argument based on the number of events <span class="math inline">\(B_j\)</span> for which <span class="math inline">\(B_j = A_j^c\)</span>.</p>
+</div>
+<div id="exr-2-2-21" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 21 (Exercise 2.2.21) </strong></span>Prove <a href="#thm-2-2-2">Theorem&nbsp;2</a>. <em>Hint</em>: The “only if” direction is direct from <a href="#def-2-2-2">Definition&nbsp;2</a>. For the “if” direction, use induction on the value of <span class="math inline">\(j\)</span> in the definition of independence. Let <span class="math inline">\(m = j − 1\)</span> and let <span class="math inline">\(\ell = 1\)</span> with <span class="math inline">\(j_1 = i_j\)</span>.</p>
+</div>
+<div id="exr-2-2-22" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22 (Exercise 2.2.22) </strong></span>Prove <a href="#thm-2-2-4">Theorem&nbsp;4</a>.</p>
+</div>
+<div id="exr-2-2-23" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 23 (Exercise 2.2.23) </strong></span>A programmer is about to attempt to compile a series of 11 similar programs. Let <span class="math inline">\(A_i\)</span> be the event that the <span class="math inline">\(i\)</span>th program compiles successfully for <span class="math inline">\(i = 1, \ldots, 11\)</span>. When the programming task is easy, the programmer expects that 80 percent of programs should compile. When the programming task is difficult, she expects that only 40 percent of the programs will compile. Let <span class="math inline">\(B\)</span> be the event that the programming task was easy. The programmer believes that the events <span class="math inline">\(A_1, \ldots, A_{11}\)</span> are conditionally independent given <span class="math inline">\(B\)</span> and given <span class="math inline">\(B^c\)</span>.</p>
+<ol type="a">
+<li>Compute the probability that exactly 8 out of 11 programs will compile given <span class="math inline">\(B\)</span>.</li>
+<li>Compute the probability that exactly 8 out of 11 programs will compile given <span class="math inline">\(B^c\)</span>.</li>
+</ol>
+</div>
+<div id="exr-2-2-24" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 24 (Exercise 2.2.24) </strong></span>Prove <a href="#thm-2-2-3">Theorem&nbsp;3</a>.</p>
+</div>
 </section>
 </section>
 

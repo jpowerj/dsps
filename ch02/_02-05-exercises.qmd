@@ -1,13 +1,10 @@
-
 ## Supplementary Exercises {#sec-2-5}
 
 ::: {#exr-2-5-1}
 
 # Exercise 2.5.1
 
-1. Suppose that $A$, $B$, and $D$ are any three events such that
-Pr(A|D) ≥ Pr(B|D) and Pr(A|Dc) ≥ Pr(B|Dc). Prove that
-Pr(A) ≥ Pr(B).
+Suppose that $A$, $B$, and $D$ are any three events such that $\Pr(A \mid D) \geq \Pr(B \mid D)$ and $\Pr(A \mid D^c) \geq \Pr(B \mid D^c)$. Prove that $\Pr(A) \geq \Pr(B)$.
 
 :::
 
@@ -15,17 +12,30 @@ Pr(A) ≥ Pr(B).
 
 # Exercise 2.5.2
 
-2. Suppose that a fair coin is tossed repeatedly and independently
-until both a head and a tail have appeared at
-least once. (a) Describe the sample space of this experiment.
-(b)What is the probability that exactly three tosses
+Suppose that a fair coin is tossed repeatedly and independently until both a head and a tail have appeared at least once.
+
+(a) Describe the sample space of this experiment.
+(b) What is the probability that exactly three tosses
 will be required?
-3. Suppose that A and B are events such that Pr(A) =
-1/3, Pr(B) = 1/5, and Pr(A|B) + Pr(B|A) = 2/3. Evaluate
-Pr(Ac ∪ Bc).
-4. Suppose thatAand B are independent events such that
-Pr(A) = 1/3 and Pr(B) > 0. What is the value of Pr(A ∪
-Bc|B)?
+
+:::
+
+::: {#exr-2-5-3}
+
+# Exercise 2.5.3
+
+Suppose that $A$ and $B$ are events such that $\Pr(A) = 1/3$, $\Pr(B) = 1/5$, and $\Pr(A \mid B) + \Pr(B \mid A) = 2/3$. Evaluate $\Pr(A^c \cup B^c)$.
+
+:::
+
+::: {#exr-2-5-4}
+
+# Exercise 2.5.4
+
+Suppose that $A$ and $B$ are independent events such that $\Pr(A) = 1/3$ and $\Pr(B) > 0$. What is the value of $\Pr(A \cup B^c \mid B)$?
+
+:::
+
 5. Suppose that in 10 rolls of a balanced die, the number 6
 appeared exactly three times.What is the probability that
 the first three rolls each yielded the number 6?

@@ -2,7 +2,7 @@
 
 *A major use of probability in statistical inference is the updating of probabilities when certain events are observed. The updated probability of event $A$ after we learn that event $B$ has occurred is the conditional probability of $A$ given $B$.*
 
-::: {.callout-tip}
+::: {.callout-note}
 ::: {#exm-2-1-1}
 
 # Example 2.1.1: Lottery Ticket
@@ -232,6 +232,9 @@ $$
 $$
 
 The principle that has just been applied can be extended to any finite number of events, as stated in the following theorem.
+
+:::
+:::
 
 ::: {.callout-tip}
 ::: {#thm-2-1-2}
