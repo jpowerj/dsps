@@ -200,6 +200,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
   <ul class="collapse">
+  <li><a href="#changes-in-the-digitized-version" id="toc-changes-in-the-digitized-version" class="nav-link" data-scroll-target="#changes-in-the-digitized-version">Changes in the Digitized Version</a></li>
   <li><a href="#changes-to-the-fourth-edition" id="toc-changes-to-the-fourth-edition" class="nav-link" data-scroll-target="#changes-to-the-fourth-edition">Changes to the Fourth Edition</a></li>
   <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book">How to Use This Book</a></li>
   <li><a href="#supplements" id="toc-supplements" class="nav-link" data-scroll-target="#supplements">Supplements</a></li>
@@ -245,6 +246,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
 <p>Digitization of DeGroot and Schervish, <em>Probability and Statistics (Fourth Edition)</em>, by Jeff Jacobs, Assistant Teaching Professor of Data Science and Analytics, Georgetown University.</p>
+<section id="changes-in-the-digitized-version" class="level3">
+<h3 class="anchored" data-anchor-id="changes-in-the-digitized-version">Changes in the Digitized Version</h3>
+<p>To match the notation we’re using in DSAN 5100, I have made the following changes (which could be undone via a find-and-replace, if you want to change the format back to the original textbook format):</p>
+<!-- * The book uses capital letters like $X$ to denote random variables, and then lowercase versions of the same letters like $x$ to denote the **values** that random variables can take on. To match the notation we use in class, I have updated these cases to instead use the letter $v$ to denote some particular **value** that a random variable can take on.
+    * So, for example, I write the CDF of a random variable $X$ as $f_X(v) = \Pr(X \leq v)$, rather than $f_X(x) = \Pr(X \leq x)$. -->
+<ul>
+<li>The book uses the term <strong>probability function</strong>, and the abbreviation <strong>p.f.</strong>, to refer to the function <span class="math inline">\(p_X(v)\)</span> that gives us the probability that a discrete random variable <span class="math inline">\(X\)</span> takes on the value <span class="math inline">\(v\)</span>. To match the notation we use in class, I have changed this throughout to use the term <strong>probability mass function</strong>, and the abbreviation <strong>pmf</strong>.</li>
+<li>Similarly, I make sure to use (lowercased) <strong>pdf</strong> to refer to the <strong>probability density function</strong>, and <strong>CDF</strong> (uppercased) to refer to the <strong>cumulative density function</strong>.</li>
+</ul>
+</section>
 <section id="changes-to-the-fourth-edition" class="level3">
 <h3 class="anchored" data-anchor-id="changes-to-the-fourth-edition">Changes to the Fourth Edition</h3>
 <ul>

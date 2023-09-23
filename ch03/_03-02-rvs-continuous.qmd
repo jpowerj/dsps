@@ -1,136 +1,95 @@
 
 ## Continuous Distributions {#sec-3-2}
 
-*Next, we focus on random variables that can assume every value in an interval (bounded or unbounded). If a random variable $X$ has associated with it a function $f$ such that the integral of $f$ over each interval gives the probability that X is in the interval, then we call $f$ the probability density function (PDF) of $X$ and we say that $X$ has a continuous distribution.*
+*Next, we focus on random variables that can assume every value in an interval (bounded or unbounded). If a random variable $X$ has associated with it a function $f$ such that the integral of $f$ over each interval gives the probability that X is in the interval, then we call $f$ the probability density function (pdf) of $X$ and we say that $X$ has a continuous distribution.*
 
 ### The Probability Density Function
 
 ::: {.callout-tip}
-
 ::: {#exm-3-2-1}
 
 # Example 3.2.1: Demands for Utilities
 
-In Example 3.1.5, we determined the distribution of the demand
-for water, X. From Fig. 3.2, we see that the smallest possible value of X is 4
-and the largest is 200. For each interval C = [c0, c1]⊂ [4, 200], Eq. (3.1.2) says that
-Pr(c0 ≤ X ≤ c1) = 149(c1 − c0)
-29204
-= c1 − c0
-196
-=
-  c1
-c0
-1
-196
-dx.
-3.2 Continuous Distributions 101
+In @exm-3-1-5, we determined the distribution of the demand for water, $X$. From @fig-3-2, we see that the smallest possible value of $X$ is 4 and the largest is 200. For each interval $C = [c_0, c_1] \subset [4, 200]$, @eq-3-1-2 says that
+
+$$
+\Pr(c_0 \leq X \leq c_1) = \frac{149(c_1-c_0)}{29204} = \frac{c_1 - c_0}{196} = \int_{c_0}^{c_1}\frac{1}{196}dx.
+$$
+
 So, if we define
-f (x) =
-⎧⎨
-⎩
-1
-196
-if 4 ≤ x ≤ 200,
-0 otherwise,
-(3.2.1)
+
+$$
+f(v) = \begin{cases}
+\frac{1}{196} &\text{if }4 \leq x \leq 200, \\
+0 &\text{otherwise,}
+\end{cases}
+$$ {#eq-3-2-1}
+
 we have that
-Pr(c0 ≤ X ≤ c1) =
-  c1
-c0
-f (x)dx. (3.2.2)
-Because we defined f (x) to be 0 for x outside of the interval [4, 200], we see that Eq.
-(3.2.2) holds for all c0 ≤ c1, even if c0 =−∞and/or c1=∞.
+
+$$
+\Pr(c_0 \leq X \leq c_1) = \int_{c_0}^{c_1}f(x)dx.
+$$ {#eq-3-2-2}
+
+Because we defined $f(x)$ to be 0 for $x$ outside of the interval $[4, 200]$, we see that @eq-3-2-2 holds for all $c_0 \leq c_1$, even if $c_0 = -\infty$ and/or $c_1 = \infty$.
 
 :::
-
 :::
  
 The water demand $X$ in @exm-3-2-1 is an example of the following.
 
-::: {.callout-tip}
-
+::: {.callout-note}
 ::: {#def-3-2-1}
 
-# Definition 3.2.1: Continuous Distribution/Random Variable
+# Definition 3.2.1: Continuous Distribution / Random Variable
 
-We say that a random variable X has a
-continuous distribution or that X is a continuous random variable if there exists a
-nonnegative function f , defined on the real line, such that for every interval of real
-numbers (bounded or unbounded), the probability thatX takes a value in the interval
-is the integral of f over the interval.
+We say that a random variable $X$ has a **continuous distribution** or that $X$ is a **continuous random variable** if there exists a nonnegative function $f$, defined on the real line, such that for every interval of real numbers (bounded or unbounded), the probability that $X$ takes a value in the interval
+is the integral of $f$ over the interval.
 
 :::
-
 :::
 
-For example, in the situation described in Definition 3.2.1, for each bounded closed
-interval [a, b],
-Pr(a ≤ X ≤ b) =
-  b
-a
-f (x) dx. (3.2.3)
-Similarly, Pr(X ≥ a) =
-  ∞
-a f (x) dx and Pr(X ≤ b) =
-  b
-−∞ f (x) dx.
-We see that the function f characterizes the distribution of a continuous random
-variable in much the same way that the probability function characterizes the
-distribution of a discrete random variable. For this reason, the function f plays an
-important role, and hence we give it a name.
+For example, in the situation described in @def-3-2-1, for each bounded closed interval $[a, b]$,
 
-::: {.callout-tip}
+$$
+\Pr(a \leq X \leq b) = \int_{a}^{b}f(x)dx.
+$$ {#eq-3-2-3}
 
+Similarly, $\Pr(X \geq a) = \int_{a}^{\infty}f(x)dx$ and $\Pr(X \leq b) = \int_{-\infty}^{b}f(x)dx$.
+
+We see that the function $f$ characterizes the distribution of a continuous random variable in much the same way that the probability mass function characterizes the distribution of a discrete random variable. For this reason, the function $f$ plays an important role, and hence we give it a name.
+
+::: {.callout-note}
 ::: {#def-3-2-2}
 
-# Definition 3.2.2: Probability Density Function/PDF/Support
+# Definition 3.2.2: Probability Density Function/pdf/Support
 
-If $X$ has a continuous distribution, the function f described in @def-3-2-1 is called the **probability density function**
-(abbreviated PDF) of $X$. The closure of the set $\{x : f(x) > 0\}$ is called the **support** of (the distribution of) $X$.
-
-:::
+If $X$ has a continuous distribution, the function $f$ described in @def-3-2-1 is called the **probability density function** (abbreviated **pdf**) of $X$. The closure of the set $\{x \mid f(x) > 0\}$ is called the **support of (the distribution of) $X$**.
 
 :::
+:::
 
-@exm-3-2-1 demonstrates that the water demand $X$ has PDF given by (3.2.1).
+@exm-3-2-1 demonstrates that the water demand $X$ has PDF given by @eq-3-2-1.
 
 Every PDF $f$ must satisfy the following two requirements:
 
 $$
-f (x) ≥ 0, for all x, (3.2.4)
-$$
+f(x) \geq 0, \; \text{ for all }x,
+$$ {#eq-3-2-4}
 
 and
 
 $$
-  ∞
-−∞
-f (x) dx = 1. (3.2.5)
-$$
+\int_{-\infty}^{\infty}f(x)dx = 1.
+$$ {#eq-3-2-5}
 
-A typical PDF is sketched in Fig. 3.4. In that figure, the total area under the curve
-must be 1, and the value of Pr(a ≤ X ≤ b) is equal to the area of the shaded region.
+A typical pdf is sketched in @fig-3-4. In that figure, the total area under the curve must be 1, and the value of $\Pr(a \leq X \leq b)$ is equal to the area of the shaded region.
 
-**Note: Continuous Distributions Assign Probability 0 to Individual Values**. The integral in Eq. (3.2.3) also equals Pr(a < X ≤ b) as well as $\Pr(a < X < b)$ and $\Pr(a \leq X < b)$. Hence, it follows from the definition of continuous distributions that, if X
-has a continuous distribution, Pr(X = a) = 0 for each number a. As we noted on
-page 20, the fact that Pr(X = a) = 0 does not imply that X = a is impossible. If it did, 
+**Note: Continuous Distributions Assign Probability 0 to Individual Values**. The integral in @eq-3-2-3 also equals $\Pr(a < X \leq b)$ as well as $\Pr(a < X < b)$ and $\Pr(a \leq X < b)$. Hence, it follows from the definition of continuous distributions that, if $X$ has a continuous distribution, $\Pr(X = a) = 0$ for each number $a$. As we noted on page 20, the fact that $\Pr(X = a) = 0$ does not imply that $X = a$ is impossible. If it did, all values of $X$ would be impossible and $X$ couldn't assume any value. What happens is that the probability in the distribution of $X$ is spread so thinly that we can only see it on sets like nondegenerate intervals. It is much the same as the fact that lines have 0 area in two dimensions, but that does not mean that lines are not there. The two vertical lines indicated under the curve in @fig-3-4 have 0 area, and this signifies that $\Pr(X = a) = \Pr(X = b) = 0$. However, for each $\epsilon > 0$ and each $a$ such that $f(a) > 0$, $\Pr(a − \epsilon \leq X \leq a + \epsilon) \approx 2\epsilon f(a) > 0$.
 
-all values of X would be impossible and X couldn’t assume any value.What happens
-is that the probability in the distribution of X is spread so thinly that we can only see
-it on sets like nondegenerate intervals. It is much the same as the fact that lines have
-0 area in two dimensions, but that does not mean that lines are not there. The two
-vertical lines indicated under the curve in Fig. 3.4 have 0 area, and this signifies that
-Pr(X = a) = Pr(X = b) = 0. However, for each   > 0 and each a such that f (a)>0,
-Pr(a −   ≤ X ≤ a +  ) ≈ 2 f (a) > 0.
+![An example of a pdf](ch03/images/fig-3-4.jpeg){#fig-3-4}
 
-::: {#fig-3-4}
-
-a b x
-f (x)
-
-An example of a PDF
-:::
+<!-- 2023-09-23, 4:58pm -->
 
 ### Nonuniqueness of the PDF
 
@@ -142,7 +101,7 @@ the values of the p.d.f. of a random variable X can be changed arbitrarily at ma
 points without affecting any probabilities involving X, that is, without affecting the
 probability distribution of X. At exactly which sets of points we can change a p.d.f.
 depends on subtle features of the definition of the Riemann integral. We shall not
-deal with this issue in this text, and we shall only contemplate changes to p.d.f.’s at
+deal with this issue in this text, and we shall only contemplate changes to p.d.f.'s at
 finitely many points.
 To the extent just described, the p.d.f. of a random variable is not unique. In many
 problems, however, there will be one version of the p.d.f. that is more natural than
@@ -242,7 +201,7 @@ f (x)
 Th p.d.f. (3.2.6) is sketched in Fig. 3.5. As an example, the random variableX(demand
 for water) in Example 3.2.1 has the uniform distribution on the interval [4, 200].
 Note: Density Is Not Probability. The reader should note that the p.d.f. in (3.2.6) can
-be greater than 1, particularly if b −a <1. Indeed, p.d.f.’s can be unbounded, as we
+be greater than 1, particularly if b −a <1. Indeed, p.d.f.'s can be unbounded, as we
 shall see in @exm-3-2-6. The PDF of X, f (x), itself does not equal the probability
 that X is near x. The integral of f over values near x gives the probability that X is
 near x, and the integral is never greater than 1.
@@ -353,7 +312,7 @@ f (x) =
 1
 (1+ x)2 for x >0.
 (3.2.8)
-It can be verified that the properties (3.2.4) and (3.2.5) required of all p.d.f.’s are
+It can be verified that the properties (3.2.4) and (3.2.5) required of all p.d.f.'s are
 satisfied by f (x).
 Even though the voltage X may actually be bounded in the real situation, the
 p.d.f. (3.2.8) may provide a good approximation for the distribution of X over its full
@@ -603,7 +562,7 @@ Also, find Pr(Y < 50).
 An ice cream seller takes 20 gallons of ice cream in
 her truck each day. Let X stand for the number of gallons
 that she sells. The probability is 0.1 that X = 20. If she
-doesn’t sell all 20 gallons, the distribution of X follows a
+doesn't sell all 20 gallons, the distribution of X follows a
 continuous distribution with a p.d.f. of the form
 f (x) =
  

@@ -2,6 +2,15 @@
 
 Digitization of DeGroot and Schervish, *Probability and Statistics (Fourth Edition)*, by Jeff Jacobs, Assistant Teaching Professor of Data Science and Analytics, Georgetown University.
 
+### Changes in the Digitized Version
+
+To match the notation we're using in DSAN 5100, I have made the following changes (which could be undone via a find-and-replace, if you want to change the format back to the original textbook format):
+
+<!-- * The book uses capital letters like $X$ to denote random variables, and then lowercase versions of the same letters like $x$ to denote the **values** that random variables can take on. To match the notation we use in class, I have updated these cases to instead use the letter $v$ to denote some particular **value** that a random variable can take on.
+    * So, for example, I write the CDF of a random variable $X$ as $f_X(v) = \Pr(X \leq v)$, rather than $f_X(x) = \Pr(X \leq x)$. -->
+* The book uses the term **probability function**, and the abbreviation **p.f.**, to refer to the function $p_X(v)$ that gives us the probability that a discrete random variable $X$ takes on the value $v$. To match the notation we use in class, I have changed this throughout to use the term **probability mass function**, and the abbreviation **pmf**.
+* Similarly, I make sure to use (lowercased) **pdf** to refer to the **probability density function**, and **CDF** (uppercased) to refer to the **cumulative density function**.
+
 ### Changes to the Fourth Edition
 
 * I have reorganized many main results that were included in the body of the text by labeling them as theorems in order to facilitate students in finding and referencing these results.

@@ -26,7 +26,7 @@ Let $S$ be the sample space for an experiment. A real-valued function that is de
 
 For example, in @exm-3-1-1 the number $X$ of heads in the 10 tosses is a random variable. Another random variable in that example is $Y = 10 − X$, the number of tails.
 
-![The event that at least one utility demand is high in @exm-3-1-3.](images/fig-3-1.jpeg){#fig-3-1}
+![The event that at least one utility demand is high in @exm-3-1-3.](ch03/images/fig-3-1.jpeg){#fig-3-1}
 
 ::: {.callout-tip}
 ::: {#exm-3-1-2}
@@ -43,7 +43,7 @@ Consider an experiment in which a person is selected at random from some populat
 
 # Example 3.1.3: Demands for Utilities
 
-Consider the contractor in Example 1.5.4 on page 19 who is concerned about the demands for water and electricity in a new office complex. The sample space was pictured in Fig. 1.5 on page 12, and it consists of a collection of points of the form $(x, y)$, where $x$ is the demand for water and $y$ is the demand for electricity. That is, each point $s \in S$ is a pair $s = (x, y)$. One random variable that is of interest in this problem is the demand for water. This can be expressed as $X(s) = x$ when $s = (x, y)$. The possible values of $X$ are the numbers in the interval $[4, 200]$. Another interesting random variable is $Y$, equal to the electricity demand, which can be expressed as $Y(s) = y$ when $s = (x, y)$. The possible values of $Y$ are the numbers in the interval $[1, 150]$. A third possible random variable $Z$ is an indicator of whether or not at least one demand is high. Let $A$ and $B$ be the two events described in Example 1.5.4. That is, $A$ is the event that water demand is at least 100, and $B$ is the event that electric demand is at least 115. Define
+Consider the contractor in @exm-1-5-4 who is concerned about the demands for water and electricity in a new office complex. The sample space was pictured in @fig-1-5, and it consists of a collection of points of the form $(x, y)$, where $x$ is the demand for water and $y$ is the demand for electricity. That is, each point $s \in S$ is a pair $s = (x, y)$. One random variable that is of interest in this problem is the demand for water. This can be expressed as $X(s) = x$ when $s = (x, y)$. The possible values of $X$ are the numbers in the interval $[4, 200]$. Another interesting random variable is $Y$, equal to the electricity demand, which can be expressed as $Y(s) = y$ when $s = (x, y)$. The possible values of $Y$ are the numbers in the interval $[1, 150]$. A third possible random variable $Z$ is an indicator of whether or not at least one demand is high. Let $A$ and $B$ be the two events described in @exm-1-5-4. That is, $A$ is the event that water demand is at least 100, and $B$ is the event that electric demand is at least 115. Define
 
 $$
 Z(s) = \begin{cases}
@@ -77,7 +77,7 @@ Let $X$ be a random variable. The distribution of $X$ is the collection of all p
 
 It is a straightforward consequence of the definition of the distribution of $X$ that this distribution is itself a probability measure on the set of real numbers. The set $\{X \in C\}$ will be an event for every set $C$ of real numbers that most readers will be able to imagine.
 
-![The event that water demand is between 50 and 175 in @exm-3-1-5.](images/fig-3-2.jpeg){#fig-3-2}
+![The event that water demand is between 50 and 175 in @exm-3-1-5.](ch03/images/fig-3-2.jpeg){#fig-3-2}
 
 ::: {.callout-tip}
 
@@ -190,7 +190,7 @@ Let $X$ be a discrete random variable with pmf $f$. If $x$ is not one of the pos
 
 A typical pmf is sketched in @fig-3-3, in which each vertical segment represents the value of $f(x)$ corresponding to a possible value $x$. The sum of the heights of the vertical segments in @fig-3-3 must be 1.
 
-![An example of a pmf.](images/fig-3-3.jpeg){#fig-3-3}
+![An example of a pmf.](ch03/images/fig-3-3.jpeg){#fig-3-3}
 
 @thm-3-1-2 shows that the pmf of a discrete random variable characterizes its distribution, and it allows us to dispense with the general definition of distribution when we are discussing discrete random variables.
 
@@ -310,63 +310,24 @@ $$ {#eq-3-1-4}
 
 # Definition 3.1.7: Binomial Distribution/Random Variable
 
-The discrete distribution represented by the
-PMF in (3.1.4) is called the binomial distribution with parameters n and p. A random
-3.1 Random Variables and Discrete Distributions 99
-variable with this distribution is said to be a binomial random variable with parameters
-n and p.
+The discrete distribution represented by the pmf in @eq-3-1-4 is called the **binomial distribution with parameters $n$ and $p$**. A random variable with this distribution is said to be a **binomial random variable with parameters $n$ and $p$**.
 
 :::
-
 :::
 
-The reader should be able to verify that the random variable X in Example 3.1.4,
-the number of heads in a sequence of 10 independent tosses of a fair coin, has the
-binomial distribution with parameters 10 and 1/2.
-Since the name of each binomial distribution is sufficient to construct its p.f., it
-follows that the name is enough to identify the distribution. The name of each distribution
-includes the two parameters. The binomial distributions are very important in
-probability and statistics and will be discussed further in later chapters of this book.
-A short table of values of certain binomial distributions is given at the end
-of this book. It can be found from this table, for example, that if X has the binomial
-distribution with parameters n = 10 and p = 0.2, then Pr(X = 5) = 0.0264 and
-Pr(X ≥ 5) = 0.0328.
-As another example, suppose that a clinical trial is being run. Suppose that the
-probability that a patient recovers from her symptoms during the trial is p and that
-the probability is 1− p that the patient does not recover. Let Y denote the number of
-patients who recover out of n independent patients in the trial. Then the distribution
-of Y is also binomial with parameters n and p. Indeed, consider a general experiment
-that consists of observing n independent repititions (trials) with only two possible
-results for each trial. For convenience, call the two possible results "success" and
-"failure." Then the distribution of the number of trials that result in success will be
-binomial with parameters n and p, where p is the probability of success on each trial.
-Note: Names of Distributions. In this section, we gave names to several families
-of distributions. The name of each distribution includes any numerical parameters
-that are part of the definition. For example, the random variable X in Example 3.1.4
-has the binomial distribution with parameters 10 and 1/2. It is a correct statement to
-say that X has a binomial distribution or that X has a discrete distribution, but such
-statements are only partial descriptions of the distribution of X. Such statements
-are not sufficient to name the distribution of X, and hence they are not sufficient as
-answers to the question "What is the distribution of X?" The same considerations
-apply to all of the named distributions that we introduce elsewhere in the book.When
-attempting to specify the distribution of a random variable by giving its name, one
-must give the full name, including the values of any parameters. Only the full name
-is sufficient for determining the distribution.
+The reader should be able to verify that the random variable $X$ in @exm-3-1-4, the number of heads in a sequence of 10 independent tosses of a fair coin, has the binomial distribution with parameters $10$ and $1/2$.
+
+Since the name of each binomial distribution is sufficient to construct its pmf, it follows that the name is enough to identify the distribution. The name of each distribution includes the two parameters. The binomial distributions are very important in probability and statistics and will be discussed further in later chapters of this book.
+
+A short table of values of certain binomial distributions is given at the end of this book. It can be found from this table, for example, that if $X$ has the binomial distribution with parameters $n = 10$ and $p = 0.2$, then $\Pr(X = 5) = 0.0264$ and $\Pr(X \geq 5) = 0.0328$.
+
+As another example, suppose that a clinical trial is being run. Suppose that the probability that a patient recovers from her symptoms during the trial is $p$ and that the probability is $1 − p$ that the patient does not recover. Let $Y$ denote the number of patients who recover out of $n$ independent patients in the trial. Then the distribution of $Y$ is also binomial with parameters $n$ and $p$. Indeed, consider a general experiment that consists of observing $n$ independent repititions (trials) with only two possible results for each trial. For convenience, call the two possible results "success" and "failure." Then the distribution of the number of trials that result in success will be binomial with parameters $n$ and $p$, where $p$ is the probability of success on each trial.
+
+**Note: Names of Distributions**. In this section, we gave names to several families of distributions. The name of each distribution includes any numerical parameters that are part of the definition. For example, the random variable $X$ in @exm-3-1-4 has the binomial distribution with parameters $10$ and $1/2$. It is a correct statement to say that $X$ has a binomial distribution or that $X$ has a discrete distribution, but such statements are only partial descriptions of the distribution of $X$. Such statements are not sufficient to name the distribution of $X$, and hence they are not sufficient as answers to the question "What is the distribution of $X$?" The same considerations apply to all of the named distributions that we introduce elsewhere in the book. When attempting to specify the distribution of a random variable by giving its name, one must give the full name, including the values of any parameters. Only the full name is sufficient for determining the distribution.
 
 ### Summary
 
-A random variable is a real-valued function defined on a sample space. The distribution
-of a random variable X is the collection of all probabilities Pr(X ∈ C) for all
-subsets C of the real numbers such that {X ∈ C} is an event. A random variable X is
-discrete if there are at most countably many possible values for X. In this case, the
-distribution of X can be characterized by the probability function (p.f.) of X, namely,
-f (x) = Pr(X = x) for x in the set of possible values. Some distributions are so famous
-that they have names. One collection of such named distributions is the collection of
-uniform distributions on finite sets of integers. A more famous collection is the collection
-of binomial distributions whose parameters are n and p, where n is a positive
-integer and 0<p <1, having p.f. (3.1.4). The binomial distribution with parameters
-n = 1 and p is also called the Bernoulli distribution with parameter p. The names of
-these distributions also characterize the distributions.
+A random variable is a real-valued function defined on a sample space. The distribution of a random variable $X$ is the collection of all probabilities $\Pr(X \in C)$ for all subsets $C$ of the real numbers such that $\{X \in C\}$ is an event. A random variable $X$ is discrete if there are at most countably many possible values for $X$. In this case, the distribution of $X$ can be characterized by the probability mass function pmf of $X$, namely, $f(x) = \Pr(X = x)$ for $x$ in the set of possible values. Some distributions are so famous that they have names. One collection of such named distributions is the collection of uniform distributions on finite sets of integers. A more famous collection is the collection of binomial distributions whose parameters are $n$ and $p$, where $n$ is a positive integer and $0 < p < 1$, having pmf @eq-3-1-4. The binomial distribution with parameters $n = 1$ and $p$ is also called the Bernoulli distribution with parameter $p$. The names of these distributions also characterize the distributions.
 
 ### Exercises
 
@@ -382,13 +343,16 @@ Suppose that a random variable $X$ has the uniform distribution on the integers 
 
 # Exercise 3.1.2
 
-Suppose that a random variable X has a discrete distribution
-with the following p.f.:
-f (x) =
- 
-cx for x = 1, . . . , 5,
-0 otherwise.
-Determine the value of the constant c.
+Suppose that a random variable $X$ has a discrete distribution with the following pmf:
+
+$$
+f(x) = \begin{cases}
+cx &\text{for }x = 1, \ldots, 5, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+Determine the value of the constant $c$.
 
 :::
 
@@ -396,10 +360,7 @@ Determine the value of the constant c.
 
 # Exercise 3.1.3
 
-Suppose that two balanced dice are rolled, and let X
-denote the absolute value of the difference between the
-two numbers that appear. Determine and sketch the p.f.
-of X.
+Suppose that two balanced dice are rolled, and let $X$ denote the absolute value of the difference between the two numbers that appear. Determine and sketch the pmf of $X$.
 
 :::
 
@@ -407,9 +368,7 @@ of X.
 
 # Exercise 3.1.4
 
-Suppose that a fair coin is tossed 10 times independently.
-Determine the p.f. of the number of heads that will
-be obtained.
+Suppose that a fair coin is tossed 10 times independently. Determine the pmf of the number of heads that will be obtained.
 
 :::
 
@@ -418,9 +377,7 @@ be obtained.
 # Exercise 3.1.5
 
 Suppose that a box contains seven red balls and three
-blue balls. If five balls are selected at random, without
-replacement, determine the p.f. of the number of red balls
-that will be obtained.
+blue balls. If five balls are selected at random, without replacement, determine the pmf of the number of red balls that will be obtained.
 
 :::
 
@@ -428,9 +385,7 @@ that will be obtained.
 
 # Exercise 3.1.6
 
-Suppose that a random variableX has the binomial distribution
-with parameters n = 15 and p = 0.5. Find Pr(X <
-6).
+Suppose that a random variable $X$ has the binomial distribution with parameters $n = 15$ and $p = 0.5$. Find $\Pr(X < 6)$.
 
 :::
 
@@ -438,11 +393,7 @@ with parameters n = 15 and p = 0.5. Find Pr(X <
 
 # Exercise 3.1.7
 
-Suppose that a random variableX has the binomial distribution
-with parameters n = 8 and p = 0.7. Find Pr(X ≥
-5) by using the table given at the end of this book. Hint:
-Use the fact that Pr(X ≥ 5) = Pr(Y ≤ 3), where Y has the
-binomial distribution with parameters n = 8 and p = 0.3.
+Suppose that a random variable $X$ has the binomial distribution with parameters $n = 8$ and $p = 0.7$. Find $\Pr(X \geq 5)$ by using the table given at the end of this book. *Hint*: Use the fact that $\Pr(X \geq 5) = \Pr(Y \leq 3)$, where $Y$ has the binomial distribution with parameters $n = 8$ and $p = 0.3$.
 
 :::
 
@@ -450,10 +401,7 @@ binomial distribution with parameters n = 8 and p = 0.3.
 
 # Exercise 3.1.8
 
-If 10 percent of the balls in a certain box are red, and
-if 20 balls are selected from the box at random, with replacement,
-what is the probability that more than three
-red balls will be obtained?
+If 10 percent of the balls in a certain box are red, and if 20 balls are selected from the box at random, with replacement, what is the probability that more than three red balls will be obtained?
 
 :::
 
@@ -461,13 +409,16 @@ red balls will be obtained?
 
 # Exercise 3.1.9
 
-Suppose that a random variable X has a discrete distribution
-with the following p.f.:
-f (x) =
-  c
-2x for x = 0, 1, 2, . . . ,
-0 otherwise.
-Find the value of the constant c.
+Suppose that a random variable $X$ has a discrete distribution with the following pmf:
+
+$$
+f(x) = \begin{cases}
+\frac{c}{2^x} &\text{for }x = 0, 1, 2, \ldots, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+Find the value of the constant $c$.
 
 :::
 
@@ -475,14 +426,10 @@ Find the value of the constant c.
 
 # Exercise 3.1.10
 
-A civil engineer is studying a left-turn lane that is
-long enough to hold seven cars. Let X be the number
-of cars in the lane at the end of a randomly chosen red
-light. The engineer believes that the probability that X =
-x is proportional to (x + 1)(8 − x) for x = 0, . . . , 7 (the
-possible values of X).
-a. Find the p.f. of X.
-b. Find the probability that X will be at least 5.
+A civil engineer is studying a left-turn lane that is long enough to hold seven cars. Let $X$ be the number of cars in the lane at the end of a randomly chosen red light. The engineer believes that the probability that $X = v$ is proportional to $(v + 1)(8 − v)$ for $v = 0, \ldots, 7$ (the possible values of $X$).
+
+a. Find the pmf of $X$.
+b. Find the probability that $X$ will be at least 5.
 
 :::
 
@@ -490,11 +437,13 @@ b. Find the probability that X will be at least 5.
 
 # Exercise 3.1.11
 
-Show that there does not exist any number c such that
-the following function would be a p.f.:
-f (x) =
-  c
-x for x = 1, 2, . . . ,
-0 otherwise.
+Show that there does not exist any number $c$ such that the following function would be a pmf:
+
+$$
+f(v) = \begin{cases}
+\frac{c}{v} &\text{for }v = 1, 2, \ldots, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
 
 :::

@@ -16,14 +16,14 @@ Consider a state lottery game in which six numbers are drawn without replacement
 of
 
 $$
-A = {\text{the numbers 1, 14, 15, 20, 23, and 27 are drawn}\},
+A = \{\text{the numbers 1, 14, 15, 20, 23, and 27 are drawn}\},
 $$
 
 and possibly other events.
 
 If we know that the event $B$ has occurred, then we know that the outcome of the experiment is one of those included in $B$. Hence, to evaluate the probability that $A$ will occur, we must consider the set of those outcomes in $B$ that also result in the occurrence of $A$. As sketched in @fig-2-1, this set is precisely the set $A \cap B$. It is therefore natural to calculate the revised probability of $A$ according to the following definition.
 
-![The outcomes in the event $B$ that also belong to the event $A$](images/fig-2-1.png){#fig-2-1}
+![The outcomes in the event $B$ that also belong to the event $A$](ch02/images/fig-2-1.png){#fig-2-1}
 
 ::: {.callout-tip}
 ::: {#def-2-1-1}
@@ -369,7 +369,7 @@ Finally, if $\Pr(B_j) > 0$ for $j = 1, \ldots, k$, then $\Pr(B_j \cap A) = \Pr(B
 :::
 :::
 
-![The intersections of $A$ with events $B_1, \ldots, B_5$ of a partition in the proof of @thm-2-1-4](images/fig-2-2.png){#fig-2-2}
+![The intersections of $A$ with events $B_1, \ldots, B_5$ of a partition in the proof of @thm-2-1-4](ch02/images/fig-2-2.png){#fig-2-2}
 
 <!-- Stopping point, 2023-08-30 -->
 
