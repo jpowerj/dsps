@@ -259,9 +259,9 @@ Tip
 \tag{2}\]</span></span></p>
 </section>
 <section id="prior-and-posterior" class="level3">
-<h3 class="anchored" data-anchor-id="prior-and-posterior">prior and Posterior </h3>
+<h3 class="anchored" data-anchor-id="prior-and-posterior">Prior and Posterior </h3>
 <p>In <a href="#exm-2-3-4">Example&nbsp;4</a>, a probability like <span class="math inline">\(\Pr(B_2)\)</span> is often called the <strong>prior probability</strong> that the selected item will have been by machine <span class="math inline">\(M_2\)</span>, because <span class="math inline">\(\Pr(B_2)\)</span> is the probability of this event before the item is selected and before it is known whether the selected item is defective or nondefective. A probability like <span class="math inline">\(\Pr(B_2 \mid A)\)</span> is then called the <strong>posterior probability</strong> that the selected item was by machine <span class="math inline">\(M_2\)</span>, because it is the probability of this event after it is known that the selected item is defective.</p>
-<p>Thus, in <a href="#exm-2-3-4">Example&nbsp;4</a>, the prior probability that the selected item will have been by machine <span class="math inline">\(M_2\)</span> is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was by machine <span class="math inline">\(M_2\)</span> is 0.26. Since this posterior probability is smaller than the prior probability that the item was by machine <span class="math inline">\(M_2\)</span>, the posterior probability that the item was by one of the other machines must be larger than the prior probability that it was by one of those machines (see Exercises <strong>?@exr-2-3-1</strong> and <strong>?@exr-2-3-2</strong> at the end of this section).</p>
+<p>Thus, in <a href="#exm-2-3-4">Example&nbsp;4</a>, the prior probability that the selected item will have been by machine <span class="math inline">\(M_2\)</span> is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was by machine <span class="math inline">\(M_2\)</span> is 0.26. Since this posterior probability is smaller than the prior probability that the item was by machine <span class="math inline">\(M_2\)</span>, the posterior probability that the item was by one of the other machines must be larger than the prior probability that it was by one of those machines (see Exercises <a href="#exr-2-3-1">1</a> and <a href="#exr-2-3-2">2</a> at the end of this section).</p>
 </section>
 <section id="computation-of-posterior-in-more-than-one-stage" class="level3">
 <h3 class="anchored" data-anchor-id="computation-of-posterior-in-more-than-one-stage">Computation of Posterior in More Than One Stage</h3>
@@ -285,17 +285,247 @@ Tip
 <p>The second way of determining this same posterior probability is to use the conditional version of Bayes’ theorem (<strong>?@thm-2-3-2</strong>) given the event <span class="math inline">\(H_1\)</span>. Given <span class="math inline">\(H_1\)</span>, the conditional probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(1/3\)</span>, and the conditional probability of <span class="math inline">\(B_2\)</span> is therefore <span class="math inline">\(2/3\)</span>. These conditional can now serve as the prior for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply <a href="#eq-2-3-2">Equation&nbsp;2</a> with <span class="math inline">\(C = H_1\)</span>, <span class="math inline">\(\Pr(B_1 \mid H_1) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_2 \mid H_1) = 2/3\)</span>. We can then compute the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need <span class="math inline">\(\Pr(H_2 \mid B_1 \cap H_1)\)</span>, which equals <span class="math inline">\(\Pr(H_2 \mid B_1) = 1/2\)</span> by <strong>?@thm-2-2-4</strong> since <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span> are conditionally independent given <span class="math inline">\(B_1\)</span>. Since the coin is two-headed when <span class="math inline">\(B_2\)</span> occurs, <span class="math inline">\(\Pr(H_2 \mid B_2 \cap H_1) = 1\)</span>. So we obtain</p>
 <p><span id="eq-2-3-5"><span class="math display">\[
 \begin{align*}
-\Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{\Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1)}{\Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1) + \Pr(B_2 \mid H_1) \Pr(H_2 \mid B_2 \cap H_1) \\
+\Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{
+    \Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1)
+}{
+    \Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1) + \Pr(B_2 \mid H_1) \Pr(H_2 \mid B_2 \cap H_1)
+} \\
 &amp;= \frac{(1/3)(1/2)}{(1/3)(1/2) + (2/3)(1)} = \frac{1}{5}
+\end{align*}
 \tag{5}\]</span></span></p>
 <p>The posterior probability of the event <span class="math inline">\(B_1\)</span> obtained in the second way is the same as that obtained in the first way. We can make the following general statement: If an experiment is carried out in more than one stage, then the posterior probability of every event can also be calculated in more than one stage. After each stage has been carried out, the posterior probability calculated for the event after that stage serves as the prior probability for the next stage. The reader should look back at <a href="#eq-2-3-2">Equation&nbsp;2</a> to see that this interpretation is precisely what the conditional version of Bayes’ theorem says. The example we have been doing with coin tossing is typical of many applications of Bayes’ theorem and its conditional version because we are assuming that the observable events are conditionally independent given each element of the partition <span class="math inline">\(B_1, \ldots, B_k\)</span> (in this case, <span class="math inline">\(k = 2\)</span>). The conditional independence makes the probability of <span class="math inline">\(H_i\)</span> (head on <span class="math inline">\(i\)</span>th toss) given <span class="math inline">\(B_1\)</span> (or given <span class="math inline">\(B_2\)</span>) the same whether or not we also condition on earlier tosses (see <strong>?@thm-2-2-4</strong>).</p>
 </section>
 <section id="conditionally-independent-events" class="level3">
 <h3 class="anchored" data-anchor-id="conditionally-independent-events">Conditionally Independent Events</h3>
 <!-- Stopping point 2023-09-09 -->
-<p>The calculations that led to (2.3.3) and (2.3.5) together with Example 2.2.10 illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to Eq. (2.3.3), before any tosses occur, the probability of H2 is the same as the probability of H_1, namely, the 82 Chapter 2 Conditional probability denominator of (2.3.3), 3/4, as Theorem 2.1.4 says. However, after observing that the event H_1 occurs, the probability of H2 is (H2|H_1), which is the denominator of (2.3.5), 5/6, as computed by the conditional version of the law of total probability (2.1.5). Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the , so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint of various combinations of events conditionally on the partition events. Finally, we can combine these using Theorem 2.1.4 and (2.1.5). Two more examples will help to illustrate these ideas. Example 2.3.6 Learning about a . In Example 2.2.10 on page 72, a machine defective parts in one of two , p = 0.01 or p = 0.4. Suppose that the prior probability that p = 0.01 is 0.9. After sampling six parts at random, suppose that we observe two defectives. What is the posterior probability that p = 0.01? Let B1 = {p = 0.01} and B2 = {p = 0.4} as in Example 2.2.10. Let A be the event that two defectives occur in a random sample of size six. The prior probability of B1 is 0.9, and the prior probability of B2 is 0.1. We already computed (A|B1) = 1.44 × 10−3 and (A|B2) = 0.311 in Example 2.2.10. Bayes’ theorem tells us that Pr(B1|A) = 0.9 × 1.44 × 10−3 0.9 × 1.44 × 10−3 + 0.1× 0.311 = 0.04. Even though we thought originally that B1 had probability as high as 0.9, after we learned that there were two defective items in a sample as small as six, we changed our minds dramatically and now we believe that B1 has probability as small as 0.04. The reason for this major change is that the event A that occurred has much higher probability if B2 is true than if B1 is true.   Example 2.3.7 A Clinical Trial. Consider the same clinical trial described in Examples 2.1.12 and 2.1.13. Let Ei be the event that the ith patient has success as her outcome. Recall that Bj is the event that p = (j − 1)/10 for j = 1, . . . , 11, where p is the of successes among all possible patients. If we knew which Bj occurred, we would say that E1, E2, . . . were independent. That is, we are willing to model the patients as conditionally independent given each event Bj , and we set (Ei |Bj ) = (j − 1)/10 for all i, j . We shall still assume that (Bj ) = 1/11 for all j prior to the start of the trial.We are now in position to express what we learn about p by computing posterior probabilities for the Bj events after each patient finishes the trial. For example, consider the first patient. We calculated (E1) = 1/2 in (2.1.6). If E1 occurs, we apply Bayes’ theorem to get Pr(Bj |E1) = Pr(E1|Bj ) (Bj ) 1/2 = 2(j − 1) 10 × 11 = j − 1 55 . (2.3.6) After observing one success, the posterior of large values of p are higher than their prior and the posterior of low values of p are lower than their prior as we would expect. For example, (B1|E1) = 0, because p = 0 is ruled out after one success. Also, (B2|E1) = 0.0182, which is much smaller than its prior value 0.0909, and (B11|E1) = 0.1818, which is larger than its prior value 0.0909. 2.3 Bayes’ Theorem 83 0.1 0.4 0.5 0.3 0.2 0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 Figure 2.3 The posterior of partition elements after 40 patients in Example 2.3.7. We could check how the posterior behave after each patient is observed. However, we shall skip ahead to the point at which all 40 patients in the imipramine column of Table 2.1 have been observed. Let A stand for the observed event that 22 of them are successes and 18 are failures.We can use the same reasoning as in Example 2.2.5 to compute (A|Bj ). There are  40 22   possible sequences of 40 patients with 22 successes, and, conditional on Bj , the probability of each sequence is ([j − 1]/10)22(1− [j − 1]/10)18. So, Pr(A|Bj ) =</p>
-<p>40 22   ([j − 1]/10)22(1− [j − 1]/10)18, (2.3.7) for each j . Then Bayes’ theorem tells us that Pr(Bj |A) = 1 11  40 22   ([j − 1]/10)22(1− [j − 1]/10)18  11 i=1 1 11  40 22   ([i − 1]/10)22(1− [i − 1]/10)18 . Figure 2.3 shows the posterior of the 11 partition elements after observingA. Notice that the ofB6 andB7 are the highest, 0.42.This corresponds to the fact that the of successes in the observed sample is 22/40 = 0.55, halfway between (6 − 1)/10 and (7 − 1)/10. We can also compute the probability that the next patient will be a success both before the trial and after the 40 patients. Before the trial, (E41) = (E1), which equals 1/2, as computed in (2.1.6). After observing the 40 patients, we can compute Pr(E41|A) using the conditional version of the law of total probability, (2.1.5): Pr(E41|A) =  11 j=1 Pr(E41|Bj A) (Bj |A). (2.3.8) Using the values of (Bj |A) in Fig. 2.3 and the fact that (E41|Bj A) = (E41|Bj ) = (j − 1)/10 (conditional independence of the Ei given the Bj ), we compute (2.3.8) to be 0.5476. This is also very close to the observed frequency of success.   The calculation at the end of Example 2.3.7 is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.</p>
-<p>0.1 0.4 0.5 0.3 0.2 0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 X X X X X X X X X X X Figure 2.4 The posterior of partition elements after 40 patients in Example 2.3.8. The X characters mark the values of the posterior calculated in Example 2.3.7. Example 2.3.8 The Effect of prior . Consider the same clinical trial as in Example 2.3.7. This time, suppose that a different researcher has a different prior opinion about the value of p, the probability of success. This researcher believes the following prior probabilities: Event B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 p 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 Prior . 0.00 0.19 0.19 0.17 0.14 0.11 0.09 0.06 0.04 0.01 0.00 We can recalculate the posterior using Bayes’ theorem, and we get the values pictured in Fig. 2.4. To aid comparison, the posterior from Example 2.3.7 are also plotted in Fig. 2.4 using the symbol X. One can see how close the two sets of posterior are despite the large differences between the prior . If there had been fewer patients observed, there would have been larger differences between the two sets of posterior because the observed events would have less information. (See Exercise 12 in this section.)   Summary Bayes’ theorem tells us how to compute the conditional probability of each event in a partition given an observed event A.Amajor use of partitions is to divide the sample space into small enough pieces so that a collection of events of interest become conditionally independent given each event in the partition. Exercises 1. Suppose that k events B1, . . . , Bk form a partition of the sample space S. For i = 1, . . . , k, let (Bi) denote the prior probability of Bi . Also, for each event A such that Pr(A) &gt; 0, let (Bi |A) denote the posterior probability of Bi given that the event A has occurred. that if Pr(B1|A) &lt; (B1), then (Bi |A) &gt; (Bi) for at least one value of i (i = 2, . . . , k). 2.3 Bayes’ Theorem 85 2. Consider again the conditions of Example 2.3.4 in this section, in which an item was selected at random from a batch of manufactured items and was found to be defective. For which values of i (i = 1, 2, 3) is the posterior probability that the item was by machine Mi larger than the prior probability that the item was by machine Mi? 3. Suppose that in Example 2.3.4 in this section, the item selected at random from the entire lot is found to be nondefective. Determine the posterior probability that it was produced by machine M2. 4. A new test has been devised for detecting a particular type of cancer. If the test is applied to a person who has this type of cancer, the probability that the person will have a positive reaction is 0.95 and the probability that the person will have a negative reaction is 0.05. If the test is applied to a person who does not have this type of cancer, the probability that the person will have a positive reaction is 0.05 and the probability that the person will have a negative reaction is 0.95. Suppose that in the general population, one person out of every 100,000 people has this type of cancer. If a person selected at random has a positive reaction to the test, what is the probability that he has this type of cancer? 5. In a certain city, 30 percent of the people are Conservatives, 50 percent are Liberals, and 20 percent are Independents. Records show that in a particular election, 65 percent of the Conservatives voted, 82 percent of the Liberals voted, and 50 percent of the Independents voted. If a person in the city is selected at random and it is learned that she did not vote in the last election, what is the probability that she is a Liberal? 6. Suppose that when a machine is adjusted , 50 percent of the items by it are of high quality and the other 50 percent are of medium quality. Suppose, however, that the machine is improperly adjusted during 10 percent of the time and that, under these conditions, 25 percent of the items by it are of high quality and 75 percent are of medium quality. a. Suppose that five items by the machine at a certain time are selected at random and inspected. If four of these items are of high quality and one item is of medium quality, what is the probability that the machine was adjusted at that time? b. Suppose that one additional item, which was by the machine at the same time as the other five items, is selected and found to be of medium quality. What is the new posterior probability that the machine was adjusted ? 7. Suppose that a box contains five coins and that for each coin there is a different probability that a head will be obtained when the coin is tossed. Let pi denote the probability of a head when the ith coin is tossed (i = 1, . . . , 5), and suppose that p1 = 0, p2 = 1/4, p3 = 1/2, p4 = 3/4, and p5 = 1. a. Suppose that one coin is selected at random from the box and when it is tossed once, a head is obtained. What is the posterior probability that the ith coin was selected (i = 1, . . . , 5)? b. If the same coin were tossed again, what would be the probability of obtaining another head? c.&nbsp;If a tail had been obtained on the first toss of the selected coin and the same coin were tossed again, what would be the probability of obtaining a head on the second toss? 8. Consider again the box containing the five different coins described in Exercise 7. Suppose that one coin is selected at random from the box and is tossed repeatedly until a head is obtained. a. If the first head is obtained on the fourth toss, what is the posterior probability that the ith coin was selected (i = 1, . . . , 5)? b. If we continue to toss the same coin until another head is obtained, what is the probability that exactly three additional tosses will be required? 9. Consider again the conditions of Exercise 14 in Sec. 2.1. Suppose that several parts will be observed and that the different parts are conditionally independent given each of the three states of repair of the machine. If seven parts are observed and exactly one is defective, compute the posterior of the three states of repair. 10. Consider again the conditions of Example 2.3.5, in which the phenotype of an individual was observed and found to be the dominant trait. For which values of i (i = 1, . . . , 6) is the posterior probability that the parents have the genotypes of event Bi smaller than the prior probability that the parents have the genotyes of event Bi? 11. Suppose that in Example 2.3.5 the observed individual has the recessive trait. Determine the posterior probability that the parents have the genotypes of event B4. 12. In the clinical trial in Examples 2.3.7 and 2.3.8, suppose that we have only observed the first five patients and three of the five had been successes. Use the two different sets of prior from Examples 2.3.7 and 2.3.8 to calculate two sets of posterior . Are these two sets of posterior as close to each other as were the two in Examples 2.3.7 and 2.3.8?Why or why not? 13. Suppose that a box contains one fair coin and one coin with a head on each side. Suppose that a coin is drawn at random from this box and that we begin to flip the coin. In Eqs. (2.3.4) and (2.3.5), we computed the conditional 86 Chapter 2 Conditional probability probability that the coin was fair given that the first two flips both heads. a. Suppose that the coin is flipped a third time and another head is obtained. Compute the probability that the coin is fair given that all three flips heads. b. Suppose that the coin is flipped a fourth time and the result is tails. Compute the posterior probability that the coin is fair. 14. Consider again the conditions of Exercise 23 in Sec. 2.2. Assume that (B) = 0.4. Let A be the event that exactly 8 out of 11 compiled. Compute the conditional probability of B given A. 15. Use the prior in Example 2.3.8 for the events B1, . . . , B11. Let E1 be the event that the first patient is a success. Compute the probability of E1 and explain why it is so much less than the value computed in Example 2.3.7. 16. Consider a machine that items in sequence. Under normal operating conditions, the items are independent with probability 0.01 of being defective. However, it is possible for the machine to develop a “memory” in the following sense: After each defective item, and independent of anything that happened earlier, the probability that the next item is defective is 2/5. After each nondefective item, and independent of anything that happened earlier, the probability that the next item is defective is 1/165. Assume that the machine is either operating normally for the whole time we observe or has a memory for the whole time that we observe. Let B be the event that the machine is operating normally, and assume that (B) = 2/3. Let Di be the event that the ith item inspected is defective. Assume that D1 is independent of B. a. that (Di) = 0.01 for all i. Hint: Use induction. b. Assume that we observe the first six items and the event that occurs is E = Dc1 Dc2 D3 D4 Dc5 Dc6 . That is, the third and fourth items are defective, but the other four are not. Compute (B|D).</p>
+<p>The calculations that led to <a href="#eq-2-3-3">Equation&nbsp;3</a> and <a href="#eq-2-3-5">Equation&nbsp;5</a> together with <strong>?@exm-2-2-10</strong> illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the probabilities that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to <a href="#eq-2-3-3">Equation&nbsp;3</a>, before any tosses occur, the probability of <span class="math inline">\(H_2\)</span> is the same as the probability of <span class="math inline">\(H_1\)</span>, namely, the denominator of <a href="#eq-2-3-3">Equation&nbsp;3</a>, <span class="math inline">\(3/4\)</span>, as <strong>?@thm-2-1-4</strong> says. However, after observing that the event <span class="math inline">\(H_1\)</span> occurs, the probability of <span class="math inline">\(H_2\)</span> is <span class="math inline">\(\Pr(H_2 \mid H_1)\)</span>, which is the denominator of <a href="#eq-2-3-5">Equation&nbsp;5</a>, <span class="math inline">\(5/6\)</span>, as computed by the conditional version of the law of total probability <strong>?@eq-2-1-5</strong>. Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the problem, so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint probabilities of various combinations of events conditionally on the partition events. Finally, we can combine these probabilities using <strong>?@thm-2-1-4</strong> and <strong>?@eq-2-1-5</strong>. Two more examples will help to illustrate these ideas.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-3-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Example 2.3.6: Learning about a Proportion) </strong></span>In <strong>?@exm-2-2-10</strong>, a machine produced defective parts in one of two proportions, <span class="math inline">\(p = 0.01\)</span> or <span class="math inline">\(p = 0.4\)</span>. Suppose that the prior probability that <span class="math inline">\(p = 0.01\)</span> is <span class="math inline">\(0.9\)</span>. After sampling six parts at random, suppose that we observe two defectives. What is the posterior probability that <span class="math inline">\(p = 0.01\)</span>?</p>
+<p>Let <span class="math inline">\(B_1 = \{p = 0.01\}\)</span> and <span class="math inline">\(B_2 = \{p = 0.4\}\)</span> as in <strong>?@exm-2-2-10</strong>. Let <span class="math inline">\(A\)</span> be the event that two defectives occur in a random sample of size six. The prior probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(0.9\)</span>, and the prior probability of <span class="math inline">\(B_2\)</span> is <span class="math inline">\(0.1\)</span>. We already computed <span class="math inline">\(\Pr(A \mid B_1) = 1.44 \times 10^{−3}\)</span> and <span class="math inline">\(\Pr(A \mid B_2) = 0.311\)</span> in <strong>?@exm-2-2-10</strong>. Bayes’ theorem tells us that</p>
+<p><span class="math display">\[
+\Pr(B_1 \mid A) = \frac{
+    0.9 \times 1.44 \times 10^{-3}
+}{
+    0.9 \times 1.44 \times 10^{-3} + 0.1 \times 0.311
+} = 0.04.
+\]</span></p>
+<p>Even though we thought originally that <span class="math inline">\(B_1\)</span> had probability as high as <span class="math inline">\(0.9\)</span>, after we learned that there were two defective items in a sample as small as six, we changed our minds dramatically and now we believe that <span class="math inline">\(B_1\)</span> has probability as small as <span class="math inline">\(0.04\)</span>. The reason for this major change is that the event <span class="math inline">\(A\)</span> that occurred has much higher probability if <span class="math inline">\(B_2\)</span> is true than if <span class="math inline">\(B_1\)</span> is true.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-3-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Example 2.3.7: A Clinical Trial) </strong></span>Consider the same clinical trial described in Examples <strong>?@exm-2-1-12</strong> and <strong>?@exm-2-1-13</strong>. Let <span class="math inline">\(E_i\)</span> be the event that the <span class="math inline">\(i\)</span>th patient has success as her outcome. Recall that <span class="math inline">\(B_j\)</span> is the event that <span class="math inline">\(p = (j − 1)/10\)</span> for <span class="math inline">\(j = 1, \ldots, 11\)</span>, where <span class="math inline">\(p\)</span> is the proportion of successes among all possible patients. If we knew which <span class="math inline">\(B_j\)</span> occurred, we would say that <span class="math inline">\(E_1, E_2, \ldots\)</span> were independent. That is, we are willing to model the patients as conditionally independent given each event <span class="math inline">\(B_j\)</span>, and we set <span class="math inline">\(\Pr(E_i \mid B_j) = (j − 1)/10\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>. We shall still assume that <span class="math inline">\(\Pr(B_j) = 1/11\)</span> for all <span class="math inline">\(j\)</span> prior to the start of the trial. We are now in position to express what we learn about <span class="math inline">\(p\)</span> by computing posterior probabilities for the <span class="math inline">\(B_j\)</span> events after each patient finishes the trial.</p>
+<p>For example, consider the first patient. We calculated <span class="math inline">\(\Pr(E_1) = 1/2\)</span> in <strong>?@eq-2-1-6</strong>. If <span class="math inline">\(E_1\)</span> occurs, we apply Bayes’ theorem to get</p>
+<p><span id="eq-2-3-6"><span class="math display">\[
+\Pr(B_j \mid E_1) = \frac{\Pr(E_1 \mid B_j)\Pr(B_j)}{1/2} = \frac{2(j-1)}{10 \cdot 11} = \frac{j-1}{55}.
+\tag{6}\]</span></span></p>
+<p>After observing one success, the posterior probabilities of large values of <span class="math inline">\(p\)</span> are higher than their prior probabilities and the posterior probabilities of low values of <span class="math inline">\(p\)</span> are lower than their prior probabilities as we would expect. For example, <span class="math inline">\(\Pr(B_1 \mid E_1) = 0\)</span>, because <span class="math inline">\(p = 0\)</span> is ruled out after one success. Also, <span class="math inline">\(\Pr(B_2 \mid E_1) = 0.0182\)</span>, which is much smaller than its prior value <span class="math inline">\(0.0909\)</span>, and <span class="math inline">\(\Pr(B_{11} \mid E_1) = 0.1818\)</span>, which is larger than its prior value <span class="math inline">\(0.0909\)</span>.</p>
+<p>We could check how the posterior probabilities behave after each patient is observed. However, we shall skip ahead to the point at which all 40 patients in the imipramine column of <strong>?@tbl-2-1</strong> have been observed. Let <span class="math inline">\(A\)</span> stand for the observed event that 22 of them are successes and 18 are failures. We can use the same reasoning as in <strong>?@exm-2-2-5</strong> to compute <span class="math inline">\(\Pr(A \mid B_j)\)</span>. There are <span class="math inline">\(\binom{40}{22}\)</span> possible sequences of 40 patients with 22 successes, and, conditional on <span class="math inline">\(B_j\)</span>, the probability of each sequence is $([j − 1]/10)^{22}(1 − [j − 1]/10)^{18}.</p>
+<p>So,</p>
+<p><span id="eq-2-3-7"><span class="math display">\[
+\Pr(A \mid B_j) = \binom{40}{22}([j-1]/10)^{22}(1 - [j-1]/10)^{18},
+\tag{7}\]</span></span></p>
+<p>for each <span class="math inline">\(j\)</span>. Then Bayes’ theorem tells us that</p>
+<p><span class="math display">\[
+\Pr(B_j \mid A) = \frac{
+    \frac{1}{11}\binom{40}{22}([j-1]/10)^{22}(1 - [j-1]/10)^{18}
+}{
+    \sum_{i=1}^{11}\frac{1}{11}\binom{40}{22}([i-1]/10)^{22}(1 - [i-1]/10)^{18}
+}.
+\]</span></p>
+<p><strong>?@fig-2-3</strong> shows the posterior probabilities of the 11 partition elements after observing <span class="math inline">\(A\)</span>. Notice that the probabilities of <span class="math inline">\(B_6\)</span> and <span class="math inline">\(B_7\)</span> are the highest, <span class="math inline">\(0.42\)</span>. This corresponds to the fact that the proportion of successes in the observed sample is <span class="math inline">\(22/40 = 0.55\)</span>, halfway between <span class="math inline">\((6 − 1)/10\)</span> and <span class="math inline">\((7 − 1)/10\)</span>.</p>
+<p>We can also compute the probability that the next patient will be a success both before the trial and after the 40 patients. Before the trial, <span class="math inline">\(\Pr(E_{41}) = \Pr(E_1)\)</span>, which equals <span class="math inline">\(1/2\)</span>, as computed in <strong>?@eq-2-1-6</strong>. After observing the 40 patients, we can compute <span class="math inline">\(\Pr(E_{41} \mid A)\)</span> using the conditional version of the law of total probability, <strong>?@eq-2-1-5</strong>:</p>
+<p><span id="eq-2-3-8"><span class="math display">\[
+\Pr(E_{41} \mid A) = \sum_{j=1}^{11}\Pr(E_{41} \mid B_j \cap A)\Pr(B_j \mid A).
+\tag{8}\]</span></span></p>
+<p>Using the values of <span class="math inline">\(\Pr(B_j \mid A)\)</span> in <strong>?@fig-2-3</strong> and the fact that <span class="math inline">\(\Pr(E_{41} \mid B_j \cap A) = \Pr(E_{41} \mid B_j) = (j − 1)/10\)</span> (conditional independence of the <span class="math inline">\(E_i\)</span> given the <span class="math inline">\(B_j\)</span>), we compute <a href="#eq-2-3-8">Equation&nbsp;8</a> to be <span class="math inline">\(0.5476\)</span>. This is also very close to the observed frequency of success.</p>
+</div>
+</div>
+</div>
+<p>The calculation at the end of <a href="#exm-2-3-7">Example&nbsp;7</a> is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fig-2-3.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-7">Example&nbsp;7</a>.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fig-2-4.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-8">Example&nbsp;8</a>. The X characters mark the values of the posterior probabilities calculated in <a href="#exm-2-3-7">Example&nbsp;7</a>.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-3-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (Example 2.3.8: The Effect of Prior Probabilities) </strong></span>Consider the same clinical trial as in <a href="#exm-2-3-7">Example&nbsp;7</a>. This time, suppose that a different researcher has a different prior opinion about the value of <span class="math inline">\(p\)</span>, the probability of success. This researcher believes the following prior probabilities:</p>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th><span class="math inline">\(B_1\)</span></th>
+<th><span class="math inline">\(B_2\)</span></th>
+<th><span class="math inline">\(B_3\)</span></th>
+<th><span class="math inline">\(B_4\)</span></th>
+<th><span class="math inline">\(B_5\)</span></th>
+<th><span class="math inline">\(B_6\)</span></th>
+<th><span class="math inline">\(B_7\)</span></th>
+<th><span class="math inline">\(B_8\)</span></th>
+<th><span class="math inline">\(B_9\)</span></th>
+<th><span class="math inline">\(B_{10}\)</span></th>
+<th><span class="math inline">\(B_{11}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p\)</span></td>
+<td>0.0</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.3</td>
+<td>0.4</td>
+<td>0.5</td>
+<td>0.6</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Prior prob.</td>
+<td>0.00</td>
+<td>0.19</td>
+<td>0.19</td>
+<td>0.17</td>
+<td>0.14</td>
+<td>0.11</td>
+<td>0.09</td>
+<td>0.06</td>
+<td>0.04</td>
+<td>0.01</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<p>We can recalculate the posterior probabilities using Bayes’ theorem, and we get the values pictured in <strong>?@fig-2-4</strong>. To aid comparison, the posterior probabilities from <a href="#exm-2-3-7">Example&nbsp;7</a> are also plotted in <strong>?@fig-2-4</strong> using the symbol X. One can see how close the two sets of posterior probabilities are despite the large differences between the prior probabilities. If there had been fewer patients observed, there would have been larger differences between the two sets of posterior probabilites because the observed events would have provided less information. (See <a href="#exr-2-3-12">Exercise&nbsp;12</a> in this section.)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>Bayes’ theorem tells us how to compute the conditional probability of each event in a partition given an observed event <span class="math inline">\(A\)</span>. A major use of partitions is to divide the sample space into small enough pieces so that a collection of events of interest become conditionally independent given each event in the partition.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<div id="exr-2-3-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 2.3.1) </strong></span>Suppose that <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1, \ldots, B_k\)</span> form a partition of the sample space <span class="math inline">\(S\)</span>. For <span class="math inline">\(i = 1, \ldots, k\)</span>, let <span class="math inline">\(\Pr(B_i)\)</span> denote the prior probability of <span class="math inline">\(B_i\)</span>. Also, for each event <span class="math inline">\(A\)</span> such that <span class="math inline">\(\Pr(A) &gt; 0\)</span>, let <span class="math inline">\(\Pr(B_i \mid A)\)</span> denote the posterior probability of <span class="math inline">\(B_i\)</span> given that the event <span class="math inline">\(A\)</span> has occurred. Prove that if <span class="math inline">\(\Pr(B_1 \mid A) &lt; \Pr(B_1)\)</span>, then <span class="math inline">\(\Pr(B_i \mid A) &gt; \Pr(B_i)\)</span> for at least one value of <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 2, \ldots, k\)</span>).</p>
+</div>
+<div id="exr-2-3-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 2.3.2) </strong></span>Consider again the conditions of <a href="#exm-2-3-4">Example&nbsp;4</a> in this section, in which an item was selected at random from a batch of manufactured items and was found to be defective. For which values of <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) is the posterior probability that the item was produced by machine <span class="math inline">\(M_i\)</span> larger than the prior probability that the item was produced by machine <span class="math inline">\(M_i\)</span>?</p>
+</div>
+<div id="exr-2-3-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 2.3.3) </strong></span>Suppose that in <a href="#exm-2-3-4">Example&nbsp;4</a> in this section, the item selected at random from the entire lot is found to be nondefective. Determine the posterior probability that it was produced by machine <span class="math inline">\(M_2\)</span>.</p>
+</div>
+<div id="exr-2-3-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 2.3.4) </strong></span>A new test has been devised for detecting a particular type of cancer. If the test is applied to a person who has this type of cancer, the probability that the person will have a positive reaction is 0.95 and the probability that the person will have a negative reaction is 0.05. If the test is applied to a person who does not have this type of cancer, the probability that the person will have a positive reaction is 0.05 and the probability that the person will have a negative reaction is 0.95. Suppose that in the general population, one person out of every 100,000 people has this type of cancer. If a person selected at random has a positive reaction to the test, what is the probability that he has this type of cancer?</p>
+</div>
+<div id="exr-2-3-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 2.3.5) </strong></span>In a certain city, 30 percent of the people are Conservatives, 50 percent are Liberals, and 20 percent are Independents. Records show that in a particular election, 65 percent of the Conservatives voted, 82 percent of the Liberals voted, and 50 percent of the Independents voted. If a person in the city is selected at random and it is learned that she did not vote in the last election, what is the probability that she is a Liberal?</p>
+</div>
+<div id="exr-2-3-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 2.3.6) </strong></span>Suppose that when a machine is adjusted properly, 50 percent of the items produced by it are of high quality and the other 50 percent are of medium quality. Suppose, however, that the machine is improperly adjusted during 10 percent of the time and that, under these conditions, 25 percent of the items produced by it are of high quality and 75 percent are of medium quality.</p>
+<ol type="a">
+<li>Suppose that five items produced by the machine at a certain time are selected at random and inspected. If four of these items are of high quality and one item is of medium quality, what is the probability that the machine was adjusted properly at that time?</li>
+<li>Suppose that one additional item, which was produced by the machine at the same time as the other five items, is selected and found to be of medium quality. What is the new posterior probability that the machine was adjusted properly?</li>
+</ol>
+</div>
+<div id="exr-2-3-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 2.3.7) </strong></span>Suppose that a box contains five coins and that for each coin there is a different probability that a head will be obtained when the coin is tossed. Let <span class="math inline">\(p_i\)</span> denote the probability of a head when the <span class="math inline">\(i\)</span>th coin is tossed (<span class="math inline">\(i = 1, \ldots, 5\)</span>), and suppose that <span class="math inline">\(p_1 = 0\)</span>, <span class="math inline">\(p_2 = 1/4\)</span>, <span class="math inline">\(p_3 = 1/2\)</span>, <span class="math inline">\(p_4 = 3/4\)</span>, and <span class="math inline">\(p_5 = 1\)</span>.</p>
+<ol type="a">
+<li>Suppose that one coin is selected at random from the box and when it is tossed once, a head is obtained. What is the posterior probability that the <span class="math inline">\(i\)</span>th coin was selected (<span class="math inline">\(i = 1, \ldots, 5\)</span>)?</li>
+<li>If the same coin were tossed again, what would be the probability of obtaining another head?</li>
+<li>If a tail had been obtained on the first toss of the selected coin and the same coin were tossed again, what would be the probability of obtaining a head on the second toss?</li>
+</ol>
+</div>
+<div id="exr-2-3-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 2.3.8) </strong></span>Consider again the box containing the five different coins described in <a href="#exr-2-3-7">Exercise&nbsp;7</a>. Suppose that one coin is selected at random from the box and is tossed repeatedly until a head is obtained. a. If the first head is obtained on the fourth toss, what is the posterior probability that the <span class="math inline">\(i\)</span>th coin was selected (<span class="math inline">\(i = 1, \ldots, 5\)</span>)? b. If we continue to toss the same coin until another head is obtained, what is the probability that exactly three additional tosses will be required?</p>
+</div>
+<div id="exr-2-3-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 2.3.9) </strong></span>Consider again the conditions of <strong>?@exr-2-1-14</strong> in <strong>?@sec-2-1</strong>. Suppose that several parts will be observed and that the different parts are conditionally independent given each of the three states of repair of the machine. If seven parts are observed and exactly one is defective, compute the posterior probabilities of the three states of repair.</p>
+</div>
+<div id="exr-2-3-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 2.3.10) </strong></span>Consider again the conditions of <a href="#exm-2-3-5">Example&nbsp;5</a>, in which the phenotype of an individual was observed and found to be the dominant trait. For which values of <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, \ldots, 6\)</span>) is the posterior probability that the parents have the genotypes of event <span class="math inline">\(B_i\)</span> smaller than the prior probability that the parents have the genotyes of event <span class="math inline">\(B_i\)</span>?</p>
+</div>
+<div id="exr-2-3-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 2.3.11) </strong></span>Suppose that in <a href="#exm-2-3-5">Example&nbsp;5</a> the observed individual has the recessive trait. Determine the posterior probability that the parents have the genotypes of event <span class="math inline">\(B_4\)</span>.</p>
+</div>
+<div id="exr-2-3-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12 (Exercise 2.3.12) </strong></span>In the clinical trial in Examples <a href="#exm-2-3-7">7</a> and <a href="#exm-2-3-8">8</a>, suppose that we have only observed the first five patients and three of the five had been successes. Use the two different sets of prior probabilities from Examples <a href="#exm-2-3-7">7</a> and <a href="#exm-2-3-8">8</a> to calculate two sets of posterior probabilities. Are these two sets of posterior probabilities as close to each other as were the two in Examples <a href="#exm-2-3-7">7</a> and <a href="#exm-2-3-8">8</a>? Why or why not?</p>
+</div>
+<div id="exr-2-3-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13 (Exercise 2.3.13) </strong></span>Suppose that a box contains one fair coin and one coin with a head on each side. Suppose that a coin is drawn at random from this box and that we begin to flip the coin. In <a href="#eq-2-3-4">Equation&nbsp;4</a> and <a href="#eq-2-3-5">Equation&nbsp;5</a>, we computed the conditional probability that the coin was fair given that the first two flips both produce heads.</p>
+<ol type="a">
+<li>Suppose that the coin is flipped a third time and another head is obtained. Compute the probability that the coin is fair given that all three flips produced heads.</li>
+<li>Suppose that the coin is flipped a fourth time and the result is tails. Compute the posterior probability that the coin is fair.</li>
+</ol>
+</div>
+<div id="exr-2-3-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14 (Exercise 2.3.14) </strong></span>Consider again the conditions of <strong>?@exr-2-2-23</strong> in <strong>?@sec-2-2</strong>. Assume that <span class="math inline">\(\Pr(B) = 0.4\)</span>. Let <span class="math inline">\(A\)</span> be the event that exactly 8 out of 11 programs compiled. Compute the conditional probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span>.</p>
+</div>
+<div id="exr-2-3-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 15 (Exercise 2.3.15) </strong></span>Use the prior probabilities in <a href="#exm-2-3-8">Example&nbsp;8</a> for the events <span class="math inline">\(B_1, \ldots, B_{11}\)</span>. Let <span class="math inline">\(E_1\)</span> be the event that the first patient is a success. Compute the probability of <span class="math inline">\(E_1\)</span> and explain why it is so much less than the value computed in <a href="#exm-2-3-7">Example&nbsp;7</a>.</p>
+</div>
+<div id="exr-2-3-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16 (Exercise 2.3.16) </strong></span>Consider a machine that produces items in sequence. Under normal operating conditions, the items are independent with probability 0.01 of being defective. However, it is possible for the machine to develop a “memory” in the following sense: After each defective item, and independent of anything that happened earlier, the probability that the next item is defective is <span class="math inline">\(2/5\)</span>. After each nondefective item, and independent of anything that happened earlier, the probability that the next item is defective is <span class="math inline">\(1/165\)</span>.</p>
+<p>Assume that the machine is either operating normally for the whole time we observe or has a memory for the whole time that we observe. Let <span class="math inline">\(B\)</span> be the event that the machine is operating normally, and assume that <span class="math inline">\(\Pr(B) = 2/3\)</span>. Let <span class="math inline">\(D_i\)</span> be the event that the <span class="math inline">\(i\)</span>th item inspected is defective. Assume that <span class="math inline">\(D_1\)</span> is independent of <span class="math inline">\(B\)</span>.</p>
+<ol type="a">
+<li>Prove that <span class="math inline">\(\Pr(D_i) = 0.01\)</span> for all <span class="math inline">\(i\)</span>. <em>Hint</em>: Use induction.</li>
+<li>Assume that we observe the first six items and the event that occurs is <span class="math inline">\(E = D_1^c \cap D_2^c \cap D_3 \cap D_4 \cap D_5^c \cap D_6^c\)</span>. That is, the third and fourth items are defective, but the other four are not. Compute <span class="math inline">\(\Pr(B \mid D)\)</span>.</li>
+</ol>
+</div>
 </section>
 </section>
 

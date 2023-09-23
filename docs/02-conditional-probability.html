@@ -235,13 +235,18 @@ div.csl-indent {
   <li><a href="#sec-2-3" id="toc-sec-2-3" class="nav-link" data-scroll-target="#sec-2-3"><span class="header-section-number">2.3</span> Bayes’ Theorem</a>
   <ul class="collapse">
   <li><a href="#statement-and-examples-of-bayes-theorem" id="toc-statement-and-examples-of-bayes-theorem" class="nav-link" data-scroll-target="#statement-and-examples-of-bayes-theorem"><span class="header-section-number">2.3.1</span> Statement, , and Examples of Bayes’ Theorem</a></li>
-  <li><a href="#prior-and-posterior" id="toc-prior-and-posterior" class="nav-link" data-scroll-target="#prior-and-posterior"><span class="header-section-number">2.3.2</span> prior and Posterior </a></li>
+  <li><a href="#prior-and-posterior" id="toc-prior-and-posterior" class="nav-link" data-scroll-target="#prior-and-posterior"><span class="header-section-number">2.3.2</span> Prior and Posterior </a></li>
   <li><a href="#computation-of-posterior-in-more-than-one-stage" id="toc-computation-of-posterior-in-more-than-one-stage" class="nav-link" data-scroll-target="#computation-of-posterior-in-more-than-one-stage"><span class="header-section-number">2.3.3</span> Computation of Posterior in More Than One Stage</a></li>
   <li><a href="#conditionally-independent-events-1" id="toc-conditionally-independent-events-1" class="nav-link" data-scroll-target="#conditionally-independent-events-1"><span class="header-section-number">2.3.4</span> Conditionally Independent Events</a></li>
+  <li><a href="#summary-2" id="toc-summary-2" class="nav-link" data-scroll-target="#summary-2"><span class="header-section-number">2.3.5</span> Summary</a></li>
+  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">2.3.6</span> Exercises</a></li>
   </ul></li>
   <li><a href="#sec-2-4" id="toc-sec-2-4" class="nav-link" data-scroll-target="#sec-2-4"><span class="header-section-number">2.4</span> The Gambler’s Ruin Problem</a>
   <ul class="collapse">
   <li><a href="#statement-of-the-problem" id="toc-statement-of-the-problem" class="nav-link" data-scroll-target="#statement-of-the-problem"><span class="header-section-number">2.4.1</span> Statement of the Problem</a></li>
+  <li><a href="#solution-of-the-problem" id="toc-solution-of-the-problem" class="nav-link" data-scroll-target="#solution-of-the-problem"><span class="header-section-number">2.4.2</span> Solution of the Problem</a></li>
+  <li><a href="#summary-3" id="toc-summary-3" class="nav-link" data-scroll-target="#summary-3"><span class="header-section-number">2.4.3</span> Summary</a></li>
+  <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3"><span class="header-section-number">2.4.4</span> Exercises</a></li>
   </ul></li>
   <li><a href="#sec-2-5" id="toc-sec-2-5" class="nav-link" data-scroll-target="#sec-2-5"><span class="header-section-number">2.5</span> Supplementary Exercises</a></li>
   </ul>
@@ -1245,7 +1250,7 @@ Note
 </div>
 </div>
 </div>
-<p><a href="#def-2-2-3">Definition&nbsp;<span>2.6</span></a> is identical to <a href="#def-2-2-2">Definition&nbsp;<span>2.5</span></a> for independent events with the modification that <strong>all</strong> probabilities in the definition are now conditional on <span class="math inline">\(B\)</span>. As a note, even if we assume that events <span class="math inline">\(A_1, \ldots, A_k\)</span> are conditionally independent given <span class="math inline">\(B\)</span>, it is not necessary that they be conditionally independent given <span class="math inline">\(B^c\)</span>. In <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a>, the events <span class="math inline">\(D_1, D_2, \ldots\)</span> were conditionally independent given both <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2 = B_1^c\)</span>, which is the typical situation. <span class="quarto-unresolved-ref">?exr-2-3-16</span> in <a href="#sec-2-3"><span>Section&nbsp;2.3</span></a> is an example in which events are conditionally independent given one event <span class="math inline">\(B\)</span> but are not conditionally independent given the complement <span class="math inline">\(B^c\)</span>.</p>
+<p><a href="#def-2-2-3">Definition&nbsp;<span>2.6</span></a> is identical to <a href="#def-2-2-2">Definition&nbsp;<span>2.5</span></a> for independent events with the modification that <strong>all</strong> probabilities in the definition are now conditional on <span class="math inline">\(B\)</span>. As a note, even if we assume that events <span class="math inline">\(A_1, \ldots, A_k\)</span> are conditionally independent given <span class="math inline">\(B\)</span>, it is not necessary that they be conditionally independent given <span class="math inline">\(B^c\)</span>. In <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a>, the events <span class="math inline">\(D_1, D_2, \ldots\)</span> were conditionally independent given both <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2 = B_1^c\)</span>, which is the typical situation. <a href="#exr-2-3-16">Exercise&nbsp;<span>2.57</span></a> in <a href="#sec-2-3"><span>Section&nbsp;2.3</span></a> is an example in which events are conditionally independent given one event <span class="math inline">\(B\)</span> but are not conditionally independent given the complement <span class="math inline">\(B^c\)</span>.</p>
 <p>Recall that two events <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> (with <span class="math inline">\(\Pr(A_1) &gt; 0\)</span>) are independent if and only if <span class="math inline">\(\Pr(A_2 \mid A_1) = \Pr(A_2)\)</span>. A similar result holds for conditionally independent events.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1601,9 +1606,9 @@ Tip
 \tag{2.10}\]</span></span></p>
 </section>
 <section id="prior-and-posterior" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="prior-and-posterior"><span class="header-section-number">2.3.2</span> prior and Posterior </h3>
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="prior-and-posterior"><span class="header-section-number">2.3.2</span> Prior and Posterior </h3>
 <p>In <a href="#exm-2-3-4">Example&nbsp;<span>2.27</span></a>, a probability like <span class="math inline">\(\Pr(B_2)\)</span> is often called the <strong>prior probability</strong> that the selected item will have been by machine <span class="math inline">\(M_2\)</span>, because <span class="math inline">\(\Pr(B_2)\)</span> is the probability of this event before the item is selected and before it is known whether the selected item is defective or nondefective. A probability like <span class="math inline">\(\Pr(B_2 \mid A)\)</span> is then called the <strong>posterior probability</strong> that the selected item was by machine <span class="math inline">\(M_2\)</span>, because it is the probability of this event after it is known that the selected item is defective.</p>
-<p>Thus, in <a href="#exm-2-3-4">Example&nbsp;<span>2.27</span></a>, the prior probability that the selected item will have been by machine <span class="math inline">\(M_2\)</span> is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was by machine <span class="math inline">\(M_2\)</span> is 0.26. Since this posterior probability is smaller than the prior probability that the item was by machine <span class="math inline">\(M_2\)</span>, the posterior probability that the item was by one of the other machines must be larger than the prior probability that it was by one of those machines (see Exercises <span class="quarto-unresolved-ref">?exr-2-3-1</span> and <span class="quarto-unresolved-ref">?exr-2-3-2</span> at the end of this section).</p>
+<p>Thus, in <a href="#exm-2-3-4">Example&nbsp;<span>2.27</span></a>, the prior probability that the selected item will have been by machine <span class="math inline">\(M_2\)</span> is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was by machine <span class="math inline">\(M_2\)</span> is 0.26. Since this posterior probability is smaller than the prior probability that the item was by machine <span class="math inline">\(M_2\)</span>, the posterior probability that the item was by one of the other machines must be larger than the prior probability that it was by one of those machines (see Exercises <a href="#exr-2-3-1"><span>2.42</span></a> and <a href="#exr-2-3-2"><span>2.43</span></a> at the end of this section).</p>
 </section>
 <section id="computation-of-posterior-in-more-than-one-stage" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="computation-of-posterior-in-more-than-one-stage"><span class="header-section-number">2.3.3</span> Computation of Posterior in More Than One Stage</h3>
@@ -1627,17 +1632,247 @@ Tip
 <p>The second way of determining this same posterior probability is to use the conditional version of Bayes’ theorem (<span class="quarto-unresolved-ref">?thm-2-3-2</span>) given the event <span class="math inline">\(H_1\)</span>. Given <span class="math inline">\(H_1\)</span>, the conditional probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(1/3\)</span>, and the conditional probability of <span class="math inline">\(B_2\)</span> is therefore <span class="math inline">\(2/3\)</span>. These conditional can now serve as the prior for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply <a href="#eq-2-3-2">Equation&nbsp;<span>2.10</span></a> with <span class="math inline">\(C = H_1\)</span>, <span class="math inline">\(\Pr(B_1 \mid H_1) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_2 \mid H_1) = 2/3\)</span>. We can then compute the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need <span class="math inline">\(\Pr(H_2 \mid B_1 \cap H_1)\)</span>, which equals <span class="math inline">\(\Pr(H_2 \mid B_1) = 1/2\)</span> by <a href="#thm-2-2-4">Theorem&nbsp;<span>2.8</span></a> since <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span> are conditionally independent given <span class="math inline">\(B_1\)</span>. Since the coin is two-headed when <span class="math inline">\(B_2\)</span> occurs, <span class="math inline">\(\Pr(H_2 \mid B_2 \cap H_1) = 1\)</span>. So we obtain</p>
 <p><span id="eq-2-3-5"><span class="math display">\[
 \begin{align*}
-\Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{\Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1)}{\Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1) + \Pr(B_2 \mid H_1) \Pr(H_2 \mid B_2 \cap H_1) \\
+\Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{
+    \Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1)
+}{
+    \Pr(B_1 \mid H_1) \Pr(H_2 \mid B_1 \cap H_1) + \Pr(B_2 \mid H_1) \Pr(H_2 \mid B_2 \cap H_1)
+} \\
 &amp;= \frac{(1/3)(1/2)}{(1/3)(1/2) + (2/3)(1)} = \frac{1}{5}
+\end{align*}
 \tag{2.13}\]</span></span></p>
 <p>The posterior probability of the event <span class="math inline">\(B_1\)</span> obtained in the second way is the same as that obtained in the first way. We can make the following general statement: If an experiment is carried out in more than one stage, then the posterior probability of every event can also be calculated in more than one stage. After each stage has been carried out, the posterior probability calculated for the event after that stage serves as the prior probability for the next stage. The reader should look back at <a href="#eq-2-3-2">Equation&nbsp;<span>2.10</span></a> to see that this interpretation is precisely what the conditional version of Bayes’ theorem says. The example we have been doing with coin tossing is typical of many applications of Bayes’ theorem and its conditional version because we are assuming that the observable events are conditionally independent given each element of the partition <span class="math inline">\(B_1, \ldots, B_k\)</span> (in this case, <span class="math inline">\(k = 2\)</span>). The conditional independence makes the probability of <span class="math inline">\(H_i\)</span> (head on <span class="math inline">\(i\)</span>th toss) given <span class="math inline">\(B_1\)</span> (or given <span class="math inline">\(B_2\)</span>) the same whether or not we also condition on earlier tosses (see <a href="#thm-2-2-4">Theorem&nbsp;<span>2.8</span></a>).</p>
 </section>
 <section id="conditionally-independent-events-1" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="conditionally-independent-events-1"><span class="header-section-number">2.3.4</span> Conditionally Independent Events</h3>
 <!-- Stopping point 2023-09-09 -->
-<p>The calculations that led to (2.3.3) and (2.3.5) together with Example 2.2.10 illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to Eq. (2.3.3), before any tosses occur, the probability of H2 is the same as the probability of H_1, namely, the 82 Chapter 2 Conditional probability denominator of (2.3.3), 3/4, as Theorem 2.1.4 says. However, after observing that the event H_1 occurs, the probability of H2 is (H2|H_1), which is the denominator of (2.3.5), 5/6, as computed by the conditional version of the law of total probability (2.1.5). Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the , so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint of various combinations of events conditionally on the partition events. Finally, we can combine these using Theorem 2.1.4 and (2.1.5). Two more examples will help to illustrate these ideas. Example 2.3.6 Learning about a . In Example 2.2.10 on page 72, a machine defective parts in one of two , p = 0.01 or p = 0.4. Suppose that the prior probability that p = 0.01 is 0.9. After sampling six parts at random, suppose that we observe two defectives. What is the posterior probability that p = 0.01? Let B1 = {p = 0.01} and B2 = {p = 0.4} as in Example 2.2.10. Let A be the event that two defectives occur in a random sample of size six. The prior probability of B1 is 0.9, and the prior probability of B2 is 0.1. We already computed (A|B1) = 1.44 × 10−3 and (A|B2) = 0.311 in Example 2.2.10. Bayes’ theorem tells us that Pr(B1|A) = 0.9 × 1.44 × 10−3 0.9 × 1.44 × 10−3 + 0.1× 0.311 = 0.04. Even though we thought originally that B1 had probability as high as 0.9, after we learned that there were two defective items in a sample as small as six, we changed our minds dramatically and now we believe that B1 has probability as small as 0.04. The reason for this major change is that the event A that occurred has much higher probability if B2 is true than if B1 is true.   Example 2.3.7 A Clinical Trial. Consider the same clinical trial described in Examples 2.1.12 and 2.1.13. Let Ei be the event that the ith patient has success as her outcome. Recall that Bj is the event that p = (j − 1)/10 for j = 1, . . . , 11, where p is the of successes among all possible patients. If we knew which Bj occurred, we would say that E1, E2, . . . were independent. That is, we are willing to model the patients as conditionally independent given each event Bj , and we set (Ei |Bj ) = (j − 1)/10 for all i, j . We shall still assume that (Bj ) = 1/11 for all j prior to the start of the trial.We are now in position to express what we learn about p by computing posterior probabilities for the Bj events after each patient finishes the trial. For example, consider the first patient. We calculated (E1) = 1/2 in (2.1.6). If E1 occurs, we apply Bayes’ theorem to get Pr(Bj |E1) = Pr(E1|Bj ) (Bj ) 1/2 = 2(j − 1) 10 × 11 = j − 1 55 . (2.3.6) After observing one success, the posterior of large values of p are higher than their prior and the posterior of low values of p are lower than their prior as we would expect. For example, (B1|E1) = 0, because p = 0 is ruled out after one success. Also, (B2|E1) = 0.0182, which is much smaller than its prior value 0.0909, and (B11|E1) = 0.1818, which is larger than its prior value 0.0909. 2.3 Bayes’ Theorem 83 0.1 0.4 0.5 0.3 0.2 0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 Figure 2.3 The posterior of partition elements after 40 patients in Example 2.3.7. We could check how the posterior behave after each patient is observed. However, we shall skip ahead to the point at which all 40 patients in the imipramine column of Table 2.1 have been observed. Let A stand for the observed event that 22 of them are successes and 18 are failures.We can use the same reasoning as in Example 2.2.5 to compute (A|Bj ). There are  40 22   possible sequences of 40 patients with 22 successes, and, conditional on Bj , the probability of each sequence is ([j − 1]/10)22(1− [j − 1]/10)18. So, Pr(A|Bj ) =</p>
-<p>40 22   ([j − 1]/10)22(1− [j − 1]/10)18, (2.3.7) for each j . Then Bayes’ theorem tells us that Pr(Bj |A) = 1 11  40 22   ([j − 1]/10)22(1− [j − 1]/10)18  11 i=1 1 11  40 22   ([i − 1]/10)22(1− [i − 1]/10)18 . Figure 2.3 shows the posterior of the 11 partition elements after observingA. Notice that the ofB6 andB7 are the highest, 0.42.This corresponds to the fact that the of successes in the observed sample is 22/40 = 0.55, halfway between (6 − 1)/10 and (7 − 1)/10. We can also compute the probability that the next patient will be a success both before the trial and after the 40 patients. Before the trial, (E41) = (E1), which equals 1/2, as computed in (2.1.6). After observing the 40 patients, we can compute Pr(E41|A) using the conditional version of the law of total probability, (2.1.5): Pr(E41|A) =  11 j=1 Pr(E41|Bj A) (Bj |A). (2.3.8) Using the values of (Bj |A) in Fig. 2.3 and the fact that (E41|Bj A) = (E41|Bj ) = (j − 1)/10 (conditional independence of the Ei given the Bj ), we compute (2.3.8) to be 0.5476. This is also very close to the observed frequency of success.   The calculation at the end of Example 2.3.7 is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.</p>
-<p>0.1 0.4 0.5 0.3 0.2 0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 X X X X X X X X X X X Figure 2.4 The posterior of partition elements after 40 patients in Example 2.3.8. The X characters mark the values of the posterior calculated in Example 2.3.7. Example 2.3.8 The Effect of prior . Consider the same clinical trial as in Example 2.3.7. This time, suppose that a different researcher has a different prior opinion about the value of p, the probability of success. This researcher believes the following prior probabilities: Event B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 p 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 Prior . 0.00 0.19 0.19 0.17 0.14 0.11 0.09 0.06 0.04 0.01 0.00 We can recalculate the posterior using Bayes’ theorem, and we get the values pictured in Fig. 2.4. To aid comparison, the posterior from Example 2.3.7 are also plotted in Fig. 2.4 using the symbol X. One can see how close the two sets of posterior are despite the large differences between the prior . If there had been fewer patients observed, there would have been larger differences between the two sets of posterior because the observed events would have less information. (See Exercise 12 in this section.)   Summary Bayes’ theorem tells us how to compute the conditional probability of each event in a partition given an observed event A.Amajor use of partitions is to divide the sample space into small enough pieces so that a collection of events of interest become conditionally independent given each event in the partition. Exercises 1. Suppose that k events B1, . . . , Bk form a partition of the sample space S. For i = 1, . . . , k, let (Bi) denote the prior probability of Bi . Also, for each event A such that Pr(A) &gt; 0, let (Bi |A) denote the posterior probability of Bi given that the event A has occurred. that if Pr(B1|A) &lt; (B1), then (Bi |A) &gt; (Bi) for at least one value of i (i = 2, . . . , k). 2.3 Bayes’ Theorem 85 2. Consider again the conditions of Example 2.3.4 in this section, in which an item was selected at random from a batch of manufactured items and was found to be defective. For which values of i (i = 1, 2, 3) is the posterior probability that the item was by machine Mi larger than the prior probability that the item was by machine Mi? 3. Suppose that in Example 2.3.4 in this section, the item selected at random from the entire lot is found to be nondefective. Determine the posterior probability that it was produced by machine M2. 4. A new test has been devised for detecting a particular type of cancer. If the test is applied to a person who has this type of cancer, the probability that the person will have a positive reaction is 0.95 and the probability that the person will have a negative reaction is 0.05. If the test is applied to a person who does not have this type of cancer, the probability that the person will have a positive reaction is 0.05 and the probability that the person will have a negative reaction is 0.95. Suppose that in the general population, one person out of every 100,000 people has this type of cancer. If a person selected at random has a positive reaction to the test, what is the probability that he has this type of cancer? 5. In a certain city, 30 percent of the people are Conservatives, 50 percent are Liberals, and 20 percent are Independents. Records show that in a particular election, 65 percent of the Conservatives voted, 82 percent of the Liberals voted, and 50 percent of the Independents voted. If a person in the city is selected at random and it is learned that she did not vote in the last election, what is the probability that she is a Liberal? 6. Suppose that when a machine is adjusted , 50 percent of the items by it are of high quality and the other 50 percent are of medium quality. Suppose, however, that the machine is improperly adjusted during 10 percent of the time and that, under these conditions, 25 percent of the items by it are of high quality and 75 percent are of medium quality. a. Suppose that five items by the machine at a certain time are selected at random and inspected. If four of these items are of high quality and one item is of medium quality, what is the probability that the machine was adjusted at that time? b. Suppose that one additional item, which was by the machine at the same time as the other five items, is selected and found to be of medium quality. What is the new posterior probability that the machine was adjusted ? 7. Suppose that a box contains five coins and that for each coin there is a different probability that a head will be obtained when the coin is tossed. Let pi denote the probability of a head when the ith coin is tossed (i = 1, . . . , 5), and suppose that p1 = 0, p2 = 1/4, p3 = 1/2, p4 = 3/4, and p5 = 1. a. Suppose that one coin is selected at random from the box and when it is tossed once, a head is obtained. What is the posterior probability that the ith coin was selected (i = 1, . . . , 5)? b. If the same coin were tossed again, what would be the probability of obtaining another head? c.&nbsp;If a tail had been obtained on the first toss of the selected coin and the same coin were tossed again, what would be the probability of obtaining a head on the second toss? 8. Consider again the box containing the five different coins described in Exercise 7. Suppose that one coin is selected at random from the box and is tossed repeatedly until a head is obtained. a. If the first head is obtained on the fourth toss, what is the posterior probability that the ith coin was selected (i = 1, . . . , 5)? b. If we continue to toss the same coin until another head is obtained, what is the probability that exactly three additional tosses will be required? 9. Consider again the conditions of Exercise 14 in Sec. 2.1. Suppose that several parts will be observed and that the different parts are conditionally independent given each of the three states of repair of the machine. If seven parts are observed and exactly one is defective, compute the posterior of the three states of repair. 10. Consider again the conditions of Example 2.3.5, in which the phenotype of an individual was observed and found to be the dominant trait. For which values of i (i = 1, . . . , 6) is the posterior probability that the parents have the genotypes of event Bi smaller than the prior probability that the parents have the genotyes of event Bi? 11. Suppose that in Example 2.3.5 the observed individual has the recessive trait. Determine the posterior probability that the parents have the genotypes of event B4. 12. In the clinical trial in Examples 2.3.7 and 2.3.8, suppose that we have only observed the first five patients and three of the five had been successes. Use the two different sets of prior from Examples 2.3.7 and 2.3.8 to calculate two sets of posterior . Are these two sets of posterior as close to each other as were the two in Examples 2.3.7 and 2.3.8?Why or why not? 13. Suppose that a box contains one fair coin and one coin with a head on each side. Suppose that a coin is drawn at random from this box and that we begin to flip the coin. In Eqs. (2.3.4) and (2.3.5), we computed the conditional 86 Chapter 2 Conditional probability probability that the coin was fair given that the first two flips both heads. a. Suppose that the coin is flipped a third time and another head is obtained. Compute the probability that the coin is fair given that all three flips heads. b. Suppose that the coin is flipped a fourth time and the result is tails. Compute the posterior probability that the coin is fair. 14. Consider again the conditions of Exercise 23 in Sec. 2.2. Assume that (B) = 0.4. Let A be the event that exactly 8 out of 11 compiled. Compute the conditional probability of B given A. 15. Use the prior in Example 2.3.8 for the events B1, . . . , B11. Let E1 be the event that the first patient is a success. Compute the probability of E1 and explain why it is so much less than the value computed in Example 2.3.7. 16. Consider a machine that items in sequence. Under normal operating conditions, the items are independent with probability 0.01 of being defective. However, it is possible for the machine to develop a “memory” in the following sense: After each defective item, and independent of anything that happened earlier, the probability that the next item is defective is 2/5. After each nondefective item, and independent of anything that happened earlier, the probability that the next item is defective is 1/165. Assume that the machine is either operating normally for the whole time we observe or has a memory for the whole time that we observe. Let B be the event that the machine is operating normally, and assume that (B) = 2/3. Let Di be the event that the ith item inspected is defective. Assume that D1 is independent of B. a. that (Di) = 0.01 for all i. Hint: Use induction. b. Assume that we observe the first six items and the event that occurs is E = Dc1 Dc2 D3 D4 Dc5 Dc6 . That is, the third and fourth items are defective, but the other four are not. Compute (B|D).</p>
+<p>The calculations that led to <a href="#eq-2-3-3">Equation&nbsp;<span>2.11</span></a> and <a href="#eq-2-3-5">Equation&nbsp;<span>2.13</span></a> together with <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a> illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the probabilities that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to <a href="#eq-2-3-3">Equation&nbsp;<span>2.11</span></a>, before any tosses occur, the probability of <span class="math inline">\(H_2\)</span> is the same as the probability of <span class="math inline">\(H_1\)</span>, namely, the denominator of <a href="#eq-2-3-3">Equation&nbsp;<span>2.11</span></a>, <span class="math inline">\(3/4\)</span>, as <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a> says. However, after observing that the event <span class="math inline">\(H_1\)</span> occurs, the probability of <span class="math inline">\(H_2\)</span> is <span class="math inline">\(\Pr(H_2 \mid H_1)\)</span>, which is the denominator of <a href="#eq-2-3-5">Equation&nbsp;<span>2.13</span></a>, <span class="math inline">\(5/6\)</span>, as computed by the conditional version of the law of total probability <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>. Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the problem, so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint probabilities of various combinations of events conditionally on the partition events. Finally, we can combine these probabilities using <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a> and <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>. Two more examples will help to illustrate these ideas.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-3-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.29 (Example 2.3.6: Learning about a Proportion) </strong></span>In <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a>, a machine produced defective parts in one of two proportions, <span class="math inline">\(p = 0.01\)</span> or <span class="math inline">\(p = 0.4\)</span>. Suppose that the prior probability that <span class="math inline">\(p = 0.01\)</span> is <span class="math inline">\(0.9\)</span>. After sampling six parts at random, suppose that we observe two defectives. What is the posterior probability that <span class="math inline">\(p = 0.01\)</span>?</p>
+<p>Let <span class="math inline">\(B_1 = \{p = 0.01\}\)</span> and <span class="math inline">\(B_2 = \{p = 0.4\}\)</span> as in <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a>. Let <span class="math inline">\(A\)</span> be the event that two defectives occur in a random sample of size six. The prior probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(0.9\)</span>, and the prior probability of <span class="math inline">\(B_2\)</span> is <span class="math inline">\(0.1\)</span>. We already computed <span class="math inline">\(\Pr(A \mid B_1) = 1.44 \times 10^{−3}\)</span> and <span class="math inline">\(\Pr(A \mid B_2) = 0.311\)</span> in <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a>. Bayes’ theorem tells us that</p>
+<p><span class="math display">\[
+\Pr(B_1 \mid A) = \frac{
+    0.9 \times 1.44 \times 10^{-3}
+}{
+    0.9 \times 1.44 \times 10^{-3} + 0.1 \times 0.311
+} = 0.04.
+\]</span></p>
+<p>Even though we thought originally that <span class="math inline">\(B_1\)</span> had probability as high as <span class="math inline">\(0.9\)</span>, after we learned that there were two defective items in a sample as small as six, we changed our minds dramatically and now we believe that <span class="math inline">\(B_1\)</span> has probability as small as <span class="math inline">\(0.04\)</span>. The reason for this major change is that the event <span class="math inline">\(A\)</span> that occurred has much higher probability if <span class="math inline">\(B_2\)</span> is true than if <span class="math inline">\(B_1\)</span> is true.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-3-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.30 (Example 2.3.7: A Clinical Trial) </strong></span>Consider the same clinical trial described in Examples <a href="#exm-2-1-12"><span>2.12</span></a> and <a href="#exm-2-1-13"><span>2.13</span></a>. Let <span class="math inline">\(E_i\)</span> be the event that the <span class="math inline">\(i\)</span>th patient has success as her outcome. Recall that <span class="math inline">\(B_j\)</span> is the event that <span class="math inline">\(p = (j − 1)/10\)</span> for <span class="math inline">\(j = 1, \ldots, 11\)</span>, where <span class="math inline">\(p\)</span> is the proportion of successes among all possible patients. If we knew which <span class="math inline">\(B_j\)</span> occurred, we would say that <span class="math inline">\(E_1, E_2, \ldots\)</span> were independent. That is, we are willing to model the patients as conditionally independent given each event <span class="math inline">\(B_j\)</span>, and we set <span class="math inline">\(\Pr(E_i \mid B_j) = (j − 1)/10\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>. We shall still assume that <span class="math inline">\(\Pr(B_j) = 1/11\)</span> for all <span class="math inline">\(j\)</span> prior to the start of the trial. We are now in position to express what we learn about <span class="math inline">\(p\)</span> by computing posterior probabilities for the <span class="math inline">\(B_j\)</span> events after each patient finishes the trial.</p>
+<p>For example, consider the first patient. We calculated <span class="math inline">\(\Pr(E_1) = 1/2\)</span> in <span class="quarto-unresolved-ref">?eq-2-1-6</span>. If <span class="math inline">\(E_1\)</span> occurs, we apply Bayes’ theorem to get</p>
+<p><span id="eq-2-3-6"><span class="math display">\[
+\Pr(B_j \mid E_1) = \frac{\Pr(E_1 \mid B_j)\Pr(B_j)}{1/2} = \frac{2(j-1)}{10 \cdot 11} = \frac{j-1}{55}.
+\tag{2.14}\]</span></span></p>
+<p>After observing one success, the posterior probabilities of large values of <span class="math inline">\(p\)</span> are higher than their prior probabilities and the posterior probabilities of low values of <span class="math inline">\(p\)</span> are lower than their prior probabilities as we would expect. For example, <span class="math inline">\(\Pr(B_1 \mid E_1) = 0\)</span>, because <span class="math inline">\(p = 0\)</span> is ruled out after one success. Also, <span class="math inline">\(\Pr(B_2 \mid E_1) = 0.0182\)</span>, which is much smaller than its prior value <span class="math inline">\(0.0909\)</span>, and <span class="math inline">\(\Pr(B_{11} \mid E_1) = 0.1818\)</span>, which is larger than its prior value <span class="math inline">\(0.0909\)</span>.</p>
+<p>We could check how the posterior probabilities behave after each patient is observed. However, we shall skip ahead to the point at which all 40 patients in the imipramine column of <a href="#tbl-2-1">Table&nbsp;<span>2.1</span></a> have been observed. Let <span class="math inline">\(A\)</span> stand for the observed event that 22 of them are successes and 18 are failures. We can use the same reasoning as in <a href="#exm-2-2-5">Example&nbsp;<span>2.18</span></a> to compute <span class="math inline">\(\Pr(A \mid B_j)\)</span>. There are <span class="math inline">\(\binom{40}{22}\)</span> possible sequences of 40 patients with 22 successes, and, conditional on <span class="math inline">\(B_j\)</span>, the probability of each sequence is $([j − 1]/10)^{22}(1 − [j − 1]/10)^{18}.</p>
+<p>So,</p>
+<p><span id="eq-2-3-7"><span class="math display">\[
+\Pr(A \mid B_j) = \binom{40}{22}([j-1]/10)^{22}(1 - [j-1]/10)^{18},
+\tag{2.15}\]</span></span></p>
+<p>for each <span class="math inline">\(j\)</span>. Then Bayes’ theorem tells us that</p>
+<p><span class="math display">\[
+\Pr(B_j \mid A) = \frac{
+    \frac{1}{11}\binom{40}{22}([j-1]/10)^{22}(1 - [j-1]/10)^{18}
+}{
+    \sum_{i=1}^{11}\frac{1}{11}\binom{40}{22}([i-1]/10)^{22}(1 - [i-1]/10)^{18}
+}.
+\]</span></p>
+<p><span class="quarto-unresolved-ref">?fig-2-3</span> shows the posterior probabilities of the 11 partition elements after observing <span class="math inline">\(A\)</span>. Notice that the probabilities of <span class="math inline">\(B_6\)</span> and <span class="math inline">\(B_7\)</span> are the highest, <span class="math inline">\(0.42\)</span>. This corresponds to the fact that the proportion of successes in the observed sample is <span class="math inline">\(22/40 = 0.55\)</span>, halfway between <span class="math inline">\((6 − 1)/10\)</span> and <span class="math inline">\((7 − 1)/10\)</span>.</p>
+<p>We can also compute the probability that the next patient will be a success both before the trial and after the 40 patients. Before the trial, <span class="math inline">\(\Pr(E_{41}) = \Pr(E_1)\)</span>, which equals <span class="math inline">\(1/2\)</span>, as computed in <span class="quarto-unresolved-ref">?eq-2-1-6</span>. After observing the 40 patients, we can compute <span class="math inline">\(\Pr(E_{41} \mid A)\)</span> using the conditional version of the law of total probability, <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>:</p>
+<p><span id="eq-2-3-8"><span class="math display">\[
+\Pr(E_{41} \mid A) = \sum_{j=1}^{11}\Pr(E_{41} \mid B_j \cap A)\Pr(B_j \mid A).
+\tag{2.16}\]</span></span></p>
+<p>Using the values of <span class="math inline">\(\Pr(B_j \mid A)\)</span> in <span class="quarto-unresolved-ref">?fig-2-3</span> and the fact that <span class="math inline">\(\Pr(E_{41} \mid B_j \cap A) = \Pr(E_{41} \mid B_j) = (j − 1)/10\)</span> (conditional independence of the <span class="math inline">\(E_i\)</span> given the <span class="math inline">\(B_j\)</span>), we compute <a href="#eq-2-3-8">Equation&nbsp;<span>2.16</span></a> to be <span class="math inline">\(0.5476\)</span>. This is also very close to the observed frequency of success.</p>
+</div>
+</div>
+</div>
+<p>The calculation at the end of <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a> is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fig-2-3.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fig-2-4.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-8">Example&nbsp;<span>2.31</span></a>. The X characters mark the values of the posterior probabilities calculated in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-3-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.31 (Example 2.3.8: The Effect of Prior Probabilities) </strong></span>Consider the same clinical trial as in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>. This time, suppose that a different researcher has a different prior opinion about the value of <span class="math inline">\(p\)</span>, the probability of success. This researcher believes the following prior probabilities:</p>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th><span class="math inline">\(B_1\)</span></th>
+<th><span class="math inline">\(B_2\)</span></th>
+<th><span class="math inline">\(B_3\)</span></th>
+<th><span class="math inline">\(B_4\)</span></th>
+<th><span class="math inline">\(B_5\)</span></th>
+<th><span class="math inline">\(B_6\)</span></th>
+<th><span class="math inline">\(B_7\)</span></th>
+<th><span class="math inline">\(B_8\)</span></th>
+<th><span class="math inline">\(B_9\)</span></th>
+<th><span class="math inline">\(B_{10}\)</span></th>
+<th><span class="math inline">\(B_{11}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p\)</span></td>
+<td>0.0</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.3</td>
+<td>0.4</td>
+<td>0.5</td>
+<td>0.6</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Prior prob.</td>
+<td>0.00</td>
+<td>0.19</td>
+<td>0.19</td>
+<td>0.17</td>
+<td>0.14</td>
+<td>0.11</td>
+<td>0.09</td>
+<td>0.06</td>
+<td>0.04</td>
+<td>0.01</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<p>We can recalculate the posterior probabilities using Bayes’ theorem, and we get the values pictured in <span class="quarto-unresolved-ref">?fig-2-4</span>. To aid comparison, the posterior probabilities from <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a> are also plotted in <span class="quarto-unresolved-ref">?fig-2-4</span> using the symbol X. One can see how close the two sets of posterior probabilities are despite the large differences between the prior probabilities. If there had been fewer patients observed, there would have been larger differences between the two sets of posterior probabilites because the observed events would have provided less information. (See <a href="#exr-2-3-12">Exercise&nbsp;<span>2.53</span></a> in this section.)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-2" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="summary-2"><span class="header-section-number">2.3.5</span> Summary</h3>
+<p>Bayes’ theorem tells us how to compute the conditional probability of each event in a partition given an observed event <span class="math inline">\(A\)</span>. A major use of partitions is to divide the sample space into small enough pieces so that a collection of events of interest become conditionally independent given each event in the partition.</p>
+</section>
+<section id="exercises-2" class="level3" data-number="2.3.6">
+<h3 data-number="2.3.6" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">2.3.6</span> Exercises</h3>
+<div id="exr-2-3-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.42 (Exercise 2.3.1) </strong></span>Suppose that <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1, \ldots, B_k\)</span> form a partition of the sample space <span class="math inline">\(S\)</span>. For <span class="math inline">\(i = 1, \ldots, k\)</span>, let <span class="math inline">\(\Pr(B_i)\)</span> denote the prior probability of <span class="math inline">\(B_i\)</span>. Also, for each event <span class="math inline">\(A\)</span> such that <span class="math inline">\(\Pr(A) &gt; 0\)</span>, let <span class="math inline">\(\Pr(B_i \mid A)\)</span> denote the posterior probability of <span class="math inline">\(B_i\)</span> given that the event <span class="math inline">\(A\)</span> has occurred. Prove that if <span class="math inline">\(\Pr(B_1 \mid A) &lt; \Pr(B_1)\)</span>, then <span class="math inline">\(\Pr(B_i \mid A) &gt; \Pr(B_i)\)</span> for at least one value of <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 2, \ldots, k\)</span>).</p>
+</div>
+<div id="exr-2-3-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.43 (Exercise 2.3.2) </strong></span>Consider again the conditions of <a href="#exm-2-3-4">Example&nbsp;<span>2.27</span></a> in this section, in which an item was selected at random from a batch of manufactured items and was found to be defective. For which values of <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) is the posterior probability that the item was produced by machine <span class="math inline">\(M_i\)</span> larger than the prior probability that the item was produced by machine <span class="math inline">\(M_i\)</span>?</p>
+</div>
+<div id="exr-2-3-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.44 (Exercise 2.3.3) </strong></span>Suppose that in <a href="#exm-2-3-4">Example&nbsp;<span>2.27</span></a> in this section, the item selected at random from the entire lot is found to be nondefective. Determine the posterior probability that it was produced by machine <span class="math inline">\(M_2\)</span>.</p>
+</div>
+<div id="exr-2-3-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.45 (Exercise 2.3.4) </strong></span>A new test has been devised for detecting a particular type of cancer. If the test is applied to a person who has this type of cancer, the probability that the person will have a positive reaction is 0.95 and the probability that the person will have a negative reaction is 0.05. If the test is applied to a person who does not have this type of cancer, the probability that the person will have a positive reaction is 0.05 and the probability that the person will have a negative reaction is 0.95. Suppose that in the general population, one person out of every 100,000 people has this type of cancer. If a person selected at random has a positive reaction to the test, what is the probability that he has this type of cancer?</p>
+</div>
+<div id="exr-2-3-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.46 (Exercise 2.3.5) </strong></span>In a certain city, 30 percent of the people are Conservatives, 50 percent are Liberals, and 20 percent are Independents. Records show that in a particular election, 65 percent of the Conservatives voted, 82 percent of the Liberals voted, and 50 percent of the Independents voted. If a person in the city is selected at random and it is learned that she did not vote in the last election, what is the probability that she is a Liberal?</p>
+</div>
+<div id="exr-2-3-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.47 (Exercise 2.3.6) </strong></span>Suppose that when a machine is adjusted properly, 50 percent of the items produced by it are of high quality and the other 50 percent are of medium quality. Suppose, however, that the machine is improperly adjusted during 10 percent of the time and that, under these conditions, 25 percent of the items produced by it are of high quality and 75 percent are of medium quality.</p>
+<ol type="a">
+<li>Suppose that five items produced by the machine at a certain time are selected at random and inspected. If four of these items are of high quality and one item is of medium quality, what is the probability that the machine was adjusted properly at that time?</li>
+<li>Suppose that one additional item, which was produced by the machine at the same time as the other five items, is selected and found to be of medium quality. What is the new posterior probability that the machine was adjusted properly?</li>
+</ol>
+</div>
+<div id="exr-2-3-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.48 (Exercise 2.3.7) </strong></span>Suppose that a box contains five coins and that for each coin there is a different probability that a head will be obtained when the coin is tossed. Let <span class="math inline">\(p_i\)</span> denote the probability of a head when the <span class="math inline">\(i\)</span>th coin is tossed (<span class="math inline">\(i = 1, \ldots, 5\)</span>), and suppose that <span class="math inline">\(p_1 = 0\)</span>, <span class="math inline">\(p_2 = 1/4\)</span>, <span class="math inline">\(p_3 = 1/2\)</span>, <span class="math inline">\(p_4 = 3/4\)</span>, and <span class="math inline">\(p_5 = 1\)</span>.</p>
+<ol type="a">
+<li>Suppose that one coin is selected at random from the box and when it is tossed once, a head is obtained. What is the posterior probability that the <span class="math inline">\(i\)</span>th coin was selected (<span class="math inline">\(i = 1, \ldots, 5\)</span>)?</li>
+<li>If the same coin were tossed again, what would be the probability of obtaining another head?</li>
+<li>If a tail had been obtained on the first toss of the selected coin and the same coin were tossed again, what would be the probability of obtaining a head on the second toss?</li>
+</ol>
+</div>
+<div id="exr-2-3-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.49 (Exercise 2.3.8) </strong></span>Consider again the box containing the five different coins described in <a href="#exr-2-3-7">Exercise&nbsp;<span>2.48</span></a>. Suppose that one coin is selected at random from the box and is tossed repeatedly until a head is obtained. a. If the first head is obtained on the fourth toss, what is the posterior probability that the <span class="math inline">\(i\)</span>th coin was selected (<span class="math inline">\(i = 1, \ldots, 5\)</span>)? b. If we continue to toss the same coin until another head is obtained, what is the probability that exactly three additional tosses will be required?</p>
+</div>
+<div id="exr-2-3-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.50 (Exercise 2.3.9) </strong></span>Consider again the conditions of <a href="#exr-2-1-14">Exercise&nbsp;<span>2.14</span></a> in <a href="#sec-2-1"><span>Section&nbsp;2.1</span></a>. Suppose that several parts will be observed and that the different parts are conditionally independent given each of the three states of repair of the machine. If seven parts are observed and exactly one is defective, compute the posterior probabilities of the three states of repair.</p>
+</div>
+<div id="exr-2-3-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.51 (Exercise 2.3.10) </strong></span>Consider again the conditions of <a href="#exm-2-3-5">Example&nbsp;<span>2.28</span></a>, in which the phenotype of an individual was observed and found to be the dominant trait. For which values of <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, \ldots, 6\)</span>) is the posterior probability that the parents have the genotypes of event <span class="math inline">\(B_i\)</span> smaller than the prior probability that the parents have the genotyes of event <span class="math inline">\(B_i\)</span>?</p>
+</div>
+<div id="exr-2-3-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.52 (Exercise 2.3.11) </strong></span>Suppose that in <a href="#exm-2-3-5">Example&nbsp;<span>2.28</span></a> the observed individual has the recessive trait. Determine the posterior probability that the parents have the genotypes of event <span class="math inline">\(B_4\)</span>.</p>
+</div>
+<div id="exr-2-3-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.53 (Exercise 2.3.12) </strong></span>In the clinical trial in Examples <a href="#exm-2-3-7"><span>2.30</span></a> and <a href="#exm-2-3-8"><span>2.31</span></a>, suppose that we have only observed the first five patients and three of the five had been successes. Use the two different sets of prior probabilities from Examples <a href="#exm-2-3-7"><span>2.30</span></a> and <a href="#exm-2-3-8"><span>2.31</span></a> to calculate two sets of posterior probabilities. Are these two sets of posterior probabilities as close to each other as were the two in Examples <a href="#exm-2-3-7"><span>2.30</span></a> and <a href="#exm-2-3-8"><span>2.31</span></a>? Why or why not?</p>
+</div>
+<div id="exr-2-3-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.54 (Exercise 2.3.13) </strong></span>Suppose that a box contains one fair coin and one coin with a head on each side. Suppose that a coin is drawn at random from this box and that we begin to flip the coin. In <a href="#eq-2-3-4">Equation&nbsp;<span>2.12</span></a> and <a href="#eq-2-3-5">Equation&nbsp;<span>2.13</span></a>, we computed the conditional probability that the coin was fair given that the first two flips both produce heads.</p>
+<ol type="a">
+<li>Suppose that the coin is flipped a third time and another head is obtained. Compute the probability that the coin is fair given that all three flips produced heads.</li>
+<li>Suppose that the coin is flipped a fourth time and the result is tails. Compute the posterior probability that the coin is fair.</li>
+</ol>
+</div>
+<div id="exr-2-3-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.55 (Exercise 2.3.14) </strong></span>Consider again the conditions of <a href="#exr-2-2-23">Exercise&nbsp;<span>2.40</span></a> in <a href="#sec-2-2"><span>Section&nbsp;2.2</span></a>. Assume that <span class="math inline">\(\Pr(B) = 0.4\)</span>. Let <span class="math inline">\(A\)</span> be the event that exactly 8 out of 11 programs compiled. Compute the conditional probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span>.</p>
+</div>
+<div id="exr-2-3-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.56 (Exercise 2.3.15) </strong></span>Use the prior probabilities in <a href="#exm-2-3-8">Example&nbsp;<span>2.31</span></a> for the events <span class="math inline">\(B_1, \ldots, B_{11}\)</span>. Let <span class="math inline">\(E_1\)</span> be the event that the first patient is a success. Compute the probability of <span class="math inline">\(E_1\)</span> and explain why it is so much less than the value computed in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</p>
+</div>
+<div id="exr-2-3-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.57 (Exercise 2.3.16) </strong></span>Consider a machine that produces items in sequence. Under normal operating conditions, the items are independent with probability 0.01 of being defective. However, it is possible for the machine to develop a “memory” in the following sense: After each defective item, and independent of anything that happened earlier, the probability that the next item is defective is <span class="math inline">\(2/5\)</span>. After each nondefective item, and independent of anything that happened earlier, the probability that the next item is defective is <span class="math inline">\(1/165\)</span>.</p>
+<p>Assume that the machine is either operating normally for the whole time we observe or has a memory for the whole time that we observe. Let <span class="math inline">\(B\)</span> be the event that the machine is operating normally, and assume that <span class="math inline">\(\Pr(B) = 2/3\)</span>. Let <span class="math inline">\(D_i\)</span> be the event that the <span class="math inline">\(i\)</span>th item inspected is defective. Assume that <span class="math inline">\(D_1\)</span> is independent of <span class="math inline">\(B\)</span>.</p>
+<ol type="a">
+<li>Prove that <span class="math inline">\(\Pr(D_i) = 0.01\)</span> for all <span class="math inline">\(i\)</span>. <em>Hint</em>: Use induction.</li>
+<li>Assume that we observe the first six items and the event that occurs is <span class="math inline">\(E = D_1^c \cap D_2^c \cap D_3 \cap D_4 \cap D_5^c \cap D_6^c\)</span>. That is, the third and fourth items are defective, but the other four are not. Compute <span class="math inline">\(\Pr(B \mid D)\)</span>.</li>
+</ol>
+</div>
 </section>
 </section>
 <section id="sec-2-4" class="level2" data-number="2.4">
@@ -1645,98 +1880,288 @@ Tip
 <p><em>Consider two gamblers with finite resources who repeatedly play the same game against each other. Using the tools of conditional probability, we can calculate the probability that each of the gamblers will eventually lose all of his money to the opponent.</em></p>
 <section id="statement-of-the-problem" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="statement-of-the-problem"><span class="header-section-number">2.4.1</span> Statement of the Problem</h3>
-<p>Suppose that two gamblers A and B are playing a game against each other. Let p be a given number (0 &lt; p &lt;1), and suppose that on each play of the game, the probability that gamblerAwill win one dollar from gamblerB is p and the probability that gambler B will win one dollar from gambler A is 1− p.&nbsp;Suppose also that the initial fortune of gambler A is i dollars and the initial fortune of gambler B is k − i dollars, where i and k − i are given positive integers. Thus, the total fortune of the two gamblers is k dollars. Finally, suppose that the gamblers play the game repeatedly and independently until the fortune of one of them has been reduced to 0 dollars. Another way to think about this problem is that B is a casino and A is a gambler who is determined to quit as soon he wins k − i dollars from the casino or when he goes broke, whichever comes first. We shall now consider this game from the point of view of gambler A. His initial fortune is i dollars and on each play of the game his fortune will either increase by one dollar with a probability of p or decrease by one dollar with a probability of 1− p. If p &gt;1/2, the game is favorable to him; if p &lt;1/2, the game is unfavorable to him; and if p = 1/2, the game is equally favorable to both gamblers. The game ends either when the fortune of gambler A reaches k dollars, in which case gambler B will have no money left, or when the fortune of gambler A reaches 0 dollars. The problem is to 2.4 The Gambler’s Ruin Problem 87 determine the probability that the fortune of gambler A will reach k dollars before it reaches 0 dollars. Because one of the gamblers will have no money left at the end of the game, this problem is called the Gambler’s Ruin problem. Solution of the Problem We shall continue to assume that the total fortune of the gamblersAandB is k dollars, and we shall let ai denote the probability that the fortune of gambler A will reach k dollars before it reaches 0 dollars, given that his initial fortune is i dollars.We assume that the game is the same each time it is played and the plays are independent of each other. It follows that, after each play, the Gambler’s Ruin problem essentially starts over with the only change being that the initial fortunes of the two gamblers have changed. In particular, for each j = 0, . . . , k, each time that we observe a sequence of plays that lead to gambler A’s fortune being j dollars, the conditional probability, given such a sequence, that gambler A wins is aj . If gambler A’s fortune ever reaches 0, then gambler A is ruined, hence a0 = 0. Similarly, if his fortune ever reaches k, then gambler A has won, hence ak = 1. We shall now determine the value of ai for i = 1, . . . , k − 1. Let A1 denote the event that gambler A wins one dollar on the first play of the game, let B1 denote the event that gambler A loses one dollar on the first play of the game, and let W denote the event that the fortune of gambler A ultimately reaches k dollars before it reaches 0 dollars. Then Pr(W) = Pr(A1) Pr(W|A1) + Pr(B1) Pr(W|B1) = pPr(W|A1) + (1− p)Pr(W|B1). (2.4.1) Since the initial fortune of gambler A is i dollars (i = 1, . . . , k − 1), then Pr(W) = ai . Furthermore, if gambler A wins one dollar on the first play of the game, then his fortune becomes i + 1 dollars and the conditional probability Pr(W|A1) that his fortune will ultimately reach k dollars is therefore ai+1. If A loses one dollar on the first play of the game, then his fortune becomes i − 1 dollars and the conditional probability Pr(W|B1) that his fortune will ultimately reach k dollars is therefore ai−1. Hence, by Eq. (2.4.1), ai = pai+1 + (1− p)ai−1. (2.4.2) We shall let i = 1, . . . , k − 1 in Eq. (2.4.2). Then, since a0 = 0 and ak = 1, we obtain the following k − 1 equations: a1 =pa2, a2 =pa3 + (1− p)a1, a3 =pa4 + (1− p)a2, … ak−2 =pak−1 + (1− p)ak−3, ak−1 =p + (1− p)ak−2. (2.4.3) If the value of ai on the left side of the ith equation is rewritten in the form pai + (1− p)ai and some elementary algebra is performed, then these k − 1 equations can 88 Chapter 2 Conditional Probability be rewritten as follows: a2 − a1 = 1− p p a1, a3 − a2 = 1− p p (a2 − a1) =</p>
-<p>1− p p  2 a1, a4 − a3 = 1− p p (a3 − a2) =</p>
-<p>1− p p  3 a1, … ak−1 − ak−2 = 1− p p (ak−2 − ak−3) =</p>
-<p>1− p p  k−2 a1, 1− ak−1 = 1− p p (ak−1 − ak−2) =</p>
-<p>1− p p  k−1 a1. (2.4.4) By equating the sum of the left sides of these k − 1 equations with the sum of the right sides, we obtain the relation 1− a1 = a1  k−1 i=1</p>
-<p>1− p p  i . (2.4.5) Solution for a Fair Game Suppose first that p = 1/2. Then (1− p)/p = 1, and it follows from Eq. (2.4.5) that 1− a1= (k − 1)a1, from which a1= 1/k. In turn, it follows from the first equation in (2.4.4) that a2 = 2/k, it follows from the second equation in (2.4.4) that a3 = 3/k, and so on. In this way, we obtain the following complete solution when p = 1/2: ai = i k for i = 1, . . . , k − 1. (2.4.6) Example 2.4.1 The Probability of Winning in a Fair Game. Suppose that p = 1/2, in which case the game is equally favorable to both gamblers; and suppose that the initial fortune of gambler A is 98 dollars and the initial fortune of gambler B is just two dollars. In this example, i = 98 and k = 100. Therefore, it follows from Eq. (2.4.6) that there is a probability of 0.98 that gambler A will win two dollars from gambler B before gambler B wins 98 dollars from gambler A.   Solution for an Unfair Game Suppose now that p  = 1/2. Then Eq. (2.4.5) can be rewritten in the form 1− a1 = a1</p>
-<p>1− p p  k −</p>
-<p>1− p p  </p>
-<p>1− p p   − 1 . (2.4.7) Hence, a1 =</p>
-<p>1− p p   − 1</p>
-<p>1− p p  k − 1 . (2.4.8) 2.4 The Gambler’s Ruin Problem 89 Each of the other values of ai for i = 2, . . . , k − 1 can now be determined in turn from the equations in (2.4.4). In this way, we obtain the following complete solution: ai =</p>
-<p>1− p p  i − 1</p>
-<p>1− p p  k − 1 for i = 1, . . . , k − 1. (2.4.9) Example 2.4.2 The Probability of Winning in an Unfavorable Game. Suppose that p = 0.4, in which case the probability that gambler A will win one dollar on any given play is smaller than the probability that he will lose one dollar. Suppose also that the initial fortune of gambler A is 99 dollars and the initial fortune of gambler B is just one dollar.We shall determine the probability that gambler A will win one dollar from gambler B before gambler B wins 99 dollars from gambler A. In this example, the required probability ai is given by Eq. (2.4.9), in which (1− p)/p = 3/2, i = 99, and k = 100. Therefore, ai =   32  99 − 1   3 2  100 − 1 ≈ 1 3/2 = 2 3 . Hence, although the probability that gambler A will win one dollar on any given play is only 0.4, the probability that he will win one dollar before he loses 99 dollars is approximately 2/3.   Summary We considered a gambler and an opponent who each start with finite amounts of money. The two then play a sequence of games against each other until one of them runs out of money.We were able to calculate the probability that each of them would be the first to run out as a function of the probability of winning the game and of how much money each has at the start. Exercises 1. Consider the unfavorable game in Example 2.4.2. This time, suppose that the initial fortune of gambler A is i dollars with i ≤ 98. Suppose that the initial fortune of gambler B is 100 − i dollars. Show that the probability is greater than 1/2 that gambler A losses i dollars before winning 100 − i dollars. 2. Consider the following three different possible conditions in the gambler’s ruin problem: a. The initial fortune of gambler A is two dollars, and the initial fortune of gambler B is one dollar. b. The initial fortune of gambler A is 20 dollars, and the initial fortune of gambler B is 10 dollars. c.&nbsp;The initial fortune of gambler A is 200 dollars, and the initial fortune of gambler B is 100 dollars. Suppose that p = 1/2. For which of these three conditions is there the greatest probability that gambler A will win the initial fortune of gambler B before he loses his own initial fortune? 3. Consider again the three different conditions (a), (b), and (c) given in Exercise 2, but suppose now thatp &lt;1/2. For which of these three conditions is there the greatest probability that gambler A will win the initial fortune of gambler B before he loses his own initial fortune? 4. Consider again the three different conditions (a), (b), and (c) given in Exercise 2, but suppose now thatp &gt;1/2. For which of these three conditions is there the greatest probability that gambler A will win the initial fortune of gambler B before he loses his own initial fortune? 90 Chapter 2 Conditional Probability 5. Suppose that on each play of a certain game, a person is equally likely to win one dollar or lose one dollar. Suppose also that the person’s goal is to win two dollars by playing this game. How large an initial fortune must the person have in order for the probability to be at least 0.99 that she will achieve her goal before she loses her initial fortune? 6. Suppose that on each play of a certain game, a person will either win one dollar with probability 2/3 or lose one dollar with probability 1/3. Suppose also that the person’s goal is to win two dollars by playing this game. How large an initial fortune must the person have in order for the probability to be at least 0.99 that he will achieve his goal before he loses his initial fortune? 7. Suppose that on each play of a certain game, a person will either win one dollar with probability 1/3 or lose one dollar with probability 2/3. Suppose also that the person’s goal is to win two dollars by playing this game. Show that no matter how large the person’s initial fortune might be, the probability that she will achieve her goal before she loses her initial fortune is less than 1/4. 8. Suppose that the probability of a head on any toss of a certain coin is p (0&lt;p &lt;1), and suppose that the coin is tossed repeatedly. Let Xn denote the total number of heads that have been obtained on the first n tosses, and let Yn = n − Xn denote the total number of tails on the first n tosses. Suppose that the tosses are stopped as soon as a number n is reached such that either Xn = Yn + 3 or Yn = Xn + 3. Determine the probability that Xn = Yn + 3 when the tosses are stopped. 9. Suppose that a certain box A contains five balls and another box B contains 10 balls. One of these two boxes is selected at random, and one ball from the selected box is transferred to the other box. If this process of selecting a box at random and transferring one ball from that box to the other box is repeated indefinitely, what is the probability that box A will become empty before box B becomes empty?</p>
+<p>Suppose that two gamblers <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are playing a game against each other. Let <span class="math inline">\(p\)</span> be a given number (<span class="math inline">\(0 &lt; p &lt; 1\)</span>), and suppose that on each play of the game, the probability that gambler <span class="math inline">\(A\)</span> will win one dollar from gambler <span class="math inline">\(B\)</span> is <span class="math inline">\(p\)</span> and the probability that gambler <span class="math inline">\(B\)</span> will win one dollar from gambler <span class="math inline">\(A\)</span> is <span class="math inline">\(1 − p\)</span>. Suppose also that the initial fortune of gambler <span class="math inline">\(A\)</span> is <span class="math inline">\(i\)</span> dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is <span class="math inline">\(k − i\)</span> dollars, where <span class="math inline">\(i\)</span> and <span class="math inline">\(k − i\)</span> are given positive integers. Thus, the total fortune of the two gamblers is <span class="math inline">\(k\)</span> dollars. Finally, suppose that the gamblers play the game repeatedly and independently until the fortune of one of them has been reduced to 0 dollars. Another way to think about this problem is that <span class="math inline">\(B\)</span> is a casino and <span class="math inline">\(A\)</span> is a gambler who is determined to quit as soon he wins <span class="math inline">\(k − i\)</span> dollars from the casino or when he goes broke, whichever comes first.</p>
+<p>We shall now consider this game from the point of view of gambler <span class="math inline">\(A\)</span>. His initial fortune is <span class="math inline">\(i\)</span> dollars and on each play of the game his fortune will either increase by one dollar with a probability of <span class="math inline">\(p\)</span> or decrease by one dollar with a probability of <span class="math inline">\(1 − p\)</span>. If <span class="math inline">\(p &gt; 1/2\)</span>, the game is favorable to him; if <span class="math inline">\(p &lt; 1/2\)</span>, the game is unfavorable to him; and if <span class="math inline">\(p = 1/2\)</span>, the game is equally favorable to both gamblers. The game ends either when the fortune of gambler <span class="math inline">\(A\)</span> reaches <span class="math inline">\(k\)</span> dollars, in which case gambler <span class="math inline">\(B\)</span> will have no money left, or when the fortune of gambler <span class="math inline">\(A\)</span> reaches 0 dollars. The problem is to determine the probability that the fortune of gambler <span class="math inline">\(A\)</span> will reach <span class="math inline">\(k\)</span> dollars before it reaches 0 dollars. Because one of the gamblers will have no money left at the end of the game, this problem is called the Gambler’s Ruin problem.</p>
+</section>
+<section id="solution-of-the-problem" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="solution-of-the-problem"><span class="header-section-number">2.4.2</span> Solution of the Problem</h3>
+<p>We shall continue to assume that the total fortune of the gamblers <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(k\)</span> dollars, and we shall let <span class="math inline">\(a_i\)</span> denote the probability that the fortune of gambler <span class="math inline">\(A\)</span> will reach <span class="math inline">\(k\)</span> dollars before it reaches 0 dollars, given that his initial fortune is <span class="math inline">\(i\)</span> dollars. We assume that the game is the same each time it is played and the plays are independent of each other. It follows that, after each play, the Gambler’s Ruin problem essentially starts over with the only change being that the initial fortunes of the two gamblers have changed. In particular, for each <span class="math inline">\(j = 0, \ldots, k\)</span>, each time that we observe a sequence of plays that lead to gambler <span class="math inline">\(A\)</span>’s fortune being <span class="math inline">\(j\)</span> dollars, the conditional probability, given such a sequence, that gambler <span class="math inline">\(A\)</span> wins is <span class="math inline">\(a_j\)</span>. If gambler <span class="math inline">\(A\)</span>’s fortune ever reaches 0, then gambler <span class="math inline">\(A\)</span> is ruined, hence <span class="math inline">\(a_0 = 0\)</span>. Similarly, if his fortune ever reaches <span class="math inline">\(k\)</span>, then gambler <span class="math inline">\(A\)</span> has won, hence <span class="math inline">\(a_k = 1\)</span>. We shall now determine the value of <span class="math inline">\(a_i\)</span> for <span class="math inline">\(i = 1, \ldots, k-1\)</span>.</p>
+<p>Let <span class="math inline">\(A_1\)</span> denote the event that gambler <span class="math inline">\(A\)</span> wins one dollar on the first play of the game, let <span class="math inline">\(B_1\)</span> denote the event that gambler <span class="math inline">\(A\)</span> loses one dollar on the first play of the game, and let <span class="math inline">\(W\)</span> denote the event that the fortune of gambler <span class="math inline">\(A\)</span> ultimately reaches <span class="math inline">\(k\)</span> dollars before it reaches 0 dollars. Then</p>
+<p><span id="eq-2-4-1"><span class="math display">\[
+\begin{align*}
+\Pr(W) &amp;= \Pr(A_1)\Pr(W \mid A_1) + \Pr(B_1)\Pr(W \mid B_1) \\
+&amp;= p \Pr(W \mid A_1) + (1-p)\Pr(W \mid B_1).
+\end{align*}
+\tag{2.17}\]</span></span></p>
+<p>Since the initial fortune of gambler <span class="math inline">\(A\)</span> is <span class="math inline">\(i\)</span> dollars (<span class="math inline">\(i = 1, \ldots, k-1\)</span>), then <span class="math inline">\(\Pr(W) = a_i\)</span>. Furthermore, if gambler <span class="math inline">\(A\)</span> wins one dollar on the first play of the game, then his fortune becomes <span class="math inline">\(i + 1\)</span> dollars and the conditional probability <span class="math inline">\(\Pr(W \mid A_1)\)</span> that his fortune will ultimately reach <span class="math inline">\(k\)</span> dollars is therefore <span class="math inline">\(a_{i+1}\)</span>. If <span class="math inline">\(A\)</span> loses one dollar on the first play of the game, then his fortune becomes <span class="math inline">\(i − 1\)</span> dollars and the conditional probability <span class="math inline">\(\Pr(W \mid B_1)\)</span> that his fortune will ultimately reach <span class="math inline">\(k\)</span> dollars is therefore $a_{i−1}. Hence, by <a href="#eq-2-4-1">Equation&nbsp;<span>2.17</span></a>,</p>
+<p><span id="eq-2-4-2"><span class="math display">\[
+a_i = pa_{i+1} + (1-p)a_{i-1}.
+\tag{2.18}\]</span></span></p>
+<p>We shall let <span class="math inline">\(i = 1, \ldots, k-1\)</span> in <a href="#eq-2-4-2">Equation&nbsp;<span>2.18</span></a>. Then, since <span class="math inline">\(a_0 = 0\)</span> and <span class="math inline">\(a_k = 1\)</span>, we obtain the following <span class="math inline">\(k − 1\)</span> equations:</p>
+<p><span id="eq-2-4-3"><span class="math display">\[
+\begin{align*}
+a_1 &amp;= pa_2, \\
+a_2 &amp;= pa_3 + (1-p)a_1, \\
+a_3 &amp;= pa_4 + (1-p)a_2, \\
+&amp;\vdots \\
+a_{k-2} &amp;= pa_{k-1} + (1-p)a_{k-3}, \\
+a_{k-1} &amp;= p + (1-p)a_{k-2}.
+\end{align*}
+\tag{2.19}\]</span></span></p>
+<p>If the value of <span class="math inline">\(a_i\)</span> on the left side of the <span class="math inline">\(i\)</span>th equation is rewritten in the form <span class="math inline">\(p a_i + (1 − p)a_i\)</span> and some elementary algebra is performed, then these <span class="math inline">\(k − 1\)</span> equations can be rewritten as follows:</p>
+<p><span id="eq-2-4-4"><span class="math display">\[
+\begin{align*}
+a_2 - a_1 &amp;= \frac{1-p}{p}a_1, \\
+a_3 - a_2 &amp;= \frac{1-p}{p}(a_2 - a_1) = \left(\frac{1-p}{p}\right)^2a_1, \\
+a_4 - a_3 &amp;= \frac{1-p}{p}(a_3 - a_2) = \left(frac{1-p}{p}\right)^3a_1, \\
+&amp;\vdots \\
+a_{k-1} - a_{k-2} &amp;= \frac{1-p}{p}(a_{k-2} - a_{k-3}) = \left(\frac{1-p}{p}\right)^{k-2}a_1, \\
+1 - a_{k-1} &amp;= \frac{1-p}{p}(a_{k-1} - a_{k-2}) = \left(\frac{1-p}{p}\right)^{k-1}a_1.
+\end{align*}
+\tag{2.20}\]</span></span></p>
+<p>By equating the sum of the left sides of these <span class="math inline">\(k − 1\)</span> equations with the sum of the right sides, we obtain the relation</p>
+<p><span id="eq-2-4-5"><span class="math display">\[
+1 - a_1 = a_1 \sum_{i=1}^{k-1} \left(\frac{1-p}{p}\right)^i
+\tag{2.21}\]</span></span></p>
+<p><strong>Solution for a Fair Game</strong>: Suppose first that <span class="math inline">\(p = 1/2\)</span>. Then <span class="math inline">\((1 − p)/p = 1\)</span>, and it follows from <a href="#eq-2-4-5">Equation&nbsp;<span>2.21</span></a> that <span class="math inline">\(1 − a_1 = (k − 1)a_1\)</span>, from which <span class="math inline">\(a_1= 1/k\)</span>. In turn, it follows from the first equation in <a href="#eq-2-4-4">Equation&nbsp;<span>2.20</span></a> that <span class="math inline">\(a_2 = 2/k\)</span>, it follows from the second equation in <a href="#eq-2-4-4">Equation&nbsp;<span>2.20</span></a> that <span class="math inline">\(a_3 = 3/k\)</span>, and so on. In this way, we obtain the following complete solution when <span class="math inline">\(p = 1/2\)</span>:</p>
+<p><span id="eq-2-4-6"><span class="math display">\[
+a_i = \frac{i}{k} \; \text{ for }i = 1, \ldots, k-1.
+\tag{2.22}\]</span></span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-4-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.32 (Example 2.4.1: The Probability of Winning in a Fair Game) </strong></span>Suppose that <span class="math inline">\(p = 1/2\)</span>, in which case the game is equally favorable to both gamblers; and suppose that the initial fortune of gambler <span class="math inline">\(A\)</span> is 98 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just two dollars. In this example, <span class="math inline">\(i = 98\)</span> and <span class="math inline">\(k = 100\)</span>. Therefore, it follows from <a href="#eq-2-4-6">Equation&nbsp;<span>2.22</span></a> that there is a probability of 0.98 that gambler <span class="math inline">\(A\)</span> will win two dollars from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 98 dollars from gambler <span class="math inline">\(A\)</span>.</p>
+</div>
+</div>
+</div>
+<p><strong>Solution for an Unfair Game</strong>: Suppose now that <span class="math inline">\(p \neq 1/2\)</span>. Then <a href="#eq-2-4-5">Equation&nbsp;<span>2.21</span></a> can be rewritten in the form</p>
+<p><span id="eq-2-4-7"><span class="math display">\[
+1 - a_1 = a_1 \frac{
+    \left(\frac{1-p}{p}\right)^k - \left(\frac{1-p}{p}\right)
+}{
+    \left(\frac{1-p}{p}\right) - 1
+}.
+\tag{2.23}\]</span></span></p>
+<p>Hence,</p>
+<p><span id="eq-2-4-8"><span class="math display">\[
+a_1 = \frac{
+    \left(\frac{1-p}{p}\right) - 1
+}{
+    \left(\frac{1-p}{p}\right)^k - 1
+}.
+\tag{2.24}\]</span></span></p>
+<p>Each of the other values of <span class="math inline">\(a_i\)</span> for <span class="math inline">\(i = 2, \ldots, k-1\)</span> can now be determined in turn from the equations in <a href="#eq-2-4-4">Equation&nbsp;<span>2.20</span></a>. In this way, we obtain the following complete solution:</p>
+<p><span id="eq-2-4-9"><span class="math display">\[
+a_i = \frac{
+    \left(\frac{1-p}{p}\right)^i - 1
+}{
+    \left(\frac{1-p}{p}\right)^k - 1
+} \; \text{ for }i = 1, \ldots, k-1.
+\tag{2.25}\]</span></span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-4-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.33 (Example 2.4.2: The Probability of Winning in an Unfavorable Game) </strong></span>Suppose that <span class="math inline">\(p = 0.4\)</span>, in which case the probability that gambler <span class="math inline">\(A\)</span> will win one dollar on any given play is smaller than the probability that he will lose one dollar. Suppose also that the initial fortune of gambler <span class="math inline">\(A\)</span> is 99 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just one dollar. We shall determine the probability that gambler <span class="math inline">\(A\)</span> will win one dollar from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 99 dollars from gambler <span class="math inline">\(A\)</span>.</p>
+<p>In this example, the required probability <span class="math inline">\(a_i\)</span> is given by <a href="#eq-2-4-9">Equation&nbsp;<span>2.25</span></a>, in which <span class="math inline">\((1-p)/p = 3/2\)</span>, <span class="math inline">\(i = 99\)</span>, and <span class="math inline">\(k = 100\)</span>. Therefore,</p>
+<p><span class="math display">\[
+a_i = \frac{
+    \left(\frac{3}{2}\right)^{99} - 1
+}{
+    \left(\frac{3}{2}\right)^{100} - 1
+} \approx \frac{1}{3/2} = \frac{2}{3}.
+\]</span></p>
+<p>Hence, although the probability that gambler <span class="math inline">\(A\)</span> will win one dollar on any given play is only 0.4, the probability that he will win one dollar before he loses 99 dollars is approximately <span class="math inline">\(2/3\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-3" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="summary-3"><span class="header-section-number">2.4.3</span> Summary</h3>
+<p>We considered a gambler and an opponent who each start with finite amounts of money. The two then play a sequence of games against each other until one of them runs out of money. We were able to calculate the probability that each of them would be the first to run out as a function of the probability of winning the game and of how much money each has at the start.</p>
+</section>
+<section id="exercises-3" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="exercises-3"><span class="header-section-number">2.4.4</span> Exercises</h3>
+<div id="exr-2-4-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.58 (Exercise 2.4.1) </strong></span>Consider the unfavorable game in <a href="#exm-2-4-2">Example&nbsp;<span>2.33</span></a>. This time, suppose that the initial fortune of gambler <span class="math inline">\(A\)</span> is <span class="math inline">\(i\)</span> dollars with <span class="math inline">\(i \leq 98\)</span>. Suppose that the initial fortune of gambler <span class="math inline">\(B\)</span> is <span class="math inline">\(100 − i\)</span> dollars. Show that the probability is greater than <span class="math inline">\(1/2\)</span> that gambler <span class="math inline">\(A\)</span> loses <span class="math inline">\(i\)</span> dollars before winning <span class="math inline">\(100 − i\)</span> dollars.</p>
+</div>
+<div id="exr-2-4-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.59 (Exercise 2.4.2) </strong></span>Consider the following three different possible conditions in the gambler’s ruin problem:</p>
+<ol type="a">
+<li>The initial fortune of gambler <span class="math inline">\(A\)</span> is two dollars, and the initial fortune of gambler <span class="math inline">\(B\)</span> is one dollar.</li>
+<li>The initial fortune of gambler <span class="math inline">\(A\)</span> is 20 dollars, and the initial fortune of gambler <span class="math inline">\(B\)</span> is 10 dollars.</li>
+<li>The initial fortune of gambler <span class="math inline">\(A\)</span> is 200 dollars, and the initial fortune of gambler <span class="math inline">\(B\)</span> is 100 dollars.</li>
+</ol>
+<p>Suppose that <span class="math inline">\(p = 1/2\)</span>. For which of these three conditions is there the greatest probability that gambler <span class="math inline">\(A\)</span> will win the initial fortune of gambler <span class="math inline">\(B\)</span> before he loses his own initial fortune?</p>
+</div>
+<div id="exr-2-4-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.60 (Exercise 2.4.3) </strong></span>Consider again the three different conditions (a), (b), and (c) given in <a href="#exr-2-4-2">Exercise&nbsp;<span>2.59</span></a>, but suppose now that <span class="math inline">\(p &lt; 1/2\)</span>. For which of these three conditions is there the greatest probability that gambler <span class="math inline">\(A\)</span> will win the initial fortune of gambler <span class="math inline">\(B\)</span> before he loses his own initial fortune?</p>
+</div>
+<div id="exr-2-4-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.61 (Exercise 2.4.4) </strong></span>Consider again the three different conditions (a), (b), and (c) given in <a href="#exr-2-4-2">Exercise&nbsp;<span>2.59</span></a>, but suppose now that <span class="math inline">\(p &gt; 1/2\)</span>. For which of these three conditions is there the greatest probability that gambler <span class="math inline">\(A\)</span> will win the initial fortune of gambler <span class="math inline">\(B\)</span> before he loses his own initial fortune?</p>
+</div>
+<div id="exr-2-4-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.62 (Exercise 2.4.5) </strong></span>Suppose that on each play of a certain game, a person is equally likely to win one dollar or lose one dollar. Suppose also that the person’s goal is to win two dollars by playing this game. How large an initial fortune must the person have in order for the probability to be at least 0.99 that she will achieve her goal before she loses her initial fortune?</p>
+</div>
+<div id="exr-2-4-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.63 (Exercie 2.4.6) </strong></span>Suppose that on each play of a certain game, a person will either win one dollar with probability <span class="math inline">\(2/3\)</span> or lose one dollar with probability <span class="math inline">\(1/3\)</span>. Suppose also that the person’s goal is to win two dollars by playing this game. How large an initial fortune must the person have in order for the probability to be at least 0.99 that he will achieve his goal before he loses his initial fortune?</p>
+</div>
+<div id="exr-2-4-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.64 (Exercise 2.4.7) </strong></span>Suppose that on each play of a certain game, a person will either win one dollar with probability <span class="math inline">\(1/3\)</span> or lose one dollar with probability <span class="math inline">\(2/3\)</span>. Suppose also that the person’s goal is to win two dollars by playing this game. Show that no matter how large the person’s initial fortune might be, the probability that she will achieve her goal before she loses her initial fortune is less than <span class="math inline">\(1/4\)</span>.</p>
+</div>
+<div id="exr-2-4-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.65 (Exercise 2.4.8) </strong></span>Suppose that the probability of a head on any toss of a certain coin is <span class="math inline">\(p\)</span> (<span class="math inline">\(0 &lt; p &lt; 1\)</span>), and suppose that the coin is tossed repeatedly. Let <span class="math inline">\(X_n\)</span> denote the total number of heads that have been obtained on the first <span class="math inline">\(n\)</span> tosses, and let <span class="math inline">\(Y_n = n − X_n\)</span> denote the total number of tails on the first <span class="math inline">\(n\)</span> tosses. Suppose that the tosses are stopped as soon as a number <span class="math inline">\(n\)</span> is reached such that either <span class="math inline">\(X_n = Y_n + 3\)</span> or <span class="math inline">\(Y_n = X_n + 3\)</span>. Determine the probability that <span class="math inline">\(X_n = Y_n + 3\)</span> when the tosses are stopped.</p>
+</div>
+<div id="exr-2-4-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.66 (Exercise 2.4.9) </strong></span>Suppose that a certain box <span class="math inline">\(A\)</span> contains five balls and another box <span class="math inline">\(B\)</span> contains 10 balls. One of these two boxes is selected at random, and one ball from the selected box is transferred to the other box. If this process of selecting a box at random and transferring one ball from that box to the other box is repeated indefinitely, what is the probability that box <span class="math inline">\(A\)</span> will become empty before box <span class="math inline">\(B\)</span> becomes empty?</p>
+</div>
 </section>
 </section>
 <section id="sec-2-5" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-2-5"><span class="header-section-number">2.5</span> Supplementary Exercises</h2>
 <div id="exr-2-5-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.42 (Exercise 2.5.1) </strong></span>Suppose that <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(D\)</span> are any three events such that <span class="math inline">\(\Pr(A \mid D) \geq \Pr(B \mid D)\)</span> and <span class="math inline">\(\Pr(A \mid D^c) \geq \Pr(B \mid D^c)\)</span>. Prove that <span class="math inline">\(\Pr(A) \geq \Pr(B)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 2.67 (Exercise 2.5.1) </strong></span>Suppose that <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(D\)</span> are any three events such that <span class="math inline">\(\Pr(A \mid D) \geq \Pr(B \mid D)\)</span> and <span class="math inline">\(\Pr(A \mid D^c) \geq \Pr(B \mid D^c)\)</span>. Prove that <span class="math inline">\(\Pr(A) \geq \Pr(B)\)</span>.</p>
 </div>
 <div id="exr-2-5-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.43 (Exercise 2.5.2) </strong></span>Suppose that a fair coin is tossed repeatedly and independently until both a head and a tail have appeared at least once.</p>
+<p><span class="theorem-title"><strong>Exercise 2.68 (Exercise 2.5.2) </strong></span>Suppose that a fair coin is tossed repeatedly and independently until both a head and a tail have appeared at least once.</p>
 <ol type="a">
 <li>Describe the sample space of this experiment.</li>
 <li>What is the probability that exactly three tosses will be required?</li>
 </ol>
 </div>
 <div id="exr-2-5-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.44 (Exercise 2.5.3) </strong></span>Suppose that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events such that <span class="math inline">\(\Pr(A) = 1/3\)</span>, <span class="math inline">\(\Pr(B) = 1/5\)</span>, and <span class="math inline">\(\Pr(A \mid B) + \Pr(B \mid A) = 2/3\)</span>. Evaluate <span class="math inline">\(\Pr(A^c \cup B^c)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 2.69 (Exercise 2.5.3) </strong></span>Suppose that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events such that <span class="math inline">\(\Pr(A) = 1/3\)</span>, <span class="math inline">\(\Pr(B) = 1/5\)</span>, and <span class="math inline">\(\Pr(A \mid B) + \Pr(B \mid A) = 2/3\)</span>. Evaluate <span class="math inline">\(\Pr(A^c \cup B^c)\)</span>.</p>
 </div>
 <div id="exr-2-5-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.45 (Exercise 2.5.4) </strong></span>Suppose that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events such that <span class="math inline">\(\Pr(A) = 1/3\)</span> and <span class="math inline">\(\Pr(B) &gt; 0\)</span>. What is the value of <span class="math inline">\(\Pr(A \cup B^c \mid B)\)</span>?</p>
+<p><span class="theorem-title"><strong>Exercise 2.70 (Exercise 2.5.4) </strong></span>Suppose that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events such that <span class="math inline">\(\Pr(A) = 1/3\)</span> and <span class="math inline">\(\Pr(B) &gt; 0\)</span>. What is the value of <span class="math inline">\(\Pr(A \cup B^c \mid B)\)</span>?</p>
 </div>
-<ol start="5" type="1">
-<li>Suppose that in 10 rolls of a balanced die, the number 6 appeared exactly three times.What is the probability that the first three rolls each yielded the number 6?</li>
-<li>Suppose that A, B, and D are events such that A and B are independent, Pr(A ∩ B ∩ D) = 0.04, Pr(D|A ∩ B) = 0.25, and Pr(B) = 4 Pr(A). Evaluate Pr(A ∪ B).</li>
-<li>Suppose that the events A, B, and C are mutually independent. Under what conditions are Ac, Bc, and Cc mutually independent?</li>
-<li>Suppose that the events A and B are disjoint and that each has positive probability. Are A and B independent?</li>
-<li>Suppose that A, B, and C are three events such that A and B are disjoint, A and C are independent, and B and C are independent. Suppose also that 4Pr(A) = 2Pr(B) = Pr(C) &gt; 0 and Pr(A ∪ B ∪ C) = 5Pr(A). Determine the value of Pr(A).</li>
-<li>Suppose that each of two dice is loaded so that when either die is rolled, the probability that the number k will appear is 0.1 for k = 1, 2, 5, or 6 and is 0.3 for k = 3 or 4. If the two loaded dice are rolled independently, what is the probability that the sum of the two numbers that appear will be 7?</li>
-<li>Suppose that there is a probability of 1/50 that you will win a certain game. If you play the game 50 times, independently, what is the probability that you will win at least once?</li>
-<li>Suppose that a balanced die is rolled three times, and let Xi denote the number that appears on the ith roll (i = 1, 2, 3). Evaluate Pr(X1&gt;X2 &gt;X3).</li>
-<li>Three students A, B, and C are enrolled in the same class. Suppose that A attends class 30 percent of the time, B attends class 50 percent of the time, and C attends class 80 percent of the time. If these students attend class independently of each other, what is (a) the probability that at least one of them will be in class on a particular day and (b) the probability that exactly one of them will be in class on a particular day?</li>
-<li>Consider theWorld Series of baseball, as described in Exercise 16 of Sec. 2.2. If there is probability p that team A will win any particular game, what is the probability 2.5 Supplementary Exercises 91 that it will be necessary to play seven games in order to determine the winner of the Series?</li>
-<li>Suppose that three red balls and three white balls are thrown at random into three boxes and and that all throws are independent. What is the probability that each box contains one red ball and one white ball?</li>
-<li>If five balls are thrown at random into n boxes, and all throws are independent, what is the probability that no box contains more than two balls?</li>
-<li>Bus tickets in a certain city contain four numbers, U, V , W, and X. Each of these numbers is equally likely to be any of the 10 digits 0, 1, . . . , 9, and the four numbers are chosen independently.Abus rider is said to be lucky if U + V =W + X.What proportion of the riders are lucky?</li>
-<li>A certain group has eight members. In January, three members are selected at random to serve on a committee. In February, four members are selected at random and independently of the first selection to serve on another committee. In March, five members are selected at random and independently of the previous two selections to serve on a third committee. Determine the probability that each of the eight members serves on at least one of the three committees.</li>
-<li>For the conditions of Exercise 18, determine the probability that two particular members A and B will serve together on at least one of the three committees.</li>
-<li>Suppose that two players A and B take turns rolling a pair of balanced dice and that the winner is the first player who obtains the sum of 7 on a given roll of the two dice. If A rolls first, what is the probability that B will win?</li>
-<li>Three players A, B, and C take turns tossing a fair coin. Suppose that A tosses the coin first, B tosses second, and C tosses third; and suppose that this cycle is repeated indefinitely until someone wins by being the first player to obtain a head. Determine the probability that each of three players will win.</li>
-<li>Suppose that a balanced die is rolled repeatedly until the same number appears on two successive rolls, and let X denote the number of rolls that are required. Determine the value of Pr(X = x), for x = 2, 3, . . . .</li>
-<li>Suppose that 80 percent of all statisticians are shy, whereas only 15 percent of all economists are shy. Suppose also that 90 percent of the people at a large gathering are economists and the other 10 percent are statisticians. If you meet a shy person at random at the gathering, what is the probability that the person is a statistician?</li>
-<li>Dreamboat cars are produced at three different factories A, B, and C. Factory A produces 20 percent of the total output of Dreamboats, B produces 50 percent, and C produces 30 percent. However, 5 percent of the cars produced at A are lemons, 2 percent of those produced at B are lemons, and 10 percent of those produced at C are lemons. If you buy a Dreamboat and it turns out to be a lemon, what is the probability that it was produced at factory A?</li>
-<li>Suppose that 30 percent of the bottles produced in a certain plant are defective. If a bottle is defective, the probability is 0.9 that an inspector will notice it and remove it from the filling line. If a bottle is not defective, the probability is 0.2 that the inspector will think that it is defective and remove it from the filling line.</li>
-</ol>
+<div id="exr-2-5-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.71 (Exercise 2.5.5) </strong></span>Suppose that in 10 rolls of a balanced die, the number 6 appeared exactly three times. What is the probability that the first three rolls each yielded the number 6?</p>
+</div>
+<div id="exr-2-5-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.72 (Exercise 2.5.6) </strong></span>Suppose that <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(D\)</span> are events such that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, <span class="math inline">\(\Pr(A \cap B \cap D) = 0.04\)</span>, <span class="math inline">\(\Pr(D \mid A \cap B) = 0.25\)</span>, and <span class="math inline">\(\Pr(B) = 4 \Pr(A)\)</span>. Evaluate <span class="math inline">\(\Pr(A \cup B)\)</span>.</p>
+</div>
+<div id="exr-2-5-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.73 (Exercise 2.5.7) </strong></span>Suppose that the events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are mutually independent. Under what conditions are <span class="math inline">\(A^c\)</span>, <span class="math inline">\(B^c\)</span>, and <span class="math inline">\(C^c\)</span> mutually independent?</p>
+</div>
+<div id="exr-2-5-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.74 (Exercise 2.5.8) </strong></span>Suppose that the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint and that each has positive probability. Are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent?</p>
+</div>
+<div id="exr-2-5-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.75 (Exercise 2.5.9) </strong></span>Suppose that <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are three events such that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint, <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> are independent, and <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are independent. Suppose also that <span class="math inline">\(4\Pr(A) = 2\Pr(B) = \Pr(C) &gt; 0\)</span> and <span class="math inline">\(\Pr(A \cup B \cup C) = 5\Pr(A)\)</span>. Determine the value of <span class="math inline">\(\Pr(A)\)</span>.</p>
+</div>
+<div id="exr-2-5-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.76 (Exercise 2.5.10) </strong></span>Suppose that each of two dice is loaded so that when either die is rolled, the probability that the number <span class="math inline">\(k\)</span> will appear is 0.1 for <span class="math inline">\(k = 1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(5\)</span>, or <span class="math inline">\(6\)</span> and is 0.3 for <span class="math inline">\(k = 3\)</span> or <span class="math inline">\(4\)</span>. If the two loaded dice are rolled independently, what is the probability that the sum of the two numbers that appear will be 7?</p>
+</div>
+<div id="exr-2-5-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.77 (Exercise 2.5.11) </strong></span>Suppose that there is a probability of <span class="math inline">\(1/50\)</span> that you will win a certain game. If you play the game 50 times, independently, what is the probability that you will win at least once?</p>
+</div>
+<div id="exr-2-5-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.78 (Exercise 2.5.12) </strong></span>Suppose that a balanced die is rolled three times, and let <span class="math inline">\(X_i\)</span> denote the number that appears on the ith roll (<span class="math inline">\(i = 1, 2, 3\)</span>). Evaluate <span class="math inline">\(\Pr(X_1 &gt; X_2 &gt; X_3)\)</span>.</p>
+</div>
+<div id="exr-2-5-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.79 (Exercise 2.5.13) </strong></span>Three students <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are enrolled in the same class. Suppose that <span class="math inline">\(A\)</span> attends class 30 percent of the time, <span class="math inline">\(B\)</span> attends class 50 percent of the time, and <span class="math inline">\(C\)</span> attends class 80 percent of the time. If these students attend class independently of each other, what is (a) the probability that at least one of them will be in class on a particular day and (b) the probability that exactly one of them will be in class on a particular day?</p>
+</div>
+<div id="exr-2-5-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.80 (Exercise 2.5.14) </strong></span>Consider the World Series of baseball, as described in <a href="#exr-2-2-16">Exercise&nbsp;<span>2.33</span></a> of <a href="#sec-2-2"><span>Section&nbsp;2.2</span></a>. If there is probability <span class="math inline">\(p\)</span> that team <span class="math inline">\(A\)</span> will win any particular game, what is the probability that it will be necessary to play seven games in order to determine the winner of the Series?</p>
+</div>
+<div id="exr-2-5-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.81 (Exercise 2.5.15) </strong></span>Suppose that three red balls and three white balls are thrown at random into three boxes and and that all throws are independent. What is the probability that each box contains one red ball and one white ball?</p>
+</div>
+<div id="exr-2-5-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.82 (Exercise 2.5.16) </strong></span>If five balls are thrown at random into <span class="math inline">\(n\)</span> boxes, and all throws are independent, what is the probability that no box contains more than two balls?</p>
+</div>
+<div id="exr-2-5-17" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.83 (Exercise 2.5.17) </strong></span>Bus tickets in a certain city contain four numbers, <span class="math inline">\(U\)</span>, <span class="math inline">\(V\)</span>, <span class="math inline">\(W\)</span>, and <span class="math inline">\(X\)</span>. Each of these numbers is equally likely to be any of the 10 digits <span class="math inline">\(0, 1, \ldots, 9\)</span>, and the four numbers are chosen independently. A bus rider is said to be lucky if <span class="math inline">\(U + V = W + X\)</span>. What proportion of the riders are lucky?</p>
+</div>
+<div id="exr-2-5-18" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.84 (Exercise 2.5.18) </strong></span>A certain group has eight members. In January, three members are selected at random to serve on a committee. In February, four members are selected at random and independently of the first selection to serve on another committee. In March, five members are selected at random and independently of the previous two selections to serve on a third committee. Determine the probability that each of the eight members serves on at least one of the three committees.</p>
+</div>
+<div id="exr-2-5-19" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.85 (Exercise 2.5.19) </strong></span>For the conditions of <a href="#exr-2-5-18">Exercise&nbsp;<span>2.84</span></a>, determine the probability that two particular members <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> will serve together on at least one of the three committees.</p>
+</div>
+<div id="exr-2-5-20" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.86 (Exercise 2.5.20) </strong></span>Suppose that two players <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> take turns rolling a pair of balanced dice and that the winner is the first player who obtains the sum of 7 on a given roll of the two dice. If <span class="math inline">\(A\)</span> rolls first, what is the probability that <span class="math inline">\(B\)</span> will win?</p>
+</div>
+<div id="exr-2-5-21" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.87 (Exercise 2.5.21) </strong></span>Three players <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> take turns tossing a fair coin. Suppose that <span class="math inline">\(A\)</span> tosses the coin first, <span class="math inline">\(B\)</span> tosses second, and <span class="math inline">\(C\)</span> tosses third; and suppose that this cycle is repeated indefinitely until someone wins by being the first player to obtain a head. Determine the probability that each of three players will win.</p>
+</div>
+<div id="exr-2-5-22" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.88 (Exercise 2.5.22) </strong></span>Suppose that a balanced die is rolled repeatedly until the same number appears on two successive rolls, and let <span class="math inline">\(X\)</span> denote the number of rolls that are required. Determine the value of <span class="math inline">\(\Pr(X = x)\)</span>, for <span class="math inline">\(x = 2, 3, \ldots\)</span>.</p>
+</div>
+<div id="exr-2-5-23" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.89 (Exercise 2.5.23) </strong></span>Suppose that 80 percent of all statisticians are shy, whereas only 15 percent of all economists are shy. Suppose also that 90 percent of the people at a large gathering are economists and the other 10 percent are statisticians. If you meet a shy person at random at the gathering, what is the probability that the person is a statistician?</p>
+</div>
+<div id="exr-2-5-24" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.90 (Exercise 2.5.24) </strong></span>Dreamboat cars are produced at three different factories <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>. Factory <span class="math inline">\(A\)</span> produces 20 percent of the total output of Dreamboats, <span class="math inline">\(B\)</span> produces 50 percent, and <span class="math inline">\(C\)</span> produces 30 percent. However, 5 percent of the cars produced at <span class="math inline">\(A\)</span> are lemons, 2 percent of those produced at <span class="math inline">\(B\)</span> are lemons, and 10 percent of those produced at <span class="math inline">\(C\)</span> are lemons. If you buy a Dreamboat and it turns out to be a lemon, what is the probability that it was produced at factory <span class="math inline">\(A\)</span>?</p>
+</div>
+<div id="exr-2-5-25" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.91 (Exercise 2.5.25) </strong></span>Suppose that 30 percent of the bottles produced in a certain plant are defective. If a bottle is defective, the probability is 0.9 that an inspector will notice it and remove it from the filling line. If a bottle is not defective, the probability is 0.2 that the inspector will think that it is defective and remove it from the filling line.</p>
 <ol type="a">
 <li>If a bottle is removed from the filling line, what is the probability that it is defective?</li>
 <li>If a customer buys a bottle that has not been removed from the filling line, what is the probability that it is defective?</li>
 </ol>
-<ol start="26" type="1">
-<li>Suppose that a fair coin is tossed until a head is obtained and that this entire experiment is then performed independently a second time.What is the probability that the second experiment requires more tosses than the first experiment?</li>
-<li>Suppose that a family has exactly n children (n ≥ 2). Assume that the probability that any child will be a girl is 1/2 and that all births are independent. Given that the family has at least one girl, determine the probability that the family has at least one boy.</li>
-<li>Suppose that a fair coin is tossed independently n times. Determine the probability of obtaining exactly n − 1 heads, given (a) that at least n − 2 heads are obtained and (b) that heads are obtained on the first n − 2 tosses.</li>
-<li>Suppose that 13 cards are selected at random from a regular deck of 52 playing cards.</li>
-</ol>
+</div>
+<div id="exr-2-5-26" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.92 (Exercise 2.5.26) </strong></span>Suppose that a fair coin is tossed until a head is obtained and that this entire experiment is then performed independently a second time. What is the probability that the second experiment requires more tosses than the first experiment?</p>
+</div>
+<div id="exr-2-5-27" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.93 (Exercise 2.5.27) </strong></span>Suppose that a family has exactly <span class="math inline">\(n\)</span> children (<span class="math inline">\(n \geq 2\)</span>). Assume that the probability that any child will be a girl is <span class="math inline">\(1/2\)</span> and that all births are independent. Given that the family has at least one girl, determine the probability that the family has at least one boy.</p>
+</div>
+<div id="exr-2-5-28" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.94 (Exercise 2.5.28) </strong></span>Suppose that a fair coin is tossed independently <span class="math inline">\(n\)</span> times. Determine the probability of obtaining exactly <span class="math inline">\(n - 1\)</span> heads, given <strong>(a)</strong> that at least <span class="math inline">\(n − 2\)</span> heads are obtained and <strong>(b)</strong> that heads are obtained on the first <span class="math inline">\(n − 2\)</span> tosses.</p>
+</div>
+<div id="exr-2-5-29" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.95 (Exercise 2.5.29) </strong></span>Suppose that 13 cards are selected at random from a regular deck of 52 playing cards.</p>
 <ol type="a">
 <li>If it is known that at least one ace has been selected, what is the probability that at least two aces have been selected?</li>
 <li>If it is known that the ace of hearts has been selected, what is the probability that at least two aces have been selected?</li>
 </ol>
-<ol start="30" type="1">
-<li>Suppose that n letters are placed at random in n envelopes, as in the matching problem of Sec. 1.10, and let qn denote the probability that no letter is placed in the correct envelope. Show that the probability that exactly one letter is placed in the correct envelope is qn−1.</li>
-<li>Consider again the conditions of Exercise 30. Show that the probability that exactly two letters are placed in the correct envelopes is (1/2)qn−2.</li>
-<li>Consider again the conditions of Exercise 7 of Sec. 2.2. If exactly one of the two students A and B is in class on a given day, what is the probability that it is A?</li>
-<li>Consider again the conditions of Exercise 2 of Sec. 1.10. If a family selected at random from the city 92 Chapter 2 Conditional Probability subscribes to exactly one of the three newspapers A, B, and C, what is the probability that it is A?</li>
-<li>Three prisoners A, B, and C on death row know that exactly two of them are going to be executed, but they do not know which two. Prisoner A knows that the jailer will not tell him whether or not he is going to be executed. He therefore asks the jailer to tell him the name of one prisoner other than A himself who will be executed. The jailer responds that B will be executed. Upon receiving this response, Prisoner A reasons as follows: Before he spoke to the jailer, the probability was 2/3 that he would be one of the two prisoners executed. After speaking to the jailer, he knows that either he or prisoner C will be the other one to be executed. Hence, the probability that he will be executed is now only 1/2. Thus, merely by asking the jailer his question, the prisoner reduced the probability that he would be executed from 2/3 to 1/2, because he could go through exactly this same reasoning regardless of which answer the jailer gave. Discuss what is wrong with prisoner A’s reasoning.</li>
-<li>Suppose that each of two gamblers A and B has an initial fortune of 50 dollars, and that there is probability p that gambler A will win on any single play of a game against gambler B. Also, suppose either that one gambler can win one dollar from the other on each play of the game or that they can double the stakes and one can win two dollars from the other on each play of the game. Under which of these two conditions does A have the greater probability of winning the initial fortune ofB before losing her own for each of the following conditions: (a) p &lt;1/2;</li>
-</ol>
-<ol start="2" type="a">
-<li>p &gt;1/2; (c) p = 1/2?</li>
-</ol>
-<ol start="36" type="1">
-<li>A sequence of n job candidates is prepared to interview for a job. We would like to hire the best candidate, but we have no information to distinguish the candidates before we interview them.We assume that the best candidate is equally likely to be each of the n candidates in the sequence before the interviews start. After the interviews start, we are able to rank those candidates we have seen, but we have no information about where the remaining candidates rank relative to those we have seen. After each interview, it is required that either we hire the current candidate immediately and stop the interviews, or we must let the current candidate go and we never can call them back. We choose to interview as follows: We select a number 0 ≤ r &lt; n and we interview the first r candidates without any intention of hiring them. Starting with the next candidate r + 1, we continue interviewing until the current candidate is the best we have seen so far. We then stop and hire the current candidate. If none of the candidates from r + 1 to n is the best, we just hire candidate n.&nbsp;We would like to compute the probability that we hire the best candidate and we would like to choose r to make this probability as large as possible. Let A be the event that we hire the best candidate, and let Bi be the event that the best candidate is in position i in the sequence of interviews.</li>
-</ol>
+</div>
+<div id="exr-2-5-30" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.96 (Exercise 2.5.30) </strong></span>Suppose that <span class="math inline">\(n\)</span> letters are placed at random in <span class="math inline">\(n\)</span> envelopes, as in the matching problem of <a href="01-intro.html#sec-1-10"><span>Section&nbsp;1.10</span></a>, and let <span class="math inline">\(q_n\)</span> denote the probability that no letter is placed in the correct envelope. Show that the probability that exactly one letter is placed in the correct envelope is <span class="math inline">\(q_{n−1}\)</span>.</p>
+</div>
+<div id="exr-2-5-31" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.97 (Exercise 2.5.31) </strong></span>Consider again the conditions of <a href="#exr-2-5-30">Exercise&nbsp;<span>2.96</span></a>. Show that the probability that exactly two letters are placed in the correct envelopes is <span class="math inline">\((1/2)q_{n−2}\)</span>.</p>
+</div>
+<div id="exr-2-5-32" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.98 (Exercise 2.5.32) </strong></span>Consider again the conditions of <a href="#exr-2-2-7">Exercise&nbsp;<span>2.24</span></a> of <a href="#sec-2-2"><span>Section&nbsp;2.2</span></a>. If exactly one of the two students <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is in class on a given day, what is the probability that it is <span class="math inline">\(A\)</span>?</p>
+</div>
+<div id="exr-2-5-33" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.99 (Exercise 2.5.33) </strong></span>Consider again the conditions of <a href="01-intro.html#exr-1-10-2">Exercise&nbsp;<span>1.83</span></a> of <a href="01-intro.html#sec-1-10"><span>Section&nbsp;1.10</span></a>. If a family selected at random from the city subscribes to exactly one of the three newspapers <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>, what is the probability that it is <span class="math inline">\(A\)</span>?</p>
+</div>
+<div id="exr-2-5-34" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.100 (Exercise 2.5.34) </strong></span>Three prisoners <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> on death row know that exactly two of them are going to be executed, but they do not know which two. Prisoner <span class="math inline">\(A\)</span> knows that the jailer will not tell him whether or not he is going to be executed. He therefore asks the jailer to tell him the name of one prisoner other than <span class="math inline">\(A\)</span> himself who will be executed. The jailer responds that <span class="math inline">\(B\)</span> will be executed. Upon receiving this response, Prisoner <span class="math inline">\(A\)</span> reasons as follows: Before he spoke to the jailer, the probability was <span class="math inline">\(2/3\)</span> that he would be one of the two prisoners executed. After speaking to the jailer, he knows that either he or prisoner <span class="math inline">\(C\)</span> will be the other one to be executed. Hence, the probability that he will be executed is now only <span class="math inline">\(1/2\)</span>. Thus, merely by asking the jailer his question, the prisoner reduced the probability that he would be executed from <span class="math inline">\(2/3\)</span> to <span class="math inline">\(1/2\)</span>, because he could go through exactly this same reasoning regardless of which answer the jailer gave. Discuss what is wrong with prisoner <span class="math inline">\(A\)</span>’s reasoning.</p>
+</div>
+<div id="exr-2-5-35" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.101 (Exercise 2.5.35) </strong></span>Suppose that each of two gamblers <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> has an initial fortune of 50 dollars, and that there is probability <span class="math inline">\(p\)</span> that gambler <span class="math inline">\(A\)</span> will win on any single play of a game against gambler <span class="math inline">\(B\)</span>. Also, suppose either that one gambler can win one dollar from the other on each play of the game or that they can double the stakes and one can win two dollars from the other on each play of the game. Under which of these two conditions does <span class="math inline">\(A\)</span> have the greater probability of winning the initial fortune of <span class="math inline">\(B\)</span> before losing her own for each of the following conditions: <strong>(a)</strong> <span class="math inline">\(p &lt; 1/2\)</span>; <strong>(b)</strong> <span class="math inline">\(p &gt; 1/2\)</span>; <strong>(c)</strong> <span class="math inline">\(p = 1/2\)</span>?</p>
+</div>
+<div id="exr-2-5-36" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.102 (Exercise 2.5.36) </strong></span>A sequence of <span class="math inline">\(n\)</span> job candidates is prepared to interview for a job. We would like to hire the best candidate, but we have no information to distinguish the candidates before we interview them. We assume that the best candidate is equally likely to be each of the <span class="math inline">\(n\)</span> candidates in the sequence before the interviews start. After the interviews start, we are able to rank those candidates we have seen, but we have no information about where the remaining candidates rank relative to those we have seen. After each interview, it is required that either we hire the current candidate immediately and stop the interviews, or we must let the current candidate go and we never can call them back. We choose to interview as follows: We select a number <span class="math inline">\(0 \leq r &lt; n\)</span> and we interview the first <span class="math inline">\(r\)</span> candidates without any intention of hiring them. Starting with the next candidate <span class="math inline">\(r + 1\)</span>, we continue interviewing until the current candidate is the best we have seen so far. We then stop and hire the current candidate. If none of the candidates from <span class="math inline">\(r + 1\)</span> to <span class="math inline">\(n\)</span> is the best, we just hire candidate <span class="math inline">\(n\)</span>. We would like to compute the probability that we hire the best candidate and we would like to choose <span class="math inline">\(r\)</span> to make this probability as large as possible. Let <span class="math inline">\(A\)</span> be the event that we hire the best candidate, and let <span class="math inline">\(B_i\)</span> be the event that the best candidate is in position <span class="math inline">\(i\)</span> in the sequence of interviews.</p>
 <ol type="a">
-<li>Leti &gt;r. Find the probability that the candidate who is relatively the best among the first i interviewed appears in the first r interviews.</li>
-<li>Prove that Pr(A|Bi) = 0 for i ≤ r and Pr(A|Bi) = r/(i − 1) for i &gt; r.</li>
-<li>For fixed r, let pr be the probability of A using that value of r. Prove that pr = (r/n)  n i=r+1(i − 1) −1.</li>
-<li>Let qr = pr − pr−1 for r = 1, . . . , n − 1, and prove that qr is a strictly decreasing function of r.</li>
-<li>Show that a value of r that maximizes pr is the last r such that qr &gt; 0. (Hint: Write pr = p0 + q1 + . . . + qr for r &gt; 0.)</li>
-<li>For n = 10, find the value of r that maximizes pr , and find the corresponding pr value.</li>
+<li>Let <span class="math inline">\(i &gt; r\)</span>. Find the probability that the candidate who is relatively the best among the first <span class="math inline">\(i\)</span> interviewed appears in the first <span class="math inline">\(r\)</span> interviews.</li>
+<li>Prove that <span class="math inline">\(\Pr(A \mid B_i) = 0\)</span> for <span class="math inline">\(i \leq r\)</span> and <span class="math inline">\(\Pr(A \mid B_i) = r/(i − 1)\)</span> for <span class="math inline">\(i &gt; r\)</span>.</li>
+<li>For fixed <span class="math inline">\(r\)</span>, let <span class="math inline">\(p_r\)</span> be the probability of <span class="math inline">\(A\)</span> using that value of <span class="math inline">\(r\)</span>. Prove that <span class="math inline">\(p_r = (r/n)\sum_{i=r+1}^{n}(i-1)^{-1}\)</span>.</li>
+<li>Let <span class="math inline">\(q_r = p_r − p_{r−1}\)</span> for <span class="math inline">\(r = 1, \ldots, n - 1\)</span>, and prove that <span class="math inline">\(q_r\)</span> is a strictly decreasing function of <span class="math inline">\(r\)</span>.</li>
+<li>Show that a value of <span class="math inline">\(r\)</span> that maximizes <span class="math inline">\(p_r\)</span> is the last <span class="math inline">\(r\)</span> such that <span class="math inline">\(q_r &gt; 0\)</span>. (<em>Hint</em>: Write <span class="math inline">\(p_r = p_0 + q_1 + \cdots + q_r\)</span> for <span class="math inline">\(r &gt; 0\)</span>.)</li>
+<li>For <span class="math inline">\(n = 10\)</span>, find the value of <span class="math inline">\(r\)</span> that maximizes <span class="math inline">\(p_r\)</span>, and find the corresponding <span class="math inline">\(p_r\)</span> value.</li>
 </ol>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">

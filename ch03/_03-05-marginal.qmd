@@ -1,0 +1,771 @@
+
+## Marginal Distributions {#sec-3-5}
+
+Earlier in this chapter, we introduced distributions for random variables, and
+in Sec. 3.4 we discussed a generalization to joint distributions of two random
+variables simultaneously. Often, we start with a joint distribution of two random
+variables and we then want to find the distribution of just one of them. The
+distribution of one random variable X computed from a joint distribution is also
+called the marginal distribution of X. Each random variable will have a marginal
+c.d.f. as well as a marginal p.d.f. or p.f.We also introduce the concept of independent
+random variables, which is a natural generalization of independent events.
+Deriving a Marginal p.f. or a Marginal p.d.f.
+We have seen in Theorem 3.4.5 that if the joint c.d.f. F of two random variables X
+and Y is known, then the c.d.f. F1 of the random variable X can be derived from
+F. We saw an example of this derivation in Example 3.4.15. If X has a continuous
+distribution, we can also derive the p.d.f. of X from the joint distribution.
+Example
+3.5.1
+Demands for Utilities. Look carefully at the formula for F(x, y) in Example 3.4.15,
+specifically the last two branches that we identified as F1(x) and F2(y), the c.d.f.’s of
+the two individual random variables X and Y . It is apparent from those two formulas
+and Theorem 3.3.5 that the p.d.f. of X alone is
+f1(x) =
+⎧⎨
+⎩
+1
+196
+for 4 ≤ x ≤ 200,
+0 otherwise,
+which matches what we already found in Example 3.2.1. Similarly, the p.d.f. of Y
+alone is
+f2(y) =
+⎧⎨
+⎩
+1
+149
+for 1≤ y ≤ 150,
+0 otherwise.  
+The ideas employed in Example 3.5.1 lead to the following definition.
+3.5 Marginal Distributions 131
+Figure 3.15 Computing
+f1(x) from the joint p.f.
+x
+y
+x1 x2 ····· x3 ····· x4
+Definition
+3.5.1
+Marginal c.d.f./p.f./p.d.f. Suppose that X and Y have a joint distribution. The c.d.f. of
+X derived by Theorem 3.4.5 is called the marginal c.d.f.ofX. Similarly, the p.f. or p.d.f.
+of X associated with the marginal c.d.f. of X is called the marginal p.f. or marginal
+p.d.f. of X.
+To obtain a specific formula for the marginal p.f. or marginal p.d.f., we start with
+a discrete joint distribution.
+Theorem
+3.5.1
+If X and Y have a discrete joint distribution for which the joint p.f. is f , then the
+marginal p.f. f1 of X is
+f1(x) =
+ 
+All y
+f (x, y). (3.5.1)
+Similarly, the marginal p.f. f2 of Y is f2(y) = 
+All x f (x, y).
+Proof We prove the result for f1, as the proof for f2 is similar. We illustrate the
+proof in Fig. 3.15. In that figure, the set of points in the dashed box is the set of
+pairs with first coordinate x. The event {X = x} can be expressed as the union of the
+events represented by the pairs in the dashed box, namely, By
+= {X = x and Y = y}
+for all possible y. The By events are disjoint and Pr(By) = f (x, y). Since Pr(X = x) =  
+All y Pr(By), Eq. (3.5.1) holds.
+Example
+3.5.2
+Deriving a Marginal p.f. from a Table of Probabilities. Suppose that X and Y are the
+random variables in Example 3.4.3 on page 119. These are respectively the numbers
+of cars and televisions owned by a radomly selected household in a certain suburban
+area. Table 3.2 on page 119 gives their joint p.f., and we repeat that table in Table 3.4
+together with row and column totals added to the margins.
+The marginal p.f. f1 of X can be read from the row totals of Table 3.4. The
+numbers were obtained by summing the values in each row of this table from the four
+columns in the central part of the table (those labeled y = 1, 2, 3, 4). In this way, it is
+found that f1(1) = 0.2, f1(2) = 0.6, f1(3) = 0.2, and f1(x) = 0 for all other values of x.
+This marginal p.f. gives the probabilities that a randomly selected household owns
+1, 2, or 3 cars. Similarly, the marginal p.f. f2 of Y , the probabilities that a household
+owns 1, 2, 3, or 4 televisions, can be read from the column totals. These numbers were
+obtained by adding the numbers in each of the columns from the three rows in the
+central part of the table (those labeled x = 1, 2, 3.)  
+The name marginal distribution derives from the fact that the marginal distributions
+are the totals that appear in the margins of tables like Table 3.4.
+If X and Y have a continuous joint distribution for which the joint p.d.f. is f , then
+the marginal p.d.f. f1 ofX is again determined in the manner shown in Eq. (3.5.1), but
+132 Chapter 3 Random Variables and Distributions
+Table 3.4 Joint p.f. f (x, y) with marginal
+p.f.’s for Example 3.5.2
+y
+x 1 2 3 4 Total
+1 0.1 0 0.1 0 0.2
+2 0.3 0 0.1 0.2 0.6
+3 0 0.2 0 0 0.2
+Total 0.4 0.2 0.2 0.2 1.0
+the sum over all possible values of Y is now replaced by the integral over all possible
+values of Y .
+Theorem
+3.5.2
+If X and Y have a continuous joint distribution with joint p.d.f. f , then the marginal
+p.d.f. f1 of X is
+f1(x) =
+  ∞
+−∞
+f (x, y) dy for −∞< x <∞. (3.5.2)
+Similarly, the marginal p.d.f. f2 of Y is
+f2(y) =
+  ∞
+−∞
+f (x, y) dx for −∞< y <∞. (3.5.3)
+Proof We prove (3.5.2) as the proof of (3.5.3) is similar. For each x, Pr(X ≤ x) can be
+written as Pr((X, Y ) ∈ C), where C = {(r, s)) : r ≤ x}.We can compute this probability
+directly from the joint p.d.f. of X and Y as
+Pr((X, Y ) ∈ C) =
+  x
+−∞
+  ∞
+−∞
+f (r, s)dsdr
+=
+  x
+−∞
+   ∞
+−∞
+f (r, s)ds
+ 
+dr
+(3.5.4)
+The inner integral in the last expression of Eq. (3.5.4) is a function of r and it
+can easily be recognized as f1(r), where f1 is defined in Eq. (3.5.2). It follows that
+Pr(X ≤ x) =
+  x
+−∞ f1(r)dr, so f1 is the marginal p.d.f. of X.
+Example
+3.5.3
+Deriving a Marginal p.d.f. Suppose that the joint p.d.f. of X and Y is as specified in
+Example 3.4.8, namely,
+f (x, y) =
+ 
+21
+4 x2y for x2 ≤ y ≤ 1,
+0 otherwise.
+The set S of points (x, y) for which f (x, y) > 0 is sketched in Fig. 3.16. We shall
+determine first the marginal p.d.f. f1 of X and then the marginal p.d.f. f2 of Y .
+It can be seen from Fig. 3.16 that X cannot take any value outside the interval
+[−1, 1]. Therefore, f1(x) = 0 for x <−1 or x >1. Furthermore, for −1≤ x ≤ 1, it is
+seen from Fig. 3.16 that f (x, y) = 0 unless x2 ≤ y ≤ 1. Therefore, for −1≤ x ≤ 1,
+f1(x) =
+  ∞
+−∞
+f (x, y) dy =
+  1
+x2
+
+
+21
+4
+ 
+x2y dy =
+
+
+21
+8
+ 
+x2(1− x4).
+3.5 Marginal Distributions 133
+Figure 3.16 The set S where
+f (x, y) > 0 in Example 3.5.3.
+x
+y
+ 1 1
+S
+( 1, 1) (1, 1)
+y   x2
+Figure 3.17 The marginal
+p.d.f. of X in Example 3.5.3.
+1 x
+1
+ 1
+f1(x)
+Figure 3.18 The marginal
+p.d.f. of Y in Example 3.5.3.
+0 1 x
+f2(y)
+This marginal p.d.f. of X is sketched in Fig. 3.17.
+Next, it can be seen from Fig. 3.16 that Y cannot take any value outside the
+interval [0, 1]. Therefore, f2(y) = 0 for y <0 or y >1. Furthermore, for 0 ≤ y ≤ 1, it
+is seen from Fig. 3.12 that f (x, y) = 0 unless−
+√
+y ≤ x ≤
+√
+y. Therefore, for 0 ≤ y ≤ 1,
+f2(y) =
+  ∞
+−∞
+f (x, y) dx =
+  √
+y
+−
+√
+y
+
+
+21
+4
+ 
+x2y dx =
+
+
+7
+2
+ 
+y5/2.
+This marginal p.d.f. of Y is sketched in Fig. 3.18.  
+IfX has a discrete distribution and Y has a continuous distribution, we can derive
+the marginal p.f. of X and the marginal p.d.f. of Y from the joint p.f./p.d.f. in the same
+ways that we derived a marginal p.f. or a marginal p.d.f. from a joint p.f. or a joint
+p.d.f. The following result can be proven by combining the techniques used in the
+proofs of Theorems 3.5.1 and 3.5.2.
+Theorem
+3.5.3
+Let f be the joint p.f./p.d.f. of X and Y , with X discrete and Y continuous. Then the
+marginal p.f. of X is
+f1(x) = Pr(X = x) =
+  ∞
+−∞
+f (x, y) dy, for all x,
+134 Chapter 3 Random Variables and Distributions
+and the marginal p.d.f. of Y is
+f2(y) =
+ 
+x
+f (x, y), for −∞< y <∞.
+Example
+3.5.4
+Determining a Marginal p.f. and Marginal p.d.f. from a Joint p.f./p.d.f. Suppose that the
+joint p.f./p.d.f. of X and Y is as in Example 3.4.11 on page 124. The marginal p.f. of X
+is obtained by integrating
+f1(x) =
+  1
+0
+xyx−1
+3
+dy = 1
+3
+,
+for x = 1, 2, 3. The marginal p.d.f. of Y is obtained by summing
+f2(y) = 1
+3
++ 2y
+3
++ y2, for 0 < y <1.  
+Although the marginal distributions of X and Y can be derived from their
+joint distribution, it is not possible to reconstruct the joint distribution of X and
+Y from their marginal distributions without additional information. For instance,
+the marginal p.d.f.’s sketched in Figs. 3.17 and 3.18 reveal no information about the
+relationship between X and Y . In fact, by definition, the marginal distribution of
+X specifies probabilities for X without regard for the values of any other random
+variables. This property of a marginal p.d.f. can be further illustrated by another
+example.
+Example
+3.5.5
+Marginal and Joint Distributions. Suppose that a penny and a nickel are each tossed n
+times so that every pair of sequences of tosses (n tosses in each sequence) is equally
+likely to occur. Consider the following two definitions ofX and Y : (i)X is the number
+of heads obtained with the penny, and Y is the number of heads obtained with the
+nickel. (ii) Both X and Y are the number of heads obtained with the penny, so the
+random variables X and Y are actually identical.
+In case (i), the marginal distribution of X and the marginal distribution of Y will
+be identical binomial distributions. The same pair of marginal distributions of X and
+Y will also be obtained in case (ii). However, the joint distribution of X and Y will
+not be the same in the two cases. In case (i), X and Y can take different values. Their
+joint p.f. is
+f (x, y) =
+   n
+x
+  n
+y
+   
+1
+2
+ x+y
+for x = 0, 1 . . . , n, y = 0, 1, . . . , n,
+0 otherwise.
+In case (ii), X and Y must take the same value, and their joint p.f. is
+f (x, y) =
+   n
+x
+   
+1
+2
+ x
+for x = y = 0, 1 . . . , n,
+0 otherwise.
+ 
+Independent Random Variables
+Example
+3.5.6
+Demands for Utilities. In Examples 3.4.15 and 3.5.1, we found the marginal c.d.f.’s of
+water and electric demand were, respectively,
+F1(x) =
+⎧⎪⎪⎨
+⎪⎪⎩
+0 for x <4,
+x
+196
+for 4 ≤ x ≤ 200,
+1 for x >200,
+F2(y) =
+⎧⎪⎪⎨
+⎪⎪⎩
+0 for y <1,
+y
+149
+for 1≤ y ≤ 150,
+1 for y >150.
+3.5 Marginal Distributions 135
+The product of these two functions is precisely the same as the joint c.d.f. of X and
+Y given in Example 3.5.1. One consequence of this fact is that, for every x and
+y, Pr(X ≤ x, and Y ≤ y) = Pr(X ≤ x) Pr(Y ≤ y). This equation makes X and Y an
+example of the next definition.  
+Definition
+3.5.2
+Independent Random Variables. It is said that two random variables X and Y are
+independent if, for every two sets A and B of real numbers such that {X ∈ A} and
+{Y ∈ B} are events,
+Pr(X ∈ A and Y ∈ B) = Pr(X ∈ A) Pr(Y ∈ B). (3.5.5)
+In other words, letE be any event the occurrence or nonoccurrence of which depends
+only on the value ofX (such asE = {X ∈ A}), and letD be any event the occurrence or
+nonoccurrence of which depends only on the value of Y (such as D = {Y ∈ B}). Then
+X and Y are independent random variables if and only if E and D are independent
+events for all such events E and D.
+If X and Y are independent, then for all real numbers x and y, it must be true
+that
+Pr(X ≤ x and Y ≤ y) = Pr(X ≤ x) Pr(Y ≤ y). (3.5.6)
+Moreover, since all probabilities for X and Y of the type appearing in Eq. (3.5.5) can
+be derived from probabilities of the type appearing in Eq. (3.5.6), it can be shown that
+if Eq. (3.5.6) is satisfied for all values of x and y, then X and Y must be independent.
+The proof of this statement is beyond the scope of this book and is omitted, but we
+summarize it as the following theorem.
+Theorem
+3.5.4
+Let the joint c.d.f. of X and Y be F, let the marginal c.d.f. of X be F1, and let the
+marginal c.d.f. of Y be F2. Then X and Y are independent if and only if, for all real
+numbers x and y, F(x, y) = F1(x)F2(y).
+For example, the demands for water and electricity in Example 3.5.6 are independent.
+If one returns to Example 3.5.1, one also sees that the product of the marginal p.d.f.’s
+of water and electric demand equals their joint p.d.f. given in Eq. (3.4.2). This relation
+is characteristic of independent random variables whether discrete or continuous.
+Theorem
+3.5.5
+Suppose that X and Y are random variables that have a joint p.f., p.d.f., or p.f./p.d.f. f .
+ThenX and Y will be independent if and only if f can be represented in the following
+form for −∞< x <∞and −∞< y <∞:
+f (x, y) = h1(x)h2(y), (3.5.7)
+where h1 is a nonnegative function of x alone and h2 is a nonnegative function of y
+alone.
+Proof We shall give the proof only for the case in which X is discrete and Y is
+continuous. The other cases are similar. For the “if” part, assume that Eq. (3.5.7)
+holds. Write
+f1(x) =
+  ∞
+−∞
+h1(x)h2(y)dy = c1h1(x),
+where c1 =
+  ∞
+−∞ h2(y)dy must be finite and strictly positive, otherwise f1 wouldn’t be
+a p.f. So, h1(x) = f1(x)/c1. Similarly,
+f2(y) =
+ 
+x
+h1(x)h2(y) = h2(y)
+ 
+x
+1
+c1
+f1(x) = 1
+c1
+h2(y).
+136 Chapter 3 Random Variables and Distributions
+So, h2(y) = c1f2(y). Since f (x, y) = h1(x)h2(y), it follows that
+f (x, y) = f1(x)
+c1
+c1f2(y) = f1(x)f2(y). (3.5.8)
+Now let A and B be sets of real numbers. Assuming the integrals exist, we can write
+Pr(X ∈ A and Y ∈ B) =
+ 
+x∈A
+ 
+B
+f (x, y)dy
+=
+ 
+B
+ 
+x∈A
+f1(x)f2(y)dy,
+=
+ 
+x∈A
+f1(x)
+ 
+B
+f2(y)dy,
+where the first equality is from Definition 3.4.5, the second is from Eq. (3.5.8), and the
+third is straightforward rearrangement. We now see that X and Y are independent
+according to Definition 3.5.2.
+For the “only if” part, assume that X and Y are independent. Let A and B be sets
+of real numbers. Let f1 be the marginal p.d.f. of X, and let f2 be the marginal p.f. of
+Y . Then
+Pr(X ∈ A and Y ∈ B) =
+ 
+x∈A
+f1(x)
+ 
+B
+f2(y)dy
+=
+ 
+B
+ 
+x∈A
+f1(x)f2(y)dy,
+(if the integral exists) where the first equality follows from Definition 3.5.2 and the
+second is a straightforward rearrangement. We now see that f1(x)f2(y) satisfies the
+conditions needed to be f (x, y) as stated in Definition 3.4.5.
+A simple corollary follows from Theorem 3.5.5.
+Corollary
+3.5.1
+Two random variables X and Y are independent if and only if the following factorization
+is satisfied for all real numbers x and y:
+f (x, y) = f1(x)f2(y). (3.5.9)
+As stated in Sec. 3.2 (see page 102), in a continuous distribution the values of a
+p.d.f. can be changed arbitrarily at any countable set of points. Therefore, for such a
+distribution it would be more precise to state that the random variables X and Y are
+independent if and only if it is possible to choose versions of f , f1, and f2 such that
+Eq. (3.5.9) is satisfied for −∞< x <∞and −∞< y <∞.
+The Meaning of Independence We have given a mathematical definition of independent
+random variables in Definition 3.5.2, but we have not yet given any interpretation
+of the concept of independent random variables. Because of the close
+connection between independent events and independent random variables, the interpretation
+of independent random variables should be closely related to the interpretation
+of independent events. We model two events as independent if learning
+that one of them occurs does not change the probability that the other one occurs.
+It is easiest to extend this idea to discrete random variables. Suppose that X and Y
+3.5 Marginal Distributions 137
+Table 3.5 Joint p.f. f (x, y) for Example 3.5.7
+y
+x 1 2 3 4 5 6 Total
+0 1/24 1/24 1/24 1/24 1/24 1/24 1/4
+1 1/12 1/12 1/12 1/12 1/12 1/12 1/2
+2 1/24 1/24 1/24 1/24 1/24 1/24 1/4
+Total 1/6 1/6 1/6 1/6 1/6 1/6 1.000
+have a discrete joint distribution. If, for each y, learning that Y = y does not change
+any of the probabilities of the events {X = x}, we would like to say that X and Y are
+independent. From Corollary 3.5.1 and the definition of marginal p.f., we see that indeedX
+and Y are independent if and only if, for each y and x such that Pr(Y = y)>0,
+Pr(X = x|Y = y) = Pr(X = x), that is, learning the value of Y doesn’t change any of
+the probabilities associated with X. When we formally define conditional distributions
+in Sec. 3.6, we shall see that this interpretation of independent discrete random
+variables extends to all bivariate distributions. In summary, if we are trying to decide
+whether or not to model two random variables X and Y as independent, we should
+think about whether we would change the distribution ofX after we learned the value
+of Y or vice versa.
+Example
+3.5.7
+Games of Chance. A carnival game consists of rolling a fair die, tossing a fair coin
+two times, and recording both outcomes. Let Y stand for the number on the die,
+and let X stand for the number of heads in the two tosses. It seems reasonable to
+believe that all of the events determined by the roll of the die are independent of all
+of the events determined by the flips of the coin. Hence, we can assume that X and Y
+are independent random variables. The marginal distribution of Y is the uniform
+distribution on the integers 1, . . . , 6, while the distribution of X is the binomial
+distribution with parameters 2 and 1/2. The marginal p.f.’s and the joint p.f. of X
+and Y are given in Table 3.5, where the joint p.f. was constructed using Eq. (3.5.9).
+The Total column gives the marginal p.f. f1 ofX, and the Total row gives the marginal
+p.f. f2 of Y .  
+Example
+3.5.8
+Determining Whether Random Variables Are Independent in a Clinical Trial. Return to
+the clinical trial of depression drugs in Exercise 11 of Sec. 3.4 (on page 129). In that
+trial, a patient is selected at random from the 150 patients in the study and we record
+Y , an indicator of the treatment group for that patient, andX, an indicator of whether
+or not the patient relapsed. Table 3.6 repeats the joint p.f. of X and Y along with the
+marginal distributions in the margins. We shall determine whether or not X and Y
+are independent.
+In Eq. (3.5.9), f (x, y) is the probability in the xth row and the yth column of the
+table, f1(x) is the number in the Total column in the xth row, and f2(y) is the number
+in the Total row in the yth column. It is seen in the table that f (1, 2) = 0.087, while
+f1(1) = 0.513, and f2(1) = 0.253. Hence, f (1, 2)  = f1(1)f2(1) = 0.129. It follows that
+X and Y are not independent.  
+It should be noted from Examples 3.5.7 and 3.5.8 that X and Y will be independent
+if and only if the rows of the table specifying their joint p.f. are proportional to
+138 Chapter 3 Random Variables and Distributions
+Table 3.6 Proportions marginals in Example 3.5.8
+Treatment group (Y )
+Response (X) Imipramine (1) Lithium (2) Combination (3) Placebo (4) Total
+Relapse (0) 0.120 0.087 0.146 0.160 0.513
+No relapse (1) 0.147 0.166 0.107 0.067 0.487
+Total 0.267 0.253 0.253 0.227 1.0
+one another, or equivalently, if and only if the columns of the table are proportional
+to one another.
+Example
+3.5.9
+Calculating a Probability Involving Independent Random Variables. Suppose that two
+measurements X and Y are made of the rainfall at a certain location on May 1 in two
+consecutive years. It might be reasonable, given knowledge of the history of rainfall
+on May 1, to treat the random variables X and Y as independent. Suppose that the
+p.d.f. g of each measurement is as follows:
+g(x) =
+ 
+2x for 0 ≤ x ≤ 1,
+0 otherwise.
+We shall determine the value of Pr(X + Y ≤ 1).
+SinceXand Y are independent and each has the p.d.f. g, it follows from Eq. (3.5.9)
+that for all values of x and y the joint p.d.f. f (x, y) of X and Y will be specified by
+the relation f (x, y) = g(x)g(y). Hence,
+f (x, y) =
+ 
+4xy for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1,
+0 otherwise.
+The set S in the xy-plane, where f (x, y) > 0, and the subset S0, where x + y ≤ 1, are
+sketched in Fig. 3.19. Thus,
+Pr(X + Y ≤ 1) =
+ 
+S0
+ 
+f (x, y) dx dy =
+  1
+0
+  1−x
+0
+4xy dy dx = 1
+6
+.
+As a final note, if the two measurements X and Y had been made on the same day at
+nearby locations, then it might not make as much sense to treat them as independent,
+since we would expect them to be more similar to each other than to historical
+rainfalls. For example, if we first learn that X is small compared to historical rainfall
+on the date in question, we might then expect Y to be smaller than the historical
+distribution would suggest.  
+Figure 3.19 The subset S0
+where x + y ≤ 1
+in Example 3.5.9.
+1 x
+1
+0
+S
+S0
+y
+3.5 Marginal Distributions 139
+Theorem 3.5.5 says that X and Y are independent if and only if, for all values of
+x and y, f can be factored into the product of an arbitrary nonnegative function of x
+and an arbitrary nonnegative function of y. However, it should be emphasized that,
+just as in Eq. (3.5.9), the factorization in Eq. (3.5.7) must be satisfied for all values of
+x and y (−∞< x <∞and −∞< y <∞).
+Example
+3.5.10
+Dependent Random Variables. Suppose that the joint p.d.f. of X and Y has the following
+form:
+f (x, y) =
+ 
+kx2y2 for x2 + y2 ≤ 1,
+0 otherwise.
+We shall show that X and Y are not independent.
+It is evident that at each point inside the circle x2 + y2 ≤ 1, f (x, y) can be factored
+as in Eq. (3.5.7). However, this same factorization cannot also be satisfied at every
+point outside this circle. For example, f (0.9, 0.9) = 0, but neither f1(0.9) = 0 nor
+f2(0.9) = 0. (In Exercise 13, you can verify this feature of f1 and f2.)
+The important feature of this example is that the values of X and Y are constrained
+to lie inside a circle. The joint p.d.f. of X and Y is positive inside the circle
+and zero outside the circle. Under these conditions, X and Y cannot be independent,
+because for every given value y of Y , the possible values of X will depend on y. For
+example, if Y = 0, then X can have any value such that X2 ≤ 1; if Y = 1/2, then X
+must have a value such that X2 ≤ 3/4.  
+Example 3.5.10 shows that one must be careful when trying to apply Theorem
+3.5.5. The situation that arose in that example will occur whenever {(x, y) :
+f (x, y) > 0} has boundaries that are curved or not parallel to the coordinate axes.
+There is one important special case in which it is easy to check the conditions of
+Theorem 3.5.5. The proof is left as an exercise.
+Theorem
+3.5.6
+Let X and Y have a continuous joint distribution. Suppose that {(x, y) : f (x, y) > 0}
+is a rectangular region R (possibly unbounded) with sides (if any) parallel to the
+coordinate axes. Then X and Y are independent if and only if Eq. (3.5.7) holds for
+all (x, y) ∈ R.
+Example
+3.5.11
+Verifying the Factorization of a Joint p.d.f. Suppose that the joint p.d.f. f of X and Y is
+as follows:
+f (x, y) =
+ 
+ke
+−(x+2y) for x ≥ 0 and y ≥ 0,
+0 otherwise,
+where k is some constant.We shall first determine whether X and Y are independent
+and then determine their marginal p.d.f.’s.
+In this example, f (x, y) = 0 outside of an unbounded rectangular regionR whose
+sides are the lines x = 0 and y = 0. Furthermore, at each point inside R, f (x, y) can
+be factored as in Eq. (3.5.7) by letting h1(x) = ke
+−x and h2(y) = e
+−2y. Therefore, X
+and Y are independent.
+It follows that in this case, except for constant factors, h1(x) for x ≥ 0 and h2(y)
+for y ≥ 0 must be the marginal p.d.f.’s of X and Y . By choosing constants that make
+h1(x) and h2(y) integrate to unity, we can conclude that the marginal p.d.f.’s f1 and
+f2 of X and Y must be as follows:
+f1(x) =
+ 
+e
+−x for x ≥ 0,
+0 otherwise,
+140 Chapter 3 Random Variables and Distributions
+and
+f2(y) =
+ 
+2e
+−2y for y ≥ 0,
+0 otherwise.
+If we multiply f1(x) times f2(y) and compare the product to f (x, y), we see that
+k = 2.  
+Note: Separate Functions of Independent Random Variables Are Independent. If
+X and Y are independent, then h(X) and g(Y) are independent no matter what the
+functions h and g are. This is true because for every t , the event {h(X) ≤ t} can always
+be written as {X ∈ A}, where A = {x : h(x) ≤ t}. Similarly, {g(Y) ≤ u} can be written
+as {Y ∈ B}, so Eq. (3.5.6) for h(X) and g(Y) follows from Eq. (3.5.5) for X and Y .
+Summary
+Let f (x, y) be a joint p.f., joint p.d.f., or joint p.f./p.d.f. of two random variables X
+and Y . The marginal p.f. or p.d.f. of X is denoted by f1(x), and the marginal p.f. or
+p.d.f. of Y is denoted by f2(y). To obtain f1(x), compute
+ 
+y f (x, y) if Y is discrete
+or
+  ∞
+−∞ f (x, y) dy if Y is continuous. Similarly, to obtain f2(y), compute
+ 
+x f (x, y)
+if X is discrete or
+  ∞
+−∞ f (x, y) dx if X is continuous. The random variables X and
+Y are independent if and only if f (x, y) = f1(x)f2(y) for all x and y. This is true
+regardless of whether X and/or Y is continuous or discrete.Asufficient condition for
+two continuous random variables to be independent is that R = {(x, y) : f (x, y) > 0}
+be rectangular with sides parallel to the coordinate axes and that f (x, y) factors into
+separate functions of x of y in R.
+
+### Exercises
+
+1. Suppose that X and Y have a continuous joint distribution
+for which the joint p.d.f. is
+f (x, y) =
+ 
+k for a ≤ x ≤ b and c ≤ y ≤ d,
+0 otherwise,
+where a <b, c < d, and k > 0. Find the marginal distributions
+of X and Y .
+2. Suppose that X and Y have a discrete joint distribution
+for which the joint p.f. is defined as follows:
+f (x, y) =
+ 
+1
+30 (x + y) for x = 0, 1, 2 and y = 0, 1, 2, 3,
+0 otherwise.
+a. Determine the marginal p.f.’s of X and Y .
+b. Are X and Y independent?
+3. Suppose that X and Y have a continuous joint distribution
+for which the joint p.d.f. is defined as follows:
+f (x, y) =
+ 
+3
+2 y2 for 0 ≤ x ≤ 2 and 0 ≤ y ≤ 1,
+0 otherwise.
+a. Determine the marginal p.d.f.’s of X and Y .
+b. Are X and Y independent?
+c. Are the event {X<1} and the event {Y ≥ 1/2} independent?
+4. Suppose that the joint p.d.f. of X and Y is as follows:
+f (x, y) =
+ 
+15
+4 x2 for 0 ≤ y ≤ 1− x2,
+0 otherwise.
+a. Determine the marginal p.d.f.’s of X and Y .
+b. Are X and Y independent?
+5. A certain drugstore has three public telephone booths.
+For i = 0, 1, 2, 3, let pi denote the probability that exactly
+i telephone booths will be occupied on any Monday
+evening at 8:00 p.m.; and suppose that p0 = 0.1, p1 = 0.2,
+p2 = 0.4, and p3 = 0.3. Let X and Y denote the number of
+booths that will be occupied at 8:00 p.m. on two independent
+Monday evenings. Determine: (a) the joint p.f. of X
+and Y ; (b) Pr(X = Y); (c) Pr(X > Y ).
+
+6. Suppose that in a certain drug the concentration of a
+particular chemical is a random variable with a continuous
+distribution for which the p.d.f. g is as follows:
+g(x) =
+ 
+3
+8x2 for 0 ≤ x ≤ 2,
+0 otherwise.
+Suppose that the concentrations X and Y of the chemical
+in two separate batches of the drug are independent random
+variables for each of which the p.d.f. is g. Determine
+(a) the joint p.d.f. ofXand Y ; (b) Pr(X =Y); (c) Pr(X >Y );
+(d) Pr(X + Y ≤ 1).
+7. Suppose that the joint p.d.f. of X and Y is as follows:
+f (x, y) =
+ 
+2xe
+−y for 0 ≤ x ≤ 1 and 0 < y <∞,
+0 otherwise.
+Are X and Y independent?
+8. Suppose that the joint p.d.f. of X and Y is as follows:
+f (x, y) =
+ 
+24xy for x ≥ 0, y ≥ 0, and x + y ≤ 1,
+0 otherwise.
+Are X and Y independent?
+9. Suppose that a point (X, Y ) is chosen at random from
+the rectangle S defined as follows:
+S = {(x, y) : 0 ≤ x ≤ 2 and 1≤ y ≤ 4}.
+a. Determine the joint p.d.f. of X and Y , the marginal
+p.d.f. of X, and the marginal p.d.f. of Y .
+b. Are X and Y independent?
+10. Suppose that a point (X, Y ) is chosen at random from
+the circle S defined as follows:
+S = {(x, y) :x2 + y2 ≤ 1}.
+a. Determine the joint p.d.f. of X and Y , the marginal
+p.d.f. of X, and the marginal p.d.f. of Y .
+b. Are X and Y independent?
+11. Suppose that two persons make an appointment to
+meet between 5 p.m. and 6 p.m. at a certain location, and
+they agree that neither person will wait more than 10
+minutes for the other person. If they arrive independently
+at random times between 5 p.m. and 6 p.m., what is the
+probability that they will meet?
+12. Prove Theorem 3.5.6.
+13. In Example 3.5.10, verify that X and Y have the same
+marginal p.d.f.’s and that
+f1(x) =
+ 
+2kx2(1− x2)3/2/3 if−1≤ x ≤ 1,
+0 otherwise.
+14. For the joint p.d.f. in Example 3.4.7, determine
+whether or not X and Y are independent.
+15. A painting process consists of two stages. In the first
+stage, the paint is applied, and in the second stage, a protective
+coat is added. Let X be the time spent on the first
+stage, and let Y be the time spent on the second stage. The
+first stage involves an inspection. If the paint fails the inspection,
+one must wait three minutes and apply the paint
+again. After a second application, there is no further inspection.
+The joint p.d.f. of X and Y is
+f (x, y) =
+⎧⎨ ⎩
+1
+3 if 1< x <3 and 0 < y <1,
+1
+6 if 6 < x <8 and 0 < y <1,
+0 otherwise.
+a. Sketch the region where f (x, y) > 0. Note that it is
+not exactly a rectangle.
+b. Find the marginal p.d.f.’s of X and Y .
+c. Show that X and Y are independent.
+This problem does not contradict Theorem 3.5.6. In that
+theorem the conditions, including that the set where
+f (x, y) > 0 be rectangular, are sufficient but not necessary.
