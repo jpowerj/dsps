@@ -195,7 +195,7 @@ $$
 \end{align*}
 $$ {#eq-2-3-4}
 
-The second way of determining this same posterior probability is to use the conditional version of Bayes' theorem (@thm-2-3-2) given the event $H_1$. Given $H_1$, the conditional probability of $B_1$ is $1/3$, and the conditional probability of $B_2$ is therefore $2/3$. These conditional \Probabilities can now serve as the prior \Probabilities for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply @eq-2-3-2 with $C = H_1$, $\Pr(B_1 \mid H_1) = 1/3$, and $\Pr(B_2 \mid H_1) = 2/3$. We can then compute the posterior probability $\Pr(B_1 \mid H_1 \cap H_2)$ that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need $\Pr(H_2 \mid B_1 \cap H_1)$, which equals $\Pr(H_2 \mid B_1) = 1/2$ by @thm-2-2-4 since $H_1$ and $H_2$ are conditionally independent given $B_1$. Since the coin is two-headed when $B_2$ occurs, $\Pr(H_2 \mid B_2 \cap H_1) = 1$. So we obtain
+The second way of determining this same posterior probability is to use the conditional version of Bayes' theorem @eq-2-3-2 given the event $H_1$. Given $H_1$, the conditional probability of $B_1$ is $1/3$, and the conditional probability of $B_2$ is therefore $2/3$. These conditional \Probabilities can now serve as the prior \Probabilities for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply @eq-2-3-2 with $C = H_1$, $\Pr(B_1 \mid H_1) = 1/3$, and $\Pr(B_2 \mid H_1) = 2/3$. We can then compute the posterior probability $\Pr(B_1 \mid H_1 \cap H_2)$ that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need $\Pr(H_2 \mid B_1 \cap H_1)$, which equals $\Pr(H_2 \mid B_1) = 1/2$ by @thm-2-2-4 since $H_1$ and $H_2$ are conditionally independent given $B_1$. Since the coin is two-headed when $B_2$ occurs, $\Pr(H_2 \mid B_2 \cap H_1) = 1$. So we obtain
 
 $$
 \begin{align*}
@@ -286,10 +286,9 @@ Using the values of $\Pr(B_j \mid A)$ in @fig-2-3 and the fact that $\Pr(E_{41} 
 
 The calculation at the end of @exm-2-3-7 is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.
 
-![The posterior probabilities of partition elements after 40 patients in @exm-2-3-7.](images/fig-2-3.jpeg)
+![The posterior probabilities of partition elements after 40 patients in @exm-2-3-7.](images/fig-2-3.jpeg){#fig-2-3}
 
-![The posterior probabilities of partition elements after 40 patients in @exm-2-3-8. The X characters mark the values of the posterior probabilities
-calculated in @exm-2-3-7.](images/fig-2-4.jpeg)
+![The posterior probabilities of partition elements after 40 patients in @exm-2-3-8. The X characters mark the values of the posterior probabilities calculated in @exm-2-3-7.](images/fig-2-4.jpeg){#fig-2-4}
 
 ::: {.callout-tip}
 ::: {#exm-2-3-8}

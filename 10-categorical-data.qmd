@@ -1,6 +1,6 @@
-# Categorical Data and Nonparametric Methods
+# Categorical Data and Nonparametric Methods {#sec-10}
 
-## Tests of Goodness-of-Fit
+## Tests of Goodness-of-Fit {#sec-10-1}
 
 In some problems, we have one specific distribution in mind for the data we will
 observe. If that one distribution is not appropriate, we do not necessarily have a

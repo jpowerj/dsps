@@ -448,7 +448,7 @@ Now, let $E_1$ be the event that the first patient in the imipramine group has a
 
 $$
 \Pr(E_1) = \sum_{j=1}^{11}\frac{1}{11}\frac{j-1}{10} = \frac{55}{110} = \frac{1}{2},
-$$
+$$ {#eq-2-1-6}
 
 where the second equality uses the fact that $\sum_{j=1}^n j = n(n+1)/2
 

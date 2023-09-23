@@ -394,7 +394,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-2-1-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.4 (Example 2.1.4: A Clinical Trial) </strong></span>It is very common for patients with episodes of depression to have a recurrence within two to three years. <span class="citation" data-cites="prien_drug_1984">Prien et al. (<a href="references.html#ref-prien_drug_1984" role="doc-biblioref">1984</a>)</span> studied three treatments for depression: imipramine, lithium carbonate, and a combination. As is traditional in such studies (called clinical trials), there was also a group of patients who received a placebo. (A placebo is a treatment that is supposed to be neither helpful nor harmful. Some patients are given a placebo so that they will not know that they did not receive one of the other treatments. None of the other patients knew which treatment or placebo they received, either.) In this example, we shall consider 150 patients who entered the study after an episode of depression that was classified as “unipolar” (meaning that there was no manic disorder). They were divided into the four groups (three treatments plus placebo) and followed to see how many had recurrences of depression. <a href="#tbl-2-1">Table&nbsp;<span>2.1</span></a> summarizes the results. If a patient were selected at random from this study and it were found that the patient received the placebo treatment, what is the conditional probability that the patient had a relapse? Let <span class="math inline">\(B\)</span> be the event that the patient received the placebo, and let <span class="math inline">\(A\)</span> be the event that the patient had a relapse. We can calculate <span class="math inline">\(\Pr(B) = 34/150\)</span> and <span class="math inline">\(\Pr(A \cap B) = 24/150\)</span> directly from the table. Then <span class="math inline">\(\Pr(A \mid B) = 24/34 = 0.706\)</span>. On the other hand, if the randomly selected patient is found to have received lithium (call this event <span class="math inline">\(C\)</span>) then <span class="math inline">\(\Pr(C) = 38/150\)</span>, <span class="math inline">\(\Pr(A \cap C) = 13/150\)</span>, and <span class="math inline">\(\Pr(A \mid C) = 13/38 = 0.342\)</span>. Knowing which treatment a patient received seems to make a difference to the probability of relapse. In <span class="quarto-unresolved-ref">?sec-10</span>, we shall study methods for being more precise about how much of a difference it makes.  </p>
+<p><span class="theorem-title"><strong>Example 2.4 (Example 2.1.4: A Clinical Trial) </strong></span>It is very common for patients with episodes of depression to have a recurrence within two to three years. <span class="citation" data-cites="prien_drug_1984">Prien et al. (<a href="references.html#ref-prien_drug_1984" role="doc-biblioref">1984</a>)</span> studied three treatments for depression: imipramine, lithium carbonate, and a combination. As is traditional in such studies (called clinical trials), there was also a group of patients who received a placebo. (A placebo is a treatment that is supposed to be neither helpful nor harmful. Some patients are given a placebo so that they will not know that they did not receive one of the other treatments. None of the other patients knew which treatment or placebo they received, either.) In this example, we shall consider 150 patients who entered the study after an episode of depression that was classified as “unipolar” (meaning that there was no manic disorder). They were divided into the four groups (three treatments plus placebo) and followed to see how many had recurrences of depression. <a href="#tbl-2-1">Table&nbsp;<span>2.1</span></a> summarizes the results. If a patient were selected at random from this study and it were found that the patient received the placebo treatment, what is the conditional probability that the patient had a relapse? Let <span class="math inline">\(B\)</span> be the event that the patient received the placebo, and let <span class="math inline">\(A\)</span> be the event that the patient had a relapse. We can calculate <span class="math inline">\(\Pr(B) = 34/150\)</span> and <span class="math inline">\(\Pr(A \cap B) = 24/150\)</span> directly from the table. Then <span class="math inline">\(\Pr(A \mid B) = 24/34 = 0.706\)</span>. On the other hand, if the randomly selected patient is found to have received lithium (call this event <span class="math inline">\(C\)</span>) then <span class="math inline">\(\Pr(C) = 38/150\)</span>, <span class="math inline">\(\Pr(A \cap C) = 13/150\)</span>, and <span class="math inline">\(\Pr(A \mid C) = 13/38 = 0.342\)</span>. Knowing which treatment a patient received seems to make a difference to the probability of relapse. In <a href="10-categorical-data.html"><span>Chapter&nbsp;10</span></a>, we shall study methods for being more precise about how much of a difference it makes.  </p>
 </div>
 </div>
 </div>
@@ -747,9 +747,9 @@ Tip
 <div id="exm-2-1-12" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.12 (Example 2.1.12: A Clinical Trial) </strong></span>Consider a clinical trial such as the study of treatments for depression in <a href="#exm-2-1-4">Example&nbsp;<span>2.4</span></a>. As in many such trials, each patient has two possible outcomes, in this case relapse and no relapse. We shall refer to relapse as “failure” and no relapse as “success.” For now, we shall consider only patients in the imipramine treatment group. If we knew the effectiveness of imipramine, that is, the proportion <span class="math inline">\(p\)</span> of successes among all patients who might receive the treatment, then we might model the patients in our study as having probability <span class="math inline">\(p\)</span> of success. Unfortunately, we do not know <span class="math inline">\(p\)</span> at the start of the trial. In analogy to the box of bolts with unknown composition in <a href="#exm-2-1-11">Example&nbsp;<span>2.11</span></a>, we can imagine that the collection of all available patients (from which the 40 imipramine patients in this trial were selected) has two or more possible compositions. We can imagine that the composition of the collection of patients determines the proportion that will be success. For simplicity, in this example, we imagine that there are 11 different possible compositions of the collection of patients. In particular, we assume that the proportions of success for the 11 possible compositions are <span class="math inline">\(0, 1/10, \ldots, 9/10, 1\)</span>. (We shall be able to handle more realistic models for <span class="math inline">\(p\)</span> in <a href="03-random-variables.html"><span>Chapter&nbsp;3</span></a>.) For example, if we knew that our patients were drawn from a collection with the proportion <span class="math inline">\(3/10\)</span> of successes, we would be comfortable saying that the patients in our sample each have success probability <span class="math inline">\(p = 3/10\)</span>. The value of <span class="math inline">\(p\)</span> is an important source of uncertainty in this problem, and we shall partition the sample space by the possible values of <span class="math inline">\(p\)</span>. For <span class="math inline">\(j = 1, \ldots, 11\)</span>, let <span class="math inline">\(B_j\)</span> be the event that our sample was drawn from a collection with proportion <span class="math inline">\((j − 1)/10\)</span> of successes. We can also identify <span class="math inline">\(B_j\)</span> as the event <span class="math inline">\(\{p = (j − 1)/10\}\)</span>.</p>
 <p>Now, let <span class="math inline">\(E_1\)</span> be the event that the first patient in the imipramine group has a success. We defined each event <span class="math inline">\(B_j\)</span> so that <span class="math inline">\(\Pr(E_1 \mid B_j) = (j − 1)/10\)</span>. Supppose that, prior to starting the trial, we believe that <span class="math inline">\(\Pr(B_j) = 1/11\)</span> for each <span class="math inline">\(j\)</span>. It follows that</p>
-<p><span class="math display">\[
+<p><span id="eq-2-1-6"><span class="math display">\[
 \Pr(E_1) = \sum_{j=1}^{11}\frac{1}{11}\frac{j-1}{10} = \frac{55}{110} = \frac{1}{2},
-\]</span></p>
+\tag{2.6}\]</span></span></p>
 <p>where the second equality uses the fact that $_{j=1}^n j = n(n+1)/2</p>
 </div>
 </div>
@@ -1020,12 +1020,12 @@ Tip
 \Pr(A \cap C) = \Pr(A)\Pr(C), \\
 \Pr(B \cap C) = \Pr(B)\Pr(C),
 \end{align*}
-\tag{2.6}\]</span></span></p>
+\tag{2.7}\]</span></span></p>
 <p>and</p>
 <p><span id="eq-2-2-2"><span class="math display">\[
 \Pr(A \cap B \cap C) = \Pr(A)\Pr(B)\Pr(C).
-\tag{2.7}\]</span></span></p>
-<p>It is possible that <a href="#eq-2-2-2">Equation&nbsp;<span>2.7</span></a> will be satisfied, but one or more of the three relations <a href="#eq-2-2-1">Equation&nbsp;<span>2.6</span></a> will not be satisfied. On the other hand, as is shown in the next example, it is also possible that each of the three relations <a href="#eq-2-2-1">Equation&nbsp;<span>2.6</span></a> will be satisfied but <a href="#eq-2-2-2">Equation&nbsp;<span>2.7</span></a> will not be satisfied.</p>
+\tag{2.8}\]</span></span></p>
+<p>It is possible that <a href="#eq-2-2-2">Equation&nbsp;<span>2.8</span></a> will be satisfied, but one or more of the three relations <a href="#eq-2-2-1">Equation&nbsp;<span>2.7</span></a> will not be satisfied. On the other hand, as is shown in the next example, it is also possible that each of the three relations <a href="#eq-2-2-1">Equation&nbsp;<span>2.7</span></a> will be satisfied but <a href="#eq-2-2-2">Equation&nbsp;<span>2.8</span></a> will not be satisfied.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1053,7 +1053,7 @@ C &amp;= \{\text{Both tosses the same}\} = \{HH, TT\}.
 <p><span class="math display">\[
 \Pr(A \cap B) = \Pr(A \cap C) = \Pr(B \cap C) = \Pr(A \cap B \cap C) = 1/4.
 \]</span></p>
-<p>It follows that each of the three relations of <a href="#eq-2-2-1">Equation&nbsp;<span>2.6</span></a> is satisfied but <a href="#eq-2-2-2">Equation&nbsp;<span>2.7</span></a> is not satisfied. These results can be summarized by saying that the events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are <strong>pairwise independent</strong>, but all three events are not independent.</p>
+<p>It follows that each of the three relations of <a href="#eq-2-2-1">Equation&nbsp;<span>2.7</span></a> is satisfied but <a href="#eq-2-2-2">Equation&nbsp;<span>2.8</span></a> is not satisfied. These results can be summarized by saying that the events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are <strong>pairwise independent</strong>, but all three events are not independent.</p>
 </div>
 </div>
 </div>
@@ -1168,8 +1168,8 @@ B &amp;= A \cap C^c.
 <p>So,</p>
 <p><span id="eq-2-2-3"><span class="math display">\[
 \Pr(B \mid A) = \frac{1 - (1-p)^n - np(1-p)^{n-1}}{1 - (1-p)^n}.
-\tag{2.8}\]</span></span></p>
-<p>The Supreme Court of California reasoned that, since the crime occurred in a heavily populated area, <span class="math inline">\(n\)</span> would be in the millions. For example, with <span class="math inline">\(p = 8.3 \times 10^{−8}\)</span> and <span class="math inline">\(n = 8,000,000\)</span>, the value of <a href="#eq-2-2-3">Equation&nbsp;<span>2.8</span></a> is 0.2966. Such a probability suggests that there is a reasonable chance that there was another couple meeting the same description as the witnesses provided. Of course, the court did not know how large <span class="math inline">\(n\)</span> was, but the fact that <a href="#eq-2-2-3">Equation&nbsp;<span>2.8</span></a> could easily be so large was grounds enough to rule that reasonable doubt remained as to the guilt of the defendants.</p>
+\tag{2.9}\]</span></span></p>
+<p>The Supreme Court of California reasoned that, since the crime occurred in a heavily populated area, <span class="math inline">\(n\)</span> would be in the millions. For example, with <span class="math inline">\(p = 8.3 \times 10^{−8}\)</span> and <span class="math inline">\(n = 8,000,000\)</span>, the value of <a href="#eq-2-2-3">Equation&nbsp;<span>2.9</span></a> is 0.2966. Such a probability suggests that there is a reasonable chance that there was another couple meeting the same description as the witnesses provided. Of course, the court did not know how large <span class="math inline">\(n\)</span> was, but the fact that <a href="#eq-2-2-3">Equation&nbsp;<span>2.9</span></a> could easily be so large was grounds enough to rule that reasonable doubt remained as to the guilt of the defendants.</p>
 </div>
 </div>
 </div>
@@ -1453,13 +1453,13 @@ Caution
 <p><span class="theorem-title"><strong>Theorem 2.9 (Theorem 2.3.1: Bayes’ Theorem) </strong></span>Let the events <span class="math inline">\(B_1, \ldots, B_k\)</span> form a partition of the space <span class="math inline">\(S\)</span> such that <span class="math inline">\(\Pr(B_j) &gt; 0\)</span> for <span class="math inline">\(j = 1, \ldots, k\)</span>, and let <span class="math inline">\(A\)</span> be an event such that <span class="math inline">\(\Pr(A) &gt; 0\)</span>. Then, for <span class="math inline">\(i = 1, \ldots, k\)</span>,</p>
 <p><span id="eq-2-3-1"><span class="math display">\[
 \Pr(B_i \mid A) = \frac{\Pr(B_i)\Pr(A \mid B_i)}{\sum_{j=1}^k \Pr(B_j)\Pr(A \mid B_j)}.
-\tag{2.9}\]</span></span></p>
+\tag{2.10}\]</span></span></p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By the definition of conditional probability,</p>
 <p><span class="math display">\[
 \Pr(B_i \mid A) = \frac{\Pr(B_i \cap A)}{\Pr(A)}.
 \]</span></p>
-<p>The numerator on the right side of <a href="#eq-2-3-1">Equation&nbsp;<span>2.9</span></a> is equal to <span class="math inline">\(\Pr(B_i \cap A)\)</span> by <a href="#thm-2-1-1">Theorem&nbsp;<span>2.1</span></a>. The denominator is equal to <span class="math inline">\(\Pr(A)\)</span> according to <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a>.</p>
+<p>The numerator on the right side of <a href="#eq-2-3-1">Equation&nbsp;<span>2.10</span></a> is equal to <span class="math inline">\(\Pr(B_i \cap A)\)</span> by <a href="#thm-2-1-1">Theorem&nbsp;<span>2.1</span></a>. The denominator is equal to <span class="math inline">\(\Pr(A)\)</span> according to <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a>.</p>
 </div>
 </div>
 </div>
@@ -1603,7 +1603,7 @@ Tip
 <p><strong>Note: Conditional Version of Bayes’ Theorem</strong>. There is also a version of Bayes’ theorem conditional on an event <span class="math inline">\(C\)</span>:</p>
 <p><span id="eq-2-3-2"><span class="math display">\[
 \Pr(B_i \mid A \cap C) = \frac{\Pr(B_i \mid C)\Pr(A \mid B_i \cap C)}{\sum_{j=1}^k \Pr(B_j \mid C)\Pr(A \mid B_j \cap C)}.
-\tag{2.10}\]</span></span></p>
+\tag{2.11}\]</span></span></p>
 </section>
 <section id="prior-and-posterior" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="prior-and-posterior"><span class="header-section-number">2.3.2</span> Prior and Posterior </h3>
@@ -1619,7 +1619,7 @@ Tip
 \Pr(B_1 \mid H_1) &amp;= \frac{\Pr(B_1)\Pr(H_1 \mid B_1)}{\Pr(B_1)\Pr(H_1 \mid B_1) + \Pr(B_2)\Pr(H_1 \mid B_2)} \\
 &amp;= \frac{(1/2)(1/2)}{(1/2)(1/2) + (1/2)(1)} = \frac{1}{3}.
 \end{align*}
-\tag{2.11}\]</span></span></p>
+\tag{2.12}\]</span></span></p>
 <p>Thus, after the first toss, the posterior probability that the coin is fair is <span class="math inline">\(1/3\)</span>.</p>
 <p>Now suppose that the same coin is tossed again and we assume that the two tosses are conditionally independent given both <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>. Suppose that another head is obtained. There are two ways of determining the new value of the posterior probability that the coin is fair.</p>
 <p>The first way is to return to the beginning of the experiment and assume again that the prior are <span class="math inline">\(\Pr(B_1) = \Pr(B_2) = 1/2\)</span>. We shall let <span class="math inline">\(H_1 \cap H_2\)</span> denote the event in which heads are obtained on two tosses of the coin, and we shall calculate the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed the event <span class="math inline">\(H_1 \cap H_2\)</span>. The assumption that the tosses are conditionally independent given <span class="math inline">\(B_1\)</span> means that <span class="math inline">\(\Pr(H_1 \cap H_2 \mid B_1) = 1/2 \cdot 1/2 = 1/4\)</span>. By Bayes’ theorem,</p>
@@ -1628,8 +1628,8 @@ Tip
 \Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{\Pr(B_1)\Pr(H_1 \cap H_2 \mid B_1)}{\Pr(B_1)\Pr(H_1 \cap H_2 \mid B_1) + \Pr(B_2)\Pr(H_1 \cap H_2 \mid B_2)} \\
 &amp;= \frac{(1/2)(1/4)}{(1/2)(1/4) + (1/2)(1)} = \frac{1}{5}.
 \end{align*}
-\tag{2.12}\]</span></span></p>
-<p>The second way of determining this same posterior probability is to use the conditional version of Bayes’ theorem (<span class="quarto-unresolved-ref">?thm-2-3-2</span>) given the event <span class="math inline">\(H_1\)</span>. Given <span class="math inline">\(H_1\)</span>, the conditional probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(1/3\)</span>, and the conditional probability of <span class="math inline">\(B_2\)</span> is therefore <span class="math inline">\(2/3\)</span>. These conditional can now serve as the prior for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply <a href="#eq-2-3-2">Equation&nbsp;<span>2.10</span></a> with <span class="math inline">\(C = H_1\)</span>, <span class="math inline">\(\Pr(B_1 \mid H_1) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_2 \mid H_1) = 2/3\)</span>. We can then compute the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need <span class="math inline">\(\Pr(H_2 \mid B_1 \cap H_1)\)</span>, which equals <span class="math inline">\(\Pr(H_2 \mid B_1) = 1/2\)</span> by <a href="#thm-2-2-4">Theorem&nbsp;<span>2.8</span></a> since <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span> are conditionally independent given <span class="math inline">\(B_1\)</span>. Since the coin is two-headed when <span class="math inline">\(B_2\)</span> occurs, <span class="math inline">\(\Pr(H_2 \mid B_2 \cap H_1) = 1\)</span>. So we obtain</p>
+\tag{2.13}\]</span></span></p>
+<p>The second way of determining this same posterior probability is to use the conditional version of Bayes’ theorem <a href="#eq-2-3-2">Equation&nbsp;<span>2.11</span></a> given the event <span class="math inline">\(H_1\)</span>. Given <span class="math inline">\(H_1\)</span>, the conditional probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(1/3\)</span>, and the conditional probability of <span class="math inline">\(B_2\)</span> is therefore <span class="math inline">\(2/3\)</span>. These conditional can now serve as the prior for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply <a href="#eq-2-3-2">Equation&nbsp;<span>2.11</span></a> with <span class="math inline">\(C = H_1\)</span>, <span class="math inline">\(\Pr(B_1 \mid H_1) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_2 \mid H_1) = 2/3\)</span>. We can then compute the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need <span class="math inline">\(\Pr(H_2 \mid B_1 \cap H_1)\)</span>, which equals <span class="math inline">\(\Pr(H_2 \mid B_1) = 1/2\)</span> by <a href="#thm-2-2-4">Theorem&nbsp;<span>2.8</span></a> since <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span> are conditionally independent given <span class="math inline">\(B_1\)</span>. Since the coin is two-headed when <span class="math inline">\(B_2\)</span> occurs, <span class="math inline">\(\Pr(H_2 \mid B_2 \cap H_1) = 1\)</span>. So we obtain</p>
 <p><span id="eq-2-3-5"><span class="math display">\[
 \begin{align*}
 \Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{
@@ -1639,13 +1639,13 @@ Tip
 } \\
 &amp;= \frac{(1/3)(1/2)}{(1/3)(1/2) + (2/3)(1)} = \frac{1}{5}
 \end{align*}
-\tag{2.13}\]</span></span></p>
-<p>The posterior probability of the event <span class="math inline">\(B_1\)</span> obtained in the second way is the same as that obtained in the first way. We can make the following general statement: If an experiment is carried out in more than one stage, then the posterior probability of every event can also be calculated in more than one stage. After each stage has been carried out, the posterior probability calculated for the event after that stage serves as the prior probability for the next stage. The reader should look back at <a href="#eq-2-3-2">Equation&nbsp;<span>2.10</span></a> to see that this interpretation is precisely what the conditional version of Bayes’ theorem says. The example we have been doing with coin tossing is typical of many applications of Bayes’ theorem and its conditional version because we are assuming that the observable events are conditionally independent given each element of the partition <span class="math inline">\(B_1, \ldots, B_k\)</span> (in this case, <span class="math inline">\(k = 2\)</span>). The conditional independence makes the probability of <span class="math inline">\(H_i\)</span> (head on <span class="math inline">\(i\)</span>th toss) given <span class="math inline">\(B_1\)</span> (or given <span class="math inline">\(B_2\)</span>) the same whether or not we also condition on earlier tosses (see <a href="#thm-2-2-4">Theorem&nbsp;<span>2.8</span></a>).</p>
+\tag{2.14}\]</span></span></p>
+<p>The posterior probability of the event <span class="math inline">\(B_1\)</span> obtained in the second way is the same as that obtained in the first way. We can make the following general statement: If an experiment is carried out in more than one stage, then the posterior probability of every event can also be calculated in more than one stage. After each stage has been carried out, the posterior probability calculated for the event after that stage serves as the prior probability for the next stage. The reader should look back at <a href="#eq-2-3-2">Equation&nbsp;<span>2.11</span></a> to see that this interpretation is precisely what the conditional version of Bayes’ theorem says. The example we have been doing with coin tossing is typical of many applications of Bayes’ theorem and its conditional version because we are assuming that the observable events are conditionally independent given each element of the partition <span class="math inline">\(B_1, \ldots, B_k\)</span> (in this case, <span class="math inline">\(k = 2\)</span>). The conditional independence makes the probability of <span class="math inline">\(H_i\)</span> (head on <span class="math inline">\(i\)</span>th toss) given <span class="math inline">\(B_1\)</span> (or given <span class="math inline">\(B_2\)</span>) the same whether or not we also condition on earlier tosses (see <a href="#thm-2-2-4">Theorem&nbsp;<span>2.8</span></a>).</p>
 </section>
 <section id="conditionally-independent-events-1" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="conditionally-independent-events-1"><span class="header-section-number">2.3.4</span> Conditionally Independent Events</h3>
 <!-- Stopping point 2023-09-09 -->
-<p>The calculations that led to <a href="#eq-2-3-3">Equation&nbsp;<span>2.11</span></a> and <a href="#eq-2-3-5">Equation&nbsp;<span>2.13</span></a> together with <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a> illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the probabilities that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to <a href="#eq-2-3-3">Equation&nbsp;<span>2.11</span></a>, before any tosses occur, the probability of <span class="math inline">\(H_2\)</span> is the same as the probability of <span class="math inline">\(H_1\)</span>, namely, the denominator of <a href="#eq-2-3-3">Equation&nbsp;<span>2.11</span></a>, <span class="math inline">\(3/4\)</span>, as <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a> says. However, after observing that the event <span class="math inline">\(H_1\)</span> occurs, the probability of <span class="math inline">\(H_2\)</span> is <span class="math inline">\(\Pr(H_2 \mid H_1)\)</span>, which is the denominator of <a href="#eq-2-3-5">Equation&nbsp;<span>2.13</span></a>, <span class="math inline">\(5/6\)</span>, as computed by the conditional version of the law of total probability <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>. Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the problem, so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint probabilities of various combinations of events conditionally on the partition events. Finally, we can combine these probabilities using <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a> and <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>. Two more examples will help to illustrate these ideas.</p>
+<p>The calculations that led to <a href="#eq-2-3-3">Equation&nbsp;<span>2.12</span></a> and <a href="#eq-2-3-5">Equation&nbsp;<span>2.14</span></a> together with <a href="#exm-2-2-10">Example&nbsp;<span>2.23</span></a> illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the probabilities that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to <a href="#eq-2-3-3">Equation&nbsp;<span>2.12</span></a>, before any tosses occur, the probability of <span class="math inline">\(H_2\)</span> is the same as the probability of <span class="math inline">\(H_1\)</span>, namely, the denominator of <a href="#eq-2-3-3">Equation&nbsp;<span>2.12</span></a>, <span class="math inline">\(3/4\)</span>, as <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a> says. However, after observing that the event <span class="math inline">\(H_1\)</span> occurs, the probability of <span class="math inline">\(H_2\)</span> is <span class="math inline">\(\Pr(H_2 \mid H_1)\)</span>, which is the denominator of <a href="#eq-2-3-5">Equation&nbsp;<span>2.14</span></a>, <span class="math inline">\(5/6\)</span>, as computed by the conditional version of the law of total probability <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>. Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the problem, so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint probabilities of various combinations of events conditionally on the partition events. Finally, we can combine these probabilities using <a href="#thm-2-1-4">Theorem&nbsp;<span>2.4</span></a> and <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>. Two more examples will help to illustrate these ideas.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1682,16 +1682,16 @@ Tip
 <div class="callout-body-container callout-body">
 <div id="exm-2-3-7" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.30 (Example 2.3.7: A Clinical Trial) </strong></span>Consider the same clinical trial described in Examples <a href="#exm-2-1-12"><span>2.12</span></a> and <a href="#exm-2-1-13"><span>2.13</span></a>. Let <span class="math inline">\(E_i\)</span> be the event that the <span class="math inline">\(i\)</span>th patient has success as her outcome. Recall that <span class="math inline">\(B_j\)</span> is the event that <span class="math inline">\(p = (j − 1)/10\)</span> for <span class="math inline">\(j = 1, \ldots, 11\)</span>, where <span class="math inline">\(p\)</span> is the proportion of successes among all possible patients. If we knew which <span class="math inline">\(B_j\)</span> occurred, we would say that <span class="math inline">\(E_1, E_2, \ldots\)</span> were independent. That is, we are willing to model the patients as conditionally independent given each event <span class="math inline">\(B_j\)</span>, and we set <span class="math inline">\(\Pr(E_i \mid B_j) = (j − 1)/10\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>. We shall still assume that <span class="math inline">\(\Pr(B_j) = 1/11\)</span> for all <span class="math inline">\(j\)</span> prior to the start of the trial. We are now in position to express what we learn about <span class="math inline">\(p\)</span> by computing posterior probabilities for the <span class="math inline">\(B_j\)</span> events after each patient finishes the trial.</p>
-<p>For example, consider the first patient. We calculated <span class="math inline">\(\Pr(E_1) = 1/2\)</span> in <span class="quarto-unresolved-ref">?eq-2-1-6</span>. If <span class="math inline">\(E_1\)</span> occurs, we apply Bayes’ theorem to get</p>
+<p>For example, consider the first patient. We calculated <span class="math inline">\(\Pr(E_1) = 1/2\)</span> in <a href="#eq-2-1-6">Equation&nbsp;<span>2.6</span></a>. If <span class="math inline">\(E_1\)</span> occurs, we apply Bayes’ theorem to get</p>
 <p><span id="eq-2-3-6"><span class="math display">\[
 \Pr(B_j \mid E_1) = \frac{\Pr(E_1 \mid B_j)\Pr(B_j)}{1/2} = \frac{2(j-1)}{10 \cdot 11} = \frac{j-1}{55}.
-\tag{2.14}\]</span></span></p>
+\tag{2.15}\]</span></span></p>
 <p>After observing one success, the posterior probabilities of large values of <span class="math inline">\(p\)</span> are higher than their prior probabilities and the posterior probabilities of low values of <span class="math inline">\(p\)</span> are lower than their prior probabilities as we would expect. For example, <span class="math inline">\(\Pr(B_1 \mid E_1) = 0\)</span>, because <span class="math inline">\(p = 0\)</span> is ruled out after one success. Also, <span class="math inline">\(\Pr(B_2 \mid E_1) = 0.0182\)</span>, which is much smaller than its prior value <span class="math inline">\(0.0909\)</span>, and <span class="math inline">\(\Pr(B_{11} \mid E_1) = 0.1818\)</span>, which is larger than its prior value <span class="math inline">\(0.0909\)</span>.</p>
 <p>We could check how the posterior probabilities behave after each patient is observed. However, we shall skip ahead to the point at which all 40 patients in the imipramine column of <a href="#tbl-2-1">Table&nbsp;<span>2.1</span></a> have been observed. Let <span class="math inline">\(A\)</span> stand for the observed event that 22 of them are successes and 18 are failures. We can use the same reasoning as in <a href="#exm-2-2-5">Example&nbsp;<span>2.18</span></a> to compute <span class="math inline">\(\Pr(A \mid B_j)\)</span>. There are <span class="math inline">\(\binom{40}{22}\)</span> possible sequences of 40 patients with 22 successes, and, conditional on <span class="math inline">\(B_j\)</span>, the probability of each sequence is $([j − 1]/10)^{22}(1 − [j − 1]/10)^{18}.</p>
 <p>So,</p>
 <p><span id="eq-2-3-7"><span class="math display">\[
 \Pr(A \mid B_j) = \binom{40}{22}([j-1]/10)^{22}(1 - [j-1]/10)^{18},
-\tag{2.15}\]</span></span></p>
+\tag{2.16}\]</span></span></p>
 <p>for each <span class="math inline">\(j\)</span>. Then Bayes’ theorem tells us that</p>
 <p><span class="math display">\[
 \Pr(B_j \mid A) = \frac{
@@ -1700,26 +1700,26 @@ Tip
     \sum_{i=1}^{11}\frac{1}{11}\binom{40}{22}([i-1]/10)^{22}(1 - [i-1]/10)^{18}
 }.
 \]</span></p>
-<p><span class="quarto-unresolved-ref">?fig-2-3</span> shows the posterior probabilities of the 11 partition elements after observing <span class="math inline">\(A\)</span>. Notice that the probabilities of <span class="math inline">\(B_6\)</span> and <span class="math inline">\(B_7\)</span> are the highest, <span class="math inline">\(0.42\)</span>. This corresponds to the fact that the proportion of successes in the observed sample is <span class="math inline">\(22/40 = 0.55\)</span>, halfway between <span class="math inline">\((6 − 1)/10\)</span> and <span class="math inline">\((7 − 1)/10\)</span>.</p>
-<p>We can also compute the probability that the next patient will be a success both before the trial and after the 40 patients. Before the trial, <span class="math inline">\(\Pr(E_{41}) = \Pr(E_1)\)</span>, which equals <span class="math inline">\(1/2\)</span>, as computed in <span class="quarto-unresolved-ref">?eq-2-1-6</span>. After observing the 40 patients, we can compute <span class="math inline">\(\Pr(E_{41} \mid A)\)</span> using the conditional version of the law of total probability, <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>:</p>
+<p><a href="#fig-2-3">Figure&nbsp;<span>2.3</span></a> shows the posterior probabilities of the 11 partition elements after observing <span class="math inline">\(A\)</span>. Notice that the probabilities of <span class="math inline">\(B_6\)</span> and <span class="math inline">\(B_7\)</span> are the highest, <span class="math inline">\(0.42\)</span>. This corresponds to the fact that the proportion of successes in the observed sample is <span class="math inline">\(22/40 = 0.55\)</span>, halfway between <span class="math inline">\((6 − 1)/10\)</span> and <span class="math inline">\((7 − 1)/10\)</span>.</p>
+<p>We can also compute the probability that the next patient will be a success both before the trial and after the 40 patients. Before the trial, <span class="math inline">\(\Pr(E_{41}) = \Pr(E_1)\)</span>, which equals <span class="math inline">\(1/2\)</span>, as computed in <a href="#eq-2-1-6">Equation&nbsp;<span>2.6</span></a>. After observing the 40 patients, we can compute <span class="math inline">\(\Pr(E_{41} \mid A)\)</span> using the conditional version of the law of total probability, <a href="#eq-2-1-5">Equation&nbsp;<span>2.5</span></a>:</p>
 <p><span id="eq-2-3-8"><span class="math display">\[
 \Pr(E_{41} \mid A) = \sum_{j=1}^{11}\Pr(E_{41} \mid B_j \cap A)\Pr(B_j \mid A).
-\tag{2.16}\]</span></span></p>
-<p>Using the values of <span class="math inline">\(\Pr(B_j \mid A)\)</span> in <span class="quarto-unresolved-ref">?fig-2-3</span> and the fact that <span class="math inline">\(\Pr(E_{41} \mid B_j \cap A) = \Pr(E_{41} \mid B_j) = (j − 1)/10\)</span> (conditional independence of the <span class="math inline">\(E_i\)</span> given the <span class="math inline">\(B_j\)</span>), we compute <a href="#eq-2-3-8">Equation&nbsp;<span>2.16</span></a> to be <span class="math inline">\(0.5476\)</span>. This is also very close to the observed frequency of success.</p>
+\tag{2.17}\]</span></span></p>
+<p>Using the values of <span class="math inline">\(\Pr(B_j \mid A)\)</span> in <a href="#fig-2-3">Figure&nbsp;<span>2.3</span></a> and the fact that <span class="math inline">\(\Pr(E_{41} \mid B_j \cap A) = \Pr(E_{41} \mid B_j) = (j − 1)/10\)</span> (conditional independence of the <span class="math inline">\(E_i\)</span> given the <span class="math inline">\(B_j\)</span>), we compute <a href="#eq-2-3-8">Equation&nbsp;<span>2.17</span></a> to be <span class="math inline">\(0.5476\)</span>. This is also very close to the observed frequency of success.</p>
 </div>
 </div>
 </div>
 <p>The calculation at the end of <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a> is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.</p>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-2-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/fig-2-3.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.3: The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-2-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/fig-2-4.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-8">Example&nbsp;<span>2.31</span></a>. The X characters mark the values of the posterior probabilities calculated in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.4: The posterior probabilities of partition elements after 40 patients in <a href="#exm-2-3-8">Example&nbsp;<span>2.31</span></a>. The X characters mark the values of the posterior probabilities calculated in <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a>.</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1796,7 +1796,7 @@ Tip
 </tr>
 </tbody>
 </table>
-<p>We can recalculate the posterior probabilities using Bayes’ theorem, and we get the values pictured in <span class="quarto-unresolved-ref">?fig-2-4</span>. To aid comparison, the posterior probabilities from <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a> are also plotted in <span class="quarto-unresolved-ref">?fig-2-4</span> using the symbol X. One can see how close the two sets of posterior probabilities are despite the large differences between the prior probabilities. If there had been fewer patients observed, there would have been larger differences between the two sets of posterior probabilites because the observed events would have provided less information. (See <a href="#exr-2-3-12">Exercise&nbsp;<span>2.53</span></a> in this section.)</p>
+<p>We can recalculate the posterior probabilities using Bayes’ theorem, and we get the values pictured in <a href="#fig-2-4">Figure&nbsp;<span>2.4</span></a>. To aid comparison, the posterior probabilities from <a href="#exm-2-3-7">Example&nbsp;<span>2.30</span></a> are also plotted in <a href="#fig-2-4">Figure&nbsp;<span>2.4</span></a> using the symbol X. One can see how close the two sets of posterior probabilities are despite the large differences between the prior probabilities. If there had been fewer patients observed, there would have been larger differences between the two sets of posterior probabilites because the observed events would have provided less information. (See <a href="#exr-2-3-12">Exercise&nbsp;<span>2.53</span></a> in this section.)</p>
 </div>
 </div>
 </div>
@@ -1853,7 +1853,7 @@ Tip
 <p><span class="theorem-title"><strong>Exercise 2.53 (Exercise 2.3.12) </strong></span>In the clinical trial in Examples <a href="#exm-2-3-7"><span>2.30</span></a> and <a href="#exm-2-3-8"><span>2.31</span></a>, suppose that we have only observed the first five patients and three of the five had been successes. Use the two different sets of prior probabilities from Examples <a href="#exm-2-3-7"><span>2.30</span></a> and <a href="#exm-2-3-8"><span>2.31</span></a> to calculate two sets of posterior probabilities. Are these two sets of posterior probabilities as close to each other as were the two in Examples <a href="#exm-2-3-7"><span>2.30</span></a> and <a href="#exm-2-3-8"><span>2.31</span></a>? Why or why not?</p>
 </div>
 <div id="exr-2-3-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.54 (Exercise 2.3.13) </strong></span>Suppose that a box contains one fair coin and one coin with a head on each side. Suppose that a coin is drawn at random from this box and that we begin to flip the coin. In <a href="#eq-2-3-4">Equation&nbsp;<span>2.12</span></a> and <a href="#eq-2-3-5">Equation&nbsp;<span>2.13</span></a>, we computed the conditional probability that the coin was fair given that the first two flips both produce heads.</p>
+<p><span class="theorem-title"><strong>Exercise 2.54 (Exercise 2.3.13) </strong></span>Suppose that a box contains one fair coin and one coin with a head on each side. Suppose that a coin is drawn at random from this box and that we begin to flip the coin. In <a href="#eq-2-3-4">Equation&nbsp;<span>2.13</span></a> and <a href="#eq-2-3-5">Equation&nbsp;<span>2.14</span></a>, we computed the conditional probability that the coin was fair given that the first two flips both produce heads.</p>
 <ol type="a">
 <li>Suppose that the coin is flipped a third time and another head is obtained. Compute the probability that the coin is fair given that all three flips produced heads.</li>
 <li>Suppose that the coin is flipped a fourth time and the result is tails. Compute the posterior probability that the coin is fair.</li>
@@ -1892,12 +1892,12 @@ Tip
 \Pr(W) &amp;= \Pr(A_1)\Pr(W \mid A_1) + \Pr(B_1)\Pr(W \mid B_1) \\
 &amp;= p \Pr(W \mid A_1) + (1-p)\Pr(W \mid B_1).
 \end{align*}
-\tag{2.17}\]</span></span></p>
-<p>Since the initial fortune of gambler <span class="math inline">\(A\)</span> is <span class="math inline">\(i\)</span> dollars (<span class="math inline">\(i = 1, \ldots, k-1\)</span>), then <span class="math inline">\(\Pr(W) = a_i\)</span>. Furthermore, if gambler <span class="math inline">\(A\)</span> wins one dollar on the first play of the game, then his fortune becomes <span class="math inline">\(i + 1\)</span> dollars and the conditional probability <span class="math inline">\(\Pr(W \mid A_1)\)</span> that his fortune will ultimately reach <span class="math inline">\(k\)</span> dollars is therefore <span class="math inline">\(a_{i+1}\)</span>. If <span class="math inline">\(A\)</span> loses one dollar on the first play of the game, then his fortune becomes <span class="math inline">\(i − 1\)</span> dollars and the conditional probability <span class="math inline">\(\Pr(W \mid B_1)\)</span> that his fortune will ultimately reach <span class="math inline">\(k\)</span> dollars is therefore $a_{i−1}. Hence, by <a href="#eq-2-4-1">Equation&nbsp;<span>2.17</span></a>,</p>
+\tag{2.18}\]</span></span></p>
+<p>Since the initial fortune of gambler <span class="math inline">\(A\)</span> is <span class="math inline">\(i\)</span> dollars (<span class="math inline">\(i = 1, \ldots, k-1\)</span>), then <span class="math inline">\(\Pr(W) = a_i\)</span>. Furthermore, if gambler <span class="math inline">\(A\)</span> wins one dollar on the first play of the game, then his fortune becomes <span class="math inline">\(i + 1\)</span> dollars and the conditional probability <span class="math inline">\(\Pr(W \mid A_1)\)</span> that his fortune will ultimately reach <span class="math inline">\(k\)</span> dollars is therefore <span class="math inline">\(a_{i+1}\)</span>. If <span class="math inline">\(A\)</span> loses one dollar on the first play of the game, then his fortune becomes <span class="math inline">\(i − 1\)</span> dollars and the conditional probability <span class="math inline">\(\Pr(W \mid B_1)\)</span> that his fortune will ultimately reach <span class="math inline">\(k\)</span> dollars is therefore $a_{i−1}. Hence, by <a href="#eq-2-4-1">Equation&nbsp;<span>2.18</span></a>,</p>
 <p><span id="eq-2-4-2"><span class="math display">\[
 a_i = pa_{i+1} + (1-p)a_{i-1}.
-\tag{2.18}\]</span></span></p>
-<p>We shall let <span class="math inline">\(i = 1, \ldots, k-1\)</span> in <a href="#eq-2-4-2">Equation&nbsp;<span>2.18</span></a>. Then, since <span class="math inline">\(a_0 = 0\)</span> and <span class="math inline">\(a_k = 1\)</span>, we obtain the following <span class="math inline">\(k − 1\)</span> equations:</p>
+\tag{2.19}\]</span></span></p>
+<p>We shall let <span class="math inline">\(i = 1, \ldots, k-1\)</span> in <a href="#eq-2-4-2">Equation&nbsp;<span>2.19</span></a>. Then, since <span class="math inline">\(a_0 = 0\)</span> and <span class="math inline">\(a_k = 1\)</span>, we obtain the following <span class="math inline">\(k − 1\)</span> equations:</p>
 <p><span id="eq-2-4-3"><span class="math display">\[
 \begin{align*}
 a_1 &amp;= pa_2, \\
@@ -1907,7 +1907,7 @@ a_3 &amp;= pa_4 + (1-p)a_2, \\
 a_{k-2} &amp;= pa_{k-1} + (1-p)a_{k-3}, \\
 a_{k-1} &amp;= p + (1-p)a_{k-2}.
 \end{align*}
-\tag{2.19}\]</span></span></p>
+\tag{2.20}\]</span></span></p>
 <p>If the value of <span class="math inline">\(a_i\)</span> on the left side of the <span class="math inline">\(i\)</span>th equation is rewritten in the form <span class="math inline">\(p a_i + (1 − p)a_i\)</span> and some elementary algebra is performed, then these <span class="math inline">\(k − 1\)</span> equations can be rewritten as follows:</p>
 <p><span id="eq-2-4-4"><span class="math display">\[
 \begin{align*}
@@ -1918,15 +1918,15 @@ a_4 - a_3 &amp;= \frac{1-p}{p}(a_3 - a_2) = \left(frac{1-p}{p}\right)^3a_1, \\
 a_{k-1} - a_{k-2} &amp;= \frac{1-p}{p}(a_{k-2} - a_{k-3}) = \left(\frac{1-p}{p}\right)^{k-2}a_1, \\
 1 - a_{k-1} &amp;= \frac{1-p}{p}(a_{k-1} - a_{k-2}) = \left(\frac{1-p}{p}\right)^{k-1}a_1.
 \end{align*}
-\tag{2.20}\]</span></span></p>
+\tag{2.21}\]</span></span></p>
 <p>By equating the sum of the left sides of these <span class="math inline">\(k − 1\)</span> equations with the sum of the right sides, we obtain the relation</p>
 <p><span id="eq-2-4-5"><span class="math display">\[
 1 - a_1 = a_1 \sum_{i=1}^{k-1} \left(\frac{1-p}{p}\right)^i
-\tag{2.21}\]</span></span></p>
-<p><strong>Solution for a Fair Game</strong>: Suppose first that <span class="math inline">\(p = 1/2\)</span>. Then <span class="math inline">\((1 − p)/p = 1\)</span>, and it follows from <a href="#eq-2-4-5">Equation&nbsp;<span>2.21</span></a> that <span class="math inline">\(1 − a_1 = (k − 1)a_1\)</span>, from which <span class="math inline">\(a_1= 1/k\)</span>. In turn, it follows from the first equation in <a href="#eq-2-4-4">Equation&nbsp;<span>2.20</span></a> that <span class="math inline">\(a_2 = 2/k\)</span>, it follows from the second equation in <a href="#eq-2-4-4">Equation&nbsp;<span>2.20</span></a> that <span class="math inline">\(a_3 = 3/k\)</span>, and so on. In this way, we obtain the following complete solution when <span class="math inline">\(p = 1/2\)</span>:</p>
+\tag{2.22}\]</span></span></p>
+<p><strong>Solution for a Fair Game</strong>: Suppose first that <span class="math inline">\(p = 1/2\)</span>. Then <span class="math inline">\((1 − p)/p = 1\)</span>, and it follows from <a href="#eq-2-4-5">Equation&nbsp;<span>2.22</span></a> that <span class="math inline">\(1 − a_1 = (k − 1)a_1\)</span>, from which <span class="math inline">\(a_1= 1/k\)</span>. In turn, it follows from the first equation in <a href="#eq-2-4-4">Equation&nbsp;<span>2.21</span></a> that <span class="math inline">\(a_2 = 2/k\)</span>, it follows from the second equation in <a href="#eq-2-4-4">Equation&nbsp;<span>2.21</span></a> that <span class="math inline">\(a_3 = 3/k\)</span>, and so on. In this way, we obtain the following complete solution when <span class="math inline">\(p = 1/2\)</span>:</p>
 <p><span id="eq-2-4-6"><span class="math display">\[
 a_i = \frac{i}{k} \; \text{ for }i = 1, \ldots, k-1.
-\tag{2.22}\]</span></span></p>
+\tag{2.23}\]</span></span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1938,18 +1938,18 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-2-4-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.32 (Example 2.4.1: The Probability of Winning in a Fair Game) </strong></span>Suppose that <span class="math inline">\(p = 1/2\)</span>, in which case the game is equally favorable to both gamblers; and suppose that the initial fortune of gambler <span class="math inline">\(A\)</span> is 98 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just two dollars. In this example, <span class="math inline">\(i = 98\)</span> and <span class="math inline">\(k = 100\)</span>. Therefore, it follows from <a href="#eq-2-4-6">Equation&nbsp;<span>2.22</span></a> that there is a probability of 0.98 that gambler <span class="math inline">\(A\)</span> will win two dollars from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 98 dollars from gambler <span class="math inline">\(A\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 2.32 (Example 2.4.1: The Probability of Winning in a Fair Game) </strong></span>Suppose that <span class="math inline">\(p = 1/2\)</span>, in which case the game is equally favorable to both gamblers; and suppose that the initial fortune of gambler <span class="math inline">\(A\)</span> is 98 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just two dollars. In this example, <span class="math inline">\(i = 98\)</span> and <span class="math inline">\(k = 100\)</span>. Therefore, it follows from <a href="#eq-2-4-6">Equation&nbsp;<span>2.23</span></a> that there is a probability of 0.98 that gambler <span class="math inline">\(A\)</span> will win two dollars from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 98 dollars from gambler <span class="math inline">\(A\)</span>.</p>
 </div>
 </div>
 </div>
-<p><strong>Solution for an Unfair Game</strong>: Suppose now that <span class="math inline">\(p \neq 1/2\)</span>. Then <a href="#eq-2-4-5">Equation&nbsp;<span>2.21</span></a> can be rewritten in the form</p>
+<p><strong>Solution for an Unfair Game</strong>: Suppose now that <span class="math inline">\(p \neq 1/2\)</span>. Then <a href="#eq-2-4-5">Equation&nbsp;<span>2.22</span></a> can be rewritten in the form</p>
 <p><span id="eq-2-4-7"><span class="math display">\[
 1 - a_1 = a_1 \frac{
     \left(\frac{1-p}{p}\right)^k - \left(\frac{1-p}{p}\right)
 }{
     \left(\frac{1-p}{p}\right) - 1
 }.
-\tag{2.23}\]</span></span></p>
+\tag{2.24}\]</span></span></p>
 <p>Hence,</p>
 <p><span id="eq-2-4-8"><span class="math display">\[
 a_1 = \frac{
@@ -1957,15 +1957,15 @@ a_1 = \frac{
 }{
     \left(\frac{1-p}{p}\right)^k - 1
 }.
-\tag{2.24}\]</span></span></p>
-<p>Each of the other values of <span class="math inline">\(a_i\)</span> for <span class="math inline">\(i = 2, \ldots, k-1\)</span> can now be determined in turn from the equations in <a href="#eq-2-4-4">Equation&nbsp;<span>2.20</span></a>. In this way, we obtain the following complete solution:</p>
+\tag{2.25}\]</span></span></p>
+<p>Each of the other values of <span class="math inline">\(a_i\)</span> for <span class="math inline">\(i = 2, \ldots, k-1\)</span> can now be determined in turn from the equations in <a href="#eq-2-4-4">Equation&nbsp;<span>2.21</span></a>. In this way, we obtain the following complete solution:</p>
 <p><span id="eq-2-4-9"><span class="math display">\[
 a_i = \frac{
     \left(\frac{1-p}{p}\right)^i - 1
 }{
     \left(\frac{1-p}{p}\right)^k - 1
 } \; \text{ for }i = 1, \ldots, k-1.
-\tag{2.25}\]</span></span></p>
+\tag{2.26}\]</span></span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1978,7 +1978,7 @@ Tip
 <div class="callout-body-container callout-body">
 <div id="exm-2-4-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.33 (Example 2.4.2: The Probability of Winning in an Unfavorable Game) </strong></span>Suppose that <span class="math inline">\(p = 0.4\)</span>, in which case the probability that gambler <span class="math inline">\(A\)</span> will win one dollar on any given play is smaller than the probability that he will lose one dollar. Suppose also that the initial fortune of gambler <span class="math inline">\(A\)</span> is 99 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just one dollar. We shall determine the probability that gambler <span class="math inline">\(A\)</span> will win one dollar from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 99 dollars from gambler <span class="math inline">\(A\)</span>.</p>
-<p>In this example, the required probability <span class="math inline">\(a_i\)</span> is given by <a href="#eq-2-4-9">Equation&nbsp;<span>2.25</span></a>, in which <span class="math inline">\((1-p)/p = 3/2\)</span>, <span class="math inline">\(i = 99\)</span>, and <span class="math inline">\(k = 100\)</span>. Therefore,</p>
+<p>In this example, the required probability <span class="math inline">\(a_i\)</span> is given by <a href="#eq-2-4-9">Equation&nbsp;<span>2.26</span></a>, in which <span class="math inline">\((1-p)/p = 3/2\)</span>, <span class="math inline">\(i = 99\)</span>, and <span class="math inline">\(k = 100\)</span>. Therefore,</p>
 <p><span class="math display">\[
 a_i = \frac{
     \left(\frac{3}{2}\right)^{99} - 1
