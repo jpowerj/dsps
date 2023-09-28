@@ -1,131 +1,188 @@
 
 ## Bivariate Distributions {#sec-3-4}
 
-*We generalize the concept of distribution of a random variable to the joint distribution of two random variables. In doing so, we introduce the joint p.f. for two discrete random variables, the joint p.d.f. for two continuous random variables, and the joint c.d.f. for any two random variables. We also introduce a joint hybrid of p.f. and p.d.f. for the case of one discrete random variable and one continuous random variable.*
+*We generalize the concept of distribution of a random variable to the joint distribution of two random variables. In doing so, we introduce the joint pmf for two discrete random variables, the joint pdf for two continuous random variables, and the joint CDF for any two random variables. We also introduce a joint hybrid of pmf and pdf for the case of one discrete random variable and one continuous random variable.*
 
-::: {.callout-tip title="Example 3.4.1: Demands for Utilities (DeGroot and Schervish, p. 118)"}
+::: {.callout-tip}
+::: {#exm-3-4-1}
 
-In Example 3.1.5, we found the distribution of the random
-variable X that represented the demand for water. But there is another random
-variable, Y , the demand for electricity, that is also of interest. When discussing
-two random variables at once, it is often convenient to put them together into an
-ordered pair, (X, Y ). As early as Example 1.5.4 on page 19, we actually calculated
-some probabilities associated with the pair (X, Y ). In that example, we defined two
-events A and B that we now can express as A = {X ≥ 115} and B = {Y ≥ 110}. In
-Example 1.5.4, we computed Pr(A ∩ B) and Pr(A ∪ B). We can express A ∩ B and
-A ∪ B as events involving the pair (X, Y ). For example, define the set of ordered
-pairs C = {(x, y) : x ≥ 115 and y ≥ 110} so that that the event {(X, Y ) ∈ C)} = A ∩ B.
-That is, the event that the pair of random variables lies in the set C is the same
-as the intersection of the two events A and B. In Example 1.5.4, we computed
-Pr(A ∩ B) = 0.1198. So, we can now assert that Pr((X, Y ) ∈ C) = 0.1198.
+# Example 3.4.1: Demands for Utilities (DeGroot and Schervish, p. 118)
+
+In @exm-3-1-5, we found the distribution of the random variable $X$ that represented the demand for water. But there is another random variable, $Y$, the demand for electricity, that is also of interest. When discussing two random variables at once, it is often convenient to put them together into an ordered pair, $(X, Y)$. As early as @exm-1-5-4, we actually calculated some probabilities associated with the pair $(X, Y)$. In that example, we defined two events $A$ and $B$ that we now can express as $A = \{X \geq 115\}$ and $B = \{Y \geq 110\}$. In @exm-1-5-4, we computed $\Pr(A \cap B)$ and $\Pr(A \cup B)$. We can express $A \cap B$ and $A \cup B$ as events involving the pair $(X, Y)$. For example, define the set of ordered pairs $C = \{(x, y) \mid x \geq 115\text{ and }y \geq 110\}$ so that that the event $\{(X, Y) \in C\} = A \cap B$. That is, the event that the pair of random variables lies in the set $C$ is the same as the intersection of the two events $A$ and $B$. In @exm-1-5-4, we computed $\Pr(A \cap B) = 0.1198$. So, we can now assert that $\Pr((X, Y) \in C) = 0.1198$.
+
+:::
 :::
 
-::: {.callout-tip title="Definition 3.4.1: Joint/Bivariate Distribution (DeGroot and Schervish, p. 118)"}
+::: {.callout-note}
+::: {#def-3-4-1}
 
-Let X and Y be random variables. The joint distribution
-or bivariate distribution of X and Y is the collection of all probabilities of the form
-Pr[(X, Y ) ∈ C] for all setsC of pairs of real numbers such that {(X, Y ) ∈ C} is an event.
+# Definition 3.4.1: Joint/Bivariate Distribution (DeGroot and Schervish, p. 118)
+
+Let $X$ and $Y$ be random variables. The **joint distribution** or **bivariate distribution** of $X$ and $Y$ is the collection of all probabilities of the form $\Pr\left( (X, Y) \in C\right)$ for all sets $C$ of pairs of real numbers such that $\{ (X, Y) \in C\}$ is an event.
+
+:::
 :::
 
-It is a straightforward consequence of the definition of the joint distribution of X and
-Y that this joint distribution is itself a probability measure on the set of ordered pairs
-of real numbers. The set {(X, Y ) ∈ C} will be an event for every set C of pairs of real
-numbers that most readers will be able to imagine.
-In this section and the next two sections, we shall discuss convenient ways to
-characterize and do computations with bivariate distributions. In Sec. 3.7, these
-considerations will be extended to the joint distribution of an arbitrary finite number
-of random variables.
-Discrete Joint Distributions
-Example
-3.4.2
-Theater Patrons. Suppose that a sample of 10 people is selected at random from a
-theater with 200 patrons. One random variable of interest might be the number X
-of people in the sample who are over 60 years of age, and another random variable
-might be the number Y of people in the sample who live more than 25 miles from
-the theater. For each ordered pair (x, y) with x = 0, . . . , 10 and y = 0, . . . , 10, we
-might wish to compute Pr((X, Y ) = (x, y)), the probability that there are x people in
-the sample who are over 60 years of age and there are y people in the sample who
-live more than 25 miles away.  
-Definition
-3.4.2
-Discrete Joint Distribution. LetX and Y be random variables, and consider the ordered
-pair (X, Y ). If there are only finitely or at most countably many different possible
-values (x, y) for the pair (X, Y ), then we say that X and Y have a discrete joint
-distribution.
-3.4 Bivariate Distributions 119
-The two random variables in Example 3.4.2 have a discrete joint distribution.
-Theorem
-3.4.1
-Suppose that two random variables X and Y each have a discrete distribution. Then
-X and Y have a discrete joint distribution.
-Proof If both X and Y have only finitely many possible values, then there will be
-only a finite number of different possible values (x, y) for the pair (X, Y ). On the
-other hand, if either X or Y or both can take a countably infinite number of possible
-values, then there will also be a countably infinite number of possible values for the
-pair (X, Y ). In all of these cases, the pair (X, Y ) has a discrete joint distribution.
+It is a straightforward consequence of the definition of the joint distribution of $X$ and $Y$ that this joint distribution is itself a probability measure on the set of ordered pairs of real numbers. The set $\{ (X, Y) \in C\}$ will be an event for every set $C$ of pairs of real numbers that most readers will be able to imagine.
+
+In this section and the next two sections, we shall discuss convenient ways to characterize and do computations with bivariate distributions. In @sec-3-7, these considerations will be extended to the joint distribution of an arbitrary finite number of random variables.
+
+### Discrete Joint Distributions
+
+::: {.callout-tip}
+::: {#exm-3-4-2}
+
+# Example 3.4.2: Theater Patrons
+
+Suppose that a sample of 10 people is selected at random from a theater with 200 patrons. One random variable of interest might be the number $X$ of people in the sample who are over 60 years of age, and another random variable might be the number $Y$ of people in the sample who live more than 25 miles from the theater. For each ordered pair $(x, y)$ with $x = 0, \ldots, 10$ and $y = 0, \ldots, 10$, we might wish to compute $\Pr( (X, Y) = (x, y))$, the probability that there are $x$ people in the sample who are over 60 years of age and there are $y$ people in the sample who live more than 25 miles away.
+
+:::
+:::
+
+::: {.callout-note}
+::: {#def-3-4-2}
+
+# Definition 3.4.2: Discrete Joint Distribution
+
+Let $X$ and $Y$ be random variables, and consider the ordered pair $(X, Y)$. If there are only finitely or at most countably many different possible values $(x, y)$ for the pair $(X, Y)$, then we say that $X$ and $Y$ have a **discrete joint distribution**.
+
+:::
+:::
+
+The two random variables in @exm-3-4-2 have a discrete joint distribution.
+
+::: {.callout-caution}
+::: {#thm-3-4-1}
+
+# Theorem 3.4.1
+
+Suppose that two random variables $X$ and $Y$ each have a discrete distribution. Then $X$ and $Y$ have a discrete joint distribution.
+
+::: {.proof}
+If both $X$ and $Y$ have only finitely many possible values, then there will be only a finite number of different possible values $(x, y)$ for the pair $(X, Y)$. On the other hand, if either $X$ or $Y$ or both can take a countably infinite number of possible values, then there will also be a countably infinite number of possible values for the pair $(X, Y)$. In all of these cases, the pair $(X, Y)$ has a discrete joint distribution.
+:::
+
+:::
+:::
+
 When we define continuous joint distribution shortly, we shall see that the obvious
-analog of Theorem 3.4.1 is not true.
-Definition
-3.4.3
-Joint Probability Function, p.f. Thejoint probability function, or the joint p.f., of X and
-Y is defined as the function f such that for every point (x, y) in the xy-plane,
-f (x, y) = Pr(X = x and Y = y).
-The following result is easy to prove because there are at most countably many
-pairs (x, y) that must account for all of the probability a discrete joint distribution.
-Theorem
-3.4.2
-Let X and Y have a discrete joint distribution. If (x, y) is not one of the possible
-values of the pair (X, Y ), then f (x, y) = 0. Also,
- 
-All (x,y)
-f (x, y) = 1.
-Finally, for each set C of ordered pairs,
-Pr[(X, Y ) ∈ C]=
- 
-(x,y)∈C
-f (x, y).
-Example
-3.4.3
-Specifying a Discrete Joint Distribution by a Table of Probabilities. In a certain suburban
-area, each household reported the number of cars and the number of television sets
-that they owned. Let X stand for the number of cars owned by a randomly selected
-household in this area. Let Y stand for the number of television sets owned by that
-same randomly selected household. In this case, X takes only the values 1, 2, and 3;
-Y takes only the values 1, 2, 3, and 4; and the joint p.f. f of X and Y is as specified in
-Table 3.2.
-Table 3.2 Joint p.f. f (x, y) for
-Example 3.4.3
-y
-x 1 2 3 4
-1 0.1 0 0.1 0
-2 0.3 0 0.1 0.2
-3 0 0.2 0 0
-120 Chapter 3 Random Variables and Distributions
-Figure 3.10 The joint p.f. of
-X and Y in Example 3.4.3.
-f (x, y)
-x y
-1 1
-2
-3
-2
-3
-4
-This joint p.f. is sketched in Fig. 3.10. We shall determine the probability that
-the randomly selected household owns at least two of both cars and televisions. In
-symbols, this is Pr(X ≥ 2 and Y ≥ 2).
-By summing f (x, y) over all values of x ≥ 2 and y ≥ 2, we obtain the value
-Pr(X ≥ 2 and Y ≥ 2) = f (2, 2) + f (2, 3) + f (2, 4) + f (3, 2)
-+ f (3, 3) + f (3, 4)
-= 0.5.
-Next, we shall determine the probability that the randomly selected household owns
-exactly one car, namely Pr(X = 1). By summing the probabilities in the first row of
-the table, we obtain the value
-Pr(X = 1) =
- 4
-y=1
-f (1, y) = 0.2.  
-Continuous Joint Distributions
+analog of @thm-3-4-1 is not true.
+
+::: {.callout-note}
+::: {#def-3-4-3}
+
+# Definition 3.4.3: Joint Probability Mass Function (pmf)
+
+The **joint probability mass function**, or the **joint pmf**, of $X$ and $Y$ is defined as the function $f$ such that for every point $(x, y)$ in the $xy$-plane,
+
+$$
+f(x, y) = \Pr(X = x\text{ and }Y = y).
+$$
+
+:::
+:::
+
+The following result is easy to prove because there are at most countably many pairs $(x, y)$ that must account for all of the probability a discrete joint distribution.
+
+::: {.callout-caution}
+::: {#thm-3-4-2}
+
+# Theorem 3.4.2
+
+Let $X$ and $Y$ have a discrete joint distribution,
+<!-- Added, jpj, 2023-09-28 -->
+and let $\mathcal{R}_{(X,Y)} = \mathcal{R}_X \times \mathcal{R}_Y$, that is, all possible ordered pairs of values where the first element in the pair is in $\mathcal{R}_X$ and the second element in the pair is in $\mathcal{R}_Y$.
+
+If $(x, y)$ is not one of the possible values of the pair $(X, Y)$, then $f(x, y) = 0$. Also,
+
+$$
+\sum_{(x,y) \in \mathcal{R}_{(X,Y)}}f(x,y) = 1.
+$$
+
+Finally, for each set $C$ of ordered pairs,
+
+$$
+\Pr\left( (X,Y) \in C \right) = \sum_{(x,y) \in C}f(x,y).
+$$
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#exm-3-4-3}
+
+# Example 3.4.3: Specifying a Discrete Joint Distribution by a Table of Probabilities
+
+In a certain suburban area, each household reported the number of cars and the number of television sets that they owned. Let $X$ stand for the number of cars owned by a randomly selected household in this area. Let $Y$ stand for the number of television sets owned by that same randomly selected household. In this case, $X$ takes only the values 1, 2, and 3; $Y$ takes only the values 1, 2, 3, and 4; and the joint pmf $f$ of $X$ and $Y$ is as specified in @tbl-3-2
+
+
+```{=html}
+<table>
+<caption><span data-qmd="The joint pmf $f(x,y)$ for @exm-3-4-3 {#tbl-3-2}"></span></caption>
+<thead>
+    <tr>
+        <th></th>
+        <th colspan="4" align="center" style="border-bottom: 1px solid black;"><span data-qmd="$y$"></span></th>
+    </tr>
+    <tr>
+        <th><span data-qmd="$x$"></span></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>1</td>
+        <td>0.1</td>
+        <td>0.0</td>
+        <td>0.1</td>
+        <td>0.0</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>0.3</td>
+        <td>0.0</td>
+        <td>0.1</td>
+        <td>0.2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>0.0</td>
+        <td>0.2</td>
+        <td>0.0</td>
+        <td>0.0</td>
+    </tr>
+</tbody>
+</table>
+```
+
+This joint pmf is sketched in @fig-3-10. We shall determine the probability that the randomly selected household owns at least two of both cars and televisions. In symbols, this is $\Pr(X \geq 2\text{ and }Y \geq 2)$.
+
+By summing $f(x, y)$ over all values of $x \geq 2$ and $y \geq 2$, we obtain the value
+
+$$
+\begin{align*}
+Pr(X \geq 2\text{ and }Y \geq 2) &= f(2, 2) + f (2, 3) + f (2, 4) + f (3, 2) \\
+&\phantom{=} + f(3, 3) + f (3, 4) \\
+&= 0.5.
+\end{align*}
+$$
+
+Next, we shall determine the probability that the randomly selected household owns exactly one car, namely $\Pr(X = 1)$. By summing the probabilities in the first row of the table, we obtain the value
+
+$$
+\Pr(X = 1) = \sum_{y = 1}^{4}f(1,y) = 0.2.
+$$
+
+:::
+:::
+
+![The joint pmf of $X$ and $Y$ in @exm-3-4-3](images/fig-3-10.jpeg){#fig-3-10}
+
+### Continuous Joint Distributions
+
 Example
 3.4.4
 Demands for Utilities. Consider again the joint distribution of X and Y in Example
@@ -145,6 +202,21 @@ dx dy, (3.4.1)
 assuming that the integral exists.  
 If one looks carefully at Eq. (3.4.1), one will notice the similarity to Eqs. (3.2.2)
 and (3.2.1).We formalize this connection as follows.
+
+::: {.callout-tip}
+::: {#def-3-4-4}
+
+# Definition 3.4.4: Continuous Joint Distribution (DeGroot and Schervish)
+
+Two random variables $X$ and $Y$ have a **continuous joint distribution** if there exists a nonnegative function $f$ defined over the entire $xy$-plane such that for every subset $C$ of the plane,
+
+$$
+\Pr\left[(X,Y) \in C\right] = \int_C\int f(x,y)dxdy.
+$$
+
+:::
+:::
+
 Definition
 3.4.4
 Continuous Joint Distribution/Joint p.d.f./Support. Tworandom variablesXand Y have
@@ -155,7 +227,7 @@ Pr[(X, Y ) ∈ C]=
 C
  
 f (x, y) dx dy,
-3.4 Bivariate Distributions 121
+
 if the integral exists. The function f is called the joint probability density function
 (abbreviated joint p.d.f.) of X and Y . The closure of the set {(x, y) : f (x, y) > 0} is
 called the support of (the distribution of) (X, Y ).
@@ -173,18 +245,31 @@ for 4 ≤ x ≤ 200 and 1≤ y ≤ 150,
 (3.4.2)
 It is clear from Definition 3.4.4 that the joint p.d.f. of two random variables
 characterizes their joint distribution. The following result is also straightforward.
-Theorem
-3.4.3
-A joint p.d.f. must satisfy the following two conditions:
-f (x, y) ≥ 0 for −∞< x <∞and −∞< y <∞,
+
+
+::: {.callout-caution}
+::: {#thm-3-4-3}
+
+# Theorem 3.4.3 (DeGroot and Schervish) 
+
+A joint PDF must satisfy the following two conditions:
+
+$$
+f(x,y) \geq 0\text{ for }-\infty < x < \infty\text{ and }-\infty < y < \infty,
+$$
+
 and
-  ∞
-−∞
-  ∞
-−∞
-f (x, y) dx dy = 1.
-Any function that satisfies the two displayed formulas in Theorem 3.4.3 is the joint
-p.d.f. for some probability distribution.
+
+$$
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy = 1.
+$$
+
+:::
+:::
+
+Any function that satisfies the two displayed formulas in @thm-3-4-3 is the joint
+pdf for some probability distribution.
+
 An example of the graph of a joint p.d.f. is presented in Fig. 3.11.
 The total volume beneath the surface z = f (x, y) and above the xy-plane must be
 1. The probability that the pair (X, Y ) will belong to the rectangle C is equal to the

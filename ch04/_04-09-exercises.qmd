@@ -1,0 +1,206 @@
+## Supplementary Exercises {#sec-4-9}
+
+::: {#exr-4-9-1}
+
+# Exercise 4.9.1
+
+Suppose that the random variable X has a continuous
+distribution with c.d.f. F(x) and p.d.f. f . Suppose also that
+E(X) exists. Prove that
+lim
+x→∞
+x[1− F(x)]= 0.
+Hint: Use the fact that if E(X) exists, then
+E(X) = lim
+u→∞
+  u
+−∞
+xf (x) dx.
+
+:::
+
+2. Suppose that the random variable X has a continuous
+distribution with c.d.f.F(x). Suppose also that Pr(X ≥ 0)=
+1 and that E(X) exists. Show that
+E(X) =
+  ∞
+0
+[1− F(x)] dx.
+Hint: You may use the result proven in Exercise 1.
+3. Consider again the conditions of Exercise 2, but suppose
+now thatX has a discrete distribution with c.d.f. F(x),
+rather than a continuous distribution. Show that the conclusion
+of Exercise 2 still holds.
+4. Suppose that X, Y , and Z are nonnegative random
+variables such that Pr(X + Y + Z ≤ 1.3) = 1. Show that X,
+Y , and Z cannot possibly have a joint distribution under
+which each of their marginal distributions is the uniform
+distribution on the interval [0, 1].
+5. Suppose that the random variable X has mean μ and
+variance σ2, and that Y = aX + b. Determine the values
+of a and b for which E(Y) = 0 and Var(Y ) = 1.
+6. Determine the expectation of the range of a random
+sample of size n from the uniform distribution on the
+interval [0, 1].
+7. Suppose that an automobile dealer pays an amount X
+(in thousands of dollars) for a used car and then sells it for
+an amount Y . Suppose that the random variables X and Y
+have the following joint p.d.f.:
+f (x, y) =
+ 
+1
+36x for 0 < x < y <6,
+0 otherwise.
+Determine the dealer’s expected gain from the sale.
+8. Suppose that X1, . . . ,Xn form a random sample of size
+n from a continuous distribution with the following p.d.f.:
+f (x) =
+ 
+2x for 0 < x <1,
+0 otherwise.
+Let Yn
+= max{X1, . . . , Xn
+}. Evaluate E(Yn).
+9. Ifmis a median of the distribution ofX, and if Y = r(X)
+is either a nondecreasing or a nonincreasing function ofX,
+show that r(m) is a median of the distribution of Y .
+10. Suppose that X1, . . . ,Xn are i.i.d. random variables,
+each of which has a continuous distribution with median
+m. Let Yn
+= max{X1, . . . , Xn
+}. Determine the value of
+Pr(Yn>m).
+11. Suppose that you are going to sell cola at a football
+game and must decide in advance how much to order.
+Suppose that the demand for cola at the game, in liters,
+has a continuous distribution with p.d.f.f (x). Suppose that
+you make a profit of g cents on each liter that you sell at
+the game and suffer a loss of c cents on each liter that you
+order but do not sell. What is the optimal amount of cola
+for you to order so as to maximize your expected net gain?
+12. Suppose that the number of hours X for which a machine
+will operate before it fails has a continuous distribution
+with p.d.f. f (x). Suppose that at the time at which the
+machine begins operating you must decide when you will
+return to inspect it. If you return before the machine has
+failed, you incur a cost of b dollars for having wasted an
+inspection. If you return after the machine has failed, you
+incur a cost of c dollars per hour for the length of time during
+which the machine was not operating after its failure.
+What is the optimal number of hours to wait before you
+return for inspection in order to minimize your expected
+cost?
+13. Suppose that X and Y are random variables for which
+E(X) = 3, E(Y) = 1, Var(X) = 4, and Var(Y ) = 9. Let Z =
+5X − Y + 15. Find E(Z) and Var(Z) under each of the
+following conditions: (a) X and Y are independent; (b)
+X and Y are uncorrelated; (c) the correlation of X and Y
+is 0.25.
+14. Suppose that X0, X1, . . . , Xn are independent random
+variables, each having the same variance σ2. Let
+Yj
+= Xj
+− Xj−1 for j = 1, . . . , n, and let Y n
+= 1
+n
+ n
+j=1 Yj .
+Determine the value of Var(Y n).
+15. Suppose that X1, . . . , Xn are random variables for
+which Var(Xi) has the same value σ2 for i = 1, . . . , n and
+ρ(Xi, Xj ) has the same value ρ for every pair of values i
+and j such that i  = j . Prove that ρ ≥− 1
+n − 1
+.
+16. Suppose that the joint distribution of X and Y is the
+uniform distribution over a rectangle with sides parallel
+to the coordinate axes in the xy-plane. Determine the
+correlation of X and Y .
+17. Suppose that n letters are put at random into n envelopes,
+as in the matching problem described in Sec. 1.10.
+Determine the variance of the number of letters that are
+placed in the correct envelopes.
+4.9 Supplementary Exercises 273
+18. Suppose that the random variable X has mean μ and
+variance σ2. Show that the third central moment of X can
+be expressed as E(X3) − 3μσ2 − μ3.
+19. Suppose that X is a random variable with m.g.f. ψ(t),
+mean μ, and variance σ2; and let c(t) = log[ψ(t)]. Prove
+that c
+ 
+(0) = μ and c
+  
+(0) = σ2.
+20. Suppose that X and Y have a joint distribution with
+means μX and μY , standard deviations σX and σY , and
+correlation ρ. Show that if E(Y|X) is a linear function of
+X, then
+E(Y|X) = μY
++ ρ
+σY
+σX
+(X − μX).
+21. Suppose that X and Y are random variables such that
+E(Y|X) = 7 − (1/4)X and E(X|Y) = 10 − Y . Determine
+the correlation of X and Y .
+22. Suppose that a stick having a length of 3 feet is broken
+into two pieces, and that the point at which the stick is
+broken is chosen in accordance with the p.d.f. f (x).What
+is the correlation between the length of the longer piece
+and the length of the shorter piece?
+23. Suppose that X and Y have a joint distribution with
+correlation ρ >1/2 and that Var(X) = Var(Y ) = 1. Show
+that b=− 1
+2ρ
+is the unique value of b such that the correlation
+of X and X + bY is also ρ.
+24. Suppose that four apartment buildings A, B, C, andD
+are located along a highway at the points 0, 1, 3, and 5, as
+shown in the following figure. Suppose also that 10 percent
+of the employees of a certain company live in building A,
+20 percent live in B, 30 percent live in C, and 40 percent
+live in D.
+a. Where should the company build its new office in order
+to minimize the total distance that its employees
+must travel?
+b. Where should the company build its new office in
+order to minimize the sum of the squared distances
+that its employees must travel?
+A B C D
+• • | • | • | |
+0 1 2 3 4 5 6 7
+25. Suppose that X and Y have the following joint p.d.f.:
+f (x, y) =
+ 
+8xy for 0 < y < x <1,
+0 otherwise.
+Suppose also that the observed value of X is 0.2.
+a. What predicted value of Y has the smallest M.S.E.?
+b. What predicted value of Y has the smallest M.A.E.?
+26. For all random variables X, Y , and Z, let Cov(X, Y |z)
+denote the covariance ofX and Y in their conditional joint
+distribution given Z = z. Prove that
+Cov(X, Y ) = E[Cov(X, Y |Z)]
++ Cov[E(X|Z), E(Y|Z)].
+27. Consider the box of red and blue balls in Examples
+4.2.4 and 4.2.5. Suppose that we sample n > 1 balls
+with replacement, and let X be the number of red balls in
+the sample. Then we sample n balls without replacement,
+and we let Y be the number of red balls in the sample.
+Prove that Pr(X = n) > Pr(Y = n).
+28. Suppose that a person’s utility function is U(x) = x2
+for x ≥ 0. Show that the person will always prefer to take
+a gamble in which she will receive a random gain of X dollars
+rather than receive the amount E(X) with certainty,
+where Pr(X ≥ 0) = 1 and E(X) <∞.
+29. A person is given m dollars, which he must allocate
+between an event A and its complement Ac. Suppose that
+he allocates a dollars to A and m − a dollars to Ac. The
+person’s gain is then determined as follows: If A occurs,
+his gain is g1a; if Ac occurs, his gain is g2(m − a). Here,
+g1 and g2 are given positive constants. Suppose also that
+Pr(A) = p and the person’s utility function is U(x) = log x
+forx >0. Determine the amount a that will maximize the
+person’s expected utility, and show that this amount does
+not depend on the values of g1 and g2.
+

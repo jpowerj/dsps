@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>bivariate</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="_03-04-bivariate_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_03-04-bivariate_files/libs/quarto-html/quarto.js"></script>
+<script src="_03-04-bivariate_files/libs/quarto-html/popper.min.js"></script>
+<script src="_03-04-bivariate_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_03-04-bivariate_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_03-04-bivariate_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_03-04-bivariate_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_03-04-bivariate_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_03-04-bivariate_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_03-04-bivariate_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="sec-3-4" class="level2">
+<h2 class="anchored" data-anchor-id="sec-3-4">Bivariate Distributions</h2>
+<p><em>We generalize the concept of distribution of a random variable to the joint distribution of two random variables. In doing so, we introduce the joint pmf for two discrete random variables, the joint pdf for two continuous random variables, and the joint CDF for any two random variables. We also introduce a joint hybrid of pmf and pdf for the case of one discrete random variable and one continuous random variable.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-4-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Example 3.4.1: Demands for Utilities (DeGroot and Schervish, p.&nbsp;118)) </strong></span>In <strong>?@exm-3-1-5</strong>, we found the distribution of the random variable <span class="math inline">\(X\)</span> that represented the demand for water. But there is another random variable, <span class="math inline">\(Y\)</span>, the demand for electricity, that is also of interest. When discussing two random variables at once, it is often convenient to put them together into an ordered pair, <span class="math inline">\((X, Y)\)</span>. As early as <strong>?@exm-1-5-4</strong>, we actually calculated some probabilities associated with the pair <span class="math inline">\((X, Y)\)</span>. In that example, we defined two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> that we now can express as <span class="math inline">\(A = \{X \geq 115\}\)</span> and <span class="math inline">\(B = \{Y \geq 110\}\)</span>. In <strong>?@exm-1-5-4</strong>, we computed <span class="math inline">\(\Pr(A \cap B)\)</span> and <span class="math inline">\(\Pr(A \cup B)\)</span>. We can express <span class="math inline">\(A \cap B\)</span> and <span class="math inline">\(A \cup B\)</span> as events involving the pair <span class="math inline">\((X, Y)\)</span>. For example, define the set of ordered pairs <span class="math inline">\(C = \{(x, y) \mid x \geq 115\text{ and }y \geq 110\}\)</span> so that that the event <span class="math inline">\(\{(X, Y) \in C\} = A \cap B\)</span>. That is, the event that the pair of random variables lies in the set <span class="math inline">\(C\)</span> is the same as the intersection of the two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. In <strong>?@exm-1-5-4</strong>, we computed <span class="math inline">\(\Pr(A \cap B) = 0.1198\)</span>. So, we can now assert that <span class="math inline">\(\Pr((X, Y) \in C) = 0.1198\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-4-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Definition 3.4.1: Joint/Bivariate Distribution (DeGroot and Schervish, p.&nbsp;118)) </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. The <strong>joint distribution</strong> or <strong>bivariate distribution</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is the collection of all probabilities of the form <span class="math inline">\(\Pr\left( (X, Y) \in C\right)\)</span> for all sets <span class="math inline">\(C\)</span> of pairs of real numbers such that <span class="math inline">\(\{ (X, Y) \in C\}\)</span> is an event.</p>
+</div>
+</div>
+</div>
+<p>It is a straightforward consequence of the definition of the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> that this joint distribution is itself a probability measure on the set of ordered pairs of real numbers. The set <span class="math inline">\(\{ (X, Y) \in C\}\)</span> will be an event for every set <span class="math inline">\(C\)</span> of pairs of real numbers that most readers will be able to imagine.</p>
+<p>In this section and the next two sections, we shall discuss convenient ways to characterize and do computations with bivariate distributions. In <strong>?@sec-3-7</strong>, these considerations will be extended to the joint distribution of an arbitrary finite number of random variables.</p>
+<section id="discrete-joint-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-joint-distributions">Discrete Joint Distributions</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-4-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Example 3.4.2: Theater Patrons) </strong></span>Suppose that a sample of 10 people is selected at random from a theater with 200 patrons. One random variable of interest might be the number <span class="math inline">\(X\)</span> of people in the sample who are over 60 years of age, and another random variable might be the number <span class="math inline">\(Y\)</span> of people in the sample who live more than 25 miles from the theater. For each ordered pair <span class="math inline">\((x, y)\)</span> with <span class="math inline">\(x = 0, \ldots, 10\)</span> and <span class="math inline">\(y = 0, \ldots, 10\)</span>, we might wish to compute <span class="math inline">\(\Pr( (X, Y) = (x, y))\)</span>, the probability that there are <span class="math inline">\(x\)</span> people in the sample who are over 60 years of age and there are <span class="math inline">\(y\)</span> people in the sample who live more than 25 miles away.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-4-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Definition 3.4.2: Discrete Joint Distribution) </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables, and consider the ordered pair <span class="math inline">\((X, Y)\)</span>. If there are only finitely or at most countably many different possible values <span class="math inline">\((x, y)\)</span> for the pair <span class="math inline">\((X, Y)\)</span>, then we say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a <strong>discrete joint distribution</strong>.</p>
+</div>
+</div>
+</div>
+<p>The two random variables in <a href="#exm-3-4-2">Example&nbsp;2</a> have a discrete joint distribution.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-3-4-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.4.1) </strong></span>Suppose that two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> each have a discrete distribution. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have only finitely many possible values, then there will be only a finite number of different possible values <span class="math inline">\((x, y)\)</span> for the pair <span class="math inline">\((X, Y)\)</span>. On the other hand, if either <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> or both can take a countably infinite number of possible values, then there will also be a countably infinite number of possible values for the pair <span class="math inline">\((X, Y)\)</span>. In all of these cases, the pair <span class="math inline">\((X, Y)\)</span> has a discrete joint distribution.</p>
+</div>
+</div>
+</div>
+</div>
+<p>When we define continuous joint distribution shortly, we shall see that the obvious analog of <a href="#thm-3-4-1">Theorem&nbsp;1</a> is not true.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-4-3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Definition 3.4.3: Joint Probability Mass Function (pmf)) </strong></span>The <strong>joint probability mass function</strong>, or the <strong>joint pmf</strong>, of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as the function <span class="math inline">\(f\)</span> such that for every point <span class="math inline">\((x, y)\)</span> in the <span class="math inline">\(xy\)</span>-plane,</p>
+<p><span class="math display">\[
+f(x, y) = \Pr(X = x\text{ and }Y = y).
+\]</span></p>
+</div>
+</div>
+</div>
+<p>The following result is easy to prove because there are at most countably many pairs <span class="math inline">\((x, y)\)</span> that must account for all of the probability a discrete joint distribution.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-3-4-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 3.4.2) </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution, <!-- Added, jpj, 2023-09-28 --> and let <span class="math inline">\(\mathcal{R}_{(X,Y)} = \mathcal{R}_X \times \mathcal{R}_Y\)</span>, that is, all possible ordered pairs of values where the first element in the pair is in <span class="math inline">\(\mathcal{R}_X\)</span> and the second element in the pair is in <span class="math inline">\(\mathcal{R}_Y\)</span>.</p>
+<p>If <span class="math inline">\((x, y)\)</span> is not one of the possible values of the pair <span class="math inline">\((X, Y)\)</span>, then <span class="math inline">\(f(x, y) = 0\)</span>. Also,</p>
+<p><span class="math display">\[
+\sum_{(x,y) \in \mathcal{R}_{(X,Y)}}f(x,y) = 1.
+\]</span></p>
+<p>Finally, for each set <span class="math inline">\(C\)</span> of ordered pairs,</p>
+<p><span class="math display">\[
+\Pr\left( (X,Y) \in C \right) = \sum_{(x,y) \in C}f(x,y).
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-4-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Example 3.4.3: Specifying a Discrete Joint Distribution by a Table of Probabilities) </strong></span>In a certain suburban area, each household reported the number of cars and the number of television sets that they owned. Let <span class="math inline">\(X\)</span> stand for the number of cars owned by a randomly selected household in this area. Let <span class="math inline">\(Y\)</span> stand for the number of television sets owned by that same randomly selected household. In this case, <span class="math inline">\(X\)</span> takes only the values 1, 2, and 3; <span class="math inline">\(Y\)</span> takes only the values 1, 2, 3, and 4; and the joint pmf <span class="math inline">\(f\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as specified in <a href="#tbl-3-2">Table&nbsp;1</a></p>
+<div id="tbl-3-2" class="anchored">
+<table data-quarto-postprocess="true" class="table">
+<caption>Table&nbsp;1: The joint pmf <span class="math inline">\(f(x,y)\)</span> for <a href="#exm-3-4-3">Example&nbsp;3</a></caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: 1px solid black;"><span class="math inline">\(y\)</span></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"><span class="math inline">\(x\)</span></th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.1</td>
+<td>0.0</td>
+<td>0.1</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.3</td>
+<td>0.0</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0.0</td>
+<td>0.2</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This joint pmf is sketched in <a href="#fig-3-10">Figure&nbsp;1</a>. We shall determine the probability that the randomly selected household owns at least two of both cars and televisions. In symbols, this is <span class="math inline">\(\Pr(X \geq 2\text{ and }Y \geq 2)\)</span>.</p>
+<p>By summing <span class="math inline">\(f(x, y)\)</span> over all values of <span class="math inline">\(x \geq 2\)</span> and <span class="math inline">\(y \geq 2\)</span>, we obtain the value</p>
+<p><span class="math display">\[
+\begin{align*}
+Pr(X \geq 2\text{ and }Y \geq 2) &amp;= f(2, 2) + f (2, 3) + f (2, 4) + f (3, 2) \\
+&amp;\phantom{=} + f(3, 3) + f (3, 4) \\
+&amp;= 0.5.
+\end{align*}
+\]</span></p>
+<p>Next, we shall determine the probability that the randomly selected household owns exactly one car, namely <span class="math inline">\(\Pr(X = 1)\)</span>. By summing the probabilities in the first row of the table, we obtain the value</p>
+<p><span class="math display">\[
+\Pr(X = 1) = \sum_{y = 1}^{4}f(1,y) = 0.2.
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="fig-3-10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig-3-10.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: The joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in <a href="#exm-3-4-3">Example&nbsp;3</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="continuous-joint-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-joint-distributions">Continuous Joint Distributions</h3>
+<p>Example 3.4.4 Demands for Utilities. Consider again the joint distribution of X and Y in Example 3.4.1.When we first calculated probabilities for these two random variables back in Example 1.5.4 on page 19 (even before we named them or called them random variables), we assumed that the probability of each subset of the sample space was proportional to the area of the subset. Since the area of the sample space is 29,204, the probability that the pair (X, Y ) lies in a regionC is the area ofC divided by 29,204. We can also write this relation as Pr((X, Y ) ∈ C} =   C   1 29,204 dx dy, (3.4.1) assuming that the integral exists.   If one looks carefully at Eq. (3.4.1), one will notice the similarity to Eqs. (3.2.2) and (3.2.1).We formalize this connection as follows.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-4-4" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Definition 3.4.4: Continuous Joint Distribution (DeGroot and Schervish)) </strong></span>Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a <strong>continuous joint distribution</strong> if there exists a nonnegative function <span class="math inline">\(f\)</span> defined over the entire <span class="math inline">\(xy\)</span>-plane such that for every subset <span class="math inline">\(C\)</span> of the plane,</p>
+<p><span class="math display">\[
+\Pr\left[(X,Y) \in C\right] = \int_C\int f(x,y)dxdy.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Definition 3.4.4 Continuous Joint Distribution/Joint p.d.f./Support. Tworandom variablesXand Y have a continuous joint distribution if there exists a nonnegative function f defined over the entire xy-plane such that for every subset C of the plane, Pr[(X, Y ) ∈ C]=   C   f (x, y) dx dy,</p>
+<p>if the integral exists. The function f is called the joint probability density function (abbreviated joint p.d.f.) of X and Y . The closure of the set {(x, y) : f (x, y) &gt; 0} is called the support of (the distribution of) (X, Y ). Example 3.4.5 Demands for Utilities. In Example 3.4.4, it is clear from Eq. (3.4.1) that the joint p.d.f. of X and Y is the function f (x, y) = ⎧⎨ ⎩ 1 29,204 for 4 ≤ x ≤ 200 and 1≤ y ≤ 150, 0 otherwise.   (3.4.2) It is clear from Definition 3.4.4 that the joint p.d.f. of two random variables characterizes their joint distribution. The following result is also straightforward.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-3-4-3" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 3.4.3 (DeGroot and Schervish)) </strong></span>A joint PDF must satisfy the following two conditions:</p>
+<p><span class="math display">\[
+f(x,y) \geq 0\text{ for }-\infty &lt; x &lt; \infty\text{ and }-\infty &lt; y &lt; \infty,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy = 1.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Any function that satisfies the two displayed formulas in <a href="#thm-3-4-3">Theorem&nbsp;3</a> is the joint pdf for some probability distribution.</p>
+<p>An example of the graph of a joint p.d.f. is presented in Fig. 3.11. The total volume beneath the surface z = f (x, y) and above the xy-plane must be 1. The probability that the pair (X, Y ) will belong to the rectangle C is equal to the volume of the solid figure with base A shown in Fig. 3.11. The top of this solid figure is formed by the surface z = f (x, y). In Sec. 3.5, we will show that if X and Y have a continuous joint distribution, then X and Y each have a continuous distribution when considered separately. This seems reasonable intutively. However, the converse of this statement is not true, and the following result helps to show why. Figure 3.11 An example of a joint p.d.f. x y f (x, y) C 122 Chapter 3 Random Variables and Distributions Theorem 3.4.4 For every continuous joint distribution on the xy-plane, the following two statements hold: i. Every individual point, and every infinite sequence of points, in the xy-plane has probability 0. ii. Let f be a continuous function of one real variable defined on a (possibly unbounded) interval (a, b). The sets {(x, y) : y = f(x), a &lt; x &lt; b} and {(x, y) : x = f(y), a &lt; y &lt; b} have probability 0. Proof According to Definition 3.4.4, the probability that a continuous joint distribution assigns to a specified region of the xy-plane can be found by integrating the joint p.d.f. f (x, y) over that region, if the integral exists. If the region is a single point, the integral will be 0. By Axiom 3 of probability, the probability for any countable collection of points must also be 0. The integral of a function of two variables over the graph of a continuous function in the xy-plane is also 0. Example 3.4.6 Not a Continuous Joint Distribution. It follows from (ii) of Theorem 3.4.4 that the probability that (X, Y ) will lie on each specified straight line in the plane is 0. If X has a continuous distribution and if Y = X, then both X and Y have continuous distributions, but the probability is 1 that (X, Y ) lies on the straight line y = x. Hence, X and Y cannot have a continuous joint distribution.   Example 3.4.7 Calculating aNormalizing Constant. Suppose that the joint p.d.f. ofXand Y is specified as follows: f (x, y) =   cx2y for x2 ≤ y ≤ 1, 0 otherwise. We shall determine the value of the constant c. The support S of (X, Y ) is sketched in Fig. 3.12. Since f (x, y) = 0 outside S, it follows that   ∞ −∞   ∞ −∞ f (x, y) dx dy =   S   f (x, y) dx dy =   1 −1   1 x2 cx2y dy dx = 4 21 c. (3.4.3) Since the value of this integral must be 1, the value of c must be 21/4. The limits of integration on the last integral in (3.4.3) were determined as follows. We have our choice of whether to integrate x or y as the inner integral, and we chose y. So, we must find, for each x, the interval of y values over which to integrate. From Fig. 3.12, we see that, for each x, y runs from the curve where y = x2 to the line where y = 1. The interval of x values for the outer integral is from −1 to 1 according to Fig. 3.12. If we had chosen to integrate x on the inside, then for each y, we see that x runs from − √ y to √ y, while y runs from 0 to 1. The final answer would have been the same.   Example 3.4.8 Calculating Probabilities from a Joint p.d.f. For the joint distribution in Example 3.4.7, we shall now determine the value of Pr(X ≥ Y). The subset S0 of S where x ≥ y is sketched in Fig. 3.13. Hence, Pr(X ≥ Y) =   S0   f (x, y) dx dy =   1 0   x x2 21 4 x2y dy dx = 3 20 .   3.4 Bivariate Distributions 123 Figure 3.12 The support S of (X, Y ) in Example 3.4.8. x y  1 1 S ( 1, 1) (1, 1) y   x2 Figure 3.13 The subset S0 of the support S where x ≥ y in Example 3.4.8. x y  1 1 (1, 1) y   x2 y   x Example 3.4.9 Determining a Joint p.d.f. by Geometric Methods. Suppose that a point (X, Y ) is selected at random from inside the circle x2 + y2 ≤ 9. We shall determine the joint p.d.f. of X and Y . The support of (X, Y ) is the set S of points on and inside the circle x2 + y2 ≤ 9. The statement that the point (X, Y ) is selected at random from inside the circle is interpreted to mean that the joint p.d.f. ofXand Y is constant over S and is 0 outside S. Thus, f (x, y) =   c for (x, y) ∈ S, 0 otherwise. We must have   S   f (x, y) dx dy = c × (area of S) = 1. Since the area of the circle S is 9π, the value of the constant c must be 1/(9π).   Mixed Bivariate Distributions Example 3.4.10 A Clinical Trial. Consider a clinical trial (such as the one described in Example 2.1.12) in which each patient with depression receives a treatment and is followed to see whether they have a relapse into depression. Let X be the indicator of whether or not the first patient is a “success” (no relapse). That is X = 1 if the patient does not relapse and X = 0 if the patient relapses. Also, let P be the proportion of patients who have no replapse among all patients who might receive the treatment. It is clear that X must have a discrete distribution, but it might be sensible to think of P as a continuous random variable taking its value anywhere in the interval [0, 1]. Even though X and P can have neither a joint discrete distribution nor a joint continuous distribution, we can still be interested in the joint distribution of X and P.   124 Chapter 3 Random Variables and Distributions Prior to Example 3.4.10, we have discussed bivariate distributions that were either discrete or continuous. Occasionally, one must consider a mixed bivariate distribution in which one of the random variables is discrete and the other is continuous. We shall use a function f (x, y) to characterize such a joint distribution in much the same way that we use a joint p.f. to characterize a discrete joint distribution or a joint p.d.f. to characterize a continuous joint distribution. Definition 3.4.5 Joint p.f./p.d.f. Let X and Y be random variables such that X is discrete and Y is continuous. Suppose that there is a function f (x, y) defined on the xy-plane such that, for every pair A and B of subsets of the real numbers, Pr(X ∈ A and Y ∈ B) =   B   x∈A f (x, y)dy, (3.4.4) if the integral exists. Then the function f is called the joint p.f./p.d.f. of X and Y . Clearly, Definition 3.4.5 can be modified in an obvious way if Y is discrete and X is continuous. Every joint p.f./p.d.f. must satisfy two conditions. If X is the discrete random variable with possible values x1, x2, . . . and Y is the continuous random variable, then f (x, y) ≥ 0 for all x, y and   ∞ −∞ ∞  i=1 f (xi, y)dy = 1. (3.4.5) Because f is nonnegative, the sum and integral in Eqs. (3.4.4) and (3.4.5) can be done in whichever order is more convenient. Note: Probabilities of More General Sets. For a general set C of pairs of real numbers, we can compute Pr((X, Y ) ∈ C) using the joint p.f./p.d.f. of X and Y. For each x, let Cx = {y : (x, y) ∈ C}. Then Pr((X, Y ) ∈ C) =   All x   Cx f (x, y)dy, if all of the integrals exist. Alternatively, for each y, define Cy = {x : (x, y) ∈ C}, and then Pr((X, Y ) ∈ C) =   ∞ −∞     x∈Cy f (x, y)   dy, if the integral exists. Example 3.4.11 A Joint p.f./p.d.f. Suppose that the joint p.f./p.d.f. of X and Y is f (x, y) = xyx−1 3 , for x = 1, 2, 3 and 0 &lt; y &lt;1. We should check to make sure that this function satisfies (3.4.5). It is easier to integrate over the y values first, so we compute  3 x=1   1 0 xyx−1 3 dy =  3 x=1 1 3 = 1. Suppose that we wish to compute the probability that Y ≥ 1/2 and X ≥ 2. That is, we want Pr(X ∈ A and Y ∈ B) withA = [2,∞) andB = [1/2,∞). So, we apply Eq. (3.4.4) 3.4 Bivariate Distributions 125 to get the probability  3 x=2   1 1/2 xyx−1 3 dy =  3 x=2</p>
+<p>1− (1/2)x 3   = 0.5417. For illustration, we shall compute the sum and integral in the other order also. For each y ∈ [1/2, 1),  3 x=2 f (x, y) = 2y/3 + y2. For y ≥ 1/2, the sum is 0. So, the probability is   1 1/2   2 3 y + y2   dy = 1 3   1−</p>
+<p>1 2  2   + 1 3   1−</p>
+<p>1 2  3   = 0.5417.   Example 3.4.12 A Clinical Trial. A possible joint p.f./p.d.f. for X and P in Example 3.4.10 is f (x, p) = px(1− p)1−x, for x = 0, 1 and 0&lt;p &lt;1. Here, X is discrete and P is continuous. The function f is nonnegative, and the reader should be able to demonstrate that it satisfies (3.4.5). Suppose that we wish to compute Pr(X ≤ 0 and P ≤ 1/2). This can be computed as   1/2 0 (1− p)dp =−1 2 [(1− 1/2)2 − (1− 0)2]= 3 8 . Suppose that we also wish to compute Pr(X = 1). This time, we apply Eq. (3.4.4) with A = {1} and B = (0, 1). In this case, Pr(X = 1) =   1 0 p dp = 1 2 .   A more complicated type of joint distribution can also arise in a practical problem. Example 3.4.13 A Complicated Joint Distribution. Suppose that X and Y are the times at which two specific components in an electronic system fail. There might be a certain probability p (0 &lt; p &lt;1) that the two components will fail at the same time and a certain probability 1− p that they will fail at different times. Furthermore, if they fail at the same time, then their common failure time might be distributed according to a certain p.d.f. f (x); if they fail at different times, then these times might be distributed according to a certain joint p.d.f. g(x, y). The joint distribution of X and Y in this example is not continuous, because there is positive probability p that (X, Y ) will lie on the line x = y. Nor does the joint distribution have a joint p.f./p.d.f. or any other simple function to describe it. There are ways to deal with such joint distributions, but we shall not discuss them in this text.   Bivariate Cumulative Distribution Functions The first calculation in Example 3.4.12, namely, Pr(X ≤ 0 and Y ≤ 1/2), is a generalization of the calculation of a c.d.f. to a bivariate distribution. We formalize the generalization as follows. Definition 3.4.6 Joint (Cumulative) Distribution Function/c.d.f. The joint distribution function or joint cumulative distribution function (joint c.d.f.) of two random variables X and Y is 126 Chapter 3 Random Variables and Distributions Figure 3.14 The probability of a rectangle. a c d b x y A defined as the function F such that for all values of x and y (−∞&lt;x &lt;∞and −∞&lt; y &lt;∞), F(x, y) = Pr(X ≤ x and Y ≤ y). It is clear from Definition 3.4.6 that F(x, y) is monotone increasing in x for each fixed y and is monotone increasing in y for each fixed x. If the joint c.d.f. of two arbitrary random variables X and Y is F, then the probability that the pair (X, Y ) will lie in a specified rectangle in the xy-plane can be found from F as follows: For given numbers a &lt;b and c &lt; d, Pr(a &lt; X ≤ b and c &lt; Y ≤ d) = Pr(a &lt; X ≤ b and Y ≤ d) − Pr(a &lt; X ≤ b and Y ≤ c) = [Pr(X ≤ b and Y ≤ d) − Pr(X ≤ a and Y ≤ d)] (3.4.6) −[Pr(X ≤ b and Y ≤ c) − Pr(X ≤ a and Y ≤ c)] = F(b, d) − F(a, d) − F(b, c) + F(a, c). Hence, the probability of the rectangle C sketched in Fig. 3.14 is given by the combination of values of F just derived. It should be noted that two sides of the rectangle are included in the set C and the other two sides are excluded. Thus, if there are points or line segments on the boundary of C that have positive probability, it is important to distinguish between the weak inequalities and the strict inequalities in Eq. (3.4.6). Theorem 3.4.5 Let X and Y have a joint c.d.f. F. The c.d.f. F1 of just the single random variable X can be derived from the joint c.d.f. F as F1(x) = limy→∞ F(x, y). Similarly, the c.d.f. F2 of Y equals F2(y) = limx→∞ F(x, y), for 0 &lt; y &lt;∞. Proof We prove the claim about F1 as the claim about F2 is similar. Let <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span>.</p>
+<p>Define B0 = {X ≤ x and Y ≤ 0}, Bn = {X ≤ x and n − 1&lt;Y ≤ n}, for n = 1, 2, . . . , Am = m n=0 Bn, for m = 1, 2, . . . . Then {X ≤ x} = ∞ n=−0 Bn, and Am = {X ≤ x and Y ≤ m} for m = 1, 2, . . .. It follows that Pr(Am) = F(x,m) for each m. Also, 3.4 Bivariate Distributions 127 F1(x) = Pr(X ≤ x) = Pr ∞  n=1 Bn   = ∞  n=0 Pr(Bn) = lim m→∞ Pr(Am) = lim m→∞ F(x,m) = lim y→∞</p>
+<p>F(x, y), where the third equality follows from countable additivity and the fact that the Bn events are disjoint, and the last equality follows from the fact thatF(x, y) is monotone increasing in y for each fixed x. Other relationships involving the univariate distribution of X, the univariate distribution of Y , and their joint bivariate distribution will be presented in the next section. Finally, if X and Y have a continuous joint distribution with joint p.d.f. f , then the joint c.d.f. at (x, y) is F(x, y) =   y −∞   x −∞ f (r, s) dr ds. Here, the symbols r and s are used simply as dummy variables of integration. The joint p.d.f. can be derived from the joint c.d.f. by using the relations f (x, y) = ∂2F(x, y) ∂x∂y = ∂2F(x, y) ∂y∂x at every point (x, y) at which these second-order derivatives exist. Example 3.4.14 Determining a Joint p.d.f. from a Joint c.d.f. Suppose thatX and Y are random variables that take values only in the intervals 0 ≤ X ≤ 2 and 0 ≤ Y ≤ 2. Suppose also that the joint c.d.f. of X and Y , for 0 ≤ x ≤ 2 and 0 ≤ y ≤ 2, is as follows: F(x, y) = 1 16 xy(x + y). (3.4.7) We shall first determine the c.d.f. F1 of just the random variableX and then determine the joint p.d.f. f of X and Y . The value of F(x, y) at any point (x, y) in the xy-plane that does not represent a pair of possible values of X and Y can be calculated from (3.4.7) and the fact that F(x, y) = Pr(X ≤ x and Y ≤ y).Thus, if eitherx &lt;0ory &lt;0, thenF(x, y) = 0. If both x &gt;2 andy &gt;2, then F(x, y) = 1. If 0 ≤ x ≤ 2 andy &gt;2, then F(x, y) = F(x, 2), and it follows from Eq. (3.4.7) that F(x, y) = 1 8 x(x + 2). Similarly, if 0 ≤ y ≤ 2 and x &gt;2, then F(x, y) = 1 8 y(y + 2). The function F(x, y) has now been specified for every point in the xy-plane. By letting y→∞, we find that the c.d.f. of just the random variable X is F1(x) = ⎧⎪⎨ ⎪⎩ 0 for x &lt;0, 1 8x(x + 2) for 0 ≤ x ≤ 2, 1 for x &gt;2. 128 Chapter 3 Random Variables and Distributions Furthermore, for 0 &lt; x &lt;2 and 0 &lt; y &lt;2, ∂2F(x, y) ∂x∂y = 1 8 (x + y). Also, if x &lt;0, y &lt;0, x &gt;2, or y &gt;2, then ∂2F(x, y) ∂x∂y = 0. Hence, the joint p.d.f. of X and Y is f (x, y) =   1 8 (x + y) for 0 &lt; x &lt;2 and 0 &lt; y &lt;2, 0 otherwise.   Example 3.4.15 Demands for Utilities. We can compute the joint c.d.f. for water and electric demand in Example 3.4.4 by using the joint p.d.f. that was given in Eq. (3.4.2). If either x ≤ 4or y ≤ 1, then F(x, y) = 0 because either X ≤ x or Y ≤ y would be impossible. Similarly, if both x ≥ 200 and y ≥ 150, F(x, y) = 1 because both X ≤ x and Y ≤ y would be sure events. For other values of x and y, we compute F(x, y) = ⎧⎪⎪⎪⎪⎪⎪⎪⎪⎪⎨ ⎪⎪⎪⎪⎪⎪⎪⎪⎪⎩   x 4   y 1 1 29,204 dydx = xy 29,204 for 4 ≤ x ≤ 200, 1≤ y ≤ 150,   x 4   150 1 1 29,204 dydx = x 196 for 4 ≤ x ≤ 200, y &gt;150,   200 4   y 1 1 29,204 dydx = y 149 for x &gt;200, 1≤ y ≤ 150. The reason that we need three cases in the formula for F(x, y) is that the joint p.d.f. in Eq. (3.4.2) drops to 0 when x crosses above 200 or when y crosses above 150; hence, we never want to integrate 1/29,204 beyond x = 200 or beyond y = 150. If one takes the limit as y→∞of F(x, y) (for fixed 4 ≤ x ≤ 200), one gets the second case in the formula above, which then is the c.d.f. of X, F1(x). Similarly, if one takes the limx→∞ F(x, y) (for fixed 1≤ y ≤ 150), one gets the third case in the formula, which then is the c.d.f. of Y , F2(y).   Summary The joint c.d.f. of two random variables X and Y is F(x, y) = Pr(X ≤ x and Y ≤ y). The joint p.d.f. of two continuous random variables is a nonnegative function f such that the probability of the pair (X, Y ) being in a setC is the integral of f (x, y) over the set C, if the integral exists. The joint p.d.f. is also the second mixed partial derivative of the joint c.d.f. with respect to both variables. The joint p.f. of two discrete random variables is a nonnegative function f such that the probability of the pair (X, Y ) being in a setC is the sum of f (x, y) over all points inC.Ajoint p.f. can be strictly positive at countably many pairs (x, y) at most. The joint p.f./p.d.f. of a discrete random variable X and a continuous random variable Y is a nonnegative function f such that the probability of the pair (X, Y ) being in a set C is obtained by summing f (x, y) over all x such that (x, y) ∈ C for each y and then integrating the resulting function of y.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<ol type="1">
+<li>Suppose that the joint p.d.f. of a pair of random variables (X, Y ) is constant on the rectangle where 0 ≤ x ≤ 2 and 0 ≤ y ≤ 1, and suppose that the p.d.f. is 0 off of this rectangle.</li>
+</ol>
+<ol type="a">
+<li>Find the constant value of the p.d.f. on the rectangle.</li>
+<li>Find Pr(X ≥ Y).</li>
+</ol>
+<ol start="2" type="1">
+<li>Suppose that in an electric display sign there are three light bulbs in the first row and four light bulbs in the second row. LetX denote the number of bulbs in the first row that will be burned out at a specified time t , and let Y denote the number of bulbs in the second row that will be burned out at the same time t . Suppose that the joint p.f. of X and Y is as specified in the following table: Y X 0 1 2 3 4 0 0.08 0.07 0.06 0.01 0.01 1 0.06 0.10 0.12 0.05 0.02 2 0.05 0.06 0.09 0.04 0.03 3 0.02 0.03 0.03 0.03 0.04 Determine each of the following probabilities:</li>
+</ol>
+<ol type="a">
+<li>Pr(X = 2) b. Pr(Y ≥ 2)</li>
+<li>Pr(X ≤ 2 and Y ≤ 2) d.&nbsp;Pr(X = Y)</li>
+<li>Pr(X &gt; Y )</li>
+</ol>
+<ol start="3" type="1">
+<li>Suppose that X and Y have a discrete joint distribution for which the joint p.f. is defined as follows: f (x, y) = ⎧⎨ ⎩ c|x + y| for x =−2, −1, 0, 1, 2 and y =−2, −1, 0, 1, 2, 0 otherwise. Determine (a) the value of the constant c; (b) Pr(X = 0 and Y =−2); (c) Pr(X = 1); (d) Pr(|X − Y| ≤ 1).</li>
+<li>Suppose that X and Y have a continuous joint distribution for which the joint p.d.f. is defined as follows: f (x, y) =   cy2 for 0 ≤ x ≤ 2 and 0 ≤ y ≤ 1, 0 otherwise. Determine (a) the value of the constant c; (b) Pr(X +Y &gt; 2); (c) Pr(Y &lt; 1/2); (d) Pr(X ≤ 1); (e) Pr(X = 3Y).</li>
+<li>Suppose that the joint p.d.f. of two random variables X and Y is as follows: f (x, y) =   c(x2 + y) for 0 ≤ y ≤ 1− x2, 0 otherwise. Determine (a) the value of the constant c;</li>
+</ol>
+<ol start="2" type="a">
+<li>Pr(0 ≤ X ≤ 1/2); (c) Pr(Y ≤ X + 1);</li>
+<li>Pr(Y = X2).</li>
+</ol>
+<ol start="6" type="1">
+<li>Suppose that a point (X, Y ) is chosen at random from the region S in the xy-plane containing all points (x, y) such that x ≥ 0, y ≥ 0, and 4y + x ≤ 4.</li>
+</ol>
+<ol type="a">
+<li>Determine the joint p.d.f. of X and Y .</li>
+<li>Suppose that S0 is a subset of the region S having area α and determine Pr[(X, Y ) ∈ S0].</li>
+</ol>
+<ol start="7" type="1">
+<li>Suppose that a point (X, Y ) is to be chosen from the square S in the xy-plane containing all points (x, y) such that 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1. Suppose that the probability that the chosen point will be the corner (0, 0) is 0.1, the probability that it will be the corner (1, 0) is 0.2, the probability that it will be the corner (0, 1) is 0.4, and the probability that it will be the corner (1, 1) is 0.1. Suppose also that if the chosen point is not one of the four corners of the square, then it will be an interior point of the square and will be chosen according to a constant p.d.f. over the interior of the square. Determine (a) Pr(X ≤ 1/4) and (b) Pr(X + Y ≤ 1).</li>
+<li>Suppose that X and Y are random variables such that (X, Y ) must belong to the rectangle in the xy-plane containing all points (x, y) for which 0 ≤ x ≤ 3 and 0 ≤ y ≤ 4. Suppose also that the joint c.d.f. of X and Y at every point (x, y) in this rectangle is specified as follows: F(x, y) = 1 156 xy(x2 + y). Determine (a) Pr(1≤ X ≤ 2 and 1≤ Y ≤ 2);</li>
+</ol>
+<ol start="2" type="a">
+<li>Pr(2 ≤ X ≤ 4 and 2 ≤ Y ≤ 4); (c) the c.d.f. of Y ;</li>
+<li>the joint p.d.f. of X and Y ; (e) Pr(Y ≤ X).</li>
+</ol>
+<ol start="9" type="1">
+<li>In Example 3.4.5, compute the probability that water demand X is greater than electric demand Y .</li>
+<li>Let Y be the rate (calls per hour) at which calls arrive at a switchboard. Let X be the number of calls during a two-hour period. A popular choice of joint p.f./p.d.f. for (X, Y ) in this example would be one like f (x, y) =   (2y)x x! e −3y if y &gt;0 and x = 0, 1, . . . , 0 otherwise.</li>
+</ol>
+<ol type="a">
+<li>Verify that f is a joint p.f./p.d.f. Hint: First, sum over the x values using the well-known formula for the power series expansion of e2y.</li>
+<li>Find Pr(X = 0).</li>
+</ol>
+<ol start="11" type="1">
+<li>Consider the clinical trial of depression drugs in Example 2.1.4. Suppose that a patient is selected at random from the 150 patients in that study and we record Y, an</li>
+</ol>
+<p>Table 3.3 Proportions in clinical depression study for Exercise 11 Treatment group (Y ) Response (X) Imipramine (1) Lithium (2) Combination (3) Placebo (4) Relapse (0) 0.120 0.087 0.146 0.160 No relapse (1) 0.147 0.166 0.107 0.067 indicator of the treatment group for that patient, andX, an indicator of whether or not the patient relapsed. Table 3.3 contains the joint p.f. of X and Y . a. Calculate the probability that a patient selected at random from this study used Lithium (either alone or in combination with Imipramine) and did not relapse. b. Calculate the probability that the patient had a relapse (without regard to the treatment group).</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
