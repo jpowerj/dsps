@@ -179,29 +179,24 @@ $$
 :::
 :::
 
-![The joint pmf of $X$ and $Y$ in @exm-3-4-3](images/fig-3-10.jpeg){#fig-3-10}
+![The joint pmf of $X$ and $Y$ in @exm-3-4-3](ch03/images/fig-3-10.jpeg){#fig-3-10}
 
 ### Continuous Joint Distributions
 
-Example
-3.4.4
-Demands for Utilities. Consider again the joint distribution of X and Y in Example
-3.4.1.When we first calculated probabilities for these two random variables back
-in Example 1.5.4 on page 19 (even before we named them or called them random
-variables), we assumed that the probability of each subset of the sample space was
-proportional to the area of the subset. Since the area of the sample space is 29,204,
-the probability that the pair (X, Y ) lies in a regionC is the area ofC divided by 29,204.
-We can also write this relation as
-Pr((X, Y ) ∈ C} =
- 
-C
- 
-1
-29,204
-dx dy, (3.4.1)
-assuming that the integral exists.  
-If one looks carefully at Eq. (3.4.1), one will notice the similarity to Eqs. (3.2.2)
-and (3.2.1).We formalize this connection as follows.
+::: {.callout-tip}
+::: {#exm-3-4-4}
+
+# Example 3.4.4: Demands for Utilities
+
+Consider again the joint distribution of $X$ and $Y$ in @exm-3-4-1. When we first calculated probabilities for these two random variables back in @exm-1-5-4 (even before we named them or called them random variables), we assumed that the probability of each subset of the sample space was proportional to the area of the subset. Since the area of the sample space is 29,204, the probability that the pair $(X, Y)$ lies in a region $C$ is the area of $C$ divided by 29,204. We can also write this relation as
+
+$$
+\Pr((X,Y) \in C) = \int_C\int \frac{1}{29,204}~dx~dy,
+$$ {#eq-3-4-1}
+
+assuming that the integral exists.
+
+If one looks carefully at @eq-3-4-1, one will notice the similarity to @eq-3-2-2 and @eq-3-2-1. We formalize this connection as follows.
 
 ::: {.callout-tip}
 ::: {#def-3-4-4}
@@ -211,41 +206,46 @@ and (3.2.1).We formalize this connection as follows.
 Two random variables $X$ and $Y$ have a **continuous joint distribution** if there exists a nonnegative function $f$ defined over the entire $xy$-plane such that for every subset $C$ of the plane,
 
 $$
-\Pr\left[(X,Y) \in C\right] = \int_C\int f(x,y)dxdy.
+\Pr\left[(X,Y) \in C\right] = \int_C\int f(x,y)~dx~dy.
 $$
 
 :::
 :::
 
-Definition
-3.4.4
-Continuous Joint Distribution/Joint p.d.f./Support. Tworandom variablesXand Y have
-a continuous joint distribution if there exists a nonnegative function f defined over
-the entire xy-plane such that for every subset C of the plane,
-Pr[(X, Y ) ∈ C]=
- 
-C
- 
-f (x, y) dx dy,
+::: {.callout-note}
+::: {#def-3-4-4}
 
-if the integral exists. The function f is called the joint probability density function
-(abbreviated joint p.d.f.) of X and Y . The closure of the set {(x, y) : f (x, y) > 0} is
-called the support of (the distribution of) (X, Y ).
-Example
-3.4.5
-Demands for Utilities. In Example 3.4.4, it is clear from Eq. (3.4.1) that the joint p.d.f.
-of X and Y is the function
-f (x, y) =
-⎧⎨
-⎩
-1
-29,204
-for 4 ≤ x ≤ 200 and 1≤ y ≤ 150,
-0 otherwise.  
-(3.4.2)
-It is clear from Definition 3.4.4 that the joint p.d.f. of two random variables
-characterizes their joint distribution. The following result is also straightforward.
+# Definition 3.4.4: Continuous Joint Distribution/Joint pdf/Support.
 
+Two random variables $X$ and $Y$ have a **continuous joint distribution** if there exists a nonnegative function $f$ defined over the entire $xy$-plane such that for every subset $C$ of the plane,
+
+$$
+\Pr\left[(X,Y) \in C\right] = \int_C\int f(x,y)~dx~dy,
+$$
+
+if the integral exists. The function $f$ is called the **joint probability density function** (abbreviated **joint pdf**) of $X$ and $Y$. The closure of the set $\{(x, y) \mid f(x, y) > 0\}$ is called the **support of (the distribution of)** $(X, Y)$.
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#exm-3-4-5}
+
+# Example 3.4.5: Demands for Utilities.
+
+In @exm-3-4-4, it is clear from @eq-3-4-1 that the joint pdf of $X$ and $Y$ is the function
+
+$$
+f(x,y) = \begin{cases}
+\frac{1}{29,204} &\text{for }4 \leq x \leq 200 \text{ and }1 \leq y \leq 150, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+:::
+:::
+
+It is clear from @def-3-4-4 that the joint pdf of two random variables characterizes their joint distribution. The following result is also straightforward.
 
 ::: {.callout-caution}
 ::: {#thm-3-4-3}
@@ -267,39 +267,35 @@ $$
 :::
 :::
 
-Any function that satisfies the two displayed formulas in @thm-3-4-3 is the joint
-pdf for some probability distribution.
+Any function that satisfies the two displayed formulas in @thm-3-4-3 is the joint pdf for some probability distribution.
 
-An example of the graph of a joint p.d.f. is presented in Fig. 3.11.
-The total volume beneath the surface z = f (x, y) and above the xy-plane must be
-1. The probability that the pair (X, Y ) will belong to the rectangle C is equal to the
-volume of the solid figure with base A shown in Fig. 3.11. The top of this solid figure
-is formed by the surface z = f (x, y).
-In Sec. 3.5, we will show that if X and Y have a continuous joint distribution,
-then X and Y each have a continuous distribution when considered separately. This
-seems reasonable intutively. However, the converse of this statement is not true, and
-the following result helps to show why.
-Figure 3.11 An example of
-a joint p.d.f.
-x y
-f (x, y)
-C
-122 Chapter 3 Random Variables and Distributions
-Theorem
-3.4.4
-For every continuous joint distribution on the xy-plane, the following two statements
-hold:
-i. Every individual point, and every infinite sequence of points, in the xy-plane
-has probability 0.
-ii. Let f be a continuous function of one real variable defined on a (possibly
-unbounded) interval (a, b). The sets {(x, y) : y = f(x), a < x < b} and {(x, y) :
-x = f(y), a < y < b} have probability 0.
-Proof According to Definition 3.4.4, the probability that a continuous joint distribution
-assigns to a specified region of the xy-plane can be found by integrating the
-joint p.d.f. f (x, y) over that region, if the integral exists. If the region is a single point,
-the integral will be 0. By Axiom 3 of probability, the probability for any countable
-collection of points must also be 0. The integral of a function of two variables over
-the graph of a continuous function in the xy-plane is also 0.
+An example of the graph of a joint pdf is presented in @fig-3-11.
+
+The total volume beneath the surface $z = f(x, y)$ and above the $xy$-plane must be 1. The probability that the pair $(X, Y)$ will belong to the rectangle $C$ is equal to the volume of the solid figure with base $A$ shown in @fig-3-11. The top of this solid figure is formed by the surface $z = f(x, y)$.
+
+In @sec-3-5, we will show that if $X$ and $Y$ have a continuous joint distribution, then $X$ and $Y$ each have a continuous distribution when considered separately. This seems reasonable intutively. However, the converse of this statement is not true, and the following result helps to show why.
+
+![Figure 3.11: An example of a joint pdf](ch03/images/fig-3-11.jpeg){#fig-3-11}
+
+::: {.callout-caution}
+::: {#thm-3-4-4}
+
+# Theorem 3.4.4
+
+For every continuous joint distribution on the $xy$-plane, the following two statements hold:
+
+i. Every individual point, and every infinite sequence of points, in the $xy$-plane has probability 0.
+ii. Let $f$ be a continuous function of one real variable defined on a (possibly unbounded) interval $(a, b)$. The sets $\{(x, y) \mid y = f(x), a < x < b\}$ and $\{(x, y) \mid x = f(y), a < y < b\}$ have probability 0.
+
+::: {.proof}
+According to @def-3-4-4, the probability that a continuous joint distribution assigns to a specified region of the $xy$-plane can be found by integrating the joint pdf $f(x, y)$ over that region, if the integral exists. If the region is a single point, the integral will be 0. By Axiom 3 of probability, the probability for any countable collection of points must also be 0. The integral of a function of two variables over the graph of a continuous function in the $xy$-plane is also 0.
+:::
+
+:::
+:::
+
+<!-- Stopping point 2023-10-10, 12:15am -->
+
 Example
 3.4.6
 Not a Continuous Joint Distribution. It follows from (ii) of Theorem 3.4.4 that the
@@ -309,7 +305,7 @@ distributions, but the probability is 1 that (X, Y ) lies on the straight line y
 X and Y cannot have a continuous joint distribution.  
 Example
 3.4.7
-Calculating aNormalizing Constant. Suppose that the joint p.d.f. ofXand Y is specified
+Calculating aNormalizing Constant. Suppose that the joint pdf ofXand Y is specified
 as follows:
 f (x, y) =
  
@@ -351,7 +347,7 @@ y, while y runs from 0 to 1. The final answer would have been
 the same.  
 Example
 3.4.8
-Calculating Probabilities from a Joint p.d.f. For the joint distribution in Example 3.4.7,
+Calculating Probabilities from a Joint pdf For the joint distribution in Example 3.4.7,
 we shall now determine the value of Pr(X ≥ Y).
 The subset S0 of S where x ≥ y is sketched in Fig. 3.13. Hence,
 Pr(X ≥ Y) =
@@ -388,12 +384,12 @@ y   x2
 y   x
 Example
 3.4.9
-Determining a Joint p.d.f. by Geometric Methods. Suppose that a point (X, Y ) is selected
+Determining a Joint pdf by Geometric Methods. Suppose that a point (X, Y ) is selected
 at random from inside the circle x2 + y2 ≤ 9. We shall determine the joint
-p.d.f. of X and Y .
+pdf of X and Y .
 The support of (X, Y ) is the set S of points on and inside the circle x2 + y2 ≤ 9.
 The statement that the point (X, Y ) is selected at random from inside the circle is
-interpreted to mean that the joint p.d.f. ofXand Y is constant over S and is 0 outside S.
+interpreted to mean that the joint pdf ofXand Y is constant over S and is 0 outside S.
 Thus,
 f (x, y) =
  
@@ -424,10 +420,10 @@ either discrete or continuous. Occasionally, one must consider a mixed bivariate
 in which one of the random variables is discrete and the other is continuous.
 We shall use a function f (x, y) to characterize such a joint distribution in much the
 same way that we use a joint p.f. to characterize a discrete joint distribution or a joint
-p.d.f. to characterize a continuous joint distribution.
+pdf to characterize a continuous joint distribution.
 Definition
 3.4.5
-Joint p.f./p.d.f. Let X and Y be random variables such that X is discrete and Y is
+Joint p.f./pdf Let X and Y be random variables such that X is discrete and Y is
 continuous. Suppose that there is a function f (x, y) defined on the xy-plane such
 that, for every pair A and B of subsets of the real numbers,
 Pr(X ∈ A and Y ∈ B) =
@@ -436,9 +432,9 @@ B
  
 x∈A
 f (x, y)dy, (3.4.4)
-if the integral exists. Then the function f is called the joint p.f./p.d.f. of X and Y .
+if the integral exists. Then the function f is called the joint p.f./pdf of X and Y .
 Clearly, Definition 3.4.5 can be modified in an obvious way if Y is discrete and X
-is continuous. Every joint p.f./p.d.f. must satisfy two conditions. If X is the discrete
+is continuous. Every joint p.f./pdf must satisfy two conditions. If X is the discrete
 random variable with possible values x1, x2, . . . and Y is the continuous random
 variable, then f (x, y) ≥ 0 for all x, y and
   ∞
@@ -449,7 +445,7 @@ f (xi, y)dy = 1. (3.4.5)
 Because f is nonnegative, the sum and integral in Eqs. (3.4.4) and (3.4.5) can be done
 in whichever order is more convenient.
 Note: Probabilities of More General Sets. For a general set C of pairs of real
-numbers, we can compute Pr((X, Y ) ∈ C) using the joint p.f./p.d.f. of X and Y. For
+numbers, we can compute Pr((X, Y ) ∈ C) using the joint p.f./pdf of X and Y. For
 each x, let Cx
 = {y : (x, y) ∈ C}. Then
 Pr((X, Y ) ∈ C) =
@@ -472,7 +468,7 @@ dy,
 if the integral exists.
 Example
 3.4.11
-A Joint p.f./p.d.f. Suppose that the joint p.f./p.d.f. of X and Y is
+A Joint p.f./pdf Suppose that the joint p.f./pdf of X and Y is
 f (x, y) = xyx−1
 3
 , for x = 1, 2, 3 and 0 < y <1.
@@ -544,7 +540,7 @@ dy = 1
 = 0.5417.  
 Example
 3.4.12
-A Clinical Trial. A possible joint p.f./p.d.f. for X and P in Example 3.4.10 is
+A Clinical Trial. A possible joint p.f./pdf for X and P in Example 3.4.10 is
 f (x, p) = px(1− p)1−x, for x = 0, 1 and 0<p <1.
 Here, X is discrete and P is continuous. The function f is nonnegative, and the
 reader should be able to demonstrate that it satisfies (3.4.5). Suppose that we wish
@@ -572,11 +568,11 @@ specific components in an electronic system fail. There might be a certain proba
 p (0 < p <1) that the two components will fail at the same time and a certain
 probability 1− p that they will fail at different times. Furthermore, if they fail at
 the same time, then their common failure time might be distributed according to a
-certain p.d.f. f (x); if they fail at different times, then these times might be distributed
-according to a certain joint p.d.f. g(x, y).
+certain pdf f (x); if they fail at different times, then these times might be distributed
+according to a certain joint pdf g(x, y).
 The joint distribution of X and Y in this example is not continuous, because
 there is positive probability p that (X, Y ) will lie on the line x = y. Nor does the joint
-distribution have a joint p.f./p.d.f. or any other simple function to describe it. There
+distribution have a joint p.f./pdf or any other simple function to describe it. There
 are ways to deal with such joint distributions, but we shall not discuss them in this
 text.  
 Bivariate Cumulative Distribution Functions
@@ -653,7 +649,7 @@ events are disjoint, and the last equality follows from the fact thatF(x, y) is 
 increasing in y for each fixed x.
 Other relationships involving the univariate distribution of X, the univariate distribution
 of Y , and their joint bivariate distribution will be presented in the next section.
-Finally, if X and Y have a continuous joint distribution with joint p.d.f. f , then
+Finally, if X and Y have a continuous joint distribution with joint pdf f , then
 the joint c.d.f. at (x, y) is
 F(x, y) =
   y
@@ -662,7 +658,7 @@ F(x, y) =
 −∞
 f (r, s) dr ds.
 Here, the symbols r and s are used simply as dummy variables of integration. The
-joint p.d.f. can be derived from the joint c.d.f. by using the relations
+joint pdf can be derived from the joint c.d.f. by using the relations
 f (x, y) = ∂2F(x, y)
 ∂x∂y
 = ∂2F(x, y)
@@ -670,14 +666,14 @@ f (x, y) = ∂2F(x, y)
 at every point (x, y) at which these second-order derivatives exist.
 Example
 3.4.14
-Determining a Joint p.d.f. from a Joint c.d.f. Suppose thatX and Y are random variables
+Determining a Joint pdf from a Joint c.d.f. Suppose thatX and Y are random variables
 that take values only in the intervals 0 ≤ X ≤ 2 and 0 ≤ Y ≤ 2. Suppose also that the
 joint c.d.f. of X and Y , for 0 ≤ x ≤ 2 and 0 ≤ y ≤ 2, is as follows:
 F(x, y) = 1
 16
 xy(x + y). (3.4.7)
 We shall first determine the c.d.f. F1 of just the random variableX and then determine
-the joint p.d.f. f of X and Y .
+the joint pdf f of X and Y .
 The value of F(x, y) at any point (x, y) in the xy-plane that does not represent
 a pair of possible values of X and Y can be calculated from (3.4.7) and the fact that
 F(x, y) = Pr(X ≤ x and Y ≤ y).Thus, if eitherx <0ory <0, thenF(x, y) = 0. If both
@@ -710,7 +706,7 @@ Also, if x <0, y <0, x >2, or y >2, then
 ∂2F(x, y)
 ∂x∂y
 = 0.
-Hence, the joint p.d.f. of X and Y is
+Hence, the joint pdf of X and Y is
 f (x, y) =
  
 1
@@ -719,7 +715,7 @@ f (x, y) =
 Example
 3.4.15
 Demands for Utilities. We can compute the joint c.d.f. for water and electric demand
-in Example 3.4.4 by using the joint p.d.f. that was given in Eq. (3.4.2). If either x ≤ 4or
+in Example 3.4.4 by using the joint pdf that was given in Eq. (3.4.2). If either x ≤ 4or
 y ≤ 1, then F(x, y) = 0 because either X ≤ x or Y ≤ y would be impossible. Similarly,
 if both x ≥ 200 and y ≥ 150, F(x, y) = 1 because both X ≤ x and Y ≤ y would be sure
 events. For other values of x and y, we compute
@@ -753,7 +749,7 @@ for 4 ≤ x ≤ 200, y >150,
 dydx = y
 149
 for x >200, 1≤ y ≤ 150.
-The reason that we need three cases in the formula for F(x, y) is that the joint p.d.f.
+The reason that we need three cases in the formula for F(x, y) is that the joint pdf
 in Eq. (3.4.2) drops to 0 when x crosses above 200 or when y crosses above 150;
 hence, we never want to integrate 1/29,204 beyond x = 200 or beyond y = 150. If
 one takes the limit as y→∞of F(x, y) (for fixed 4 ≤ x ≤ 200), one gets the second
@@ -762,24 +758,24 @@ the limx→∞ F(x, y) (for fixed 1≤ y ≤ 150), one gets the third case in th
 which then is the c.d.f. of Y , F2(y).  
 Summary
 The joint c.d.f. of two random variables X and Y is F(x, y) = Pr(X ≤ x and Y ≤ y).
-The joint p.d.f. of two continuous random variables is a nonnegative function f such
+The joint pdf of two continuous random variables is a nonnegative function f such
 that the probability of the pair (X, Y ) being in a setC is the integral of f (x, y) over the
-set C, if the integral exists. The joint p.d.f. is also the second mixed partial derivative
+set C, if the integral exists. The joint pdf is also the second mixed partial derivative
 of the joint c.d.f. with respect to both variables. The joint p.f. of two discrete random
 variables is a nonnegative function f such that the probability of the pair (X, Y ) being
 in a setC is the sum of f (x, y) over all points inC.Ajoint p.f. can be strictly positive at
-countably many pairs (x, y) at most. The joint p.f./p.d.f. of a discrete random variable
+countably many pairs (x, y) at most. The joint p.f./pdf of a discrete random variable
 X and a continuous random variable Y is a nonnegative function f such that the
 probability of the pair (X, Y ) being in a set C is obtained by summing f (x, y) over
 all x such that (x, y) ∈ C for each y and then integrating the resulting function of y.
 
 ### Exercises
 
-1. Suppose that the joint p.d.f. of a pair of random variables
+1. Suppose that the joint pdf of a pair of random variables
 (X, Y ) is constant on the rectangle where 0 ≤ x ≤ 2
-and 0 ≤ y ≤ 1, and suppose that the p.d.f. is 0 off of this
+and 0 ≤ y ≤ 1, and suppose that the pdf is 0 off of this
 rectangle.
-a. Find the constant value of the p.d.f. on the rectangle.
+a. Find the constant value of the pdf on the rectangle.
 b. Find Pr(X ≥ Y).
 2. Suppose that in an electric display sign there are three
 light bulbs in the first row and four light bulbs in the second
@@ -809,14 +805,14 @@ y =−2, −1, 0, 1, 2,
 Determine (a) the value of the constant c; (b) Pr(X =
 0 and Y =−2); (c) Pr(X = 1); (d) Pr(|X − Y| ≤ 1).
 4. Suppose that X and Y have a continuous joint distribution
-for which the joint p.d.f. is defined as follows:
+for which the joint pdf is defined as follows:
 f (x, y) =
  
 cy2 for 0 ≤ x ≤ 2 and 0 ≤ y ≤ 1,
 0 otherwise.
 Determine (a) the value of the constant c; (b) Pr(X +Y >
 2); (c) Pr(Y < 1/2); (d) Pr(X ≤ 1); (e) Pr(X = 3Y).
-5. Suppose that the joint p.d.f. of two random variables X
+5. Suppose that the joint pdf of two random variables X
 and Y is as follows:
 f (x, y) =
  
@@ -828,7 +824,7 @@ Determine (a) the value of the constant c;
 6. Suppose that a point (X, Y ) is chosen at random from
 the region S in the xy-plane containing all points (x, y)
 such that x ≥ 0, y ≥ 0, and 4y + x ≤ 4.
-a. Determine the joint p.d.f. of X and Y .
+a. Determine the joint pdf of X and Y .
 b. Suppose that S0 is a subset of the region S having area
 α and determine Pr[(X, Y ) ∈ S0].
 7. Suppose that a point (X, Y ) is to be chosen from the
@@ -840,7 +836,7 @@ probability that it will be the corner (0, 1) is 0.4, and the
 probability that it will be the corner (1, 1) is 0.1. Suppose
 also that if the chosen point is not one of the four corners
 of the square, then it will be an interior point of the
-square and will be chosen according to a constant p.d.f.
+square and will be chosen according to a constant pdf
 over the interior of the square. Determine (a) Pr(X ≤ 1/4)
 and (b) Pr(X + Y ≤ 1).
 8. Suppose that X and Y are random variables such that
@@ -853,12 +849,12 @@ F(x, y) = 1
 xy(x2 + y).
 Determine (a) Pr(1≤ X ≤ 2 and 1≤ Y ≤ 2);
 (b) Pr(2 ≤ X ≤ 4 and 2 ≤ Y ≤ 4); (c) the c.d.f. of Y ;
-(d) the joint p.d.f. of X and Y ; (e) Pr(Y ≤ X).
+(d) the joint pdf of X and Y ; (e) Pr(Y ≤ X).
 9. In Example 3.4.5, compute the probability that water
 demand X is greater than electric demand Y .
 10. Let Y be the rate (calls per hour) at which calls arrive
 at a switchboard. Let X be the number of calls during a
-two-hour period. A popular choice of joint p.f./p.d.f. for
+two-hour period. A popular choice of joint p.f./pdf for
 (X, Y ) in this example would be one like
 f (x, y) =
  
@@ -866,7 +862,7 @@ f (x, y) =
 x! e
 −3y if y >0 and x = 0, 1, . . . ,
 0 otherwise.
-a. Verify that f is a joint p.f./p.d.f. Hint: First, sum over
+a. Verify that f is a joint p.f./pdf Hint: First, sum over
 the x values using the well-known formula for the
 power series expansion of e2y.
 b. Find Pr(X = 0).
