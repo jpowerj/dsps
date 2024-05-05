@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,6 +37,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="fullcontent">
@@ -47,316 +74,152 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <section id="sec-1-7" class="level2">
 <h2 class="anchored" data-anchor-id="sec-1-7">Counting Methods</h2>
 <p><em>In simple sample spaces, one way to calculate the probability of an event involves counting the number of outcomes in the event and the number of outcomes in the sample space. This section presents some common methods for counting the number of outcomes in a set. These methods rely on special structure that exists in many common experiments, namely, that each outcome consists of several parts and that it is relatively easy to count how many possibilities there are for each of the parts.</em></p>
 <p>We have seen that in a simple sample space <span class="math inline">\(S\)</span>, the probability of an event <span class="math inline">\(A\)</span> is the ratio of the number of outcomes in <span class="math inline">\(A\)</span> to the total number of outcomes in <span class="math inline">\(S\)</span>. In many experiments, the number of outcomes in <span class="math inline">\(S\)</span> is so large that a complete listing of these outcomes is too expensive, too slow, or too likely to be incorrect to be useful. In such an experiment, it is convenient to have a method of determining the total number of outcomes in the space <span class="math inline">\(S\)</span> and in various events in <span class="math inline">\(S\)</span> without compiling a list of all these outcomes. In this section, some of these methods will be presented.</p>
-<div id="fig-1-10" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p>A C 4 1 2 3 5 6 7 8 B</p>
-<figcaption class="figure-caption">Figure&nbsp;1: Figure 1.10 Three cities with routes between them in <a href="#exm-1-7-1">Example&nbsp;1</a>.</figcaption>
+<div id="fig-1-10" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch01/images/fig-1-10.svg" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Three cities with routes between them in <a href="#exm-1-7-1" class="quarto-xref">Example&nbsp;1</a>.
+</figcaption>
 </figure>
 </div>
 <section id="multiplication-rule" class="level3">
 <h3 class="anchored" data-anchor-id="multiplication-rule">Multiplication Rule</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Example 1.7.1: Routes between Cities) </strong></span>Suppose that there are three different routes from city A to cityB and five different routes from cityB to cityC.The cities and routes are depicted in Fig. 1.10, with the routes numbered from 1 to 8. We wish to count the number of different routes from A to C that pass through B. For example, one such route from Fig. 1.10 is 1 followed by 4, which we can denote (1, 4). Similarly, there are the routes (1, 5), (1, 6), . . . , (3, 8). It is not difficult to see that the number of different routes 3 × 5 = 15.  </p>
+<p><span class="theorem-title"><strong>Example 1 (Example 1.7.1: Routes between Cities)</strong></span> Suppose that there are three different routes from city <span class="math inline">\(A\)</span> to city <span class="math inline">\(B\)</span> and five different routes from city <span class="math inline">\(B\)</span> to city <span class="math inline">\(C\)</span>. The cities and routes are depicted in <a href="#fig-1-10" class="quarto-xref">Figure&nbsp;1</a>, with the routes numbered from 1 to 8. We wish to count the number of different routes from <span class="math inline">\(A\)</span> to <span class="math inline">\(C\)</span> that pass through <span class="math inline">\(B\)</span>. For example, one such route from <a href="#fig-1-10" class="quarto-xref">Figure&nbsp;1</a> is 1 followed by 4, which we can denote <span class="math inline">\((1, 4)\)</span>. Similarly, there are the routes <span class="math inline">\((1, 5), (1, 6), \ldots, (3, 8)\)</span>. It is not difficult to see that the number of different routes is <span class="math inline">\(3 \cdot 5 = 15\)</span>.  </p>
 </div>
-</div>
-</div>
-<p><a href="#exm-1-7-1">Example&nbsp;1</a> is a special case of a common form of experiment.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p><a href="#exm-1-7-1" class="quarto-xref">Example&nbsp;1</a> is a special case of a common form of experiment.</p>
 <div id="exm-1-7-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Example 1.7.2: Experiment in Two Parts) </strong></span>Consider an experiment that has the following two characteristics:</p>
+<p><span class="theorem-title"><strong>Example 2 (Example 1.7.2: Experiment in Two Parts)</strong></span> Consider an experiment that has the following two characteristics:</p>
 <ol type="i">
 <li>The experiment is performed in two parts.</li>
 <li>The first part of the experiment has <span class="math inline">\(m\)</span> possible outcomes <span class="math inline">\(x_1, \ldots, x_m\)</span> and, regardless of which one of these outcomes <span class="math inline">\(x_i\)</span> occurs, the second part of the experiment has <span class="math inline">\(n\)</span> possible outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span>.</li>
 </ol>
 <p>Each outcome in the sample space <span class="math inline">\(S\)</span> of such an experiment will therefore be a pair having the form <span class="math inline">\((x_i, y_j)\)</span>, and <span class="math inline">\(S\)</span> will be composed of the following pairs:</p>
 <p><span class="math display">\[
-(x1, y1)(x1, y2) . . . (x1, yn)
-(x2, y1)(x2, y2) . . . (x2, yn)
-...
-...
-...
-(xm, y1)(xm, y2) . . . (xm, yn).  
+\begin{matrix}
+(x_1, y_1) &amp; (x_1, y_2) &amp; \cdots &amp; (x_1, y_n) \\
+(x_2, y_1) &amp; (x_2, y_2) &amp; \cdots &amp; (x_2, y_n) \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+(x_m, y_1) &amp; (x_m, y_2) &amp; \cdots &amp; (x_m, y_n) \\
+\end{matrix} 
 \]</span></p>
 </div>
+<p>Since each of the <span class="math inline">\(m\)</span> rows in the array in <a href="#exm-1-7-2" class="quarto-xref">Example&nbsp;2</a> contains <span class="math inline">\(n\)</span> pairs, the following result follows directly.</p>
+<div id="fig-1-11" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./ch01/images/fig-1-11.svg" class="img-fluid figure-img" style="width:50.0%">
 </div>
-</div>
-<p>Since each of the <span class="math inline">\(m\)</span> rows in the array in <a href="#exm-1-7-2">Example&nbsp;2</a> contains <span class="math inline">\(n\)</span> pairs, the following result follows directly.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div id="thm-1-7-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Theorem 1.7.1: Multiplication Rule for Two-Part Experiments) </strong></span>In an experiment of the type described in <a href="#exm-1-7-2">Example&nbsp;2</a>, the sample space <span class="math inline">\(S\)</span> contains exactly <span class="math inline">\(mn\)</span> outcomes.</p>
-</div>
-</div>
-</div>
-<p><a href="#fig-1-11">Figure&nbsp;2</a> illustrates the multiplication rule for the case of <span class="math inline">\(n = 3\)</span> and <span class="math inline">\(m = 2\)</span> with a tree diagram. Each end-node of the tree represents an outcome, which is the pair consisting of the two parts whose names appear along the branch leading to the end-node.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div id="exm-1-7-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Example 1.7.3: Rolling Two Dice) </strong></span>Suppose that two dice are rolled. Since there are six possible outcomes for each die, the number of possible outcomes for the experiment is 6 × 6 = 36, as we saw in Example 1.6.5.  </p>
-</div>
-</div>
-</div>
-<p>The multiplication rule can be extended to experiments with more than two parts.</p>
-<div id="fig-1-11" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p>x2 x1 y1 y1 y2 y2 y3 y3 (x1, y1) (x2, y1) (x2, y2) (x2, y3) (x1, y2) (x1, y3)</p>
-<figcaption class="figure-caption">Figure&nbsp;2: Figure 1.11 Tree diagram in which end-nodes represent outcomes.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Tree diagram in which end-nodes represent outcomes.
+</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="thm-1-7-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 1.7.1: Multiplication Rule for Two-Part Experiments)</strong></span> In an experiment of the type described in <a href="#exm-1-7-2" class="quarto-xref">Example&nbsp;2</a>, the sample space <span class="math inline">\(S\)</span> contains exactly <span class="math inline">\(mn\)</span> outcomes.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<p><a href="#fig-1-11" class="quarto-xref">Figure&nbsp;2</a> illustrates the multiplication rule for the case of <span class="math inline">\(n = 3\)</span> and <span class="math inline">\(m = 2\)</span> with a tree diagram. Each end-node of the tree represents an outcome, which is the pair consisting of the two parts whose names appear along the branch leading to the end-node.</p>
+<div id="exm-1-7-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Example 1.7.3: Rolling Two Dice)</strong></span> Suppose that two dice are rolled. Since there are six possible outcomes for each die, the number of possible outcomes for the experiment is <span class="math inline">\(6 \cdot 6 = 36\)</span>, as we saw in <strong>?@exm-1-6-5</strong>.</p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<p>The multiplication rule can be extended to experiments with more than two parts.</p>
 <div id="thm-1-7-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Theorem 1.7.2: Multiplication Rule) </strong></span>Suppose that an experiment has k parts (k ≥ 2), that the ith part of the experiment can have ni possible outcomes (i = 1, . . . , k), and that all of the outcomes in each part can occur regardless of which specific outcomes have occurred in the other parts. Then the sample space S of the experiment will contain all vectors of the form (u1, . . . , uk), where ui is one of the ni possible outcomes of part i (i = 1, . . . , k). The total number of these vectors in S will be equal to the product n1n2 . . . nk.</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 1.7.2: Multiplication Rule)</strong></span> Suppose that an experiment has <span class="math inline">\(k\)</span> parts (<span class="math inline">\(k \geq 2\)</span>), that the <span class="math inline">\(i\)</span>th part of the experiment can have <span class="math inline">\(n_i\)</span> possible outcomes (<span class="math inline">\(i = 1, \ldots, k\)</span>), and that all of the outcomes in each part can occur regardless of which specific outcomes have occurred in the other parts. Then the sample space <span class="math inline">\(S\)</span> of the experiment will contain all vectors of the form <span class="math inline">\((u_1, \ldots, u_k)\)</span>, where <span class="math inline">\(u_i\)</span> is one of the <span class="math inline">\(n_i\)</span> possible outcomes of part <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, \ldots, k\)</span>). The total number of these vectors in <span class="math inline">\(S\)</span> will be equal to the product <span class="math inline">\(n_1n_2\cdots n_k\)</span>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Example 1.7.4: Tossing Several Coins) </strong></span>Suppose that we toss six coins. Each outcome in S will consist of a sequence of six heads and tails, such as HTTHHH. Since there are two possible outcomes for each of the six coins, the total number of outcomes in S will be 26 = 64. If head and tail are considered equally likely for each coin, then S will be a simple sample space. Since there is only one outcome in S with six heads and no tails, the probability of obtaining heads on all six coins is 1/64. Since there are six outcomes in S with one head and five tails, the probability of obtaining exactly one head is 6/64 = 3/32.  </p>
+<p><span class="theorem-title"><strong>Example 4 (Example 1.7.4: Tossing Several Coins)</strong></span> Suppose that we toss six coins. Each outcome in <span class="math inline">\(S\)</span> will consist of a sequence of six heads and tails, such as <code>HTTHHH</code>. Since there are two possible outcomes for each of the six coins, the total number of outcomes in <span class="math inline">\(S\)</span> will be <span class="math inline">\(2^6 = 64\)</span>. If head and tail are considered equally likely for each coin, then <span class="math inline">\(S\)</span> will be a simple sample space. Since there is only one outcome in <span class="math inline">\(S\)</span> with six heads and no tails, the probability of obtaining heads on all six coins is <span class="math inline">\(1/64\)</span>. Since there are six outcomes in <span class="math inline">\(S\)</span> with one head and five tails, the probability of obtaining exactly one head is <span class="math inline">\(6/64 = 3/32\)</span>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Example 1.7.5: Combination Lock) </strong></span>A standard combination lock has a dial with tick marks for 40 numbers from 0 to 39. The combination consists of a sequence of three numbers that must be dialed in the correct order to open the lock. Each of the 40 numbers may appear in each of the three positions of the combination regardless of what the other two positions contain. It follows that there are 403 = 64,000 possible combinations. This number is supposed to be large enough to discourage would-be thieves from trying every combination.  </p>
+<p><span class="theorem-title"><strong>Example 5 (Example 1.7.5: Combination Lock)</strong></span> A standard combination lock has a dial with tick marks for 40 numbers from 0 to 39. The combination consists of a sequence of three numbers that must be dialed in the correct order to open the lock. Each of the 40 numbers may appear in each of the three positions of the combination regardless of what the other two positions contain. It follows that there are <span class="math inline">\(40^3 = 64,000\)</span> possible combinations. This number is supposed to be large enough to discourage would-be thieves from trying every combination.  </p>
 </div>
-</div>
-</div>
-<p><strong>Note: The Multiplication Rule Is Slightly More General</strong>. In the statements of Theorems -<a href="#thm-1-7-1">Theorem&nbsp;1</a> and -<a href="#thm-1-7-2">Theorem&nbsp;2</a>, it is assumed that each possible outcome in each part of the experiment can occur regardless of what occurs in the other parts of the experiment. Technically, all that is necessary is that the <strong>number</strong> of possible outcomes for each part of the experiment not depend on what occurs on the other parts. The discussion of permutations below is an example of this situation.</p>
+<p><strong>Note: The Multiplication Rule Is Slightly More General</strong>. In the statements of Theorems <a href="#thm-1-7-1" class="quarto-xref">1</a> and <a href="#thm-1-7-2" class="quarto-xref">2</a>, it is assumed that each possible outcome in each part of the experiment can occur regardless of what occurs in the other parts of the experiment. Technically, all that is necessary is that the <strong>number</strong> of possible outcomes for each part of the experiment not depend on what occurs on the other parts. The discussion of permutations below is an example of this situation.</p>
 </section>
 <section id="permutations" class="level3">
 <h3 class="anchored" data-anchor-id="permutations">Permutations</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Example 1.7.6: Sampling without Replacement) </strong></span>Consider an experiment in which a card is selected and removed from a deck of n different cards, a second card is then selected and removed from the remaining n − 1 cards, and finally a third card is selected from the remaining n − 2 cards. Each outcome consists of the three cards in the order selected. A process of this kind is called sampling without replacement, since a card that is drawn is not replaced in the deck before the next card is selected. In this experiment, any one of the n cards could be selected first. Once this card has been removed, any one of the other n − 1 cards could be selected second. Therefore, there are n(n − 1) 28 Chapter 1 Introduction to Probability possible outcomes for the first two selections. Finally, for every given outcome of the first two selections, there are n − 2 other cards that could possibly be selected third. Therefore, the total number of possible outcomes for all three selections is n(n − 1)(n − 2).  </p>
+<p><span class="theorem-title"><strong>Example 6 (Example 1.7.6: Sampling without Replacement)</strong></span> Consider an experiment in which a card is selected and removed from a deck of <span class="math inline">\(N\)</span> different cards, a second card is then selected and removed from the remaining <span class="math inline">\(N − 1\)</span> cards, and finally a third card is selected from the remaining <span class="math inline">\(N − 2\)</span> cards. Each outcome consists of the three cards in the order selected. A process of this kind is called <em>sampling without replacement</em>, since a card that is drawn is not replaced in the deck before the next card is selected. In this experiment, any one of the <span class="math inline">\(N\)</span> cards could be selected first. Once this card has been removed, any one of the other <span class="math inline">\(N − 1\)</span> cards could be selected second. Therefore, there are <span class="math inline">\(N(N − 1)\)</span> possible outcomes for the first two selections. Finally, for every given outcome of the first two selections, there are <span class="math inline">\(N − 2\)</span> other cards that could possibly be selected third. Therefore, the total number of possible outcomes for all three selections is <span class="math inline">\(N(N − 1)(N − 2)\)</span>.</p>
 </div>
-</div>
-</div>
-<p>The situation in <a href="#exm-1-7-6">Example&nbsp;6</a> can be generalized to any number of selections without replacement.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>The situation in <a href="#exm-1-7-6" class="quarto-xref">Example&nbsp;6</a> can be generalized to any number of selections without replacement.</p>
 <div id="def-1-7-1" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Definition 1.7.1: Permutations) </strong></span>Suppose that a set has n elements. Suppose that an experiment consists of selecting k of the elements one at a time without replacement. Let each outcome consist of the k elements in the order selected. Each such outcome is called a permutation of n elements taken k at a time. We denote the number of distinct such permutations by the symbol Pn, k.</p>
+<p><span class="theorem-title"><strong>Definition 1 (Definition 1.7.1: Permutations)</strong></span> Suppose that a set has <span class="math inline">\(N\)</span> elements. Suppose that an experiment consists of selecting <span class="math inline">\(K\)</span> of the elements one at a time without replacement. Let each outcome consist of the <span class="math inline">\(K\)</span> elements in the order selected. Each such outcome is called a permutation of <span class="math inline">\(N\)</span> elements taken <span class="math inline">\(K\)</span> at a time. We denote the number of distinct such permutations by the symbol <span class="math inline">\(P_{n, k}\)</span>.</p>
 </div>
-</div>
-</div>
-<p>By arguing as in <a href="#exm-1-7-6">Example&nbsp;6</a>, we can figure out how many different permutations there are of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time. The proof of the following theorem is simply to extend the reasoning in <a href="#exm-1-7-6">Example&nbsp;6</a> to selecting <span class="math inline">\(k\)</span> cards without replacement. The proof is left to the reader.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>By arguing as in <a href="#exm-1-7-6" class="quarto-xref">Example&nbsp;6</a>, we can figure out how many different permutations there are of <span class="math inline">\(N\)</span> elements taken <span class="math inline">\(k\)</span> at a time. The proof of the following theorem is simply to extend the reasoning in <a href="#exm-1-7-6" class="quarto-xref">Example&nbsp;6</a> to selecting <span class="math inline">\(k\)</span> cards without replacement. The proof is left to the reader.</p>
 <div id="thm-1-7-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Theorem 1.7.3: Number of Permutations) </strong></span>The number of permutations of <span class="math inline">\(n\)</span> elements taken <span class="math inline">\(k\)</span> at a time is <span class="math inline">\(P_{n, k} = n(n − 1)\cdots (n − k + 1)\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 1.7.3: Number of Permutations)</strong></span> The number of permutations of <span class="math inline">\(N\)</span> elements taken <span class="math inline">\(k\)</span> at a time is <span class="math inline">\(P_{N, k} = N(N − 1)\cdots (N − k + 1)\)</span>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Example 1.7.7: Current Population Survey.) </strong></span><a href="#thm-1-7-3">Theorem&nbsp;3</a> allows us to count the number of points in the sample space of <strong>?@exm-1-6-1</strong>. Each outcome in S consists of a permutation of n = 50,000 elements taken k = 3 at a time. Hence, the sample space S in that example consisits of 50,000 × 49,999 × 49,998 = 1.25 × 1014 outcomes.  </p>
-</div>
-</div>
-</div>
-<p>When <span class="math inline">\(k = n\)</span>, the number of possible permutations will be the number <span class="math inline">\(P_{n,n}\)</span> of different permutations of all <span class="math inline">\(n\)</span> cards. It is seen from the equation just derived that</p>
+<p><span class="theorem-title"><strong>Example 7 (Example 1.7.7: Current Population Survey.)</strong></span> <a href="#thm-1-7-3" class="quarto-xref">Theorem&nbsp;3</a> allows us to count the number of points in the sample space of <strong>?@exm-1-6-1</strong>. Each outcome in <span class="math inline">\(S\)</span> consists of a permutation of <span class="math inline">\(N = 50,000\)</span> elements taken <span class="math inline">\(k = 3\)</span> at a time. Hence, the sample space <span class="math inline">\(S\)</span> in that example consists of</p>
 <p><span class="math display">\[
-P_{n,n} = n(n − 1)\cdots 1 = n!
+50,000 × 49,999 × 49,998 = 1.25 \times 10^{14}
 \]</span></p>
-<p>The symbol <span class="math inline">\(n!\)</span> is read <span class="math inline">\(n\)</span> <strong>factorial</strong>. In general, the number of permutations of <span class="math inline">\(n\)</span> different items is <span class="math inline">\(n!\)</span>.</p>
-<p>The expression for <span class="math inline">\(P_{n, k}\)</span> can be rewritten in the following alternate form for <span class="math inline">\(k = 1, \ldots, n - 1\)</span>:</p>
+<p>outcomes.  </p>
+</div>
+<p>When <span class="math inline">\(k = N\)</span>, the number of possible permutations will be the number <span class="math inline">\(P_{N,N}\)</span> of different permutations of all <span class="math inline">\(N\)</span> cards. It is seen from the equation just derived that</p>
 <p><span class="math display">\[
-P_{n, k} = n(n − 1) \cdots (n − k + 1)\frac{(n − k)(n − k − 1) \cdots 1}{(n − k)(n − k − 1) \cdots 1} = \frac{n!}{(n − k)!}
+P_{N,N} = N(N − 1)\cdots 1 = N!
+\]</span></p>
+<p>The symbol <span class="math inline">\(N!\)</span> is read <span class="math inline">\(N\)</span> <strong>factorial</strong>. In general, the number of permutations of <span class="math inline">\(N\)</span> different items is <span class="math inline">\(N!\)</span>.</p>
+<p>The expression for <span class="math inline">\(P_{N, k}\)</span> can be rewritten in the following alternate form for <span class="math inline">\(k = 1, \ldots, N - 1\)</span>:</p>
+<p><span class="math display">\[
+P_{N, k} = N(N − 1) \cdots (N − k + 1)\frac{(N − k)(N − k − 1) \cdots 1}{(N − k)(N − k − 1) \cdots 1} = \frac{N!}{(N − k)!}
 \]</span></p>
 <p>Here and elsewhere in the theory of probability, it is convenient to define <span class="math inline">\(0!\)</span> by the relation</p>
 <p><span class="math display">\[
 0!= 1.
 \]</span></p>
-<p>With this definition, it follows that the relation <span class="math inline">\(P_{n, k} = n!/(n-k)!\)</span> will be correct for the value <span class="math inline">\(k = n\)</span> as well as for the values <span class="math inline">\(k = 1, \ldots, n - 1\)</span>. To summarize:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>With this definition, it follows that the relation <span class="math inline">\(P_{N, k} = N!/(N-k)!\)</span> will be correct for the value <span class="math inline">\(k = N\)</span> as well as for the values <span class="math inline">\(k = 1, \ldots, N - 1\)</span>. To summarize:</p>
 <div id="thm-1-7-4" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Theorem 1.7.4: Permutations) </strong></span>The number of distinct orderings of <span class="math inline">\(k\)</span> items selected without replacement from a collection of <span class="math inline">\(n\)</span> different items (<span class="math inline">\(0 \leq k \leq n\)</span>) is</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Theorem 1.7.4: Permutations)</strong></span> The number of distinct orderings of <span class="math inline">\(k\)</span> items selected without replacement from a collection of <span class="math inline">\(N\)</span> different items (<span class="math inline">\(0 \leq k \leq N\)</span>) is</p>
 <p><span class="math display">\[
-P_{n,k} = \frac{n!}{(n-k)!}.
+P_{N,k} = \frac{N!}{(N-k)!}.
 \]</span></p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Example 1.7.8: Choosing Officers) </strong></span>Suppose that a club consists of 25 members and that a president and a secretary are to be chosen from the membership.We shall determine the total possible number of ways in which these two positions can be filled. Since the positions can be filled by first choosing one of the 25 members to be president and then choosing one of the remaining 24 members to be secretary, the possible number of choices is P25, 2 = (25)(24) = 600.  </p>
+<p><span class="theorem-title"><strong>Example 8 (Example 1.7.8: Choosing Officers)</strong></span> Suppose that a club consists of 25 members and that a president and a secretary are to be chosen from the membership. We shall determine the total possible number of ways in which these two positions can be filled.</p>
+<p>Since the positions can be filled by first choosing one of the 25 members to be president and then choosing one of the remaining 24 members to be secretary, the possible number of choices is <span class="math inline">\(P_{25, 2} = (25)(24) = 600\)</span>.  </p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 (Example 1.7.9: Arranging Books) </strong></span>Suppose that six different books are to be arranged on a shelf. The number of possible permutations of the books is 6!= 720.  </p>
+<p><span class="theorem-title"><strong>Example 9 (Example 1.7.9: Arranging Books)</strong></span> Suppose that six different books are to be arranged on a shelf. The number of possible permutations of the books is <span class="math inline">\(6! = 720\)</span>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-10" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Example 1.7.10: Sampling with Replacement) </strong></span>Consider a box that contains <span class="math inline">\(n\)</span> balls numbered 1, . . . , n. First, one ball is selected at random from the box and its number is noted. This ball is then put back in the box and another ball is selected (it is possible that the same ball will be selected again). As many balls as desired can be selected in this way. This process is called sampling with replacement. It is assumed that each of the n balls is equally likely to be selected at each stage and that all selections are made independently of each other. Suppose that a total of k selections are to be made, where k is a given positive integer.Then the sample space S of this experiment will contain all vectors of the form (x1, . . . , xk), where xi is the outcome of the ith selection (i = 1, . . . , k). Since there are n possible outcomes for each of the k selections, the total number of vectors in S is nk. Furthermore, from our assumptions it follows that S is a simple sample space. Hence, the probability assigned to each vector in S is 1/nk.  </p>
+<p><span class="theorem-title"><strong>Example 10 (Example 1.7.10: Sampling with Replacement)</strong></span> Consider a box that contains <span class="math inline">\(N\)</span> balls numbered <span class="math inline">\(1, \ldots, n\)</span>. First, one ball is selected at random from the box and its number is noted. This ball is then put back in the box and another ball is selected (it is possible that the same ball will be selected again). As many balls as desired can be selected in this way. This process is called <em>sampling with replacement</em>. It is assumed that each of the <span class="math inline">\(N\)</span> balls is equally likely to be selected at each stage and that all selections are made independently of each other.</p>
+<p>Suppose that a total of <span class="math inline">\(k\)</span> selections are to be made, where <span class="math inline">\(k\)</span> is a given positive integer. Then the sample space <span class="math inline">\(S\)</span> of this experiment will contain all vectors of the form <span class="math inline">\((x_1, \ldots, x_k)\)</span>, where <span class="math inline">\(x_i\)</span> is the outcome of the <span class="math inline">\(i\)</span>th selection (<span class="math inline">\(i = 1, \ldots, k\)</span>). Since there are <span class="math inline">\(N\)</span> possible outcomes for each of the <span class="math inline">\(k\)</span> selections, the total number of vectors in <span class="math inline">\(S\)</span> is <span class="math inline">\(N^k\)</span>. Furthermore, from our assumptions it follows that <span class="math inline">\(S\)</span> is a simple sample space. Hence, the probability assigned to each vector in <span class="math inline">\(S\)</span> is <span class="math inline">\(1/n^k\)</span>.  </p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-11" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11 (Example 1.7.11: Obtaining Different Numbers) </strong></span>For the experiment in <a href="#exm-1-7-10">Example&nbsp;10</a>, we shall determine the probability of the event <span class="math inline">\(E\)</span> that each of the <span class="math inline">\(k\)</span> balls that are selected will have a different number.</p>
-<p>If <span class="math inline">\(k &gt; n\)</span>, it is impossible for all the selected balls to have different numbers because there are only <span class="math inline">\(n\)</span> different numbers. Suppose, therefore, that <span class="math inline">\(k \leq n\)</span>. The number of outcomes in the event <span class="math inline">\(E\)</span> is the number of vectors for which all <span class="math inline">\(k\)</span> components are different. This equals <span class="math inline">\(P_{n, k}\)</span>, since the first component <span class="math inline">\(x_1\)</span> of each vector can have <span class="math inline">\(n\)</span> possible values, the second component <span class="math inline">\(x_2\)</span> can then have any one of the other <span class="math inline">\(n - 1\)</span> values, and so on. Since <span class="math inline">\(S\)</span> is a simple sample space containing <span class="math inline">\(n^k\)</span> vectors, the probability <span class="math inline">\(p\)</span> that $k $different numbers will be selected is</p>
+<p><span class="theorem-title"><strong>Example 11 (Example 1.7.11: Obtaining Different Numbers)</strong></span> For the experiment in <a href="#exm-1-7-10" class="quarto-xref">Example&nbsp;10</a>, we shall determine the probability of the event <span class="math inline">\(E\)</span> that each of the <span class="math inline">\(k\)</span> balls that are selected will have a different number.</p>
+<p>If <span class="math inline">\(k &gt; N\)</span>, it is impossible for all the selected balls to have different numbers because there are only <span class="math inline">\(N\)</span> different numbers. Suppose, therefore, that <span class="math inline">\(k \leq N\)</span>. The number of outcomes in the event <span class="math inline">\(E\)</span> is the number of vectors for which all <span class="math inline">\(k\)</span> components are different. This equals <span class="math inline">\(P_{N, k}\)</span>, since the first component <span class="math inline">\(x_1\)</span> of each vector can have <span class="math inline">\(N\)</span> possible values, the second component <span class="math inline">\(x_2\)</span> can then have any one of the other <span class="math inline">\(N - 1\)</span> values, and so on. Since <span class="math inline">\(S\)</span> is a simple sample space containing <span class="math inline">\(N^k\)</span> vectors, the probability <span class="math inline">\(p\)</span> that <span class="math inline">\(k\)</span> different numbers will be selected is</p>
 <p><span class="math display">\[
-p = \frac{P_{n,k}}{n^k} = \frac{n!}{(n-k)!n^k}.
+p = \frac{P_{N,k}}{N^k} = \frac{N!}{(N-k)!N^k}.
 \]</span></p>
 </div>
-</div>
-</div>
-<p><strong>Note: Using Two Different Methods in the Same Problem</strong>. <a href="#exm-1-7-11">Example&nbsp;11</a> illustrates a combination of techniques that might seem confusing at first. The method used to count the number of outcomes in the sample space was based on sampling with replacement, since the experiment allows repeat numbers in each outcome. The method used to count the number of outcomes in the eventE was permutations (sampling without replacement) because E consists of those outcomes without repeats. It often happens that one needs to use different methods to count the numbers of outcomes in different subsets of the sample space. The birthday problem, which follows, is another example in which we need more than one counting method in the same problem.</p>
+<p><strong>Note: Using Two Different Methods in the Same Problem</strong>. <a href="#exm-1-7-11" class="quarto-xref">Example&nbsp;11</a> illustrates a combination of techniques that might seem confusing at first. The method used to count the number of outcomes in the sample space was based on sampling with replacement, since the experiment allows repeat numbers in each outcome. The method used to count the number of outcomes in the event <span class="math inline">\(E\)</span> was permutations (sampling without replacement) because <span class="math inline">\(E\)</span> consists of those outcomes without repeats. It often happens that one needs to use different methods to count the numbers of outcomes in different subsets of the sample space. The birthday problem, which follows, is another example in which we need more than one counting method in the same problem.</p>
 </section>
-<section id="the-birthday-problem" class="level3">
-<h3 class="anchored" data-anchor-id="the-birthday-problem">The Birthday Problem</h3>
-<p>In the following problem, which is often called the birthday problem, it is required to determine the probability p that at least two people in a group of k people will have the same birthday, that is, will have been born on the same day of the same month but not necessarily in the same year. For the solution presented here, we assume that the birthdays of the k people are unrelated (in particular, we assume that twins are not present) and that each of the 365 days of the year is equally likely to be the birthday of any person in the group. In particular, we ignore the fact that the birth rate actually varies during the year and we assume that anyone actually born on February 29 will consider his birthday to be another day, such as March 1. When these assumptions are made, this problem becomes similar to the one in Example 1.7.11. Since there are 365 possible birthdays for each of k people, the sample space S will contain 365k outcomes, all of which will be equally probable. If k &gt; 365, there are not enough birthdays for every one to be different, and hence at least two people must have the same birthday. So, we assume that k ≤ 365. Counting the number of outcomes in which at least two birthdays are the same is tedious. However, the number of outcomes in S for which all k birthdays will be different is P365, k, since the first person’s birthday could be any one of the 365 days, the second person’s birthday could then be any of the other 364 days, and so on. Hence, the probability that all k persons will have different birthdays is P365, k 365k . The probability p that at least two of the people will have the same birthday is therefore p = 1− P365, k 365k = 1− (365)! (365 − k)!365k . Numerical values of this probability p for various values of k are given in Table 1.1. These probabilities may seem surprisingly large to anyone who has not thought about them before. Many persons would guess that in order to obtain a value of p greater than 1/2, the number of people in the group would have to be about 100. However, according to Table 1.1, there would have to be only 23 people in the group. As a matter of fact, for k = 100 the value of p is 0.9999997.</p>
-<div id="tbl-1-1" class="anchored">
+<section id="sec-bday-problem" class="level3">
+<h3 class="anchored" data-anchor-id="sec-bday-problem">The Birthday Problem</h3>
+<p>In the following problem, which is often called the birthday problem, it is required to determine the probability <span class="math inline">\(p\)</span> that at least two people in a group of <span class="math inline">\(k\)</span> people will have the same birthday, that is, will have been born on the same day of the same month but not necessarily in the same year. For the solution presented here, we assume that the birthdays of the <span class="math inline">\(k\)</span> people are unrelated (in particular, we assume that twins are not present) and that each of the 365 days of the year is equally likely to be the birthday of any person in the group. In particular, we ignore the fact that the birth rate actually varies during the year and we assume that anyone actually born on February 29 will consider his birthday to be another day, such as March 1.</p>
+<p>When these assumptions are made, this problem becomes similar to the one in <a href="#exm-1-7-11" class="quarto-xref">Example&nbsp;11</a>. Since there are 365 possible birthdays for each of <span class="math inline">\(k\)</span> people, the sample space <span class="math inline">\(S\)</span> will contain <span class="math inline">\(365^k\)</span> outcomes, all of which will be equally probable. If <span class="math inline">\(k &gt; 365\)</span>, there are not enough birthdays for every one to be different, and hence at least two people must have the same birthday. So, we assume that <span class="math inline">\(k \leq 365\)</span>. Counting the number of outcomes in which at least two birthdays are the same is tedious. However, the number of outcomes in <span class="math inline">\(S\)</span> for which all <span class="math inline">\(k\)</span> birthdays will be different is <span class="math inline">\(P_{365, k}\)</span>, since the first person’s birthday could be any one of the 365 days, the second person’s birthday could then be any of the other 364 days, and so on. Hence, the probability that all <span class="math inline">\(k\)</span> persons will have different birthdays is</p>
+<p><span class="math display">\[
+\frac{P_{365,k}}{365^k}.
+\]</span></p>
+<p>The probability <span class="math inline">\(p\)</span> that at least two of the people will have the same birthday is therefore</p>
+<p><span class="math display">\[
+p = 1 - \frac{P_{365,k}}{365^k} = 1 - \frac{(365)!}{(365-k)!365^k}.
+\]</span></p>
+<p>Numerical values of this probability <span class="math inline">\(p\)</span> for various values of k are given in <a href="#tbl-1-1" class="quarto-xref">Table&nbsp;1</a>. These probabilities may seem surprisingly large to anyone who has not thought about them before. Many persons would guess that in order to obtain a value of <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1/2\)</span>, the number of people in the group would have to be about 100. However, according to <a href="#tbl-1-1" class="quarto-xref">Table&nbsp;1</a>, there would have to be only 23 people in the group. As a matter of fact, for <span class="math inline">\(k = 100\)</span> the value of <span class="math inline">\(p\)</span> is <span class="math inline">\(0.9999997\)</span>.</p>
+<div id="tbl-1-1" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The probability <span class="math inline">\(p\)</span> that at least two people in a group of <span class="math inline">\(k\)</span> people will have the same birthday
+</figcaption>
+<div aria-describedby="tbl-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;1: The probability <span class="math inline">\(p\)</span> that at least two people in a group of <span class="math inline">\(k\)</span> people will have the same birthday</caption>
 <thead>
 <tr class="header">
 <th><span class="math inline">\(k\)</span></th>
@@ -405,7 +268,9 @@ p = \frac{P_{n,k}}{n^k} = \frac{n!}{(n-k)!n^k}.
 </tbody>
 </table>
 </div>
-<p>The calculation in this example illustrates a common technique for solving probability problems. If one wishes to compute the probability of some event A, it might be more straightforward to calculate Pr(Ac) and then use the fact that Pr(A) = 1− Pr(Ac). This idea is particularly useful when the event A is of the form “at least n things happen” where n is small compared to how many things could happen.</p>
+</figure>
+</div>
+<p>The calculation in this example illustrates a common technique for solving probability problems. If one wishes to compute the probability of some event <span class="math inline">\(A\)</span>, it might be more straightforward to calculate <span class="math inline">\(\Pr(A^c)\)</span> and then use the fact that <span class="math inline">\(\Pr(A) = 1 − \Pr(A^c)\)</span>. This idea is particularly useful when the event <span class="math inline">\(A\)</span> is of the form “at least <span class="math inline">\(N\)</span> things happen” where <span class="math inline">\(N\)</span> is small compared to how many things could happen.</p>
 </section>
 <section id="stirlings-formula" class="level3">
 <h3 class="anchored" data-anchor-id="stirlings-formula">Stirling’s Formula</h3>
@@ -414,18 +279,8 @@ p = \frac{P_{n,k}}{n^k} = \frac{n!}{(n-k)!n^k}.
 \frac{n!}{a_n} = e^{\log(n!) - \log(a_n)}.
 \]</span></p>
 <p>Compared to computing <span class="math inline">\(n!\)</span>, it takes a much larger <span class="math inline">\(n\)</span> before <span class="math inline">\(\log(n!)\)</span> becomes difficult to represent. Furthermore, if we had a simple approximation <span class="math inline">\(s_n\)</span> to <span class="math inline">\(\log(n!)\)</span> such that <span class="math inline">\(\lim_{n \rightarrow \infty}|s_n - \log(n!)| = 0\)</span>, then the ratio of <span class="math inline">\(n!/a_n\)</span> to <span class="math inline">\(s_n/a_n\)</span> would be close to 1 for large <span class="math inline">\(n\)</span>. The following result, whose proof can be found in <span class="citation" data-cites="feller_introduction_1968">@feller_introduction_1968</span>, provides such an approximation.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-1-7-5" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (Theorem 1.7.5: Stirling’s Formula) </strong></span>Let</p>
+<p><span class="theorem-title"><strong>Theorem 5 (Theorem 1.7.5: Stirling’s Formula)</strong></span> Let</p>
 <p><span class="math display">\[
 s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 \]</span></p>
@@ -434,26 +289,12 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 \lim_{n \rightarrow \infty} \frac{(2\pi)^{1/2}n^{n + 1/2}e^{-n}}{n!} = 1.
 \]</span></p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-1-7-12" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (Example 1.7.12: Approximating the Number of Permutations) </strong></span>Suppose thatwewant to compute <span class="math inline">\(P_{70,20} = 70!/50!\)</span>. The approximation from Stirling’s formula is</p>
+<p><span class="theorem-title"><strong>Example 12 (Example 1.7.12: Approximating the Number of Permutations)</strong></span> Suppose thatwewant to compute <span class="math inline">\(P_{70,20} = 70!/50!\)</span>. The approximation from Stirling’s formula is</p>
 <p><span class="math display">\[
 \frac{70!}{50!} \approx \frac{(2\pi)^{1/2}70^{70.5}e^{-70}}{(2\pi)^{1/2}50^{50.5}e^{-50}} = 3.940 \times 10^{35}.
 \]</span></p>
 <p>The exact calculation yields <span class="math inline">\(3.938 \times 10^35\)</span>. The approximation and the exact calculation differ by less than <span class="math inline">\(1/10\)</span> of 1 percent.  </p>
-</div>
-</div>
 </div>
 </section>
 <section id="summary" class="level3">
@@ -469,46 +310,42 @@ Tip
 <section id="exercises" class="level3">
 <h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
 <div id="exr-1-7-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Exercise 1.7.1) </strong></span>Each year starts on one of the seven days (Sunday through Saturday). Each year is either a leap year (i.e., it includes February 29) or not. How many different calendars are possible for a year?</p>
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 1.7.1)</strong></span> Each year starts on one of the seven days (Sunday through Saturday). Each year is either a leap year (i.e., it includes February 29) or not. How many different calendars are possible for a year?</p>
 </div>
 <div id="exr-1-7-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Exercise 1.7.2) </strong></span>&nbsp;</p>
-<ol start="2" type="1">
-<li>Three different classes contain 20, 18, and 25 students, respectively, and no student is a member of more than one class. If a team is to be composed of one student from each of these three classes, in how many different ways can the members of the team be chosen?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 1.7.2)</strong></span> Three different classes contain 20, 18, and 25 students, respectively, and no student is a member of more than one class. If a team is to be composed of one student from each of these three classes, in how many different ways can the members of the team be chosen?</p>
 </div>
 <div id="exr-1-7-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Exercise 1.7.3) </strong></span>In how many different ways can the five letters <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, and <code>e</code> be arranged?</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 1.7.3)</strong></span> In how many different ways can the five letters <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, and <code>e</code> be arranged?</p>
 </div>
 <div id="exr-1-7-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Exercise 1.7.4) </strong></span>If a man has six different sportshirts and four different pairs of slacks, how many different combinations can he wear?</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 1.7.4)</strong></span> If a man has six different sportshirts and four different pairs of slacks, how many different combinations can he wear?</p>
 </div>
 <div id="exr-1-7-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Exercise 1.7.5) </strong></span>&nbsp;</p>
-<ol start="5" type="1">
-<li>If four dice are rolled, what is the probability that each of the four numbers that appear will be different?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 1.7.5)</strong></span> If four dice are rolled, what is the probability that each of the four numbers that appear will be different?</p>
 </div>
 <div id="exr-1-7-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 (Exercise 1.7.6) </strong></span>If six dice are rolled, what is the probability that each of the six different numbers will appear exactly once?</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 1.7.6)</strong></span> If six dice are rolled, what is the probability that each of the six different numbers will appear exactly once?</p>
 </div>
 <div id="exr-1-7-7" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (Exercise 1.7.7) </strong></span>&nbsp;</p>
-<ol start="7" type="1">
-<li>If 12 balls are thrown at random into 20 boxes, what is the probability that no box will receive more than one ball?</li>
-</ol>
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 1.7.7)</strong></span> If 12 balls are thrown at random into 20 boxes, what is the probability that no box will receive more than one ball?</p>
 </div>
 <div id="exr-1-7-8" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8 (Exercise 1.7.8) </strong></span>An elevator in a building starts with five passengers and stops at seven floors. If every passenger is equally likely to get off at each floor and all the passengers leave independently of each other, what is the probability that no two passengers will get off at the same floor?</p>
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 1.7.8)</strong></span> An elevator in a building starts with five passengers and stops at seven floors. If every passenger is equally likely to get off at each floor and all the passengers leave independently of each other, what is the probability that no two passengers will get off at the same floor?</p>
 </div>
 <div id="exr-1-7-9" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9 (Exercise 1.7.9) </strong></span>Suppose that three runners from team A and three runners from team B participate in a race. If all six runners have equal ability and there are no ties, what is the probability that the three runners from team A will finish first, second, and third, and the three runners from team B will finish fourth, fifth, and sixth?</p>
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 1.7.9)</strong></span> Suppose that three runners from team A and three runners from team B participate in a race. If all six runners have equal ability and there are no ties, what is the probability that the three runners from team A will finish first, second, and third, and the three runners from team B will finish fourth, fifth, and sixth?</p>
 </div>
 <div id="exr-1-7-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10 (Exercise 1.7.10) </strong></span>A box contains 100 balls, of which <span class="math inline">\(r\)</span> are red. Suppose that the balls are drawn from the box one at a time, at random, without replacement. Determine (a) the probability that the first ball drawn will be red; (b) the probability that the 50th ball drawn will be red; and (c) the probability that the last ball drawn will be red.</p>
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 1.7.10)</strong></span> A box contains 100 balls, of which <span class="math inline">\(r\)</span> are red. Suppose that the balls are drawn from the box one at a time, at random, without replacement. Determine</p>
+<ol type="a">
+<li>The probability that the first ball drawn will be red;</li>
+<li>The probability that the 50th ball drawn will be red; and</li>
+<li>The probability that the last ball drawn will be red.</li>
+</ol>
 </div>
 <div id="exr-1-7-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11 (Exercise 1.7.11) </strong></span>Let <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> be positive integers such that both <span class="math inline">\(n\)</span> and <span class="math inline">\(n − k\)</span> are large. Use Stirling’s formula to write as simple an approximation as you can for <span class="math inline">\(P_{n,k}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 1.7.11)</strong></span> Let <span class="math inline">\(N\)</span> and <span class="math inline">\(k\)</span> be positive integers such that both <span class="math inline">\(N\)</span> and <span class="math inline">\(N − k\)</span> are large. Use Stirling’s formula to write as simple an approximation as you can for <span class="math inline">\(P_{N,k}\)</span>.</p>
 </div>
 </section>
 </section>
@@ -594,10 +431,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -607,8 +461,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -620,7 +483,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -664,6 +650,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -689,6 +676,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -749,6 +762,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

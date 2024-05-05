@@ -203,7 +203,7 @@ Subtract $\Pr(A \cap B)$ from both sides of this last equation to complete the p
 :::
 :::
 
-![$B = A ∪ (B ∩ Ac)$ in the proof of @thm-1-5-4.](ch01/images/fig-1-8.png){#fig-1-8}
+![$B = A ∪ (B ∩ Ac)$ in the proof of @thm-1-5-4.](ch01/images/fig-1-8.svg){#fig-1-8}
 
 ::: {.callout-tip}
 ::: {#thm-1-5-7}
@@ -285,7 +285,7 @@ according to @thm-1-5-7.
 :::
 :::
 
-![The two events of interest in utility demand sample space for @exm-1-5-4.](ch01/images/fig-1-9.png){#fig-1-9}
+![The two events of interest in utility demand sample space for @exm-1-5-4.](ch01/images/fig-1-9.svg){#fig-1-9 width="60%"}
 
 The proof of the following useful result is left to @exr-1-5-13.
 
@@ -330,11 +330,7 @@ It does not matter how the probabilities were determined. As long as they satisf
 
 # Exercise 1.5.1
 
-1. One ball is to be selected from a box containing red,
-white, blue, yellow, and green balls. If the probability that
-the selected ball will be red is 1/5 and the probability that
-it will be white is 2/5, what is the probability that it will be
-blue, yellow, or green?
+One ball is to be selected from a box containing red, white, blue, yellow, and green balls. If the probability that the selected ball will be red is $1/5$ and the probability that it will be white is $2/5$, what is the probability that it will be blue, yellow, or green?
 
 :::
 
@@ -342,9 +338,7 @@ blue, yellow, or green?
 
 # Exercise 1.5.2
 
-2. A student selected from a class will be either a boy or
-a girl. If the probability that a boy will be selected is 0.3,
-what is the probability that a girl will be selected?
+A student selected from a class will be either a boy or a girl. If the probability that a boy will be selected is 0.3, what is the probability that a girl will be selected?
 
 :::
 
@@ -352,10 +346,7 @@ what is the probability that a girl will be selected?
 
 # Exercise 1.5.3
 
-3. Consider two events A and B such that Pr(A) = 1/3
-and Pr(B) = 1/2. Determine the value of Pr(B ∩ Ac) for
-each of the following conditions: (a) A and B are disjoint;
-(b) A ⊂ B; (c) Pr(A ∩ B) = 1/8.
+Consider two events $A$ and $B$ such that $\Pr(A) = 1/3$ and $\Pr(B) = 1/2$. Determine the value of $\Pr(B \cap A^c)$ for each of the following conditions: **(a)** $A$ and $B$ are disjoint; **(b)** $A \subset B$; **(c)** $\Pr(A \cap B) = 1/8$.
 
 :::
 
@@ -363,12 +354,7 @@ each of the following conditions: (a) A and B are disjoint;
 
 # Exercise 1.5.4
 
-4. If the probability that studentAwill fail a certain statistics
-examination is 0.5, the probability that student B will
-fail the examination is 0.2, and the probability that both
-student A and student B will fail the examination is 0.1,
-what is the probability that at least one of these two students
-will fail the examination?
+If the probability that student $A$ will fail a certain statistics examination is 0.5, the probability that student $B$ will fail the examination is 0.2, and the probability that both student $A$ and student $B$ will fail the examination is 0.1, what is the probability that at least one of these two students will fail the examination?
 
 :::
 
@@ -376,7 +362,7 @@ will fail the examination?
 
 # Exercise 1.5.5
 
-5. For the conditions of @exr-1-5-4, what is the probability that neither student $A$ nor student $B$ will fail the examination?
+For the conditions of @exr-1-5-4, what is the probability that neither student $A$ nor student $B$ will fail the examination?
 
 :::
 
@@ -384,7 +370,7 @@ will fail the examination?
 
 # Exercise 1.5.6
 
-6. For the conditions of @exr-1-5-4, what is the probability that exactly one of the two students will fail the examination?
+For the conditions of @exr-1-5-4, what is the probability that exactly one of the two students will fail the examination?
 
 :::
 
@@ -392,10 +378,7 @@ will fail the examination?
 
 # Exercise 1.5.7
 
-7. Consider two events A and B with Pr(A) = 0.4 and
-Pr(B) = 0.7. Determine the maximum and minimum possible
-values of Pr(A ∩ B) and the conditions under which
-each of these values is attained.
+Consider two events $A$ and $B$ with $\Pr(A) = 0.4$ and $\Pr(B) = 0.7$. Determine the maximum and minimum possible values of $\Pr(A \cap B)$ and the conditions under which each of these values is attained.
 
 :::
 
@@ -403,11 +386,7 @@ each of these values is attained.
 
 # Exercise 1.5.8
 
-8. If 50 percent of the families in a certain city subscribe
-to the morning newspaper, 65 percent of the families subscribe
-to the afternoon newspaper, and 85 percent of the
-families subscribe to at least one of the two newspapers,
-what percentage of the families subscribe to both newspapers?
+If 50 percent of the families in a certain city subscribe to the morning newspaper, 65 percent of the families subscribe to the afternoon newspaper, and 85 percent of the families subscribe to at least one of the two newspapers, what percentage of the families subscribe to both newspapers?
 
 :::
 
@@ -415,10 +394,11 @@ what percentage of the families subscribe to both newspapers?
 
 # Exercise 1.5.9
 
-9. Prove that for every two eventsAandB, the probability
-that exactly one of the two events will occur is given by the
-expression
-Pr(A) + Pr(B) − 2 Pr(A ∩ B).
+Prove that for every two events $A$ and $B$, the probability that exactly one of the two events will occur is given by the expression
+
+$$
+\Pr(A) + \Pr(B) − 2 \Pr(A \cap B).
+$$
 
 :::
 
@@ -426,8 +406,11 @@ Pr(A) + Pr(B) − 2 Pr(A ∩ B).
 
 # Exercise 1.5.10
 
-10. For two arbitrary events A and B, prove that
-Pr(A) = Pr(A ∩ B) + Pr(A ∩ Bc).
+For two arbitrary events $A$ and $B$, prove that
+
+$$
+\Pr(A) = \Pr(A \cap B) + \Pr(A \cap B^c).
+$$
 
 :::
 
@@ -435,19 +418,12 @@ Pr(A) = Pr(A ∩ B) + Pr(A ∩ Bc).
 
 # Exercise 1.5.11
 
-11. A point (x, y) is to be selected from the square S
-containing all points (x, y) such that 0 ≤ x ≤ 1 and $0 \leq y \leq 1$. Suppose that the probability that the selected point will
-belong to each specified subset of S is equal to the area of
-that subset. Find the probability of each of the following
-subsets: (a) the subset of points such that (x − 1
-2 )2 + (y −
-1
-2 )2 ≥ 1
-4 ; (b) the subset of points such that 1
-2 < x +y < 3
-2 ;
-(c) the subset of points such that y ≤ 1− x2; (d) the subset
-of points such that x = y.
+A point $(x, y)$ is to be selected from the square $S$ containing all points $(x, y)$ such that $0 \leq x \leq 1$ and $0 \leq y \leq 1$. Suppose that the probability that the selected point will belong to each specified subset of $S$ is equal to the area of that subset. Find the probability of each of the following subsets:
+
+(a) The subset of points such that $\left(x − \frac{1}{2}\right)^2 + \left(y − \frac{1}{2}\right)^2 \geq \frac{1}{4}$;
+(b) The subset of points such that $\frac{1}{2} < x + y < \frac{3}{2}$;
+(c) The subset of points such that $y \leq 1 - x^2$;
+(d) The subset of points such that $x = y$.
 
 :::
 
@@ -455,42 +431,17 @@ of points such that x = y.
 
 # Exercise 1.5.12
 
-12. Let A1, A2, . . . be an arbitrary infinite sequence of
-events, and let B1, B2, . . . be another infinite sequence
-of events defined as follows: B1 = A1, B2 = Ac
-1
-∩ A2, B3 =
-Ac
-1
-∩ Ac
-2
-∩ A3, B4 = Ac
-1
-∩ Ac
-2
-∩ Ac
-3
-∩ A4, . . . . Prove that
-Pr
- 
- n
-i=1
-Ai
- 
-=
- n
-i=1
-Pr(Bi) for n = 1, 2, . . . ,
+Let $A_1, A_2, \ldots$ be an arbitrary infinite sequence of events, and let $B_1, B_2, \ldots$ be another infinite sequence of events defined as follows: $B_1 = A_1$, $B_2 = A_1^c \cap A_2$, $B_3 = A_1^c \cap A_2^c \cap A_3$, $B_4 = A_1^c \cap A_2^c \cap A_3^c \cap A_4$, $\ldots$. Prove that
+
+$$
+\Pr\left(\bigcup_{i=1}^nA_i\right) = \sum_{i=1}^n\Pr(B_i) \text{ for }n = 1, 2, \ldots,
+$$
+
 and that
-Pr
-  ∞ 
-i=1
-Ai
- 
-=
-∞ 
-i=1
-Pr(Bi).
+
+$$
+\Pr\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\Pr(B_i).
+$$
 
 :::
 
@@ -498,7 +449,7 @@ Pr(Bi).
 
 # Exercise 1.5.13
 
-13. Prove @thm-1-5-8. *Hint*: Use @exr-1-5-12.
+Prove @thm-1-5-8. *Hint*: Use @exr-1-5-12.
 
 :::
 
@@ -506,15 +457,9 @@ Pr(Bi).
 
 # Exercise 1.5.14
 
-14. Consider, once again, the four blood types A, B, AB,
-and O described in Exercise 8 in Sec. 1.4 together with
-the two antigens anti-A and anti-B. Suppose that, for a
-given person, the probability of type O blood is 0.5, the
-probability of type A blood is 0.34, and the probability of
-type B blood is 0.12.
-a. Find the probability that each of the antigens will
-react with this person's blood.
-b. Find the probability that both antigens will react with
-this person's blood.
+Consider, once again, the four blood types A, B, AB, and O described in @exr-1-4-8 together with the two antigens anti-A and anti-B. Suppose that, for a given person, the probability of type O blood is 0.5, the probability of type A blood is 0.34, and the probability of type B blood is 0.12.
+
+(a) Find the probability that each of the antigens will react with this person's blood.
+(b) Find the probability that both antigens will react with this person's blood.
 
 :::
