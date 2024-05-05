@@ -1,22 +1,14 @@
-
-
 ## Utility {#sec-4-8}
 
-Much of statistical inference consists of choosing between several available actions.
-Generally, we do not know for certain which choice will be best, because some
-important random variable has not yet been observed. For some values of that
-random variable one choice is best, and for other values some other choice is
-best. We can try to weigh the costs and benefits of the various choices against the
-probabilities that the various choices turn out to be best. Utility is one tool for
-assigning values to the costs and benefits of our choices. The expected value of the
-utility then balances the costs and benefits according to how likely the uncertain
-possibilities are.
+*Much of statistical inference consists of choosing between several available actions. Generally, we do not know for certain which choice will be best, because some important random variable has not yet been observed. For some values of that random variable one choice is best, and for other values some other choice is best. We can try to weigh the costs and benefits of the various choices against the probabilities that the various choices turn out to be best. Utility is one tool for assigning values to the costs and benefits of our choices. The expected value of the utility then balances the costs and benefits according to how likely the uncertain possibilities are.*
 
 ### Utility Functions
 
-Example
-4.8.1
-Choice of Gambles. Consider two gambles between which a gambler must choose.
+::: {#exm-4-8-1}
+
+# Example 4.8.1: Choice of Gambles.
+
+Consider two gambles between which a gambler must choose.
 Each gamble will be expressed as a random variable for which positive values mean
 a gain to the gambler and negative values mean a loss to the gambler. The numerical
 values of each random variable tell the number of dollars that the gambler gains or
@@ -33,6 +25,9 @@ g(y) =
 It is simple to compute that E(X) = 75 and E(Y) = 50. How might a gambler choose
 between these two gambles? IsX better than Y simply because it has higher expected
 value?  
+
+:::
+
 In Example 4.8.1, a gambler who does not desire to risk losing 350 dollars for the
 chance of winning 500 dollars might prefer Y , which yields a certain gain of at least
 40 dollars.

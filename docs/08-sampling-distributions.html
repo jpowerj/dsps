@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Probability and Statistics (Fourth Edition) - 8&nbsp; Sampling Distributions of Estimators</title>
+<title>Probability and Statistics (Fourth Edition) – 8&nbsp; Sampling Distributions of Estimators</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -71,12 +78,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-sampling-distributions.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sampling Distributions of Estimators</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-sampling-distributions.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sampling Distributions of Estimators</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -86,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Probability and Statistics (Fourth Edition)</a> 
@@ -186,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -215,7 +222,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="the-sampling-distribution-of-a-statistic" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="the-sampling-distribution-of-a-statistic"><span class="header-section-number">8.1</span> The Sampling Distribution of a Statistic</h2>
@@ -230,11 +239,11 @@ ul.task-list li input[type="checkbox"] {
 <p>1 2 y −1/2   + φ(−y1/2)</p>
 <p>1 2 y −1/2   . Furthermore, since φ(y1/2) = φ(−y1/2) = (2π) −1/2e −y/2, it now follows that f (y) = 1 (2π)1/2 y −1/2e −y/2 for y &gt;0. By comparing this equation with Eq. (8.2.1), it is seen that the p.d.f. of Y is indeed the p.d.f. of the χ2 distribution with one degree of freedom. We can now combine Theorem 8.2.3 with Theorem 8.2.2 to obtain the following result, which provides the main reason that the χ2 distribution is important in statistics. Corollary 8.2.1 If the random variables X1, . . . , Xm are i.i.d. with the standard normal distribution, then the sum of squares X2 1 + . . . + X2 m has the χ2 distribution with m degrees of freedom. Example 8.2.2 M.L.E. of the Variance of aNormal Distribution. In Example 8.2.1, the random variables Zi = (Xi − μ)/σ for i = 1, . . . , n form a random sample from the standard normal distribution. It follows from Corollary 8.2.1 that the distribution of  n i=1 Z2 i is the χ2 distribution with n degrees of freedom. It is easy to see that  n i=1 Z2 i is precisely the same as n2σ2 0 /σ 2, which appears in Example 8.2.1. So the distribution of n2σ2 0 /σ 2 is the χ2 distribution with n degrees of freedom. The reader should also be able to see that the distribution of 2σ2 0 itself is the gamma distribution with parameters n/2 and n/(2σ2) (Exercise 13).   Example 8.2.3 Acid Concentration in Cheese. Moore and McCabe (1999, p.&nbsp;D-1) describe an experiment conducted inAustralia to study the relationship between taste and the chemical composition of cheese. One chemical whose concentration can affect taste is lactic acid. Cheese manufacturers who want to establish a loyal customer base would like the taste to be about the same each time a customer purchases the cheese. The variation in concentrations of chemicals like lactic acid can lead to variation in the taste of cheese. Suppose that we model the concentration of lactic acid in several chunks of cheese as independent normal random variables with mean μ and variance σ2. We are interested in how much these concentrations differ from the value μ. Let X1, . . . , Xk be the concentrations in k chunks, and let Zi = (Xi − μ)/σ . Then Y = 1 k  k i=1 |Xi − μ|2 = σ2 k  k i=1 Z2 i is one measure of how much the k concentrations differ from μ. Suppose that a difference of u or more in lactic acid concentration is enough to cause a noticeable difference in taste.We might then wish to calculate Pr(Y ≤ u2). According to Corollary 8.2.1, the distribution of W = kY/σ2 is χ2 with k degrees of freedom. Hence, Pr(Y ≤ u2) = Pr(W ≤ ku2/σ 2). For example, suppose that σ2 = 0.09, and we are interested in k = 10 cheese chunks. Furthermore, suppose that u = 0.3 is the critical difference of interest. We 472 Chapter 8 Sampling Distributions of Estimators can write Pr(Y ≤ 0.32) = Pr</p>
 <p>W ≤ 10 × 0.09 0.09   = Pr(W ≤ 10). (8.2.2) Using the table of quantiles of the χ2 distribution with 10 degrees of freedom, we see that 10 is between the 0.5 and 0.6 quantiles. In fact, the probability in Eq. (8.2.2) can be found by computer software to equal 0.56, so there is a 44 percent chance that the average squared difference between lactic acid concentration and mean concentration in 10 chunks will be more than the desired amount. If this probability is too large, the manufacturer might wish to invest some effort in reducing the variance of lactic acid concentration.   Summary The chi-square distribution with n degrees of freedom is the same as the gamma distribution with parameters m/2 and 1/2. It is the distribution of the sum of squares of a sample of m independent standard normal random variables. The mean of the χ2 distribution with m degrees of freedom is m, and the variance is 2m. Exercises 1. Suppose that we will sample 20 chunks of cheese in Example 8.2.3. Let T =  20 i=1(Xi − μ)2/20, whereXi is the concentration of lactic acid in the ith chunk. Assume that σ2 = 0.09. What number c satisfies Pr(T ≤ c) = 0.9? 2. Find the mode of the χ2 distribution with m degrees of freedom (m = 1, 2, . . .). 3. Sketch the p.d.f. of the χ2 distribution withmdegrees of freedom for each of the following values of m. Locate the mean, the median, and the mode on each sketch. (a)m = 1; (b) m = 2; (c) m = 3; (d) m = 4. 4. Suppose that a point (X, Y ) is to be chosen at random in the xy-plane, where X and Y are independent random variables and each has the standard normal distribution. If a circle is drawn in the xy-plane with its center at the origin, what is the radius of the smallest circle that can be chosen in order for there to be probability 0.99 that the point (X, Y ) will lie inside the circle? 5. Suppose that a point (X, Y, Z) is to be chosen at random in three-dimensional space, where X, Y , and Z are independent random variables and each has the standard normal distribution. What is the probability that the distance from the origin to the point will be less than 1 unit? 6. When the motion of a microscopic particle in a liquid or a gas is observed, it is seen that the motion is irregular because the particle collides frequently with other particles. The probability model for this motion, which is called Brownian motion, is as follows: A coordinate system is chosen in the liquid or gas. Suppose that the particle is at the origin of this coordinate system at time t = 0, and let (X, Y, Z) denote the coordinates of the particle at any time t &gt; 0. The random variables X, Y , and Z are i.i.d., and each of them has the normal distribution with mean 0 and variance σ2t . Find the probability that at time t = 2 the particle will lie within a sphere whose center is at the origin and whose radius is 4σ. 7. Suppose that the random variables X1, . . . , Xn are independent, and each random variableXi has a continuous c.d.f. Fi . Also, let the random variable Y be defined by the relation Y =−2  n i=1 log Fi(Xi). Show that Y has the χ2 distribution with 2n degrees of freedom. 8. Suppose that X1, . . . , Xn form a random sample from the uniform distribution on the interval [0, 1], and let W denote the range of the sample, as defined in Example 3.9.7. Also, let gn(x) denote the p.d.f. of the random variable 2n(1− W), and let g(x) denote the p.d.f. of the χ2 distribution with four degrees of freedom. Show that lim n→∞ gn(x) = g(x) for x &gt;0. 9. Suppose that X1, . . . , Xn form a random sample from the normal distribution with meanμand variance σ2. Find the distribution of n(Xn − μ)2 σ2 . 10. Suppose that six random variables X1, . . . ,X6 form a random sample from the standard normal distribution, and let Y = (X1 + X2 + X3)2 + (X4 + X5 + X6)2. 8.3 Joint Distribution of the Sample Mean and Sample Variance 473 Determine a value of c such that the random variable cY will have a χ2 distribution. 11. If a random variable X has the χ2 distribution with m degrees of freedom, then the distribution ofX1/2 is called a chi (χ) distribution with m degrees of freedom. Determine the mean of this distribution. 12. Consider again the situation described in Example 8.2.3. How small would σ2 need to be in order for Pr(Y ≤ 0.09) ≥ 0.9? 13. Prove that the distribution of 5σ2 0 in Examples 8.2.1 and 8.2.2 is the gamma distribution with parameters n/2 and n/(2σ2). 8.3 Joint Distribution of the Sample Mean and Sample Variance Suppose that our data form a random sample from a normal distribution. The sample mean ˆμ and sample variance 2σ2 are important statistics that are computed in order to estimate the parameters of the normal distribution. Their marginal distributions help us to understand how good each of them is as an estimator of the corresponding parameter. However, the marginal distribution of ˆμ depends on σ. The joint distribution of ˆμ and 2σ2 will allow us to make inferences about μ without reference to σ. Independence of the Sample Mean and Sample Variance Example 8.3.1 Rain from Seeded Clouds. Simpson, Olsen, and Eden (1975) describe an experiment in which a random sample of 26 clouds were seeded with silver nitrate to see if they produced more rain than unseeded clouds. Suppose that, on a log scale, unseeded clouds typically produced a mean rainfall of 4. In comparing the mean of the seeded clouds to the unseeded mean, one might naturally see how far the average log-rainfall of the seeded clouds ˆμ is from 4. But the variation in rainfall within the sample is also important. For example, if one compared two different samples of seeded clouds, one would expect the average rainfalls in the two samples to be different just due to variation between clouds. In order to be confident that seeding the clouds really produced more rain, we would want the average log-rainfall to exceed 4 by a large amount compared to the variation between samples, which is closely related to the variation within samples. Since we do not know the variance for seeded clouds, we compute the sample variance 2σ2. Comparing ˆμ − 4 to 2σ2 requires us to consider the joint distribution of the sample mean and the sample variance.   Suppose that X1, . . . , Xn form a random sample from the normal distribution with unknown mean μ and unknown variance σ2. Then, as was shown in Example 7.5.6, the M.L.E.’s of μ and σ2 are the sample mean Xn and the sample variance (1/n)  n i=1(Xi − Xn)2. In this section, we shall derive the joint distribution of these two estimators. We already know from Corollary 5.6.2 that the sample mean itself has the normal distribution with mean μ and variance σ2/n.&nbsp;We shall establish the noteworthy property that the sample mean and the sample variance are independent random variables, even though both are functions of the same random variables X1, . . . , Xn. Furthermore, we shall show that, except for a scale factor, the sample variance has the χ2 distribution with n − 1 degrees of freedom. More precisely, we shall show that the random variable  n i=1(Xi − Xn)2/σ 2 has the χ2 distribution with n − 1 degrees 474 Chapter 8 Sampling Distributions of Estimators of freedom. This result is also a rather striking property of random samples from a normal distribution, as the following discussion indicates. Because the random variables X1, . . . , Xn are independent, and because each has the normal distribution with mean μ and variance σ2, the random variables (X1 − μ)/σ, . . . , (Xn − μ)/σ are also independent, and each of these variables has the standard normal distribution. It follows from Corollary 8.2.1 that the sum of their squares  n i=1(Xi − μ)2/σ 2 has the χ2 distribution with n degrees of freedom. Hence, the striking property mentioned in the previous paragraph is that if the population mean μ is replaced by the sample mean Xn in this sum of squares, the effect is simply to reduce the degrees of freedom in the χ2 distribution from n to n − 1. In summary, we shall establish the following theorem. Theorem 8.3.1 Suppose that X1, . . . , Xn form a random sample from the normal distribution with mean μ and variance σ2. Then the sample mean Xn and the sample variance (1/n)  n i=1(Xi − Xn)2 are independent random variables,Xn has the normal distribution with mean μ and variance σ2/n, and  n i=1(Xi − Xn)2/σ 2 has the χ2 distribution with n − 1 degrees of freedom. Furthermore, it can be shown that the sample mean and the sample variance are independent only when the random sample is drawn from a normal distribution.We shall not consider this result further in this book. However, it does emphasize the fact that the independence of the sample mean and the sample variance is indeed a noteworthy property of samples from a normal distribution. The proof of Theorem 8.3.1 makes use of transformations of several variables as described in Sec. 3.9 and of the properties of orthogonal matrices. The proof appears at the end of this section. Example 8.3.2 Rain from Seeded Clouds. Figure 8.3 is a histogram of the logarithms of the rainfalls from the seeded clouds in Example 8.3.1. Suppose that these logarithms X1, . . . , X26 are modeled as i.i.d. normal random variables with mean μ and variance σ2. If we are interested in how much variation there is in rainfall among the seeded clouds, we can compute the sample variance 2σ2 = 26 i=1(Xi − Xn)2/26. The distribution of U = 262σ2/σ 2 is the χ2 distribution with 25 degrees of freedom. We can use this distribution to tell us how likely it is that 2σ2 will overestimate or underestimate σ2 by various amounts. For example, the χ2 table in this book says that the 0.25 quantile of the χ2 distribution with 25 degrees of freedom is 19.94, so Pr(U ≤ 19.94) = 0.25. Figure 8.3 Histogram of log-rainfalls from seeded clouds. 2 4 6 8 8 6 4 2 0 log(rainfall) Count 8.3 Joint Distribution of the Sample Mean and Sample Variance 475 It follows that 0.25 = Pr   2σ2 σ2 ≤ 19.94 26   = Pr(2σ2 ≤ 0.77σ2). (8.3.1) That is, there is probability 0.25 that 2σ2 will underestimate σ2 by 23 percent or more. The observed value of 2σ2 is 2.460 in this example. The probability calculated in Eq. (8.3.1) has nothing to do with how far 2.460 is from σ2. Eq. (8.3.1) tells us the probability (prior to observing the data) that 2σ2 would be at least 23% below σ2.   Estimation of the Mean and Standard Deviation We shall assume thatX1, . . . , Xn form a random sample from the normal distribution with unknown mean μ and unknown standard deviation σ. Also, as usual, we shall denote the M.L.E.’s of μ and σ by ˆμ and ˆσ . Thus, ˆμ = Xn and ˆσ =   1 n  n i=1 (Xi − Xn)2  1/2 . Notice that ˆσ 2 = 2σ2, the M.L.E. of σ2. For the remainder of this book, when referring to the M.L.E. of σ2, we shall use whichever symbol ˆσ 2 or 2σ2 is more convenient. As an illustration of the application of Theorem 8.3.1, we shall now determine the smallest possible sample size n such that the following relation will be satisfied: Pr</p>
-<p>ˆ μ − μ| ≤ 1</p>
+<div class="line-block">ˆ μ − μ| ≤ 1</div>
 <p>5 σ and | ˆ σ − σ| ≤ 1 5 σ   ≥ 1 2 . (8.3.2) In other words, we shall determine the minimum sample size n for which the probability will be at least 1/2 that neither ˆμ nor ˆσ will differ from the unknown value it is estimating by more than (1/5)σ . Because of the independence of ˆμ and ˆσ , the relation (8.3.2) can be rewritten as follows: Pr</p>
-<p>ˆ μ − μ| &lt;</p>
+<div class="line-block">ˆ μ − μ| &lt;</div>
 <p>1 5 σ   Pr</p>
-<p>ˆ σ − σ| &lt;</p>
+<div class="line-block">ˆ σ − σ| &lt;</div>
 <p>1 5 σ   ≥ 1 2 . (8.3.3) If we let p1 denote the first probability on the left side of the relation (8.3.3), and let U be a random variable that has the standard normal distribution, this probability can be written in the following form: p1 = Pr</p>
 <p>√ n| ˆ μ − μ| σ &lt; 1 5 √ n   = Pr</p>
 <p>|U| &lt; 1 5 √ n   . Similarly, ifwe let p2 denote the second probability on the left side of the relation (8.3.3), and let V = nˆσ 2/σ 2, this probability can be written in the following form: p2 = Pr</p>
@@ -353,10 +362,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -366,8 +392,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -379,7 +414,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -423,6 +581,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -448,6 +607,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -509,17 +694,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-estimation.html" class="pagination-link">
+      <a href="./07-estimation.html" class="pagination-link" aria-label="Estimation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09-testing-hypotheses.html" class="pagination-link">
+      <a href="./09-testing-hypotheses.html" class="pagination-link" aria-label="Testing Hypotheses">
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Testing Hypotheses</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

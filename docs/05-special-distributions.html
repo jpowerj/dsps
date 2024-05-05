@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Probability and Statistics (Fourth Edition) - 5&nbsp; Special Distributions</title>
+<title>Probability and Statistics (Fourth Edition) – 5&nbsp; Special Distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -65,6 +72,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -73,12 +107,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-special-distributions.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Special Distributions</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-special-distributions.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Special Distributions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Probability and Statistics (Fourth Edition)</a> 
@@ -188,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -240,7 +274,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="sec-5-1" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-5-1"><span class="header-section-number">5.1</span> Introduction</h2>
@@ -396,7 +432,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-5-10-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.1 (Example 5.10.1: Thyroid Hormones) </strong></span>Production of rocket fuel produces a chemical, perchlorate, that has found its way into drinking water supplies. Perchlorate is suspected of inhibiting thyroid function. Experiments have been performed in which laboratory rats have been dosed with perchlorate in their drinking water. After several weeks, rats were sacrificed, and a number of thyroid hormones were measured.The levels of these hormones were then compared to the levels of the same hormones in rats that received no perchlorate in their water. Two hormones, TSH and T4, were of particular interest. Experimenters were interested in the joint distribution of TSH and T4. Although each of the hormones might be modeled with a normal distribution, a bivariate distribution is needed in order to model the two hormone levels jointly. Knowledge of thyroid activity suggests that the levels of these hormones will not be independent, because one of them is actually used by the thyroid to stimulate production of the other.</p>
+<p><span class="theorem-title"><strong>Example 5.1 (Example 5.10.1: Thyroid Hormones)</strong></span> Production of rocket fuel produces a chemical, perchlorate, that has found its way into drinking water supplies. Perchlorate is suspected of inhibiting thyroid function. Experiments have been performed in which laboratory rats have been dosed with perchlorate in their drinking water. After several weeks, rats were sacrificed, and a number of thyroid hormones were measured.The levels of these hormones were then compared to the levels of the same hormones in rats that received no perchlorate in their water. Two hormones, TSH and T4, were of particular interest. Experimenters were interested in the joint distribution of TSH and T4. Although each of the hormones might be modeled with a normal distribution, a bivariate distribution is needed in order to model the two hormone levels jointly. Knowledge of thyroid activity suggests that the levels of these hormones will not be independent, because one of them is actually used by the thyroid to stimulate production of the other.</p>
 </div>
 </div>
 </div>
@@ -412,7 +448,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-5-10-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5.1 (Theorem 5.10.1) </strong></span>Suppose that Z1 and Z2 are independent random variables, each of which has the standard normal distribution. Let μ1, μ2, σ1, σ2, and ρ be constants such that −∞&lt; μi &lt;∞(i = 1, 2), σi &gt; 0 (i = 1, 2), and −1&lt;ρ &lt;1. Define two new random variables X1 and X2 as follows: X1 = σ1Z1 + μ1, X2 = σ2 # ρZ1 + (1− ρ2)1/2Z2 $ + μ2. (5.10.1) The joint p.d.f. of X1 and X2 is f (x1, x2) = 1 2π(1− ρ2)1/2σ1σ2 exp   − 1 2(1− ρ2)  </p>
+<p><span class="theorem-title"><strong>Theorem 5.1 (Theorem 5.10.1)</strong></span> Suppose that Z1 and Z2 are independent random variables, each of which has the standard normal distribution. Let μ1, μ2, σ1, σ2, and ρ be constants such that −∞&lt; μi &lt;∞(i = 1, 2), σi &gt; 0 (i = 1, 2), and −1&lt;ρ &lt;1. Define two new random variables X1 and X2 as follows: X1 = σ1Z1 + μ1, X2 = σ2 # ρZ1 + (1− ρ2)1/2Z2 $ + μ2. (5.10.1) The joint p.d.f. of X1 and X2 is f (x1, x2) = 1 2π(1− ρ2)1/2σ1σ2 exp   − 1 2(1− ρ2)  </p>
 <p>x1 − μ1 σ1  2 (5.10.2) − 2ρ</p>
 <p>x1 − μ1 σ1  </p>
 <p>x2 − μ2 σ2   +</p>
@@ -435,7 +471,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-5-10-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5.2 (Theorem 5.10.2) </strong></span>Suppose thatX1 andX2 have the joint distribution whose p.d.f. is given by Eq. (5.10.2). Then there exist independent standard normal random variables Z1 and Z2 such that Eqs. (5.10.1) hold. Also, the mean of Xi is μi and the variance of Xi is σ2 i for i = 1, 2. Furthermore the correlation between X1 and X2 is ρ. Finally, the marginal distribution ofXi is the normal distribution with mean μi and variance σ2 i for i = 1, 2. Proof Use the functions s1 and s2 defined in Eqs. (5.10.4) and define Zi = si(X1, X2) for i = 1, 2. By running the proof of Theorem 5.10.1 in reverse, we see that the joint p.d.f. of Z1 and Z2 is Eq. (5.10.3). Hence, Z1 and Z2 are independent standard normal random variables. The values of the means and variances ofX1 andX2 are easily obtained by applying Corollary 5.6.1 to Eq. (5.10.1). If one applies the result in Exercise 8 of Sec. 4.6, one obtains Cov(X1, X2) = σ1σ2ρ. It now follows that ρ is the correlation. The claim about the marginal distributions of X1 and X2 is immediate from Corollary 5.6.1.</p>
+<p><span class="theorem-title"><strong>Theorem 5.2 (Theorem 5.10.2)</strong></span> Suppose thatX1 andX2 have the joint distribution whose p.d.f. is given by Eq. (5.10.2). Then there exist independent standard normal random variables Z1 and Z2 such that Eqs. (5.10.1) hold. Also, the mean of Xi is μi and the variance of Xi is σ2 i for i = 1, 2. Furthermore the correlation between X1 and X2 is ρ. Finally, the marginal distribution ofXi is the normal distribution with mean μi and variance σ2 i for i = 1, 2. Proof Use the functions s1 and s2 defined in Eqs. (5.10.4) and define Zi = si(X1, X2) for i = 1, 2. By running the proof of Theorem 5.10.1 in reverse, we see that the joint p.d.f. of Z1 and Z2 is Eq. (5.10.3). Hence, Z1 and Z2 are independent standard normal random variables. The values of the means and variances ofX1 andX2 are easily obtained by applying Corollary 5.6.1 to Eq. (5.10.1). If one applies the result in Exercise 8 of Sec. 4.6, one obtains Cov(X1, X2) = σ1σ2ρ. It now follows that ρ is the correlation. The claim about the marginal distributions of X1 and X2 is immediate from Corollary 5.6.1.</p>
 </div>
 </div>
 </div>
@@ -577,10 +613,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -590,8 +643,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -603,7 +665,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -647,6 +832,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -672,6 +858,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -733,17 +945,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-expectation.html" class="pagination-link">
+      <a href="./04-expectation.html" class="pagination-link" aria-label="Expectation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Expectation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-large-random-samples.html" class="pagination-link">
+      <a href="./06-large-random-samples.html" class="pagination-link" aria-label="Large Random Samples">
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Large Random Samples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
