@@ -203,7 +203,7 @@ Subtract $\Pr(A \cap B)$ from both sides of this last equation to complete the p
 :::
 :::
 
-![$B = A ∪ (B ∩ Ac)$ in the proof of @thm-1-5-4.](ch01/images/fig-1-8.svg){#fig-1-8}
+![$B = A \cup (B \cap A^c)$ in the proof of @thm-1-5-4.](ch01/images/fig-1-8.svg){#fig-1-8}
 
 ::: {.callout-tip}
 ::: {#thm-1-5-7}

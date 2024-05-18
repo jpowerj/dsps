@@ -269,9 +269,9 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sec-2-3" id="toc-sec-2-3" class="nav-link" data-scroll-target="#sec-2-3"><span class="header-section-number">2.3</span> Bayes’ Theorem</a>
   <ul class="collapse">
-  <li><a href="#statement-and-examples-of-bayes-theorem" id="toc-statement-and-examples-of-bayes-theorem" class="nav-link" data-scroll-target="#statement-and-examples-of-bayes-theorem"><span class="header-section-number">2.3.1</span> Statement, , and Examples of Bayes’ Theorem</a></li>
-  <li><a href="#prior-and-posterior" id="toc-prior-and-posterior" class="nav-link" data-scroll-target="#prior-and-posterior"><span class="header-section-number">2.3.2</span> Prior and Posterior </a></li>
-  <li><a href="#computation-of-posterior-in-more-than-one-stage" id="toc-computation-of-posterior-in-more-than-one-stage" class="nav-link" data-scroll-target="#computation-of-posterior-in-more-than-one-stage"><span class="header-section-number">2.3.3</span> Computation of Posterior in More Than One Stage</a></li>
+  <li><a href="#statement-proof-and-examples-of-bayes-theorem" id="toc-statement-proof-and-examples-of-bayes-theorem" class="nav-link" data-scroll-target="#statement-proof-and-examples-of-bayes-theorem"><span class="header-section-number">2.3.1</span> Statement, Proof, and Examples of Bayes’ Theorem</a></li>
+  <li><a href="#prior-and-posterior-probabilities" id="toc-prior-and-posterior-probabilities" class="nav-link" data-scroll-target="#prior-and-posterior-probabilities"><span class="header-section-number">2.3.2</span> Prior and Posterior Probabilities</a></li>
+  <li><a href="#computation-of-posterior-probabilities-in-more-than-one-stage" id="toc-computation-of-posterior-probabilities-in-more-than-one-stage" class="nav-link" data-scroll-target="#computation-of-posterior-probabilities-in-more-than-one-stage"><span class="header-section-number">2.3.3</span> Computation of Posterior Probabilities in More Than One Stage</a></li>
   <li><a href="#conditionally-independent-events-1" id="toc-conditionally-independent-events-1" class="nav-link" data-scroll-target="#conditionally-independent-events-1"><span class="header-section-number">2.3.4</span> Conditionally Independent Events</a></li>
   <li><a href="#summary-2" id="toc-summary-2" class="nav-link" data-scroll-target="#summary-2"><span class="header-section-number">2.3.5</span> Summary</a></li>
   <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">2.3.6</span> Exercises</a></li>
@@ -1260,21 +1260,9 @@ Caution
 <section id="conditionally-independent-events" class="level3" data-number="2.2.4">
 <h3 data-number="2.2.4" class="anchored" data-anchor-id="conditionally-independent-events"><span class="header-section-number">2.2.4</span> Conditionally Independent Events</h3>
 <p>Conditional probability and independence combine into one of the most versatile models of data collection. The idea is that, in many circumstances, we are unwilling to say that certain events are independent because we believe that learning some of them will provide information about how likely the others are to occur. But if we knew the frequency with which such events would occur, we might then be willing to assume that they are independent. This model can be illustrated using one of the examples from earlier in this section.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-2-10" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.23 (Example 2.2.10: Inspecting Items)</strong></span> Consider again the situation in <a href="#exm-2-2-5" class="quarto-xref">Example&nbsp;<span>2.18</span></a>. This time, however, suppose that we believe that we would change our minds about the probabilities of later items being defective were we to learn that certain numbers of early items were defective. Suppose that we think of the number <span class="math inline">\(p\)</span> from <a href="#exm-2-2-5" class="quarto-xref">Example&nbsp;<span>2.18</span></a> as the proportion of defective items that we would expect to see if we were to inspect a very large sample of items. If we knew this proportion <span class="math inline">\(p\)</span>, and if we were to sample only a few, say, six or 10 items now, we might feel confident maintaining that the probability of a later item being defective remains <span class="math inline">\(p\)</span> even after we inspect some of the earlier items. On the other hand, if we are not sure what would be the proportion of defective items in a large sample, we might not feel confident keeping the probability the same as we continue to inspect.</p>
 <p>To be precise, suppose that we treat the proportion <span class="math inline">\(p\)</span> of defective items as unknown and that we are dealing with an augmented experiment as described in <a href="#def-2-1-3" class="quarto-xref">Definition&nbsp;<span>2.3</span></a>. For simplicity, suppose that <span class="math inline">\(p\)</span> can take one of two values, either 0.01 or 0.4, the first corresponding to normal operation and the second corresponding to a need for maintenance. Let <span class="math inline">\(B_1\)</span> be the event that <span class="math inline">\(p = 0.01\)</span>, and let <span class="math inline">\(B_2\)</span> be the event that <span class="math inline">\(p = 0.4\)</span>. If we knew that <span class="math inline">\(B_1\)</span> had occurred, then we would proceed under the assumption that the events <span class="math inline">\(D_1, D_2, \ldots\)</span> were independent with <span class="math inline">\(\Pr(D_i \mid B_1) = 0.01\)</span> for all <span class="math inline">\(i\)</span>. For example, we could do the same calculations as in Examples <a href="#exm-2-2-5" class="quarto-xref"><span>2.18</span></a> and <a href="#exm-2-2-8" class="quarto-xref"><span>2.21</span></a> with <span class="math inline">\(p = 0.01\)</span>. Let <span class="math inline">\(A\)</span> be the event that we observe exactly two defectives in a random sample of six items. Then <span class="math inline">\(\Pr(A \mid B_1) = \binom{6}{2}(0.01)^2(0.99)^4 = 1.44 \times 10^{-3}\)</span>. Similarly, if we knew that <span class="math inline">\(B_2\)</span> had occurred, then we would assume that <span class="math inline">\(D_1, D_2, \ldots\)</span> were independent with <span class="math inline">\(\Pr(D_i \mid B_2) = 0.4\)</span>. In this case, <span class="math inline">\(\Pr(A \mid B_2) = \binom{6}{2}(0.4)^2(0.6)^4 = 0.311\)</span>. </p>
-</div>
-</div>
 </div>
 <p>In <a href="#exm-2-2-10" class="quarto-xref">Example&nbsp;<span>2.23</span></a>, there is no reason that <span class="math inline">\(p\)</span> must be required to assume at most two different values. We could easily allow <span class="math inline">\(p\)</span> to take a third value or a fourth value, etc. Indeed, in <a href="03-random-variables.html" class="quarto-xref"><span>Chapter 3</span></a> we shall learn how to handle the case in which every number between 0 and 1 is a possible value of <span class="math inline">\(p\)</span>. The point of the simple example is to illustrate the concept of assuming that events are independent conditional on another event, such as <span class="math inline">\(B_1\)</span> or <span class="math inline">\(B_2\)</span> in the example.</p>
 <p>The formal concept illustrated in <a href="#exm-2-2-10" class="quarto-xref">Example&nbsp;<span>2.23</span></a> is the following:</p>
@@ -1444,36 +1432,14 @@ p = \sum_{j=0}^{r-1}(-1)^j \binom{r}{j}\left(1 - \frac{j}{r}\right)^n.
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-2-3"><span class="header-section-number">2.3</span> Bayes’ Theorem</h2>
 <p><em>Suppose that we are interested in which of several disjoint events <span class="math inline">\(B_1, \ldots, B_k\)</span> will occur and that we will get to observe some other event <span class="math inline">\(A\)</span>. If <span class="math inline">\(\Pr(A \mid B_i)\)</span> is available for each <span class="math inline">\(i\)</span>, then Bayes’ theorem is a useful formula for computing the conditional of the <span class="math inline">\(B_i\)</span> events given <span class="math inline">\(A\)</span>.</em></p>
 <p>We begin with a typical example.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.24 (Example 2.3.1: Test for a Disease)</strong></span> Suppose that you are walking down the street and notice that the Department of Public Health is giving a free medical test for a certain disease. The test is 90 percent reliable in the following sense: If a person has the disease, there is a probability of 0.9 that the test will give a positive response; whereas, if a person does not have the disease, there is a probability of only 0.1 that the test will give a positive response.</p>
 <p>Data indicate that your chances of having the disease are only 1 in 10,000. However, since the test costs you nothing, and is fast and harmless, you decide to stop and take the test. A few days later you learn that you had a positive response to the test. Now, what is the probability that you have the disease?  </p>
 </div>
-</div>
-</div>
-<p>The last question in <a href="#exm-2-3-1" class="quarto-xref">Example&nbsp;<span>2.24</span></a> is a of the question for which Bayes’ theorem was designed.We have at least two disjoint events (“you have the disease” and “you do not have the disease”) about which we are uncertain, and we learn a piece of information (the result of the test) that tells us something about the uncertain events. Then we need to know how to revise the of the events in the light of the information we learned.</p>
-<p>We now the general structure in which Bayes’ theorem operates before returning to the example.</p>
-<section id="statement-and-examples-of-bayes-theorem" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="statement-and-examples-of-bayes-theorem"><span class="header-section-number">2.3.1</span> Statement, , and Examples of Bayes’ Theorem</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>The last question in <a href="#exm-2-3-1" class="quarto-xref">Example&nbsp;<span>2.24</span></a> is a prototype of the question for which Bayes’ theorem was designed.We have at least two disjoint events (“you have the disease” and “you do not have the disease”) about which we are uncertain, and we learn a piece of information (the result of the test) that tells us something about the uncertain events. Then we need to know how to revise the probabilities of the events in the light of the information we learned.</p>
+<p>We now present the general structure in which Bayes’ theorem operates before returning to the example.</p>
+<section id="statement-proof-and-examples-of-bayes-theorem" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="statement-proof-and-examples-of-bayes-theorem"><span class="header-section-number">2.3.1</span> Statement, Proof, and Examples of Bayes’ Theorem</h3>
 <div id="exm-2-3-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.25 (Example 2.3.2: Selecting Bolts)</strong></span> Consider again the situation in <a href="#exm-2-1-8" class="quarto-xref">Example&nbsp;<span>2.8</span></a>, in which a bolt is selected at random from one of two boxes. Suppose that we cannot tell without making a further effort from which of the two boxes the one bolt is being selected. For example, the boxes may be identical in appearance or somebody else may actually select the box, but we only get to see the bolt. prior to selecting the bolt, it was equally likely that each of the two boxes would be selected. However, if we learn that event <span class="math inline">\(A\)</span> has occurred, that is, a long bolt was selected, we can compute the conditional of the two boxes given <span class="math inline">\(A\)</span>. To remind the reader, <span class="math inline">\(B_1\)</span> is the event that the box is selected containing 60 long bolts and 40 short bolts, while <span class="math inline">\(B_2\)</span> is the event that the box is selected containing 10 long bolts and 20 short bolts. In <a href="#exm-2-1-9" class="quarto-xref">Example&nbsp;<span>2.9</span></a>, we computed <span class="math inline">\(\Pr(A) = 7/15\)</span>, <span class="math inline">\(\Pr(A \mid B_1) = 3/5\)</span>, <span class="math inline">\(\Pr(A \mid B_2) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_1) = \Pr(B_2) = 1/2\)</span>. So, for example,</p>
 <p><span class="math display">\[
@@ -1481,20 +1447,8 @@ Tip
 \]</span></p>
 <p>Since the first box has a higher of long bolts than the second box, it seems reasonable that the probability of <span class="math inline">\(B_1\)</span> should rise after we learn that a long bolt was selected. It must be that <span class="math inline">\(\Pr(B_2 \mid A) = 5/14\)</span> since one or the other box had to be selected.</p>
 </div>
-</div>
-</div>
 <!-- Stopping point 2023-09-08 -->
 <p>  In <a href="#exm-2-3-2" class="quarto-xref">Example&nbsp;<span>2.25</span></a>, we started with uncertainty about which of two boxes would be chosen and then we observed a long bolt drawn from the chosen box. Because the two boxes have different chances of having a long bolt drawn, the observation of a long bolt changed the of each of the two boxes having been chosen. The calculation of how the change is the purpose of Bayes’ theorem.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-2-3-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.9 (Theorem 2.3.1: Bayes’ Theorem)</strong></span> Let the events <span class="math inline">\(B_1, \ldots, B_k\)</span> form a partition of the space <span class="math inline">\(S\)</span> such that <span class="math inline">\(\Pr(B_j) &gt; 0\)</span> for <span class="math inline">\(j = 1, \ldots, k\)</span>, and let <span class="math inline">\(A\)</span> be an event such that <span class="math inline">\(\Pr(A) &gt; 0\)</span>. Then, for <span class="math inline">\(i = 1, \ldots, k\)</span>,</p>
 <p><span id="eq-2-3-1"><span class="math display">\[
@@ -1508,18 +1462,6 @@ Caution
 <p>The numerator on the right side of <a href="#eq-2-3-1" class="quarto-xref">Equation&nbsp;<span>2.10</span></a> is equal to <span class="math inline">\(\Pr(B_i \cap A)\)</span> by <a href="#thm-2-1-1" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a>. The denominator is equal to <span class="math inline">\(\Pr(A)\)</span> according to <a href="#thm-2-1-4" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>.</p>
 </div>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.26 (Example 2.3.3: Test for a Disease)</strong></span> Let us return to the example with which we began this section. We have just received word that we have tested positive for a disease. The test was 90 percent reliable in the sense that we described in <a href="#exm-2-3-1" class="quarto-xref">Example&nbsp;<span>2.24</span></a>. We want to know the probability that we have the disease after we learn that the result of the test is positive. Some readers may feel that this probability should be about 0.9. However, this feeling completely ignores the small probability of 0.0001 that you had the disease before taking the test. We shall let <span class="math inline">\(B_1\)</span> denote the event that you have the disease, and let <span class="math inline">\(B_2\)</span> denote the event that you do not have the disease. The events <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> form a partition. Also, let <span class="math inline">\(A\)</span> denote the event that the response to the test is positive. The event <span class="math inline">\(A\)</span> is information we will learn that tells us something about the partition elements. Then, by Bayes’ theorem,</p>
 <p><span class="math display">\[
@@ -1531,18 +1473,6 @@ Tip
 <p>Thus, the conditional probability that you have the disease given the test result is approximately only 1 in 1000. Of course, this conditional probability is approximately 9 times as great as the probability was before you were tested, but even the conditional probability is quite small.</p>
 <p>Another way to explain this result is as follows: Only one person in every 10,000 actually has the disease, but the test gives a positive response for approximately one person in every 10. Hence, the number of positive responses is approximately 1000 times the number of persons who actually have the disease. In other words, out of every 1000 persons for whom the test gives a positive response, only one person actually has the disease. This example illustrates not only the use of Bayes’ theorem but also the importance of taking into account all of the information available in a .</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-4" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.27 (Example 2.3.4: Identifying the Source of a Defective Item)</strong></span> Three different machines <span class="math inline">\(M_1\)</span>, <span class="math inline">\(M_2\)</span>, and <span class="math inline">\(M_3\)</span> were used for a large batch of similar manufactured items. Suppose that 20 percent of the items were by machine <span class="math inline">\(M_1\)</span>, 30 percent by machine <span class="math inline">\(M_2\)</span>, and 50 percent by machine <span class="math inline">\(M_3\)</span>. Suppose further that 1 percent of the items by machine <span class="math inline">\(M_1\)</span> are defective, that 2 percent of the items by machine <span class="math inline">\(M_2\)</span> are defective, and that 3 percent of the items by machine <span class="math inline">\(M_3\)</span> are defective. Finally, suppose that one item is selected at random from the entire batch and it is found to be defective. We shall determine the probability that this item was by machine <span class="math inline">\(M_2\)</span>.</p>
 <p>Let <span class="math inline">\(B_i\)</span> be the event that the selected item was by machine <span class="math inline">\(M_i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>), and let <span class="math inline">\(A\)</span> be the event that the selected item is defective. We must evaluate the conditional probability <span class="math inline">\(\Pr(B_2 \mid A)\)</span>.</p>
@@ -1562,22 +1492,10 @@ Tip
 \end{align*}
 \]</span></p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.28 (Example 2.3.5: Identifying Genotypes)</strong></span> Consider a gene that has two alleles (see <a href="01-intro.html#exm-1-6-4" class="quarto-xref">Example&nbsp;<span>1.13</span></a>) <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span>. Suppose that the gene exhibits itself through a trait (such as hair color or blood type) with two versions. We call <span class="math inline">\(A\)</span> <strong>dominant</strong> and <span class="math inline">\(a\)</span> <strong>recessive</strong> if individuals with genotypes <span class="math inline">\(AA\)</span> and <span class="math inline">\(Aa\)</span> have the same version of the trait and the individuals with genotype <span class="math inline">\(aa\)</span> have the other version. The two versions of the trait are called <strong>phenotypes</strong>. We shall call the phenotype exhibited by individuals with genotypes <span class="math inline">\(AA\)</span> and <span class="math inline">\(Aa\)</span> the <strong>dominant trait</strong>, and the other trait will be called the <strong>recessive trait</strong>. In population genetics studies, it is common to have information on the phenotypes of individuals, but it is rather difficult to determine genotypes. However, some information about genotypes can be obtained by observing phenotypes of parents and children.</p>
-<p>Assume that the allele <span class="math inline">\(A\)</span> is dominant, that individuals mate independently of genotype, and that the genotypes <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span>, and <span class="math inline">\(aa\)</span> occur in the population with <span class="math inline">\(1/4\)</span>, <span class="math inline">\(1/2\)</span>, and <span class="math inline">\(1/4\)</span>, respectively. We are going to observe an individual whose parents are not available, and we shall observe the phenotype of this individual. Let <span class="math inline">\(E\)</span> be the event that the observed individual has the dominant trait. We would like to revise our opinion of the possible genotypes of the parents. There are six possible genotype combinations, <span class="math inline">\(B_1, \ldots, B_6\)</span>, for the parents prior to making any observations, and these are listed in <a href="#tbl-2-2" class="quarto-xref">Table&nbsp;<span>2.1</span></a>.</p>
-<p>The of the <span class="math inline">\(B_i\)</span> were computed using the assumption that the parents mated independently of genotype. For example, <span class="math inline">\(B_3\)</span> occurs if the father is <span class="math inline">\(AA\)</span> and the mother is <span class="math inline">\(aa\)</span> (probability <span class="math inline">\(1/16\)</span>) or if the father is <span class="math inline">\(aa\)</span> and the mother is <span class="math inline">\(AA\)</span> (probability <span class="math inline">\(1/16\)</span>). The values of <span class="math inline">\(\Pr(E \mid B_i)\)</span> were computed assuming that the two available alleles are passed from parents to children with probability <span class="math inline">\(1/2\)</span> each and independently for the two parents. For example, given <span class="math inline">\(B_4\)</span>, the event <span class="math inline">\(E\)</span> occurs if and only if the child does not get two <span class="math inline">\(a\)</span>’s. The probability of getting <span class="math inline">\(a\)</span> from both parents given <span class="math inline">\(B_4\)</span> is <span class="math inline">\(1/4\)</span>, so <span class="math inline">\(\Pr(E \mid B_4) = 3/4\)</span>.</p>
+<p>Assume that the allele <span class="math inline">\(A\)</span> is dominant, that individuals mate independently of genotype, and that the genotypes <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span>, and <span class="math inline">\(aa\)</span> occur in the population with probabilities <span class="math inline">\(1/4\)</span>, <span class="math inline">\(1/2\)</span>, and <span class="math inline">\(1/4\)</span>, respectively. We are going to observe an individual whose parents are not available, and we shall observe the phenotype of this individual. Let <span class="math inline">\(E\)</span> be the event that the observed individual has the dominant trait. We would like to revise our opinion of the possible genotypes of the parents. There are six possible genotype combinations, <span class="math inline">\(B_1, \ldots, B_6\)</span>, for the parents prior to making any observations, and these are listed in <a href="#tbl-2-2" class="quarto-xref">Table&nbsp;<span>2.1</span></a>.</p>
+<p>The probabilities of the <span class="math inline">\(B_i\)</span> were computed using the assumption that the parents mated independently of genotype. For example, <span class="math inline">\(B_3\)</span> occurs if the father is <span class="math inline">\(AA\)</span> and the mother is <span class="math inline">\(aa\)</span> (probability <span class="math inline">\(1/16\)</span>) or if the father is <span class="math inline">\(aa\)</span> and the mother is <span class="math inline">\(AA\)</span> (probability <span class="math inline">\(1/16\)</span>). The values of <span class="math inline">\(\Pr(E \mid B_i)\)</span> were computed assuming that the two available alleles are passed from parents to children with probability <span class="math inline">\(1/2\)</span> each and independently for the two parents. For example, given <span class="math inline">\(B_4\)</span>, the event <span class="math inline">\(E\)</span> occurs if and only if the child does not get two <span class="math inline">\(a\)</span>’s. The probability of getting <span class="math inline">\(a\)</span> from both parents given <span class="math inline">\(B_4\)</span> is <span class="math inline">\(1/4\)</span>, so <span class="math inline">\(\Pr(E \mid B_4) = 3/4\)</span>.</p>
 <p>Now we shall compute <span class="math inline">\(\Pr(B_1 \mid E)\)</span> and <span class="math inline">\(\Pr(B_5 \mid E)\)</span>. We leave the other calculations to the reader. The denominator of Bayes’ theorem is the same for both calculations, namely,</p>
 <p><span class="math display">\[
 \begin{align*}
@@ -1589,8 +1507,6 @@ Tip
 <p><span class="math display">\[
 \Pr(B_1 \mid E) = \frac{\frac{1}{16}\cdot 1}{\frac{3}{4}} = \frac{1}{12}, \; \Pr(B_5 \mid E) = \frac{\frac{1}{4}\cdot \frac{1}{2}}{\frac{3}{4}} = \frac{1}{6}.
 \]</span></p>
-</div>
-</div>
 </div>
 <div id="tbl-2-2" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1657,13 +1573,13 @@ Table&nbsp;2.1: Parental genotypes for <a href="#exm-2-3-5" class="quarto-xref">
 \Pr(B_i \mid A \cap C) = \frac{\Pr(B_i \mid C)\Pr(A \mid B_i \cap C)}{\sum_{j=1}^k \Pr(B_j \mid C)\Pr(A \mid B_j \cap C)}.
 \tag{2.11}\]</span></span></p>
 </section>
-<section id="prior-and-posterior" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="prior-and-posterior"><span class="header-section-number">2.3.2</span> Prior and Posterior </h3>
-<p>In <a href="#exm-2-3-4" class="quarto-xref">Example&nbsp;<span>2.27</span></a>, a probability like <span class="math inline">\(\Pr(B_2)\)</span> is often called the <strong>prior probability</strong> that the selected item will have been by machine <span class="math inline">\(M_2\)</span>, because <span class="math inline">\(\Pr(B_2)\)</span> is the probability of this event before the item is selected and before it is known whether the selected item is defective or nondefective. A probability like <span class="math inline">\(\Pr(B_2 \mid A)\)</span> is then called the <strong>posterior probability</strong> that the selected item was by machine <span class="math inline">\(M_2\)</span>, because it is the probability of this event after it is known that the selected item is defective.</p>
-<p>Thus, in <a href="#exm-2-3-4" class="quarto-xref">Example&nbsp;<span>2.27</span></a>, the prior probability that the selected item will have been by machine <span class="math inline">\(M_2\)</span> is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was by machine <span class="math inline">\(M_2\)</span> is 0.26. Since this posterior probability is smaller than the prior probability that the item was by machine <span class="math inline">\(M_2\)</span>, the posterior probability that the item was by one of the other machines must be larger than the prior probability that it was by one of those machines (see Exercises <a href="#exr-2-3-1" class="quarto-xref"><span>2.42</span></a> and <a href="#exr-2-3-2" class="quarto-xref"><span>2.43</span></a> at the end of this section).</p>
+<section id="prior-and-posterior-probabilities" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="prior-and-posterior-probabilities"><span class="header-section-number">2.3.2</span> Prior and Posterior Probabilities</h3>
+<p>In <a href="#exm-2-3-4" class="quarto-xref">Example&nbsp;<span>2.27</span></a>, a probability like <span class="math inline">\(\Pr(B_2)\)</span> is often called the <strong>prior probability</strong> that the selected item will have been produced by machine <span class="math inline">\(M_2\)</span>, because <span class="math inline">\(\Pr(B_2)\)</span> is the probability of this event before the item is selected and before it is known whether the selected item is defective or nondefective. A probability like <span class="math inline">\(\Pr(B_2 \mid A)\)</span> is then called the <strong>posterior probability</strong> that the selected item was produced by machine <span class="math inline">\(M_2\)</span>, because it is the probability of this event after it is known that the selected item is defective.</p>
+<p>Thus, in <a href="#exm-2-3-4" class="quarto-xref">Example&nbsp;<span>2.27</span></a>, the prior probability that the selected item will have been produced by machine <span class="math inline">\(M_2\)</span> is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was produced by machine <span class="math inline">\(M_2\)</span> is 0.26. Since this posterior probability is smaller than the prior probability that the item was produced by machine <span class="math inline">\(M_2\)</span>, the posterior probability that the item was produced by one of the other machines must be larger than the prior probability that it was produced by one of those machines (see Exercises <a href="#exr-2-3-1" class="quarto-xref"><span>2.42</span></a> and <a href="#exr-2-3-2" class="quarto-xref"><span>2.43</span></a> at the end of this section).</p>
 </section>
-<section id="computation-of-posterior-in-more-than-one-stage" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="computation-of-posterior-in-more-than-one-stage"><span class="header-section-number">2.3.3</span> Computation of Posterior in More Than One Stage</h3>
+<section id="computation-of-posterior-probabilities-in-more-than-one-stage" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="computation-of-posterior-probabilities-in-more-than-one-stage"><span class="header-section-number">2.3.3</span> Computation of Posterior Probabilities in More Than One Stage</h3>
 <p>Suppose that a box contains one fair coin and one coin with a head on each side. Suppose also that one coin is selected at random and that when it is tossed, a head is obtained. We shall determine the probability that the coin is the fair coin.</p>
 <p>Let <span class="math inline">\(B_1\)</span> be the event that the coin is fair, let <span class="math inline">\(B_2\)</span> be the event that the coin has two heads, and let <span class="math inline">\(H_1\)</span> be the event that a head is obtained when the coin is tossed. Then, by Bayes’ theorem,</p>
 <p><span id="eq-2-3-3"><span class="math display">\[
@@ -1681,7 +1597,7 @@ Table&nbsp;2.1: Parental genotypes for <a href="#exm-2-3-5" class="quarto-xref">
 &amp;= \frac{(1/2)(1/4)}{(1/2)(1/4) + (1/2)(1)} = \frac{1}{5}.
 \end{align*}
 \tag{2.13}\]</span></span></p>
-<p>The second way of determining this same posterior probability is to use the conditional version of Bayes’ theorem <a href="#eq-2-3-2" class="quarto-xref">Equation&nbsp;<span>2.11</span></a> given the event <span class="math inline">\(H_1\)</span>. Given <span class="math inline">\(H_1\)</span>, the conditional probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(1/3\)</span>, and the conditional probability of <span class="math inline">\(B_2\)</span> is therefore <span class="math inline">\(2/3\)</span>. These conditional can now serve as the prior for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply <a href="#eq-2-3-2" class="quarto-xref">Equation&nbsp;<span>2.11</span></a> with <span class="math inline">\(C = H_1\)</span>, <span class="math inline">\(\Pr(B_1 \mid H_1) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_2 \mid H_1) = 2/3\)</span>. We can then compute the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need <span class="math inline">\(\Pr(H_2 \mid B_1 \cap H_1)\)</span>, which equals <span class="math inline">\(\Pr(H_2 \mid B_1) = 1/2\)</span> by <a href="#thm-2-2-4" class="quarto-xref">Theorem&nbsp;<span>2.8</span></a> since <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span> are conditionally independent given <span class="math inline">\(B_1\)</span>. Since the coin is two-headed when <span class="math inline">\(B_2\)</span> occurs, <span class="math inline">\(\Pr(H_2 \mid B_2 \cap H_1) = 1\)</span>. So we obtain</p>
+<p>The second way of determining this same posterior probability is to use the conditional version of Bayes’ theorem <a href="#eq-2-3-2" class="quarto-xref">Equation&nbsp;<span>2.11</span></a> given the event <span class="math inline">\(H_1\)</span>. Given <span class="math inline">\(H_1\)</span>, the conditional probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(1/3\)</span>, and the conditional probability of <span class="math inline">\(B_2\)</span> is therefore <span class="math inline">\(2/3\)</span>. These conditional probabilities can now serve as the prior probabilities for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply <a href="#eq-2-3-2" class="quarto-xref">Equation&nbsp;<span>2.11</span></a> with <span class="math inline">\(C = H_1\)</span>, <span class="math inline">\(\Pr(B_1 \mid H_1) = 1/3\)</span>, and <span class="math inline">\(\Pr(B_2 \mid H_1) = 2/3\)</span>. We can then compute the posterior probability <span class="math inline">\(\Pr(B_1 \mid H_1 \cap H_2)\)</span> that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need <span class="math inline">\(\Pr(H_2 \mid B_1 \cap H_1)\)</span>, which equals <span class="math inline">\(\Pr(H_2 \mid B_1) = 1/2\)</span> by <a href="#thm-2-2-4" class="quarto-xref">Theorem&nbsp;<span>2.8</span></a> since <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span> are conditionally independent given <span class="math inline">\(B_1\)</span>. Since the coin is two-headed when <span class="math inline">\(B_2\)</span> occurs, <span class="math inline">\(\Pr(H_2 \mid B_2 \cap H_1) = 1\)</span>. So we obtain</p>
 <p><span id="eq-2-3-5"><span class="math display">\[
 \begin{align*}
 \Pr(B_1 \mid H_1 \cap H_2) &amp;= \frac{
@@ -1698,16 +1614,6 @@ Table&nbsp;2.1: Parental genotypes for <a href="#exm-2-3-5" class="quarto-xref">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="conditionally-independent-events-1"><span class="header-section-number">2.3.4</span> Conditionally Independent Events</h3>
 <!-- Stopping point 2023-09-09 -->
 <p>The calculations that led to <a href="#eq-2-3-3" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and <a href="#eq-2-3-5" class="quarto-xref">Equation&nbsp;<span>2.14</span></a> together with <a href="#exm-2-2-10" class="quarto-xref">Example&nbsp;<span>2.23</span></a> illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the probabilities that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to <a href="#eq-2-3-3" class="quarto-xref">Equation&nbsp;<span>2.12</span></a>, before any tosses occur, the probability of <span class="math inline">\(H_2\)</span> is the same as the probability of <span class="math inline">\(H_1\)</span>, namely, the denominator of <a href="#eq-2-3-3" class="quarto-xref">Equation&nbsp;<span>2.12</span></a>, <span class="math inline">\(3/4\)</span>, as <a href="#thm-2-1-4" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> says. However, after observing that the event <span class="math inline">\(H_1\)</span> occurs, the probability of <span class="math inline">\(H_2\)</span> is <span class="math inline">\(\Pr(H_2 \mid H_1)\)</span>, which is the denominator of <a href="#eq-2-3-5" class="quarto-xref">Equation&nbsp;<span>2.14</span></a>, <span class="math inline">\(5/6\)</span>, as computed by the conditional version of the law of total probability <a href="#eq-2-1-5" class="quarto-xref">Equation&nbsp;<span>2.5</span></a>. Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the problem, so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint probabilities of various combinations of events conditionally on the partition events. Finally, we can combine these probabilities using <a href="#thm-2-1-4" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a> and <a href="#eq-2-1-5" class="quarto-xref">Equation&nbsp;<span>2.5</span></a>. Two more examples will help to illustrate these ideas.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.29 (Example 2.3.6: Learning about a Proportion)</strong></span> In <a href="#exm-2-2-10" class="quarto-xref">Example&nbsp;<span>2.23</span></a>, a machine produced defective parts in one of two proportions, <span class="math inline">\(p = 0.01\)</span> or <span class="math inline">\(p = 0.4\)</span>. Suppose that the prior probability that <span class="math inline">\(p = 0.01\)</span> is <span class="math inline">\(0.9\)</span>. After sampling six parts at random, suppose that we observe two defectives. What is the posterior probability that <span class="math inline">\(p = 0.01\)</span>?</p>
 <p>Let <span class="math inline">\(B_1 = \{p = 0.01\}\)</span> and <span class="math inline">\(B_2 = \{p = 0.4\}\)</span> as in <a href="#exm-2-2-10" class="quarto-xref">Example&nbsp;<span>2.23</span></a>. Let <span class="math inline">\(A\)</span> be the event that two defectives occur in a random sample of size six. The prior probability of <span class="math inline">\(B_1\)</span> is <span class="math inline">\(0.9\)</span>, and the prior probability of <span class="math inline">\(B_2\)</span> is <span class="math inline">\(0.1\)</span>. We already computed <span class="math inline">\(\Pr(A \mid B_1) = 1.44 \times 10^{−3}\)</span> and <span class="math inline">\(\Pr(A \mid B_2) = 0.311\)</span> in <a href="#exm-2-2-10" class="quarto-xref">Example&nbsp;<span>2.23</span></a>. Bayes’ theorem tells us that</p>
@@ -1720,18 +1626,6 @@ Tip
 \]</span></p>
 <p>Even though we thought originally that <span class="math inline">\(B_1\)</span> had probability as high as <span class="math inline">\(0.9\)</span>, after we learned that there were two defective items in a sample as small as six, we changed our minds dramatically and now we believe that <span class="math inline">\(B_1\)</span> has probability as small as <span class="math inline">\(0.04\)</span>. The reason for this major change is that the event <span class="math inline">\(A\)</span> that occurred has much higher probability if <span class="math inline">\(B_2\)</span> is true than if <span class="math inline">\(B_1\)</span> is true.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-7" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.30 (Example 2.3.7: A Clinical Trial)</strong></span> Consider the same clinical trial described in Examples <a href="#exm-2-1-12" class="quarto-xref"><span>2.12</span></a> and <a href="#exm-2-1-13" class="quarto-xref"><span>2.13</span></a>. Let <span class="math inline">\(E_i\)</span> be the event that the <span class="math inline">\(i\)</span>th patient has success as her outcome. Recall that <span class="math inline">\(B_j\)</span> is the event that <span class="math inline">\(p = (j − 1)/10\)</span> for <span class="math inline">\(j = 1, \ldots, 11\)</span>, where <span class="math inline">\(p\)</span> is the proportion of successes among all possible patients. If we knew which <span class="math inline">\(B_j\)</span> occurred, we would say that <span class="math inline">\(E_1, E_2, \ldots\)</span> were independent. That is, we are willing to model the patients as conditionally independent given each event <span class="math inline">\(B_j\)</span>, and we set <span class="math inline">\(\Pr(E_i \mid B_j) = (j − 1)/10\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>. We shall still assume that <span class="math inline">\(\Pr(B_j) = 1/11\)</span> for all <span class="math inline">\(j\)</span> prior to the start of the trial. We are now in position to express what we learn about <span class="math inline">\(p\)</span> by computing posterior probabilities for the <span class="math inline">\(B_j\)</span> events after each patient finishes the trial.</p>
 <p>For example, consider the first patient. We calculated <span class="math inline">\(\Pr(E_1) = 1/2\)</span> in <a href="#eq-2-1-6" class="quarto-xref">Equation&nbsp;<span>2.6</span></a>. If <span class="math inline">\(E_1\)</span> occurs, we apply Bayes’ theorem to get</p>
@@ -1759,8 +1653,6 @@ Tip
 \tag{2.17}\]</span></span></p>
 <p>Using the values of <span class="math inline">\(\Pr(B_j \mid A)\)</span> in <a href="#fig-2-3" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> and the fact that <span class="math inline">\(\Pr(E_{41} \mid B_j \cap A) = \Pr(E_{41} \mid B_j) = (j − 1)/10\)</span> (conditional independence of the <span class="math inline">\(E_i\)</span> given the <span class="math inline">\(B_j\)</span>), we compute <a href="#eq-2-3-8" class="quarto-xref">Equation&nbsp;<span>2.17</span></a> to be <span class="math inline">\(0.5476\)</span>. This is also very close to the observed frequency of success.</p>
 </div>
-</div>
-</div>
 <p>The calculation at the end of <a href="#exm-2-3-7" class="quarto-xref">Example&nbsp;<span>2.30</span></a> is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.</p>
 <div id="fig-2-3" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1782,16 +1674,6 @@ Figure&nbsp;2.4: The posterior probabilities of partition elements after 40 pati
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-3-8" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.31 (Example 2.3.8: The Effect of Prior Probabilities)</strong></span> Consider the same clinical trial as in <a href="#exm-2-3-7" class="quarto-xref">Example&nbsp;<span>2.30</span></a>. This time, suppose that a different researcher has a different prior opinion about the value of <span class="math inline">\(p\)</span>, the probability of success. This researcher believes the following prior probabilities:</p>
 <table class="table">
@@ -1857,8 +1739,6 @@ Tip
 </tbody>
 </table>
 <p>We can recalculate the posterior probabilities using Bayes’ theorem, and we get the values pictured in <a href="#fig-2-4" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>. To aid comparison, the posterior probabilities from <a href="#exm-2-3-7" class="quarto-xref">Example&nbsp;<span>2.30</span></a> are also plotted in <a href="#fig-2-4" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> using the symbol X. One can see how close the two sets of posterior probabilities are despite the large differences between the prior probabilities. If there had been fewer patients observed, there would have been larger differences between the two sets of posterior probabilites because the observed events would have provided less information. (See <a href="#exr-2-3-12" class="quarto-xref">Exercise&nbsp;<span>2.53</span></a> in this section.)</p>
-</div>
-</div>
 </div>
 </section>
 <section id="summary-2" class="level3" data-number="2.3.5">
@@ -1987,20 +1867,8 @@ a_{k-1} - a_{k-2} &amp;= \frac{1-p}{p}(a_{k-2} - a_{k-3}) = \left(\frac{1-p}{p}\
 <p><span id="eq-2-4-6"><span class="math display">\[
 a_i = \frac{i}{k} \; \text{ for }i = 1, \ldots, k-1.
 \tag{2.23}\]</span></span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-4-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.32 (Example 2.4.1: The Probability of Winning in a Fair Game)</strong></span> Suppose that <span class="math inline">\(p = 1/2\)</span>, in which case the game is equally favorable to both gamblers; and suppose that the initial fortune of gambler <span class="math inline">\(A\)</span> is 98 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just two dollars. In this example, <span class="math inline">\(i = 98\)</span> and <span class="math inline">\(k = 100\)</span>. Therefore, it follows from <a href="#eq-2-4-6" class="quarto-xref">Equation&nbsp;<span>2.23</span></a> that there is a probability of 0.98 that gambler <span class="math inline">\(A\)</span> will win two dollars from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 98 dollars from gambler <span class="math inline">\(A\)</span>.</p>
-</div>
-</div>
 </div>
 <p><strong>Solution for an Unfair Game</strong>: Suppose now that <span class="math inline">\(p \neq 1/2\)</span>. Then <a href="#eq-2-4-5" class="quarto-xref">Equation&nbsp;<span>2.22</span></a> can be rewritten in the form</p>
 <p><span id="eq-2-4-7"><span class="math display">\[
@@ -2026,16 +1894,6 @@ a_i = \frac{
     \left(\frac{1-p}{p}\right)^k - 1
 } \; \text{ for }i = 1, \ldots, k-1.
 \tag{2.26}\]</span></span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-2-4-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.33 (Example 2.4.2: The Probability of Winning in an Unfavorable Game)</strong></span> Suppose that <span class="math inline">\(p = 0.4\)</span>, in which case the probability that gambler <span class="math inline">\(A\)</span> will win one dollar on any given play is smaller than the probability that he will lose one dollar. Suppose also that the initial fortune of gambler <span class="math inline">\(A\)</span> is 99 dollars and the initial fortune of gambler <span class="math inline">\(B\)</span> is just one dollar. We shall determine the probability that gambler <span class="math inline">\(A\)</span> will win one dollar from gambler <span class="math inline">\(B\)</span> before gambler <span class="math inline">\(B\)</span> wins 99 dollars from gambler <span class="math inline">\(A\)</span>.</p>
 <p>In this example, the required probability <span class="math inline">\(a_i\)</span> is given by <a href="#eq-2-4-9" class="quarto-xref">Equation&nbsp;<span>2.26</span></a>, in which <span class="math inline">\((1-p)/p = 3/2\)</span>, <span class="math inline">\(i = 99\)</span>, and <span class="math inline">\(k = 100\)</span>. Therefore,</p>
@@ -2047,8 +1905,6 @@ a_i = \frac{
 } \approx \frac{1}{3/2} = \frac{2}{3}.
 \]</span></p>
 <p>Hence, although the probability that gambler <span class="math inline">\(A\)</span> will win one dollar on any given play is only 0.4, the probability that he will win one dollar before he loses 99 dollars is approximately <span class="math inline">\(2/3\)</span>.</p>
-</div>
-</div>
 </div>
 </section>
 <section id="summary-3" class="level3" data-number="2.4.3">

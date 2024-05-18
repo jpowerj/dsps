@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,6 +37,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="fullcontent">
@@ -47,21 +74,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <section id="sec-3-3" class="level2">
 <h2 class="anchored" data-anchor-id="sec-3-3">The Cumulative Distribution Function</h2>
 <p><em>Although a discrete distribution is characterized by its PMF and a continuous distribution is characterized by its PDF, every distribution has a common characterization through its (cumulative) distribution function (CDF). The inverse of the CDF is called the quantile function, and it is useful for indicating where the probability is located in a distribution.</em></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Example 3.3.1: Voltage (DeGroot and Schervish, pp.&nbsp;107-108)) </strong></span>Consider again the voltage <span class="math inline">\(X\)</span> from <strong>?@exm-3-2-5</strong>. The distribution of <span class="math inline">\(X\)</span> is characterized by the pdf in <strong>?@eq-3-2-8</strong>. An alternative characterization that is more directly related to probabilities associated with <span class="math inline">\(X\)</span> is obtained from the following function:</p>
+<p><span class="theorem-title"><strong>Example 1 (Example 3.3.1: Voltage (pp.&nbsp;107-108))</strong></span> Consider again the voltage <span class="math inline">\(X\)</span> from <strong>?@exm-3-2-5</strong>. The distribution of <span class="math inline">\(X\)</span> is characterized by the pdf in <strong>?@eq-3-2-8</strong>. An alternative characterization that is more directly related to probabilities associated with <span class="math inline">\(X\)</span> is obtained from the following function:</p>
 <p><span class="math display">\[
 \begin{align*}
 F(x) &amp;= \Pr(X \leq x) = \int_{-\infty}^{x}f(y)~dy = \begin{cases}
@@ -76,41 +94,17 @@ F(x) &amp;= \Pr(X \leq x) = \int_{-\infty}^{x}f(y)~dy = \begin{cases}
 \]</span></p>
 <p>So, for example, <span class="math inline">\(\Pr(X \leq 3) = F(3) = 3/4\)</span>.</p>
 </div>
-</div>
-</div>
 <section id="definition-and-basic-properties" class="level3">
 <h3 class="anchored" data-anchor-id="definition-and-basic-properties">Definition and Basic Properties</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-3-1" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Definition 3.3.1: Cumulative Distribution Function (DeGroot and Schervish, p.&nbsp;108)) </strong></span>The <strong>Cumulative Distribution Function</strong> (abbreviated <strong>CDF</strong>) <span class="math inline">\(F\)</span> of a random variable <span class="math inline">\(X\)</span> is the function</p>
+<p><span class="theorem-title"><strong>Definition 1 (Definition 3.3.1: Cumulative Distribution Function (DeGroot and Schervish, p.&nbsp;108))</strong></span> The <strong>Cumulative Distribution Function</strong> (abbreviated <strong>CDF</strong>) <span class="math inline">\(F\)</span> of a random variable <span class="math inline">\(X\)</span> is the function</p>
 <p><span id="eq-3-3-2"><span class="math display">\[
 F(x) = \Pr(X \leq x) \; \text{ for } -\infty &lt; x &lt; \infty.
 \tag{1}\]</span></span></p>
 </div>
-</div>
-</div>
-<p>It should be emphasized that the cumulative distribution function is defined as above for every random variable <span class="math inline">\(X\)</span>, regardless of whether the distribution of <span class="math inline">\(X\)</span> is discrete, continuous, or mixed. For the continuous random variable in <a href="#exm-3-3-1">Example&nbsp;1</a>, the CDF was calculated in <strong>?@eq-3-3-1</strong>. Here is a discrete example:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>It should be emphasized that the cumulative distribution function is defined as above for every random variable <span class="math inline">\(X\)</span>, regardless of whether the distribution of <span class="math inline">\(X\)</span> is discrete, continuous, or mixed. For the continuous random variable in <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a>, the CDF was calculated in <strong>?@eq-3-3-1</strong>. Here is a discrete example:</p>
 <div id="exm-3-3-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Example 3.3.2: Bernoulli CDF) </strong></span>Let <span class="math inline">\(X\)</span> have the Bernoulli distribution with parameter <span class="math inline">\(p\)</span> defined in <strong>?@def-3-1-5</strong>. Then <span class="math inline">\(\Pr(X = 0) = 1 − p\)</span> and <span class="math inline">\(\Pr(X = 1) = p\)</span>. Let <span class="math inline">\(F\)</span> be the CDF of <span class="math inline">\(X\)</span>. It is easy to see that <span class="math inline">\(F(x) = 0\)</span> for <span class="math inline">\(x &lt; 0\)</span> because <span class="math inline">\(X \geq 0\)</span> for sure. Similarly, <span class="math inline">\(F(x) = 1\)</span> for <span class="math inline">\(x \geq 1\)</span> because <span class="math inline">\(X \leq 1\)</span> for sure. For <span class="math inline">\(0 \leq x &lt; 1\)</span>, <span class="math inline">\(\Pr(X \leq x) = Pr(X = 0) = 1 − p\)</span> because 0 is the only possible value of <span class="math inline">\(X\)</span> that is in the interval <span class="math inline">\((−\infty, x]\)</span>. In summary,</p>
+<p><span class="theorem-title"><strong>Example 2 (Example 3.3.2: Bernoulli CDF)</strong></span> Let <span class="math inline">\(X\)</span> have the Bernoulli distribution with parameter <span class="math inline">\(p\)</span> defined in <strong>?@def-3-1-5</strong>. Then <span class="math inline">\(\Pr(X = 0) = 1 − p\)</span> and <span class="math inline">\(\Pr(X = 1) = p\)</span>. Let <span class="math inline">\(F\)</span> be the CDF of <span class="math inline">\(X\)</span>. It is easy to see that <span class="math inline">\(F(x) = 0\)</span> for <span class="math inline">\(x &lt; 0\)</span> because <span class="math inline">\(X \geq 0\)</span> for sure. Similarly, <span class="math inline">\(F(x) = 1\)</span> for <span class="math inline">\(x \geq 1\)</span> because <span class="math inline">\(X \leq 1\)</span> for sure. For <span class="math inline">\(0 \leq x &lt; 1\)</span>, <span class="math inline">\(\Pr(X \leq x) = Pr(X = 0) = 1 − p\)</span> because 0 is the only possible value of <span class="math inline">\(X\)</span> that is in the interval <span class="math inline">\((−\infty, x]\)</span>. In summary,</p>
 <p><span class="math display">\[
 F(x) = \begin{cases}
 0 &amp;\text{for }x &lt; 0, \\
@@ -119,54 +113,32 @@ F(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
-</div>
-</div>
-<p>We shall soon see (<a href="#thm-3-3-2">Theorem&nbsp;2</a>) that the CDF allows calculation of all interval probabilities; hence, it characterizes the distribution of a random variable. It follows from <a href="#eq-3-3-2">Equation&nbsp;1</a> that the CDF of each random variable <span class="math inline">\(X\)</span> is a function <span class="math inline">\(F\)</span> defined on the real line. The value of <span class="math inline">\(F\)</span> at every point <span class="math inline">\(x\)</span> must be a number <span class="math inline">\(F(x)\)</span> in the interval <span class="math inline">\([0, 1]\)</span> because <span class="math inline">\(F(x)\)</span> is the probability of the event <span class="math inline">\(\{X \leq x\}\)</span>. Furthermore, it follows from <a href="#eq-3-3-2">Equation&nbsp;1</a> that the CDF of every random variable <span class="math inline">\(X\)</span> must have the following three properties.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>We shall soon see (<a href="#thm-3-3-2" class="quarto-xref">Theorem&nbsp;2</a>) that the CDF allows calculation of all interval probabilities; hence, it characterizes the distribution of a random variable. It follows from <a href="#eq-3-3-2" class="quarto-xref">Equation&nbsp;1</a> that the CDF of each random variable <span class="math inline">\(X\)</span> is a function <span class="math inline">\(F\)</span> defined on the real line. The value of <span class="math inline">\(F\)</span> at every point <span class="math inline">\(x\)</span> must be a number <span class="math inline">\(F(x)\)</span> in the interval <span class="math inline">\([0, 1]\)</span> because <span class="math inline">\(F(x)\)</span> is the probability of the event <span class="math inline">\(\{X \leq x\}\)</span>. Furthermore, it follows from <a href="#eq-3-3-2" class="quarto-xref">Equation&nbsp;1</a> that the CDF of every random variable <span class="math inline">\(X\)</span> must have the following three properties.</p>
 <div id="prp-3-3-1" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1 (Property 3.3.1: Nondecreasing.) </strong></span><em>The function <span class="math inline">\(F(x)\)</span> is nondecreasing as <span class="math inline">\(x\)</span> increases; that is, if <span class="math inline">\(x_1 &lt; x_2\)</span>, then <span class="math inline">\(F(x_1) \leq F(x_2)\)</span>.</em></p>
+<p><span class="theorem-title"><strong>Proposition 1 (Property 3.3.1: Nondecreasing.)</strong></span> <em>The function <span class="math inline">\(F(x)\)</span> is nondecreasing as <span class="math inline">\(x\)</span> increases; that is, if <span class="math inline">\(x_1 &lt; x_2\)</span>, then <span class="math inline">\(F(x_1) \leq F(x_2)\)</span>.</em></p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(x_1 &lt; x_2\)</span>, then the event <span class="math inline">\(\{X \leq x_1\}\)</span> is a subset of the event <span class="math inline">\(\{X \leq x_2\}\)</span>. Hence, <span class="math inline">\(\Pr\{X \leq x_1\} \leq \Pr\{X \leq x_2\}\)</span> according to <strong>?@thm-1-5-4</strong>.</p>
 </div>
 </div>
-</div>
-</div>
-<p>An example of a CDF is sketched in <a href="#fig-3-6">Figure&nbsp;1</a>. It is shown in that figure that <span class="math inline">\(0 \leq F(x) \leq 1\)</span> over the entire real line. Also, <span class="math inline">\(F(x)\)</span> is always nondecreasing as <span class="math inline">\(x\)</span> increases, although <span class="math inline">\(F(x)\)</span> is constant over the interval <span class="math inline">\(x_1 \leq x \leq x_2\)</span> and for <span class="math inline">\(x \geq x_4\)</span>.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>An example of a CDF is sketched in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>. It is shown in that figure that <span class="math inline">\(0 \leq F(x) \leq 1\)</span> over the entire real line. Also, <span class="math inline">\(F(x)\)</span> is always nondecreasing as <span class="math inline">\(x\)</span> increases, although <span class="math inline">\(F(x)\)</span> is constant over the interval <span class="math inline">\(x_1 \leq x \leq x_2\)</span> and for <span class="math inline">\(x \geq x_4\)</span>.</p>
 <div id="prp-3-3-2" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2 (Property 3.3.2: Limits at <span class="math inline">\(\pm \infty\)</span>.) </strong></span><em><span class="math inline">\(\lim_{x \rightarrow -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim_{x \rightarrow \infty} F(x) = 1\)</span>.</em></p>
+<p><span class="theorem-title"><strong>Proposition 2 (Property 3.3.2: Limits at <span class="math inline">\(\pm \infty\)</span>.)</strong></span> <em><span class="math inline">\(\lim_{x \rightarrow -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim_{x \rightarrow \infty} F(x) = 1\)</span>.</em></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>As in the proof of <a href="#prp-3-3-1">Proposition&nbsp;1</a>, note that <span class="math inline">\(\{X \leq x_1\} \subset \{X \leq x_2\}\)</span> whenever <span class="math inline">\(x_1 &lt; x_2\)</span>. The fact that <span class="math inline">\(\Pr(X \leq x)\)</span> approaches 0 as <span class="math inline">\(x \rightarrow -\infty\)</span> now follows from <strong>?@exr-1-10-13</strong>. Similarly, the fact that <span class="math inline">\(\Pr(X \leq x)\)</span> approaches 1 as <span class="math inline">\(x \rightarrow \infty\)</span> follows from <strong>?@exr-1-10-12</strong>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>As in the proof of <a href="#prp-3-3-1" class="quarto-xref">Proposition&nbsp;1</a>, note that <span class="math inline">\(\{X \leq x_1\} \subset \{X \leq x_2\}\)</span> whenever <span class="math inline">\(x_1 &lt; x_2\)</span>. The fact that <span class="math inline">\(\Pr(X \leq x)\)</span> approaches 0 as <span class="math inline">\(x \rightarrow -\infty\)</span> now follows from <strong>?@exr-1-10-13</strong>. Similarly, the fact that <span class="math inline">\(\Pr(X \leq x)\)</span> approaches 1 as <span class="math inline">\(x \rightarrow \infty\)</span> follows from <strong>?@exr-1-10-12</strong>.</p>
 </div>
 </div>
+<div id="fig-3-6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-6.jpeg" class="img-fluid figure-img">
 </div>
-</div>
-<div id="fig-3-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-6.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: An example of a CDF</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An example of a CDF
+</figcaption>
 </figure>
 </div>
-<p>The limiting values specified in <a href="#prp-3-3-2">Proposition&nbsp;2</a> are indicated in <a href="#fig-3-6">Figure&nbsp;1</a>. In this figure, the value of <span class="math inline">\(F(x)\)</span> actually becomes 1 at <span class="math inline">\(x = x_4\)</span> and then remains 1 for <span class="math inline">\(x &gt; x_4\)</span>. Hence, it may be concluded that <span class="math inline">\(\Pr(X \leq x_4) = 1\)</span> and <span class="math inline">\(\Pr(X &gt; x_4) = 0\)</span>. On the other hand, according to the sketch in <a href="#fig-3-6">Figure&nbsp;1</a>, the value of <span class="math inline">\(F(x)\)</span> approaches 0 as <span class="math inline">\(x \rightarrow −\infty\)</span>, but does not actually become 0 at any finite point <span class="math inline">\(x\)</span>. Therefore, for every finite value of <span class="math inline">\(x\)</span>, no matter how small, <span class="math inline">\(\Pr(X \leq x) &gt; 0\)</span>.</p>
-<p>A CDF need not be continuous. In fact, the value of <span class="math inline">\(F(x)\)</span> may jump at any finite or countable number of points. In <a href="#fig-3-6">Figure&nbsp;1</a>, for instance, such jumps or points of discontinuity occur where <span class="math inline">\(x = x_1\)</span> and <span class="math inline">\(x = x_3\)</span>. For each fixed value <span class="math inline">\(x\)</span>, we shall let <span class="math inline">\(F(x^-)\)</span> denote the limit of the values of <span class="math inline">\(F(y)\)</span> as <span class="math inline">\(y\)</span> approaches <span class="math inline">\(x\)</span> from the left, that is, as <span class="math inline">\(y\)</span> approaches <span class="math inline">\(x\)</span> through values smaller than <span class="math inline">\(x\)</span>. In symbols,</p>
+<p>The limiting values specified in <a href="#prp-3-3-2" class="quarto-xref">Proposition&nbsp;2</a> are indicated in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>. In this figure, the value of <span class="math inline">\(F(x)\)</span> actually becomes 1 at <span class="math inline">\(x = x_4\)</span> and then remains 1 for <span class="math inline">\(x &gt; x_4\)</span>. Hence, it may be concluded that <span class="math inline">\(\Pr(X \leq x_4) = 1\)</span> and <span class="math inline">\(\Pr(X &gt; x_4) = 0\)</span>. On the other hand, according to the sketch in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, the value of <span class="math inline">\(F(x)\)</span> approaches 0 as <span class="math inline">\(x \rightarrow −\infty\)</span>, but does not actually become 0 at any finite point <span class="math inline">\(x\)</span>. Therefore, for every finite value of <span class="math inline">\(x\)</span>, no matter how small, <span class="math inline">\(\Pr(X \leq x) &gt; 0\)</span>.</p>
+<p>A CDF need not be continuous. In fact, the value of <span class="math inline">\(F(x)\)</span> may jump at any finite or countable number of points. In <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, for instance, such jumps or points of discontinuity occur where <span class="math inline">\(x = x_1\)</span> and <span class="math inline">\(x = x_3\)</span>. For each fixed value <span class="math inline">\(x\)</span>, we shall let <span class="math inline">\(F(x^-)\)</span> denote the limit of the values of <span class="math inline">\(F(y)\)</span> as <span class="math inline">\(y\)</span> approaches <span class="math inline">\(x\)</span> from the left, that is, as <span class="math inline">\(y\)</span> approaches <span class="math inline">\(x\)</span> through values smaller than <span class="math inline">\(x\)</span>. In symbols,</p>
 <p><span class="math display">\[
 F(x^{-}) = \lim_{y \rightarrow x,~y &lt; x}F(y).
 \]</span></p>
@@ -175,18 +147,8 @@ F(x^{-}) = \lim_{y \rightarrow x,~y &lt; x}F(y).
 F(x^+) = \lim_{y \rightarrow x,~y &gt; x}F(y).
 \]</span></p>
 <p>If the CDF is continuous at a given point <span class="math inline">\(x\)</span>, then <span class="math inline">\(F(x^{-}) = F(x^+) = F(x)\)</span> at that point.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="prp-3-3-3" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3 (Property 3.3.3: Continuity from the Right.) </strong></span><em>A CDF is always continuous from the right; that is, <span class="math inline">\(F(x) = F(x^+)\)</span> at every point <span class="math inline">\(x\)</span>.</em></p>
+<p><span class="theorem-title"><strong>Proposition 3 (Property 3.3.3: Continuity from the Right.)</strong></span> <em>A CDF is always continuous from the right; that is, <span class="math inline">\(F(x) = F(x^+)\)</span> at every point <span class="math inline">\(x\)</span>.</em></p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(y_1 &gt; y_2 &gt; \cdots\)</span> be a sequence of numbers that are decreasing such that <span class="math inline">\(\lim_{n \rightarrow \infty}y_n = x\)</span>. Then the event <span class="math inline">\(\{X \leq x\}\)</span> is the intersection of all the events <span class="math inline">\(\{X \leq y_n\}\)</span> for <span class="math inline">\(n = 1, 2, \ldots\)</span>. Hence, by <strong>?@exr-1-10-13</strong>,</p>
 <p><span class="math display">\[
@@ -194,35 +156,21 @@ F(x) = \Pr(X \leq x) = \lim_{n \rightarrow \infty}\Pr(X \leq y_n) = F(x^+).
 \]</span></p>
 </div>
 </div>
-</div>
-</div>
-<p>It follows from <a href="#prp-3-3-3">Proposition&nbsp;3</a> that at every point <span class="math inline">\(x\)</span> at which a jump occurs,</p>
+<p>It follows from <a href="#prp-3-3-3" class="quarto-xref">Proposition&nbsp;3</a> that at every point <span class="math inline">\(x\)</span> at which a jump occurs,</p>
 <p><span class="math display">\[
 F(x^+) = F(x) \; \text{ and } \; F(x^-) &lt; F(x).
 \]</span></p>
-<p>In <a href="#fig-3-6">Figure&nbsp;1</a> this property is illustrated by the fact that, at the points of discontinuity <span class="math inline">\(x = x_1\)</span> and <span class="math inline">\(x = x_3\)</span>, the value of <span class="math inline">\(F(x_1)\)</span> is taken as <span class="math inline">\(z_1\)</span> and the value of <span class="math inline">\(F(x_3)\)</span> is taken as <span class="math inline">\(z_3\)</span>.</p>
+<p>In <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a> this property is illustrated by the fact that, at the points of discontinuity <span class="math inline">\(x = x_1\)</span> and <span class="math inline">\(x = x_3\)</span>, the value of <span class="math inline">\(F(x_1)\)</span> is taken as <span class="math inline">\(z_1\)</span> and the value of <span class="math inline">\(F(x_3)\)</span> is taken as <span class="math inline">\(z_3\)</span>.</p>
 </section>
 <section id="determining-probabilities-from-the-distribution-function" class="level3">
 <h3 class="anchored" data-anchor-id="determining-probabilities-from-the-distribution-function">Determining Probabilities from the Distribution Function</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Example 3.3.3: Voltage.) </strong></span>In <a href="#exm-3-3-1">Example&nbsp;1</a>, suppose that we want to know the probability that <span class="math inline">\(X\)</span> lies in the interval <span class="math inline">\([2, 4]\)</span>. That is, we want <span class="math inline">\(\Pr(2 \leq X \leq 4)\)</span>. The CDF allows us to compute <span class="math inline">\(\Pr(X \leq 4)\)</span> and <span class="math inline">\(\Pr(X \leq 2)\)</span>. These are related to the probability that we want as follows: Let <span class="math inline">\(A = \{2 &lt; X \leq 4\}\)</span>, <span class="math inline">\(B = \{X \leq 2\}\)</span>, and <span class="math inline">\(C = \{X \leq 4\}\)</span>. Because <span class="math inline">\(X\)</span> has a continuous distribution, <span class="math inline">\(\Pr(A)\)</span> is the same as the probability that we desire. We see that <span class="math inline">\(A \cup B = C\)</span>, and it is clear that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint. Hence, <span class="math inline">\(\Pr(A) + \Pr(B) = \Pr(C)\)</span>. It follows that</p>
+<p><span class="theorem-title"><strong>Example 3 (Example 3.3.3: Voltage.)</strong></span> In <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a>, suppose that we want to know the probability that <span class="math inline">\(X\)</span> lies in the interval <span class="math inline">\([2, 4]\)</span>. That is, we want <span class="math inline">\(\Pr(2 \leq X \leq 4)\)</span>. The CDF allows us to compute <span class="math inline">\(\Pr(X \leq 4)\)</span> and <span class="math inline">\(\Pr(X \leq 2)\)</span>. These are related to the probability that we want as follows: Let <span class="math inline">\(A = \{2 &lt; X \leq 4\}\)</span>, <span class="math inline">\(B = \{X \leq 2\}\)</span>, and <span class="math inline">\(C = \{X \leq 4\}\)</span>. Because <span class="math inline">\(X\)</span> has a continuous distribution, <span class="math inline">\(\Pr(A)\)</span> is the same as the probability that we desire. We see that <span class="math inline">\(A \cup B = C\)</span>, and it is clear that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint. Hence, <span class="math inline">\(\Pr(A) + \Pr(B) = \Pr(C)\)</span>. It follows that</p>
 <p><span class="math display">\[
 \Pr(A) = \Pr(C) − \Pr(B) = F(4) − F(2) = \frac{4}{5} - \frac{3}{4} = \frac{1}{20}.
 \]</span></p>
 </div>
-</div>
-</div>
-<p>The type of reasoning used in <a href="#exm-3-3-3">Example&nbsp;3</a> can be extended to find the probability that an arbitrary random variable <span class="math inline">\(X\)</span> will lie in any specified interval of the real line from the CDF. We shall derive this probability for four different types of intervals.</p>
+<p>The type of reasoning used in <a href="#exm-3-3-3" class="quarto-xref">Example&nbsp;3</a> can be extended to find the probability that an arbitrary random variable <span class="math inline">\(X\)</span> will lie in any specified interval of the real line from the CDF. We shall derive this probability for four different types of intervals.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -234,55 +182,33 @@ Caution
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-3-3-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.3.1) </strong></span>For every value <span class="math inline">\(x\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.3.1)</strong></span> For every value <span class="math inline">\(x\)</span>,</p>
 <p><span id="eq-3-3-3"><span class="math display">\[
 \Pr(X &gt; x) = 1 − F(x).
 \tag{2}\]</span></span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The events <span class="math inline">\(\{X &gt; x\}\)</span> and <span class="math inline">\(\{X \leq x\}\)</span> are disjoint, and their union is the whole sample space <span class="math inline">\(S\)</span> whose probability is 1. Hence, <span class="math inline">\(\Pr(X &gt; x) + \Pr(X \leq x) = 1\)</span>. Now, <a href="#eq-3-3-3">Equation&nbsp;2</a> follows from <a href="#eq-3-3-2">Equation&nbsp;1</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The events <span class="math inline">\(\{X &gt; x\}\)</span> and <span class="math inline">\(\{X \leq x\}\)</span> are disjoint, and their union is the whole sample space <span class="math inline">\(S\)</span> whose probability is 1. Hence, <span class="math inline">\(\Pr(X &gt; x) + \Pr(X \leq x) = 1\)</span>. Now, <a href="#eq-3-3-3" class="quarto-xref">Equation&nbsp;2</a> follows from <a href="#eq-3-3-2" class="quarto-xref">Equation&nbsp;1</a>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-3-3-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Theorem 3.3.2) </strong></span>For all values <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> such that <span class="math inline">\(x_1 &lt; x_2\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 3.3.2)</strong></span> For all values <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> such that <span class="math inline">\(x_1 &lt; x_2\)</span>,</p>
 <p><span id="eq-3-3-4"><span class="math display">\[
 \Pr(x_1 &lt; X \leq x_2) = F(x_2) − F(x_1).
 \tag{3}\]</span></span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(A = \{x_1 &lt; X \leq x_2\}\)</span>, <span class="math inline">\(B = \{X \leq x_1\}\)</span>, and <span class="math inline">\(C = \{X \leq x_2\}\)</span>. As in <a href="#exm-3-3-3">Example&nbsp;3</a>, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint, and their union is <span class="math inline">\(C\)</span>, so</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(A = \{x_1 &lt; X \leq x_2\}\)</span>, <span class="math inline">\(B = \{X \leq x_1\}\)</span>, and <span class="math inline">\(C = \{X \leq x_2\}\)</span>. As in <a href="#exm-3-3-3" class="quarto-xref">Example&nbsp;3</a>, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint, and their union is <span class="math inline">\(C\)</span>, so</p>
 <p><span class="math display">\[
 \Pr(x_1 &lt; X \leq x_2) + \Pr(X \leq x_1) = \Pr(X \leq x_2).
 \]</span></p>
-<p>Subtracting <span class="math inline">\(\Pr(X \leq x_1)\)</span> from both sides of this equation and applying <a href="#eq-3-3-2">Equation&nbsp;1</a> yields <a href="#eq-3-3-4">Equation&nbsp;3</a>.</p>
+<p>Subtracting <span class="math inline">\(\Pr(X \leq x_1)\)</span> from both sides of this equation and applying <a href="#eq-3-3-2" class="quarto-xref">Equation&nbsp;1</a> yields <a href="#eq-3-3-4" class="quarto-xref">Equation&nbsp;3</a>.</p>
 </div>
 </div>
-</div>
-</div>
-<p>For example, if the CDF of <span class="math inline">\(X\)</span> is as sketched in <a href="#fig-3-6">Figure&nbsp;1</a>, then it follows from Theorems <a href="#thm-3-3-1">1</a> and <a href="#thm-3-3-2">2</a> that <span class="math inline">\(\Pr(X &gt; x_2) = 1 − z_1\)</span> and <span class="math inline">\(\Pr(x_2 &lt; X \leq x_3) = z_3 − z_1\)</span>. Also, since <span class="math inline">\(F(x)\)</span> is constant over the interval <span class="math inline">\(x_1 \leq x \leq x_2\)</span>, then <span class="math inline">\(\Pr(x_1 &lt; X \leq x_2) = 0\)</span>.</p>
+<p>For example, if the CDF of <span class="math inline">\(X\)</span> is as sketched in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, then it follows from Theorems <a href="#thm-3-3-1" class="quarto-xref">1</a> and <a href="#thm-3-3-2" class="quarto-xref">2</a> that <span class="math inline">\(\Pr(X &gt; x_2) = 1 − z_1\)</span> and <span class="math inline">\(\Pr(x_2 &lt; X \leq x_3) = z_3 − z_1\)</span>. Also, since <span class="math inline">\(F(x)\)</span> is constant over the interval <span class="math inline">\(x_1 \leq x \leq x_2\)</span>, then <span class="math inline">\(\Pr(x_1 &lt; X \leq x_2) = 0\)</span>.</p>
 <p>It is important to distinguish carefully between the strict inequalities and the weak inequalities that appear in all of the preceding relations and also in the next theorem. If there is a jump in <span class="math inline">\(F(x)\)</span> at a given value <span class="math inline">\(x\)</span>, then the values of <span class="math inline">\(\Pr(X \leq x)\)</span> and <span class="math inline">\(\Pr(X &lt; x)\)</span> will be different.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-3-3-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Theorem 3.3.3) </strong></span>For each value x,</p>
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 3.3.3)</strong></span> For each value x,</p>
 <p><span id="eq-3-3-5"><span class="math display">\[
 \Pr(X &lt; x) = F(x^-).
 \tag{4}\]</span></span></p>
@@ -300,32 +226,18 @@ Tip
 \]</span></p>
 </div>
 </div>
-</div>
-</div>
-<p>For example, for the CDF sketched in <a href="#fig-3-6">Figure&nbsp;1</a>, <span class="math inline">\(\Pr(X &lt; x_3) = z_2\)</span> and <span class="math inline">\(\Pr(X &lt; x_4) = 1\)</span>.</p>
+<p>For example, for the CDF sketched in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, <span class="math inline">\(\Pr(X &lt; x_3) = z_2\)</span> and <span class="math inline">\(\Pr(X &lt; x_4) = 1\)</span>.</p>
 <p>Finally, we shall show that for every value <span class="math inline">\(x\)</span>, <span class="math inline">\(\Pr(X = x)\)</span> is equal to the amount of the jump that occurs in <span class="math inline">\(F\)</span> at the point <span class="math inline">\(x\)</span>. If <span class="math inline">\(F\)</span> is continuous at the point <span class="math inline">\(x\)</span>, that is, if there is no jump in <span class="math inline">\(F\)</span> at <span class="math inline">\(x\)</span>, then <span class="math inline">\(\Pr(X = x) = 0\)</span>.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-3-3-4" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Theorem 3.3.4) </strong></span>For every value <span class="math inline">\(x\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Theorem 3.3.4)</strong></span> For every value <span class="math inline">\(x\)</span>,</p>
 <p><span id="eq-3-3-6"><span class="math display">\[
 \Pr(X = x) = F(x) - F(x^-).
 \tag{5}\]</span></span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>It is always true that <span class="math inline">\(\Pr(X = x) = \Pr(X \leq x) − \Pr(X &lt; x)\)</span>. The relation <a href="#eq-3-3-6">Equation&nbsp;5</a> follows from the fact that <span class="math inline">\(\Pr(X \leq x) = F(x)\)</span> at every point and from <a href="#thm-3-3-3">Theorem&nbsp;3</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>It is always true that <span class="math inline">\(\Pr(X = x) = \Pr(X \leq x) − \Pr(X &lt; x)\)</span>. The relation <a href="#eq-3-3-6" class="quarto-xref">Equation&nbsp;5</a> follows from the fact that <span class="math inline">\(\Pr(X \leq x) = F(x)\)</span> at every point and from <a href="#thm-3-3-3" class="quarto-xref">Theorem&nbsp;3</a>.</p>
 </div>
 </div>
-</div>
-</div>
-<p>In <a href="#fig-3-6">Figure&nbsp;1</a>, for example, <span class="math inline">\(\Pr(X = x_1) = z_1 − z_0\)</span>, <span class="math inline">\(\Pr(X = x_3) = z_3 − z_2\)</span>, and the probability of every other individual value of <span class="math inline">\(X\)</span> is 0.</p>
+<p>In <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, for example, <span class="math inline">\(\Pr(X = x_1) = z_1 − z_0\)</span>, <span class="math inline">\(\Pr(X = x_3) = z_3 − z_2\)</span>, and the probability of every other individual value of <span class="math inline">\(X\)</span> is 0.</p>
 </section>
 <section id="the-cdf-of-a-discrete-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="the-cdf-of-a-discrete-distribution">The CDF of a Discrete Distribution</h3>
@@ -334,18 +246,8 @@ Caution
 </section>
 <section id="the-cdf-of-a-continuous-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="the-cdf-of-a-continuous-distribution">The CDF of a Continuous Distribution</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-3-3-5" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (Theorem 3.3.5) </strong></span>Let <span class="math inline">\(X\)</span> have a continuous distribution, and let <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(F(x)\)</span> denote its pdf and CDF, respectively. Then <span class="math inline">\(F\)</span> is continuous at every <span class="math inline">\(x\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 5 (Theorem 3.3.5)</strong></span> Let <span class="math inline">\(X\)</span> have a continuous distribution, and let <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(F(x)\)</span> denote its pdf and CDF, respectively. Then <span class="math inline">\(F\)</span> is continuous at every <span class="math inline">\(x\)</span>,</p>
 <p><span id="eq-3-3-7"><span class="math display">\[
 F(x) = \int_{-\infty}^x f(t)~dt,
 \tag{6}\]</span></span></p>
@@ -356,26 +258,20 @@ F(x) = \int_{-\infty}^x f(t)~dt,
 <p>at all <span class="math inline">\(x\)</span> such that <span class="math inline">\(f\)</span> is continuous.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Since the probability of each individual point <span class="math inline">\(x\)</span> is 0, the CDF <span class="math inline">\(F(x)\)</span> will have no jumps. Hence, <span class="math inline">\(F(x)\)</span> will be a continuous function over the entire real line.</p>
-<p>By definition, <span class="math inline">\(F(x) = \Pr(X \leq x)\)</span>. Since <span class="math inline">\(f\)</span> is the pdf of <span class="math inline">\(X\)</span>, we have from the definition of pdf that <span class="math inline">\(\Pr(X \leq x)\)</span> is the right-hand side of <a href="#eq-3-3-7">Equation&nbsp;6</a>.</p>
-<p>It follows from <a href="#eq-3-3-7">Equation&nbsp;6</a> and the relation between integrals and derivatives (the fundamental theorem of calculus) that, for every <span class="math inline">\(x\)</span> at which <span class="math inline">\(f\)</span> is continuous, <a href="#eq-3-3-8">Equation&nbsp;7</a> holds.</p>
+<p>By definition, <span class="math inline">\(F(x) = \Pr(X \leq x)\)</span>. Since <span class="math inline">\(f\)</span> is the pdf of <span class="math inline">\(X\)</span>, we have from the definition of pdf that <span class="math inline">\(\Pr(X \leq x)\)</span> is the right-hand side of <a href="#eq-3-3-7" class="quarto-xref">Equation&nbsp;6</a>.</p>
+<p>It follows from <a href="#eq-3-3-7" class="quarto-xref">Equation&nbsp;6</a> and the relation between integrals and derivatives (the fundamental theorem of calculus) that, for every <span class="math inline">\(x\)</span> at which <span class="math inline">\(f\)</span> is continuous, <a href="#eq-3-3-8" class="quarto-xref">Equation&nbsp;7</a> holds.</p>
 </div>
 </div>
-</div>
-</div>
-<p>Thus, the CDF of a continuous random variable <span class="math inline">\(X\)</span> can be obtained from the pdf and vice versa. <a href="#eq-3-3-7">Equation&nbsp;6</a> is how we found the CDF in <a href="#exm-3-3-1">Example&nbsp;1</a>. Notice that the derivative of the <span class="math inline">\(F\)</span> in <a href="#exm-3-3-1">Example&nbsp;1</a> is</p>
+<p>Thus, the CDF of a continuous random variable <span class="math inline">\(X\)</span> can be obtained from the pdf and vice versa. <a href="#eq-3-3-7" class="quarto-xref">Equation&nbsp;6</a> is how we found the CDF in <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a>. Notice that the derivative of the <span class="math inline">\(F\)</span> in <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a> is</p>
 <p><span class="math display">\[
 F'(x) = \begin{cases}
 0 &amp;\text{for }x &lt; 0, \\
 \frac{1}{(1+x)^2} &amp;\text{for }x &gt; 0,
 \end{cases}
 \]</span></p>
-<p>and <span class="math inline">\(F'\)</span> does not exist at <span class="math inline">\(x = 0\)</span>. This verifies <a href="#eq-3-3-8">Equation&nbsp;7</a> for <a href="#exm-3-3-1">Example&nbsp;1</a>. Here, we have used the popular shorthand notation <span class="math inline">\(F'(x)\)</span> for the derivative of <span class="math inline">\(F\)</span> at the point <span class="math inline">\(x\)</span>.</p>
-<p>::: {.callout-tip} ::: {#exm-3-3-4}</p>
-</section>
-</section>
-<section id="example-3.3.4-calculating-a-pdf-from-a-cdf" class="level1">
-<h1>Example 3.3.4: Calculating a pdf from a CDF</h1>
-<p>Let the CDF of a random variable be</p>
+<p>and <span class="math inline">\(F'\)</span> does not exist at <span class="math inline">\(x = 0\)</span>. This verifies <a href="#eq-3-3-8" class="quarto-xref">Equation&nbsp;7</a> for <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a>. Here, we have used the popular shorthand notation <span class="math inline">\(F'(x)\)</span> for the derivative of <span class="math inline">\(F\)</span> at the point <span class="math inline">\(x\)</span>.</p>
+<div id="exm-3-3-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Example 3.3.4: Calculating a pdf from a CDF)</strong></span> Let the CDF of a random variable be</p>
 <p><span class="math display">\[
 F(x) = \begin{cases}
 0 &amp;\text{for }x &lt; 0, \\
@@ -383,96 +279,48 @@ x^{2/3} &amp;\text{for }0 \leq x \leq 1, \\
 1 &amp;\text{for }x &gt; 1.
 \end{cases}
 \]</span></p>
-<p>This function clearly satisfies the three properties required of every CDF, as given earlier in this section. Furthermore, since this CDF is continuous over the entire real line and is differentiable at every point except <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span>, the distribution of <span class="math inline">\(X\)</span> is continuous. Therefore, the pdf of <span class="math inline">\(X\)</span> can be found at every point other than <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span> by the relation <a href="#eq-3-3-8">Equation&nbsp;7</a>. The value of <span class="math inline">\(f(x)\)</span> at the points <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span> can be assigned arbitrarily. When the derivative <span class="math inline">\(F(x)\)</span> is calculated, it is found that <span class="math inline">\(f(x)\)</span> is as given by <strong>?@eq-3-2-9</strong> in <strong>?@exm-3-2-6</strong>. Conversely, if the pdf of <span class="math inline">\(X\)</span> is given by <strong>?@eq-3-2-9</strong>, then by using <a href="#eq-3-3-7">Equation&nbsp;6</a> it is found that <span class="math inline">\(F(x)\)</span> is as given in this example.</p>
+<p>This function clearly satisfies the three properties required of every CDF, as given earlier in this section. Furthermore, since this CDF is continuous over the entire real line and is differentiable at every point except <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span>, the distribution of <span class="math inline">\(X\)</span> is continuous. Therefore, the pdf of <span class="math inline">\(X\)</span> can be found at every point other than <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span> by the relation <a href="#eq-3-3-8" class="quarto-xref">Equation&nbsp;7</a>. The value of <span class="math inline">\(f(x)\)</span> at the points <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span> can be assigned arbitrarily. When the derivative <span class="math inline">\(F(x)\)</span> is calculated, it is found that <span class="math inline">\(f(x)\)</span> is as given by <strong>?@eq-3-2-9</strong> in <strong>?@exm-3-2-6</strong>. Conversely, if the pdf of <span class="math inline">\(X\)</span> is given by <strong>?@eq-3-2-9</strong>, then by using <a href="#eq-3-3-7" class="quarto-xref">Equation&nbsp;6</a> it is found that <span class="math inline">\(F(x)\)</span> is as given in this example.</p>
+</div>
+</section>
 <section id="the-quantile-function" class="level3">
 <h3 class="anchored" data-anchor-id="the-quantile-function">The Quantile Function</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Example 3.3.5: Fair Bets) </strong></span>Suppose that <span class="math inline">\(X\)</span> is the amount of rain that will fall tomorrow, and <span class="math inline">\(X\)</span> has CDF <span class="math inline">\(F\)</span>. Suppose that we want to place an even-money bet on <span class="math inline">\(X\)</span> as follows: If <span class="math inline">\(X \leq x_0\)</span>, we win one dollar and if <span class="math inline">\(X &gt; x_0\)</span> we lose one dollar. In order to make this bet fair, we need <span class="math inline">\(\Pr(X \leq x_0) = \Pr(X &gt; x_0) = 1/2\)</span>. We could search through all of the real numbers <span class="math inline">\(x\)</span> trying to find one such that <span class="math inline">\(F(x) = 1/2\)</span>, and then we would let <span class="math inline">\(x_0\)</span> equal the value we found. If <span class="math inline">\(F\)</span> is a one-to-one function, then <span class="math inline">\(F\)</span> has an inverse <span class="math inline">\(F^{-1}\)</span> and <span class="math inline">\(x_0 = F^{-1}(1/2)\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 5 (Example 3.3.5: Fair Bets)</strong></span> Suppose that <span class="math inline">\(X\)</span> is the amount of rain that will fall tomorrow, and <span class="math inline">\(X\)</span> has CDF <span class="math inline">\(F\)</span>. Suppose that we want to place an even-money bet on <span class="math inline">\(X\)</span> as follows: If <span class="math inline">\(X \leq x_0\)</span>, we win one dollar and if <span class="math inline">\(X &gt; x_0\)</span> we lose one dollar. In order to make this bet fair, we need <span class="math inline">\(\Pr(X \leq x_0) = \Pr(X &gt; x_0) = 1/2\)</span>. We could search through all of the real numbers <span class="math inline">\(x\)</span> trying to find one such that <span class="math inline">\(F(x) = 1/2\)</span>, and then we would let <span class="math inline">\(x_0\)</span> equal the value we found. If <span class="math inline">\(F\)</span> is a one-to-one function, then <span class="math inline">\(F\)</span> has an inverse <span class="math inline">\(F^{-1}\)</span> and <span class="math inline">\(x_0 = F^{-1}(1/2)\)</span>.</p>
 </div>
-</div>
-</div>
-<p>The value <span class="math inline">\(x_0\)</span> that we seek in <a href="#exm-3-3-5">Example&nbsp;4</a> is called the <strong>0.5 quantile</strong> of <span class="math inline">\(X\)</span> or the <strong>50th percentile</strong> of <span class="math inline">\(X\)</span> because 50% of the distribution of <span class="math inline">\(X\)</span> is at or below <span class="math inline">\(x_0\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>The value <span class="math inline">\(x_0\)</span> that we seek in <a href="#exm-3-3-5" class="quarto-xref">Example&nbsp;5</a> is called the <strong>0.5 quantile</strong> of <span class="math inline">\(X\)</span> or the <strong>50th percentile</strong> of <span class="math inline">\(X\)</span> because 50% of the distribution of <span class="math inline">\(X\)</span> is at or below <span class="math inline">\(x_0\)</span>.</p>
 <div id="def-3-3-2" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Definition 3.3.2: Quantiles/Percentiles) </strong></span>Let <span class="math inline">\(X\)</span> be a random variable with CDF <span class="math inline">\(F\)</span>. For each <span class="math inline">\(p\)</span> strictly between 0 and 1, define <span class="math inline">\(F^{-1}(p)\)</span> to be the smallest value <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq p\)</span>. Then <span class="math inline">\(F^{-1}(p)\)</span> is called the <strong><span class="math inline">\(p\)</span> quantile</strong> of <span class="math inline">\(X\)</span> or the <strong><span class="math inline">\(100p\)</span> percentile</strong> of <span class="math inline">\(X\)</span>. The function <span class="math inline">\(F^{-1}\)</span> defined here on the open interval <span class="math inline">\((0, 1)\)</span> is called the <strong>quantile function</strong> of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Definition 3.3.2: Quantiles/Percentiles)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable with CDF <span class="math inline">\(F\)</span>. For each <span class="math inline">\(p\)</span> strictly between 0 and 1, define <span class="math inline">\(F^{-1}(p)\)</span> to be the smallest value <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq p\)</span>. Then <span class="math inline">\(F^{-1}(p)\)</span> is called the <strong><span class="math inline">\(p\)</span> quantile</strong> of <span class="math inline">\(X\)</span> or the <strong><span class="math inline">\(100p\)</span> percentile</strong> of <span class="math inline">\(X\)</span>. The function <span class="math inline">\(F^{-1}\)</span> defined here on the open interval <span class="math inline">\((0, 1)\)</span> is called the <strong>quantile function</strong> of <span class="math inline">\(X\)</span>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Example 3.3.6: Standardized Test Scores) </strong></span>Many universities in the United States rely on standardized test scores as part of their admissions process. Thousands of people take these tests each time that they are offered. Each examinee’s score is compared to the collection of scores of all examinees to see where it fits in the overall ranking. For example, if 83% of all test scores are at or below your score, your test report will say that you scored at the 83rd percentile.  </p>
+<p><span class="theorem-title"><strong>Example 6 (Example 3.3.6: Standardized Test Scores)</strong></span> Many universities in the United States rely on standardized test scores as part of their admissions process. Thousands of people take these tests each time that they are offered. Each examinee’s score is compared to the collection of scores of all examinees to see where it fits in the overall ranking. For example, if 83% of all test scores are at or below your score, your test report will say that you scored at the 83rd percentile.  </p>
 </div>
-</div>
-</div>
-<p>The notation <span class="math inline">\(F^{-1}(p)\)</span> in <a href="#def-3-3-2">Definition&nbsp;2</a> deserves some justification. Suppose first that the CDF <span class="math inline">\(F\)</span> of <span class="math inline">\(X\)</span> is continuous and one-to-one over the whole set of possible values of <span class="math inline">\(X\)</span>. Then the inverse <span class="math inline">\(F^{-1}\)</span> of <span class="math inline">\(F\)</span> exists, and for each <span class="math inline">\(0 &lt; p &lt; 1\)</span>, there is one and only one <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) = p\)</span>. That <span class="math inline">\(x\)</span> is <span class="math inline">\(F^{−1}(p)\)</span>. <a href="#def-3-3-2">Definition&nbsp;2</a> extends the concept of inverse function to nondecreasing functions (such as CDFs) that may be neither one-to-one nor continuous.</p>
+<p>The notation <span class="math inline">\(F^{-1}(p)\)</span> in <a href="#def-3-3-2" class="quarto-xref">Definition&nbsp;2</a> deserves some justification. Suppose first that the CDF <span class="math inline">\(F\)</span> of <span class="math inline">\(X\)</span> is continuous and one-to-one over the whole set of possible values of <span class="math inline">\(X\)</span>. Then the inverse <span class="math inline">\(F^{-1}\)</span> of <span class="math inline">\(F\)</span> exists, and for each <span class="math inline">\(0 &lt; p &lt; 1\)</span>, there is one and only one <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) = p\)</span>. That <span class="math inline">\(x\)</span> is <span class="math inline">\(F^{−1}(p)\)</span>. <a href="#def-3-3-2" class="quarto-xref">Definition&nbsp;2</a> extends the concept of inverse function to nondecreasing functions (such as CDFs) that may be neither one-to-one nor continuous.</p>
 <p><strong>Quantiles of Continuous Distributions</strong>: When the CDF of a random variable <span class="math inline">\(X\)</span> is continuous and one-to-one over the whole set of possible values of <span class="math inline">\(X\)</span>, the inverse <span class="math inline">\(F^{-1}\)</span> of <span class="math inline">\(F\)</span> exists and equals the quantile function of <span class="math inline">\(X\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Example 3.3.7: Value at Risk) </strong></span>The manager of an investment portfolio is interested in how much money the portfolio might lose over a fixed time horizon. Let <span class="math inline">\(X\)</span> be the change in value of the given portfolio over a period of one month. Suppose that <span class="math inline">\(X\)</span> has the pdf in <a href="#fig-3-7">Figure&nbsp;2</a>. The manager computes a quantity known in the world of risk management as <strong>Value at Risk</strong> (denoted by VaR). To be specific, let <span class="math inline">\(Y = −X\)</span> stand for the loss incurred by the portfolio over the one month. The manager wants to have a level of confidence about how large <span class="math inline">\(Y\)</span> might be. In this example, the manager specifies a probability level, such as 0.99 and then finds <span class="math inline">\(y_0\)</span>, the 0.99 quantile of <span class="math inline">\(Y\)</span>. The manager is now 99% sure that <span class="math inline">\(Y \leq y_0\)</span>, and <span class="math inline">\(y_0\)</span> is called the VaR. If <span class="math inline">\(X\)</span> has a continuous distribution, then it is easy to see that <span class="math inline">\(y_0\)</span> is closely related to the 0.01 quantile of the distribution of <span class="math inline">\(X\)</span>. The 0.01 quantile <span class="math inline">\(x_0\)</span> has the property that <span class="math inline">\(\Pr(X &lt; x_0) = 0.01\)</span>. But <span class="math inline">\(\Pr(X &lt; x_0) = \Pr(Y &gt; −x_0) = 1 − \Pr(Y \leq −x_0)\)</span>. Hence, <span class="math inline">\(−x_0\)</span> is a 0.99 quantile of <span class="math inline">\(Y\)</span>. For the pdf in <a href="#fig-3-7">Figure&nbsp;2</a>, we see that <span class="math inline">\(x_0 = −4.14\)</span>, as the shaded region indicates. Then <span class="math inline">\(y_0 = 4.14\)</span> is VaR for one month at probability level 0.99.</p>
+<p><span class="theorem-title"><strong>Example 7 (Example 3.3.7: Value at Risk)</strong></span> The manager of an investment portfolio is interested in how much money the portfolio might lose over a fixed time horizon. Let <span class="math inline">\(X\)</span> be the change in value of the given portfolio over a period of one month. Suppose that <span class="math inline">\(X\)</span> has the pdf in <a href="#fig-3-7" class="quarto-xref">Figure&nbsp;2</a>. The manager computes a quantity known in the world of risk management as <strong>Value at Risk</strong> (denoted by VaR). To be specific, let <span class="math inline">\(Y = −X\)</span> stand for the loss incurred by the portfolio over the one month. The manager wants to have a level of confidence about how large <span class="math inline">\(Y\)</span> might be. In this example, the manager specifies a probability level, such as 0.99 and then finds <span class="math inline">\(y_0\)</span>, the 0.99 quantile of <span class="math inline">\(Y\)</span>. The manager is now 99% sure that <span class="math inline">\(Y \leq y_0\)</span>, and <span class="math inline">\(y_0\)</span> is called the VaR. If <span class="math inline">\(X\)</span> has a continuous distribution, then it is easy to see that <span class="math inline">\(y_0\)</span> is closely related to the 0.01 quantile of the distribution of <span class="math inline">\(X\)</span>. The 0.01 quantile <span class="math inline">\(x_0\)</span> has the property that <span class="math inline">\(\Pr(X &lt; x_0) = 0.01\)</span>. But <span class="math inline">\(\Pr(X &lt; x_0) = \Pr(Y &gt; −x_0) = 1 − \Pr(Y \leq −x_0)\)</span>. Hence, <span class="math inline">\(−x_0\)</span> is a 0.99 quantile of <span class="math inline">\(Y\)</span>. For the pdf in <a href="#fig-3-7" class="quarto-xref">Figure&nbsp;2</a>, we see that <span class="math inline">\(x_0 = −4.14\)</span>, as the shaded region indicates. Then <span class="math inline">\(y_0 = 4.14\)</span> is VaR for one month at probability level 0.99.</p>
 </div>
+<div id="fig-3-7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-7.jpeg" class="img-fluid figure-img">
 </div>
-</div>
-<div id="fig-3-7" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-7.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: The pdf of the change in value of a portfolio with lower 1% indicated.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The pdf of the change in value of a portfolio with lower 1% indicated.
+</figcaption>
 </figure>
 </div>
-<div id="fig-3-8" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-8.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: The CDF of a uniform distribution indicating how to solve for a quantile.</figcaption>
+<div id="fig-3-8" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-8.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The CDF of a uniform distribution indicating how to solve for a quantile.
+</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Example 3.3.8: Uniform Distribution on an Interval) </strong></span>Let <span class="math inline">\(X\)</span> have the uniform distribution on the interval <span class="math inline">\([a, b]\)</span>. The CDF of <span class="math inline">\(X\)</span> is</p>
+<p><span class="theorem-title"><strong>Example 8 (Example 3.3.8: Uniform Distribution on an Interval)</strong></span> Let <span class="math inline">\(X\)</span> have the uniform distribution on the interval <span class="math inline">\([a, b]\)</span>. The CDF of <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[
 F(x) = \Pr(X \leq x) = \begin{cases}
 0 &amp;\text{if }x \leq a, \\
@@ -488,16 +336,18 @@ x - a &amp;= p(b-a), \\
 x &amp;= a + p(b - a) = pb + (1-p)a.
 \end{align*}
 \]</span></p>
-<p><a href="#fig-3-8">Figure&nbsp;3</a> illustrates how the calculation of a quantile relates to the CDF.</p>
+<p><a href="#fig-3-8" class="quarto-xref">Figure&nbsp;3</a> illustrates how the calculation of a quantile relates to the CDF.</p>
 <p>The quantile function of <span class="math inline">\(X\)</span> is <span class="math inline">\(F^{−1}(p) = pb + (1 − p)a\)</span> for <span class="math inline">\(0 &lt; p &lt; 1\)</span>. In particular, <span class="math inline">\(F^{-1}(1/2) = (b + a)/2\)</span>.</p>
 </div>
-</div>
-</div>
 <p><strong>Note: Quantiles, Like CDFs, Depend on the Distribution Only</strong>: Any two random variables with the same distribution have the same quantile function. When we refer to a quantile of <span class="math inline">\(X\)</span>, we mean a quantile of the distribution of <span class="math inline">\(X\)</span>.</p>
-<p><strong>Quantiles of Discrete Distributions</strong>: It is convenient to be able to calculate quantiles for discrete distributions as well. The quantile function of <a href="#def-3-3-2">Definition&nbsp;2</a> exists for all distributions whether discrete, continuous, or otherwise. For example, in <a href="#fig-3-6">Figure&nbsp;1</a>, let <span class="math inline">\(z_0 \leq p \leq z_1\)</span>. Then the smallest <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq p\)</span> is <span class="math inline">\(x_1\)</span>. For every value of <span class="math inline">\(x &lt; x_1\)</span>, we have <span class="math inline">\(F(x) &lt; z_0 \leq p\)</span> and <span class="math inline">\(F(x_1) = z_1\)</span>. Notice that <span class="math inline">\(F(x) = z_1\)</span> for all <span class="math inline">\(x\)</span> between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, but since <span class="math inline">\(x_1\)</span> is the smallest of all those numbers, <span class="math inline">\(x_1\)</span> is the <span class="math inline">\(p\)</span> quantile. Because distribution functions are continuous from the right, the smallest <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq p\)</span> exists for all <span class="math inline">\(0 &lt; p &lt; 1\)</span>. For <span class="math inline">\(p = 1\)</span>, there is no guarantee that such an <span class="math inline">\(x\)</span> will exist. For example, in <a href="#fig-3-6">Figure&nbsp;1</a>, <span class="math inline">\(F(x_4) = 1\)</span>, but in <a href="#exm-3-3-1">Example&nbsp;1</a>, <span class="math inline">\(F(x) &lt; 1\)</span> for all <span class="math inline">\(x\)</span>. For <span class="math inline">\(p = 0\)</span>, there is never a smallest <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) = 0\)</span> because <span class="math inline">\(\lim_{x \rightarrow −\infty}F(x) = 0\)</span>. That is, if <span class="math inline">\(F(x_0) = 0\)</span>, then <span class="math inline">\(F(x) = 0\)</span> for all <span class="math inline">\(x &lt; x_0\)</span>. For these reasons, we never talk about the 0 or 1 quantiles.</p>
-<div id="tbl-3-1" class="anchored">
+<p><strong>Quantiles of Discrete Distributions</strong>: It is convenient to be able to calculate quantiles for discrete distributions as well. The quantile function of <a href="#def-3-3-2" class="quarto-xref">Definition&nbsp;2</a> exists for all distributions whether discrete, continuous, or otherwise. For example, in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, let <span class="math inline">\(z_0 \leq p \leq z_1\)</span>. Then the smallest <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq p\)</span> is <span class="math inline">\(x_1\)</span>. For every value of <span class="math inline">\(x &lt; x_1\)</span>, we have <span class="math inline">\(F(x) &lt; z_0 \leq p\)</span> and <span class="math inline">\(F(x_1) = z_1\)</span>. Notice that <span class="math inline">\(F(x) = z_1\)</span> for all <span class="math inline">\(x\)</span> between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, but since <span class="math inline">\(x_1\)</span> is the smallest of all those numbers, <span class="math inline">\(x_1\)</span> is the <span class="math inline">\(p\)</span> quantile. Because distribution functions are continuous from the right, the smallest <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq p\)</span> exists for all <span class="math inline">\(0 &lt; p &lt; 1\)</span>. For <span class="math inline">\(p = 1\)</span>, there is no guarantee that such an <span class="math inline">\(x\)</span> will exist. For example, in <a href="#fig-3-6" class="quarto-xref">Figure&nbsp;1</a>, <span class="math inline">\(F(x_4) = 1\)</span>, but in <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a>, <span class="math inline">\(F(x) &lt; 1\)</span> for all <span class="math inline">\(x\)</span>. For <span class="math inline">\(p = 0\)</span>, there is never a smallest <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) = 0\)</span> because <span class="math inline">\(\lim_{x \rightarrow −\infty}F(x) = 0\)</span>. That is, if <span class="math inline">\(F(x_0) = 0\)</span>, then <span class="math inline">\(F(x) = 0\)</span> for all <span class="math inline">\(x &lt; x_0\)</span>. For these reasons, we never talk about the 0 or 1 quantiles.</p>
+<div id="tbl-3-1" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Table 3.1: Quantile function for <a href="#exm-3-3-9" class="quarto-xref">Example&nbsp;9</a>.
+</figcaption>
+<div aria-describedby="tbl-3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;1: Table 3.1: Quantile function for <a href="#exm-3-3-9">Example&nbsp;8</a>.</caption>
 <thead>
 <tr class="header">
 <th><span class="math inline">\(p\)</span></th>
@@ -532,18 +382,10 @@ x &amp;= a + p(b - a) = pb + (1-p)a.
 </tbody>
 </table>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Example 3.3.9: Quantiles of a Binomial Distribution.) </strong></span>Let <span class="math inline">\(X\)</span> have the binomial distribution with parameters 5 and 0.3. The binomial table in the back of the book has the pmf <span class="math inline">\(f\)</span> of <span class="math inline">\(X\)</span>, which we reproduce here together with the CDF <span class="math inline">\(F\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 9 (Example 3.3.9: Quantiles of a Binomial Distribution.)</strong></span> Let <span class="math inline">\(X\)</span> have the binomial distribution with parameters 5 and 0.3. The binomial table in the back of the book has the pmf <span class="math inline">\(f\)</span> of <span class="math inline">\(X\)</span>, which we reproduce here together with the CDF <span class="math inline">\(F\)</span>:</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -577,39 +419,15 @@ Tip
 </tr>
 </tbody>
 </table>
-<p>(A little rounding error occurred in the pmf) So, for example, the 0.5 quantile of this distribution is 1, which is also the 0.25 quantile and the 0.20 quantile. The entire quantile function is in <a href="#tbl-3-1">Table&nbsp;1</a>. So, the 90th percentile is 3, which is also the 95th percentile, etc.</p>
-</div>
-</div>
+<p>(A little rounding error occurred in the pmf) So, for example, the 0.5 quantile of this distribution is 1, which is also the 0.25 quantile and the 0.20 quantile. The entire quantile function is in <a href="#tbl-3-1" class="quarto-xref">Table&nbsp;1</a>. So, the 90th percentile is 3, which is also the 95th percentile, etc.</p>
 </div>
 <p>Certain quantiles have special names.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-3-3" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Definition 3.3.3: Median/Quartiles.) </strong></span>The <span class="math inline">\(1/2\)</span> quantile or the 50th percentile of a distribution is called its <strong>median</strong>. The <span class="math inline">\(1/4\)</span> quantile or 25th percentile is the <strong>lower quartile</strong>. The <span class="math inline">\(3/4\)</span> quantile or 75th percentile is called the <strong>upper quartile</strong>.</p>
-</div>
-</div>
+<p><span class="theorem-title"><strong>Definition 3 (Definition 3.3.3: Median/Quartiles.)</strong></span> The <span class="math inline">\(1/2\)</span> quantile or the 50th percentile of a distribution is called its <strong>median</strong>. The <span class="math inline">\(1/4\)</span> quantile or 25th percentile is the <strong>lower quartile</strong>. The <span class="math inline">\(3/4\)</span> quantile or 75th percentile is called the <strong>upper quartile</strong>.</p>
 </div>
 <p><strong>Note: The Median Is Special</strong>. The median of a distribution is one of several special features that people like to use when sumarizing the distribution of a random variable. We shall discuss summaries of distributions in more detail in <strong>?@sec-4</strong>. Because the median is such a popular summary, we need to note that there are several different but similar “definitions” of median. Recall that the <span class="math inline">\(1/2\)</span> quantile is the <strong>smallest</strong> number <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) \geq 1/2\)</span>. For some distributions, usually discrete distributions, there will be an interval of numbers <span class="math inline">\([x_1, x_2)\)</span> such that for all <span class="math inline">\(x \in [x_1, x_2)\)</span>, <span class="math inline">\(F(x) = 1/2\)</span>. In such cases, it is common to refer to all such <span class="math inline">\(x\)</span> (including <span class="math inline">\(x_2\)</span>) as medians of the distribution. (See <strong>?@def-4-5-1</strong>.) Another popular convention is to call <span class="math inline">\((x_1 + x_2)/2\)</span> the median. This last is probably the most common convention. The readers should be aware that, whenever they encounter a median, it might be any one of the things that we just discussed. Fortunately, they all mean nearly the same thing, namely that the number divides the distribution in half as closely as is possible.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-3-10" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 (Example 3.3.10: Uniform Distribution on Integers.) </strong></span>Let <span class="math inline">\(X\)</span> have the uniform distribution on the integers 1, 2, 3, 4. (See <strong>?@def-3-1-6</strong>) The CDF of <span class="math inline">\(X\)</span> is</p>
+<p><span class="theorem-title"><strong>Example 10 (Example 3.3.10: Uniform Distribution on Integers.)</strong></span> Let <span class="math inline">\(X\)</span> have the uniform distribution on the integers 1, 2, 3, 4. (See <strong>?@def-3-1-6</strong>) The CDF of <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[
 F(x) = \begin{cases}
 0 &amp;\text{if }x &lt; 1, \\
@@ -621,10 +439,8 @@ F(x) = \begin{cases}
 \]</span></p>
 <p>The <span class="math inline">\(1/2\)</span> quantile is 2, but every number in the interval <span class="math inline">\([2, 3]\)</span> might be called a median. The most popular choice would be 2.5.</p>
 </div>
-</div>
-</div>
 <p>One advantage to describing a distribution by the quantile function rather than by the CDF is that quantile functions are easier to display in tabular form for multiple distributions. The reason is that the domain of the quantile function is always the interval <span class="math inline">\((0, 1)\)</span> no matter what the possible values of <span class="math inline">\(X\)</span> are. Quantiles are also useful for summarizing distributions in terms of where the probability is. For example, if one wishes to say where the middle half of a distribution is, one can say that it lies between the 0.25 quantile and the 0.75 quantile. In <strong>?@sec-8-5</strong>, we shall see how to use quantiles to help provide estimates of unknown quantities after observing data.</p>
-<p>In <a href="#exr-3-3-19">Exercise&nbsp;19</a>, you can show how to recover the CDF from the quantile function. Hence, the quantile function is an alternative way to characterize a distribution.</p>
+<p>In <a href="#exr-3-3-19" class="quarto-xref">Exercise&nbsp;19</a>, you can show how to recover the CDF from the quantile function. Hence, the quantile function is an alternative way to characterize a distribution.</p>
 </section>
 <section id="summary" class="level3">
 <h3 class="anchored" data-anchor-id="summary">Summary</h3>
@@ -633,16 +449,16 @@ F(x) = \begin{cases}
 <section id="exercises" class="level3">
 <h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
 <div id="exr-3-3-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Exercise 3.3.1) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> has the Bernoulli distribution with parameter <span class="math inline">\(p = 0.7\)</span>. (See <strong>?@def-3-1-5</strong>) Sketch the CDF of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 3.3.1)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> has the Bernoulli distribution with parameter <span class="math inline">\(p = 0.7\)</span>. (See <strong>?@def-3-1-5</strong>) Sketch the CDF of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Exercise 3.3.2) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> can take only the values <span class="math inline">\(−2\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(4\)</span>, and that the probabilities of these values are as follows: <span class="math inline">\(\Pr(X = −2) = 0.4\)</span>, <span class="math inline">\(\Pr(X = 0) = 0.1\)</span>, <span class="math inline">\(Pr(X = 1) = 0.3\)</span>, and <span class="math inline">\(\Pr(X = 4) = 0.2\)</span>. Sketch the CDF of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 3.3.2)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> can take only the values <span class="math inline">\(−2\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(4\)</span>, and that the probabilities of these values are as follows: <span class="math inline">\(\Pr(X = −2) = 0.4\)</span>, <span class="math inline">\(\Pr(X = 0) = 0.1\)</span>, <span class="math inline">\(Pr(X = 1) = 0.3\)</span>, and <span class="math inline">\(\Pr(X = 4) = 0.2\)</span>. Sketch the CDF of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Exercise 3.3.3) </strong></span>Suppose that a coin is tossed repeatedly until a head is obtained for the first time, and let <span class="math inline">\(X\)</span> denote the number of tosses that are required. Sketch the CDF of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 3.3.3)</strong></span> Suppose that a coin is tossed repeatedly until a head is obtained for the first time, and let <span class="math inline">\(X\)</span> denote the number of tosses that are required. Sketch the CDF of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Exercise 3.3.4) </strong></span>Suppose that the CDF <span class="math inline">\(F\)</span> of a random variable <span class="math inline">\(X\)</span> is as sketched in <a href="#fig-3-9">Figure&nbsp;4</a>. Find each of the following probabilities:</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 3.3.4)</strong></span> Suppose that the CDF <span class="math inline">\(F\)</span> of a random variable <span class="math inline">\(X\)</span> is as sketched in <a href="#fig-3-9" class="quarto-xref">Figure&nbsp;4</a>. Find each of the following probabilities:</p>
 <ol type="a">
 <li><span class="math inline">\(\Pr(X = −1)\)</span></li>
 <li><span class="math inline">\(\Pr(X &lt; 0)\)</span></li>
@@ -658,14 +474,18 @@ F(x) = \begin{cases}
 <li><span class="math inline">\(\Pr(3 \leq X \leq 4)\)</span></li>
 </ol>
 </div>
-<div id="fig-3-9" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-9.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Figure 3.9: The CDF for Exercise 4.</figcaption>
+<div id="fig-3-9" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-9.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Figure 3.9: The CDF for Exercise 4.
+</figcaption>
 </figure>
 </div>
 <div id="exr-3-3-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Exercise 3.3.5) </strong></span>Suppose that the CDF of a random variable <span class="math inline">\(X\)</span> is as follows:</p>
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 3.3.5)</strong></span> Suppose that the CDF of a random variable <span class="math inline">\(X\)</span> is as follows:</p>
 <p><span class="math display">\[
 F(x) = \begin{cases}
 0 &amp;\text{for }x \leq 0, \\
@@ -676,7 +496,7 @@ F(x) = \begin{cases}
 <p>Find and sketch the pdf of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 (Exercise 3.3.6) </strong></span>Suppose that the CDF of a random variable <span class="math inline">\(X\)</span> is as follows:</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 3.3.6)</strong></span> Suppose that the CDF of a random variable <span class="math inline">\(X\)</span> is as follows:</p>
 <p><span class="math display">\[
 F(x) = \begin{cases}
 e^{x - 3} &amp;\text{for }x \leq 3, \\
@@ -686,31 +506,31 @@ e^{x - 3} &amp;\text{for }x \leq 3, \\
 <p>Find and sketch the pdf of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-7" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (Exercise 3.3.7) </strong></span>Suppose, as in <strong>?@exr-3-2-7</strong>, that a random variable <span class="math inline">\(X\)</span> has the uniform distribution on the interval <span class="math inline">\([−2, 8]\)</span>. Find and sketch the CDF of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 3.3.7)</strong></span> Suppose, as in <strong>?@exr-3-2-7</strong>, that a random variable <span class="math inline">\(X\)</span> has the uniform distribution on the interval <span class="math inline">\([−2, 8]\)</span>. Find and sketch the CDF of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-8" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8 (Exercise 3.3.8) </strong></span>Suppose that a point in the <span class="math inline">\(xy\)</span>-plane is chosen at random from the interior of a circle for which the equation is <span class="math inline">\(x^2 + y^2 = 1\)</span>; and suppose that the probability that the point will belong to each region inside the circle is proportional to the area of that region. Let <span class="math inline">\(Z\)</span> denote a random variable representing the distance from the center of the circle to the point. Find and sketch the CDF of <span class="math inline">\(Z\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 3.3.8)</strong></span> Suppose that a point in the <span class="math inline">\(xy\)</span>-plane is chosen at random from the interior of a circle for which the equation is <span class="math inline">\(x^2 + y^2 = 1\)</span>; and suppose that the probability that the point will belong to each region inside the circle is proportional to the area of that region. Let <span class="math inline">\(Z\)</span> denote a random variable representing the distance from the center of the circle to the point. Find and sketch the CDF of <span class="math inline">\(Z\)</span>.</p>
 </div>
 <div id="exr-3-3-9" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9 (Exercise 3.3.9) </strong></span>Suppose that <span class="math inline">\(X\)</span> has the uniform distribution on the interval <span class="math inline">\([0, 5]\)</span> and that the random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y = 0\)</span> if <span class="math inline">\(X \leq 1\)</span>, <span class="math inline">\(Y = 5\)</span> if <span class="math inline">\(X \geq 3\)</span>, and <span class="math inline">\(Y = X\)</span> otherwise. Sketch the CDF of <span class="math inline">\(Y\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 3.3.9)</strong></span> Suppose that <span class="math inline">\(X\)</span> has the uniform distribution on the interval <span class="math inline">\([0, 5]\)</span> and that the random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y = 0\)</span> if <span class="math inline">\(X \leq 1\)</span>, <span class="math inline">\(Y = 5\)</span> if <span class="math inline">\(X \geq 3\)</span>, and <span class="math inline">\(Y = X\)</span> otherwise. Sketch the CDF of <span class="math inline">\(Y\)</span>.</p>
 </div>
 <div id="exr-3-3-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10 (Exercise 3.3.10) </strong></span>For the CDF in <strong>?@exm-3-3-4</strong>, find the quantile function.</p>
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 3.3.10)</strong></span> For the CDF in <a href="#exm-3-3-4" class="quarto-xref">Example&nbsp;4</a>, find the quantile function.</p>
 </div>
 <div id="exr-3-3-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11 (Exercise 3.3.11) </strong></span>For the CDF in <a href="#exr-3-3-5">Exercise&nbsp;5</a>, find the quantile function.</p>
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 3.3.11)</strong></span> For the CDF in <a href="#exr-3-3-5" class="quarto-xref">Exercise&nbsp;5</a>, find the quantile function.</p>
 </div>
 <div id="exr-3-3-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12 (Exercise 3.3.12) </strong></span>For the CDF in <a href="#exr-3-3-6">Exercise&nbsp;6</a>, find the quantile function.</p>
+<p><span class="theorem-title"><strong>Exercise 12 (Exercise 3.3.12)</strong></span> For the CDF in <a href="#exr-3-3-6" class="quarto-xref">Exercise&nbsp;6</a>, find the quantile function.</p>
 </div>
 <div id="exr-3-3-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13 (Exercise 3.3.13) </strong></span>Suppose that a broker believes that the change in value <span class="math inline">\(X\)</span> of a particular investment over the next two months has the uniform distribution on the interval <span class="math inline">\([−12,24]\)</span>. Find the value at risk VaR for two months at probability level 0.95.</p>
+<p><span class="theorem-title"><strong>Exercise 13 (Exercise 3.3.13)</strong></span> Suppose that a broker believes that the change in value <span class="math inline">\(X\)</span> of a particular investment over the next two months has the uniform distribution on the interval <span class="math inline">\([−12,24]\)</span>. Find the value at risk VaR for two months at probability level 0.95.</p>
 </div>
 <div id="exr-3-3-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14 (Exercise 3.3.14) </strong></span>Find the quartiles and the median of the binomial distribution with parameters <span class="math inline">\(n = 10\)</span> and <span class="math inline">\(p = 0.2\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 14 (Exercise 3.3.14)</strong></span> Find the quartiles and the median of the binomial distribution with parameters <span class="math inline">\(n = 10\)</span> and <span class="math inline">\(p = 0.2\)</span>.</p>
 </div>
 <div id="exr-3-3-15" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 15 (Exercise 3.3.15) </strong></span>Suppose that <span class="math inline">\(X\)</span> has the pdf</p>
+<p><span class="theorem-title"><strong>Exercise 15 (Exercise 3.3.15)</strong></span> Suppose that <span class="math inline">\(X\)</span> has the pdf</p>
 <p><span class="math display">\[
 f(x) = \begin{cases}
 2x &amp;\text{if }0 &lt; x &lt; 1, \\
@@ -720,10 +540,10 @@ f(x) = \begin{cases}
 <p>Find and sketch the CDF of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-3-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 16 (Exercise 3.3.16) </strong></span>Find the quantile function for the distribution in <a href="#exm-3-3-1">Example&nbsp;1</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 16 (Exercise 3.3.16)</strong></span> Find the quantile function for the distribution in <a href="#exm-3-3-1" class="quarto-xref">Example&nbsp;1</a>.</p>
 </div>
 <div id="exr-3-3-17" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 17 (Exercise 3.3.17) </strong></span>Prove that the quantile function F^{-1} of a general random variable <span class="math inline">\(X\)</span> has the following three properties that are analogous to properties of the CDF:</p>
+<p><span class="theorem-title"><strong>Exercise 17 (Exercise 3.3.17)</strong></span> Prove that the quantile function F^{-1} of a general random variable <span class="math inline">\(X\)</span> has the following three properties that are analogous to properties of the CDF:</p>
 <ol type="a">
 <li><span class="math inline">\(F^{-1}\)</span> is a nondecreasing function of <span class="math inline">\(p\)</span> for <span class="math inline">\(0 &lt; p &lt; 1\)</span>.</li>
 <li>Let <span class="math inline">\(x_0 = \lim_{p \rightarrow 0,~p &gt; 0}F^{-1}(p)\)</span> and <span class="math inline">\(x_1 = \lim_{p \rightarrow 1,~p &lt; 1}F^{-1}(p)\)</span>. Then <span class="math inline">\(x_0\)</span> equals the greatest lower bound on the set of numbers <span class="math inline">\(c\)</span> such that <span class="math inline">\(\Pr(X \leq c) &gt; 0\)</span>, and <span class="math inline">\(x_1\)</span> equals the least upper bound on the set of numbers <span class="math inline">\(d\)</span> such that <span class="math inline">\(\Pr(X \geq d) &gt; 0\)</span>.</li>
@@ -731,13 +551,13 @@ f(x) = \begin{cases}
 </ol>
 </div>
 <div id="exr-3-3-18" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 18 (Exercise 3.3.18) </strong></span>Let <span class="math inline">\(X\)</span> be a random variable with quantile function <span class="math inline">\(F^{-1}\)</span>. Assume the following three conditions: (i) <span class="math inline">\(F^{-1}(p) = c\)</span> for all <span class="math inline">\(p\)</span> in the interval <span class="math inline">\((p_0, p_1)\)</span>, (ii) either <span class="math inline">\(p_0 = 0\)</span> or <span class="math inline">\(F^{-1}(p_0) &lt; c\)</span>, and (iii) either <span class="math inline">\(p_1 = 1\)</span> or <span class="math inline">\(F^{-1}(p) &gt; c\)</span> for <span class="math inline">\(p &gt; p_1\)</span>. Prove that <span class="math inline">\(\Pr(X = c) = p_1 − p_0\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 18 (Exercise 3.3.18)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable with quantile function <span class="math inline">\(F^{-1}\)</span>. Assume the following three conditions: (i) <span class="math inline">\(F^{-1}(p) = c\)</span> for all <span class="math inline">\(p\)</span> in the interval <span class="math inline">\((p_0, p_1)\)</span>, (ii) either <span class="math inline">\(p_0 = 0\)</span> or <span class="math inline">\(F^{-1}(p_0) &lt; c\)</span>, and (iii) either <span class="math inline">\(p_1 = 1\)</span> or <span class="math inline">\(F^{-1}(p) &gt; c\)</span> for <span class="math inline">\(p &gt; p_1\)</span>. Prove that <span class="math inline">\(\Pr(X = c) = p_1 − p_0\)</span>.</p>
 </div>
 <div id="exr-3-3-19" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19 (Exercise 3.3.19) </strong></span>Let <span class="math inline">\(X\)</span> be a random variable with CDF <span class="math inline">\(F\)</span> and quantile function <span class="math inline">\(F^{-1}\)</span>. Let <span class="math inline">\(x_0\)</span> and <span class="math inline">\(x_1\)</span> be as defined in <a href="#exr-3-3-17">Exercise&nbsp;17</a>. (Note that $x_0 = -and/or <span class="math inline">\(x_1 = \infty\)</span> are possible.) Prove that for all <span class="math inline">\(x\)</span> in the open interval <span class="math inline">\((x_0, x_1)\)</span>, <span class="math inline">\(F(x)\)</span> is the largest <span class="math inline">\(p\)</span> such that <span class="math inline">\(F^{−1}(p) \leq x\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 19 (Exercise 3.3.19)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable with CDF <span class="math inline">\(F\)</span> and quantile function <span class="math inline">\(F^{-1}\)</span>. Let <span class="math inline">\(x_0\)</span> and <span class="math inline">\(x_1\)</span> be as defined in <a href="#exr-3-3-17" class="quarto-xref">Exercise&nbsp;17</a>. (Note that $x_0 = -and/or <span class="math inline">\(x_1 = \infty\)</span> are possible.) Prove that for all <span class="math inline">\(x\)</span> in the open interval <span class="math inline">\((x_0, x_1)\)</span>, <span class="math inline">\(F(x)\)</span> is the largest <span class="math inline">\(p\)</span> such that <span class="math inline">\(F^{−1}(p) \leq x\)</span>.</p>
 </div>
 <div id="exr-3-3-20" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 20 (Exercise 3.3.20) </strong></span>In <strong>?@exr-3-2-13</strong>, draw a sketch of the CDF <span class="math inline">\(F\)</span> of <span class="math inline">\(X\)</span> and find <span class="math inline">\(F(10)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 20 (Exercise 3.3.20)</strong></span> In <strong>?@exr-3-2-13</strong>, draw a sketch of the CDF <span class="math inline">\(F\)</span> of <span class="math inline">\(X\)</span> and find <span class="math inline">\(F(10)\)</span>.</p>
 </div>
 </section>
 </section>
@@ -823,10 +643,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -836,8 +673,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -849,7 +695,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -893,6 +862,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -918,6 +888,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -978,6 +974,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

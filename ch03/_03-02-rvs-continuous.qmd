@@ -5,7 +5,6 @@
 
 ### The Probability Density Function
 
-::: {.callout-tip}
 ::: {#exm-3-2-1}
 
 # Example 3.2.1: Demands for Utilities
@@ -34,11 +33,9 @@ $$ {#eq-3-2-2}
 Because we defined $f(x)$ to be 0 for $x$ outside of the interval $[4, 200]$, we see that @eq-3-2-2 holds for all $c_0 \leq c_1$, even if $c_0 = -\infty$ and/or $c_1 = \infty$.
 
 :::
-:::
  
 The water demand $X$ in @exm-3-2-1 is an example of the following.
 
-::: {.callout-note}
 ::: {#def-3-2-1}
 
 # Definition 3.2.1: Continuous Distribution / Random Variable
@@ -46,7 +43,6 @@ The water demand $X$ in @exm-3-2-1 is an example of the following.
 We say that a random variable $X$ has a **continuous distribution** or that $X$ is a **continuous random variable** if there exists a nonnegative function $f$, defined on the real line, such that for every interval of real numbers (bounded or unbounded), the probability that $X$ takes a value in the interval
 is the integral of $f$ over the interval.
 
-:::
 :::
 
 For example, in the situation described in @def-3-2-1, for each bounded closed interval $[a, b]$,
@@ -59,14 +55,12 @@ Similarly, $\Pr(X \geq a) = \int_{a}^{\infty}f(x)dx$ and $\Pr(X \leq b) = \int_{
 
 We see that the function $f$ characterizes the distribution of a continuous random variable in much the same way that the probability mass function characterizes the distribution of a discrete random variable. For this reason, the function $f$ plays an important role, and hence we give it a name.
 
-::: {.callout-note}
 ::: {#def-3-2-2}
 
 # Definition 3.2.2: Probability Density Function/pdf/Support
 
 If $X$ has a continuous distribution, the function $f$ described in @def-3-2-1 is called the **probability density function** (abbreviated **pdf**) of $X$. The closure of the set $\{x \mid f(x) > 0\}$ is called the **support of (the distribution of) $X$**.
 
-:::
 :::
 
 @exm-3-2-1 demonstrates that the water demand $X$ has PDF given by @eq-3-2-1.
@@ -105,7 +99,6 @@ We shall now present several examples of continuous distributions and their PDFs
 
 ### Uniform Distributions on Intervals
 
-::: {.callout-tip}
 ::: {#exm-3-2-2}
 
 # Example 3.2.2: Temperature Forecasts
@@ -114,11 +107,7 @@ Television weather forecasters announce high and low temperature forecasts as in
 
 :::
 
-:::
-
 The distribution of $X$ in @exm-3-2-2 is a special case of the following.
-
-::: {.callout-tip}
 
 ::: {#def-3-2-3}
 
@@ -128,11 +117,7 @@ Let $a$ and $b$ be two given real numbers such that $a < b$. Let $X$ be a random
 
 :::
 
-:::
-
 A random variable $X$ with the uniform distribution on the interval $[a, b]$ represents the outcome of an experiment that is often described by saying that a point is chosen at random from the interval $[a, b]$. In this context, the phrase "at random" means that the point is just as likely to be chosen from any particular part of the interval as from any other part of the same length.
-
-::: {.callout-tip}
 
 ::: {#thm-3-2-1}
 
@@ -157,7 +142,6 @@ $$ {#eq-3-2-7}
 Therefore, the constant value of $f(x)$ throughout $[a, b]$ must be $1/(b − a)$, and the pdf of $X$ must be @eq-3-2-6.
 :::
 
-:::
 :::
 
 ![The pdf for the uniform distribution on the interval $[a, b]$.](ch03/images/fig-3-5.jpeg){#fig-3-5}
@@ -190,7 +174,6 @@ the calculation of $\Pr(0 \leq X < 2)$ that we just performed. After this, when 
 
 ### Other Continuous Distributions
 
-::: {.callout-tip}
 ::: {#exm-3-2-3}
 
 # Example 3.2.3: Incompletely Specified pdf
@@ -215,15 +198,13 @@ $$
 Hence, $c = 1/8$.
 
 :::
-:::
 
 **Note: Calculating Normalizing Constants**. The calculation in @exm-3-2-3 illustrates an important point that simplifies many statistical results. The pdf of $X$ was specified without explicitly giving the value of the constant $c$. However, we were able to figure out what was the value of $c$ by using the fact that the integral of a pdf must
 be 1. It will often happen, especially in @sec-8 where we find sampling distributions of summaries of observed data, that we can determine the pdf of a random variable except for a constant factor. That constant factor must be the unique value such that the integral of the pdf is 1, even if we cannot calculate it directly.
 
-::: {.callout-tip}
 ::: {#exm-3-2-4}
 
-# Example 3.2.4: Calculating Probabilities from a PDF (DeGroot and Schervish, p. 105)
+# Example 3.2.4: Calculating Probabilities from a PDF (p. 105)
 
 Suppose that the PDF of $X$ is as in @exm-3-2-3, namely,
 
@@ -247,15 +228,12 @@ $$
 $$
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-3-2-5}
 
 # Example 3.2.5: Unbounded Random Variables
 
-It is often convenient and useful to represent a continuous distribution by a pdf that is positive over an unbounded interval of the real line. For example, in a practical problem, the voltage $X$ in a certain electrical system
-might be a random variable with a continuous distribution that can be approximately represented by the pdf
+It is often convenient and useful to represent a continuous distribution by a pdf that is positive over an unbounded interval of the real line. For example, in a practical problem, the voltage $X$ in a certain electrical system might be a random variable with a continuous distribution that can be approximately represented by the pdf
 
 $$
 f(x) = \begin{cases}
@@ -270,9 +248,7 @@ Even though the voltage $X$ may actually be bounded in the real situation, the p
 that the maximum voltage is only 1000.
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-3-2-6}
 
 # Example 3.2.6: Unbounded PDFs
@@ -289,22 +265,18 @@ $$ {#eq-3-2-9}
 It can be verified that even though the PDF @eq-3-2-9 is unbounded, it satisfies the properties @eq-3-2-4 and @eq-3-2-5 required of a PDF.
 
 :::
-:::
 
 ### Mixed Distributions
 
 Most distributions that are encountered in practical problems are either discrete or continuous. We shall show, however, that it may sometimes be necessary to consider a distribution that is a mixture of a discrete distribution and a continuous distribution.
 
-::: {.callout-tip}
 ::: {#exm-3-2-7}
 
 # Example 3.2.7: Truncated Voltage (DeGroot and Schervish, p. 106)
 
 Suppose that in the electrical system considered in @exm-3-2-5, the voltage $X$ is to be measured by a voltmeter that will record the actual value of $X$ if $X \leq 3$ but will simply record the value $3$ if $X > 3$. If we let $Y$ denote the value recorded by the voltmeter, then the distribution of $Y$ can be derived as follows.
 
-First, $Pr(Y = 3) = Pr(X \geq 3) = 1/4$. Since the single value $Y = 3$ has probability $1/4$, it follows that $\Pr(0 < Y < 3) = 3/4$. Furthermore, since $Y = X$ for $0 < X < 3$, this probability $3/4$ for $Y$ is distributed over the interval $(0, 3)$ according to the same PDF (3.2.8) as that of $X$ over the same interval. Thus, the distribution of $Y$ is specified by the combination of a PDF over the interval $(0, 3)$ and a positive probability at the point $Y = 3$.
-
-:::
+First, $\Pr(Y = 3) = \Pr(X \geq 3) = 1/4$. Since the single value $Y = 3$ has probability $1/4$, it follows that $\Pr(0 < Y < 3) = 3/4$. Furthermore, since $Y = X$ for $0 < X < 3$, this probability $3/4$ for $Y$ is distributed over the interval $(0, 3)$ according to the same PDF (3.2.8) as that of $X$ over the same interval. Thus, the distribution of $Y$ is specified by the combination of a PDF over the interval $(0, 3)$ and a positive probability at the point $Y = 3$.
 
 :::
 

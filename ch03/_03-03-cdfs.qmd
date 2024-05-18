@@ -2,10 +2,9 @@
 
 *Although a discrete distribution is characterized by its PMF and a continuous distribution is characterized by its PDF, every distribution has a common characterization through its (cumulative) distribution function (CDF). The inverse of the CDF is called the quantile function, and it is useful for indicating where the probability is located in a distribution.*
 
-::: {.callout-tip}
 ::: {#exm-3-3-1}
 
-# Example 3.3.1: Voltage (DeGroot and Schervish, pp. 107-108)
+# Example 3.3.1: Voltage (pp. 107-108)
 
 Consider again the voltage $X$ from @exm-3-2-5. The distribution of $X$ is characterized by the pdf in @eq-3-2-8. An alternative characterization that is more directly related to probabilities associated with $X$ is obtained from the following function:
 
@@ -25,11 +24,9 @@ $$
 So, for example, $\Pr(X \leq 3) = F(3) = 3/4$.
 
 :::
-:::
 
 ### Definition and Basic Properties
 
-::: {.callout-note}
 ::: {#def-3-3-1}
 
 # Definition 3.3.1: Cumulative Distribution Function (DeGroot and Schervish, p. 108)
@@ -41,11 +38,9 @@ F(x) = \Pr(X \leq x) \; \text{ for } -\infty < x < \infty.
 $$ {#eq-3-3-2}
 
 :::
-:::
 
 It should be emphasized that the cumulative distribution function is defined as above for every random variable $X$, regardless of whether the distribution of $X$ is discrete, continuous, or mixed. For the continuous random variable in @exm-3-3-1, the CDF was calculated in @eq-3-3-1. Here is a discrete example:
 
-::: {.callout-tip}
 ::: {#exm-3-3-2}
 
 # Example 3.3.2: Bernoulli CDF
@@ -61,11 +56,9 @@ F(x) = \begin{cases}
 $$
 
 :::
-:::
 
 We shall soon see (@thm-3-3-2) that the CDF allows calculation of all interval probabilities; hence, it characterizes the distribution of a random variable. It follows from @eq-3-3-2 that the CDF of each random variable $X$ is a function $F$ defined on the real line. The value of $F$ at every point $x$ must be a number $F(x)$ in the interval $[0, 1]$ because $F(x)$ is the probability of the event $\{X \leq x\}$. Furthermore, it follows from @eq-3-3-2 that the CDF of every random variable $X$ must have the following three properties.
 
-::: {.callout-warning}
 ::: {#prp-3-3-1}
 
 # Property 3.3.1: Nondecreasing.
@@ -77,12 +70,10 @@ If $x_1 < x_2$, then the event $\{X \leq x_1\}$ is a subset of the event $\{X \l
 :::
 
 :::
-:::
 
 
 An example of a CDF is sketched in @fig-3-6. It is shown in that figure that $0 \leq F(x) \leq 1$ over the entire real line. Also, $F(x)$ is always nondecreasing as $x$ increases, although $F(x)$ is constant over the interval $x_1 \leq x \leq x_2$ and for $x \geq x_4$.
 
-::: {.callout-warning}
 ::: {#prp-3-3-2}
 
 # Property 3.3.2: Limits at $\pm \infty$.
@@ -94,12 +85,10 @@ As in the proof of @prp-3-3-1, note that $\{X \leq x_1\} \subset \{X \leq x_2\}$
 :::
 
 :::
-:::
 
 ![An example of a CDF](ch03/images/fig-3-6.jpeg){#fig-3-6}
 
-The limiting values specified in @prp-3-3-2 are indicated in @fig-3-6. In this figure, the value of $F(x)$ actually becomes 1 at $x = x_4$ and then remains 1 for $x > x_4$. Hence, it may be concluded that $\Pr(X \leq x_4) = 1$ and $\Pr(X > x_4) = 0$. On the other hand, according to the sketch in @fig-3-6, the value of $F(x)$ approaches 0 as $x \rightarrow −\infty$, but does not actually become 0 at any finite point $x$. Therefore, for every finite value
-of $x$, no matter how small, $\Pr(X \leq x) > 0$.
+The limiting values specified in @prp-3-3-2 are indicated in @fig-3-6. In this figure, the value of $F(x)$ actually becomes 1 at $x = x_4$ and then remains 1 for $x > x_4$. Hence, it may be concluded that $\Pr(X \leq x_4) = 1$ and $\Pr(X > x_4) = 0$. On the other hand, according to the sketch in @fig-3-6, the value of $F(x)$ approaches 0 as $x \rightarrow −\infty$, but does not actually become 0 at any finite point $x$. Therefore, for every finite value of $x$, no matter how small, $\Pr(X \leq x) > 0$.
 
 A CDF need not be continuous. In fact, the value of $F(x)$ may jump at any finite or countable number of points. In @fig-3-6, for instance, such jumps or points of discontinuity occur where $x = x_1$ and $x = x_3$. For each fixed value $x$, we shall let $F(x^-)$ denote the limit of the values of $F(y)$ as $y$ approaches $x$ from the left, that is, as $y$ approaches $x$ through values smaller than $x$. In symbols,
 
@@ -116,7 +105,6 @@ $$
 
 If the CDF is continuous at a given point $x$, then $F(x^{-}) = F(x^+) = F(x)$ at that point.
 
-::: {.callout-tip}
 ::: {#prp-3-3-3}
 
 # Property 3.3.3: Continuity from the Right.
@@ -133,7 +121,6 @@ $$
 :::
 
 :::
-:::
 
 It follows from @prp-3-3-3 that at every point $x$ at which a jump occurs,
 
@@ -145,7 +132,6 @@ In @fig-3-6 this property is illustrated by the fact that, at the points of disc
 
 ### Determining Probabilities from the Distribution Function
 
-::: {.callout-tip}
 ::: {#exm-3-3-3}
 
 # Example 3.3.3: Voltage.
@@ -156,7 +142,6 @@ $$
 \Pr(A) = \Pr(C) − \Pr(B) = F(4) − F(2) = \frac{4}{5} - \frac{3}{4} = \frac{1}{20}.
 $$
 
-:::
 :::
 
 The type of reasoning used in @exm-3-3-3 can be extended to find the probability that an arbitrary random variable $X$ will lie in any specified interval of the real line from the CDF. We shall derive this probability for four different types of intervals.
@@ -179,7 +164,6 @@ The events $\{X > x\}$ and $\{X \leq x\}$ are disjoint, and their union is the w
 :::
 :::
 
-::: {.callout-caution}
 ::: {#thm-3-3-2}
 
 # Theorem 3.3.2
@@ -201,13 +185,11 @@ Subtracting $\Pr(X \leq x_1)$ from both sides of this equation and applying @eq-
 :::
 
 :::
-:::
 
 For example, if the CDF of $X$ is as sketched in @fig-3-6, then it follows from Theorems [-@thm-3-3-1] and [-@thm-3-3-2] that $\Pr(X > x_2) = 1 − z_1$ and $\Pr(x_2 < X \leq x_3) = z_3 − z_1$. Also, since $F(x)$ is constant over the interval $x_1 \leq x \leq x_2$, then $\Pr(x_1 < X \leq x_2) = 0$.
 
 It is important to distinguish carefully between the strict inequalities and the weak inequalities that appear in all of the preceding relations and also in the next theorem. If there is a jump in $F(x)$ at a given value $x$, then the values of $\Pr(X \leq x)$ and $\Pr(X < x)$ will be different.
 
-::: {.callout-tip}
 ::: {#thm-3-3-3}
 
 # Theorem 3.3.3
@@ -236,13 +218,11 @@ $$
 :::
 
 :::
-:::
 
 For example, for the CDF sketched in @fig-3-6, $\Pr(X < x_3) = z_2$ and $\Pr(X < x_4) = 1$.
 
 Finally, we shall show that for every value $x$, $\Pr(X = x)$ is equal to the amount of the jump that occurs in $F$ at the point $x$. If $F$ is continuous at the point $x$, that is, if there is no jump in $F$ at $x$, then $\Pr(X = x) = 0$.
 
-::: {.callout-caution}
 ::: {#thm-3-3-4}
 
 # Theorem 3.3.4
@@ -258,7 +238,6 @@ It is always true that $\Pr(X = x) = \Pr(X \leq x) − \Pr(X < x)$. The relation
 :::
 
 :::
-:::
 
 In @fig-3-6, for example, $\Pr(X = x_1) = z_1 − z_0$, $\Pr(X = x_3) = z_3 − z_2$, and the probability of every other individual value of $X$ is 0.
 
@@ -266,12 +245,10 @@ In @fig-3-6, for example, $\Pr(X = x_1) = z_1 − z_0$, $\Pr(X = x_3) = z_3 − 
 
 From the definition and properties of a CDF $F(x)$, it follows that if $a < b$ and if $\Pr(a < X < b) = 0$, then $F(x)$ will be constant and horizontal over the interval $a < x < b$. Furthermore, as we have just seen, at every point $x$ such that $\Pr(X = x) > 0$, the CDF will jump by the amount $\Pr(X = x)$.
 
-Suppose that $X$ has a discrete distribution with the pmf $f(x)$. Together, the properties of a CDF imply that $F(x)$ must have the following form: $F(x)$ will have a jump of magnitude $f(x_i)$ at each possible value $x_i$ of $X$, and $F(x)$ will be constant between every pair of successive jumps. The distribution of a discrete random variable $X$ can
-be represented equally well by either the pmf or the CDF of $X$.
+Suppose that $X$ has a discrete distribution with the pmf $f(x)$. Together, the properties of a CDF imply that $F(x)$ must have the following form: $F(x)$ will have a jump of magnitude $f(x_i)$ at each possible value $x_i$ of $X$, and $F(x)$ will be constant between every pair of successive jumps. The distribution of a discrete random variable $X$ can be represented equally well by either the pmf or the CDF of $X$.
 
 ### The CDF of a Continuous Distribution
 
-::: {.callout-tip}
 ::: {#thm-3-3-5}
 
 # Theorem 3.3.5
@@ -299,7 +276,6 @@ It follows from @eq-3-3-7 and the relation between integrals and derivatives (th
 :::
 
 :::
-:::
 
 Thus, the CDF of a continuous random variable $X$ can be obtained from the pdf and vice versa. @eq-3-3-7 is how we found the CDF in @exm-3-3-1. Notice that the derivative of the $F$ in @exm-3-3-1 is
 
@@ -312,7 +288,6 @@ $$
 
 and $F'$ does not exist at $x = 0$. This verifies @eq-3-3-8 for @exm-3-3-1. Here, we have used the popular shorthand notation $F'(x)$ for the derivative of $F$ at the point $x$.
 
-::: {.callout-tip}
 ::: {#exm-3-3-4}
 
 # Example 3.3.4: Calculating a pdf from a CDF
@@ -329,9 +304,10 @@ $$
 
 This function clearly satisfies the three properties required of every CDF, as given earlier in this section. Furthermore, since this CDF is continuous over the entire real line and is differentiable at every point except $x = 0$ and $x = 1$, the distribution of $X$ is continuous. Therefore, the pdf of $X$ can be found at every point other than $x = 0$ and $x = 1$ by the relation @eq-3-3-8. The value of $f(x)$ at the points $x = 0$ and $x = 1$ can be assigned arbitrarily. When the derivative $F(x)$ is calculated, it is found that $f(x)$ is as given by @eq-3-2-9 in @exm-3-2-6. Conversely, if the pdf of $X$ is given by @eq-3-2-9, then by using @eq-3-3-7 it is found that $F(x)$ is as given in this example.
 
+:::
+
 ### The Quantile Function
 
-::: {.callout-tip}
 ::: {#exm-3-3-5}
 
 # Example 3.3.5: Fair Bets
@@ -339,11 +315,9 @@ This function clearly satisfies the three properties required of every CDF, as g
 Suppose that $X$ is the amount of rain that will fall tomorrow, and $X$ has CDF $F$. Suppose that we want to place an even-money bet on $X$ as follows: If $X \leq x_0$, we win one dollar and if $X > x_0$ we lose one dollar. In order to make this bet fair, we need $\Pr(X \leq x_0) = \Pr(X > x_0) = 1/2$. We could search through all of the real numbers $x$ trying to find one such that $F(x) = 1/2$, and then we would let $x_0$ equal the value we found. If $F$ is a one-to-one function, then $F$ has an inverse $F^{-1}$ and $x_0 = F^{-1}(1/2)$.
 
 :::
-:::
 
 The value $x_0$ that we seek in @exm-3-3-5 is called the **0.5 quantile** of $X$ or the **50th percentile** of $X$ because 50% of the distribution of $X$ is at or below $x_0$.
 
-::: {.callout-note}
 ::: {#def-3-3-2}
 
 # Definition 3.3.2: Quantiles/Percentiles
@@ -351,9 +325,7 @@ The value $x_0$ that we seek in @exm-3-3-5 is called the **0.5 quantile** of $X$
 Let $X$ be a random variable with CDF $F$. For each $p$ strictly between 0 and 1, define $F^{-1}(p)$ to be the smallest value $x$ such that $F(x) \geq p$. Then $F^{-1}(p)$ is called the **$p$ quantile** of $X$ or the **$100p$ percentile** of $X$. The function $F^{-1}$ defined here on the open interval $(0, 1)$ is called the **quantile function** of $X$.
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-3-3-6}
 
 # Example 3.3.6: Standardized Test Scores
@@ -362,13 +334,10 @@ Many universities in the United States rely on standardized test scores as part 
 
 :::
 
-:::
-
 The notation $F^{-1}(p)$ in @def-3-3-2 deserves some justification. Suppose first that the CDF $F$ of $X$ is continuous and one-to-one over the whole set of possible values of $X$. Then the inverse $F^{-1}$ of $F$ exists, and for each $0 < p < 1$, there is one and only one $x$ such that $F(x) = p$. That $x$ is $F^{−1}(p)$. @def-3-3-2 extends the concept of inverse function to nondecreasing functions (such as CDFs) that may be neither one-to-one nor continuous.
 
 **Quantiles of Continuous Distributions**: When the CDF of a random variable $X$ is continuous and one-to-one over the whole set of possible values of $X$, the inverse $F^{-1}$ of $F$ exists and equals the quantile function of $X$.
 
-::: {.callout-tip}
 ::: {#exm-3-3-7}
 
 # Example 3.3.7: Value at Risk
@@ -376,13 +345,11 @@ The notation $F^{-1}(p)$ in @def-3-3-2 deserves some justification. Suppose firs
 The manager of an investment portfolio is interested in how much money the portfolio might lose over a fixed time horizon. Let $X$ be the change in value of the given portfolio over a period of one month. Suppose that $X$ has the pdf in @fig-3-7. The manager computes a quantity known in the world of risk management as **Value at Risk** (denoted by VaR). To be specific, let $Y = −X$ stand for the loss incurred by the portfolio over the one month. The manager wants to have a level of confidence about how large $Y$ might be. In this example, the manager specifies a probability level, such as 0.99 and then finds $y_0$, the 0.99 quantile of $Y$. The manager is now 99% sure that $Y \leq y_0$, and $y_0$ is called the VaR. If $X$ has a continuous distribution, then it is easy to see that $y_0$ is closely related to the 0.01 quantile of the distribution of $X$. The 0.01 quantile $x_0$ has the property that $\Pr(X < x_0) = 0.01$. But $\Pr(X < x_0) = \Pr(Y > −x_0) = 1 − \Pr(Y \leq −x_0)$. Hence, $−x_0$ is a 0.99 quantile of $Y$. For the pdf in @fig-3-7, we see that $x_0 = −4.14$, as the shaded region indicates. Then $y_0 = 4.14$ is VaR for one month at probability level 0.99.
 
 :::
-:::
 
 ![The pdf of the change in value of a portfolio with lower 1% indicated.](ch03/images/fig-3-7.jpeg){#fig-3-7}
 
 ![The CDF of a uniform distribution indicating how to solve for a quantile.](ch03/images/fig-3-8.jpeg){#fig-3-8}
 
-::: {.callout-tip}
 ::: {#exm-3-3-8}
 
 # Example 3.3.8: Uniform Distribution on an Interval
@@ -413,8 +380,6 @@ The quantile function of $X$ is $F^{−1}(p) = pb + (1 − p)a$ for $0 < p < 1$.
 
 :::
 
-:::
-
 **Note: Quantiles, Like CDFs, Depend on the Distribution Only**: Any two random variables with the same distribution have the same quantile function. When we refer to a quantile of $X$, we mean a quantile of the distribution of $X$.
 
 **Quantiles of Discrete Distributions**: It is convenient to be able to calculate quantiles for discrete distributions as well. The quantile function of @def-3-3-2 exists for all distributions whether discrete, continuous, or otherwise. For example, in @fig-3-6, let $z_0 \leq p \leq z_1$. Then the smallest $x$ such that $F(x) \geq p$ is $x_1$. For every value of $x < x_1$, we have $F(x) < z_0 \leq p$ and $F(x_1) = z_1$. Notice that $F(x) = z_1$ for all $x$ between $x_1$ and $x_2$, but since $x_1$ is the smallest of all those numbers, $x_1$ is the $p$ quantile. Because distribution functions are continuous from the right, the smallest $x$ such that $F(x) \geq p$ exists for all $0 < p < 1$. For $p = 1$, there is no guarantee that such an $x$ will exist. For example, in @fig-3-6, $F(x_4) = 1$, but in @exm-3-3-1, $F(x) < 1$ for all $x$. For $p = 0$, there is never a smallest $x$ such that $F(x) = 0$ because $\lim_{x \rightarrow −\infty}F(x) = 0$. That is, if $F(x_0) = 0$, then $F(x) = 0$ for all $x < x_0$. For these reasons, we never talk about the 0 or 1 quantiles.
@@ -430,7 +395,6 @@ The quantile function of $X$ is $F^{−1}(p) = pb + (1 − p)a$ for $0 < p < 1$.
 
 : Table 3.1: Quantile function for @exm-3-3-9. {#tbl-3-1}
 
-::: {.callout-tip}
 ::: {#exm-3-3-9}
 
 # Example 3.3.9: Quantiles of a Binomial Distribution.
@@ -445,11 +409,9 @@ Let $X$ have the binomial distribution with parameters 5 and 0.3. The binomial t
 (A little rounding error occurred in the pmf) So, for example, the 0.5 quantile of this distribution is 1, which is also the 0.25 quantile and the 0.20 quantile. The entire quantile function is in @tbl-3-1. So, the 90th percentile is 3, which is also the 95th percentile, etc.
 
 :::
-:::
 
 Certain quantiles have special names.
 
-::: {.callout-note}
 ::: {#def-3-3-3}
 
 # Definition 3.3.3: Median/Quartiles.
@@ -457,11 +419,9 @@ Certain quantiles have special names.
 The $1/2$ quantile or the 50th percentile of a distribution is called its **median**. The $1/4$ quantile or 25th percentile is the **lower quartile**. The $3/4$ quantile or 75th percentile is called the **upper quartile**.
 
 :::
-:::
 
 **Note: The Median Is Special**. The median of a distribution is one of several special features that people like to use when sumarizing the distribution of a random variable. We shall discuss summaries of distributions in more detail in @sec-4. Because the median is such a popular summary, we need to note that there are several different but similar "definitions" of median. Recall that the $1/2$ quantile is the **smallest** number $x$ such that $F(x) \geq 1/2$. For some distributions, usually discrete distributions, there will be an interval of numbers $[x_1, x_2)$ such that for all $x \in [x_1, x_2)$, $F(x) = 1/2$. In such cases, it is common to refer to all such $x$ (including $x_2$) as medians of the distribution. (See @def-4-5-1.) Another popular convention is to call $(x_1 + x_2)/2$ the median. This last is probably the most common convention. The readers should be aware that, whenever they encounter a median, it might be any one of the things that we just discussed. Fortunately, they all mean nearly the same thing, namely that the number divides the distribution in half as closely as is possible.
 
-::: {.callout-tip}
 ::: {#exm-3-3-10}
 
 # Example 3.3.10: Uniform Distribution on Integers.
@@ -481,7 +441,6 @@ $$
 The $1/2$ quantile is 2, but every number in the interval $[2, 3]$ might be called a median. The most popular choice would be 2.5.
 
 :::
-:::
 
 One advantage to describing a distribution by the quantile function rather than by the CDF is that quantile functions are easier to display in tabular form for multiple distributions. The reason is that the domain of the quantile function is always the interval $(0, 1)$ no matter what the possible values of $X$ are. Quantiles are also useful for summarizing distributions in terms of where the probability is. For example, if one wishes to say where the middle half of a distribution is, one can say that it lies between the 0.25 quantile and the 0.75 quantile. In @sec-8-5, we shall see how to use quantiles to help provide estimates of unknown quantities after observing data.
 
@@ -497,8 +456,7 @@ The CDF $F$ of a random variable $X$ is $F(x) = \Pr(X \leq x)$ for all real $x$.
 
 # Exercise 3.3.1
 
-Suppose that a random variable $X$ has the Bernoulli
-distribution with parameter $p = 0.7$. (See @def-3-1-5) Sketch the CDF of $X$.
+Suppose that a random variable $X$ has the Bernoulli distribution with parameter $p = 0.7$. (See @def-3-1-5) Sketch the CDF of $X$.
 
 :::
 
@@ -539,14 +497,13 @@ l. $\Pr(3 \leq X \leq 4)$
 
 :::
 
-![Figure 3.9: The CDF for Exercise 4.](ch03/images/fig-3-9.jpeg){#fig-3-9}
+![Figure 3.9: The CDF for Exercise 4.](ch03/images/fig-3-9.svg){#fig-3-9}
 
 ::: {#exr-3-3-5}
 
 # Exercise 3.3.5
 
-Suppose that the CDF of a random variable $X$ is as
-follows:
+Suppose that the CDF of a random variable $X$ is as follows:
 
 $$
 F(x) = \begin{cases}
@@ -597,8 +554,7 @@ Suppose that a point in the $xy$-plane is chosen at random from the interior of 
 
 # Exercise 3.3.9
 
-Suppose that $X$ has the uniform distribution on the
-interval $[0, 5]$ and that the random variable $Y$ is defined by $Y = 0$ if $X \leq 1$, $Y = 5$ if $X \geq 3$, and $Y = X$ otherwise. Sketch the CDF of $Y$.
+Suppose that $X$ has the uniform distribution on the interval $[0, 5]$ and that the random variable $Y$ is defined by $Y = 0$ if $X \leq 1$, $Y = 5$ if $X \geq 3$, and $Y = X$ otherwise. Sketch the CDF of $Y$.
 
 :::
 
@@ -638,8 +594,7 @@ Suppose that a broker believes that the change in value $X$ of a particular inve
 
 # Exercise 3.3.14
 
-Find the quartiles and the median of the binomial
-distribution with parameters $n = 10$ and $p = 0.2$.
+Find the quartiles and the median of the binomial distribution with parameters $n = 10$ and $p = 0.2$.
 
 :::
 
@@ -684,8 +639,7 @@ c. $F^{−1}$ is continuous from the left; that is $F^{-1}(p) = F^{-1}(p^-)$ for
 
 # Exercise 3.3.18
 
-Let $X$ be a random variable with quantile function
-$F^{-1}$. Assume the following three conditions: (i) $F^{-1}(p) = c$ for all $p$ in the interval $(p_0, p_1)$, (ii) either $p_0 = 0$ or $F^{-1}(p_0) < c$, and (iii) either $p_1 = 1$ or $F^{-1}(p) > c$ for $p > p_1$. Prove that $\Pr(X = c) = p_1 − p_0$.
+Let $X$ be a random variable with quantile function $F^{-1}$. Assume the following three conditions: (i) $F^{-1}(p) = c$ for all $p$ in the interval $(p_0, p_1)$, (ii) either $p_0 = 0$ or $F^{-1}(p_0) < c$, and (iii) either $p_1 = 1$ or $F^{-1}(p) > c$ for $p > p_1$. Prove that $\Pr(X = c) = p_1 − p_0$.
 
 :::
 

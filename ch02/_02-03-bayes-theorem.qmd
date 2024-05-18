@@ -4,7 +4,6 @@
 
 We begin with a typical example.
 
-::: {.callout-tip}
 ::: {#exm-2-3-1}
 
 # Example 2.3.1: Test for a Disease
@@ -14,15 +13,13 @@ Suppose that you are walking down the street and notice that the Department of P
 Data indicate that your chances of having the disease are only 1 in 10,000. However, since the test costs you nothing, and is fast and harmless, you decide to stop and take the test. A few days later you learn that you had a positive response to the test. Now, what is the probability that you have the disease?  
 
 :::
-:::
 
-The last question in @exm-2-3-1 is a \Prototype of the question for which Bayes' theorem was designed.We have at least two disjoint events ("you have the disease" and "you do not have the disease") about which we are uncertain, and we learn a piece of information (the result of the test) that tells us something about the uncertain events. Then we need to know how to revise the \Probabilities of the events in the light of the information we learned.
+The last question in @exm-2-3-1 is a prototype of the question for which Bayes' theorem was designed.We have at least two disjoint events ("you have the disease" and "you do not have the disease") about which we are uncertain, and we learn a piece of information (the result of the test) that tells us something about the uncertain events. Then we need to know how to revise the probabilities of the events in the light of the information we learned.
 
-We now \Present the general structure in which Bayes' theorem operates before returning to the example.
+We now present the general structure in which Bayes' theorem operates before returning to the example.
 
-### Statement, \Proof, and Examples of Bayes' Theorem
+### Statement, Proof, and Examples of Bayes' Theorem
 
-::: {.callout-tip}
 ::: {#exm-2-3-2}
 
 # Example 2.3.2: Selecting Bolts
@@ -36,13 +33,11 @@ $$
 Since the first box has a higher \Proportion of long bolts than the second box, it seems reasonable that the probability of $B_1$ should rise after we learn that a long bolt was selected. It must be that $\Pr(B_2 \mid A) = 5/14$ since one or the other box had to be selected.
 
 :::
-:::
 
 <!-- Stopping point 2023-09-08 -->
  
 In @exm-2-3-2, we started with uncertainty about which of two boxes would be chosen and then we observed a long bolt drawn from the chosen box. Because the two boxes have different chances of having a long bolt drawn, the observation of a long bolt changed the \Probabilities of each of the two boxes having been chosen. The \Precise calculation of how the \Probabilities change is the purpose of Bayes' theorem.
 
-::: {.callout-caution}
 ::: {#thm-2-3-1}
 
 # Theorem 2.3.1: Bayes' Theorem
@@ -64,9 +59,7 @@ The numerator on the right side of @eq-2-3-1 is equal to $\Pr(B_i \cap A)$ by @t
 :::
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-2-3-3}
 
 # Example 2.3.3: Test for a Disease
@@ -85,9 +78,7 @@ Thus, the conditional probability that you have the disease given the test resul
 Another way to explain this result is as follows: Only one person in every 10,000 actually has the disease, but the test gives a positive response for approximately one person in every 10. Hence, the number of positive responses is approximately 1000 times the number of persons who actually have the disease. In other words, out of every 1000 persons for whom the test gives a positive response, only one person actually has the disease. This example illustrates not only the use of Bayes' theorem but also the importance of taking into account all of the information available in a \Problem.
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-2-3-4}
 
 # Example 2.3.4: Identifying the Source of a Defective Item
@@ -118,18 +109,16 @@ $$
 $$
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-2-3-5}
 
 # Example 2.3.5: Identifying Genotypes
 
 Consider a gene that has two alleles (see @exm-1-6-4) $A$ and $a$. Suppose that the gene exhibits itself through a trait (such as hair color or blood type) with two versions. We call $A$ **dominant** and $a$ **recessive** if individuals with genotypes $AA$ and $Aa$ have the same version of the trait and the individuals with genotype $aa$ have the other version. The two versions of the trait are called **phenotypes**. We shall call the phenotype exhibited by individuals with genotypes $AA$ and $Aa$ the **dominant trait**, and the other trait will be called the **recessive trait**. In population genetics studies, it is common to have information on the phenotypes of individuals, but it is rather difficult to determine genotypes. However, some information about genotypes can be obtained by observing phenotypes of parents and children.
 
-Assume that the allele $A$ is dominant, that individuals mate independently of genotype, and that the genotypes $AA$, $Aa$, and $aa$ occur in the population with \Probabilities $1/4$, $1/2$, and $1/4$, respectively. We are going to observe an individual whose parents are not available, and we shall observe the phenotype of this individual. Let $E$ be the event that the observed individual has the dominant trait. We would like to revise our opinion of the possible genotypes of the parents. There are six possible genotype combinations, $B_1, \ldots, B_6$, for the parents prior to making any observations, and these are listed in @tbl-2-2.
+Assume that the allele $A$ is dominant, that individuals mate independently of genotype, and that the genotypes $AA$, $Aa$, and $aa$ occur in the population with probabilities $1/4$, $1/2$, and $1/4$, respectively. We are going to observe an individual whose parents are not available, and we shall observe the phenotype of this individual. Let $E$ be the event that the observed individual has the dominant trait. We would like to revise our opinion of the possible genotypes of the parents. There are six possible genotype combinations, $B_1, \ldots, B_6$, for the parents prior to making any observations, and these are listed in @tbl-2-2.
 
-The \Probabilities of the $B_i$ were computed using the assumption that the parents mated independently of genotype. For example, $B_3$ occurs if the father is $AA$ and the mother is $aa$ (probability $1/16$) or if the father is $aa$ and the mother is $AA$ (probability $1/16$). The values of $\Pr(E \mid B_i)$ were computed assuming that the two available alleles are passed from parents to children with probability $1/2$ each and independently for the two parents. For example, given $B_4$, the event $E$ occurs if and only if the child does not get two $a$'s. The probability of getting $a$ from both parents given $B_4$ is $1/4$, so $\Pr(E \mid B_4) = 3/4$.
+The probabilities of the $B_i$ were computed using the assumption that the parents mated independently of genotype. For example, $B_3$ occurs if the father is $AA$ and the mother is $aa$ (probability $1/16$) or if the father is $aa$ and the mother is $AA$ (probability $1/16$). The values of $\Pr(E \mid B_i)$ were computed assuming that the two available alleles are passed from parents to children with probability $1/2$ each and independently for the two parents. For example, given $B_4$, the event $E$ occurs if and only if the child does not get two $a$'s. The probability of getting $a$ from both parents given $B_4$ is $1/4$, so $\Pr(E \mid B_4) = 3/4$.
 
 Now we shall compute $\Pr(B_1 \mid E)$ and $\Pr(B_5 \mid E)$. We leave the other calculations to the reader. The denominator of Bayes' theorem is the same for both calculations, namely,
 
@@ -147,7 +136,6 @@ $$
 $$
 
 :::
-:::
 
 | | $(AA, AA)$ | $(AA, Aa)$ | $(AA,aa)$ | $(Aa, Aa)$ | $(Aa, aa)$ | $(aa, aa)$ |
 | - | - | - | - | - | - | - |
@@ -163,13 +151,13 @@ $$
 \Pr(B_i \mid A \cap C) = \frac{\Pr(B_i \mid C)\Pr(A \mid B_i \cap C)}{\sum_{j=1}^k \Pr(B_j \mid C)\Pr(A \mid B_j \cap C)}.
 $$ {#eq-2-3-2}
 
-### Prior and Posterior \Probabilities
+### Prior and Posterior Probabilities
 
-In @exm-2-3-4, a probability like $\Pr(B_2)$ is often called the **prior probability** that the selected item will have been \Produced by machine $M_2$, because $\Pr(B_2)$ is the probability of this event before the item is selected and before it is known whether the selected item is defective or nondefective. A probability like $\Pr(B_2 \mid A)$ is then called the **posterior probability** that the selected item was \Produced by machine $M_2$, because it is the probability of this event after it is known that the selected item is defective.
+In @exm-2-3-4, a probability like $\Pr(B_2)$ is often called the **prior probability** that the selected item will have been produced by machine $M_2$, because $\Pr(B_2)$ is the probability of this event before the item is selected and before it is known whether the selected item is defective or nondefective. A probability like $\Pr(B_2 \mid A)$ is then called the **posterior probability** that the selected item was produced by machine $M_2$, because it is the probability of this event after it is known that the selected item is defective.
 
-Thus, in @exm-2-3-4, the prior probability that the selected item will have been \Produced by machine $M_2$ is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was \Produced by machine $M_2$ is 0.26. Since this posterior probability is smaller than the prior probability that the item was \Produced by machine $M_2$, the posterior probability that the item was \Produced by one of the other machines must be larger than the prior probability that it was \Produced by one of those machines (see Exercises [-@exr-2-3-1] and [-@exr-2-3-2] at the end of this section).
+Thus, in @exm-2-3-4, the prior probability that the selected item will have been produced by machine $M_2$ is 0.3. After an item has been selected and has been found to be defective, the posterior probability that the item was produced by machine $M_2$ is 0.26. Since this posterior probability is smaller than the prior probability that the item was produced by machine $M_2$, the posterior probability that the item was produced by one of the other machines must be larger than the prior probability that it was produced by one of those machines (see Exercises [-@exr-2-3-1] and [-@exr-2-3-2] at the end of this section).
 
-### Computation of Posterior \Probabilities in More Than One Stage
+### Computation of Posterior Probabilities in More Than One Stage
 
 Suppose that a box contains one fair coin and one coin with a head on each side. Suppose also that one coin is selected at random and that when it is tossed, a head is obtained. We shall determine the probability that the coin is the fair coin.
 
@@ -195,7 +183,7 @@ $$
 \end{align*}
 $$ {#eq-2-3-4}
 
-The second way of determining this same posterior probability is to use the conditional version of Bayes' theorem @eq-2-3-2 given the event $H_1$. Given $H_1$, the conditional probability of $B_1$ is $1/3$, and the conditional probability of $B_2$ is therefore $2/3$. These conditional \Probabilities can now serve as the prior \Probabilities for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply @eq-2-3-2 with $C = H_1$, $\Pr(B_1 \mid H_1) = 1/3$, and $\Pr(B_2 \mid H_1) = 2/3$. We can then compute the posterior probability $\Pr(B_1 \mid H_1 \cap H_2)$ that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need $\Pr(H_2 \mid B_1 \cap H_1)$, which equals $\Pr(H_2 \mid B_1) = 1/2$ by @thm-2-2-4 since $H_1$ and $H_2$ are conditionally independent given $B_1$. Since the coin is two-headed when $B_2$ occurs, $\Pr(H_2 \mid B_2 \cap H_1) = 1$. So we obtain
+The second way of determining this same posterior probability is to use the conditional version of Bayes' theorem @eq-2-3-2 given the event $H_1$. Given $H_1$, the conditional probability of $B_1$ is $1/3$, and the conditional probability of $B_2$ is therefore $2/3$. These conditional probabilities can now serve as the prior probabilities for the next stage of the experiment, in which the coin is tossed a second time. Thus, we can apply @eq-2-3-2 with $C = H_1$, $\Pr(B_1 \mid H_1) = 1/3$, and $\Pr(B_2 \mid H_1) = 2/3$. We can then compute the posterior probability $\Pr(B_1 \mid H_1 \cap H_2)$ that the coin is fair after we have observed a head on the second toss and a head on the first toss. We shall need $\Pr(H_2 \mid B_1 \cap H_1)$, which equals $\Pr(H_2 \mid B_1) = 1/2$ by @thm-2-2-4 since $H_1$ and $H_2$ are conditionally independent given $B_1$. Since the coin is two-headed when $B_2$ occurs, $\Pr(H_2 \mid B_2 \cap H_1) = 1$. So we obtain
 
 $$
 \begin{align*}
@@ -216,7 +204,6 @@ The posterior probability of the event $B_1$ obtained in the second way is the s
 
 The calculations that led to @eq-2-3-3 and @eq-2-3-5 together with @exm-2-2-10 illustrate simple cases of a very powerful statistical model for observable events. It is very common to encounter a sequence of events that we believe are similar in that they all have the same probability of occurring. It is also common that the order in which the events are labeled does not affect the probabilities that we assign. However, we often believe that these events are not independent, because, if we were to observe some of them, we would change our minds about the probability of the ones we had not observed depending on how many of the observed events occur. For example, in the coin-tossing calculation leading up to @eq-2-3-3, before any tosses occur, the probability of $H_2$ is the same as the probability of $H_1$, namely, the denominator of @eq-2-3-3, $3/4$, as @thm-2-1-4 says. However, after observing that the event $H_1$ occurs, the probability of $H_2$ is $\Pr(H_2 \mid H_1)$, which is the denominator of @eq-2-3-5, $5/6$, as computed by the conditional version of the law of total probability @eq-2-1-5. Even though we might treat the coin tosses as independent conditional on the coin being fair, and we might treat them as independent conditional on the coin being two-headed (in which case we know what will happen every time anyway), we cannot treat them as independent without the conditioning information. The conditioning information removes an important source of uncertainty from the problem, so we partition the sample space accordingly. Now we can use the conditional independence of the tosses to calculate joint probabilities of various combinations of events conditionally on the partition events. Finally, we can combine these probabilities using @thm-2-1-4 and @eq-2-1-5. Two more examples will help to illustrate these ideas.
 
-::: {.callout-tip}
 ::: {#exm-2-3-6}
 
 # Example 2.3.6: Learning about a Proportion
@@ -236,9 +223,7 @@ $$
 Even though we thought originally that $B_1$ had probability as high as $0.9$, after we learned that there were two defective items in a sample as small as six, we changed our minds dramatically and now we believe that $B_1$ has probability as small as $0.04$. The reason for this major change is that the event $A$ that occurred has much higher probability if $B_2$ is true than if $B_1$ is true.
 
 :::
-:::
 
-::: {.callout-tip}
 ::: {#exm-2-3-7}
 
 # Example 2.3.7: A Clinical Trial
@@ -282,7 +267,6 @@ $$ {#eq-2-3-8}
 Using the values of $\Pr(B_j \mid A)$ in @fig-2-3 and the fact that $\Pr(E_{41} \mid B_j \cap A) = \Pr(E_{41} \mid B_j) = (j − 1)/10$ (conditional independence of the $E_i$ given the $B_j$), we compute @eq-2-3-8 to be $0.5476$. This is also very close to the observed frequency of success.
 
 :::
-:::
 
 The calculation at the end of @exm-2-3-7 is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.
 
@@ -290,7 +274,6 @@ The calculation at the end of @exm-2-3-7 is typical of what happens after observ
 
 ![The posterior probabilities of partition elements after 40 patients in @exm-2-3-8. The X characters mark the values of the posterior probabilities calculated in @exm-2-3-7.](ch02/images/fig-2-4.jpeg){#fig-2-4}
 
-::: {.callout-tip}
 ::: {#exm-2-3-8}
 
 # Example 2.3.8: The Effect of Prior Probabilities
@@ -304,7 +287,6 @@ Consider the same clinical trial as in @exm-2-3-7. This time, suppose that a dif
 
 We can recalculate the posterior probabilities using Bayes' theorem, and we get the values pictured in @fig-2-4. To aid comparison, the posterior probabilities from @exm-2-3-7 are also plotted in @fig-2-4 using the symbol X. One can see how close the two sets of posterior probabilities are despite the large differences between the prior probabilities. If there had been fewer patients observed, there would have been larger differences between the two sets of posterior probabilites because the observed events would have provided less information. (See @exr-2-3-12 in this section.)
 
-:::
 :::
 
 ### Summary

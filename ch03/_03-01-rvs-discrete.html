@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,6 +37,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="fullcontent">
@@ -44,6 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
 <main class="content" id="quarto-document-content">
+
 
 
 
@@ -63,68 +91,36 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-3-1-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Example 3.1.1: Tossing a Coin (DeGroot and Schervish, p.&nbsp;93)) </strong></span>Consider an experiment in which a fair coin is tossed 10 times. In this experiment, the sample space <span class="math inline">\(S\)</span> can be regarded as the set of outcomes consisting of the 210 different sequences of 10 heads and/or tails that are possible. We might be interested in the number of heads in the observed outcome. We can let <span class="math inline">\(X\)</span> stand for the real-valued function defined on <span class="math inline">\(S\)</span> that counts the number of heads in each outcome. For example, if <span class="math inline">\(s\)</span> is the sequence <code>HHTTTHTTTH</code>, then <span class="math inline">\(X(s) = 4\)</span>. For each possible sequence <span class="math inline">\(s\)</span> consisting of 10 heads and/or tails, the value <span class="math inline">\(X(s)\)</span> equals the number of heads in the sequence. The possible values for the function <span class="math inline">\(X\)</span> are <span class="math inline">\(0, 1, \ldots, 10\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 1 (Example 3.1.1: Tossing a Coin (p.&nbsp;93))</strong></span> Consider an experiment in which a fair coin is tossed 10 times. In this experiment, the sample space <span class="math inline">\(S\)</span> can be regarded as the set of outcomes consisting of the 210 different sequences of 10 heads and/or tails that are possible. We might be interested in the number of heads in the observed outcome. We can let <span class="math inline">\(X\)</span> stand for the real-valued function defined on <span class="math inline">\(S\)</span> that counts the number of heads in each outcome. For example, if <span class="math inline">\(s\)</span> is the sequence <code>HHTTTHTTTH</code>, then <span class="math inline">\(X(s) = 4\)</span>. For each possible sequence <span class="math inline">\(s\)</span> consisting of 10 heads and/or tails, the value <span class="math inline">\(X(s)\)</span> equals the number of heads in the sequence. The possible values for the function <span class="math inline">\(X\)</span> are <span class="math inline">\(0, 1, \ldots, 10\)</span>.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-1-1" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Definition 3.1.1: Random Variable) </strong></span>Let <span class="math inline">\(S\)</span> be the sample space for an experiment. A real-valued function that is defined on <span class="math inline">\(S\)</span> is called a <strong>random variable</strong>.</p>
+<p><span class="theorem-title"><strong>Definition 1 (Definition 3.1.1: Random Variable)</strong></span> Let <span class="math inline">\(S\)</span> be the sample space for an experiment. A real-valued function that is defined on <span class="math inline">\(S\)</span> is called a <strong>random variable</strong>.</p>
 </div>
+<p>For example, in <a href="#exm-3-1-1" class="quarto-xref">Example&nbsp;1</a> the number <span class="math inline">\(X\)</span> of heads in the 10 tosses is a random variable. Another random variable in that example is <span class="math inline">\(Y = 10 − X\)</span>, the number of tails.</p>
+<div id="fig-3-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-1.jpeg" class="img-fluid figure-img">
 </div>
-</div>
-<p>For example, in <a href="#exm-3-1-1">Example&nbsp;1</a> the number <span class="math inline">\(X\)</span> of heads in the 10 tosses is a random variable. Another random variable in that example is <span class="math inline">\(Y = 10 − X\)</span>, the number of tails.</p>
-<div id="fig-3-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-1.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: The event that at least one utility demand is high in <a href="#exm-3-1-3">Example&nbsp;3</a>.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The event that at least one utility demand is high in <a href="#exm-3-1-3" class="quarto-xref">Example&nbsp;3</a>.
+</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Example 3.1.2: Measuring a Person’s Height.) </strong></span>Consider an experiment in which a person is selected at random from some population and her height in inches is measured. This height is a random variable.  </p>
+<p><span class="theorem-title"><strong>Example 2 (Example 3.1.2: Measuring a Person’s Height.)</strong></span> Consider an experiment in which a person is selected at random from some population and her height in inches is measured. This height is a random variable.  </p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Example 3.1.3: Demands for Utilities) </strong></span>Consider the contractor in <strong>?@exm-1-5-4</strong> who is concerned about the demands for water and electricity in a new office complex. The sample space was pictured in <strong>?@fig-1-5</strong>, and it consists of a collection of points of the form <span class="math inline">\((x, y)\)</span>, where <span class="math inline">\(x\)</span> is the demand for water and <span class="math inline">\(y\)</span> is the demand for electricity. That is, each point <span class="math inline">\(s \in S\)</span> is a pair <span class="math inline">\(s = (x, y)\)</span>. One random variable that is of interest in this problem is the demand for water. This can be expressed as <span class="math inline">\(X(s) = x\)</span> when <span class="math inline">\(s = (x, y)\)</span>. The possible values of <span class="math inline">\(X\)</span> are the numbers in the interval <span class="math inline">\([4, 200]\)</span>. Another interesting random variable is <span class="math inline">\(Y\)</span>, equal to the electricity demand, which can be expressed as <span class="math inline">\(Y(s) = y\)</span> when <span class="math inline">\(s = (x, y)\)</span>. The possible values of <span class="math inline">\(Y\)</span> are the numbers in the interval <span class="math inline">\([1, 150]\)</span>. A third possible random variable <span class="math inline">\(Z\)</span> is an indicator of whether or not at least one demand is high. Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be the two events described in <strong>?@exm-1-5-4</strong>. That is, <span class="math inline">\(A\)</span> is the event that water demand is at least 100, and <span class="math inline">\(B\)</span> is the event that electric demand is at least 115. Define</p>
+<p><span class="theorem-title"><strong>Example 3 (Example 3.1.3: Demands for Utilities)</strong></span> Consider the contractor in <strong>?@exm-1-5-4</strong> who is concerned about the demands for water and electricity in a new office complex. The sample space was pictured in <strong>?@fig-1-5</strong>, and it consists of a collection of points of the form <span class="math inline">\((x, y)\)</span>, where <span class="math inline">\(x\)</span> is the demand for water and <span class="math inline">\(y\)</span> is the demand for electricity. That is, each point <span class="math inline">\(s \in S\)</span> is a pair <span class="math inline">\(s = (x, y)\)</span>. One random variable that is of interest in this problem is the demand for water. This can be expressed as <span class="math inline">\(X(s) = x\)</span> when <span class="math inline">\(s = (x, y)\)</span>. The possible values of <span class="math inline">\(X\)</span> are the numbers in the interval <span class="math inline">\([4, 200]\)</span>. Another interesting random variable is <span class="math inline">\(Y\)</span>, equal to the electricity demand, which can be expressed as <span class="math inline">\(Y(s) = y\)</span> when <span class="math inline">\(s = (x, y)\)</span>. The possible values of <span class="math inline">\(Y\)</span> are the numbers in the interval <span class="math inline">\([1, 150]\)</span>. A third possible random variable <span class="math inline">\(Z\)</span> is an indicator of whether or not at least one demand is high. Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be the two events described in <strong>?@exm-1-5-4</strong>. That is, <span class="math inline">\(A\)</span> is the event that water demand is at least 100, and <span class="math inline">\(B\)</span> is the event that electric demand is at least 115. Define</p>
 <p><span class="math display">\[
 Z(s) = \begin{cases}
 1 &amp;\text{if }s \in A \cup B, \\
 0 &amp;\text{if }s \notin A \cup B.
 \end{cases}
 \]</span></p>
-<p>The possible values of <span class="math inline">\(Z\)</span> are the numbers <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. The event <span class="math inline">\(A \cup B\)</span> is indicated in <a href="#fig-3-1">Figure&nbsp;1</a>.  </p>
-</div>
-</div>
+<p>The possible values of <span class="math inline">\(Z\)</span> are the numbers <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. The event <span class="math inline">\(A \cup B\)</span> is indicated in <a href="#fig-3-1" class="quarto-xref">Figure&nbsp;1</a>.  </p>
 </div>
 </section>
 <section id="the-distribution-of-a-random-variable" class="level3">
@@ -133,58 +129,28 @@ Z(s) = \begin{cases}
 <p><span id="eq-3-1-1"><span class="math display">\[
 \Pr(X \in C) = \Pr(\{s: X(s) \in C\}).
 \tag{1}\]</span></span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-1-2" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Definition 3.1.2: Distribution) </strong></span>Let <span class="math inline">\(X\)</span> be a random variable. The distribution of <span class="math inline">\(X\)</span> is the collection of all probabilities of the form <span class="math inline">\(\Pr(X \in C)\)</span> for all sets <span class="math inline">\(C\)</span> of real numbers such that <span class="math inline">\(\{X \in C\}\)</span> is an event.</p>
-</div>
-</div>
+<p><span class="theorem-title"><strong>Definition 2 (Definition 3.1.2: Distribution)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable. The distribution of <span class="math inline">\(X\)</span> is the collection of all probabilities of the form <span class="math inline">\(\Pr(X \in C)\)</span> for all sets <span class="math inline">\(C\)</span> of real numbers such that <span class="math inline">\(\{X \in C\}\)</span> is an event.</p>
 </div>
 <p>It is a straightforward consequence of the definition of the distribution of <span class="math inline">\(X\)</span> that this distribution is itself a probability measure on the set of real numbers. The set <span class="math inline">\(\{X \in C\}\)</span> will be an event for every set <span class="math inline">\(C\)</span> of real numbers that most readers will be able to imagine.</p>
-<div id="fig-3-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-2.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: The event that water demand is between 50 and 175 in <a href="#exm-3-1-5">Example&nbsp;5</a>.</figcaption>
+<div id="fig-3-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-2.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The event that water demand is between 50 and 175 in <a href="#exm-3-1-5" class="quarto-xref">Example&nbsp;5</a>.
+</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Example 3.1.4: Tossing a Coin) </strong></span>Consider again an experiment in which a fair coin is tossed 10 times, and let <span class="math inline">\(X\)</span> be the number of heads that are obtained. In this experiment, the possible values of <span class="math inline">\(X\)</span> are <span class="math inline">\(0, 1, 2, \ldots, 10\)</span>. For each <span class="math inline">\(x\)</span>, <span class="math inline">\(\Pr(X = x)\)</span> is the sum of the probabilities of all of the outcomes in the event <span class="math inline">\(\{X = x\}\)</span>. Because the coin is fair, each outcome has the same probability <span class="math inline">\(1/2^{10}\)</span>, and we need only count how many outcomes <span class="math inline">\(s\)</span> have <span class="math inline">\(X(s) = x\)</span>. We know that <span class="math inline">\(X(s) = x\)</span> if and only if exactly <span class="math inline">\(x\)</span> of the 10 tosses are <span class="math inline">\(H\)</span>. Hence, the number of outcomes <span class="math inline">\(s\)</span> with <span class="math inline">\(X(s) = x\)</span> is the same as the number of subsets of size <span class="math inline">\(x\)</span> (to be the heads) that can be chosen from the 10 tosses, namely, <span class="math inline">\(\binom{10}{x}\)</span>, according to Definitions <strong>?@def-1-8-1</strong> and <strong>?@def-1-8-2</strong>. Hence,</p>
+<p><span class="theorem-title"><strong>Example 4 (Example 3.1.4: Tossing a Coin)</strong></span> Consider again an experiment in which a fair coin is tossed 10 times, and let <span class="math inline">\(X\)</span> be the number of heads that are obtained. In this experiment, the possible values of <span class="math inline">\(X\)</span> are <span class="math inline">\(0, 1, 2, \ldots, 10\)</span>. For each <span class="math inline">\(x\)</span>, <span class="math inline">\(\Pr(X = x)\)</span> is the sum of the probabilities of all of the outcomes in the event <span class="math inline">\(\{X = x\}\)</span>. Because the coin is fair, each outcome has the same probability <span class="math inline">\(1/2^{10}\)</span>, and we need only count how many outcomes <span class="math inline">\(s\)</span> have <span class="math inline">\(X(s) = x\)</span>. We know that <span class="math inline">\(X(s) = x\)</span> if and only if exactly <span class="math inline">\(x\)</span> of the 10 tosses are <span class="math inline">\(H\)</span>. Hence, the number of outcomes <span class="math inline">\(s\)</span> with <span class="math inline">\(X(s) = x\)</span> is the same as the number of subsets of size <span class="math inline">\(x\)</span> (to be the heads) that can be chosen from the 10 tosses, namely, <span class="math inline">\(\binom{10}{x}\)</span>, according to Definitions <strong>?@def-1-8-1</strong> and <strong>?@def-1-8-2</strong>. Hence,</p>
 <p><span class="math display">\[
 \Pr(X = x) = \binom{10}{x}\frac{1}{2^{10}} \; \text{ for }x = 0, 1, 2, \ldots, 10.
 \]</span></p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Example 3.1.5: Demands for Utilities) </strong></span>In <strong>?@exm-1-5-4</strong>, we actually calculated some features of the distributions of the three random variables <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span> defined in <a href="#exm-3-1-3">Example&nbsp;3</a>. For example, the event <span class="math inline">\(A\)</span>, defined as the event that water demand is at least 100, can be expressed as <span class="math inline">\(A = \{X \geq 100\}\)</span>, and <span class="math inline">\(\Pr(A) = 0.5102\)</span>. This means that <span class="math inline">\(\Pr(X \geq 100) = 0.5102\)</span>. The distribution of <span class="math inline">\(X\)</span> consists of all probabilities of the form <span class="math inline">\(\Pr(X \in C)\)</span> for all sets <span class="math inline">\(C\)</span> such that <span class="math inline">\(\{X \in C\}\)</span> is an event. These can all be calculated in a manner similar to the calculation of <span class="math inline">\(\Pr(A)\)</span> in <strong>?@exm-1-5-4</strong>. In particular, if <span class="math inline">\(C\)</span> is a subinterval of the interval <span class="math inline">\([4, 200]\)</span>, then</p>
+<p><span class="theorem-title"><strong>Example 5 (Example 3.1.5: Demands for Utilities)</strong></span> In <strong>?@exm-1-5-4</strong>, we actually calculated some features of the distributions of the three random variables <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span> defined in <a href="#exm-3-1-3" class="quarto-xref">Example&nbsp;3</a>. For example, the event <span class="math inline">\(A\)</span>, defined as the event that water demand is at least 100, can be expressed as <span class="math inline">\(A = \{X \geq 100\}\)</span>, and <span class="math inline">\(\Pr(A) = 0.5102\)</span>. This means that <span class="math inline">\(\Pr(X \geq 100) = 0.5102\)</span>. The distribution of <span class="math inline">\(X\)</span> consists of all probabilities of the form <span class="math inline">\(\Pr(X \in C)\)</span> for all sets <span class="math inline">\(C\)</span> such that <span class="math inline">\(\{X \in C\}\)</span> is an event. These can all be calculated in a manner similar to the calculation of <span class="math inline">\(\Pr(A)\)</span> in <strong>?@exm-1-5-4</strong>. In particular, if <span class="math inline">\(C\)</span> is a subinterval of the interval <span class="math inline">\([4, 200]\)</span>, then</p>
 <p><span id="eq-3-1-2"><span class="math display">\[
 \Pr(X \in C) = \frac{
     (150-1) \times (\text{length of interval }C)
@@ -192,61 +158,25 @@ Tip
     29,204
 }.
 \tag{2}\]</span></span></p>
-<p>For example, if <span class="math inline">\(C\)</span> is the interval <span class="math inline">\([50,175]\)</span>, then its length is 125, and <span class="math inline">\(\Pr(X \in C) = 149 \times 125/29,204 = 0.6378\)</span>. The subset of the sample space whose probability was just calculated is drawn in <a href="#fig-3-2">Figure&nbsp;2</a>.</p>
+<p>For example, if <span class="math inline">\(C\)</span> is the interval <span class="math inline">\([50,175]\)</span>, then its length is 125, and <span class="math inline">\(\Pr(X \in C) = 149 \times 125/29,204 = 0.6378\)</span>. The subset of the sample space whose probability was just calculated is drawn in <a href="#fig-3-2" class="quarto-xref">Figure&nbsp;2</a>.</p>
 </div>
-</div>
-</div>
-<p>The general definition of distribution in <a href="#def-3-1-2">Definition&nbsp;2</a> is awkward, and it will be useful to find alternative ways to specify the distributions of random variables. In the remainder of this section, we shall introduce a few such alternatives.</p>
+<p>The general definition of distribution in <a href="#def-3-1-2" class="quarto-xref">Definition&nbsp;2</a> is awkward, and it will be useful to find alternative ways to specify the distributions of random variables. In the remainder of this section, we shall introduce a few such alternatives.</p>
 </section>
 <section id="discrete-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-distributions">Discrete Distributions</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-1-3" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Definition 3.1.3: Discrete Distribution / Random Variable) </strong></span>We say that a random variable <span class="math inline">\(X\)</span> has a <strong>discrete distribution</strong> or that <span class="math inline">\(X\)</span> is a <strong>discrete random variable</strong> if <span class="math inline">\(X\)</span> can take only a finite number <span class="math inline">\(k\)</span> of different values <span class="math inline">\(x_1, \ldots, x_k\)</span> or, at most, an infinite sequence of different values <span class="math inline">\(x_1, x_2, \ldots\)</span>.</p>
-</div>
-</div>
+<p><span class="theorem-title"><strong>Definition 3 (Definition 3.1.3: Discrete Distribution / Random Variable)</strong></span> We say that a random variable <span class="math inline">\(X\)</span> has a <strong>discrete distribution</strong> or that <span class="math inline">\(X\)</span> is a <strong>discrete random variable</strong> if <span class="math inline">\(X\)</span> can take only a finite number <span class="math inline">\(k\)</span> of different values <span class="math inline">\(x_1, \ldots, x_k\)</span> or, at most, an infinite sequence of different values <span class="math inline">\(x_1, x_2, \ldots\)</span>.</p>
 </div>
 <p>Random variables that can take every value in an interval are said to have <strong>continuous distributions</strong> and are discussed in <strong>?@sec-3-2</strong>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-1-4" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Definition 3.1.4: Probability Mass Function/pmf/Support) </strong></span>If a random variable <span class="math inline">\(X\)</span> has a discrete distribution, the <strong>probability mass function</strong> (abbreviated <strong>pmf</strong>) of <span class="math inline">\(X\)</span> is defined as the function <span class="math inline">\(f\)</span> such that for every real number <span class="math inline">\(x\)</span>,</p>
+<p><span class="theorem-title"><strong>Definition 4 (Definition 3.1.4: Probability Mass Function/pmf/Support)</strong></span> If a random variable <span class="math inline">\(X\)</span> has a discrete distribution, the <strong>probability mass function</strong> (abbreviated <strong>pmf</strong>) of <span class="math inline">\(X\)</span> is defined as the function <span class="math inline">\(f\)</span> such that for every real number <span class="math inline">\(x\)</span>,</p>
 <p><span class="math display">\[
 f(x) = \Pr(X = x).
 \]</span></p>
 <p>The closure of the set <span class="math inline">\(\{x \mid f(x) &gt; 0\}\)</span> is called the <strong>support of (the distribution of) <span class="math inline">\(X\)</span></strong>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Example 3.1.6: Demands for Utilities) </strong></span>The random variable <span class="math inline">\(Z\)</span> in <a href="#exm-3-1-3">Example&nbsp;3</a> equals 1 if at least one of the utility demands is high, and <span class="math inline">\(Z = 0\)</span> if neither demand is high. Since <span class="math inline">\(Z\)</span> takes only two different values, it has a discrete distribution. Note that <span class="math inline">\(\{s \mid Z(s) = 1\} = A \cup B\)</span>, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are defined in <strong>?@exm-1-5-4</strong>. We calculated <span class="math inline">\(\Pr(A \cup B) = 0.65253\)</span> in <strong>?@exm-1-5-4</strong>. If <span class="math inline">\(Z\)</span> has pmf <span class="math inline">\(f\)</span>, then</p>
+<p><span class="theorem-title"><strong>Example 6 (Example 3.1.6: Demands for Utilities)</strong></span> The random variable <span class="math inline">\(Z\)</span> in <a href="#exm-3-1-3" class="quarto-xref">Example&nbsp;3</a> equals 1 if at least one of the utility demands is high, and <span class="math inline">\(Z = 0\)</span> if neither demand is high. Since <span class="math inline">\(Z\)</span> takes only two different values, it has a discrete distribution. Note that <span class="math inline">\(\{s \mid Z(s) = 1\} = A \cup B\)</span>, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are defined in <strong>?@exm-1-5-4</strong>. We calculated <span class="math inline">\(\Pr(A \cup B) = 0.65253\)</span> in <strong>?@exm-1-5-4</strong>. If <span class="math inline">\(Z\)</span> has pmf <span class="math inline">\(f\)</span>, then</p>
 <p><span class="math display">\[
 f(z) = \begin{cases}
 0.65253 &amp;\text{if }z = 1, \\
@@ -256,129 +186,49 @@ f(z) = \begin{cases}
 \]</span></p>
 <p>The support of <span class="math inline">\(Z\)</span> is the set <span class="math inline">\(\{0, 1\}\)</span>, which has only two elements.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Example 3.1.7: Tossing a Coin) </strong></span>The random variable <span class="math inline">\(X\)</span> in <a href="#exm-3-1-4">Example&nbsp;4</a> has only 11 different possible values. Its pmf <span class="math inline">\(f\)</span> is given at the end of that example for the values <span class="math inline">\(x = 0, \ldots, 10\)</span> that constitute the support of <span class="math inline">\(X\)</span>; <span class="math inline">\(f(x) = 0\)</span> for all other values of <span class="math inline">\(x\)</span>.  </p>
-</div>
-</div>
+<p><span class="theorem-title"><strong>Example 7 (Example 3.1.7: Tossing a Coin)</strong></span> The random variable <span class="math inline">\(X\)</span> in <a href="#exm-3-1-4" class="quarto-xref">Example&nbsp;4</a> has only 11 different possible values. Its pmf <span class="math inline">\(f\)</span> is given at the end of that example for the values <span class="math inline">\(x = 0, \ldots, 10\)</span> that constitute the support of <span class="math inline">\(X\)</span>; <span class="math inline">\(f(x) = 0\)</span> for all other values of <span class="math inline">\(x\)</span>.  </p>
 </div>
 <p>Here are some simple facts about probability mass functions.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="thm-3-1-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.1.1) </strong></span>Let <span class="math inline">\(X\)</span> be a discrete random variable with pmf <span class="math inline">\(f\)</span>. If <span class="math inline">\(x\)</span> is not one of the possible values of <span class="math inline">\(X\)</span>, then <span class="math inline">\(f(x) = 0\)</span>. Also, if the sequence <span class="math inline">\(x_1, x_2, \ldots\)</span> includes all the possible values of <span class="math inline">\(X\)</span>, then <span class="math inline">\(\sum_{i=1}^{\infty}f(x_i) = 1\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.1.1)</strong></span> Let <span class="math inline">\(X\)</span> be a discrete random variable with pmf <span class="math inline">\(f\)</span>. If <span class="math inline">\(x\)</span> is not one of the possible values of <span class="math inline">\(X\)</span>, then <span class="math inline">\(f(x) = 0\)</span>. Also, if the sequence <span class="math inline">\(x_1, x_2, \ldots\)</span> includes all the possible values of <span class="math inline">\(X\)</span>, then <span class="math inline">\(\sum_{i=1}^{\infty}f(x_i) = 1\)</span>.</p>
 </div>
+<p>A typical pmf is sketched in <a href="#fig-3-3" class="quarto-xref">Figure&nbsp;3</a>, in which each vertical segment represents the value of <span class="math inline">\(f(x)\)</span> corresponding to a possible value <span class="math inline">\(x\)</span>. The sum of the heights of the vertical segments in <a href="#fig-3-3" class="quarto-xref">Figure&nbsp;3</a> must be 1.</p>
+<div id="fig-3-3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch03/images/fig-3-3.jpeg" class="img-fluid figure-img">
 </div>
-</div>
-<p>A typical pmf is sketched in <a href="#fig-3-3">Figure&nbsp;3</a>, in which each vertical segment represents the value of <span class="math inline">\(f(x)\)</span> corresponding to a possible value <span class="math inline">\(x\)</span>. The sum of the heights of the vertical segments in <a href="#fig-3-3">Figure&nbsp;3</a> must be 1.</p>
-<div id="fig-3-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ch03/images/fig-3-3.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: An example of a pmf.</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: An example of a pmf.
+</figcaption>
 </figure>
 </div>
-<p><a href="#thm-3-1-2">Theorem&nbsp;2</a> shows that the pmf of a discrete random variable characterizes its distribution, and it allows us to dispense with the general definition of distribution when we are discussing discrete random variables.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p><a href="#thm-3-1-2" class="quarto-xref">Theorem&nbsp;2</a> shows that the pmf of a discrete random variable characterizes its distribution, and it allows us to dispense with the general definition of distribution when we are discussing discrete random variables.</p>
 <div id="thm-3-1-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Theorem 3.1.2) </strong></span>If <span class="math inline">\(X\)</span> has a discrete distribution, the probability of each subset <span class="math inline">\(C\)</span> of the real line can be determined from the relation</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 3.1.2)</strong></span> If <span class="math inline">\(X\)</span> has a discrete distribution, the probability of each subset <span class="math inline">\(C\)</span> of the real line can be determined from the relation</p>
 <p><span class="math display">\[
 \Pr(X \in C) = \sum_{x_i \in C}f(x_i).
 \]</span></p>
 </div>
-</div>
-</div>
-<p>Some random variables have distributions that appear so frequently that the distributions are given names. The random variable <span class="math inline">\(Z\)</span> in <a href="#exm-3-1-6">Example&nbsp;6</a> is one such example.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>Some random variables have distributions that appear so frequently that the distributions are given names. The random variable <span class="math inline">\(Z\)</span> in <a href="#exm-3-1-6" class="quarto-xref">Example&nbsp;6</a> is one such example.</p>
 <div id="def-3-1-5" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Definition 3.1.5: Bernoulli Distribution/Random Variable (DeGroot and Schervish, p.&nbsp;97)) </strong></span>A random variable <span class="math inline">\(Z\)</span> that takes only two values <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> with <span class="math inline">\(\Pr(Z = 1) = p\)</span> has the <strong>Bernoulli distribution</strong> with parameter <span class="math inline">\(p\)</span>. We also say that <span class="math inline">\(Z\)</span> is a <strong>Bernoulli random variable</strong> with parameter <span class="math inline">\(p\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 5 (Definition 3.1.5: Bernoulli Distribution/Random Variable (DeGroot and Schervish, p.&nbsp;97))</strong></span> A random variable <span class="math inline">\(Z\)</span> that takes only two values <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> with <span class="math inline">\(\Pr(Z = 1) = p\)</span> has the <strong>Bernoulli distribution</strong> with parameter <span class="math inline">\(p\)</span>. We also say that <span class="math inline">\(Z\)</span> is a <strong>Bernoulli random variable</strong> with parameter <span class="math inline">\(p\)</span>.</p>
 </div>
-</div>
-</div>
-<p>The <span class="math inline">\(Z\)</span> in <a href="#exm-3-1-6">Example&nbsp;6</a> has the Bernoulli distribution with parameter 0.65252. It is easy to see that the name of each Bernoulli distribution is enough to allow us to compute the pmf, which, in turn, allows us to characterize its distribution.</p>
+<p>The <span class="math inline">\(Z\)</span> in <a href="#exm-3-1-6" class="quarto-xref">Example&nbsp;6</a> has the Bernoulli distribution with parameter 0.65252. It is easy to see that the name of each Bernoulli distribution is enough to allow us to compute the pmf, which, in turn, allows us to characterize its distribution.</p>
 <p>We conclude this section with illustrations of two additional families of discrete distributions that arise often enough to have names.</p>
 </section>
 <section id="uniform-distributions-on-integers" class="level3">
 <h3 class="anchored" data-anchor-id="uniform-distributions-on-integers">Uniform Distributions on Integers</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Example 3.1.8: Daily Numbers) </strong></span>A popular state lottery game requires participants to select a three-digit number (leading <span class="math inline">\(0\)</span>s allowed). Then three balls, each with one digit, are chosen at random from well-mixed bowls. The sample space here consists of all triples <span class="math inline">\((i_1, i_2, i_3)\)</span> where <span class="math inline">\(i_j \in \{0, \ldots, 9\}\)</span> for <span class="math inline">\(j = 1, 2, 3\)</span>. If <span class="math inline">\(s = (i_1, i_2, i_3)\)</span>, define <span class="math inline">\(X(s) = 100i_1 + 10i_2 + i_3\)</span>. For example, <span class="math inline">\(X(0, 1, 5) = 15\)</span>. It is easy to check that <span class="math inline">\(\Pr(X = x) = 0.001\)</span> for each integer <span class="math inline">\(x \in \{0, 1, \ldots, 999\}\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 8 (Example 3.1.8: Daily Numbers)</strong></span> A popular state lottery game requires participants to select a three-digit number (leading <span class="math inline">\(0\)</span>s allowed). Then three balls, each with one digit, are chosen at random from well-mixed bowls. The sample space here consists of all triples <span class="math inline">\((i_1, i_2, i_3)\)</span> where <span class="math inline">\(i_j \in \{0, \ldots, 9\}\)</span> for <span class="math inline">\(j = 1, 2, 3\)</span>. If <span class="math inline">\(s = (i_1, i_2, i_3)\)</span>, define <span class="math inline">\(X(s) = 100i_1 + 10i_2 + i_3\)</span>. For example, <span class="math inline">\(X(0, 1, 5) = 15\)</span>. It is easy to check that <span class="math inline">\(\Pr(X = x) = 0.001\)</span> for each integer <span class="math inline">\(x \in \{0, 1, \ldots, 999\}\)</span>.</p>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-1-6" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Definition 3.1.6: Uniform Distribution on Integers (DeGroot and Schervish, p.&nbsp;97)) </strong></span>Let <span class="math inline">\(a \leq b\)</span> be integers. Suppose that the value of a random variable <span class="math inline">\(X\)</span> is equally likely to be each of the integers <span class="math inline">\(a, \ldots, b\)</span>. Then we say that <span class="math inline">\(X\)</span> has the <strong>uniform distribution on the integers <span class="math inline">\(a, \ldots, b\)</span></strong>.</p>
+<p><span class="theorem-title"><strong>Definition 6 (Definition 3.1.6: Uniform Distribution on Integers (DeGroot and Schervish, p.&nbsp;97))</strong></span> Let <span class="math inline">\(a \leq b\)</span> be integers. Suppose that the value of a random variable <span class="math inline">\(X\)</span> is equally likely to be each of the integers <span class="math inline">\(a, \ldots, b\)</span>. Then we say that <span class="math inline">\(X\)</span> has the <strong>uniform distribution on the integers <span class="math inline">\(a, \ldots, b\)</span></strong>.</p>
 </div>
-</div>
-</div>
-<p>The <span class="math inline">\(X\)</span> in <a href="#exm-3-1-8">Example&nbsp;8</a> has the uniform distribution on the integers <span class="math inline">\(0, 1, \ldots, 999\)</span>. A uniform distribution on a set of <span class="math inline">\(k\)</span> integers has probability <span class="math inline">\(1/k\)</span> on each integer. If <span class="math inline">\(b &gt; a\)</span>, there are <span class="math inline">\(b − a + 1\)</span> integers from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> including <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. The next result follows immediately from what we have just seen, and it illustrates how the name of the distribution characterizes the distribution.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>The <span class="math inline">\(X\)</span> in <a href="#exm-3-1-8" class="quarto-xref">Example&nbsp;8</a> has the uniform distribution on the integers <span class="math inline">\(0, 1, \ldots, 999\)</span>. A uniform distribution on a set of <span class="math inline">\(k\)</span> integers has probability <span class="math inline">\(1/k\)</span> on each integer. If <span class="math inline">\(b &gt; a\)</span>, there are <span class="math inline">\(b − a + 1\)</span> integers from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> including <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. The next result follows immediately from what we have just seen, and it illustrates how the name of the distribution characterizes the distribution.</p>
 <div id="thm-3-1-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Theorem 3.1.3) </strong></span>If <span class="math inline">\(X\)</span> has the uniform distribution on the integers <span class="math inline">\(a, \ldots, b\)</span>, the pmf of <span class="math inline">\(X\)</span> is</p>
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 3.1.3)</strong></span> If <span class="math inline">\(X\)</span> has the uniform distribution on the integers <span class="math inline">\(a, \ldots, b\)</span>, the pmf of <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[
 f(x) = \begin{cases}
 \frac{1}{b-a+1} &amp;\text{for }x = a, \ldots, b, \\
@@ -386,33 +236,19 @@ f(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
-</div>
-</div>
 <p>The uniform distribution on the integers <span class="math inline">\(a, \ldots, b\)</span> represents the outcome of an experiment that is often described by saying that one of the integers <span class="math inline">\(a, \ldots, b\)</span> is <strong>chosen at random</strong>. In this context, the phrase “at random” means that each of the <span class="math inline">\(b − a + 1\)</span> integers is equally likely to be chosen. In this same sense, it is not possible to choose an integer at random from the set of all positive integers, because it is not possible to assign the same probability to every one of the positive integers and still make the sum of these probabilities equal to 1. In other words, a uniform distribution cannot be assigned to an infinite sequence of possible values, but such a distribution can be assigned to any finite sequence.</p>
-<p><strong>Note: Random Variables Can Have the Same Distribution without Being the Same Random Variable</strong>. Consider two consecutive daily number draws as in <a href="#exm-3-1-8">Example&nbsp;8</a>. The sample space consists of all 6-tuples <span class="math inline">\((i_1, \ldots, i_6)\)</span>, where the first three coordinates are the numbers drawn on the first day and the last three are the numbers drawn on the second day (all in the order drawn). If <span class="math inline">\(s = (i_1, \ldots, i_6)\)</span>, let <span class="math inline">\(X_1(s) = 100i_1 + 10i_2 + i_3\)</span> and let <span class="math inline">\(X_2(s) = 100i_4 + 10i_5 + i_6\)</span>. It is easy to see that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are different functions of <span class="math inline">\(s\)</span> and are not the same random variable. Indeed, there is only a small probability that they will take the same value. But they have the same distribution because they assume the same values with the same probabilities. If a businessman has 1000 customers numbered <span class="math inline">\(0, \ldots, 999\)</span>, and he selects one at random and records the number <span class="math inline">\(Y\)</span>, the distribution of <span class="math inline">\(Y\)</span> will be the same as the distribution of <span class="math inline">\(X_1\)</span> and of <span class="math inline">\(X_2\)</span>, but <span class="math inline">\(Y\)</span> is not like <span class="math inline">\(X_1\)</span> or <span class="math inline">\(X_2\)</span> in any other way.</p>
+<p><strong>Note: Random Variables Can Have the Same Distribution without Being the Same Random Variable</strong>. Consider two consecutive daily number draws as in <a href="#exm-3-1-8" class="quarto-xref">Example&nbsp;8</a>. The sample space consists of all 6-tuples <span class="math inline">\((i_1, \ldots, i_6)\)</span>, where the first three coordinates are the numbers drawn on the first day and the last three are the numbers drawn on the second day (all in the order drawn). If <span class="math inline">\(s = (i_1, \ldots, i_6)\)</span>, let <span class="math inline">\(X_1(s) = 100i_1 + 10i_2 + i_3\)</span> and let <span class="math inline">\(X_2(s) = 100i_4 + 10i_5 + i_6\)</span>. It is easy to see that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are different functions of <span class="math inline">\(s\)</span> and are not the same random variable. Indeed, there is only a small probability that they will take the same value. But they have the same distribution because they assume the same values with the same probabilities. If a businessman has 1000 customers numbered <span class="math inline">\(0, \ldots, 999\)</span>, and he selects one at random and records the number <span class="math inline">\(Y\)</span>, the distribution of <span class="math inline">\(Y\)</span> will be the same as the distribution of <span class="math inline">\(X_1\)</span> and of <span class="math inline">\(X_2\)</span>, but <span class="math inline">\(Y\)</span> is not like <span class="math inline">\(X_1\)</span> or <span class="math inline">\(X_2\)</span> in any other way.</p>
 </section>
 <section id="binomial-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="binomial-distributions">Binomial Distributions</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="exm-3-1-9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 (Example 3.1.9: Defective Parts (DeGroot and Schervish, p.&nbsp;98)) </strong></span>Consider again <strong>?@exm-2-2-5</strong>. In that example, a machine produces a defective item with probability <span class="math inline">\(p\)</span> (<span class="math inline">\(0 &lt; p &lt; 1\)</span>) and produces a nondefective item with probability <span class="math inline">\(1 − p\)</span>. We assumed that the events that the different items were defective were mutually independent. Suppose that the experiment consists of examining <span class="math inline">\(n\)</span> of these items. Each outcome of this experiment will consist of a list of which items are defective and which are not, in the order examined. For example, we can let 0 stand for a nondefective item and 1 stand for a defective item. Then each outcome is a string of <span class="math inline">\(n\)</span> digits, each of which is 0 or 1. To be specific, if, say, <span class="math inline">\(n = 6\)</span>, then some of the possible outcomes are</p>
+<p><span class="theorem-title"><strong>Example 9 (Example 3.1.9: Defective Parts (p.&nbsp;98))</strong></span> Consider again <strong>?@exm-2-2-5</strong>. In that example, a machine produces a defective item with probability <span class="math inline">\(p\)</span> (<span class="math inline">\(0 &lt; p &lt; 1\)</span>) and produces a nondefective item with probability <span class="math inline">\(1 − p\)</span>. We assumed that the events that the different items were defective were mutually independent. Suppose that the experiment consists of examining <span class="math inline">\(n\)</span> of these items. Each outcome of this experiment will consist of a list of which items are defective and which are not, in the order examined. For example, we can let 0 stand for a nondefective item and 1 stand for a defective item. Then each outcome is a string of <span class="math inline">\(n\)</span> digits, each of which is 0 or 1. To be specific, if, say, <span class="math inline">\(n = 6\)</span>, then some of the possible outcomes are</p>
 <p><span id="eq-3-1-3"><span class="math display">\[
 \texttt{010010}, \texttt{100100}, \texttt{000011}, \texttt{110000}, \texttt{100001}, \texttt{000000}, \text{etc.}
 \tag{3}\]</span></span></p>
-<p>We will let <span class="math inline">\(X\)</span> denote the number of these items that are defective. Then the random variable <span class="math inline">\(X\)</span> will have a discrete distribution, and the possible values of <span class="math inline">\(X\)</span> will be <span class="math inline">\(0, 1, 2, \ldots, n\)</span>. For example, the first four outcomes listed in <a href="#eq-3-1-3">Equation&nbsp;3</a> all have <span class="math inline">\(X(s) = 2\)</span>. The last outcome listed has <span class="math inline">\(X(s) = 0\)</span>.</p>
+<p>We will let <span class="math inline">\(X\)</span> denote the number of these items that are defective. Then the random variable <span class="math inline">\(X\)</span> will have a discrete distribution, and the possible values of <span class="math inline">\(X\)</span> will be <span class="math inline">\(0, 1, 2, \ldots, n\)</span>. For example, the first four outcomes listed in <a href="#eq-3-1-3" class="quarto-xref">Equation&nbsp;3</a> all have <span class="math inline">\(X(s) = 2\)</span>. The last outcome listed has <span class="math inline">\(X(s) = 0\)</span>.</p>
 </div>
-</div>
-</div>
-<p><a href="#exm-3-1-9">Example&nbsp;9</a> is a generalization of <strong>?@exm-2-2-5</strong> with <span class="math inline">\(n\)</span> items inspected rather than just six, and rewritten in the notation of random variables. For <span class="math inline">\(x = 0, 1, \ldots, n\)</span>, the probability of obtaining each particular ordered sequence of <span class="math inline">\(n\)</span> items containing exactly <span class="math inline">\(x\)</span> defectives and <span class="math inline">\(n − x\)</span> nondefectives is <span class="math inline">\(p^x(1 − p)^{n−x}\)</span>, just as it was in <strong>?@exm-2-2-5</strong>. Since there are <span class="math inline">\(\binom{n}{x}\)</span> different ordered sequences of this type, it follows that</p>
+<p><a href="#exm-3-1-9" class="quarto-xref">Example&nbsp;9</a> is a generalization of <strong>?@exm-2-2-5</strong> with <span class="math inline">\(n\)</span> items inspected rather than just six, and rewritten in the notation of random variables. For <span class="math inline">\(x = 0, 1, \ldots, n\)</span>, the probability of obtaining each particular ordered sequence of <span class="math inline">\(n\)</span> items containing exactly <span class="math inline">\(x\)</span> defectives and <span class="math inline">\(n − x\)</span> nondefectives is <span class="math inline">\(p^x(1 − p)^{n−x}\)</span>, just as it was in <strong>?@exm-2-2-5</strong>. Since there are <span class="math inline">\(\binom{n}{x}\)</span> different ordered sequences of this type, it follows that</p>
 <p><span class="math display">\[
 \Pr(X = x) = \binom{n}{x}p^x(1-p)^{n-x}.
 \]</span></p>
@@ -423,38 +259,26 @@ f(x) = \begin{cases}
 0 &amp;\text{otherwise.}
 \tag{4}\]</span></span></p>
 <!-- Stopping point 2023-09-22 -->
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-3-1-7" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Definition 3.1.7: Binomial Distribution/Random Variable) </strong></span>The discrete distribution represented by the pmf in <a href="#eq-3-1-4">Equation&nbsp;4</a> is called the <strong>binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span></strong>. A random variable with this distribution is said to be a <strong>binomial random variable with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span></strong>.</p>
+<p><span class="theorem-title"><strong>Definition 7 (Definition 3.1.7: Binomial Distribution/Random Variable)</strong></span> The discrete distribution represented by the pmf in <a href="#eq-3-1-4" class="quarto-xref">Equation&nbsp;4</a> is called the <strong>binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span></strong>. A random variable with this distribution is said to be a <strong>binomial random variable with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span></strong>.</p>
 </div>
-</div>
-</div>
-<p>The reader should be able to verify that the random variable <span class="math inline">\(X\)</span> in <a href="#exm-3-1-4">Example&nbsp;4</a>, the number of heads in a sequence of 10 independent tosses of a fair coin, has the binomial distribution with parameters <span class="math inline">\(10\)</span> and <span class="math inline">\(1/2\)</span>.</p>
+<p>The reader should be able to verify that the random variable <span class="math inline">\(X\)</span> in <a href="#exm-3-1-4" class="quarto-xref">Example&nbsp;4</a>, the number of heads in a sequence of 10 independent tosses of a fair coin, has the binomial distribution with parameters <span class="math inline">\(10\)</span> and <span class="math inline">\(1/2\)</span>.</p>
 <p>Since the name of each binomial distribution is sufficient to construct its pmf, it follows that the name is enough to identify the distribution. The name of each distribution includes the two parameters. The binomial distributions are very important in probability and statistics and will be discussed further in later chapters of this book.</p>
 <p>A short table of values of certain binomial distributions is given at the end of this book. It can be found from this table, for example, that if <span class="math inline">\(X\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 10\)</span> and <span class="math inline">\(p = 0.2\)</span>, then <span class="math inline">\(\Pr(X = 5) = 0.0264\)</span> and <span class="math inline">\(\Pr(X \geq 5) = 0.0328\)</span>.</p>
 <p>As another example, suppose that a clinical trial is being run. Suppose that the probability that a patient recovers from her symptoms during the trial is <span class="math inline">\(p\)</span> and that the probability is <span class="math inline">\(1 − p\)</span> that the patient does not recover. Let <span class="math inline">\(Y\)</span> denote the number of patients who recover out of <span class="math inline">\(n\)</span> independent patients in the trial. Then the distribution of <span class="math inline">\(Y\)</span> is also binomial with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>. Indeed, consider a general experiment that consists of observing <span class="math inline">\(n\)</span> independent repititions (trials) with only two possible results for each trial. For convenience, call the two possible results “success” and “failure.” Then the distribution of the number of trials that result in success will be binomial with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, where <span class="math inline">\(p\)</span> is the probability of success on each trial.</p>
-<p><strong>Note: Names of Distributions</strong>. In this section, we gave names to several families of distributions. The name of each distribution includes any numerical parameters that are part of the definition. For example, the random variable <span class="math inline">\(X\)</span> in <a href="#exm-3-1-4">Example&nbsp;4</a> has the binomial distribution with parameters <span class="math inline">\(10\)</span> and <span class="math inline">\(1/2\)</span>. It is a correct statement to say that <span class="math inline">\(X\)</span> has a binomial distribution or that <span class="math inline">\(X\)</span> has a discrete distribution, but such statements are only partial descriptions of the distribution of <span class="math inline">\(X\)</span>. Such statements are not sufficient to name the distribution of <span class="math inline">\(X\)</span>, and hence they are not sufficient as answers to the question “What is the distribution of <span class="math inline">\(X\)</span>?” The same considerations apply to all of the named distributions that we introduce elsewhere in the book. When attempting to specify the distribution of a random variable by giving its name, one must give the full name, including the values of any parameters. Only the full name is sufficient for determining the distribution.</p>
+<p><strong>Note: Names of Distributions</strong>. In this section, we gave names to several families of distributions. The name of each distribution includes any numerical parameters that are part of the definition. For example, the random variable <span class="math inline">\(X\)</span> in <a href="#exm-3-1-4" class="quarto-xref">Example&nbsp;4</a> has the binomial distribution with parameters <span class="math inline">\(10\)</span> and <span class="math inline">\(1/2\)</span>. It is a correct statement to say that <span class="math inline">\(X\)</span> has a binomial distribution or that <span class="math inline">\(X\)</span> has a discrete distribution, but such statements are only partial descriptions of the distribution of <span class="math inline">\(X\)</span>. Such statements are not sufficient to name the distribution of <span class="math inline">\(X\)</span>, and hence they are not sufficient as answers to the question “What is the distribution of <span class="math inline">\(X\)</span>?” The same considerations apply to all of the named distributions that we introduce elsewhere in the book. When attempting to specify the distribution of a random variable by giving its name, one must give the full name, including the values of any parameters. Only the full name is sufficient for determining the distribution.</p>
 </section>
 <section id="summary" class="level3">
 <h3 class="anchored" data-anchor-id="summary">Summary</h3>
-<p>A random variable is a real-valued function defined on a sample space. The distribution of a random variable <span class="math inline">\(X\)</span> is the collection of all probabilities <span class="math inline">\(\Pr(X \in C)\)</span> for all subsets <span class="math inline">\(C\)</span> of the real numbers such that <span class="math inline">\(\{X \in C\}\)</span> is an event. A random variable <span class="math inline">\(X\)</span> is discrete if there are at most countably many possible values for <span class="math inline">\(X\)</span>. In this case, the distribution of <span class="math inline">\(X\)</span> can be characterized by the probability mass function pmf of <span class="math inline">\(X\)</span>, namely, <span class="math inline">\(f(x) = \Pr(X = x)\)</span> for <span class="math inline">\(x\)</span> in the set of possible values. Some distributions are so famous that they have names. One collection of such named distributions is the collection of uniform distributions on finite sets of integers. A more famous collection is the collection of binomial distributions whose parameters are <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, where <span class="math inline">\(n\)</span> is a positive integer and <span class="math inline">\(0 &lt; p &lt; 1\)</span>, having pmf <a href="#eq-3-1-4">Equation&nbsp;4</a>. The binomial distribution with parameters <span class="math inline">\(n = 1\)</span> and <span class="math inline">\(p\)</span> is also called the Bernoulli distribution with parameter <span class="math inline">\(p\)</span>. The names of these distributions also characterize the distributions.</p>
+<p>A random variable is a real-valued function defined on a sample space. The distribution of a random variable <span class="math inline">\(X\)</span> is the collection of all probabilities <span class="math inline">\(\Pr(X \in C)\)</span> for all subsets <span class="math inline">\(C\)</span> of the real numbers such that <span class="math inline">\(\{X \in C\}\)</span> is an event. A random variable <span class="math inline">\(X\)</span> is discrete if there are at most countably many possible values for <span class="math inline">\(X\)</span>. In this case, the distribution of <span class="math inline">\(X\)</span> can be characterized by the probability mass function pmf of <span class="math inline">\(X\)</span>, namely, <span class="math inline">\(f(x) = \Pr(X = x)\)</span> for <span class="math inline">\(x\)</span> in the set of possible values. Some distributions are so famous that they have names. One collection of such named distributions is the collection of uniform distributions on finite sets of integers. A more famous collection is the collection of binomial distributions whose parameters are <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, where <span class="math inline">\(n\)</span> is a positive integer and <span class="math inline">\(0 &lt; p &lt; 1\)</span>, having pmf <a href="#eq-3-1-4" class="quarto-xref">Equation&nbsp;4</a>. The binomial distribution with parameters <span class="math inline">\(n = 1\)</span> and <span class="math inline">\(p\)</span> is also called the Bernoulli distribution with parameter <span class="math inline">\(p\)</span>. The names of these distributions also characterize the distributions.</p>
 </section>
 <section id="exercises" class="level3">
 <h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
 <div id="exr-3-1-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Exercise 3.1.1) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> has the uniform distribution on the integers <span class="math inline">\(10, \ldots, 20\)</span>. Find the probability that <span class="math inline">\(X\)</span> is even.</p>
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 3.1.1)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> has the uniform distribution on the integers <span class="math inline">\(10, \ldots, 20\)</span>. Find the probability that <span class="math inline">\(X\)</span> is even.</p>
 </div>
 <div id="exr-3-1-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Exercise 3.1.2) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> has a discrete distribution with the following pmf:</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 3.1.2)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> has a discrete distribution with the following pmf:</p>
 <p><span class="math display">\[
 f(x) = \begin{cases}
 cx &amp;\text{for }x = 1, \ldots, 5, \\
@@ -464,25 +288,25 @@ cx &amp;\text{for }x = 1, \ldots, 5, \\
 <p>Determine the value of the constant <span class="math inline">\(c\)</span>.</p>
 </div>
 <div id="exr-3-1-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Exercise 3.1.3) </strong></span>Suppose that two balanced dice are rolled, and let <span class="math inline">\(X\)</span> denote the absolute value of the difference between the two numbers that appear. Determine and sketch the pmf of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 3.1.3)</strong></span> Suppose that two balanced dice are rolled, and let <span class="math inline">\(X\)</span> denote the absolute value of the difference between the two numbers that appear. Determine and sketch the pmf of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="exr-3-1-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Exercise 3.1.4) </strong></span>Suppose that a fair coin is tossed 10 times independently. Determine the pmf of the number of heads that will be obtained.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 3.1.4)</strong></span> Suppose that a fair coin is tossed 10 times independently. Determine the pmf of the number of heads that will be obtained.</p>
 </div>
 <div id="exr-3-1-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Exercise 3.1.5) </strong></span>Suppose that a box contains seven red balls and three blue balls. If five balls are selected at random, without replacement, determine the pmf of the number of red balls that will be obtained.</p>
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 3.1.5)</strong></span> Suppose that a box contains seven red balls and three blue balls. If five balls are selected at random, without replacement, determine the pmf of the number of red balls that will be obtained.</p>
 </div>
 <div id="exr-3-1-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 (Exercise 3.1.6) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 15\)</span> and <span class="math inline">\(p = 0.5\)</span>. Find <span class="math inline">\(\Pr(X &lt; 6)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 3.1.6)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 15\)</span> and <span class="math inline">\(p = 0.5\)</span>. Find <span class="math inline">\(\Pr(X &lt; 6)\)</span>.</p>
 </div>
 <div id="exr-3-1-7" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (Exercise 3.1.7) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 8\)</span> and <span class="math inline">\(p = 0.7\)</span>. Find <span class="math inline">\(\Pr(X \geq 5)\)</span> by using the table given at the end of this book. <em>Hint</em>: Use the fact that <span class="math inline">\(\Pr(X \geq 5) = \Pr(Y \leq 3)\)</span>, where <span class="math inline">\(Y\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 8\)</span> and <span class="math inline">\(p = 0.3\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 3.1.7)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 8\)</span> and <span class="math inline">\(p = 0.7\)</span>. Find <span class="math inline">\(\Pr(X \geq 5)\)</span> by using the table given at the end of this book. <em>Hint</em>: Use the fact that <span class="math inline">\(\Pr(X \geq 5) = \Pr(Y \leq 3)\)</span>, where <span class="math inline">\(Y\)</span> has the binomial distribution with parameters <span class="math inline">\(n = 8\)</span> and <span class="math inline">\(p = 0.3\)</span>.</p>
 </div>
 <div id="exr-3-1-8" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8 (Exercise 3.1.8) </strong></span>If 10 percent of the balls in a certain box are red, and if 20 balls are selected from the box at random, with replacement, what is the probability that more than three red balls will be obtained?</p>
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 3.1.8)</strong></span> If 10 percent of the balls in a certain box are red, and if 20 balls are selected from the box at random, with replacement, what is the probability that more than three red balls will be obtained?</p>
 </div>
 <div id="exr-3-1-9" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9 (Exercise 3.1.9) </strong></span>Suppose that a random variable <span class="math inline">\(X\)</span> has a discrete distribution with the following pmf:</p>
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 3.1.9)</strong></span> Suppose that a random variable <span class="math inline">\(X\)</span> has a discrete distribution with the following pmf:</p>
 <p><span class="math display">\[
 f(x) = \begin{cases}
 \frac{c}{2^x} &amp;\text{for }x = 0, 1, 2, \ldots, \\
@@ -492,14 +316,14 @@ f(x) = \begin{cases}
 <p>Find the value of the constant <span class="math inline">\(c\)</span>.</p>
 </div>
 <div id="exr-3-1-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10 (Exercise 3.1.10) </strong></span>A civil engineer is studying a left-turn lane that is long enough to hold seven cars. Let <span class="math inline">\(X\)</span> be the number of cars in the lane at the end of a randomly chosen red light. The engineer believes that the probability that <span class="math inline">\(X = v\)</span> is proportional to <span class="math inline">\((v + 1)(8 − v)\)</span> for <span class="math inline">\(v = 0, \ldots, 7\)</span> (the possible values of <span class="math inline">\(X\)</span>).</p>
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 3.1.10)</strong></span> A civil engineer is studying a left-turn lane that is long enough to hold seven cars. Let <span class="math inline">\(X\)</span> be the number of cars in the lane at the end of a randomly chosen red light. The engineer believes that the probability that <span class="math inline">\(X = v\)</span> is proportional to <span class="math inline">\((v + 1)(8 − v)\)</span> for <span class="math inline">\(v = 0, \ldots, 7\)</span> (the possible values of <span class="math inline">\(X\)</span>).</p>
 <ol type="a">
 <li>Find the pmf of <span class="math inline">\(X\)</span>.</li>
 <li>Find the probability that <span class="math inline">\(X\)</span> will be at least 5.</li>
 </ol>
 </div>
 <div id="exr-3-1-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11 (Exercise 3.1.11) </strong></span>Show that there does not exist any number <span class="math inline">\(c\)</span> such that the following function would be a pmf:</p>
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 3.1.11)</strong></span> Show that there does not exist any number <span class="math inline">\(c\)</span> such that the following function would be a pmf:</p>
 <p><span class="math display">\[
 f(v) = \begin{cases}
 \frac{c}{v} &amp;\text{for }v = 1, 2, \ldots, \\
@@ -591,10 +415,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -604,8 +445,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -617,7 +467,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -661,6 +634,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -686,6 +660,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -746,6 +746,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

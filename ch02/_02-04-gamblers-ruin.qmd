@@ -65,14 +65,12 @@ $$
 a_i = \frac{i}{k} \; \text{ for }i = 1, \ldots, k-1.
 $$ {#eq-2-4-6}
 
-::: {.callout-tip}
 ::: {#exm-2-4-1}
 
 # Example 2.4.1: The Probability of Winning in a Fair Game
 
 Suppose that $p = 1/2$, in which case the game is equally favorable to both gamblers; and suppose that the initial fortune of gambler $A$ is 98 dollars and the initial fortune of gambler $B$ is just two dollars. In this example, $i = 98$ and $k = 100$. Therefore, it follows from @eq-2-4-6 that there is a probability of 0.98 that gambler $A$ will win two dollars from gambler $B$ before gambler $B$ wins 98 dollars from gambler $A$.
 
-:::
 :::
 
 **Solution for an Unfair Game**: Suppose now that $p \neq 1/2$. Then @eq-2-4-5 can be rewritten in the form
@@ -105,7 +103,6 @@ a_i = \frac{
 } \; \text{ for }i = 1, \ldots, k-1.
 $$ {#eq-2-4-9}
 
-::: {.callout-tip}
 ::: {#exm-2-4-2}
 
 # Example 2.4.2: The Probability of Winning in an Unfavorable Game
@@ -124,7 +121,6 @@ $$
 
 Hence, although the probability that gambler $A$ will win one dollar on any given play is only 0.4, the probability that he will win one dollar before he loses 99 dollars is approximately $2/3$.
 
-:::
 :::
 
 ### Summary
@@ -192,8 +188,7 @@ Suppose that on each play of a certain game, a person will either win one dollar
 
 # Exercise 2.4.7
 
-Suppose that on each play of a certain game, a person will either win one dollar with probability $1/3$ or lose one dollar with probability $2/3$. Suppose also that the person's goal is to win two dollars by playing this game. Show that no matter how large the person's initial fortune might be, the probability that she will achieve her goal before she
-loses her initial fortune is less than $1/4$.
+Suppose that on each play of a certain game, a person will either win one dollar with probability $1/3$ or lose one dollar with probability $2/3$. Suppose also that the person's goal is to win two dollars by playing this game. Show that no matter how large the person's initial fortune might be, the probability that she will achieve her goal before she loses her initial fortune is less than $1/4$.
 
 :::
 
@@ -201,8 +196,7 @@ loses her initial fortune is less than $1/4$.
 
 # Exercise 2.4.8
 
-Suppose that the probability of a head on any toss of
-a certain coin is $p$ ($0 < p < 1$), and suppose that the coin is tossed repeatedly. Let $X_n$ denote the total number of heads that have been obtained on the first $n$ tosses, and let $Y_n = n − X_n$ denote the total number of tails on the first $n$ tosses. Suppose that the tosses are stopped as soon as a number $n$ is reached such that either $X_n = Y_n + 3$ or $Y_n = X_n + 3$. Determine the probability that $X_n = Y_n + 3$ when the tosses are stopped.
+Suppose that the probability of a head on any toss of a certain coin is $p$ ($0 < p < 1$), and suppose that the coin is tossed repeatedly. Let $X_n$ denote the total number of heads that have been obtained on the first $n$ tosses, and let $Y_n = n − X_n$ denote the total number of tails on the first $n$ tosses. Suppose that the tosses are stopped as soon as a number $n$ is reached such that either $X_n = Y_n + 3$ or $Y_n = X_n + 3$. Determine the probability that $X_n = Y_n + 3$ when the tosses are stopped.
 
 :::
 

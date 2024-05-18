@@ -15,8 +15,7 @@ Suppose that $A$, $B$, and $D$ are any three events such that $\Pr(A \mid D) \ge
 Suppose that a fair coin is tossed repeatedly and independently until both a head and a tail have appeared at least once.
 
 (a) Describe the sample space of this experiment.
-(b) What is the probability that exactly three tosses
-will be required?
+(b) What is the probability that exactly three tosses will be required?
 
 :::
 
@@ -72,8 +71,7 @@ Suppose that the events $A$ and $B$ are disjoint and that each has positive prob
 
 # Exercise 2.5.9
 
-Suppose that $A$, $B$, and $C$ are three events such that $A$ and $B$ are disjoint, $A$ and $C$ are independent, and $B$ and $C$ are independent. Suppose also that $4\Pr(A) = 2\Pr(B) = \Pr(C) > 0$ and $\Pr(A \cup B \cup C) = 5\Pr(A)$. Determine the
-value of $\Pr(A)$.
+Suppose that $A$, $B$, and $C$ are three events such that $A$ and $B$ are disjoint, $A$ and $C$ are independent, and $B$ and $C$ are independent. Suppose also that $4\Pr(A) = 2\Pr(B) = \Pr(C) > 0$ and $\Pr(A \cup B \cup C) = 5\Pr(A)$. Determine the value of $\Pr(A)$.
 
 :::
 
