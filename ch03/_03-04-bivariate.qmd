@@ -402,7 +402,7 @@ if all of the integrals exist. Alternatively, for each $y$, define $C^y = \{x \m
 then
 
 $$
-\Pr((X, Y) \in C) = \int_{-\infty}^{\infty}\left[\right]dy,
+\Pr((X, Y) \in C) = \int_{-\infty}^{\infty}\left[ \sum_{x \in C^y}f(x, y) \right]dy,
 $$
 
 if the integral exists.
