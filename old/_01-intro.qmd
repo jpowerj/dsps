@@ -1,0 +1,32 @@
+---
+cache: true
+number-depth: 2
+callout-appearance: simple
+callout-icon: false
+---
+
+# Introduction to Probability {#sec-1}
+
+(ch01/01-01-history.qmd)
+
+
+
+{{< include ch01/_01-03-experiments.qmd >}}
+
+{{< include ch01/_01-04-set-theory.qmd >}}
+
+{{< include ch01/_01-05-defn-of-probability.qmd >}}
+
+{{< include ch01/_01-06-finite-sample-spaces.qmd >}}
+
+{{< include ch01/_01-07-counting-methods.qmd >}}
+
+{{< include ch01/_01-08-combinatorial-methods.qmd >}}
+
+{{< include ch01/_01-09-multinomial-coefficients.qmd >}}
+
+{{< include ch01/_01-10-union-of-events.qmd >}}
+
+{{< include ch01/_01-11-statistical-swindles.qmd >}}
+
+{{< include ch01/_01-12-exercises.qmd >}} -->

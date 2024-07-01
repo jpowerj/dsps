@@ -265,6 +265,7 @@ $$
 f(x) = \begin{cases}
 \binom{n}{x}p^x(1-p)^{n-x} &\text{ for }x = 0, 1, \ldots, n, \\
 0 &\text{otherwise.}
+\end{cases}
 $$ {#eq-3-1-4}
 
 <!-- Stopping point 2023-09-22 -->

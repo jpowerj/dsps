@@ -13,5 +13,11 @@
   },
   "ch03/_03-05-marginal.qmd": {
     "_03-05-marginal.html": "cf3cd7ed"
+  },
+  "ch03/_03-10-markov-chains.qmd": {
+    "_03-10-markov-chains.html": "7184ad04"
+  },
+  "ch03/_03-09-fns-of-multiple-rvs.qmd": {
+    "_03-09-fns-of-multiple-rvs.html": "60a510d1"
   }
 }
