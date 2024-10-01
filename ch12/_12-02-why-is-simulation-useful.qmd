@@ -1,0 +1,874 @@
+
+## Why Is Simulation Useful?
+
+*Statistical simulations are used to estimate features of distributions such as means of functions, quantiles, and other features that we cannot compute in closed form. When using a simulation estimator, it is good to compute a measure of how precise the estimator is, in addition to the estimate itself.*
+
+### Examples of Simulation
+
+Simulation is a technique that can be used to help shed light on how a complicated
+system works even if detailed analysis is unavailable. For example, engineers can
+simulate traffic patterns in the vicinity of a construction project to see what effects
+various proposed restrictions might have. A physicist can simulate the behavior of
+gas molecules under conditions that are covered by no known theory. Statistical
+simulations are used to estimate probabilistic features of our models that we cannot
+compute analytically. Because simulation introduces an element of randomness into
+an analysis, it is sometimes called Monte Carlo analysis, named after the famous
+European gambling center.
+Example
+12.2.1
+The M.S.E. of the Sample Median. Suppose that we are about to observe a random
+sample of size n from a Cauchy distribution centered at an unknown value μ. The
+p.d.f. of each observation is
+f (x) = 1
+π
+(1+ [x − μ]2)
+−1,
+and the parameter μ is the median of the distribution. Suppose that we are interested
+in how well the sample median M performs as an estimator of μ. In particular, we
+want to calculate the M.S.E. E([M − μ]2). If we could generate a sample of n random
+variables from a Cauchy distribution centered at μ, we could compute the sample
+median M and calculate Y = (M − μ)2. The M.S.E. is then θ = E(Y). If we could
+792 Chapter 12 Simulation
+generate a large number v of i.i.d. random variables with the same distribution as Y ,
+say, Y (1), . . . , Y(v), then the law of large numbers would tell us that Z = 1
+v
+ v
+i=1 Y (i)
+should be close to θ. To do this, we could generate nv i.i.d. Cauchy random variables
+centered at μ. Then we could divide them into v sets of n each and use each set of n to
+compute a sample medianM(i) for i = 1, . . . , v and then compute Y (i) = (M(i) − μ)2.
+This is actually how several of the numbers in the tables in Sec. 10.7 were computed.
+These tables contain the M.S.E.’s of various estimators computed from random
+samples with various distributions. For example, the numbers corresponding to the
+sample median in Table 10.39 on page 675 are precisely what we have been discussing
+in this example.  
+Note: Notation to Distinguish Simulations. We shall use superscripts in parentheses
+to distinguish different simulated values of the same random variable from each
+other. For instance, in Example 12.2.1, we used Y (i) to stand for the ith simulated
+value of Y . In what follows, we may be simulating subscripted random variables. For
+example, μ
+(j )
+i would stand for the jth simulated value of μi .
+Example 12.2.1 illustrates the main features of many statistical simulations. Suppose
+that the quantity in which we are interested can be expressed as the expected
+value of some random variable that has the distribution F. Then we should try to
+generate a large sample of random variables with the distribution F and average
+them. It is often the case, as in Example 12.2.1, that the distribution F is itself very
+complicated. In such cases, we need to construct random variables with the distribution
+F from simpler random variables whose distributions are more familiar. In
+Example 12.2.1, the M.S.E. is the mean of the random variable Y = (M − μ)2, where
+M is itself the sample median of a sample of n Cauchy random variables centered at
+μ.We cannot easily simulate a random variable with the distribution of Y in one step,
+but we can simulate n Cauchy random variables and then find their sample median
+M and finally compute Y = (M − μ)2, which will have the desired distribution. We
+then repeat the simulation of Y many times.
+Not all statistical simulations involve the mean of a random variable.
+Example
+12.2.2
+The Median of a Complicated Distribution. Let X be an exponential random variable
+with unknown parameter μ. Suppose that μ has a distribution with the p.d.f. g. We
+are interested in the median of X. The marginal distribution of X has the p.d.f.
+f (x) =
+  ∞
+0
+μe
+−μxg(μ)dμ.
+This integral might not be one that we can compute. However, suppose that we can
+generate a large sample of random variables μ(1), . . . , μ(v) having the p.d.f. g. Then,
+for each i = 1, . . . , v, we can simulate X(i) having the exponential distribution with
+parameter μ(i). The random variables X(1), . . . , X(v) would then be a random sample
+from the distribution with the p.d.f. f .The median of the sampleX(1), . . . , X(v) should
+be close to the median of the distribution with the p.d.f. f .  
+Example
+12.2.3
+A Clinical Trial. Consider the four treatment groups described in Example 2.1.4 on
+page 57. For i = 1, 2, 3, 4, let Pi be the probability that a patient in treatment group
+i will not relapse after treatment. We might be interested in how likely it is that the
+Pi ’s differ by certain amounts.We might assume that the Pi ’s are independent a priori
+with beta distributions having parameters α0 and β0.The posterior distributions of the
+Pi ’s are also independent beta distributions with parameters α0 + xi and β0 + ni
+− xi ,
+where ni is the number of subjects in group i, and xi is the number of patients in group
+12.2 Why Is Simulation Useful? 793
+i who do not relapse.We could simulate a large number v of vectors (P1, P2, P3, P4)
+with the above beta distributions. Then we could try to answer any question we
+wanted about the posterior distribution of (P1, P2, P3, P4). For example, we could
+estimate Pr(Pi >P4) for i = 1, 2, 3, where i = 4 stands for the placebo group. This
+probability tells us how likely it is that each treatment is better than no treatment.
+We could estimate Pr(Pi >P4) by finding the proportion of sampled (P1, P2, P3, P4)
+vectors in which the ith coordinate is greater than the fourth coordinate. We could
+also estimate the probability that Pi is the largest, or the probability that all four Pi
+are within   of each other.  
+Example
+12.2.4
+Comparing Two Normal Means with Unequal Variances. On page 593 in Chapter 9, we
+considered how to test hypotheses concerning the means of two different normal
+distributions when the variances are unknown and different. This problem has a relatively
+simple solution in the Bayesian framework using simulation. Our parameters
+will be μx, τx, μy, and τy. Conditional on the parameters, let X1, . . . , Xm be i.i.d.
+having the normal distribution with mean μx and precision τx. Also let Y1, . . . , Yn
+be i.i.d. (and independent of the X’s) having the normal distribution with mean μy
+and precision τy. Assume that we use natural conjugate priors for the parameters
+with (μx, τx) independent of (μy, τy) in the prior distribution. (It is not necessary for
+the X parameters to be independent of the Y parameters, but it makes the presentation
+simpler.) Sec. 8.6 contains details on how to obtain the posterior distributions
+of the parameters. Since the X data and X parameters are independent of the Y data
+and Y parameters, we can calculate each posterior distribution separately. Let the
+hyperparameters of the posterior distribution of (μx, τx) be αx1, βx1, μx1, and λx1.
+Similarly, let the hyperparameters of the posterior distribution of (μy, τy) be αy1,
+βy1, μy1, and λy1. In order to test hypotheses about μx
+− μy, we need the posterior
+distribution of μx
+− μy. This distribution is not analytically tractable. If we can simulate
+a large collection of parameter vectors from their joint posterior distribution, we
+can compute μx
+− μy for each sampled vector, and these values will form a sample
+from the posterior distribution of μx
+− μy. To be more specific, let v be a large number,
+and for each i = 1, . . . , v, we want to simulate (μ(i)
+x , μ(i)
+y , τ(i)
+x , τ(i)
+y ) from the joint
+posterior distribution. To do this, we need to simulate independent gamma random
+variables τ (i)
+x and τ (i)
+y with the appropriate posterior distributions. After simulating
+these, we can simulate μ(i)
+x from the normal distribution with mean μx1 and variance
+1/(λx1τ (i)
+x ). Similarly, we can simulate μ(i)
+y from the normal distribution with mean
+μy1 and variance 1/(λy1τ (i)
+y ). Thenμ(i)
+x
+− μ(i)
+y for i = 1, . . . , v is a sample from the posterior
+distribution of μx
+− μy.We shall illustrate this methodology in Example 12.3.8
+after we discuss some methods for simulating pseudo-random numbers with various
+distributions.  
+The simulation in Example 12.2.4 can be extended in a straightforward fashion
+to a comparison of three or more normal distributions with unequal variances.With
+more than two means to compare, questions arise about what exactly to calculate
+to summarize the comparison. That is, there is not just one difference like μx
+− μy
+that captures the differences between three or more means. We shall consider this
+situation in more detail in Examples 12.3.7 and 12.5.6.
+Example
+12.2.5
+Estimating a Standard Deviation. LetXbe a random variable whose standard deviation
+θ is important to estimate. Suppose that we cannot calculate θ in closed form, but we
+can simulate many pseudo-random values X(1), . . . , X(v) with the same distribution
+794 Chapter 12 Simulation
+as X. Then we could compute the sample standard deviation
+Sv
+=
+ 
+1
+v
+ v
+i=1
+(X(i) − X)2
+ 1/2
+,
+as an estimator of θ, where X = 1
+v
+ v
+i=1 X(i). Since Sv is not an average, the law
+of large numbers does not tell us that it converges in probability to θ. However,
+if we let Y (i) = X(i)2, we can rewrite Sv as (Y − X
+2
+)1/2. In this form, we see that Sv
+=
+g(X, Y), where g(x, y) = (y − x2)1/2. Notice that g is continuous at every point (x, y)
+such that y ≥ x2. The law of large numbers tells us that Y converges in probability
+to E(X2) and that X converges in probability to E(X). Since E(X2) ≥ E(X), we
+can apply Exercise 16 in Sec. 6.2 to conclude that Sv converges in probability to
+g(E(X), E(X2)) = θ.  
+All of the examples above involve the generation of a large number of random
+variables with specific distributions. Some discussion of this topic appeared in Chapter
+3 beginning on page 170. Sections 12.3 and 12.5 will also discuss methods for
+generating random variables with specific distributions. Sections 12.4 and 12.6 will
+present particular classes of problems in which statistical simulation is used successfully.
+
+### Which Mean Do You Mean?
+
+Simulation analyses add an additional layer of probability distributions and sampling
+distributions of statistics to an already probability-laden statistical analysis. A
+typical statistical analysis involves a probability model for a random sample of data
+X1, . . . , Xn. This probability model specifies the distribution of each Xi , and this
+distribution might have parameters such as its mean, median, variance, and other
+measures that we are interested in estimating or testing.We then form statistics (functions
+of the data), say, Y. These functions might include sample versions of the very
+parameters that we wish to estimate, such as a sample mean, sample median, sample
+variance, and the like. The distribution of Y has been called its sampling distribution.
+This sampling distribution also might have a mean, median, variance, and other
+measures that we need to calculate or deal with in some way. So far,we have three versions
+of mean, median, variance, and others, and we have not even begun discussing
+simulation.
+A simulation analysis might be used to try to estimate a parameter θ of the
+sampling distribution of the statistics Y. Typically, one would simulate i.i.d. pseudorandom
+Y(1), . . . , Y(v) each with the same distribution as (the sampling distribution
+of) Y.We then compute a summary statistic Z of Y(1), . . . , Y(v) and use Z to estimate
+θ. This Z might itself be a sample mean, sample median, sample variance, or other
+measure of the Y(1), . . . , Y(v) sample. The distribution of Z will be called its simulation
+distribution or Monte Carlo distribution. Features of the simulation distribution,
+such as its mean, median, and variance, will be called the simulation mean, simulation
+median, and simulation variance to make clear to which level we have climbed
+in this ever-expanding tree of terminology. Here is an example to illustrate all of the
+various levels.
+Example
+12.2.6
+Five or More Variances. Let X1, . . . , Xn be i.i.d. random variables with a continuous
+distribution having c.d.f. F. Let ψ denote the variance of Xi . Suppose that we decide
+to use the sample variance Y = n
+i=1(Xi
+− X)2/n to estimate ψ. As part of deciding
+12.2 Why Is Simulation Useful? 795
+Table 12.3 Levels of probability distributions, statistics, and parameters in a typical simulation analysis
+Distribution (D) or sample (S) Parameter (P) or statistic (S)
+(D) Population distribution F (P) Mean, variance, median, etc. ψ
+(S) Sample X = (X1, . . . , Xn) from F (S) Estimator Y of ψ based on X, e.g., sample mean, sample
+variance, sample median, etc.
+(D) Sampling distribution G of Y (P) Mean, variance, median, etc., θ of the sampling distribution
+of Y
+(S) Simulated sample Y = (Y (1), . . . , Y(v))
+from G
+(S) Estimator Z of θ based on Y, e.g., sample mean, sample
+variance, sample median, etc., of Y.
+(D) Simulation distribution H of Z (P) Variance of simulation distribution (simulation variance)
+(S) Simulated data (differs by example) (S) Estimator of simulation variance, (depends on specific
+example)
+how good Y is as an estimator of ψ, we are interested in its variance θ = Var(Y ).
+That is, θ is the variance of the sampling distribution of Y . Suppose that we cannot
+calculate θ in closed form, but suppose that it is easy to simulate from the distribution
+F. We might then simulate nv values X
+(j )
+i for j = 1, . . . , v, i = 1, . . . , n. For each j ,
+we compute the sample variance Y (j ) of the sample X
+(j )
+1 , . . . , X(j )
+n . That is, Y (j ) =
+ n
+i=1(X
+(j )
+i
+− X
+(j )
+)2/n. The Y (j ) values all have the same distribution as Y itself, the
+sampling distribution of Y . Since we are interested in Var(Y ), we might compute the
+sample variance Z of the sample Y (1), . . . , Y(v). That is, Z = v
+i=1(Y (i) − Y)2/v. We
+would then use Z to estimate θ. If Z is large, it suggests that Y has large variance, and
+so Y is not a very good estimator of ψ. Unless we are willing to collect more data or
+search for a better estimator, we are stuck with a poor estimator of ψ.
+Finally, Z might not be a good estimator of θ because our simulation size v might
+not be large enough. If this is the case, we can simulate more Y (j ) values. That is, we
+can increase the simulation size v to get a better simulation estimator of θ. (This will
+not make Y a better estimator of ψ, but it will give us a better idea of how good
+or bad an estimator it is.) Hence, we shall also try to estimate the variance of Z (its
+simulation variance). Precisely how to do this varies from one example to the next,
+so we shall not give any details here. However, we shall explain how to estimate the
+simulation variance of Z for the most popular types of simulation later in this section.
+This estimation of variance has to end somewhere, and we shall end it with
+Var(Z). That is, we shall not try to assess how good our estimator of Var(Z) is. All of
+these levels of distributions and estimation are illustrated in Table 12.3.  
+Example 12.2.6 is not intended to illustrate any simulation methodology. It is
+intended to illustrate the various levels at which probability concepts (such as variance)
+and their sample versions enter into a simulation study of a statistical analysis.
+It is important to be able to tell which variance or which sample variance is being
+discussed if one is to avoid becoming hopelessly confused. In this chapter, we shall
+focus on the features of the simulated samples, in particular the simulation distribution
+of statistics computed from the simulated samples. However, our examples will
+necessarily involve parameters and statistics that arose at earlier levels. Furthermore,
+the analysis of a simulation distribution will make use of the same methods (central
+796 Chapter 12 Simulation
+limit theorem, law of large numbers, delta method, etc.) that we learned how to use
+with nonsimulated data.
+
+### Assessing Uncertainty about Simulation Results
+
+The last step in Example 12.2.6 (summarized in the last two rows of Table 12.3) is
+an important part of every simulation analysis. That is, we should always attempt to
+assess the uncertainty in a simulation. This uncertainty is most easily assessed via
+the simulation variance of the simulated quantity. For instance, in Example 12.2.1,
+let v = 1000 and θ = 0. We can create 1000 samples of n Cauchy random variables,
+calculateM(i), the median of the ith sample, and compute the value Y (i) = (M(i) − 0)2.
+We can then average the 1000 values of Y (i). We could repeat this exercise several
+times, and we would not get the same result every time. This is due to the fact that,
+even with a large v like 1000, an estimator such as Z = 1
+v
+ v
+i=1 Y (i) is still a random
+variable with positive variance (its simulation variance). The smaller the simulation
+variance is, the more certain we can be that our estimator Z is close to what we are
+trying to estimate. But we need to estimate or bound the simulation variance before
+we can assess the amount of uncertainty. How we estimate the simulation variance of
+a result Z depends on whether Z is an average of simulated values, a smooth function
+of one or more averages, or a sample quantile of simulated values. The square root
+of our estimate of the simulation variance will be called the simulation standard
+error, and it is an estimate of the simulation standard deviation of Z. The simulation
+standard error is a popular way to summarize uncertainty about a simulation for two
+reasons. First, it has the same units of measurement as the quantity that was estimated
+(unlike the simulation variance). Second, the simulation standard error is useful for
+saying how likely it is that the simulation estimator is close to the parameter being
+estimated. We shall explain this second point in more detail after we show how to
+calculate the simulation standard error in several common cases.
+Example
+12.2.7
+The Simulation Standard Error of an Average. Suppose that the goal of the simulation
+analysis is to estimate the mean θ of some random variable Y . The simulation
+estimator Z will generally be the average of a large number of simulated values.
+A straightforward way to estimate the simulation variance for an average is the
+following: Suppose that we simulate some quantity Y a large number v of times
+in order to estimate the mean θ. That is, suppose that we simulate independent
+Y (1), . . . , Y(v) for large v. Suppose also that the estimator of θ is Z = 1
+v
+ v
+i=1 Y (i),
+and each Y (i) has mean θ and finite variance σ2. The sample standard deviation of
+the sample Y (1), . . . , Y(v) is the square root of the sample variance, namely,
+ˆσ
+=
+ 
+1
+v
+ v
+i=1
+(Y (i) − Y)2
+ 1/2
+. (12.2.1)
+If v is large, then ˆσ should be close to σ. The central limit theorem says that Z should
+have approximately the normal distribution with mean θ and variance σ2/v. Since we
+usually do not know σ2, we shall estimate it by ˆσ 2. This makes our estimator of the
+simulation variance of Z equal to ˆσ 2/v, and the simulation standard error is ˆσ/v1/2.
+ 
+Example
+12.2.8
+The Simulation Standard Error of a Smooth Function of Another Estimator. Sometimes,
+after estimating a quantity ψ, we also wish to estimate a smooth function of it: g(ψ).
+For example, we might need to estimate the square root or the logarithm of some
+12.2 Why Is Simulation Useful? 797
+mean. Or, we might have estimated a variance θ2, and now we want an estimator of θ,
+the corresponding standard deviation. In general, suppose that the parameter that we
+wish to estimate by simulation is θ = g(ψ), where we already have an estimatorW of
+ψ. Suppose further that our estimator W has approximately the normal distribution
+with meanψ and variance σ2/v, where v is large compared to σ2. Finally, suppose that
+we also have an estimator ˆσ of σ that we obtained while calculatingW. For example,
+W might itself be the average of v i.i.d. simulated random variables Y (i) with mean
+ψ and variance σ2. In this case, Eq. (12.2.1) will be our estimator of σ. Let Z = g(W)
+be our estimator of θ. The delta method (see Sec. 6.3) says that Z has approximately
+the normal distribution with mean θ = g(ψ) and variance [g
+ 
+(ψ)]2σ2/v. For example,
+if g(ψ) = ψ1/2, then W1/2 has approximately the normal distribution with mean ψ1/2
+and variance σ2/[4ψv]. We already have estimates of σ and ψ, so our simulation
+standard error of Z is |g
+ 
+(W)| ˆσ/v1/2.  
+Example
+12.2.9
+The Simulation Standard Error of a Sample Quantile. Suppose that the goal of a simulation
+analysis is to estimate the p quantile θp of some distribution G. Typically, we
+simulate a large number v of pseudo-random values Y (1), . . . , Y(v) with distribution
+G and use the sample p quantile as our estimator. On page 676, we pointed out that
+the sample p quantile from a large random sample of size m has approximately the
+normal distribution with mean θp and variance p(1− p)/[mg2(θp)], where g is the
+p.d.f. of the distribution G. All we care about right now is that this approximate variance
+has the form σ2/m, where σ2 = p(1− p)/g2(θp) is some number that does not
+depend on m. Suppose that we simulate k independent random samples each of size
+m from the distributionG. Typically, this is done by choosing the size v of the original
+simulated sample Y (1), . . . , Y (v) to be v = km, and then splitting the v simulated values
+into k subsamples of size m each. Compute the sample p quantile of each of the
+k random samples and call these simulated sample p quantiles Z1, . . . , Zk. To make
+use of the approximate normal distribution for the sample quantiles, m needs to be
+large. Next, compute the sample standard deviation of Z1, . . . , Zk:
+S =
+ 
+1
+k
+ k
+i=1
+(Zi
+− Z)2
+ 1/2
+, (12.2.2)
+where Z is the average of the k sample p quantiles. If we treat each Zi as a single
+simulation, then S2 is an estimator of the variance of Zi . But we just pointed out that
+the variance of Zi is approximately σ2/m. Hence, S2 is an estimator of σ2/m. In other
+words, an estimator of σ is ˆσ = m1/2S. Finally, combine all k samples into a single
+sample of size v = km, and compute the sample p quantile Z as our Monte Carlo
+estimator of θp. As we noted earlier, Z has approximately the normal distribution
+with mean θp and variance σ2/v. We just constructed an estimator ˆσ of σ, so our
+estimator of the simulation variance of Z is ˆσ 2/v = mS2/v = S2/k, and the simulation
+standard error is S/k1/2.  
+Example
+12.2.10
+The Simulation Standard Error of a Sample Variance. Suppose that the goal of a simulation
+analysis is to estimate the variance θ of some estimator Y . (Example 12.2.6
+was based on such a situation.) Suppose that we simulate Y (1), . . . , Y(v) and use
+Z = 1
+v
+ v
+i=1(Y (i) − Y)2 to estimate θ. We now need to estimate the simulation variance
+of Z. We shall rewrite Z as a smooth function of two averages and then apply
+a two-dimensional generalization of the delta method (see Exercise 12) in order to
+estimate the simulation variance. Let W(i) = Y (i)2 so that Z = W − Y
+2, where W is
+798 Chapter 12 Simulation
+the average ofW(1), . . . , W(v). Now Z is a smooth function of two averages. The twodimensional
+delta method developed in Exercise 12 can be applied. (The details for
+this very case can be derived in Exercise 13.) The results of Exercise 13 provide the
+following approximation to the asymptotic variance of Z. First, compute the sample
+variance of W(1), . . . , W(v) and call it V . Next, compute the sample covariance
+between the Y ’s and W’s:
+C = 1
+v
+ v
+i=1
+(Y (i) − Y )(W(i) − W).
+The estimator of Var(Z) is then
+Va8r(Z) = 1
+v
+ 
+4Y
+2
+Z − 4YC + V
+ 
+. (12.2.3)
+Also, the simulation distribution of Z is approximately the normal distribution with
+mean θ and variance that is estimated by Eq. (12.2.3). The simulation standard error
+is the square root of (12.2.3).  
+Do We Have Enough Simulations? Let Z be our Monte Carlo estimator of some
+parameter θ based on v simulations. Now that we are able to estimate the simulation
+variance of Z, we can begin to answer questions about how close we think Z is to θ.
+We can also try to see if we need to do more simulations in order to be confident that
+Z is close enough to θ. Suppose, as in all of the cases considered so far, that Z has
+approximately the normal distribution with mean θ and variance σ2/v, where σ2 is
+a number that does not depend on the simulation size. For each   > 0,
+Pr(|Z − θ| ≤  ) ≈ 2 
+ 
+ v1/2/σ
+ 
+− 1, (12.2.4)
+where   is the standard normal c.d.f.We can use this type of approximation to help
+us to say how likely it is that Z is close to θ. We can replace v1/2/σ by 1 over the
+simulation standard error of Z in Eq. (12.2.4) to approximate the probability that
+|Z − θ| ≤  . We can also use (12.2.4) to decide how many more simulations to do
+if v was not large enough. For example, suppose that we want the probability in
+Eq. (12.2.4) to be γ . Then we should let
+v =
+ 
+ 
+−1
+
+
+1+ γ
+2
+ 
+σ
+ 
+ 2
+. (12.2.5)
+Since we will hardly ever know σ ahead of time, it is common to estimate it by
+doing a preliminary simulation of size v0 and computing ˆσ based on that preliminary
+simulation.
+Example
+12.2.11
+The M.S.E. of the Sample Median. It is not difficult to see that we can take μ = 0 in
+Example 12.2.1 without loss of generality. The reason is the following: Let M(i) be
+the sample median of X(i)
+1 , . . . , X(i)
+n where each X(i)
+j is a Cauchy random variable
+centered at μ. Then M(i) − μ is also the sample median of X(i)
+1
+− μ, . . . , X(i)
+n
+− μ,
+and eachX(i)
+j
+− μ is a Cauchy random variable centered at 0. Because our calculation
+is based on the values Y (i) = (M(i) − μ)2 for i = 1, . . . , v, we get the same result
+whether μ = 0 or not. So, let μ = 0. This makes Y (i) = M(i)2, and σ2 is now the
+variance of M(i)2. (Even though a Cauchy random variable does not even have a
+first moment defined, it can be shown that the sample median of at least nine i.i.d.
+Cauchy random variables has a finite fourth moment.) Suppose that we want our
+estimator Z = Y of θ to be within   = 0.01 of θ with probability γ = 0.95. That
+12.2 Why Is Simulation Useful? 799
+is, we want Pr(|Z − θ| ≤ 0.01) = 0.95. Since Z is an average, we can compute an
+estimate ˆσ of σ by using Eq. (12.2.1). Suppose that we simulate v0 = 1000 samples
+of size n = 20 from a Cauchy distribution, compute the 1000 values of Y (i), and then
+compute ˆσ = 0.3892. According to Eq. (12.2.5) with σ replaced by 0.3892, we need
+v = [1.96 × 0.3892/0.01]2 = 5820. Hence, we need approximately 4820 additional
+simulations.  
+After performing any additional simulations suggested by Eq. (12.2.5), one
+should recompute ˆσ . If it is much larger than the preliminary estimate, then additional
+simulations should be performed.
+Example
+12.2.12
+The Median of a Complicated Distribution. In Example 12.2.2, suppose that the p.d.f.
+g is the p.d.f. of the gamma distribution with parameters 3 and 1. Suppose that we
+want the probability to be 0.99 that our estimator of the median is within 0.001 of
+the true median. We begin with an initial simulation of size v0 =10,000. We then
+simulate μ(1), . . . , μ(10,000) from the gamma distribution with parameters 3 and 1. For
+each i, we simulate X(i) having the exponential distribution with parameter μ(i). We
+treat X(1), . . . , X(10,000) as k = 20 samples of size m = 500 each, and we compute the
+sample median Z1, . . . , Z20 of each of the 20 samples. After performing these initial
+simulations, suppose that we observe the value S = 0.01597 for Eq. (12.2.2). This
+makes ˆσ = 0.3570. Plugging this value into (12.2.5) for σ with γ = 0.99 and   = 0.001
+yields v = 845,747.4. This means that we need a total of 845,748 simulations to reach
+our desired level of confidence in the simulated result. Just to check, we simulated
+a total of 900,000 values and computed the sample median 0.2593 as well as a new
+value of S2 based on k = 100 subsamples of size m = 6200 each. The new value of ˆσ
+is 0.4529. Substituting 0.4529 for σ in Eq. (12.2.5) yields a new v =1,360,939, which
+means that we still need another 460,939 simulations.  
+Simulating Real Processes
+In many scientific fields, real physical or social processes are modeled as having random
+components. For example, stock prices are often modeled as having lognormal
+distributions as in Example 5.6.10. Many processes involving waiting times and service
+are modeled using Poisson processes. The simple probability models that have
+been developed earlier in this text are merely the building blocks of which such models
+of real processes are constructed. Here, we shall give two examples of slightly
+more complicated models that can be constructed using the distributions we already
+know. The analyses of these models can be simplified by the use of simulation.
+Example
+12.2.13
+Option Pricing. In Example 5.6.10, we introduced the formula of Black and Scholes
+(1973) for pricing options. In that example, the option was to buy shares at price
+q of a stock whose value at time u (in the future) is a random variable Su with
+a known lognormal distribution. Many financial analysts believe that the standard
+deviation σ of log(Su) in Example 5.6.10 should not be treated as a known constant.
+For example, we could treat σ as a random variable with a p.d.f. f (σ). To be precise,
+we shall continue to assume that Su
+= S0e(r−σ2/2)u+σu1/2Z, but now we shall assume
+that both Z and σ are random variables. For convenience, we shall assume that
+they are independent. We shall let Z have the standard normal distribution, and
+we shall let τ = 1/σ 2 have the gamma distribution with known parameters α and
+β. The parameters α and β might result from estimating the variance of stock prices
+based on historical data combined with expert opinion of stock analysts. For example,
+800 Chapter 12 Simulation
+they might be the posterior hyperparameters that result from applying a Bayesian
+analysis to a sample of stock prices. It is easy to see that E(Su
+|σ) = S0eru for all
+σ, and hence the law of total probability for expectations (Theorem 4.7.1) implies
+that E(Su) = S0eru. This is what we need for risk neutrality. The price for the option
+considered in Example 5.6.10 is the mean of the random variable e
+−ruh(Su), where
+h(s) =
+ 
+s − q if s > q,
+0 otherwise.
+The Black-Scholes formula (5.6.18) is just the conditional mean of e
+−ruh(Su) given
+σ. To estimate the marginal mean of e
+−ruh(Su), we could simulate a large number of
+values σ(i) (i = 1, . . . , v) from the distribution of σ, substitute each σ(i) into (5.6.18),
+and average the results.
+As an example, suppose that we take the same numerical situation from the
+end of Example 5.6.10 with u = 1, r = 0.06, and q = S0. This time, suppose that 1/σ 2
+has the gamma distribution with parameters 2 and 0.0127. (These numbers make
+E(σ) = 0.1, but σ has substantial variability.) We can sample v =1,000,000 values of
+σ from this distribution and compute (5.6.18) for each value. The average, in our
+simulation, is 0.0756S0, and the simulation standard error is 1.814S0 × 10−5. The
+option price is only slightly higher than it was when we assumed that we knew σ.
+When the distribution of Su is even more complicated, one can simulate Su directly
+and estimate the mean of h(Su).  
+In the following example, each simulation requires a large number of steps,
+but each step is relatively simple. The combination of several simple steps into one
+complicated step is very common in simulations of real processes.
+Example
+12.2.14
+A Service Queue with Impatient Customers. Consider a queue to which customers
+arrive according to a Poisson process with rate λ per hour. Suppose that the queue
+has a single server. Each customer who arrives at the queue counts the length r of the
+queue (including the customer being served) and decides to leave with probability
+pr , for r = 1, 2, . . . .Acustomer who leaves does not enter the queue. Each customer
+who enters the queue waits in the order of arrival until the customer immediately in
+front is done being served, and then moves to the head of the queue. The time (in
+hours) to serve a customer, after reaching the head of the queue, is an exponential
+random variable with parameter μ. Assume that all service times are independent
+of each other and of all arrival times.
+We can use simulation to learn about the behavior of such a queue. For example,
+we could estimate the expected number of customers in the queue at a particular
+time t after the queue opens for business. To do this, we could simulate many, say,
+v, realizations of the queue operation. For each realization i, we count how many
+customers N(i) are in the queue at time t . Then our estimator is 1
+v
+ v
+i=1 N(i). To simulate
+a single realization, we could proceed as follows: Simulate interarrival times
+X1, X2, . . . of the Poisson process as i.i.d. exponential random variables with parameter
+λ. Let Tj
+= j
+i=1 Xi be the time at which customer j arrives. Stop simulating at
+the first k such that Tk > t. Only the first k − 1 customers have even arrived at the
+queue by time t . For each j = 1, . . . , k − 1, simulate a service time Yj having the exponential
+distribution with parameter μ. Let Zj stand for the time at which the jth
+customer reaches the head of the queue, and let Wj stand for the time at which the
+jth customer leaves the queue. For example, Z1 = X1 and W1 = X1 + Y1. For j >1,
+the jth customer first counts the length of the queue and decides whether or not to
+leave. Let Ui,j
+= 1 if customer i is still in the queue when customer j arrives (i < j ),
+12.2 Why Is Simulation Useful? 801
+and let Ui,j
+= 0 if customer i has already left the queue. Then
+Ui,j
+=
+ 
+1 ifWi
+≥ Tj ,
+0 otherwise.
+The number of customers in the queue when the jth customer arrives is r =
+ j−1
+i=1 Ui,j . We then simulate a random variable Vj having the Bernoulli distribution
+with parameter pr. If Vj
+= 1, customer j leaves the queue so that Wj
+= Tj. If
+customer j stays in the queue, then this customer reaches the head of the queue at
+time
+Zj
+= max{Tj, W1, . . . , Wj−1}.
+That is, the jth customer either reaches the head of the queue immediately upon
+arrival (if nobody is still being served) or as soon as all of the previous j − 1customers
+have left, whichever comes later. Also, Wj
+= Zj
++ Yj if customer j stays. For each
+j = 1, . . . , k − 1, the jth customer is in the queue at time t if and only if Wj
+≥ t .
+As a numerical example, suppose that λ = 2, μ = 1, t = 3, and pr
+= 1− 1/r, for
+r ≥ 1. Suppose that the first k = 6 simulated interarrival times are
+0.215, 0.713, 1.44, 0.174, 0.342, 0.382.
+The sum of the first five of these times is 2.884, but the sum of all six is 3.266. So, at
+most five customers are in the queue at time t = 3. Suppose that the simulated service
+times for the first five customers are
+0.251, 2.215, 2.855, 0.666, 2.505.
+We cannot simulate the Vj ’s in advance, because we do not yet know how many
+customers will be in the queue when each customer j arrives. Figure 12.3 shows a
+time line of the simulation of the process that we are about to describe. Begin with
+customer 1, who has T1 = Z1 = 0.215 and W1 = 0.215 + 0.251= 0.466. For customer
+2, T2 = T1 + 0.713 = 0.928>W1, so nobody is in the queue when customer 2 arrives
+and Z2 = T2 = 0.928. ThenW2 = Z2 + 2.215= 3.143. For customer 3, T3 = T2 + 1.44 =
+2.368<W2, so r = 1. Because p1 = 0, customer 3 stays, and there is no need to
+Time (hours)
+Customer number
+0 2 4 6 8
+1
+2
+3
+4
+5 T5 Z5 W5
+T3 Z3 W3
+T4
+T2
+Z2 W2
+W1 Z1
+T1
+W4
+t 5 3
+Figure 12.3 One simulation of a service queue. The
+bottom line is the time line for Example 12.2.14. Each
+customer is represented by one horizontal line segment.
+The vertical line at t = 3 crosses the horizontal lines for
+those customers still in the queue at time t = 3.
+802 Chapter 12 Simulation
+simulate V3. Then Z3 = W2 = 3.143, and W3 = Z3 + 2.855 = 5.998. For customer 4,
+T4 = T3 + 0.174 = 2.542. Since W1 < T4<W2, W3, we have r = 2 customers in the
+queue. We then simulate V4 having the Bernoulli distribution with parameter p2 =
+1/2. Suppose that we simulate V4 = 1, so customer 4 leaves, and we ignore the
+fourth simulated service time. This makes W4 = T4 = 2.542. For customer 5, T5 =
+T4 + 0.342 = 2.884, and customers 2 and 3 are still in the queue.We need to simulate
+V5 having the Bernoulli distribution with parameter p2 = 1/2. Suppose that V5 = 0, so
+customer 5 stays. Then Z5 =W3 = 5.988, andW5 = Z5 + 2.505= 8.393. Finally,Wj
+≥ 3
+for j = 2, 3, 5. This means that there areN(1) = 3 customers in the queue at time t = 3,
+as illustrated in Fig. 12.3. Needless to say, a computer should be programmed to do
+this calculation for a large simulation.
+
+### Summary
+
+If we wish to compute the expected value $\theta$ of some random variable Y , but cannot
+perform the necessary calculation in closed form, we can use simulation. In general,
+we would simulate a large random sample Y (1), . . . , Y (v) from the same distribution
+as Y , and then compute the sample mean Z as our estimator.We can also estimate a
+quantile θp of a distribution in a similar fashion. If Y (1), . . . , Y(v) is a large sample from
+the distribution, we can compute the sample p quantile Z. It is always a good idea to
+compute some measure of how good a simulation estimator is. One common measure
+is the simulation standard error of Z, an estimate of the standard deviation of the
+simulation distribution of Z. Alternatively, one could perform enough simulations
+to make sure that the probability is high that the Z is close to the parameter being
+estimated.
+
+### Exercises
+
+1. Eq. (12.2.4) is based on the assumption that Z has approximately
+a normal distribution. Occasionally, the normal
+approximation is not good enough. In such cases, one
+can let
+v = σ2
+ 2(1− γ )
+. (12.2.6)
+To be precise, let Z be the average of v independent
+random variables with meanμand variance σ2. Prove that
+if v is at least as large as the number in Eq. (12.2.6), then
+Pr(|Z − μ| ≤ c) ≥ γ . Hint: Use the Chebyshev inequality
+(6.2.3).
+2. In Example 12.2.11, how large would v need to be
+according to Eq. (12.2.6)?
+3. Suppose that we have available as many i.i.d. standard
+normal random variables as we desire. Let X stand for
+a random variable having the normal distribution with
+mean 2 and variance 49. Describe a method for estimating
+E(log(|X| + 1)) using simulation.
+4. Use a pseudo-random number generator to simulate a
+sample of 15 independent observations in which 13 of the
+15 are drawn from the uniform distribution on the interval
+[−1, 1] and the other two are drawn from the uniform
+distribution on the interval [−10, 10]. For the 15 values
+that are obtained, calculate the values of (a) the sample
+mean, (b) the trimmed means for k = 1, 2, 3, and 4 (see
+Sec. 10.7), and (c) the sample median. Which of these
+estimators is closest to 0?
+5. Repeat Exercise 4 ten times, using a different pseudorandom
+sample each time. In other words, construct 10
+independent samples, each of which contains 15 observations
+and each of which satisfies the conditions of Exercise
+4.
+a. For each sample, which of the estimators listed in
+Exercise 4 is closest to 0?
+b. For each of the estimators listed in Exercise 4, determine
+the square of the distance between the estimator
+and 0 in each of the 10 samples, and determine the
+average of these 10 squared distances. For which of
+the estimators is this average squared distance from
+0 smallest?
+12.2 Why Is Simulation Useful? 803
+6. Suppose that X and Y are independent, that X has the
+beta distribution with parameters 3.5 and 2.7, and that Y
+has the beta distribution with parameters 1.8 and 4.2. We
+are interested in the mean of X/(X + Y).You may assume
+that you have the ability to simulate as many random
+variables with whatever beta distributions you wish.
+a. Describe a simulation plan that will produce a good
+estimator of the mean of X/(X + Y) if enough simulations
+are performed.
+b. Suppose that you want to be 98 percent confident
+that your estimator is no more than 0.01 away from
+the actual value of E[X/(X + Y)]. Describe how you
+would determine an appropriate size for the simulation.
+7. Consider the numbers in Table 10.40 on page 676. Suppose
+that you have available as many standard normal
+random variables and as many uniform random variables
+on the interval [0, 1] as you desire. You want to perform a
+simulation to obtain the number in the “Sample median”
+row and   = 0.05 column.
+a. Describe how to perform such a simulation. Hint:
+Let X and U be independent such that X has the
+standard normal distribution and U has the uniform
+distribution on the interval [0, 1]. Let 0 <   <1, and
+find the distribution of
+Y =
+ 
+X ifU > ,
+10X ifU < .
+b. Perform the simulation on a computer.
+8. Consider the same situation described in Exercise 7.
+This time, consider the number in the “Trimmed mean for
+k = 2” row and   = 0.1 column.
+a. Describe how to perform a simulation to produce
+this number.
+b. Perform the simulation on a computer.
+9. In Example 12.2.12, we can actually compute the median
+θ of the distribution of the Xi in closed form. Calculate
+the true median, and see how far the simulated value
+was from the true value. Hint: Find the marginal p.d.f. ofX
+by using the law of total probability for random variables
+(3.6.12) together with Eq. (5.7.10). The c.d.f. and quantile
+function are then easy to derive.
+10. Let X1, . . . , X21 be i.i.d. with the exponential distribution
+that has parameter λ. Let M stand for the sample
+median. We wish to compute the M.S.E. of M as an estimator
+of the median of the distribution of the Xi’s.
+a. Determine the median of the distribution of X1.
+b. Let θ be the M.S.E. of the sample median when λ = 1.
+Prove that the M.S.E. of the sample median equals
+θ/λ2 in general.
+c. Describe a simulation method for estimating θ.
+11. In Example 12.2.4, there is a slightly simpler way to
+simulate a sample from the posterior distribution of μx
+−
+μy. Suppose that we can simulate as many independent
+t pseudo-random variables as we wish with whatever degrees
+of freedom we want. Explain how we could use these
+t random variables to simulate a sample from the posterior
+distribution of μx
+− μy.
+12. Let (Y1, W1), . . . , (Yn, Wn) be an i.i.d. sample of random
+vectors with finite covariance matrix
+ =
+
+
+σyy σyw
+σyw σww
+ 
+.
+Let Y and W be the sample averages. Let g(y, w) be a
+function with continuous partial derivatives g1 and g2 with
+respect to y and w, respectively. Let Z = g(Y, W). The
+two-dimensional Taylor expansion of g around a point
+(y0, w0) is
+g(y, w) = g(y0, w0) + g1(y0, w0)(y − y0)
++ g2(y0, w0)(w − w0), (12.2.7)
+plus an error term that we shall ignore here. Let (y, w) =
+(Y, W)and (y0, w0) = (E(Y ), E(W)) in Eq. (12.2.7).To the
+level of approximation of Eq. (12.2.7), prove that
+Var(Z) = g1(E(Y ), E(W))2σyy
++ 2g1(E(Y ), E(W))g2(E(Y ), E(W))σyw
++ g2(E(Y ), E(W))2σww.
+Hint: Use the formula for the variance of a linear combination
+of random variables derived in Sec. 4.6.
+13. Use the two-dimensional delta method from Exercise
+12 to derive the estimator of the simulation variance
+of a sample variance as given in Eq. (12.2.3). Hint: Replace
+E(Y) and E(W) by Y and W, respectively, and replace  
+by the sample variances and sample covariance.
+14. Let Y be a random variable with some distribution.
+Suppose that you have available as many pseudo-random
+variables as you want with the same distribution as Y .
+Describe a simulation method for estimating the skewness
+of the distribution of Y . (See Definition 4.4.1.)
+15. Suppose that the price of a stock at time u in the
+future is a random variable Su
+= S0eαu+Wu, where S0 is
+the current price, α is a constant, and Wu is a random
+variable with known distribution. Suppose that you have
+available as many i.i.d. random variables as you wish with
+the distribution of Wu. Suppose that the m.g.f. ψ(t) of Wu
+is known and finite on an interval that contains t = 1.
+a. What number should α equal in order that E(Su) =
+eruS0?
+b. We wish to price an option to purchase one share of
+this stock at time u for the price q. Describe how you
+could use simulation to estimate the price of such an
+option.
+804 Chapter 12 Simulation
+16. Consider a queue to which customers arrive according
+to a Poisson process with rate λ per hour. Suppose that the
+queue has two servers. Each customer who arrives at the
+queue counts the length r of the queue (including any customers
+being served) and decides to leave with probability
+pr , for r = 2, 3, . . . . A customer who leaves does not enter
+the queue. Each customer who enters the queue waits
+in the order of arrival until at least one of the two servers
+is available, and then begins being served by the available
+server. If both servers are available, the customer chooses
+randomly between the two servers with probability 1/2
+for each, independent of all other random variables. For
+server i (i = 1, 2), the time (in hours) to serve a customer,
+after beginning service, is an exponential random variable
+with parameter μi . Assume that all service times are independent
+of each other and of all arrival times. Describe
+how to simulate the number of customers in the queue
+(including any being served) at a specific time $t$.

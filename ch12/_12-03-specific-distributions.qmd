@@ -1,0 +1,959 @@
+## Simulating Specific Distributions
+
+In order to perform statistical simulations, we must be able to obtain pseudorandom
+values from a variety of distributions. In this section, we introduce some
+methods for simulating from specific distributions.
+Most computer packages with statistical capability are able to generate pseudorandom
+numbers with the uniform distribution on the interval [0, 1].We shall assume
+throughout the remainder of this section that one has available an arbitrarily large
+sample of what appear to be i.i.d. random variables (pseudo-random numbers) with
+the uniform distribution on the interval [0, 1]. Usually, we need random variables
+with other distributions, and the purpose of this section is to review some common
+methods for transforming uniform random variables into random variables with
+other distributions.
+The Probability Integral Transformation
+In Chapter 3, we introduced the probability integral transformation for transforming
+a uniform random variable X on the interval [0, 1] into a random variable Y with a
+continuous strictly increasing c.d.f.G. The method is to set Y = G
+−1(X). This method
+works well if G
+−1 is easily computed.
+Example
+12.3.1
+Generating Exponential Pseudo-Random Variables. Suppose that we want Y to have the
+exponential distribution with parameter λ, where λ is a known constant. The c.d.f. of
+Y is
+G(y) =
+ 
+1− e
+−λy if y ≥ 0,
+0 if y <0.
+We can easily invert this function to obtain
+G
+−1(x)=−log(1− x)/λ, if 0 < x <1.
+If X has the uniform distribution on the interval [0, 1], then − log(1− X)/λ has the
+exponential distribution with parameter λ.  
+Special-Purpose Algorithms
+There are cases in which the desired c.d.f. G is not easy to invert. For example, if G is
+the standard normal c.d.f., then G
+−1 must be obtained by numerical approximation.
+
+However, there is a clever method for transforming two independent uniform random
+variables on the interval [0, 1] into two standard normal random variables. The
+method was described by Box and M¨ uller (1958).
+Example
+12.3.2
+Generating Two Independent Standard Normal Variables. Let X1, X2 be independent
+with the uniform distribution on the interval [0, 1]. The joint p.d.f. of (X1, X2) is
+f (x1, x2) = 1, for 0 < x1, x2 < 1.
+Define
+Y1 = [−2 log(X1)]1/2 sin(2πX2),
+Y2 = [−2 log(X1)]1/2 cos(2πX2).
+The inverse of this transformation is
+X1 = exp[−(Y 2
+1
++ Y 2
+2)/2],
+X2 = 1
+2π
+arctan(Y1/Y2).
+Using the methods of Sec. 3.9, we compute the Jacobian, which is the determinant
+of the matrix of partial derivatives of the inverse function:
+  −y1 exp[−(y2
+1
++ y2
+2)/2] −y2 exp[−(y2
+1
++ y2
+2)/2]
+1
+2πy2
+1
+1+(y1/y2)2
+− y1
+2πy2
+2
+1
+1+(y1/y2)2
+ 
+.
+The determinant of this matrix is J = exp[−(y2
+1
++ y2
+2)/2]/(2π). The joint p.d.f. of
+(Y1, Y2) is then
+g(y1, y2) = f
+ 
+exp[(y2
+1
++ y2
+2)/2], arctan(y1/y2)/(2π)
+ 
+|J |
+= exp[−(y2
+1
++ y2
+2)/2]/(2π).
+This is the joint p.d.f. of two independent standard normal variables.  
+Acceptance/Rejection
+Many other special-purpose methods exist for other distributions, also.We would like
+to present here one more general-purpose method that has wide applicability. The
+method is called acceptance/rejection. Let f be a p.d.f. and assume that we would like
+to sample a pseudo-random variable with this p.d.f. Assume that there exists another
+p.d.f. g with the following two properties:
+. We know how to simulate a pseudo-random variable with p.d.f. g.
+. There exists a constant k such that kg(x) ≥ f (x) for all x.
+To simulate a single Y with p.d.f. f , perform the following steps:
+1. Simulate a pseudo-randomX with p.d.f. g and an independent uniform pseudorandom
+variable U on the interval [0, 1].
+2. If
+f (X)
+g(X)
+≥ kU, (12.3.1)
+let Y = X, and stop the process.
+3. If (12.3.1) fails, throw away X and U, and return to the first step.
+806 Chapter 12 Simulation
+If we need more than one Y , we repeat the entire process as often as needed. We
+now show that the p.d.f. of each Y is f .
+Theorem
+12.3.1
+The p.d.f. of Y in the acceptance/rejection method is f .
+Proof First, we note that the distribution of Y is the conditional distribution of
+X given that (12.3.1) holds. That is, let A be the event that (12.3.1) holds, and let
+h(x, u|A) be the conditional joint p.d.f   . of (X, U) given A. Then the p.d.f. of Y is
+h(x, u|A) du. This is because Y is constructed to be X conditional on (12.3.1)
+holding. The conditional p.d.f. of (X, U) given A is
+h(x, u|A) = 1
+Pr(A)
+ 
+g(x) if f (x)/g(x) ≥ ku and 0<u<1,
+0 otherwise.
+It is straightforward to calculate Pr(A), that is, the probability thatU ≤ f (X)/[kg(X)].
+Pr(A) =
+  ∞
+−∞
+  f (x)/[kg(x)]
+0
+g(x) du dx =
+  ∞
+−∞
+1
+k
+f (x) dx = 1
+k
+.
+So,
+h(x, u|A) = k
+ 
+g(x) if f (x)/g(x) ≥ ku and 0<u<1,
+0 otherwise.
+The integral of this function over all u values for fixed x is the p.d.f. of Y evaluated
+at x:
+ 
+h(x, u|A) du = k
+  f (x)/[kg(x)]
+0
+g(x) du = f (x).
+Here is an example of the use of acceptance/rejection.
+Example
+12.3.3
+Simulating a Beta Distribution. Suppose that we wish to simulate a random variable Y
+having the beta distribution with parameters 1/2 and 1/2. The p.d.f. of Y is
+f (y) = 1
+π
+y
+−1/2(1− y)
+−1/2, for 0 < y <1.
+Note that this p.d.f. is unbounded. However, it is easy to see that
+f (y) ≤ 1
+π
+(y
+−1/2 + (1− y)
+−1/2), (12.3.2)
+for all 0 < y <1. The right side of Eq. (12.3.2) can be written as kg(y) with k = 4/π
+and
+g(y) = 1
+2
+ 
+1
+2y1/2
++ 1
+2(1− y)1/2
+ 
+.
+This g is a half-and-half mixture of two p.d.f.’s g1 and g2:
+g1(x) = 1
+2x1/2
+, for 0 < x <1,
+g2(x) = 1
+2(1− x)1/2
+, for 0 < x <1. (12.3.3)
+We can easily simulate random variables from these distributions using the probability
+integral transformation. To simulate a random variable X with p.d.f. g, simulate
+three random independent variables U1, U2, U3 with uniform distributions on the
+
+interval [0, 1]. If U1 ≤ 1/2, simulate X from g1 using the probability integral transformation
+applied to U2. If U1 > 1/2, simulate X from g2 using the probability integral
+transformation and U2. If f (X)/g(X) ≥ kU3, let Y = X. If not, repeat the process.  
+When using the acceptance/rejection method, one must usually reject simulated
+values and resimulate. The probability of accepting a value is Pr(A) in the proof
+of Theorem 12.3.1, namely, 1/k. The larger k is, the harder it will be to accept.
+In Exercise 5, you will prove that the expected number of iterations until the first
+acceptance is k.
+A common special case of acceptance/rejection is the simulation of a random
+variable conditional on some event. For example, let X be a random variable with
+the p.d.f. g, and suppose that we want the conditional distribution of X given that
+X>2. Then the conditional p.d.f. of X givenX>2 is
+f (x) =
+ 
+kg(x) if x >2,
+0 ifx ≤ 2,
+where k = 1/
+  ∞
+2 g(x) dx. Note that f (x) ≤ kg(x) for all x, so acceptance/rejection
+is applicable. In fact, since f (X)/g(X) only takes the two values k and 0, we don’t
+need to simulate the uniform U in the acceptance/rejection algorithm.We don’t even
+need to compute the value k.We just reject each X ≤ 2. Here is a version of the same
+algorithm to solve a question that was left open in Sec. 11.8.
+Example
+12.3.4
+Computing the Size of a Two-Stage Test. In Sec. 11.8, we studied the analysis of data
+from a two-way layout with replication. In that section, we introduced a two-stage
+testing procedure. First, we tested the hypotheses (11.8.11), and then, if we accepted
+the null hypothesis, we proceeded to test the hypotheses (11.8.13). Unfortunately,
+we were unable to compute the conditional size of the second test given that the first
+test accepted the null hypothesis. That is, we could not calculate (11.8.15) in closed
+form. However, we can use simulation to estimate the conditional size.
+The two tests are based on U2
+AB, defined in Eq. (11.8.12), and V 2
+A, defined in
+Eq. (11.8.16). The first test rejects the null hypothesis in (11.8.11) if U2
+AB
+≥ d, where
+d is a quantile of the appropriate F distribution. The second test rejects its null
+hypothesis if V 2
+A
+≥ c, where c is yet to be determined. The random variables U2
+AB
+and V 2
+A are both ratios of various mean squares. In particular, they share a common
+denominator MSResid = S2
+Resid/[IJ(K − 1)]. In order to determine an appropriate
+critical value c for the second test, we need the conditional distribution of V 2
+A given
+that U2
+AB < d, and given that both null hypotheses are true. We can sample from
+that conditional distribution as follows: Let the interaction mean square be MSAB =
+S2
+Int/[(I − 1)(J − 1)], and let the mean square for factorAbeMSA
+= S2
+A/(I − 1). Then
+U2
+AB
+= MSAB/MSResid and V 2
+A
+= MSA/MSResid. All of these mean squares are independent,
+and they all have different gamma distributions when the null hypotheses
+are both true. Most statistical computer packages will allow simulation of gamma
+random variables. So, we start by simulating many triples (MSAB, MSResid, MSA).
+Then, for each simulated triple, we compute U2
+AB and V 2
+A. If U2
+AB
+≥ d, we discard the
+corresponding V 2
+A. The undiscarded V 2
+A values are a random sample from the conditional
+distribution that we need. The efficiency of this algorithm could be improved
+slightly by simulating MSA and then computing V 2
+A only when U2
+AB < d is observed.
+ 
+808 Chapter 12 Simulation
+Generating Functions of Other Random Variables
+It often happens that there is more than one way to simulate from a particular
+distribution. For example, suppose that a distribution is defined as the distribution
+of a particular function of other random variables (in the way that the χ2, t , and F
+distributions are). In such cases, there is a straightforward way to simulate the desired
+distribution. First, simulate the random variables in terms of which the distribution
+is defined, and then calculate the appropriate function.
+Example
+12.3.5
+Alternate Method for Simulating a Beta Distribution. In Exercise 6 in Sec. 5.8, you
+proved the following: IfU and V are independent, withU having the gamma distribution
+with parameters α1 and β, and V having the gamma distribution with parameters
+α2 and β, then U/(U + V ) has the beta distribution with parameters α1 and α2. So,
+if we have a method for simulating gamma random variables, we can simulate beta
+random variables. The case handled in Example 12.3.3 is α1 = α2 = 1/2. Let β = 1/2
+so that U and V would both have gamma distributions with parameters 1/2 and 1/2,
+also known as the χ2 distribution with one degree of freedom. If we simulate two independent
+standard normal random variables X1, X2 (for example, by the method of
+Example 12.3.2), then X2
+1 and X2
+2 are independent and have the χ2 distribution with
+one degree of freedom. It follows that Y = X2
+1/(X2
+1
++ X2
+2) has the beta distribution
+with parameters 1/2 and 1/2.  
+As another example, to simulate a χ2 random variable with 10 degrees of freedom,
+one could simulate 10 i.i.d. standard normals, square them, and add up the
+squares. Alternatively, one could simulate five random variables having the exponential
+distribution with parameter 1/2 and add them up.
+Example
+12.3.6
+Generating Pseudo-Random Bivariate Normal Vectors. Suppose that we wish to simulate
+a bivariate normal vector with the p.d.f. given in Eq. (5.10.2). This p.d.f. was
+constructed as the joint p.d.f. of
+X1 = σ1Z1 + μ1,
+X2 = σ2
+#
+ρZ1 + (1− ρ2)1/2Z2
+$
++ μ2, (12.3.4)
+where Z1 and Z2 are i.i.d. with the standard normal distribution. If we use the method
+of Example 12.3.2 to generate independent Z1 and Z2 with the standard normal
+distribution, we can use the formulas in (12.3.4) to transform these into X1 and X2,
+which will then have the desired bivariate normal distribution.  
+Most statistical computer packages have the capability of simulating pseudorandom
+variables with each of the continuous distributions that have been named
+in this text. The techniques of this section are really needed only for simulating less
+common distributions or when a statistical package is not available.
+Some Examples Involving Simulation of Common Distributions
+Example
+12.3.7
+Bayesian Analysis of One-Way Layout. We can perform a Bayesian analysis of a oneway
+layout using the same statistical model presented in Sec. 11.6 together with
+an improper prior for the model parameters. (We could use a proper prior, but
+the additional calculations would divert our attention from the simulation issues.)
+Let τ = 1/σ 2, as we did in Sec. 8.6. The usual improper prior for the parameters
+(μ1, . . . , μp, τ) has “p.d.f.” 1/τ . The posterior joint p.d.f. is then proportional to 1/τ
+12.3 Simulating Specific Distributions 809
+times the likelihood. The observed data are yij for j = 1, . . . , ni and i = 1, . . . , p.
+The likelihood function is
+(2π)
+−n/2τ n/2 exp
+⎛
+⎝−τ
+2
+ p
+i=1
+ ni
+j=1
+(yij
+− μi)2
+⎞
+⎠,
+where n = n1 + . . . + np. To simplify the likelihood function, we can rewrite the sum
+of squares that appears in the exponent as
+ p
+i=1
+ ni
+j=1
+(yij
+− μi)2 =
+ p
+i=1
+ni(yi+ − μi)2 + S2
+Resid,
+where yi+ is the average of yi1, . . . , yini
+and
+S2
+Resid
+=
+ p
+i=1
+ ni
+j=1
+(yij
+− yi+)2
+is the residual sum of squares. Then, the posterior p.d.f. is proportional to
+τ p/2 exp
+ 
+−τ
+2
+ p
+i=1
+ni(yi+ − μi)2
+ 
+τ (n−p)/2−1 exp
+
+
+−τ
+2
+S2
+Resid
+ 
+.
+This expression is easily recognized as the product of the gamma p.d.f. for τ with parameters
+(n − p)/2 and S2
+Resid/2 and the product of p normal p.d.f.’s for μ1, . . . , μp
+with means yi+ and precisions niτ for i = 1, . . . , p. Hence, the posterior joint distribution
+of the parameters is the following: Conditional on τ , the μi ’s are independent
+withμi having the normal distribution with mean yi+ and precision niτ . The marginal
+distribution of τ is the gamma distribution with parameters (n − p)/2 and S2
+Resid/2.
+If we simulate a large sample of parameters from the posterior distribution, we
+could begin to answer questions about what we have learned from the data. To do
+this, we would first simulate a large number of τ values τ (1), . . . , τ(v). Most statistical
+programs allow the user to simulate gamma random variables with arbitrary first
+parameter and second parameter 1. So, we could simulate T (1), . . . , T (v) having
+the gamma distribution with parameters (n − p)/2 and 1. We could then let τ ( ) =
+2T ( )/S2
+Resid for   = 1, . . . , v. Then, for each   simulate independent μ( )
+1 , . . . , μ( )
+p
+with μ( )
+i having the normal distribution with mean yi+ and variance 1/[niτ ( )].
+As a specific example, consider the hot dog data in Example 11.6.2. We begin
+by simulating v = 60,000 sets of parameters as described above. Now we can address
+the question of how much difference there is between the means. There are several
+ways to do this. We could compute the probability that all |μi
+− μj
+| > c for each
+positive c.We could compute the probability that at least one |μi
+− μj
+| > c for each
+positive c.We could compute the quantiles of maxi,j
+|μi
+− μj
+|, of mini,j
+|μi
+− μj
+|, or
+of the average of all |μi
+− μj
+|. For example, in 99 percent of the 60,000 simulations,
+at least one |μ( )
+i
+− μ( )
+j
+| > 27.94. The simulation standard error of this estimator of
+the 0.99 quantile of maxi,j
+|μi
+− μj
+| is 0.1117. (For the remainder of this example, we
+shall present only the simulation estimates and not their simulation standard errors.)
+In about 1/2 of the simulations, all |μ( )
+i
+− μ( )
+j
+| > 2.379. And in 99 percent of the
+simulations, the average of the differences was at least 14.59. Whether 27.94, 14.59,
+or 2.379 count as large differences depends on what decisions we need to make about
+the hot dogs. A useful way to summarize all of these calculations is through a plot of
+the sample c.d.f.’s of the largest, smallest, and average of the six |μi
+− μj
+| differences.
+(The sample c.d.f. of a set of numbers is defined at the very beginning of Sec. 10.6.)
+810 Chapter 12 Simulation
+Figure 12.4 Sample c.d.f.’s
+of the maximum, average,
+and minimum of the six
+|μi
+− μj
+| differences for
+Example 12.3.7.
+Difference
+Sample d.f.
+0 20 40 60 80 100
+0.2
+0.4
+0.6
+0.8
+1.0
+Maximum difference
+Average difference
+Minimum difference
+Table 12.4 Posterior probabilities that each μi is largest and
+smallest in Example 12.3.7
+Type Beef Meat Poultry Specialty
+i 1 2 3 4
+Pr(μi largest|y) 0.1966 0.3211 0 0.4823
+Pr(μi smallest|y) 0 0 1 0
+Figure 12.4 contains such a plot for this example. If we are simply concerned with
+whether or not there are any differences at all between the four types of hot dogs,
+then the “Maximum” curve in Fig. 12.4 is the one to examine. (Can you explain why
+this is the case?)
+We can also attempt to answer questions that we would have great difficulty
+addressing in the ANOVA framework of Chapter 11. For example, we could ask
+what is the probability that each μi is the largest or smallest of the four. For each i,
+let Ni be the number of simulations j such that μ
+(j )
+i is the smallest of μ
+(j )
+1 , . . . , μ
+(j )
+4 .
+Also let Mi be the number of simulations j such that μ
+(j )
+i is the largest of the four
+means. Then Ni/60,000 is our simulation estimate of the probability that μi is the
+smallest mean, and Mi/60,000 is our estimate of the probability that μi is the largest
+mean. The results are summarized in Table 12.4. We see that μ3 is almost certainly
+the smallest, while μ4 has almost a 50 percent chance of being the largest.  
+Example
+12.3.8
+Comparing Copper Ores. We shall illustrate the method of Example 12.2.4 using the
+data on copper ores from Example 9.6.5. Suppose that the prior distributions for
+all parameters are improper. The observed data consist of one sample of size 8
+and another sample of size 10 with X = 2.6,
+ 8
+i=1(Xi
+− X)2 = 0.32, Y = 2.3, and
+ 10
+j=1(Yj
+− Y)2 = 0.22. The posterior distributions then have hyperparameters μx1 =
+2.6, λx1 = 8, αx1 = 3.5, βx1 = 0.16, μy1 = 1.15, λy1 = 10, αy1 = 4.5, and βy1 = 0.11.
+The posterior distributions of τx and τy are, respectively, the gamma distribution
+with parameters 3.5 and 0.16 and the gamma distribution with parameters 4.5 and
+12.3 Simulating Specific Distributions 811
+Figure 12.5 Histogram of
+simulated μx
+− μy values together
+with posterior c.d.f. of
+|μx
+− μy
+| for Example 12.3.8.
+0 0.5 1.0
+3000
+2000
+1000
+Histogram
+0.2 0.4 0.6 0.8 1.0 d
+1.0
+0.8
+0.6
+0.4
+0.2
+0
+Distribution function
+Pr(⏐mx2 my⏐ , d )
+mx2 my
+0.11. We can easily simulate, say, 10,000 pseudo-random values from each of these
+two distributions. For each simulated τx, we simulate a μx that has the normal
+distribution with mean 2.6 and variance 1/(8τx). For each simulated τy, we simulate a
+μy that has the normal distribution with mean 2.3 and variance 1/(10τy). Figure 12.5
+contains a histogram of the 10,000 simulated μx
+− μy values together with the sample
+c.d.f. of |μx
+− μy
+|. It appears that μx
+− μy is almost always positive; indeed, it was
+positive for over 99 percent of the sampled values. The probability is quite high that
+|μx
+− μy
+| < 0.5, so that if 0.5 is not a large difference in this problem, we can be
+confident thatμx andμy are pretty close.On the other hand, if 0.1 is a large difference,
+we can be confident that μx and μy are pretty far apart.  
+If all we care about in Example 12.3.8 is the distribution ofμx
+− μy, then we could
+simulate μx and μy directly without first simulating τx and τy. Since μx and μy are
+independent in this example, we could simulate each of them from their respective
+marginal distributions.
+Example
+12.3.9
+Power of the t Test. In Theorem 9.5.3, we showed how the power function of the t
+test can be computed from the noncentral t distribution function. Not all statistical
+packages compute noncentral t probabilities.We can use simulation to estimate these
+probabilities. Let Y have the noncentral t distribution withmdegrees of freedom and
+noncentrality parameter ψ. Then Y has the distribution of X1/(X2/m)1/2 where X1
+and X2 are independent with X1 having the normal distribution with mean ψ and
+variance 1 and X2 having the χ2 distribution with m degrees of freedom. A simple
+way to estimate the c.d.f. of Y is to simulate a large number of (X1, X2) pairs and
+compute the sample c.d.f. of the values of X1/(X2/m)1/2.  
+The Simulation Standard Error of a Sample c.d.f In Examples 12.3.7 and 12.3.8,
+we plotted the sample c.d.f.’s of functions of simulated data.We did not associate simulation
+standard errors with these functions.We could compute simulation standard
+errors for every value of the sample c.d.f., but there is a simpler way to summarize
+the uncertainty about a sample c.d.f.We can make use of the Glivenko-Cantelli
+lemma (Theorem 10.6.1). To summarize that result in the context of simulation, let
+Y (i), (i = 1, . . . , v) be a simulated i.i.d. sample with c.d.f. G. Let Gv be the sample
+c.d.f. For each real x, Gv(x) is the proportion of the simulated sample that is less
+than or equal to x. That is, Gv(x) is 1/v times the number of i’s such that Y (i) ≤ x.
+812 Chapter 12 Simulation
+Theorem 10.6.1 says that if v is large, then
+Pr
+
+
+|Gv(x) − G(x)| ≤ t
+v1/2
+, for all x
+ 
+≈ H(t),
+where H is the function in Table 10.32 on page 661. In particular, with t = 2, H(t) =
+0.9993. So we can declare (at least approximately) that |Gv(x) − G(x)| ≤ 2/v1/2 simultaneously
+for all x with probability 0.9993. In Example 12.3.7, we had v = 60, 000,
+so each curve in Fig. 12.4 should be accurate to within 0.008 with probability 0.9993.
+Indeed, all three curves simultaneously should be accurate to within 0.008 with probability
+0.9979. (Prove this in Exercise 14.)
+Simulating a Discrete Random Variable
+All of the examples so far in this section have concerned simulations of random
+variables with continuous distributions. Occasionally, one needs random variables
+with discrete distributions. Algorithms for simulating discrete random variables exist,
+and we shall describe some here.
+Example
+12.3.10
+Simulating a Bernoulli Random Variable. It is simple to simulate a pseudo-random
+Bernoulli random variable X with parameter p. Start with U having the uniform
+distribution on the interval [0, 1], and let X = 1 if U ≤ p. Otherwise, let X = 0. Since
+Pr(U ≤ p) = p, X has the correct distribution. This method can be used to simulate
+from any distribution that is supported on only two values. If
+f (x) =
+⎧⎨
+⎩
+p if x = t1,
+1− p if x = t2,
+0 otherwise,
+then let X = t1 is U ≤ p, and let X = t2 otherwise.  
+Example
+12.3.11
+Simulating a Discrete Uniform Random Variable. Suppose that we wish to simulate
+pseudo-random variables from a distribution that has the p.f.
+f (x) =
+  1
+n if x ∈ {t1, . . . , tn
+},
+0 otherwise.
+(12.3.5)
+The uniform distribution on the integers 1, . . . , n is an example of such a distribution.
+Asimple way to simulate a random variable with the p.f. (12.3.5) is the following: Let
+U have the uniform distribution on the interval [0, 1], and letZ be the greatest integer
+less than or equal to nU + 1. It is easy to see that Z takes the values 1, . . . , n with
+equal probability, and so X = tZ has the p.f. (12.3.5).  
+The method described in Example 12.3.11 does not apply to more general discrete
+distributions. However, the method of Example 12.3.11 is useful in simulations
+that are done in bootstrap analyses described in Sec. 12.6.
+For general discrete distributions, there is an analog to the probability integral
+transformation. Suppose that a discrete distribution is concentrated on the values
+t1 < . . . < tn and that the c.d.f. is
+F(x) =
+⎧⎪⎨
+⎪⎩
+0 ifx <t1,
+qi if ti
+≤x <ti
++1, for i = 1, . . . , n − 1,
+1 ifx ≥ tn.
+(12.3.6)
+12.3 Simulating Specific Distributions 813
+The following is the quantile function from Definition 3.3.2:
+F
+−1(p) =
+⎧⎪⎨
+⎪⎩
+t1 if 0<p ≤ q1,
+ti+1 if qi <p ≤ qi+1, for i = 1, . . . , n − 2,
+tn if qn−1<p <1.
+(12.3.7)
+You can prove (see Exercise 13) that if U has the uniform distribution on the interval
+[0, 1], then F
+−1(U) has the c.d.f. in Eq. (12.3.6). This gives a straightforward, but
+inefficient, method for simulating arbitrary discrete distributions. Notice that the
+restriction that n be finite is not actually necessary. Even if the distribution has
+infinitely many possible values, F
+−1 can be defined by (12.3.7) by replacing n − 2
+by∞and removing the last branch.
+Example
+12.3.12
+Simulating a Geometric Random Variable. Suppose that we wish to simulate a pseudorandom
+X having the geometric distribution with parameter p. In the notation of
+Eq. (12.3.7), ti
+= i − 1 for i = 1, 2, . . . , and qi
+= 1− (1− p)i . Using the probability
+integral transformation, we would first simulate U with the uniform distribution on
+the interval [0, 1]. Then we would compare U to qi for i = 1, 2, . . . , until the first time
+that qi <U and set X = i. In this example, we can avoid the sequence of comparisons
+because we have a simple formula for qi . The first i such that qi <U is the greatest
+integer strictly less than log(1− U)/ log(1− p).  
+The probability integral transformation is very inefficient for discrete distributions
+that do not have a simple formula for qi if the number of possible values is large.
+Walker (1974) and Kronmal and Peterson (1979) describe a more efficient method
+called the alias method. The alias method works as follows: Let f be the p.f. from
+which we wish to simulate a random variable X. Suppose that f (x)>0 for only n
+different values of x. First, we write f as an average of n p.f.’s that are concentrated
+on one or two values each. That is,
+f (x) = 1
+n
+[g1(x) + . . . + gn(x)], (12.3.8)
+where each gi is the p.f. of a distribution concentrated on one or two values only.We
+shall show how to do this in Example 12.3.13. To simulate X, first simulate an integer
+I that has the uniform distribution over the integers 1, . . . , n. (Use the method of
+Example 12.3.11.) Then simulate X from the distribution with the p.f. gI . The reader
+can prove in Exercise 17 that X has the p.f. f .
+Example
+12.3.13
+Simulating a Binomial Random Variable Using the Alias Method. Suppose that we need
+to simulate many random variables with a binomial distribution having parameters
+9 and 0.4. The p.f. f of this distribution is given in a table at the end of this book.
+The distribution has n = 10 different values with positive probability. Since the n
+probabilities must add to 1, there must be x1 and y1 such that f (x1) ≤ 1/n and
+f (y1) ≥ 1/n. For example, x1 = 0 and y1 = 2 have f (x1) = 0.0101 and f (y1) = 0.1612.
+Define the first two-point p.f., g1, as
+g1(x) =
+⎧⎨
+⎩
+nf (x1) if x = x1,
+1− nf (x1) if x = y1,
+0 otherwise.
+814 Chapter 12 Simulation
+In our case, g1(0) = 0.101 and g1(2) = 0.899. We then write f as f (x) = g1(x)/n +
+f
+∗
+1 (x), where
+f
+∗
+1 (x) =
+⎧⎨
+⎩
+0 if x = x1,
+f (y1) − g1(y1)/n if x = y1,
+f (x) otherwise.
+In our example, f
+∗
+1 (2) = 0.0713. Now, f
+∗
+1 is positive at only n − 1 different values,
+and the sum of the positive values of f
+∗
+1 is (n − 1)/n. Hence, there must exist x2
+and y2 such that f
+∗
+1 (x2) ≤ 1/n and f
+∗
+1 (y2) ≥ 1/n. For example, x2 = 2 and y2 = 3 have
+f
+∗
+1 (x2) = 0.0713 and f
+∗
+1 (y2) = 0.2508. Define g2 by
+g2(x) =
+⎧⎨
+⎩
+nf
+∗
+1 (x2) if x = x2,
+1− nf
+∗
+1 (x2) if x = y2,
+0 otherwise.
+Here, g2(2) = 0.713. Now write f
+∗
+1 (x) = g2(x)/n + f
+∗
+2(x), where
+f
+∗
+2(x) =
+⎧⎪⎨
+⎪⎩
+0 if x = x2,
+f
+∗
+1 (y2) − g2(y2)/n if x = y2,
+f
+∗
+1 (x) otherwise.
+In our example, f
+∗
+2(3) = 0.2221. Now, f
+∗
+2 takes only n − 2 positive values that add up
+to (n − 2)/n.We can repeat this process n − 3 more times, obtaining g1, . . . , gn−1 and
+f
+∗
+n−1. Here, f
+∗
+n−1(x) takes only one positive value, at x = xn, say, and f
+∗
+n−1(xn) = 1/n.
+Let gn be a degenerate distribution at xn. Then f (x) = [g1(x) + . . . + gn(x)]/n for all
+x.
+After all of this initial setup, the alias method allows rapid simulation from f as
+follows: Simulate independent U and I with U having the uniform distribution on the
+interval [0, 1] and I having the uniform distribution on the integers 1, . . . , n (n = 10
+in our example). If U ≤ gI (xI ), set X = xI. IfU >gI (xI ), set X = yI . Here, the values
+we need to perform the simulation are
+i 1 2 3 4 5 6 7 8 9 10
+xi 0 2 1 6 7 3 8 9 4 5
+yi 2 3 3 3 3 4 4 4 5 —
+gi(xi) 0.101 0.713 0.605 0.743 0.212 0.781 0.035 0.003 0.327 1
+There is even a clever way to replace the two simulations of U and I with a single
+simulation. Simulate Y with the uniform distribution on the interval [0, 1], and let I
+be the greatest integer less than or equal to nY + 1. Then let U = nY + 1− I . (See
+Exercise 19.)
+As an example, suppose that we simulate Y with the uniform distribution on the
+interval [0, 1], and we obtain Y = 0.4694. Then I = 5 and U = 0.694. Since 0.694 >
+g5(x5) = 0.212, we set X = y5 = 3. Figure 12.6 shows a histogram of 10,000 simulated
+values using the alias method.  
+All of the overhead required to set up the alias method is worth the effort only if
+we are going to simulate many random variables with the same discrete distribution.
+12.3 Simulating Specific Distributions 815
+Figure 12.6 Histogram of
+10,000 simulated binomial
+random variables in Example
+12.3.13. The X marks
+appear at heights equal to
+10,000f (x) to illustrate the
+close agreement of the simulated
+and actual distributions.
+0 2 4 6 8
+500
+1000
+1500
+2000
+2500
+Count
+X
+X
+X
+X X
+X
+X
+X
+X X
+x
+Summary
+We have seen several examples of how to transform pseudo-random uniform variables
+into pseudo-random variables with other distributions. The acceptance/rejection
+method is widely applicable, but it might require many rejected simulations for
+each accepted one. Also, we have seen how we can simulate random variables that
+are functions of other random variables (such as a noncentral t random variable).
+Several examples illustrated how we can make use of simulated random variables
+with some of the common distributions. Readers who desire a thorough treatment
+of the generation of pseudo-random variables with distributions other than uniform
+can consult Devroye (1986).
+
+### Exercises
+
+1. Return to Exercise 10 in Sec. 12.2. Now that we know
+how to simulate exponential random variables, perform
+the simulation developed in that exercise as follows:
+a. Perform v0 = 2000 simulations and compute both the
+estimate of θ and its simulation standard error.
+b. Suppose that we want our estimator of θ to be within
+0.01 of θ with probability 0.99. How many simulations
+should we perform?
+2. Describe how to convert a random sample U1, . . . , Un
+from the uniform distribution on the interval [0, 1] to a
+random sample of size n from the uniform distribution on
+the interval [a, b].
+3. Show how to use the probability integral transformation
+to simulate random variables with the two p.d.f.’s in
+Eq. (12.3.3).
+4. Show how to simulate Cauchy random variables using
+the probability integral transformation.
+5. Prove that the expected number of iterations of the
+acceptance/rejection method until the first acceptance is
+k. (Hint: Think of each iteration as a Bernoulli trial.What
+is the expected number of trials (not failures) until the first
+success?)
+6.a. Show how to simulate a random variable having the
+Laplace distribution with parameters 0 and 1. The
+p.d.f. of the Laplace distribution with parameters θ
+and σ is given in Eq. (10.7.5).
+b. Show how to simulate a standard normal random
+variable by first simulating a Laplace random variable
+and then using acceptance/rejection. Hint: Maximize
+e
+−x2/2/e
+−x for x ≥ 0, and notice that both distributions
+are symmetric around 0.
+7. Suppose that you have available as many i.i.d. standard
+normal pseudo-random numbers as you desire. Describe
+how you could simulate a pseudo-random number with an
+F distribution with four and seven degrees of freedom.
+8. Let X and Y be independent random variables with X
+having the t distribution with five degrees of freedom and
+Y having the t distribution with seven degrees of freedom.
+We are interested in E(|X − Y |).
+816 Chapter 12 Simulation
+a. Simulate 1000 pairs of (Xi, Yi) each with the above
+joint distribution and estimate E(|X − Y |).
+b. Use your 1000 simulated pairs to estimate the variance
+of |X − Y | also.
+c. Based on your estimated variance, how many simulations
+would you need to be 99 percent confident
+that your estimator of E(|X − Y |) is within 0.01 of the
+actual mean?
+9. Show how to use acceptance/rejection to simulate random
+variables with the following p.d.f.:
+f (x) =
+⎧⎪⎪⎪⎨
+⎪⎪⎪⎩
+4
+3x if 0 < x ≤ 0.5,
+2
+3 if 0.5< x ≤ 1.5,
+8
+3
+− 4
+3x if 1.5< x ≤ 2,
+0 otherwise.
+10. Implement the simulation in Example 12.2.3 for the
+clinical trial of Example 2.1.4 on page 57. Simulate 5000
+parameter vectors. Use a prior distribution with α0 = 1
+and β0 = 1. Estimate the probability that the imipramine
+group has the highest probability of no relapse. Calculate
+how many simulations you would need to be 95 percent
+confident that your estimator is within 0.01 of the true
+probability.
+11. In Example 12.3.7, we simulated the τ values by first
+simulating gamma random variables with parameters (n −
+p)/2 and 1. Suppose that our statistical software allows us
+to simulate χ2 random variables instead. Which χ2 distribution
+should we use and how would we convert the
+simulated χ2’s to have the appropriate gamma distribution?
+12. Use the blood pressure data in Table 9.2 that was
+described in Exercise 10 of Sec. 9.6. Suppose now that
+we are not confident that the variances are the same for
+the two treatment groups. Perform a simulation of the
+sort done in Example 12.3.8 to obtain a sample from the
+posterior distribution of the parameters when we allow
+the variances to be unequal.
+a. Draw a plot of the sample c.d.f. of the absolute value
+of the difference between the two group means.
+b. Draw a histogram of the logarithm of the ratio of the
+two variances to see how close together they seem to
+be.
+13. Let F
+−1 be defined as in Eq. (12.3.7). Let U have
+the uniform distribution on the interval [0, 1]. Prove that
+F
+−1(U) has the c.d.f. in Eq. (12.3.6).
+14. Refer to the three curves in Fig. 12.4. Call those
+three sample c.d.f.’s Gv,1, Gv,2, and Gv,3, and call the
+three c.d.f.’s that they estimate G1, G2, and G3. Use the
+Glivenko-Cantelli lemma (Theorem 10.6.1) to show that
+Pr
+ 
+|Gv,i(x) − Gi(x)| ≤ 0.0082, for all x and all i
+ 
+is about 0.9979 or larger. Hint: Use the Bonferroni inequality
+(Theorem 1.5.8).
+15. Prove that the acceptance/rejection method works for
+discrete distributions. That is, let f and g be p.f.’s rather
+than p.d.f.’s, but let the rest of the acceptance/rejection
+method be exactly as stated. Hint: The proof can be translated
+by replacing integrals over x by sums. Integrals over
+u should be left as integrals.
+16. Describe how to use the discrete version of the probability
+integral transformation to simulate a Poisson
+pseudo-random variable with mean θ.
+17. Let f be a p.f., and assume that Eq. (12.3.8) holds,
+where each gi is another p.f. Assume that X is simulated
+using the method described immediately after Eq.
+(12.3.8). Prove that X has the p.f. f .
+18. Use the alias method to simulate a random variable
+having the Poisson distribution with mean 5. Use the
+table of Poisson probabilities in the back of the book, and
+assume that 16 is the largest value that a Poisson random
+variable can equal. Assume that all of the probability not
+accounted for by the values 0, . . . , 15 is the value of the
+p.f. at k = 16.
+19. Let Y have the uniform distribution on the interval
+[0, 1]. Define I to be the greatest integer less than or equal
+to nY + 1, and define U = nY + 1− I . Prove that I and U
+are independent and that U has uniform distribution on
+the interval [0, 1].

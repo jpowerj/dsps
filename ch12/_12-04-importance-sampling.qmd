@@ -1,0 +1,660 @@
+
+12.4 Importance Sampling
+Many integrals can usefully be rewritten as means of functions of random variables.
+If we can simulate large numbers of random variables with the appropriate
+distributions, we can use these to estimate integrals that might not be possible to
+compute in closed form.
+Simulation methods are particularly well suited to estimating means of random variables.
+If we can simulate many random variables with the appropriate distribution,
+12.4 Importance Sampling 817
+we can average the simulated values to estimate the mean. Because means of random
+variables with continuous distributions are integrals, we might wonder whether
+other integrals can also be estimated by simulation methods. In principle, all finite
+integrals can be estimated by simulation, although some care is needed to insure that
+the simulation results have finite variance.
+Suppose that we wish to calculate
+  b
+a g(x) dx for some function g with a and b
+both finite. We can rewrite this integral as
+  b
+a
+g(x) dx =
+  b
+a
+(b − a)g(x)
+1
+b − a
+dx = E[(b − a)g(X)], (12.4.1)
+where X is a random variable with the uniform distribution on the interval [a, b].
+A simple Monte Carlo method is to simulate a large number of pseudo-random
+valuesX1, . . . , Xv with the uniform distribution on the interval [a, b]and estimate the
+integral by b−a
+v
+ v
+i=1 g(Xi).The method just described has two commonly recognized
+drawbacks. First, it cannot be applied to estimate integrals over unbounded regions.
+Second, it can be very inefficient. If g is much larger over one portion of the interval
+than over another, then the values g(Xi) will have large variance, and it will take a
+very large value v to get a good estimator of the integral.
+A method that attempts to overcome both of the shortcomings just mentioned
+is called importance sampling. The idea of importance sampling is to do something
+very much like what we did in Eq. (12.4.1). That is, we shall rewrite the integral as the
+mean of some function of X, where X has a distribution that we can simulate easily.
+Suppose that we are able to simulate a pseudo-random variable X with the p.d.f.
+f where f (x)>0 whenever g(x) > 0. Then we can write
+ 
+g(x) dx =
+ 
+g(x)
+f (x)
+f (x) dx = E(Y), (12.4.2)
+where Y = g(X)/f (X). (If f (x) = 0 for some x such that g(x) > 0, then the two
+integrals in Eq. (12.4.2) might not be equal.) If we simulate v independent values
+X1, . . . , Xv with the p.d.f. f , we can estimate the integral by 1
+v
+ v
+i=1 Yi where
+Yi
+= g(Xi)/f (Xi). The p.d.f. f is called the importance function. It is acceptable, although
+inefficient, to have f (x)>0 for some x such that g(x) = 0. The key to efficient
+importance sampling is choosing a good importance function. The smaller the variance
+of Y , the better the estimator should be. That is, we would like g(X)/f (X) to be
+close to being a constant random variable.
+Example
+12.4.1
+Choosing an Importance Function. Suppose that we want to estimate
+  1
+0 e
+−x/ (1+
+x2)dx. Here are five possible choices of importance function:
+f0(x) = 1, for 0 < x <1,
+f1(x) = e
+−x, for 0 < x <∞,
+f2(x) = (1+ x2)
+−1/π, for −∞< x <∞,
+f3(x) = e
+−x/(1− e
+−1), for 0 < x <1,
+f4(x) = 4(1+ x2)
+−1/π, for 0 < x <1.
+Each of these p.d.f.’s is positive wherever g is positive, and each one can be simulated
+using the probability integral transformation. As an example, we have simulated
+10,000 uniforms on the interval [0, 1], U(1), . . . , U(10,000). We then applied the five
+probability integral transformations to this single set of uniforms so that our comparisons
+do not suffer from variation due to different underlying uniform samples.
+818 Chapter 12 Simulation
+Table 12.5 Monte Carlo estimates and ˆσj for Example 12.4.1
+j 0 1 2 3 4
+Y j 0.5185 0.5110 0.5128 0.5224 0.5211
+ˆσ
+j 0.2440 0.4217 0.9312 0.0973 0.1409
+Since the five p.d.f.’s are positive over different ranges, we should define
+g(x) =
+ 
+e
+−x/(1+ x2) if 0 < x <1,
+0 otherwise.
+Let Fj stand for the c.d.f. corresponding to fj , and let X(i)
+j
+= F
+−1
+j (U(i)) for i =
+1, . . . , 10, 000 and j = 0, . . . , 4. Let Y (i)
+j
+= g(X(i)
+j )/fj(X(i)
+j ). Then we obtain five
+different estimators of
+ 
+g(x) dx, namely,
+Y j
+= 1
+10,000
+1 0,000
+i=1
+Y (i)
+j , for j = 0, . . . , 4.
+For each j , we also compute the sample variance of the Y (i)
+j values,
+ˆσ
+2
+j
+= 1
+10,000
+1 0,000
+i=1
+(Y (i)
+j
+− Y j )2.
+The simulation standard error of Y j is ˆσj/100. We list the five estimates together
+with the corresponding values of ˆσj in Table 12.5. The estimates are relatively close
+together, but some values of ˆσj are almost 10 times others. This can be understood
+in terms of how well each fj approximates the function g. First, note that the two
+worst cases are those in which fj is positive on an unbounded interval. This causes
+us to simulate a large number of X(i)
+j values for which g(X(i)
+j ) = 0 and hence Y (i)
+j
+= 0.
+This is highly inefficient. For example, with j = 2, 75 percent of the X(i)
+2 values are
+outside of the interval (0, 1). The remaining Y (i)
+2 values must be very large in order
+for the average to come out near the correct answer. In other words, because the Y (i)
+2
+values are so spread out (they range between 0 and π), we get a large value of ˆσ2. On
+the other hand, with j = 3, there are no 0 values for Y (i)
+3 . Indeed, the Y (i)
+3 values only
+range from 0.3161 to 0.6321. This allows ˆσ3 to be quite small. The goal in choosing an
+importance function is to make the Y (i) values have small variance. This is achieved
+by making the ratio g/f as close to constant as we can.  
+Example
+12.4.2
+Calculating a Mean with No Closed-Form Expression. Let X have the gamma distribution
+with parameters α and 1. Suppose that we want the mean of 1/(1+ X + X2). We
+might wish to think of this mean as
+  ∞
+0
+1
+1+ x + x2
+fα(x) dx, (12.4.3)
+where fα is the p.d.f. of the gamma distribution with parameters α and 1. If α is
+not small, fα(x) is close to 0 near x = 0 and is only sizeable for x near α. For large x,
+12.4 Importance Sampling 819
+1/(1+ x + x2) is a lot like 1/x2. If α and x are both large, the integrand in (12.4.3) is approximately
+x
+−2fα(x). Since x
+−2fα(x) is a constant times fα−2(x), we could do importance
+sampling with importance function fα−2. For example, with α = 5, we simulate
+10,000 pseudo-random variables X(1), . . . , X(10,000) having the gamma distribution
+with parameters 3 and 1. The sample mean of [1/(1+ X(i) + X(i)2)]f5(X(i))/f3(X(i))
+is 0.05184 with sample standard deviation 0.01465. For comparison, we also simulate
+10,000 pseudo-random variables Y (1), . . . , Y(10,000) with the gamma distribution having
+parameters 5 and 1. The average of the values of 1/(1+ Y (i) + Y (i)2) is 0.05226
+with sample standard deviation 0.05103, about 3.5 times as large as we get using the f3
+importance function.With α = 3, however, the two methods have nearly equal sample
+standard deviations. With α = 10, the importance sampling has sample standard
+deviation about one-tenth as large as sampling directly from the distribution of X.
+As we noted earlier, when α is large, 1/x2 is a better approximation to 1/(1+ x + x2)
+than it is when α is small.  
+Example
+12.4.3
+Bivariate Normal Probabilities. Let (X1, X2) have a bivariate normal distribution, and
+suppose that we are interested in the probability of the event {X1 ≤ c1, X2 ≤ c2} for
+specific values c1, c2. In general, we cannot explicitly calculate the double integral
+  c2
+−∞
+  c1
+−∞
+f (x1, x2) dx1 dx2, (12.4.4)
+where f (x1, x2) is the joint p.d.f. of (X1, X2).We can write the joint p.d.f. as f (x1, x2) =
+g1(x1|x2)f2(x2), where g1 is the conditional p.d.f. of X1 given X2 = x2 and f2 is the
+marginal p.d.f. of X2. Both of these p.d.f.’s are normal p.d.f.’s, as we learned in
+Sec. 5.10. In particular, the conditional distribution of X1 given X2 = x2 is the normal
+distribution with mean and variance given by Eq. (5.10.8).We can explicitly perform
+the inner integration in (12.4.4) as
+  c1
+−∞
+f (x1, x2) dx1 =
+  c1
+−∞
+g(x1|x2)f2(x2) dx1
+= f2(x2) 
+
+
+c1 − μ1 − ρσ1(x2 − μ2)/σ2
+σ1(1− ρ)1/2
+ 
+,
+where   is the standard normal c.d.f. The integral in (12.4.4) is then the integral of
+this last expression with respect to x2. An efficient importance function might be the
+conditional p.d.f. of X2 given that X2 ≤ c2. That is, let h be the p.d.f.
+h(x2) =
+(2πσ2
+2)
+−1/2 exp
+ 
+− 1
+2σ2
+2
+(x2 − μ2)2
+ 
+ 
+
+
+c2 − μ2
+σ2
+  , for −∞< x2 ≤ c2. (12.4.5)
+It is not difficult to see that if U has the uniform distribution on the interval [0, 1],
+then
+W = μ2 + σ2 
+−1
+ 
+U 
+
+
+c2 − μ2
+σ2
+  
+(12.4.6)
+has the p.d.f. h. (See Exercise 5.) If we use h as an importance function and simulate
+W(1), . . . , W(v) with this p.d.f., then our estimator of the integral (12.4.4) is
+1
+v
+ v
+i=1
+ 
+ 
+c1 − μ1 − ρσ1(W(i) − μ2)/σ2
+σ1(1− ρ)1/2
+ 
+ 
+
+
+c2 − μ2
+σ2
+ 
+.  
+820 Chapter 12 Simulation
+It is not always possible to guarantee that an importance sampling estimator
+will have finite variance. In the examples in this section, we have managed to find
+importance functions with the following property. The ratio of the function being
+integrated to the importance function is bounded. This property guarantees finite
+variance for the importance sampling estimator. (See Exercise 8.)
+Stratified Importance Sampling
+Suppose that we are trying to estimate θ =
+ 
+g(x) dx, and that we contemplate using
+the importance function f . The simulation variance of the importance sampling
+estimator of θ arises from the variance of Y = g(X)/f (X), where X has the p.d.f.
+f . Indeed, if we simulate an importance sample of size n, the simulation variance of
+our estimator is σ2/n, where σ2 = Var(Y ). Stratified importance sampling attempts
+to reduce the simulation variance by splitting θ into θ = k
+j=1 θj and then estimating
+each θj with much smaller simulation variance.
+The stratified importance sampling algorithm is easiest to describe when X is
+simulated using the probability integral transformation. Let F be the c.d.f. corresponding
+to the p.d.f. f . First, we split θ as follows. Define q0 =−∞, qj
+= F
+−1(j/k)
+for j = 1, . . . , k − 1, and qk
+=∞. Then define
+θj
+=
+  qj
+qj−1
+g(x) dx,
+for j = 1, . . . , k. Clearly, θ = k
+j=1 θj . Next, we estimate each θj by importance sampling
+using the same importance function f , but restricted to the range of integration
+for θj .That is,we estimate θj using importance sampling with the importance function
+fj(x) =
+ 
+kf (x) if qj−1 ≤x <qj ,
+0 otherwise.
+(See Exercise 9 to see that fj is indeed a p.d.f.) To simulate a random variable with
+the p.d.f. fj , let V have the uniform distribution on the interval [(j − 1)/k, j/k] and
+set Xj
+= F
+−1(V ). The reader can prove (see Exercise 9) that Xj has the p.d.f. fj . Let
+σ2
+j be the variance of g(Xj )/fj(Xj ). Suppose that, for each j = 1, . . . , k, we simulate
+an importance sample of size m with the same distribution as Xj . The variance of the
+estimator of θj will be σ2
+j/m. Since the k estimators of θ1, . . . , θk are independent,
+the variance of the estimator of θ will be
+ k
+j=1 σ2
+j/m. To facilitate comparison to
+nonstratified importance sampling, let n = mk. Stratification will be an improvement
+if its variance is smaller than σ2/n. Since n = mk, we would like to prove that at least
+σ2 ≥ k
+ k
+j=1
+σ2
+j , (12.4.7)
+and preferably with strict inequality.
+To prove (12.4.7), we note a close connection between the random variables Xj
+with the p.d.f. fj and X with the p.d.f. f . Let J be a random variable with the discrete
+uniform distribution on the integers 1, . . . , k. DefineX
+∗ = XJ , so that the conditional
+p.d.f. of X
+∗ given J = j is fj . You can prove (Exercise 11) that X
+∗ and X have the
+same p.d.f. Let Y = g(X)/f (X) and
+Y
+∗ = g(X
+∗
+)
+fj(X∗)
+= g(X
+∗
+)
+kf (X∗)
+.
+Then Var(Y
+∗|J = j) = σ2
+j and kY
+∗ has the same distribution as Y. So,
+12.4 Importance Sampling 821
+σ2 = Var(Y ) = Var(kY
+∗
+) = k2 Var(Y
+∗
+). (12.4.8)
+Theorem 4.7.4 says that
+Var(Y
+∗
+) = E Var(Y
+∗|J) + Var[E(Y
+∗|J)]. (12.4.9)
+By construction, E(Y
+∗|J = j) = θj and Var(Y
+∗|J = j) = σ2
+j . Also, Var[E(Y
+∗|J)]≥ 0
+with strict inequality if the θj are not all the same. Since Pr(J = j) = 1/k for j =
+1, . . . , k, we have
+E Var(Y
+∗|J) = 1
+k
+ k
+j=1
+σ2
+j . (12.4.10)
+Combining Eqs. (12.4.8), (12.4.9), and (12.4.10), we obtain (12.4.7), with strict inequality
+if the θj are not all equal.
+Example
+12.4.4
+Illustration of Stratified Importance Sampling. Consider the integral that we wanted
+to estimate in Example 12.4.1. The best importance function appeared to be f3,
+with a simulation standard error of ˆσ3/100 = 9.73 × 10−4. In the present example,
+we allocate 10,000 simulations among k = 10 subsets of size m = 1000 each and do
+stratified importance sampling by dividing the range of integration [0, 1] into 10
+equal-length subintervals. Doing this,we get a Monte Carlo estimate of the integral of
+0.5248. To estimate the simulation standard error, we need to estimate each σj by ˆσ
+∗
+j
+and compute
+ 10
+j=1
+ˆσ
+∗2
+j /1000. In the simulation that we are discussing, the simulation
+standard error for stratified importance sampling is 1.05 × 10−4, about one-tenth as
+small as the unstratified version.We can also do stratified importance sampling using
+k = 100 subsets of size m = 100. In our simulation, the estimate of the integral is the
+same with simulation standard error of 1.036 × 10−5.  
+The reason that stratified importance sampling works so well in Example 12.4.4 is
+that the function g(x)/f3(x) is monotone, and this makes θj change about as much as
+it can as j changes. Hence, Var[E(Y
+∗|J)] is large, making stratification very effective.
+Summary
+We introduced the method of importance sampling for calculating integrals by simulation.
+The idea of importance sampling for estimating
+ 
+g(x) dx is to choose a p.d.f.
+f from which we can simulate and such that g(x)/f (x) is nearly constant. Then we
+rewrite the integral as
+ 
+[g(x)/f (x)]f (x) dx.We can estimate this last integral by averaging
+g(X(i))/f (X(i)) where X(1), . . . , X(v) form a random sample with the p.d.f. f. A
+stratified version of importance sampling can produce estimators with even smaller
+variance.
+Exercises
+1. Prove that the formula in Eq. (12.4.1) is the same as
+importance sampling in which the importance function is
+the p.d.f. of the uniform distribution on the interval [a, b].
+2. Let g be a function, and suppose that we wish to compute
+the mean of g(X) where X has the p.d.f. f . Suppose
+that we can simulate pseudo-random values with the p.d.f.
+f . Prove that the following are the same:
+Simulate X(i) values with the p.d.f. f , and average
+the values of g(X(i)) to obtain the estimator.
+Do importance sampling with importance function
+f to estimate the integral
+ 
+g(x)f (x) dx.
+822 Chapter 12 Simulation
+3. Let Y have the F distribution with m and n degrees
+of freedom. We wish to estimate Pr(Y > c). Consider the
+p.d.f.
+f (x) =
+ 
+(n/2)cn/2
+xn/2+1 if x >c,
+0 otherwise.
+a. Explain how to simulate pseudo-random numbers
+with the p.d.f. f .
+b. Explain how to estimate Pr(Y > c) using importance
+sampling with the importance function f .
+c. Look at the form of the p.d.f. of Y , Eq. (9.7.2), and
+explain why importance sampling might be more efficient
+than sampling i.i.d. F random variables with
+m and n degrees of freedom if c is not small.
+4. We would like to calculate the integral
+ ∞
+0 log(1 +
+x) exp(−x) dx.
+a. Simulate 10,000 exponential random variables with
+parameter 1 and use these to estimate the integral.
+Also, find the simulation standard error of your estimator.
+b. Simulate 10,000 gamma random variables with parameters
+1.5 and 1 and use these to estimate the
+integral (importance sampling). Find the simulation
+standard error of the estimator. (In case you do not
+have the gamma function available,  (1.5) =
+√
+π/2.)
+c. Which of the two methods appears to be more efficient?
+Can you explain why?
+5. Let U have the uniform distribution on the interval
+[0, 1]. Show that the random variable W defined in
+Eq. (12.4.6) has the p.d.f. h defined in Eq. (12.4.5).
+6. Suppose that we wish to estimate the integral
+  ∞
+1
+x2
+√
+2π
+e
+−0.5x2 dx.
+In parts (a) and (b) below, use simulation sizes of 1000.
+a. Estimate the integral by importance sampling using
+random variables having a truncated normal distribution.
+That is, the importance function is
+1 √
+2π[1−  (1)]
+e
+−0.5x2
+, for x >1.
+b. Estimate the integral by importance sampling using
+random variables with the p.d.f. x exp(0.5[1− x2]),
+forx >1. Hint: Prove that such random variables can
+be obtained as follows: Start with a random variable
+that has the exponential distribution with parameter
+0.5, add 1, then take the square root.
+c. Compute and compare simulation standard errors
+for the two estimators in parts (a) and (b). Can you
+explain why one is so much smaller than the other?
+7. Let (X1, X2) have the bivariate normal distribution
+with both means equal to 0, both variances equal to 1,
+and the correlation equal to 0.5. We wish to estimate
+θ = Pr(X1 ≤ 2, X2 ≤ 1) using simulation.
+a. Simulate a sample of 10,000 bivariate normal vectors
+with the above distribution. Use the proportion
+of vectors satisfying the two inequalities X1 ≤ 2 and
+X2 ≤ 1 as the estimator Z of θ. Also compute the simulation
+standard error of Z.
+b. Use the method described in Example 12.4.3 with
+10,000 simulations to produce an alternative estimator
+Z
+  of θ. Compute the simulation standard error
+of Z
+  and compare Z
+  to the estimate in part (a).
+ 8. Suppose that we wish to approximate the integral
+g(x) dx. Suppose that we have a p.d.f. f that we shall
+use as an importance function. Suppose that g(x)/f (x) is
+bounded. Prove that the importance sampling estimator
+has finite variance.
+9. Let F be a continuous strictly increasing c.d.f. with
+p.d.f. f . Let V have the uniform distribution on the interval
+[a, b] with 0 ≤ a < b ≤ 1. Prove that the p.d.f. of
+X = F
+−1(V ) is f (x)/(b − a) for F
+−1(a) ≤ x ≤ F
+−1(b). (If
+a = 0, let F
+−1(a)=−∞. If b = 1, let F
+−1(b)=∞.)
+10. For the situation described in Exercise 6, use stratified
+importance sampling as follows: Divide the interval
+(1,∞) into five intervals that each have probability 0.2 under
+the importance distribution. Sample 200 observations
+from each interval. Compute the simulation standard error.
+Compare this simulation to the simulation in Exercise
+6 for each of parts (a) and (b).
+11. In the notation used to develop stratified importance
+sampling, prove that X
+∗ = XJ and X have the same distribution.
+Hint: The conditional p.d.f. of X
+∗ given J = j is fj .
+Use the law of total probability.
+12. Consider again the situation described in Exercise 15
+of Sec. 12.2. Suppose that Wu has the Laplace distribution
+with parameters θ = 0 and σ = 0.1u1/2. See Eq. (10.7.5) for
+the p.d.f.
+a. Prove that the m.g.f. of Wu is
+ψ(t) =
+ 
+1− t2u
+100
+ −1
+, for −10u
+−1/2< t<10u
+−1/2.
+b. Let r = 0.06 be the risk-free interest rate. Simulate
+a large number v of values of Wu with u = 1 and use
+these to estimate the price of an option to buy one
+share of this stock at time u = 1 in the future for
+the current price S0. Also compute the simulation
+standard error.
+c. Use importance sampling to improve on the simulation
+in part (b). Instead of simulating Wu values
+directly, simulate from the conditional distribution
+of Wu given that Su > S0. How much smaller is the
+simulation standard error?
+
+13. The method of control variates is a technique for reducing
+the variance of a simulation estimator. Suppose
+that we wish to estimate θ = E(W).Acontrol variate is another
+random variable V that is positively correlated with
+W and whose mean μ we know. Then, for every constant
+k > 0, E(W − kV + kμ) = θ. Also, if k is chosen carefully,
+Var(W − kV + kμ)<Var(W). In this exercise,we shall see
+how to use control variates for importance sampling, but
+the method is very general. Suppose that we wish to compute
+ 
+g(x) dx, andwewish to use the importance function
+f . Suppose that there is a function h such that h is similar
+to g but
+ 
+h(x) dx is known to equal the value c. Let k be
+a constant. Simulate X(1), . . . , X(v) with the p.d.f. f , and
+define
+W(i) = g(X(i))
+f (X(i))
+,
+V (i) = h(X(i))
+f (X(i))
+,
+Y (i) = W(i) − kV (i),
+for all i. Our estimator of
+ 
+g(x) dx is then
+Z = 1
+v
+ v
+i=1 Y (i) + kc.
+a. Prove that E(Z) =
+ 
+g(x) dx.
+b. Let Var(W(i)) = σ2
+W and Var(V (i)) = σ2
+V . Let ρ be
+the correlation between W(i) andV (i). Prove that
+the value of k that makes Var(Z) the smallest is
+k = σWρ/σV .
+14. Suppose that we wish to integrate the same function
+g(x) as in Example 12.4.1.
+a. Use the method of control variates that was described
+in Exercise 13 to estimate
+ 
+g(x) dx. Let
+h(x) = 1/(1+ x2) for 0 < x <1, and k = e
+−0.5. (This
+makes h about the same size as g.) Let f (x) be the
+function f3 in Example 12.4.1. How does the simulation
+standard error using control variates compare
+to not using control variates?
+b. Estimate the variances and correlation of the W(i)’s
+and V (i)’s (notation of Exercise 13) to see what a
+good value for k might be.
+15. The method of antithetic variates is a technique for reducing
+the variance of simulation estimators. Antithetic
+variates are negatively correlated random variables that
+share a common mean and common variance. The variance
+of the average of two antithetic variates is smaller
+than the variance of the average of two i.i.d. variables. In
+this exercise, we shall see how to use antithetic variates for
+importance sampling, but the method is very general. Suppose
+that we wish to compute
+ 
+g(x) dx, and we wish to
+use the importance function f . Suppose that we generate
+pseudo-random variables with the p.d.f. f using the probability
+integral transformation. That is, for i = 1, . . . , v, let
+X(i) = F
+−1(U(i)), where U(i) has the uniform distribution
+on the interval [0, 1] and F is the c.d.f. corresponding to
+the p.d.f. f . For each i = 1, . . . , v, define
+T (i) = F
+−1(1− U(i)),
+W(i) = g(X(i))
+f (X(i))
+,
+V (i) = g(T (i))
+f (T (i))
+,
+Y (i) = 0.5
+#
+W(i) + V (i)
+$
+.
+Our estimator of
+ 
+g(x) dx is then Z = 1
+v
+ v
+i=1 Y (i).
+a. Prove that T (i) has the same distribution as X(i).
+b. Prove that E(Z) =
+ 
+g(x) dx.
+c. If g(x)/f (x) is a monotone function, explain why we
+would expect W(i) and V (i) to be negatively correlated.
+d. If W(i) and V (i) are negatively correlated, show that
+Var(Z) is less than the variance one would get with
+2v simulations without antithetic variates.
+16. Use the method of antithetic variates that was described
+in Exercise 15. Let g(x) be the function that we
+tried to integrate in Example 12.4.1. Let f (x) be the function
+f3 in Example 12.4.1. Estimate Var(Y (i)), and compare
+it to ˆσ 2
+3 from Example 12.4.1.
+17. For each of the exercises in this section that requires
+a simulation, see if you can think of a way to use control
+variates or antithetic variates to reduce the variance of the
+simulation estimator.

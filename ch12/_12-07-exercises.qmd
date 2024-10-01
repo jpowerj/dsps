@@ -1,0 +1,419 @@
+
+## Exercises
+
+1. Suppose that X1, . . . , Xn form a random sample from
+an exponential distribution with parameter θ. Explain
+how to use the parametric bootstrap to estimate the variance
+of the sample averageX. (No simulation is required.)
+2. Let x1, . . . , xn be the observed values of a random
+sample X = (X1, . . . , Xn). Let Fn be the sample c.d.f. Let
+J1, . . . , Jn be a random sample with replacement from
+the numbers {1, . . . , n}. Define X
+∗
+i
+= xJi
+for i = 1, . . . , n.
+Show that X∗ = (X
+∗
+1, . . . , X
+∗
+n) is an i.i.d. sample from the
+distribution Fn.
+3. Let n be odd, and let X = (X1, . . . , Xn) be a sample
+of size n from some distribution. Suppose that we wish to
+use the nonparametric bootstrap to estimate some feature
+of the sample median. Compute the probability that the
+sample median of a nonparametric bootstrap sample will
+be the smallest observation from the original data X.
+4. Use the data in the first column of Table 11.5 on
+page 699. These data give the boiling points of water at 17
+different locations from Forbes’ experiment. Let F be the
+distribution from which these boiling points were drawn.
+We might not be willing to make many assumptions about
+F. Suppose that we are interested in the bias of the sample
+median as an estimator of the median of the distribution
+F. Use the nonparametric bootstrap to estimate this bias.
+First, do a pilot run to compute the simulation standard
+error of the simulation approximation, and then see how
+many bootstrap samples you need in order for your bias
+estimate (for distribution ˆ F) to be within 0.02 of the true
+bias (for distribution ˆ F) with probability at least 0.9.
+5. Use the data in Table 10.6 on page 640. We are interested
+in the bias of the sample median as an estimator of
+the median of the distribution.
+a. Use the nonparametric bootstrap to estimate this
+bias.
+b. Howmany bootstrap samples does it appear that you
+need in order to estimate the bias to within .05 with
+probability 0.99?
+6. Use the data in Exercise 16 of Sec. 10.7.
+a. Use the nonparametric bootstrap to estimate the
+variance of the sample median.
+b. Howmany bootstrap samples does it appear that you
+need in order to estimate the variance to within .005
+with probability 0.95?
+7. Use the blood pressure data in Table 9.2 that was described
+in Exercise 10 of Sec. 9.6. Suppose now that we are
+not confident that the variances are the same for the two
+treatment groups. Perform a parametric bootstrap analysis
+of the sort done in Example 12.6.10. Use v =10,000
+bootstrap simulations.
+a. Estimate the probability of type I error for a twosample
+t test whose nominal level is α0 = 0.1.
+b. Correct the level of the two-sample t test by computing
+the appropriate quantile of the bootstrap distribution
+of |U(i)|.
+c. Compute the simulation standard error for the quantile
+in part (b).
+8. In Example 12.6.7, let (X
+∗
+, Y
+∗
+) be a random draw from
+the sample distribution Fn. Prove that the correlation between
+X
+∗ and Y
+∗ is R in Eq. (12.6.2).
+9. Use the data on fish prices in Table 11.6 on page 707.
+Suppose that we assume only that the distribution of fish
+prices in 1970 and 1980 is a continuous joint distribution
+with finite variances. We are interested in the properties
+of the sample correlation coefficient. Construct 1000 nonparametric
+bootstrap samples for solving this exercise.
+a. Approximate the bootstrap estimate of the variance
+of the sample correlation.
+b. Approximate the bootstrap estimate of the bias of
+the sample correlation.
+c. Compute simulation standard errors of each of the
+above bootstrap estimates.
+10. Use the beef hot dog data in Exercise 7 of Sec. 8.5.
+Form 10,000 nonparametric bootstrap samples to solve
+this exercise.
+a. Approximate a 90 percent percentile bootstrap confidence
+interval for the median calorie count in beef
+hot dogs.
+b. Approximate a 90 percent percentile-t bootstrap
+confidence interval for the median calorie count in
+beef hot dogs.
+c. Compare these intervals to the 90 percent interval
+formed using the assumption that the data came from
+a normal distribution.
+850 Chapter 12 Simulation
+11. The skewness of a random variable was defined in
+Definition 4.4.1. Suppose that X1, . . . , Xn form a random
+sample from a distribution F. The sample skewness is
+defined as
+M3 =
+1
+n
+ n
+i=1(Xi
+− X)3
+#
+1
+n
+ n
+i=1(Xi
+− X)2
+$3/2 .
+One might useM3 as an estimator of the skewness θ of
+the distribution F. The bootstrap can be used to estimate
+the bias and standard deviation of the sample skewness as
+an estimator of θ.
+a. Prove thatM3 is the skewness of the sample distribution
+Fn.
+b. Use the 1970 fish price data in Table 11.6 on page 707.
+Compute the sample skewness, and then simulate
+1000 bootstrap samples. Use the bootstrap samples
+to estimate the bias and standard deviation of the
+sample skewness.
+12. Suppose that (X1, Y1), . . . , (Xn, Yn) form a random
+sample from a bivariate normal distribution with means
+μx and μy, variances σ2
+x and σ2
+y, and correlation ρ. Let R
+be the sample correlation. Prove that the distribution of
+R depends only on ρ, not on μx, μy, σ2
+x, or σ2
+y.
+12.7 Supplementary Exercises
+1. Test the standard normal pseudo-random number generator
+on your computer by generating a sample of size
+10,000 and drawing a normal quantile plot. How straight
+does the plot appear to be?
+2. Test the gamma pseudo-random number generator on
+your computer. Simulate 10,000 gamma pseudo-random
+variables with parameters a and 1 for a = 0.5, 1, 1.5, 2, 5,
+10. Then draw gamma quantile plots.
+3. Test the t pseudo-random number generator on your
+computer. Simulate 10,000 t pseudo-random variables
+with m degrees of freedom for m = 1, 2, 5, 10, 20. Then
+draw t quantile plots.
+4. Let X and Y be independent random variables with X
+having the t distribution with five degrees of freedom and
+Y having the t distribution with three degrees of freedom.
+We are interested in E(|X − Y |).
+a. Simulate 1000 pairs of (Xi, Yi) each with the above
+joint distribution and estimate E(|X − Y |).
+b. Use your 1000 simulated pairs to estimate the variance
+of |X − Y | also.
+c. Based on your estimated variance, how many simulations
+would you need to be 99 percent confident
+that your estimator of E(|X − Y |) is within 0.01 of the
+actual mean?
+5. Consider the power calculation done in Example 9.5.5.
+a. Simulate v0 = 1000 i.i.d. noncentral t pseudo-random
+variables with 14 degrees of freedom and noncentrality
+parameter 1.936.
+b. Estimate the probability that a noncentral t random
+variable with 14 degrees of freedom and noncentrality
+parameter 1.936 is at least 1.761. Also, compute
+the simulation standard error.
+c. Suppose that we want our estimator of the noncentral
+t probability in part (b) to be closer than 0.01 to
+the true value with probability 0.99. How many noncentral
+t random variables do we need to simulate?
+6. The χ2 goodness-of-fit test (see Chapter 10) is based
+on an asymptotic approximation to the distribution of the
+test statistic. For small to medium samples, the asymptotic
+approximation might not be very good. Simulation can
+be used to assess how good the approximation is. Simulation
+can also be used to estimate the power function of
+a goodness-of-fit test. For this exercise, assume that we are
+performing the test that was done in Example 10.1.6. The
+idea illustrated in this exercise applies in all such problems.
+a. Simulate v =10,000 samples of size n = 23 from the
+normal distribution with mean 3.912 and variance
+0.25. For each sample, compute the χ2 goodnessof-
+fit statistic Q using the same four intervals that
+were used in Example 10.1.6. Use the simulations
+to estimate the probability that Q is greater than or
+equal to the 0.9, 0.95, and 0.99 quantiles of the χ2
+distribution with three degrees of freedom.
+b. Suppose that we are interested in the power function
+of a χ2 goodness-of-fit test when the actual distribution
+of the data is the normal distribution with mean
+4.2 and variance 0.8. Use simulation to estimate the
+power function of the level 0.1, 0.05, and 0.01 tests at
+the alternative specified.
+7. In Sec. 10.2, we discussed χ2 goodness-of-fit tests for
+composite hypotheses. These tests required computing
+M.L.E.’s based on the numbers of observations that fell
+into the different intervals used for the test. Suppose
+instead that we use the M.L.E.’s based on the original
+observations. In this case, we claimed that the asymptotic
+distribution of the χ2 test statistic was somewhere
+between two different χ2 distributions. We can use simulation
+to better approximate the distribution of the test
+statistic. In this exercise, assume that we are trying to test
+12.7 Supplementary Exercises 851
+the same hypotheses as in Example 10.2.5, although the
+methods will apply in all such cases.
+a. Simulate v = 1000 samples of size n = 23 from each
+of 10 different normal distributions. Let the normal
+distributions have means of 3.8, 3.9, 4.0, 4.1, and 4.2.
+Let the distributions have variances of 0.25 and 0.8.
+Use all 10 combinations of mean and variance. For
+each simulated sample, compute the χ2 statistic Q
+using the usual M.L.E.’s of μ and σ2. For each of the
+10 normal distributions, estimate the 0.9, 0.95, and
+0.99 quantiles of the distribution of Q.
+b. Do the quantiles change much as the distribution of
+the data changes?
+c. Consider the test that rejects the null hypothesis if
+Q ≥ 5.2. Use simulation to estimate the power function
+of this test at the following alternative: For each
+i, (Xi
+− 3.912)/0.5 has the t distribution with five degrees
+of freedom.
+8. In Example 12.5.6, we used a hierarchical model. In
+that model, the parameters μ1, . . . , μp were independent
+random variables with μi having the normal distribution
+with mean ψ and precision λ0τi conditional on ψ and
+τ1, . . . , τp. To make the model more general, we could
+also replace λ0 by an unknown parameter λ. That is, let
+the μi ’s be independent with μi having the normal distribution
+with mean ψ and precision λτi conditional on
+ψ, λ, and τ1, . . . , τp. Let λ have the gamma distribution
+with parameters γ0 and δ0, and let λ be independent of ψ
+and τ1, . . . , τp. The remaining parameters have the prior
+distributions stated in Example 12.5.6.
+a. Write the product of the likelihood and the prior as
+a function of the parameters μ1, . . . , μp, τ1, . . . , τp,
+ψ, and λ.
+b. Find the conditional distributions of each parameter
+given all of the others. Hint: For all the parameters
+besides λ, the distributions should be almost identical
+to those given in Example 12.5.6. Wherever λ0
+appears, of course, something will have to change.
+c. Use a prior distribution in which α0 = 1, β0 = 0.1,
+u0 = 0.001, γ0 = δ0 = 1, and ψ0 = 170. Fit the model
+to the hot dog calorie data from Example 11.6.2.
+Compute the posterior means of the four μi ’s and
+1/τi’s.
+9. In Example 12.5.6, we modeled the parameters τ1, . . . ,
+τp as i.i.d. having the gamma distribution with parameters
+α0 and β0.We could have added a level to the hierarchical
+model that would allow the τi ’s to come from a distribution
+with an unknown parameter. For example, suppose that
+we model the τi ’s as conditionally independent having the
+gamma distribution with parameters α0 and β given β. Let
+β be independent of ψ and μ1, . . . , μp with β having the
+gamma distribution with parameters  0 and φ0. The rest of
+the prior distributions are as specified in Example 12.5.6.
+a. Write the product of the likelihood and the prior as
+a function of the parameters μ1, . . . , μp, τ1, . . . , τp,
+ψ, and β.
+b. Find the conditional distributions of each parameter
+given all of the others. Hint: For all the parameters
+besides β, the distributions should be almost identical
+to those given in Example 12.5.6. Wherever β0
+appears, of course, something will have to change.
+c. Use a prior distribution in which α0 = λ0 = 1, u0 =
+0.001,  0 = 0.3, φ0 = 3.0, and ψ0 = 170. Fit the model
+to the hot dog calorie data from Example 11.6.2.
+Compute the posterior means of the four μi ’s and
+1/τi’s.
+10. Let X1, . . . , Xk be independent random variables
+such that Xi has the binomial distribution with parameters
+ni and pi . We wish to test the null hypothesis H0 :
+p1 = . . . = pk versus the alternative hypothesis H1 that H0
+is false. Assume that the numbers n1, . . . , nk are known
+constants.
+a. Show that the likelihood ratio test procedure is to
+reject H0 if the following statistic is greater than or
+equal to some constant c:
+"k
+i=1
+#
+X
+Xi
+i (ni
+− Xi)ni
+−Xi
+$
+  k
+j=1 Xj
+  k
+j=1 Xj
+# k
+j=1(nj
+− Xj )
+$ k
+j=1(nj
+−Xj )
+.
+b. Describe how you could use simulation techniques
+to estimate the constant c in order to make the likelihood
+ratio test have a desired level of significance
+α0. (Assume that you can simulate as many binomial
+pseudo-random variables as you wish.)
+c. Consider the depression study in Example 2.1.4. Let
+pi stand for the probability of success (no relapse)
+for the subjects in group i of Table 2.1 on page 57,
+where i = 1 means imipramine, i = 2 means lithium,
+i = 3 means combination, and i = 4 means placebo.
+Test the null hypothesis that p1 = p2 = p3 = p4 by
+computing the p-value for the likelihood ratio test.
+11. Consider the problem of testing the equality of two
+normal means when the variances are unequal. This problem
+was introduced on page 593 in Sec. 9.6. The data are
+two independent samplesX1, . . . ,Xm and Y1, . . . , Yn. The
+Xi ’s are i.i.d. having the normal distribution with mean μ1
+and variance σ2
+1 , while the Yj ’s are i.i.d. having the normal
+distribution with mean μ2 and variance σ2
+2.
+a. Assume thatμ1=μ2. Prove that the random variable
+V in Eq. (9.6.14) has a distribution that depends on
+the parameters only through the ratio σ2/σ1.
+b. Let ν be the approximate degrees of freedom for
+Welch’s procedure from Eq. (9.6.17). Prove that the
+distribution of ν depends on the parameters only
+through the ratio σ2/σ1.
+852 Chapter 12 Simulation
+c. Use simulation to assess the approximation in
+Welch’s procedure. In particular, set the ratio σ2/σ1
+equal to each of the numbers 1, 1.5, 2, 3, 5, and 10
+in succession. For each value of the ratio, simulate
+10,000 samples of sizes n = 11 and m = 10 (or the
+appropriate summary statistics). For each simulated
+sample, compute the test statistic V and the 0.9, 0.95,
+and 0.99 quantiles of the approximate t distribution
+that corresponds to the data in that simulation. Keep
+track of the proportion of simulations in which V
+is greater than each of the three quantiles. How do
+these proportions compare to the nominal values 0.1,
+0.05, and 0.01?
+12. Consider again the situation described in Exercise 11.
+This time, use simulation to assess the performance of the
+usual two-sample t test. That is, use the same simulations
+as in part (c) of Exercise 11 (or ones just like them if you
+do not have the same simulations). This time, for each
+simulated sample compute the statistic U in Eq. (9.6.3)
+and keep track of the proportion of simulations in whichU
+is greater than each of the nominal t quantiles, T
+−1
+19 (1− α0)
+for α0 = 0.1, 0.05, and 0.01. How do these proportions
+compare to the nominal α0 values?
+13. Suppose that our data comprise a set of pairs (Yi, xi),
+for i = 1, . . . , n. Here, each Yi is a random variable and
+each xi is a known constant. Suppose that we use a simple
+linear regression model in which E(Yi) = β0 + β1xi . Let
+ˆ β1 stand for the least squares estimator of β1. Suppose,
+however, that the Yi ’s are actually random variables with
+translated and scaled t distributions. In particular, suppose
+that (Yi
+− β0 − β1xi)/σ are i.i.d. having the t distribution
+with k ≥ 5 degrees of freedom for i = 1, . . . , n. We can
+use simulation to estimate the standard deviation of the
+sampling distribution of ˆ β1.
+a. Prove that the variance of the sampling distribution
+of ˆ β1 does not depend on the values of the parameters
+β0 and β1.
+b. Prove that the variance of the sampling distribution
+of ˆ β1 is equal to vσ2, where v does not depend on any
+of the parameters β0, β1, and σ.
+c. Describe a simulation scheme to estimate the value
+v from part (b).
+14. Use the simulation scheme developed in Exercise 13
+and the data in Table 11.5 on page 699. Suppose that we
+think that the logarithms of pressure are linearly related
+to boiling point, but that the logarithms of pressure have
+translated and scaled t distributions with k = 5 degrees of
+freedom. Estimate the value v from part (b) of Exercise 13
+using simulation.
+15. In Sec. 7.4, we introduced Bayes estimators. For simple
+loss functions, such as squared error and absolute error,
+we were able to derive general forms for Bayes estimators.
+In many real problems, loss functions are not
+so simple. Simulation can often be used to approximate
+Bayes estimators. Suppose that we are able to simulate
+a sample θ(1), . . . , θ(v) (either directly or by Gibbs sampling)
+from the posterior distribution of some parameter
+θ given some observed data X = x. Here, θ can be real
+valued or multidimensional. Suppose that we have a loss
+function L(θ, a), and we want to choose a so as to minimize
+the posterior mean E[L(θ, a)|x].
+a. Describe a general method for approximating the
+Bayes estimate in the situation described above.
+b. Suppose that the simulation variance of the approximation
+to the Bayes estimate is proportional to 1
+over the size of the simulation. How could one compute
+a simulation standard error for the approximation
+to the Bayes estimate?
+16. In Example 12.5.2, suppose that the State of New
+Mexico wishes to estimate the mean number μ of medical
+in-patient days in nonrural nursing homes. The parameter
+is θ = (μ, τ ). The loss function will be asymmetric to
+reflect different costs of underestimating and overestimating.
+Suppose that the loss function is
+L(θ, a) =
+ 
+30(a − μ) if a ≥ μ,
+(μ − a)2 if μ > a.
+Use the method developed in your solution to Exercise 15
+to approximate the Bayes estimate and compute a simulation
+standard error.
+

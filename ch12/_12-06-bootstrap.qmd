@@ -1,0 +1,637 @@
+
+12.6 The Bootstrap
+The parametric and nonparametric bootstraps are methods for replacing an unknown
+distribution F with a known distribution in a probability calculation. If
+we have a sample of data from the distribution F, we first approximate F by ˆ F
+and then perform the desired calculation. If ˆ F is a good approximation to F, the
+bootstrap can be successful. If the desired calculation is sufficiently difficult, we
+typically resort to simulation.
+Introduction
+Assume that we have a sample X = (X1, . . . , Xn) of data from some unknown
+distribution F. Suppose that we are interested in some quantity that involves both F
+and X, for example, the bias of a statistic g(X) as an estimator of the median of F.
+The main idea behind bootstrap analysis in the simplest cases is the following: First,
+replace the unknown distribution F with a known distribution ˆ F. Next, let X∗ be a
+sample from the distribution ˆ F. Finally, compute the quantity of interest based on ˆ F
+and X∗, for example, the bias of g(X∗
+) as an estimator of the median of ˆ F. Consider
+the following overly simple example.
+Example
+12.6.1
+The Variance of the Sample Mean. Let X = (X1, . . . , Xn) be a random sample from
+a distribution with a continuous c.d.f. F. For the moment, we shall assume nothing
+more aboutF than that it has finite meanμand finite variance σ2. Suppose that we are
+interested in the variance of the sample mean X.We already know that this variance
+equals σ2/n, but we do not know σ2. In order to estimate σ2/n, the bootstrap replaces
+840 Chapter 12 Simulation
+the unknown distribution F with a known distribution ˆ F, which also has finite mean
+ˆμ
+and finite variance ˆσ 2. If X∗ = (X
+∗
+1, . . . , X
+∗
+n) is a random sample from ˆ F, then
+the variance of the sample mean X
+∗
+= 1
+n
+ n
+i=1 X
+∗
+i is ˆσ 2/n. Since the distribution ˆ F
+is known, we should be able to compute ˆσ 2/n, and we can then use this value to
+estimate σ2/n.
+One popular choice of known distribution ˆ F is the sample c.d.f. Fn defined
+in Sec. 10.6. This sample c.d.f. is the discrete c.d.f. that has jumps of size 1/n at
+each of the observed values x1, . . . , xn of the random sample X1, . . . , Xn. So, if
+X∗ = (X
+∗
+1, . . . , X
+∗
+n) is a random sample from ˆ F, then each X
+∗
+i is a discrete random
+variable with the p.f.
+f (x) =
+  1
+n if x ∈ {x1, . . . , xn
+},
+0 otherwise.
+It is relatively simple to compute the variance ˆσ 2 of a random variable X
+∗
+i whose p.f.
+is f . The variance is
+ˆσ
+2 = 1
+n
+ n
+i=1
+(xi
+− x)2,
+where x is the average of the observed values x1, . . . , xn.Thus, our bootstrap estimate
+of the variance of X is ˆσ 2/n.  
+The key step in a bootstrap analysis is the choice of the known distribution ˆ F.
+The particular choice made in Example 12.6.1, namely, the sample c.d.f., leads to what
+is commonly called the nonparametric bootstrap. The reason for this name is that we
+do not assume that the distribution belongs to a parametric family when choosing
+ˆ F = Fn. If we are willing to assume that F belongs to a parametric family, then we
+can choose ˆ F to be a member of that family and perform a parametric bootstrap
+analysis as illustrated next.
+Example
+12.6.2
+The Variance of the Sample Mean. Let X = (X1, . . . , Xn) be a random sample from the
+normal distribution with mean μ and variance σ2. Suppose, as in Example 12.6.1, that
+we are interested in estimating σ2/n, the variance of the sample mean X. To apply
+the parametric bootstrap, we replace F by ˆ F, a member of the family of normal
+distributions. For this example, we shall choose ˆ F to be the normal distribution
+with mean and variance equal to the M.L.E.’s x and ˆσ 2, respectively, although other
+choices could be made.We then estimate σ2/n by the variance of the sample meanX
+∗
+of a random sample from the distribution ˆ F. The variance of X
+∗
+is easily computed
+as ˆσ 2/n. In this case, the parametric bootstrap yields precisely the same answer as
+the nonparametric bootstrap.  
+In Examples 12.6.1 and 12.6.2, it was very simple to compute the variance of the
+sample mean of a random sample from the distribution ˆ F. In typical applications of
+the bootstrap, it is not so simple to compute the quantity of interest. For example,
+there is no simple formula for the variance of the sample median of a sample X∗ from
+ˆ F in Examples 12.6.1 and 12.6.2. In such cases, one resorts to simulation techniques in
+order to approximate the desired calculation. Before presenting examples of the use
+of simulation in the bootstrap, we shall first describe the general class of situations
+in which bootstrap analysis is used.
+12.6 The Bootstrap 841
+Table 12.10 Correspondence between statistical model and bootstrap analysis
+Statistical model Bootstrap
+Distribution Unknown F Known ˆ F
+Data i.i.d. sample X from F i.i.d. sample X∗ from ˆ F
+Function of interest η(X, F) η(X∗
+, ˆ F)
+Parameter/estimate Mean, median, variance, etc. of η(X, F) Mean, median, variance, etc. of η(X∗
+, ˆ F)
+The Bootstrap in General
+Let η(X, F) be a quantity of interest that possibly depends on both a distribution F
+and a sample X drawn from F. For example, if the distribution F has the p.d.f. f, we
+might be interested in
+η(X, F) =
+ 
+1
+n
+ n
+i=1
+Xi
+−
+ 
+xf (x) dx
+ 2
+. (12.6.1)
+In Examples 12.6.1 and 12.6.2, we wanted the variance of the sample average, which
+equals the mean of the quantity in Eq. (12.6.1). In general, we might wish to estimate
+the mean or a quantile or some other probabilistic feature of η(X, F). The bootstrap
+estimates the mean or a quantile or some other feature of η(X, F) by the mean or
+quantile or the other feature of η(X∗
+, ˆ F), where X∗ is a random sample drawn from
+the distribution ˆ F, and ˆ F is some distribution that we hope is close to F. Table 12.10
+shows the correspondence between the original statistical model for the data and the
+quantities that are involved in a bootstrap analysis. The function η of interest must be
+something that exists for all distributions under consideration and all samples from
+those distributions. Other quantities that might be of interest include the quantiles
+of the distribution of a statistic, the M.A.E. or M.S.E. of an estimator, the bias of an
+estimator, probabilities that statistics lie in various intervals, and the like.
+In the simple examples considered so far, the distribution of η(X∗
+, ˆ F) was both
+known and easy to compute. It will often be the case that the distribution of η(X∗
+, ˆ F)
+is too complicated to allow analytic computation of its features. In such cases, one
+approximates the bootstrap estimate using simulation. First, draw a large number
+(say, v) of random samplesX∗(1), . . . , X∗(v) from the distribution ˆ F and then compute
+T (i) = η(X∗(i), ˆ F) for i = 1, . . . , v. Finally, compute the desired feature of the sample
+c.d.f. of the values T (1), . . . , T (v).
+Example
+12.6.3
+The M.S.E. of the Sample Median. Suppose that we model our data X = (X1, . . . , Xn)
+as coming from some continuous distribution with the c.d.f. F having median θ.
+Suppose also that we are interested in using the sample median M as an estimator
+of θ. We would like to estimate the M.S.E. of M as an estimator of θ. That is, let
+η(X, F) = (M − θ)2, and try to estimate the mean of η(X, F). Let ˆ F be a known
+distribution that we hope is similar to F, and letX∗ be a random sample of size n from
+ˆ F. Regardless of what distribution ˆ F we choose, it is very difficult to compute the
+bootstrap estimate, the mean of η(X∗
+, ˆ F). Instead, we would simulate a large number
+v of samples X∗(1), . . . , X∗(v) with the distribution ˆ F and then compute the sample
+842 Chapter 12 Simulation
+Figure 12.11 Sample medians
+of 10,000 bootstrap
+samples in Example 12.6.3.
+20.5 0 0.5 1.0
+500
+1000
+1500
+2000
+2500
+Sample median
+Count
+median of each sample M(1), . . . , M(v). Then we compute T (i) = (M(i) − ˆ θ)2 for i =
+1, . . . , v, where ˆ θ is the median of the distribution ˆ F. Our simulation approximation
+to the bootstrap estimate is then the average of the values T (1), . . . , T (v).
+As an example, suppose that our sample consists of the n = 25 values y1, . . . , y25
+listed in Table 10.33 on page 662. For a nonparametric bootstrap analysis, we would
+use ˆ F = Fn, which is also listed in Table 10.33. Notice that the median of the distribution
+ˆ F is the sample median of the original sample, ˆ θ = 0.40. Next, we simulate
+v =10,000 random samples of size 25 from the distribution ˆ F. This is done by selecting
+25 numbers with replacement from the yi values and repeating for a total of 10,000
+samples of size 25. (Solve Exercise 2 to show why this provides the desired samples
+X∗(1), . . . , X∗(v).) For example, here is one of the 10,000 bootstrap samples:
+1.64 0.88 0.70 −1.23 −0.15 1.40 −0.07 −2.46 −2.46 −0.10
+−0.15 1.62 0.27 0.44 −0.42 −2.46 1.40 −0.10 0.88 0.44
+−1.23 1.07 0.81 −0.02 1.62
+If we sort the numbers in this sample, we find that the sample median is 0.27. In
+fact, there were 1485 bootstrap samples out of 10,000 that had sample median equal
+to 0.27. Figure 12.11 contains a histogram of all 10,000 sample medians from the
+bootstrap samples. The four largest and four smallest observations in the original
+sample never appeared as sample medians in the 10,000 bootstrap samples. For
+each of the 10,000 bootstrap samples i, we compute the sample median M(i) and
+its squared error T (i) = (M(i) − ˆ θ)2, where ˆ θ = 0.40 is the median of the distribution
+ˆ F.We then average all of these values over the 10,000 samples and obtain the value
+0.0887.This is our simulation approximation to the nonparametric bootstrap estimate
+of the M.S.E. of the sample median. The sample variance of the simulated T (i)
+values is ˆσ 2 = 0.0135, and the simulation standard error of the bootstrap estimate
+is ˆσ/
+√
+10, 000 = 1.163 × 10−3.  
+Note: Simulation Approximation of Bootstrap Estimates. The bootstrap is an estimation
+technique. As such, it produces estimates of parameters of interest. When
+a bootstrap estimate is too difficult to compute, we resort to simulation. Simulation
+provides an estimator of the bootstrap estimate. In this text, we shall refer to the
+simulation estimator of a bootstrap estimate as an approximation.We do this merely
+to avoid having to refer to estimators of estimates.
+12.6 The Bootstrap 843
+The bootstrap was introduced by Efron (1979), and there have been many applications
+since then. Readers interested in more detail about the bootstrap should
+see Efron and Tibshirani (1993) or Davison and Hinkley (1997). Young (1994) gives
+a review of much of the literature on the bootstrap and contains many useful references.
+In the remainder of this section, we shall present several examples of both
+the parametric and nonparametric bootstraps and illustrate how simulation is used
+to approximate the desired bootstrap estimates.
+The Nonparametric Bootstrap
+Example
+12.6.4
+Confidence Interval for the Interquartile Range. The interquartile range (IQR) of a
+distribution was introduced in Definition 4.3.2. It is defined to be the difference
+between the upper and lower quartiles, the 0.75 and 0.25 quantiles. The central
+50 percent of the distribution lies between the lower and upper quartiles, so the
+IQR is the length of the interval that contains the middle half of the distribution.
+For example, if F is the normal distribution with variance σ2, then the IQR is 1.35σ.
+Suppose that we desire a 90 percent confidence interval for the IQR θ of the
+unknown distribution F from which we have a random sampleX1, . . . , Xn. There are
+many ways to form confidence intervals, sowe shall restrict attention to those that are
+based on the relationship between θ and the sample IQR ˆ θ. Since the IQR is a scale
+feature, it might be reasonable to base our confidence interval on the distribution of
+ˆ θ/θ. That is, let the 0.05 and 0.95 quantiles of the distribution of ˆ θ/θ be a and b, so
+that
+Pr
+ 
+a ≤
+ˆ θ
+θ
+≤ b
+ 
+= 0.9.
+Because a ≤ ˆ θ/θ ≤ b is equivalent to ˆ θ/b ≤ θ ≤ ˆ θ/a, we conclude that ( ˆ θ/b, ˆ θ/a) is
+a 90 percent confidence interval for θ. The nonparametric bootstrap can be used
+to estimate the quantiles a and b as follows: Let η(X, F) = ˆ θ/θ be the ratio of the
+sample IQR of the sample X to the IQR of the distribution F. Let ˆ F = Fn, and notice
+that the IQR of ˆ F is ˆ θ, the sample IQR. Next, let X∗ be a sample of size n from ˆ F.
+Let ˆ θ
+∗ be the sample IQR calculated from X∗, so that η(X∗
+, ˆ F) = ˆ θ
+∗
+/ ˆ θ. The 0.05
+and 0.95 quantiles of the distribution of η(X, F) are estimated by the 0.05 and 0.95
+quantiles of the distribution of η(X∗
+, ˆ F). These last quantiles, in turn, are typically
+approximated by simulation.We simulate a large number, say, v, of bootstrap samples
+X∗(i) for i = 1, . . . , v. For each bootstrap sample i, we compute the sample IQR ˆ θ
+∗(i)
+and divide it by ˆ θ. Call the ratio T (i). The q quantile of ˆ θ
+∗
+/ ˆ θ is approximated by the
+sample q quantile of the sample T (1), . . . , T (v). The confidence interval constructed
+by this method is called a percentile bootstrap confidence interval.
+We can illustrate this with the data in Table 10.33 on page 662. The IQR of the
+distribution Fn is 1.46, the difference between the 19th and 6th observations. We
+simulate 10,000 random samples of size 25 from the distribution Fn. For the ith sample,
+we compute the sample IQR ˆ θ
+∗(i) and divide it by 1.46 to obtain T (i). The 500th
+and 9500th ordered values from T (1), . . . , T (10,000) are 0.5822 and 1.6301. We then
+compute the percentile bootstrap confidence interval (1.46/1.6301, 1.46/0.5822) =
+(0.8956, 2.5077).  
+Example
+12.6.5
+Confidence Interval for a Location Parameter. Let X1, . . . , Xn be a random sample
+from the distribution F. Suppose that we want a confidence interval for the median
+θ of F. We can base a confidence interval on the sample median M. For example,
+844 Chapter 12 Simulation
+our interval could be of the form [M − c1, M + c2]. Since M − c1 ≤ θ ≤ M + c2 is
+equivalent to −c2 ≤ M − θ ≤ c1, we might want −c2 and c1 to be quantiles of the
+distribution of M − θ. Without making assumptions about the distribution F, it
+might be very difficult to approximate quantiles of the distribution of M − θ. To
+compute a percentile bootstrap confidence interval, let η(X, F) = M − θ and then
+approximate quantiles (such as α0/2 and 1− α0/2) of the distribution of η(X, F)
+by the corresponding quantiles of η(X∗
+, ˆ F). Here, ˆ F is the sample c.d.f., Fn, whose
+median is M, and X∗ is a random sample from ˆ F. We then choose a large number v
+and simulate many samples X∗(i) for i = 1, . . . , v. For each sample, we compute the
+sample median M
+∗(i) and then find the sample quantiles of the values M
+∗(i) −M for
+i = 1, . . . , v.  
+How well the percentile bootstrap interval performs in Example 12.6.5 depends
+on how closely the distribution of M
+∗ − M approximates the distribution of M −
+θ. (Here, M
+∗ is the median of a sample X∗ of size n from ˆ F.) The situation of
+Example 12.6.5 is one in which there is a possible improvement to the approximation.
+One thing that can make the distribution of M
+∗ −M different from the distribution
+of M − θ is that one of these distributions is more or less spread out than the other.
+We can use a different bootstrap approximation that suffers less from differences in
+spread. Instead of constructing an interval of the form [M − c1, M + c2], we could
+let our interval be [M − d1Y, M + d2Y ], where Y is a statistic that measures the
+spread of the data. One possibility for Y is the sample IQR. Another possible spread
+measure is the sample median absolute deviation (the sample median of the values
+|X1 −M|, . . . , |Xn
+−M|). Now, we see thatM − d1Y ≤ θ ≤M + d2Y is equivalent to
+−d2 ≤ M − θ
+Y
+≤ d1.
+So, we want −d2 and d1 to be quantiles of the distribution of (M − θ)/Y. This type of
+interval resembles the t confidence interval developed in Sec. 8.5. Indeed, the interval
+we are constructing is called a percentile-t bootstrap confidence interval. To construct
+the percentile-t bootstrap confidence interval, we would use each bootstrap sample
+X∗ as follows: Compute the sample median M
+∗ and the scale statistic Y
+∗ from the
+bootstrap sampleX∗. Then calculate T = (M
+∗ − M)/Y
+∗. Repeat this procedure many
+times producing T (1), . . . , T (v) from a large number v of bootstrap samples. Then let
+−d2 and d1 be sample quantiles (such as α0/2 and 1− α0/2) of the T (i) values.
+Example
+12.6.6
+Percentile-t Confidence Interval for a Median. Consider the n = 10 lactic acid concentrations
+in cheese from Example 8.5.4. We shall do v =10,000 bootstrap simulations
+to find a coefficient 1− α0 = 0.90 confidence interval for the median lactic
+acid concentration θ. The median of the sample values is M = 1.41, and the median
+absolute deviation is Y = 0.245. The 0.05 and 0.95 sample quantiles of the
+(M
+∗(i) − M)/Y
+∗(i) values are −2.133 and 1.581. This makes the percentile-t bootstrap
+confidence interval (1.41− 1.581×0.245, 1.41+ 2.133×0.245) = (1.023, 1.933).
+For comparison, the 0.05 and 0.95 sample quantiles of the values of M
+∗(i) − M are
+−0.32 and 0.16, respectively. This makes the percentile bootstrap interval equal to
+(1.41− 0.16, 1.41+ 0.32) = (1.25, 1.73).  
+The percentile-t interval in Example 11.5.6 is considerably wider than the percentile
+interval. This reflects the fact that the Y
+∗ values from the bootstrap samples
+are quite spread out. This in turn suggests that the spread that we should expect to
+see in a sample has substantial variability. Hence, it is probably not a good idea to
+assume that the spread of the distribution of M
+∗ − M is the same as the spread of
+12.6 The Bootstrap 845
+the distribution of M − θ. The percentile-t bootstrap interval is generally preferred
+to the percentile bootstrap interval when both are available. This is due to the fact
+that the distribution of (M
+∗ − M)/Y
+∗ depends less on ˆ F than does the distribution
+of M
+∗ −M. In particular, (M
+∗ − M)/Y
+∗ does not depend on any scale parameter of
+the distribution ˆ F. For this reason, we expect more similarity between the distributions
+of (M
+∗ − M)/Y
+∗ and (M − θ)/Y than we expect between the distributions of
+M
+∗ −M and M − θ.
+Example
+12.6.7
+Features of the Distribution of a Sample Correlation. Let (X, Y ) have a bivariate joint
+distribution F with finite variances for both coordinates, so that it makes sense to talk
+about correlation. Suppose that we observe a random sample (X1, Y1), . . . , (Xn, Yn)
+from the distribution F. Suppose further that we are interested in the distribution of
+the sample correlation:
+R =
+ n
+i=1(Xi
+− X)(Yi
+− Y)
+ # n
+i=1(Xi
+− X)2
+$ # n
+i=1(Yi
+− Y)2
+$ 1/2 . (12.6.2)
+We might be interested in the variance of R, or the bias of R, or some other feature of
+R as an estimator of the correlation ρ between X and Y .Whatever our goal is, we can
+make use of the nonparametric bootstrap. For example, consider the bias of R as an
+estimator of ρ. This bias equals the mean of η(X, F) = R − ρ.We begin by replacing
+the joint distribution F by the sample distribution Fn of the observed pairs. This Fn
+is a discrete joint distribution on pairs of real numbers, and it assigns probability 1/n
+to each of the n observed sample pairs. If (X
+∗
+, Y
+∗
+) has the distribution Fn, it is easy to
+check (see Exercise 8) that the correlation between X
+∗ and Y
+∗ is R.We then choose
+a large number v and simulate v samples of size n from Fn. For each i, we compute
+the sample correlation R(i) by plugging the ith bootstrap sample into Eq. (12.6.2).
+For each i, we compute T (i) = R(i) − R, and we estimate the mean of R − ρ by the
+average 1
+v
+ v
+i=1 T (i).
+As a numerical example, consider the flea beetle data from Example 5.10.2. The
+sample correlation is R = 0.6401. We sample v = 10,000 bootstrap samples of size
+n = 31. The average sample correlation in the 10,000 bootstrap samples is 0.6354
+with a simulation standard error of 0.001. We then estimate the bias of the sample
+correlation to be 0.6354 − 0.6401=−0.0047.  
+The Parametric Bootstrap
+Example
+12.6.8
+Correcting the Bias in the Coefficient of Variation. The coefficient of variation of a
+distribution is the ratio of the standard deviation to the mean. (Typically, people only
+compute the coefficient of variation for distributions of positive random variables.)
+If we believe that our data X1, . . . ,Xn come from a lognormal distribution with
+parameters μ and σ2, then the coefficient of variation is θ = (eσ2 − 1)1/2. The M.L.E.
+of the coefficient of variation is ˆ θ = (e
+ˆσ
+2 − 1)1/2, where ˆσ is the M.L.E. of σ. We
+expect the M.L.E. of the coefficient of variation to be a biased estimator because
+it so nonlinear. Computing the bias is a difficult task. However, we can use the
+parametric bootstrap to estimate the bias. The M.L.E. ˆσ of σ is the square root of the
+sample variance of log(X1), . . . , log(Xn). The M.L.E. ˆμ of μ is the sample average of
+log(X1), . . . , log(Xn). We can simulate a large number of random samples of size n
+from the lognormal distribution with parameters ˆμ and ˆσ 2. For each i, we compute
+846 Chapter 12 Simulation
+ˆσ
+∗(i), the sample standard deviation of the ith bootstrap sample.We estimate the bias
+of ˆ θ by the sample average of the values T (i) = (e[ˆσ ∗(i)]2 − 1)1/2 − ˆ θ.
+As an example, consider the failure times of ball bearings introduced in Example
+5.6.9. If we model these data as lognormal, the M.L.E.’s of the parameters
+are ˆμ = 4.150 and ˆσ = 0.5217. The M.L.E. of θ is ˆ θ = 0.5593. We could draw 10,000
+random samples of size 23 from a lognormal distribution and compute the sample
+variances of the logarithms. However, there is an easier way to do this simulation.
+The distribution of [ˆσ ∗(i)]2 is that of a χ2 random variable with 22 degrees of freedom
+times 0.52172/23. Hence, we shall just sample 10,000 χ2 random variables with
+22 degrees of freedom, multiply each one by 0.52172/23, and call the ith one [ˆσ ∗(i)]2.
+After doing this, the sample average of the 10,000 T (i) values is −0.01825, which is
+our parametric bootstrap estimate of the bias of ˆ θ. (The simulation standard error is
+9.47 × 10−4.) Because our estimate of the bias is negative, this means that we expect
+ˆ θ to be smaller than θ. To “correct” the bias, we could add 0.01825 to our original
+estimate ˆ θ and produce the new estimate 0.5593 + 0.01825 = 0.5776.  
+Example
+12.6.9
+Estimating the Standard Deviation of a Statistic. Suppose that X1, . . . , Xn is a random
+sample from the normal distribution with mean μ and variance σ2.We are interested
+in the probability that a random variable having this same distribution is at most
+c. That is, we are interested in estimating θ =  ([c − μ]/σ ). The M.L.E. of θ is
+ˆ θ =  ([c − X]/ ˆσ). It is not easy to calculate the standard deviation of ˆ θ in closed
+form. However, we can draw many, say, v, bootstrap samples of size n from the
+normal distribution with mean x and variance ˆσ 2. For the ith bootstrap sample,
+we compute a sample average x
+∗(i), a sample standard deviation ˆσ ∗(i), and, finally,
+ˆ θ
+∗(i) =  ([c − x
+∗(i)]/ˆσ ∗(i)). We estimate the mean of ˆ θ by
+θ
+∗ = 1
+v
+ v
+i=1
+ˆ θ
+∗(i).
+(This can also be used, as in Example 12.6.8, to estimate the bias of ˆ θ.) The standard
+deviation of ˆ θ can then be estimated by the sample standard deviation of the ˆ θ
+∗(i)
+values,
+Z =
+ 
+1
+v
+ v
+i=1
+( ˆ θ
+∗(i) − θ
+∗
+)2
+ 1/2
+.
+For example, we can use the nursing home data from Sec. 8.6. There are n = 18
+observations, and we might be interested in  ([200 − μ]/σ ). The M.L.E.’s of μ and σ
+are ˆμ = 182.17 and ˆσ = 72.22. The observed value of ˆ θ is  ([200 − 182.17]/72.22) =
+0.5975. We simulate 10,000 samples of size 18 from the normal distribution with
+mean 182.17 and variance (72.22)2. For the ith sample, we find the value ˆ θ
+∗(i) for
+i = 1, . . . , 10,000, and the average of these is θ
+∗ = 0.6020 with sample standard
+deviation Z = 0.09768.
+We can compute the simulation standard error of the approximation to the
+bootstrap estimate in two steps.First, apply the method of Example 12.2.10.This gives
+the simulation standard error ofZ2, the sample variance of the ˆ θ
+∗(i)’s. In our example,
+this yields the value 1.365× 10−4. Second, use the delta method, as in Example 12.2.8,
+to find the simulation standard error of the square root of Z2. In our example, this
+second step yields the value 6.986 × 10−4.  
+12.6 The Bootstrap 847
+Example
+12.6.10
+Comparing Means When Variances Are Unequal. Suppose that we have two samples
+X1, . . . , Xm and Y1, . . . , Yn from two possibly different normal distributions. That
+is, X1, . . . , Xm are i.i.d. from the normal distribution with mean μ1 and variance σ2
+1 ,
+while Y1, . . . , Yn are i.i.d. from the normal distribution with mean μ2 and variance
+σ2
+2. In Sec. 9.6, we saw how to test the null hypothesis H0 : μ1 = μ2 versus the
+alternative hypothesis H1 : μ1  = μ2 if we are willing to assume that we know the ratio
+k = σ2
+2/σ 2
+1 . If we are not willing to assume that we know the ratio k, we have seen
+only approximate tests.
+Suppose that we choose to use the usual two-sample t test even though we do not
+claim to know k. That is, suppose that we choose to reject H0 when |U| > c, where U
+is the statistic defined in Eq. (9.6.3) and c is the 1− α0/2 quantile of the t distribution
+withm + n − 2 degrees of freedom. This test will not necessarily have level α0 if k  = 1.
+We can use the parametric bootstrap to try to compute the level of this test. In fact,
+we can use the parametric bootstrap to help us choose a different critical value c
+∗ for
+the test so that we at least estimate the type I error probability to be α0.
+As an example, we shall use the data from Example 9.6.5 again. The M.L.E.’s of
+the variances of the two distributions were ˆσ 2
+1
+= 0.04 (for the X data) and ˆσ 2
+2
+= 0.022
+(for the Y data). The probability of type I error is the probability of rejecting the null
+hypothesis given that the null hypothesis is true, that is, given that μ1 = μ2. Hence,
+we must simulate bootstrap samples in which the X data and Y data have the same
+mean. Since the sample averages of the X and Y data are subtracted from each other
+in the calculation of U, it will not matter what common mean we choose for the two
+samples.
+So, the parametric bootstrap can proceed as follows: First, choose a large number
+v, and for i = 1, . . . , v, simulate (X
+∗(i)
+, Y
+∗(i)
+, S
+2∗(i)
+X , S
+2∗(i)
+Y ) where all four random
+variables are independent with the following distributions:
+. X
+∗(i) has the normal distribution with mean 0 and variance ˆσ 2
+1/m.
+. Y
+∗(i) has the normal distribution with mean 0 and variance ˆσ 2
+2/n.
+. S
+2∗(i)
+X is ˆσ 2
+1 times a random variable having the χ2 distribution with m − 1
+degrees of freedom.
+. S
+2∗(i)
+Y is ˆσ 2
+2 times a random variable having the χ2 distribution with n − 1degrees
+of freedom.
+Then compute
+U(i) = (m + n − 2)1/2(X
+∗(i) − Y
+∗(i)
+)
+ 
+1
+m
++ 1
+n
+ 1/2  
+S
+2∗(i)
+X
++ S
+2∗(i)
+Y
+ 1/2
+for each i. Our simulation approximation to the bootstrap estimate of the probability
+of type I error for the usual two-sample t test would be the proportion of simulations
+in which |U(i)| > c.
+With v = 10,000, we shall perform the analysis described above for several
+different c values. We set c equal to the 1 − α0/2 quantile of the t distribution
+with 16 degrees of freedom with α0 = j/1000 for each j = 1, . . . , 999. Figure 12.12
+shows a plot of the simulation approximation to the bootstrap estimate of the type I
+error probability against the nominal level α0 of the test. There is remarkably close
+agreement between the two, although the bootstrap estimate is generally slightly
+larger. For example, when α0 = 0.05, the bootstrap estimate is 0.065.
+848 Chapter 12 Simulation
+Figure 12.12 Plots of bootstrap
+estimated type I error
+probability of t test versus
+nominal type I error probability
+in Example 12.6.10.
+The dashed line is the diagonal
+along which the two error
+probabilities would be equal.
+Nominal type I error probability
+Bootstrap estimated type I error probability
+0.2 0.4 0.6 0.8 1.0
+1.0
+0.8
+0.6
+0.4
+0.2
+0
+Next, we use the bootstrap analysis to correct the level of the two-sample t test
+in this example. To do this, let Z be the sample 1− α0 quantile of our simulated |U(i)|
+values. If we want a level α0 test, we can replace the critical value c in the two-sample
+t test with Z and reject the null hypothesis if |U|>Z. For example, with α0 = 0.05,
+the 0.975 quantile of the t distribution is 2.12, while in our simulation Z = 2.277. The
+simulation standard error of Z (based on splitting the 10,000 bootstrap samples into
+10 subsamples of 1000 each) is 0.0089.  
+Example
+12.6.11
+The Bias of the Sample Correlation. In Example 12.6.7, we made no assumptions about
+the distribution F of (X, Y ) except that X and Y have finite variances. Now suppose
+that we also assume that (X, Y ) has a bivariate normal distribution.We can compute
+the M.L.E.’s of all of the parameters as in Exercise 24 in Sec. 7.6. We could then
+simulate v samples of size n from the bivariate normal distribution with parameters
+equal to the M.L.E.’s, as in Example 12.3.6. For sample i for i = 1, . . . , v, we could
+compute the sample correlation R(i) by substituting the ith sample into Eq. (12.6.2).
+Our estimate of the bias would be R − ρˆ. Note that ρˆ, the M.L.E. of ρ, is the same
+as R.
+As a numerical example, consider the flea beetle data from Example 5.10.2. The
+sample correlation isR = 0.6401.We construct v = 10,000 samples of size n = 31from
+a bivariate normal distribution with correlation 0.6401. The means and variances do
+not affect the distribution of R. (See Exercise 12.) The average sample correlation
+in the 10,000 bootstrap samples is 0.6352 with a simulation standard error of 0.001.
+We then estimate the bias of the sample correlation to be 0.6352 − 0.6401=−0.0049.
+This is pretty much the same as we obtained using the nonparametric bootstrap in
+Example 12.6.7.  
+Summary
+The bootstrap is a method for estimating probabilistic features of a function η of our
+data X and their unknown distribution F. That is, suppose that we are interested in
+the mean, a quantile, or some other feature of η(X, F). The first step in the bootstrap
+is to replace F by a known distribution ˆ F that is like F in some way. Next, replace
+X by data X∗ sampled from ˆ F. Finally, compute the mean, quantile, or other feature
+of η(X∗
+, ˆ F) as the bootstrap estimate. This last step generally requires simulation
+except in the simplest examples. There are two varieties of bootstrap that differ by
+12.6 The Bootstrap 849
+how ˆ F is chosen. In the nonparametric bootstrap, the sample c.d.f. is used as ˆ F. In
+the parametric bootstrap, F is assumed to be a member of some parametric family
+and ˆ F is chosen by replacing the unknown parameter by its M.L.E. or some other
+estimate.

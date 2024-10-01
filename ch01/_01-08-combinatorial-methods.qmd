@@ -13,7 +13,7 @@
 Consider the set $\{a, b, c, d\}$ containing the four different letters. We want to count the number of distinct subsets of size two. In this case, we can list all of the subsets of size two:
 
 $$
-\{a, b\}, \; \{a, c\}, \; \{a, d\}, \; \{b, c\}, \; \{b, d\}, \; and \{c, d\}.
+\{a, b\}, \; \{a, c\}, \; \{a, d\}, \; \{b, c\}, \; \{b, d\}, \text{ and } \{c, d\}.
 $$
 
 We see that there are six distinct subsets of size two. This is different from counting permutaions because $\{a, b\}$ and $\{b, a\}$ are the same subset.

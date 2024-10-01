@@ -1,0 +1,1235 @@
+
+  12.5 Markov Chain Monte Carlo
+The techniques described in Sec. 12.3 for generating pseudo-random numbers with
+particular distributions are most useful for univariate distributions. They can be
+applied in many multivariate cases, but they often become unwieldy. A method
+based on Markov chains (see Sec. 3.10) became popular after publications by
+Metropolis et al. (1953) and Gelfand and Smith (1990). We shall present only the
+simplest form of Markov chain Monte Carlo in this section.
+824 Chapter 12 Simulation
+The Gibbs Sampling Algorithm
+We shall begin with an attempt to simulate a bivariate distribution. Suppose that the
+joint p.d.f. of (X1, X2) is f (x1, x2) = cg(x1, x2), where we know the function g but
+not necessarily the value of the constant c. This type of situation arises often when
+computing posterior distributions. If X1 and X2 are the parameters, the function g
+might be the product of the prior p.d.f. times the likelihood function (in which the data
+are treated as known values). The constant c = 1/
+ 
+g(x1, x2) dx1 dx2 makes cg(x1, x2)
+the posterior p.d.f. Often it is difficult to compute c, although the methods of Sec. 12.4
+might be helpful. Even if we can approximate the constant c, there are other features
+of the posterior distribution that we might not be able to compute easily, so simulation
+would be useful.
+If the function g(x1, x2) has a special form, then there is a powerful algorithm for
+simulating vectors with the p.d.f. f . The required form can be described as follows:
+First, consider g(x1, x2) as a function of x1 for fixed x2. This function needs to look
+like a p.d.f. (for X1) from which we know how to simulate pseudo-random values.
+Similarly, if we consider g(x1, x2) as a function of x2 for fixed x1, the function needs
+to look like a p.d.f. for X2 from which can simulate.
+Example
+12.5.1
+Sample from a Normal Distribution. Suppose that we have observed a sample from the
+normal distribution with unknown mean μ and unknown precision τ . Suppose that
+we use a natural conjugate prior of the form described in Sec. 8.6. The product of
+the prior and the likelihood is given by Eq. (8.6.7) without the appropriate constant
+factor. We reproduce a version of that equation here for convenience:
+ξ(μ, τ|x) ∝ τ α1+1/2−1 exp
+
+
+−τ
+ 
+1
+2
+λ1(μ − μ1)2 + β1
+  
+,
+where α1, β1, μ1, and λ1 are known values once the data have been observed.
+Considering this as a function of μ for fixed τ , it looks like the p.d.f. of the normal
+distribution with mean μ1 and variance (τλ1)
+−1. Considering it as a function of τ for
+fixed μ, it looks like the p.d.f. of the gamma distribution with parameters α1 + 1/2
+and λ1(μ − μ1)2/2 + β1. Both of these distributions are easy to simulate.  
+When we consider g(x1, x2) as a function of x1 for fixed x2, we are looking at the
+conditional p.d.f. of X1 given X2 = x2, except for a multiplicative factor that does not
+depend on x1. (See Exercise 1.) Similarly, when we consider g(x1, x2) as a function
+of x2 for fixed x1, we are looking at the conditional p.d.f. of X2 given X1 = x1.
+Once we have determined that the function g(x1, x2) has the desired form, our
+algorithm proceeds as follows:
+1. Pick a starting value x(0)
+2 for X2, and set i = 0.
+2. Simulate a new value x(i+1)
+1 from the conditional distribution of X1 given X2 =
+x(i)
+2 .
+3. Simulate a new value x(i+1)
+2 from the conditional distribution of X2 given X1 =
+x(i+1)
+1 .
+4. Replace i by i + 1 and return to step 2.
+The algorithm typically terminates when i reaches a sufficiently large value. Although
+there currently are no truly satisfactory convergence criteria, we shall introduce one
+convergence criterion later in this section. This algorithm is commonly called Gibbs
+12.5 Markov Chain Monte Carlo 825
+sampling.The name derives from an early use of the technique byGemanandGeman
+(1984) for sampling from a distribution that was known as the Gibbs distribution.
+Some Theoretical Justification
+So far, we have given no justification for the Gibbs sampling algorithm. The justification
+stems from the fact that the successive pairs (x(1)
+1 , x(1)
+2 ), (x(2)
+1 , x(2)
+2 ) . . . form the
+observed sequence of states from a Markov chain. This Markov chain is much more
+complicated than any of the Markov chains encountered in Sec. 3.10 for two reasons.
+First, the states are two-dimensional, and second, the number of possible states is
+infinite rather than finite. Even so, one can easily recognize the basic structure of a
+Markov chain in the description of the Gibbs sampling algorithm. Suppose that i is
+the current value of the iteration index. The conditional distribution of the next state
+pair (X(i+1)
+1 , X(i+1)
+2 ) given all of the available state pairs (X(1)
+1 , X(1)
+2 ), . . . , (X(i)
+1 , X(i)
+2 )
+depends only on (X(i)
+1 , X(i)
+2 ), the current state pair. This is the same as the defining
+property of finite Markov chains in Sec. 3.10.
+Even if we agree that the sequence of pairs forms a Markov chain, why should
+we believe that they come from the desired distribution? The answer lies in a generalization
+of the second part of Theorem 3.10.4 to more general Markov chains.
+The generalization is mathematically too involved to present here, and it requires
+conditions that involve concepts that we have not introduced in this book.
+Nevertheless, the Gibbs sampler is constructed from a joint distribution that one
+can show (see Exercise 2) is a stationary distribution for the resulting Markov chain.
+For the cases that we illustrate in this book, the distribution of the Gibbs sampler
+Markov chain does indeed converge to this stationary distribution as the number
+of transitions increases. (For a more general discussion, see Tierney, 1994.) Because
+of the close connection with Markov chains, Gibbs sampling (and several related
+techniques) are often called Markov chain Monte Carlo.
+When Does the Markov Chain Converge?
+Although the distribution of a Markov chain may converge to its stationary distribution,
+after any finite time the distribution will not necessarily be the stationary
+distribution. In general, the distribution will get pretty close to the stationary distribution
+in finite time, but how do we tell, in a particular application, if we have
+sampled the Markov chain long enough to be confident that we are sampling from
+something close to the stationary distribution? Much work has been done to address
+this question, but there is no foolproof method. Several methods for assessing convergence
+of a Markov chain in a Monte Carlo analysis were reviewed by Cowles and
+Carlin (1996). Here we present one simple technique.
+Begin by sampling several versions of the Markov chain starting at k different
+initial values x(0)
+2,1, . . . , x(0)
+2, k. These k Markov chains will be useful not only for assessing
+convergence but also for estimating the variances of our simulation estimators.
+It is wise to choose the initial values x(0)
+2,1, . . . , x(0)
+2, k to be quite spread out. This will
+help us to determine whether we have a Markov chain that is very slow to converge.
+Next, apply the Gibbs sampling algorithm starting at each of the k initial values. This
+gives us k independent Markov chains, all with the same stationary distribution. If
+the k Markov chains have been sampled for m iterations, we can think of the observed
+values of X1 (or of X2) as k samples of size m each. For ease of notation, let
+Ti,j stand for either the value of X1 or the value of X2 from the jth iteration of the
+826 Chapter 12 Simulation
+ith Markov chain. (We shall repeat the following analysis once for X1 and once for
+X2.) Now, treat Ti,j for j = 1, . . . , m as a sample of size m from the ith of k distributions
+for i = 1, . . . , k. If we have sampled long enough for the Markov chains to have
+converged approximately, then all k of these distributions should be nearly the same.
+This suggests that we use the F statistic from the discussion of analysis of variance
+(Sec. 11.6) to measure how close the k distributions are. The F statistic can be written
+as F = B/W where
+B = m
+k − 1
+ k
+i=1
+(T i+ − T ++)2,
+W = 1
+k(m − 1)
+ k
+i=1
+ m
+j=1
+(Tij
+− T i+)2.
+Here we have used the same notation as in Sec. 11.6 in which the + subscript
+appears in a position wherever we have averaged over all values of the subscript
+in that position. If the k distributions are different, then F should be large. If the
+distributions are the same, then F should be close to 1. As we mentioned earlier,
+we compute two F statistics, one using the X1 coordinates and one using the X2
+coordinates. Then we could declare that we have sampled long enough when both
+F statistics are simultaneously less than some number slightly larger than 1. Gelman
+et al. (1995) describe essentially this same procedure and recommend comparing
+the maximum of the two F statistics to 1+ 0.44m. It is probably a good idea to
+start with at least m = 100 (if the iterations are fast enough) before beginning to
+compute the F statistics. This will help to avoid accidentally declaring success due
+to some “lucky” early simulations. The initial sequence of iterations of the Markov
+chain, before we declare convergence, is commonly called burn-in. After the burn-in
+iterations, one would typically treat the ensuing iterations as observations from the
+stationary distribution. It is common to discard the burn-in iterations because we are
+not confident that their distribution is close to the stationary distribution. Iterations
+of a Markov Chain are dependent, however, so one should not treat them as an
+i.i.d. sample. Even though we computed an F statistic from the various dependent
+observations, we did not claim that the statistic had an F distribution. Nor did we
+compare the statistic to a quantile of an F distribution to make our decision about
+convergence.We merely used the statistic as an ad hoc measure of how different the
+k Markov chains are.
+Example
+12.5.2
+Nursing Homes in NewMexico. We shall use the data from Sec. 8.6 on the numbers of
+medical in-patient days in 18 nonrural nursing homes in New Mexico in 1988. There,
+we modeled the observations as a random sample from the normal distribution with
+unknown mean μ and unknown precision τ . We used a natural conjugate prior and
+found the posterior hyperparameters to be α1 = 11, β1 = 50925.37, μ1 = 183.95, and
+λ1 = 20. We shall illustrate the above convergence diagnostic for the Gibbs sampling
+algorithm described in Example 12.5.1. As we found in Example 12.5.1, the
+conditional distribution of μ given τ is the normal distribution with mean 183.95
+and variance (20τ)
+−1. The conditional distribution of τ given μ is the gamma distribution
+with parameters 11.5 and 50925.37 + 20(μ − 183.95)2. We shall start with
+the following k = 5 initial values for μ: 182.17, 227, 272, 137, 82. These were chosen
+by making a crude approximation to the posterior standard deviation of μ, namely,
+(β1/[λ1α1])1/2 ≈ 15, and then using the posterior mean together with values 3 and 6
+posterior standard deviations above and below the posterior mean. We have to run
+the five Markov chains to the m = 2 iteration before we can compute the F statistics.
+12.5 Markov Chain Monte Carlo 827
+In our simulation, at m = 2, the larger of the two F statistics was already as low as
+0.8862, and it stayed very close to 1 all the way to m = 100, at which time it seemed
+clear that we should stop the burn-in.  
+Estimation Based on Gibbs Sampling
+So far, we have argued (without proof) that if we run the Gibbs sampling algorithm
+for many iterations (through burn-in), we should start to see pairs (X(i)
+1 , X(i)
+2 ) whose
+joint p.d.f. is nearly the function f from which we wanted to sample. Unfortunately,
+the successive pairs are not independent of each other even if they do have the
+same distribution. The law of large numbers does not tell us that the average of
+dependent random variables with the same distribution converges. However, the
+type of dependence that we get from a Markov chain is sufficiently regular that there
+are theorems that guarantee convergence of averages and even that the averages are
+asymptotically normal. That is, suppose that we wish to estimate the mean μ of some
+function h(X1, X2) based on m observations from the Markov chain. We can still
+assume that 1
+m
+ m
+i=1 h(X(i)
+1 , X(i)
+2 ) converges to μ, and that it has approximately the
+normal distribution with mean μ and variance σ2/m. However, the convergence will
+typically be slower than for i.i.d. samples, and σ2 will be larger than the variance of
+h(X1, X2). The reason for this is that the successive values of h(X(i)
+1 , X(i)
+2 ) are usually
+positively correlated. The variance of an average of positively correlated identically
+distributed random variables is higher than the variance of an average of the same
+number of i.i.d. random variables. (See Exercise 4.)
+We shall deal with the problems caused by correlated samples by making use of
+the same k independent Markov chains that we used for determining how much burnin
+to do. Discard the burn-in and continue to sample each Markov chain for m0 more
+iterations. From each Markov chain, we compute our desired estimator, either an
+average, a sample quantile, a sample variance, or other measure, Zj for j = 1, . . . , k.
+We then compute S as in Eq. (12.2.2); that is,
+S =
+⎛
+⎝1
+k
+ k
+j=1
+(Zj
+− Z)2
+⎞
+⎠
+1/2
+. (12.5.1)
+Then S2 is an estimator of the simulation variance of the Zj ’s. Write the simulation
+variance as σ2/m0 and estimate σ2 by ˆσ 2 = m0S2 as we did in Example 12.2.9. Also,
+combine all samples from all k chains into a single sample, and use this single sample
+to form the overall estimator Z. The simulation standard error of our estimator Z is
+then (ˆσ 2/(m0k))1/2 = S/k1/2.
+In addition, we may wish to determine how many simulations to perform in
+order to obtain a precise estimator. We can substitute ˆσ for σ in Eq. (12.2.5) to get
+a proposed number of simulations v. These v simulations would be divided between
+the k Markov chains so that each chain would be run for at least v/k iterations if
+v/k > m0.
+Some Examples
+Example
+12.5.3
+Nursing Homes in New Mexico. We actually do not need Gibbs sampling in order to
+simulate a sample from the posterior distribution in Example 12.5.1. The reason is
+that we have a closed-form expression for the joint distribution of μ and τ in that
+example. Each of the marginal and conditional distributions are known and easy
+828 Chapter 12 Simulation
+. . .
+.
+.........................................................................
+. . .
+t quantiles
+Simulated values of m Simulated values of t
+24 22 2 4
+120
+140
+160
+180
+200
+220
+240
+...............................................................
+...
+.
+..
+.
+.
+Gamma quantiles
+5 10 15 20 25
+0.0001
+0.0002
+0.0003
+0.0004
+0.0005
+0.0006
+Figure 12.7 Quantile plots of μ and τ values simulated from the
+posterior distribution in Example 12.5.3. The line on each plot shows
+the quantiles of the actual posterior distribution as found in Sec. 8.6. The
+horizontal axis on the left plot is labeled by quantiles of the t distribution
+with 22 degrees of freedom. The actual posterior of μ is a rescaling and
+shifting of this t distribution. The horizontal axis on the right plot is
+labeled by quantiles of the gamma distribution with parameters 11 and
+1. The actual posterior of τ is a rescaling of this gamma distribution.
+to simulate. Gibbs sampling is most useful when only the conditionals are easy to
+simulate. However, we can illustrate the use of Gibbs sampling in Example 12.5.1
+and compare the simulated results to the known marginal distributions of μ and τ .
+In Example 12.5.2, we started k = 5 Markov chains and burned them in for 100
+iterations. Now we wish to produce a sample of (μ, τ ) pairs from the joint posterior
+distribution. After burn-in, we run anotherm0 = 1000 iterations for each chain.These
+iterations produce five correlated sequence of (μ, τ ) pairs. The correlations between
+successive pairs of μ values are quite small. The same is true of successive τ values.
+To compare the results with the known posterior distributions found in Sec. 8.6,
+Fig. 12.7 has a t quantile plot of the μ values and a gamma quantile plot of the τ
+values. (Normal quantile plots were introduced on page 720. Gamma and t quantile
+plots are constructed in the same way using gamma and t quantile functions in place
+of the standard normal quantile function.) The simulated values seem to lie close to
+the lines drawn on the plots in Fig. 12.7. (A few points in the tails stray a bit from
+the lines, but this occurs with virtually all quantile plots.) The lines in Fig. 12.7 show
+the quantiles of the actual posterior distributions, which are a t distribution with 22
+degrees of freedom multiplied by 15.21 and centered at 183.95 for μ and the gamma
+distribution with parameters 11 and 50925.37 for τ .
+We can use the sample of (μ, τ ) pairs to estimate the posterior mean of an
+arbitrary function of (μ, τ ). For example, suppose that we are interested in the mean
+θ of μ + 1.645/τ 1/2, which is the 0.95 quantile of the unknown distribution of the
+original observations. The average of our 5000 simulated values of μ + 1.645/τ 1/2 is
+Z = 299.67. The value of S from Eq. (12.5.1) is 0.4119, giving us a value of ˆσ = 13.03.
+The simulation standard error of Z is then ˆσ/50001/2 = 0.1842. The true posterior
+mean of μ + 1.645/τ 1/2 can be computed exactly in this example, and it is
+μ1 + 1.645β
+1/2
+1
+ (α1 − .5)
+ (α1)
+= 299.88,
+a bit more than 1 simulation standard error away from our simulated value of Z.
+Suppose that we want our estimator of θ to be within 0.01 of the true value with
+12.5 Markov Chain Monte Carlo 829
+probability 0.99. Substituting these values and ˆσ = 13.03 into Eq. (12.2.5), we find
+that we need v = 12,358,425 total simulations. Each of our five Markov chains would
+have to be run for 2,251,685 iterations.  
+The true value of Gibbs sampling begins to emerge in problems with more
+than two parameters. The general Gibbs sampling algorithm for p random variables
+(X1, . . . , Xp) with p.d.f. f (x) = cg(x) is as follows. First, verify that g looks like an
+easy-to-simulate p.d.f. as a function of each variable for fixed values of all the others.
+Then perform these steps:
+1. Pick starting values x(0)
+2 , . . . , x(0)
+p for X2, . . . , Xp, and set i = 0.
+2. Simulate a new value x(i+1)
+1 from the conditional distribution of X1 given X2 =
+x(i)
+2 , . . . , Xp
+= x(i)
+p .
+3. Simulate a new value x(i+1)
+2 from the conditional distribution of X2 given X1 =
+x(i+1)
+1 , X3 = x(i)
+3 , . . . , Xp
+= x(i)
+p .
+...
+p + 1. Simulate a new value x(i+1)
+p from the conditional distribution of Xp given
+X1 = x(i+1)
+1 , . . . , Xp−1 = x(i+1)
+p−1 .
+p + 2. Replace i by i + 1, and return to step 2.
+The sequence of successive p-tuples of (X1, . . . , Xp) values produced by this algorithm
+is a Markov chain in the same sense as before. The stationary distribution of
+this Markov chain has the p.d.f. f , and the distribution of an iteration many steps
+after the start should be approximately the stationary distribution.
+Example
+12.5.4
+Multiple Regression with an Improper Prior. Consider a problem in which we observe
+data consisting of triples (Yi, x1i, x2i) for i = 1, . . . , n.We assume that the xji values
+are known, and we model the distribution of Yi as the normal distribution with mean
+β0 + β1x1i
++ β2x2i and precision τ . This is the multiple regression model introduced
+in Sec. 11.5 with the variance replaced by 1 over the precision. Suppose that we use
+the improper prior ξ(β0, β1, β2, τ) = 1/τ for the parameters. The posterior p.d.f. of
+the parameters is then proportional to the likelihood times 1/τ , which is a constant
+times
+τ n/2−1 exp
+ 
+−τ
+2
+ n
+i=1
+(yi
+− β0 − β1x1i
+− β2x2i)2
+ 
+. (12.5.2)
+To simplify the ensuing formulas, we shall define some summaries of the data:
+x1 = 1
+n
+ n
+i=1
+x1i, x2 = 1
+n
+ n
+i=1
+x2i, y = 1
+n
+ n
+i=1
+yi,
+s11 =
+ n
+i=1
+x2
+1i, s22 =
+ n
+i=1
+x2
+2i, s12 =
+ n
+i=1
+x1ix2i,
+s1y
+=
+ n
+i=1
+x1iyi, s2y
+=
+ n
+i=1
+x2iyi, syy
+=
+ n
+i=1
+y2
+i .
+Looking at (12.5.2) as a function of τ for fixed values of β0, β1, and β2, it looks
+like the p.d.f. of the gamma distribution with parameters n/2 and
+ n
+i=1(yi
+− β0 −
+β1x1i
+− β2x2i)2/2. Looking at (12.5.2) as a function of βj for fixed values of the other
+parameters, it is e to the power of a quadratic in βj with negative coefficient on the
+830 Chapter 12 Simulation
+β2
+j term. As such, it looks like the p.d.f. of a normal random variable with a mean
+that depends on the data and the other β’s and a variance that equals 1/τ times
+some function of the data.We can be more specific if we complete the square in the
+expression
+ n
+i=1(yi
+− β0 − β1x1i
+− β2x2i)2 three times, each time treating a different
+βj as the variable of interest. For example, treating β0 as the variable of interest, we
+get
+ n
+i=1
+(yi
+− β0 − β1x1i
+− β2x2i)2 = n
+ 
+β0 − [y − β1x1 − β2x2]
+ 2
+,
+plus a term that does not depend on β0. So, the conditional distribution of β0 given
+the remaining parameters is the normal distribution with mean y − β1x1 − β2x2 and
+variance 1/[nτ]. Treating β1 as the variable of interest, we get
+ n
+i=1
+(yi
+− β0 − β1x1i
+− β2x2i)2 = s11(β1 − w1)2,
+plus a term that does not depend on β1, where
+w1 = 1
+s11
+ 
+s1y
+− β0nx1 − β2s12
+ 
+.
+This means that the conditional distribution of β1 given the other parameters is the
+normal distribution with mean w1 and variance (τ s11)
+−1. Similarly, the conditional
+distribution of β2 given the other parameters is the normal distribution with mean
+w2 and variance (τ s22)
+−1, where
+w2 = 1
+s22
+ 
+s2y
+− β0nx2 − β1s12
+ 
+.  
+Example
+12.5.5
+Unemployment in the 1950s. In Example 11.5.9, we saw that unemployment data
+from the years 1951–1959 appeared to satisfy the assumptions of the multiple regression
+model better than the data that included the year 1950. Let us use just the last
+nine years of data from this example (in Table 11.12).We shall use an improper prior
+and Gibbs sampling to obtain samples from the posterior distribution of the parameters.
+The necessary conditional distributions were all given in Example 12.5.4. We
+just need the values of the summary statistics and n = 9:
+x1 = 140.7778, x2 = 6, y = 2.789,
+s11 = 179585, s22 = 384, s12 = 7837,
+s1y
+= 3580.9, s2y
+= 169.2, syy
+= 78.29.
+Once again, we shall run k = 5 Markov chains. In this problem, there are four
+coordinates to the parameter: βi for i = 0, 1, 2 and τ . So, we compute four F statistics
+and burn-in until the largest F is less than 1+ 0.44m. Suppose that this occurs at
+m = 4546. We then sample 10,000 more iterations from each Markov chain.
+Suppose that we want an interval [a, b] that contains 90 percent of the posterior
+distribution of β1. The numbers a and b will be the sample 0.05 and 0.95
+quantiles. Based on our combined sample of 50,000 values of β1, the interval is
+[−0.1178, −0.0553]. In order to assess the uncertainty in the endpoints, we compute
+the 0.05 and 0.95 sample quantiles for each of the five Markov chains. Those values
+are
+0.05 quantiles: − 0.1452, −0.1067, −0.1181, −0.1079, −0.1142
+0.95 quantiles: − 0.0684, −0.0610, −0.0486, −0.0594, −0.0430.
+12.5 Markov Chain Monte Carlo 831
+The value of S based on the sample 0.05 quantiles is 0.01567, and the value of S
+based on the sample 0.95 quantiles is 0.01142. To be safe, we shall use the larger of
+these two to estimate the simulation standard errors of our interval endpoints. Since
+each chain was run for m0 =10,000 iterations, we have ˆσ = Sm
+1/2
+0
+= 1.567. Suppose
+that we want each endpoint of the interval to be within 0.01 of the corresponding
+true quantile of the distribution of β1 with probability 0.95. (The probability that
+both endpoints are within 0.01 would be a bit smaller, but is harder to compute.)
+We could use Eq. (12.2.5) to compute how many simulations we would need. That
+equation yields v = 94,386, which means that each of our five chains would need
+to be run 18,878 iterations, about twice what we already have. For comparison, a
+90 percent confidence interval for β1 constructed using the methods of Sec. 11.3 is
+[−0.1124, −0.0579]. This is quite close to the posterior probability interval.  
+Although we did not do so in this text, we could have found the posterior
+distribution for Example 12.5.5 in closed form. Indeed, the 90 percent confidence
+interval calculated at the end of the example contains 90 percent of the posterior
+distribution in much the same way that coefficient 1− α0 confidence intervals contain
+posterior probability 1− α0 in Sec. 11.4 when we use improper priors. The next
+example is one in which a closed-form solution is not available.
+Example
+12.5.6
+Bayesian Analysis of One-Way Layout with Unequal Variances. Consider the one-way
+layout that was introduced in Sec. 11.6. There, we assumed that data would be
+observed from each of p normal distributions with possibly different means but
+the same variance. In order to illustrate the added power of Gibbs sampling, we
+shall drop the assumption that each normal distribution has the same variance. That
+is, for i = 1, . . . , p, we shall assume that Yi1, . . . , Yini
+have the normal distribution
+with mean μi and precision τi , and all observations are independent conditional on
+all parameters. Our prior distribution for the parameters will be the following: Let
+μ1, . . . , μp be conditionally independent given all other parameters with μi having
+the normal distribution with meanψ and precision λ0τi . Here, ψ is another parameter
+that also needs a distribution.We introduce this parameter ψ as a way of saying that
+we think that the μi ’s all come from a common distribution, but we are not willing
+to say for sure where that distribution is located.We then say that ψ has the normal
+distribution with meanψ0 and precision u0. For an improper prior, we could set u0 = 0
+in what follows, and then ψ0 would not be needed either. Next, we model τ1, . . . , τp
+as i.i.d. having the gamma distribution with parameters α0 and β0. We model ψ and
+the τi ’s as independent. For an improper prior, we could set α0 = β0 = 0. The type
+of model just described is called a hierarchical model because of the way that the
+distributions fall into a hierarchy of levels. Figure 12.8 illustrates the levels of the
+hierarchy in this example.
+Figure 12.8 Diagram of
+hierarchical model in Example
+12.5.6. The parameter ψ
+influences the distributions
+of the μi ’s, while the (μi, τi)
+parameters influence the distributions
+of the Yij ’s.
+Y11Y12 ...Y1n1
+m1 t1
+Y21Y22 ...Y2n2
+m2 t2
+Y31Y32 ...Y3n3
+m3 t3
+Y41Y42 ...Y4n4Y11
+m4 t4
+C
+832 Chapter 12 Simulation
+The joint p.d.f. of the observations and the parameters is the product of the
+likelihood function (the p.d.f. of the observations given the μi ’s and τi ’s) times the
+product of the conditional prior p.d.f.’s of the μi ’s given the τi ’s and ψ, times the
+prior p.d.f.’s of the τi ’s times the prior p.d.f. for ψ. Aside from constants that depend
+neither on the data nor on the parameters, this product has the form
+exp
+ 
+−u0(ψ − ψ0)2
+2
+−
+ p
+i=1
+τi
+ 
+β0 + ni(μi
+− yi)2 + wi
++ λ0(μi
+− ψ)2
+2
+  
+×
+!p
+i=1
+τ
+α0+[ni
++1]/2−1
+i , (12.5.3)
+where wi
+= ni
+j=1(yij
+− yi)2 for i = 1, . . . , p. We have arranged terms in (12.5.3)
+so that the terms involving each parameter are close together. This will facilitate
+describing the Gibbs sampling algorithm.
+In order to set up Gibbs sampling, we need to examine (12.5.3) as a function of
+each parameter separately. The parameters are μ1, . . . , μp; τ1, . . . , τp; and ψ. As a
+function of τi , (12.5.3) looks like the p.d.f. of the gamma distribution with parameters
+α0+ (ni
++ 1)/2 and β0 + [ni(μi
+− yi)2 + wi
++ λ0(μi
+− ψ)2]/2. As a function of ψ, it
+looks like the p.d.f. of the normal distribution with mean [u0ψ0 + λ0
+ p
+i=1 τiμi]/[u0 +
+λ0
+ p
+i=1 τi] and precision u0 + λ0
+ p
+i=1 τi . This is obtained by completing the square
+for all terms involving ψ. Similarly, by completing the square for all terms involving
+μi , we find that (12.5.3) looks like the normal p.d.f. with mean [niyi
++ λ0ψ]/[ni
++ λ0]
+and precision τi(ni
++ λ0) as a function of μi . All of these distributions are easy to
+simulate.
+As an example, use the hot dog calorie data from Example 11.6.2. In this example,
+p = 4.We shall use a prior distribution in which λ0 = α0 = 1, β0 = 0.1, u0 = 0.001, and
+ψ0 = 170. We use k = 6 Markov chains and do m = 100 burn-in simulations, which
+turn out to be more than enough to make the maximum of all nine F statistics less
+than 1+ 0.44m.We then run each of the six Markov chains another 10,000 iterations.
+The samples from the posterior distribution allow us to answer any questions that we
+might have about the parameters, including some that we would not have been able
+to answer using the analysis done in Chapter 11. For example, the posterior means
+and standard deviations of some of the parameters are listed in Table 12.6. Notice
+how much different the variances 1/τi seem to be in the four groups. For example, we
+can compute the probability that 1/τ4 > 4/τ1 by counting up the number of iterations
+  in which 1/τ ( )
+4 > 4/τ ( )
+1 and dividing by 60,000. The result is 0.5087, indicating that
+there is a large chance that at least some of the variances are quite different. If the
+variances are different, the ANOVA calculations in Chapter 11 are not justified.
+We can also address the question of how much difference there is between the
+μi ’s. For comparison, we shall do the same calculations that we did in Example 12.3.7.
+In 99 percent of the 60,000 simulations, at least one |μ( )
+i
+− μ( )
+j
+| > 24.66. In about onehalf
+of the simulations, all |μ( )
+i
+− μ( )
+j
+| > 2.268. And in 99 percent of the simulations,
+the average of the differences was at least 13.07. Figure 12.9 contains a plot of the
+sample c.d.f.’s of the largest, smallest, and average of the six |μi
+− μj
+| differences.
+Careful examination of the results in this example shows that the four μi ’s appear to
+be closer together than we would have thought after the analysis of Example 12.3.7.
+This is typical of what occurs when we use a proper prior in a hierarchical model.
+In Example 12.3.7, the μi ’s were all independent, and they did not have a common
+unknown mean in the prior. In Example 12.5.6, the μi ’s all have a common prior
+distribution with meanψ, which is an additional unknown parameter. The estimation
+12.5 Markov Chain Monte Carlo 833
+Table 12.6 Posterior means and standard deviations for some parameters in
+Example 12.5.6
+Type Beef Meat Poultry Specialty
+i 1 2 3 4
+E(μi
+|y) 156.7 158.4 120.7 159.7
+(V ar(μi
+|y))1/2 3.498 5.241 6.160 10.55
+E(1/τi
+|y) 252.3 487.3 670.8 1100
+(V ar(1/τi
+|y))1/2 84.70 179.1 250.6 586.9
+E(ψ|y) = 152.8 (V ar(ψ|y))1/2 = 10.42
+Figure 12.9 Sample c.d.f.’s
+of the maximum, average,
+and minimum of the six
+|μi
+− μj
+| differences for
+Example 12.5.6.
+Difference
+Sample d.f.
+0 20 40 60 80 100
+0.2
+0.4
+0.6
+0.8
+1.0
+Maximum difference
+Average difference
+Minimum difference
+of this additional parameter allows the posterior distributions of the μi ’s to be pulled
+toward a location that is near the average of all of the samples. With these data, the
+overall sample average is 147.60.  
+Prediction
+All of the calculations done in the examples of this section have concerned functions
+of the parameters. The sample from the posterior distribution that we obtain from
+Gibbs sampling can also be used to make predictions and form prediction intervals
+for future observations. The most straightforward way to make predictions is to simulate
+the future data conditional on each value of the parameter from the posterior
+sample. Although there are more efficient methods for predicting, this method is easy
+to describe and evaluate.
+Example
+12.5.7
+Calories in Hot Dogs. In Example 12.5.6, we might be concerned with how different
+we should expect the calorie counts of two hot dogs to be. For example, let Y1 and Y3
+be future calorie counts for hot dogs of the beef and poultry varieties, respectively.
+We can form a prediction interval for D = Y1 − Y3 as follows: For each iteration  , let
+834 Chapter 12 Simulation
+the simulated parameter vector be
+θ( ) =
+ 
+μ( )
+1 , μ( )
+2 , μ( )
+3 , μ( )
+4 , τ( )
+1 , τ( )
+2 , τ( )
+3 , τ( )
+4 , ψ( ), β( )
+ 
+.
+For each  , simulate a beef hot dog calorie count Y ( )
+1 having the normal distribution
+with mean μ( )
+1 and variance 1/τ ( )
+1 . Also simulate a poultry hot dog calorie count Y ( )
+3
+having the normal distribution with mean μ( )
+3 and variance 1/τ ( )
+3 . Then compute
+D( ) = Y ( )
+1
+− Y ( )
+3 . Sample quantiles of the values D(1), . . . , D(60,000) can be used to
+estimate quantiles of the distribution of D.
+For example, suppose that we want a 90 percent prediction interval for D. We
+simulate 60,000D( ) values as above and find the 0.05 and 0.95 sample quantiles to be
+−14.86 and 87.35, which are then the endpoints of our prediction interval. To assess
+how close the simulation estimators are to the actual quantiles of the distribution of
+D, we compute the simulation standard errors of the two endpoints. For the samples
+from each of the k = 6 Markov chains, we can compute the sample 0.05 quantiles of
+ourD values.We can then use these values as Z1, . . . , Z6 in Eq. (12.5.1) to compute a
+value S. Our simulation standard error is then S/61/2.We can then repeat this for the
+sample 0.95 quantiles. For the two endpoints of our interval, the simulation standard
+errors are 0.2447 and 0.3255, respectively. These simulation standard errors are fairly
+small compared to the length of the prediction interval.  
+Example
+12.5.8
+Censored Arsenic Measurements. Frey and Edwards (1997) describe the National
+Arsenic Occurrence Survey (NAOS). Several hundred community water systems
+submitted samples of their untreated water in an attempt to help characterize the
+distribution of arsenic across the nation. Arsenic is one of several contaminants that
+the Environmental Protection Agency (EPA) is required to regulate. One difficulty
+in modeling the occurrence of a substance like arsenic is that concentrations are often
+too low to be measured accurately. In such cases, the measurements are censored.
+That is, we only know that the concentration of arsenic is less than some censoring
+point, but not how much less. In the NAOS data set, the censoring point is 0.5
+microgram per liter. Each concentration less than 0.5 microgram per liter is censored.
+Gibbs sampling can help us to estimate the distribution of arsenic in spite of the
+censored observations. Lockwood et al. (2001) do an extensive analysis of the NAOS
+and other data and show how the distribution of arsenic differs from one state to the
+next and from one type of water source to the next. For convenience, let us focus our
+attention on the 24 observations from one state, Ohio. Of those 24 observations, 11
+were taken from groundwater sources (wells). The other 13 came from surface water
+sources (e.g., rivers and lakes). The following are seven uncensored groundwater
+observations from Ohio:
+9.62, 10.50, 2.30, 0.80, 17.04, 9.90, 1.32.
+The other four groundwater observations were censored.
+Suppose that we model groundwater arsenic concentrations in Ohio as having
+the lognormal distribution with parameters μ and σ2. One popular way to deal
+with censored observations is to treat them like unknown parameters. That is, let
+Y1, . . . , Y4 be the four unknown concentrations from the four wells where the measurements
+were censored. Let X1, . . . , X7 stand for the seven uncensored values.
+Suppose that μ and τ = 1/σ 2 have the normal-gamma prior distribution with hyperparameters
+μ0, λ0, α0, and β0. The joint p.d.f. of X1, . . . , X7, Y1, . . . , Y4, and μ and τ
+is proportional to
+12.5 Markov Chain Monte Carlo 835
+τ β0+(7+4+1)/2−1 exp
+⎛
+⎝−τ
+2
+ 
+λ0(μ − μ0)2 +
+ 7
+i=1
+(log(xi) − μ)2 +
+ 4
+j=1
+(log(yi) − μ)2 + 2β0
+ ⎞
+⎠.
+The observed data consist of the values x1, . . . , x7 of X1, . . . , X7 together with the
+fact that Yj
+≤ 0.5 for j = 1, . . . , 4. The conditional distributions of μ and τ given the
+data and the other parameters are just like what we obtained in Example 12.5.1. To
+be precise, μ has the normal distribution with mean
+λ0μ0 + 7
+i=1 log(xi) + 4
+j=1 log(yj )
+λ0 + 11
+and precision τ(λ0 + 11) conditional on τ , the Yj ’s, and the data. Also, τ has the
+gamma distribution with parameters α0 + (11+ 1)/2 and
+β0 + 1
+2
+⎛
+⎝
+ 7
+i=1
+(log(xi) − μ)2 +
+ 4
+j=1
+(log(yi) − μ)2 + λ0(μ − μ0)2
+⎞
+⎠,
+conditional on μ, the Yj ’s, and the data. The conditional distribution of the Yj ’s given
+μ, τ , and the data is that of i.i.d. random variables with the lognormal distribution
+having parameters μ and 1/τ but conditional on Yj < 0.5. That is, the conditional
+c.d.f. of each Yj is
+F(y) =  ([log(y) − μ]τ 1/2)
+ ([log(0.5) − μ]τ 1/2)
+, for y <0.5.
+We can simulate random variables with c.d.f. F so long as we can compute the
+standard normal c.d.f. and quantile function. Let U have the uniform distribution
+on the interval [0, 1]. Then
+Y = exp
+ 
+μ + τ
+−1/2 
+−1[U ([log(0.5) − μ]τ 1/2)]
+ 
+has the desired c.d.f., F.
+One example of the type of inference that is needed in an analysis of this sort
+is to predict arsenic concentrations for different water systems. Knowing the likely
+sizes of arsenic measurements can help water systems choose economical treatments
+that will meet the standards set by the EPA. For simplicity, we shall simulate one
+arsenic concentration at each iteration of the Markov chain. For example, suppose
+that (μ(i), τ(i)) are the simulated values of μ and τ at the ith iteration of the Markov
+chain. Then we can simulate Y (i) = exp(μ(i) + Z(τ (i))
+−1/2), where Z is a standard
+normal random variable. Figure 12.10 shows a histogram of the simulated log(Y (i))
+values from 10 Markov chains of length 10,000 each. The proportion of predicted
+values that are below the censoring point of log(0.5) is 0.335, with a simulation
+standard error of 0.001. The median predicted value on the logarithmic scale is 0.208
+with a simulation standard error of 0.007.We can transform this back to the original
+scale of measurement using the delta method as described in Example 12.2.8. The
+median predicted arsenic concentration is exp(0.208) = 1.231 micrograms per liter
+with a simulation standard error of 0.007 exp(0.208) = 0.009.  
+Note: There Are More-General Markov Chain Monte Carlo Algorithms. Gibbs
+sampling requires a special structure for the distribution we wish to simulate. We
+need to be able to simulate the conditional distribution of each coordinate given the
+other coordinates. In many problems, this is not possible for at least some, if not all,
+of the coordinates. If only one coordinate is difficult to simulate, one might try using
+an acceptance/rejection simulator for that one coordinate. If even this does not work,
+836 Chapter 12 Simulation
+Figure 12.10 Histogram of
+simulated log(arsenic) values
+for 10,000 iterations from
+each of 10 Markov chains in
+Example 12.5.8. The vertical
+line is at the censoring point,
+log(0.5).
+210 25 0 5 10
+5000
+10000
+15000
+Predicted log(arsenic) values (micrograms per liter)
+Count
+there are more-general Markov chain Monte Carlo algorithms that can be used. The
+simplest of these is the Metropolis algorithm introduced by Metropolis et al. (1953).
+An introduction to the Metropolis algorithm can be found in chapter 11 of Gelman
+et al. (1995) together with a further generalization due to Hastings (1970).
+Summary
+We introduced the Gibbs sampling algorithm that produces a Markov chain of
+observations from a joint distribution of interest. The joint distribution must have a
+special form. As a function of each variable, the joint p.d.f. must look like a p.d.f. from
+which it is easy to simulate pseudo-random variables. The Gibbs sampling algorithm
+cycles through the coordinates, simulating each one conditional on the values of the
+others.The algorithm requires a burn-in period during which the distribution of states
+in the Markov chain converges to the desired distribution. Assessing convergence
+and computing simulation standard errors of simulated values are both facilitated by
+running several independent Markov chains simultaneously.
+Exercises
+1. Let f (x1, x2) = cg(x1, x2) be a joint p.d.f. for (X1, X2).
+For each x2, let h2(x1) = g(x1, x2). That is, h2 is what we
+get by considering g(x1, x2) as a function of x1 for fixed x2.
+Show that there is a multiplicative factor c2 that does not
+depend on x1 such that h2(x1)c2 is the conditional p.d.f. of
+X1 given X2 = x2.
+2. Let f (x1, x2) be a joint p.d.f. Suppose that (X(i)
+1 , X(i)
+2 )
+has the joint p.d.f. f . Let (X(i+1)
+1 , X(i+1)
+2 ) be the result of
+applying steps 2 and 3 of the Gibbs sampling algorithm
+on page 824. Prove that (X(i+1)
+1 , X(i)
+2 ) and (X(i+1)
+1 , X(i+1)
+2 )
+also have the joint p.d.f. f .
+3. Let Z1, Z2, . . . form a Markov chain, and assume that
+the distribution of Z1 is the stationary distribution. Show
+that the joint distribution of (Z1, Z2) is the same as the
+joint distribution of (Zi, Zi+1) for all i > 1. For convenience,
+you may assume that the Markov chain has finite
+state space, but the result holds in general.
+4. LetX1, . . . ,Xn be uncorrelated, each with variance σ2.
+Let Y1, . . . , Yn be positively correlated, each with variance
+σ2. Prove that the variance of X is smaller than the variance
+of Y .
+5. Use the data consisting of 30 lactic acid concentrations
+in cheese, 10 from Example 8.5.4 and 20 from Exercise 16
+in Sec. 8.6. Fit the same model used in Example 8.6.2 with
+the same prior distributon, but this time use the Gibbs
+sampling algorithm described in Example 12.5.1. Simulate
+10,000 pairs of (μ, τ ) parameters. Estimate the posterior
+mean of (
+√
+τμ)
+−1, and compute the simulation standard
+error of the estimator.
+12.5 Markov Chain Monte Carlo 837
+6. Use the data on dishwasher shipments inTable 11.13 on
+page 744. Suppose that we wish to fit a multiple linear regression
+model for predicting dishwasher shipments from
+time (year minus 1960) and private residential investment.
+Suppose that the parameters have the improper prior proportional
+to 1/τ . Use the Gibbs sampling algorithm to
+obtain a sample of size 10,000 from the joint posterior distribution
+of the parameters.
+a. Let β1 be the coefficient of time. Draw a plot of the
+sample c.d.f. of |β1| using your posterior sample.
+b. We are interested in predicting dishwasher shipments
+for 1986.
+i. Draw a histogram of the values of β0 + 26β1 +
+67.2β2 from your posterior distribution.
+ii. For each of your simulated parameters, simulate
+a dishwasher sales figure for 1986 (time = 26 and
+private residential investment = 67.2). Compute
+a 90 percent prediction interval from the simulated
+values and compare it to the interval found
+in Example 11.5.7.
+iii. Draw a histogram of the simulated 1986 sales
+figures, and compare it to the histogram in part i.
+Can you explain why one sample seems to have
+larger variance than the other?
+7. Use the data inTable 11.19 on page 762.This time fit the
+model developed in Example 12.5.6. Use the prior hyperparameters
+λ0 = α0 = 1, β0 = 0.1, u0 = 0.001, andψ0 = 800.
+Obtain a sample of 10,000 from the posterior joint distribution
+of the parameters. Estimate the posterior means of
+the three parameters μ1, μ2, and μ3.
+8. In this problem, we shall outline a form of robust linear
+regression. Assume throughout the exercise that the data
+consist of pairs (Yi, xi) for i = 1, . . . , n. Assume also that
+the xi ’s are all known and the Yi ’s are independent random
+variables. We shall only deal with simple regression here,
+but the method easily extends to multiple regression.
+a. Let β0, β1, and σ stand for unknown parameters, and
+let a be a known positive constant. Prove that the
+following two models are equivalent. That is, prove
+that the joint distribution of (Y1, . . . , Yn) is the same
+in both models.
+Model 1: For each i, [Yi
+− (β0 + β1xi)]/σ has the
+t distribution with a degrees of freedom.
+Model 2: For each i, Yi has the normal distribution
+with mean β0 + β1xi and variance 1/τi conditional
+on τi . Also, τ1, . . . , τn are i.i.d. having the
+gamma distribution with parameters a/2 and aσ2/2.
+Hint: Use the same argument that produced the
+marginal distribution of μ in Sec. 8.6 when μ and τ
+had a normal-gamma distribution.
+b. Now consider Model 2 from part (a). Let η = σ2,
+and assume that η has a prior distribution that is the
+gamma distribution with parameters b/2 and f/2,
+where b and f are known constants. Assume that the
+parameters β0 and β1 have an improper prior with
+“p.d.f.” 1. Show that the product of likelihood and
+prior “p.d.f.” is a constant times
+η(na+b)/2−1
+!n
+i=1
+τ
+(a+1)/2−1
+i exp
+
+
+−1
+2
+[fη
++
+ n
+i=1
+τi
+9
+aη + (yi
+− β0 − β1xi)2
+:  
+. (12.5.4)
+c. Consider (12.5.4) as a function of each parameter
+for fixed values of the others. Show that Table 12.7
+specifies the appropriate conditional distribution for
+each parameter given all of the others.
+Table 12.7 Parameters and conditional distributions
+for Exercise 8
+Parameter (12.5.4) looks like the p.d.f.
+of this distribution
+η gamma distribution with parameters
+(na + b)/2 and
+ 
+f + a
+ n
+i=1 τi
+ 
+/2
+τi gamma distribution with parameters (a +
+1)/2 and [aη + (yi
+− β0 − β1xi)2]/2
+β0 nor mal distribution with mean n
+i=1 τi(yi
+− β1xi)/
+ n
+i=1 τi and
+precision
+ n
+i=1 τi
+β1 nor mal distribution with mean n
+i=1 τixi(yi
+− β0)/
+ n
+i=1 τix2
+i and
+precision
+ n
+i=1 τix2
+i
+9. Use the data in Table 11.5 on page 699. Suppose that Yi
+is the logarithm of pressure and xi is the boiling point for
+the ith observation, i = 1, . . . , 17. Use the robust regression
+scheme described in Exercise 8 with a = 5, b = 0.1,
+and f = 0.1. Estimate the posterior means and standard
+deviations of the parameters β0, β1, and η.
+10. In this problem, we shall outline a Bayesian solution
+to the problem described in Example 7.5.10 on page 423.
+Let τ = 1/σ 2 and use a proper normal-gamma prior of
+the form described in Sec. 8.6. In addition to the two
+parameters μ and τ , introduce n additional parameters.
+For i = 1, . . . , n, let Yi
+= 1 ifXi came from the normal
+distribution with mean μ and precision τ , and let Yi
+= 0 if
+Xi came from the standard normal distribution.
+a. Find the conditional distribution of μ given τ ; Y1,
+. . . , Yn; and X1, . . . , Xn.
+b. Find the conditional distribution of τ given μ; Y1,
+. . . , Yn; and X1, . . . , Xn.
+c. Find the conditional distribution of Yi given μ; τ ;
+X1, . . . , Xn; and the other Yj ’s.
+838 Chapter 12 Simulation
+d. Describe how to find the posterior distribution of μ
+and τ using Gibbs sampling.
+e. Prove that the posterior mean of Yi is the posterior
+probability that Xi came from the normal distribution
+with unknown mean and variance.
+11. Consider, once again, the model described in Example
+7.5.10. Assume that n = 10 and the observed values of
+X1, . . . , X10 are
+− 0.92, −0.33, −0.09, 0.27, 0.50, −0.60, 1.66, −1.86,
+3.29, 2.30.
+a. Fit the model to the observed data using the Gibbs
+sampling algorithm developed in Exercise 10. Use
+the following prior hyperparameters: α0 = 1, β0 = 1,
+μ0 = 0, and λ0 = 1.
+b. For each i, estimate the posterior probability that
+Xi came from the normal distribution with unknown
+mean and variance.
+12. Let X1, . . . , Xn be i.i.d. with the normal distribution
+having mean μ and precision τ . Gibbs sampling allows
+one to use a prior distribution for (μ, τ ) in which μ and
+τ are independent. Let the prior distribution of μ be the
+normal distribution with mean μ0 and variance γ0. Let
+the prior distribution of τ be the gamma distribution with
+parameters α0 and β0.
+a. Show that Table 12.8 specifies the appropriate conditional
+distribution for each parameter given the
+other.
+b. Use the New Mexico nursing home data (Examples
+12.5.2 and 12.5.3). Let the prior hyperparameters
+be α0 = 2, β0 = 6300, μ0 = 200, and γ0 = 6.35×
+10−4. Implement a Gibbs sampler to find the posterior
+distribution of (μ, τ ). In particular, calculate
+an interval containing 95 percent of the posterior
+distribution of μ.
+Table 12.8 Parameters and conditional distributions
+for Exercise 12
+Parameter Prior times likelihood looks like
+the p.d.f. of this distribution
+τ gamma distribution with parameters
+α0 + n/2 and β0 + 0.5
+ n
+i=1(xi
+− x)2 +
+0.5n(x − μ)2,
+μ normal distribution with mean
+(γ0μ0 + nτx)/(γ0 + nτ) and precision
+γ0 + nτ.
+13. Consider again the situation described in Exercise 12.
+This time, we shall let the prior distribution of μ be more
+like it was in the conjugate prior. Introduce another parameter
+γ , whose prior distribution is the gamma distribution
+with parameters a0 and b0. Let the prior distribution
+of μ conditional on γ be the normal distribution with
+mean μ0 and precision γ .
+a. Prove that the marginal prior distribution of μ specifies
+that
+
+
+b0
+a0
+ 1/2
+(μ − μ0) has the t distribution
+with 2a0 degrees of freedom.
+Hint: Look at the derivation of the marginal distribution
+of μ in Sec. 8.6.
+b. Suppose that we want the marginal prior distributions
+of both μ and τ to be the same as they were
+with the conjugate prior in Sec. 8.6. How must the
+prior hyperparameters be related in order to make
+this happen?
+c. Show that Table 12.9 specifies the appropriate conditional
+distribution for each parameter given the
+others.
+Table 12.9 Parameters and conditional distributions
+for Exercise 13
+Parameter Prior times likelihood looks like
+the p.d.f. of this distribution
+τ gamma distribution with parameters
+α0 + n/2 and β0 + 0.5
+ n
+i=1(xi
+−
+x)2 + 0.5n(x − μ)2,
+μ normal distribution with mean
+(γμ0 + nτx)/(γ + nτ) and
+precision γ + nτ,
+γ gamma distribution with parameters
+a0 + 1/2 and b0 + 0.5(μ − μ0)2.
+d. Use the New Mexico nursing home data (Examples
+12.5.2 and 12.5.3). Let the prior hyperparameters
+be α0 = 2, β0 = 6300, μ0 = 200, a0 = 2, and
+b0 = 3150. Implement a Gibbs sampler to find the
+posterior distribution of (μ, τ, γ). In particular, calculate
+an interval containing 95 percent of the posterior
+distribution of μ.
+14. Consider the situation described in Example 12.5.8. In
+addition to the 11 groundwater sources, there are 13 observations
+taken from surface water sources in Ohio. Of the
+13 surface water measurements, only one was censored.
+The 12 uncensored surface water arsenic concentrations
+from Ohio are
+1.93, 0.99, 2.21, 2.29, 1.15, 1.81, 2.26, 3.10, 1.18, 1.00,
+2.67, 2.15.
+a. Fit the same model as described in Example 12.5.8,
+and predict a logarithm of surface water concentration
+for each iteration of the Markov chain.
+
+b. Compare a histogram of your predicted measurements
+to the histogram of the underground well predictions
+in Fig. 12.10. Describe the main differences.
+c. Estimate the median of the distribution of predicted
+surface water arsenic concentration and compare
+it to the median of the distribution of predicted
+groundwater concentration.
+15. Let X1, . . . , Xn+m be a random sample from the exponential
+distribution with parameter θ. Suppose that θ
+has the gamma prior distribution with known parameters
+α and β. Assume that we get to observe X1, . . . , Xn, but
+Xn+1, . . . , Xn+m are censored.
+a. First, suppose that the censoring works as follows:
+For i = 1, . . . , m, if Xn+i
+≤ c, then we learn only
+that Xn+i
+≤ c, but not the precise value of Xn+i . Set
+up a Gibbs sampling algorithm that will allow us to
+simulate the posterior distribution of θ in spite of the
+censoring.
+b. Next, suppose that the censoring works as follows:
+For i = 1, . . . , m, if Xn+i
+≥ c, then we learn only
+that Xn+i
+≥ c, but not the precise value of Xn+i . Set
+up a Gibbs sampling algorithm that will allow us to
+simulate the posterior distribution of θ in spite of the
+censoring.
+16. Suppose that the time to complete a task is the sum
+of two parts X and Y . Let (Xi, Yi) for i = 1, . . . , n be a
+random sample of the times to complete the two parts of
+the task. However, for some observations, we get to observe
+only Zi
+= Xi
++ Yi . To be precise, suppose that we
+observe (Xi, Yi) for i = 1, . . . , k and we observe Zi for
+i = k + 1, . . . , n. Suppose that all Xi and Yj are independent
+with every Xi having the exponential distribution
+with parameter λ and every Yj having the exponential distribution
+with parameter μ.
+a. Prove that the conditional distribution of Xi given
+Zi
+= z has the c.d.f.
+G(x|z) = 1− exp(−x[λ − μ])
+1− exp(−z[λ − μ])
+, for 0 < x < z.
+b. Suppose that the prior distribution of (λ, μ) is as
+follows: The two parameters are independent with
+λ having the gamma distribution with parameters a
+and b, and μ having the gamma distribution with
+parameters c and d. The four numbers a, b, c, and
+d are all known constants. Set up a Gibbs sampling
+algorithm that allows us to simulate the posterior
+distribution of (λ, μ).

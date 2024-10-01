@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.23">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Probability and Statistics (Fourth Edition) – 1&nbsp; Introduction to Probability</title>
+<title>1&nbsp; Introduction to Probability – Probability and Statistics (Fourth Edition)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -127,13 +127,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Probability</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -596,7 +596,7 @@ f(n) = \begin{cases}
 </div>
 </div>
 <p>We can now state the second condition that we require of the collection of events.</p>
-<div id="fig-1-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-1.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -606,7 +606,7 @@ Figure&nbsp;1.1: The event <span class="math inline">\(A^c\)</span>
 </figcaption>
 </figure>
 </div>
-<div id="fig-1-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-2.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -761,7 +761,7 @@ A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C).
 </div>
 <p>The set <span class="math inline">\(A \cap B\)</span> is sketched in a Venn diagram in <a href="#fig-1-3" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. In terms of events, <span class="math inline">\(A \cap B\)</span> is the event that both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur.</p>
 <p>The proof of the first part of the next result follows from <a href="#exm-1-4-3" class="quarto-xref">Example&nbsp;<span>1.3</span></a> in this section. The rest of the proof is straightforward.</p>
-<div id="fig-1-3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-3.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -824,7 +824,7 @@ Figure&nbsp;1.3: The set <span class="math inline">\(A \cap B\)</span>.
 </div>
 <p>In terms of events, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint if they cannot both occur.</p>
 <p>As an illustration of these concepts, a Venn diagram for three events <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> is presented in <a href="#fig-1-4" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>. This diagram indicates that the various intersections of <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> and their complements will partition the sample space <span class="math inline">\(S\)</span> into eight disjoint subsets.</p>
-<div id="fig-1-4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-4.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -866,7 +866,7 @@ Figure&nbsp;1.4: Partition of <span class="math inline">\(S\)</span> determined 
 </div>
 </div>
 </div>
-<div id="fig-1-5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-5.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -876,7 +876,7 @@ Figure&nbsp;1.5: Sample space for water and electric demand in <a href="#exm-1-4
 </figcaption>
 </figure>
 </div>
-<div id="fig-1-6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-6.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -942,7 +942,7 @@ x = \sum_{n=1}^{\infty}a_n(x)10^{-n}.
 \tag{1.1}\]</span></span></p>
 <p>By construction, each number of the form <span class="math inline">\(x = k/10^m\)</span> for some nonnegative integers <span class="math inline">\(k\)</span> and <span class="math inline">\(m\)</span> will have <span class="math inline">\(a_n(x) = 0\)</span> for <span class="math inline">\(n &gt; m\)</span>. The numbers of the form <span class="math inline">\(k/10^m\)</span> are the only ones that have an alternate decimal expansion <span class="math inline">\(x = \sum_{n=1}^{\infty}c_n(x)10^{-n}\)</span>. When <span class="math inline">\(k\)</span> is not a multiple of 10, this alternate expansion satisfies <span class="math inline">\(c_n(x) = a_n(x)\)</span> for <span class="math inline">\(n = 1, \ldots, m-1\)</span>, <span class="math inline">\(c_m(x) = a_m(x) − 1\)</span>, and <span class="math inline">\(c_n(x) = 9\)</span> for <span class="math inline">\(n &gt; m\)</span>. Let <span class="math inline">\(C = \{0, 1, \ldots, 9\}^{\infty}\)</span> stand for the set of all infinite sequences of digits. Let <span class="math inline">\(B\)</span> denote the subset of <span class="math inline">\(C\)</span> consisting of those sequences that don’t end in repeating 9’s. Then we have just constructed a function a from the interval <span class="math inline">\([0, 1)\)</span> onto <span class="math inline">\(B\)</span> that is one-to-one and whose inverse is given in <a href="#eq-1-4-1" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. We now show that the set <span class="math inline">\(B\)</span> is uncountable, hence <span class="math inline">\([0, 1)\)</span> is uncountable. Take any countable subset of <span class="math inline">\(B\)</span> and arrange the sequences into a rectangular array with the <span class="math inline">\(k\)</span>th sequence running across the <span class="math inline">\(k\)</span>th row of the array for <span class="math inline">\(k = 1, 2, \ldots\)</span>. <a href="#fig-1-7" class="quarto-xref">Figure&nbsp;<span>1.7</span></a> gives an example of part of such an array.</p>
 <p>In <a href="#fig-1-7" class="quarto-xref">Figure&nbsp;<span>1.7</span></a>, we have underlined the <span class="math inline">\(k\)</span>th digit in the <span class="math inline">\(k\)</span>th sequence for each <span class="math inline">\(k\)</span>. This portion of the array is called the <strong>diagonal</strong> of the array. We now show that there must exist a sequence in <span class="math inline">\(B\)</span> that is not part of this array. This will prove that the whole set <span class="math inline">\(B\)</span> cannot be put into such an array, and hence cannot be countable. Construct the sequence <span class="math inline">\(\{d_n\}_{n=1}^{\infty}\)</span> as follows. For each <span class="math inline">\(n\)</span>, let <span class="math inline">\(d_n = 2\)</span> if the <span class="math inline">\(n\)</span>th digit in the <span class="math inline">\(n\)</span>th sequence is 1, and <span class="math inline">\(d_n = 1\)</span> otherwise. This sequence does not end in repeating 9’s; hence, it is in <span class="math inline">\(B\)</span>. We conclude the proof by showing that <span class="math inline">\(\{d_n\}_{n=1}^{\infty}\)</span> does not appear anywhere in the array. If the sequence did appear in the array, say, in the <span class="math inline">\(k\)</span>th row, then its <span class="math inline">\(k\)</span>th element would be the <span class="math inline">\(k\)</span>th diagonal element of the array. But we constructed the sequence so that for every <span class="math inline">\(n\)</span> (including <span class="math inline">\(n = k\)</span>), its <span class="math inline">\(n\)</span>th element never matched the <span class="math inline">\(n\)</span>th diagonal element. Hence, the sequence can’t be in the <span class="math inline">\(k\)</span>th row, no matter what <span class="math inline">\(k\)</span> is. The argument given here is essentially that of the nineteenth-century German mathematician Georg Cantor.</p>
-<div id="fig-1-7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><span class="math display">\[
@@ -1241,7 +1241,7 @@ A = (A \cap B) \cup (A \cap B^c).
 </div>
 </div>
 </div>
-<div id="fig-1-8" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-8.svg" class="img-fluid figure-img">
@@ -1321,7 +1321,7 @@ A \cup B = B \cup (A \cap B^c),
 </div>
 </div>
 </div>
-<div id="fig-1-9" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-9.svg" class="img-fluid figure-img" style="width:60.0%">
@@ -1493,8 +1493,7 @@ p_i \geq 0\text{ for }i = 1, \ldots, n
 <p><span class="theorem-title"><strong>Example 1.13 (Example 1.6.4: Genetics)</strong></span> Inherited traits in humans are determined by material in specific locations on chromosomes. Each normal human receives 23 chromosomes from each parent, and these chromosomes are naturally paired, with one chromosome in each pair coming from each parent. For the purposes of this text, it is safe to think of a gene as a portion of each chromosome in a pair. The genes, either one at a time or in combination, determine the inherited traits, such as blood type and hair color. The material in the two locations that make up a gene on the pair of chromosomes comes in forms called alleles. Each distinct combination of alleles (one on each chromosome) is called a genotype.</p>
 <p>Consider a gene with only two different alleles <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span>. Suppose that both parents have genotype <span class="math inline">\(Aa\)</span>, that is, each parent has allele <span class="math inline">\(A\)</span> on one chromosome and allele <span class="math inline">\(a\)</span> on the other. (We do not distinguish the same alleles in a different order as a different genotype. For example, <span class="math inline">\(aA\)</span> would be the same genotype as <span class="math inline">\(Aa\)</span>. But it can be convenient to distinguish the two chromosomes during intermediate steps in probability calculations, just as we distinguished the three coins in <a href="#exm-1-6-3" class="quarto-xref">Example&nbsp;<span>1.12</span></a>.) What are the possible genotypes of an offspring of these two parents? If all possible results of the parents contributing pairs of alleles are equally likely, what are the probabilities of the different genotypes?</p>
 <p>To begin, we shall distinguish which allele the offspring receives from each parent, since we are assuming that pairs of contributed alleles are equally likely. Afterward, we shall combine those results that produce the same genotype. The possible contributions from the parents are:</p>
-<div>
-<table data-quarto-postprocess="true" class="table">
+<table class="caption-top table" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1520,13 +1519,12 @@ p_i \geq 0\text{ for }i = 1, \ldots, n
 </tr>
 </tbody>
 </table>
-</div>
 <p>So, there are three possible genotypes <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span>, and <span class="math inline">\(aa\)</span> for the offspring. Since we assumed that every combination was equally likely, the four cells in the table all have probability <span class="math inline">\(1/4\)</span>. Since two of the cells in the table combined into genotype <span class="math inline">\(Aa\)</span>, that genotype has probability <span class="math inline">\(1/2\)</span>. The other two genotypes each have probability <span class="math inline">\(1/4\)</span>, since they each correspond to only one cell in the table.</p>
 </div>
 <div id="exm-1-6-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.14 (Example 1.6.5: Rolling Two Dice)</strong></span> We shall now consider an experiment in which two balanced dice are rolled, and we shall calculate the probability of each of the possible values of the sum of the two numbers that may appear.</p>
 <p>Although the experimenter need not be able to distinguish the two dice from one another in order to observe the value of their sum, the specification of a simple sample space in this example will be facilitated if we assume that the two dice are distinguishable. If this assumption is made, each outcome in the sample space <span class="math inline">\(S\)</span> can be represented as a pair of numbers <span class="math inline">\((x, y)\)</span>, where <span class="math inline">\(x\)</span> is the number that appears on the first die and <span class="math inline">\(y\)</span> is the number that appears on the second die. Therefore, <span class="math inline">\(S\)</span> comprises the following 36 outcomes:</p>
-<table class="table">
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">(1, 1)</td>
@@ -1635,7 +1633,7 @@ P_4 = P_{10} &amp;= \frac{3}{36}, \; P_7 = \frac{6}{36}.
 <h2 data-number="1.7" class="anchored" data-anchor-id="sec-1-7"><span class="header-section-number">1.7</span> Counting Methods</h2>
 <p><em>In simple sample spaces, one way to calculate the probability of an event involves counting the number of outcomes in the event and the number of outcomes in the sample space. This section presents some common methods for counting the number of outcomes in a set. These methods rely on special structure that exists in many common experiments, namely, that each outcome consists of several parts and that it is relatively easy to count how many possibilities there are for each of the parts.</em></p>
 <p>We have seen that in a simple sample space <span class="math inline">\(S\)</span>, the probability of an event <span class="math inline">\(A\)</span> is the ratio of the number of outcomes in <span class="math inline">\(A\)</span> to the total number of outcomes in <span class="math inline">\(S\)</span>. In many experiments, the number of outcomes in <span class="math inline">\(S\)</span> is so large that a complete listing of these outcomes is too expensive, too slow, or too likely to be incorrect to be useful. In such an experiment, it is convenient to have a method of determining the total number of outcomes in the space <span class="math inline">\(S\)</span> and in various events in <span class="math inline">\(S\)</span> without compiling a list of all these outcomes. In this section, some of these methods will be presented.</p>
-<div id="fig-1-10" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-10" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ch01/images/fig-1-10.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -1668,7 +1666,7 @@ Figure&nbsp;1.10: Three cities with routes between them in <a href="#exm-1-7-1" 
 \]</span></p>
 </div>
 <p>Since each of the <span class="math inline">\(m\)</span> rows in the array in <a href="#exm-1-7-2" class="quarto-xref">Example&nbsp;<span>1.16</span></a> contains <span class="math inline">\(n\)</span> pairs, the following result follows directly.</p>
-<div id="fig-1-11" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-1-11" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./ch01/images/fig-1-11.svg" class="img-fluid figure-img" style="width:50.0%">
@@ -1769,13 +1767,13 @@ p = \frac{P_{N,k}}{N^k} = \frac{N!}{(N-k)!N^k}.
 p = 1 - \frac{P_{365,k}}{365^k} = 1 - \frac{(365)!}{(365-k)!365^k}.
 \]</span></p>
 <p>Numerical values of this probability <span class="math inline">\(p\)</span> for various values of k are given in <a href="#tbl-1-1" class="quarto-xref">Table&nbsp;<span>1.1</span></a>. These probabilities may seem surprisingly large to anyone who has not thought about them before. Many persons would guess that in order to obtain a value of <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1/2\)</span>, the number of people in the group would have to be about 100. However, according to <a href="#tbl-1-1" class="quarto-xref">Table&nbsp;<span>1.1</span></a>, there would have to be only 23 people in the group. As a matter of fact, for <span class="math inline">\(k = 100\)</span> the value of <span class="math inline">\(p\)</span> is <span class="math inline">\(0.9999997\)</span>.</p>
-<div id="tbl-1-1" class="quarto-float anchored">
+<div id="tbl-1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1.1: The probability <span class="math inline">\(p\)</span> that at least two people in a group of <span class="math inline">\(k\)</span> people will have the same birthday
 </figcaption>
 <div aria-describedby="tbl-1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th><span class="math inline">\(k\)</span></th>
@@ -1919,7 +1917,7 @@ s_n = \frac{1}{2}\log(2\pi) + \left(n + \frac{1}{2}\right)\log(n) - n.
 <div id="exm-1-8-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.27 (Example 1.8.1: Choosing Subsets)</strong></span> Consider the set <span class="math inline">\(\{a, b, c, d\}\)</span> containing the four different letters. We want to count the number of distinct subsets of size two. In this case, we can list all of the subsets of size two:</p>
 <p><span class="math display">\[
-\{a, b\}, \; \{a, c\}, \; \{a, d\}, \; \{b, c\}, \; \{b, d\}, \; and \{c, d\}.
+\{a, b\}, \; \{a, c\}, \; \{a, d\}, \; \{b, c\}, \; \{b, d\}, \text{ and } \{c, d\}.
 \]</span></p>
 <p>We see that there are six distinct subsets of size two. This is different from counting permutaions because <span class="math inline">\(\{a, b\}\)</span> and <span class="math inline">\(\{b, a\}\)</span> are the same subset.</p>
 </div>
@@ -2929,18 +2927,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2972,7 +2959,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2980,7 +2989,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
