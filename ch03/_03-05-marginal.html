@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.23">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="_03-05-marginal_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="_03-05-marginal_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -81,6 +81,16 @@ window.Quarto = {
 <section id="deriving-a-marginal-pmf-or-a-marginal-pdf" class="level3">
 <h3 class="anchored" data-anchor-id="deriving-a-marginal-pmf-or-a-marginal-pdf">Deriving a Marginal pmf or a Marginal pdf</h3>
 <p>We have seen in <strong>?@thm-3-4-5</strong> that if the joint CDF <span class="math inline">\(F\)</span> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is known, then the CDF <span class="math inline">\(F_1\)</span> of the random variable <span class="math inline">\(X\)</span> can be derived from <span class="math inline">\(F\)</span>. We saw an example of this derivation in <strong>?@exm-3-4-15</strong>. If <span class="math inline">\(X\)</span> has a continuous distribution, we can also derive the pdf of <span class="math inline">\(X\)</span> from the joint distribution.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Example 3.5.1: Demands for Utilities)</strong></span> Look carefully at the formula for <span class="math inline">\(F(x, y)\)</span> in <strong>?@exm-3-4-15</strong>, specifically the last two branches that we identified as <span class="math inline">\(F_1(x)\)</span> and <span class="math inline">\(F_2(y)\)</span>, the CDFs of the two individual random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It is apparent from those two formulas and <strong>?@thm-3-3-5</strong> that the pdf of <span class="math inline">\(X\)</span> alone is</p>
 <p><span class="math display">\[
@@ -97,6 +107,8 @@ f_2(y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 <p>The ideas employed in <a href="#exm-3-5-1" class="quarto-xref">Example&nbsp;1</a> lead to the following definition.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -104,10 +116,32 @@ f_2(y) = \begin{cases}
 <figcaption>Computing <span class="math inline">\(f_1(x)\)</span> from the joint pmf.</figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-5-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Definition 3.5.1: Marginal CDF/pmf/pdf)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint distribution. The CDF of <span class="math inline">\(X\)</span> derived by <strong>?@thm-3-4-5</strong> is called the marginal CDF of <span class="math inline">\(X\)</span>. Similarly, the pmf or pdf of <span class="math inline">\(X\)</span> associated with the marginal CDF of <span class="math inline">\(X\)</span> is called the marginal pmf or marginal pdf of <span class="math inline">\(X\)</span>.</p>
 </div>
+</div>
+</div>
 <p>To obtain a specific formula for the marginal pmf or marginal pdf, we start with a discrete joint distribution.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.5.1)</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution for which the joint pmf is <span class="math inline">\(f\)</span>, then the marginal pmf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> is</p>
 <p><span id="eq-3-5-1"><span class="math display">\[
@@ -118,14 +152,27 @@ f_1(x) = \sum_{\text{All }y}f(x, y).
 <p><span class="proof-title"><em>Proof</em>. </span>We prove the result for <span class="math inline">\(f_1\)</span>, as the proof for <span class="math inline">\(f_2\)</span> is similar. We illustrate the proof in <strong>?@fig-3-15</strong>. In that figure, the set of points in the dashed box is the set of pairs with first coordinate <span class="math inline">\(x\)</span>. The event <span class="math inline">\(\{X = x\}\)</span> can be expressed as the union of the events represented by the pairs in the dashed box, namely, <span class="math inline">\(B_y = \{X = x \text{ and } Y = y\}\)</span> for all possible <span class="math inline">\(y\)</span>. The <span class="math inline">\(B_y\)</span> events are disjoint and <span class="math inline">\(\Pr(B_y) = f(x, y)\)</span>. Since <span class="math inline">\(\Pr(X = x) = \sum_{\text{All }y}\)</span>, <a href="#eq-3-5-1" class="quarto-xref">Equation&nbsp;1</a> holds.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Example 3.5.2: Deriving a Marginal pmf from a Table of Probabilities)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are the random variables in <strong>?@exm-3-4-3</strong>. These are respectively the numbers of cars and televisions owned by a radomly selected household in a certain suburban area. <strong>?@tbl-3-2</strong> gives their joint pmf, and we repeat that table in <strong>?@tbl-3-4</strong> together with row and column totals added to the margins.</p>
 <p>The marginal pmf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> can be read from the row totals of <strong>?@tbl-3-4</strong>. The numbers were obtained by summing the values in each row of this table from the four columns in the central part of the table (those labeled <span class="math inline">\(y = 1, 2, 3, 4\)</span>). In this way, it is found that <span class="math inline">\(f_1(1) = 0.2\)</span>, <span class="math inline">\(f_1(2) = 0.6\)</span>, <span class="math inline">\(f_1(3) = 0.2\)</span>, and <span class="math inline">\(f_1(x) = 0\)</span> for all other values of <span class="math inline">\(x\)</span>. This marginal pmf gives the probabilities that a randomly selected household owns 1, 2, or 3 cars. Similarly, the marginal pmf <span class="math inline">\(f_2\)</span> of <span class="math inline">\(Y\)</span>, the probabilities that a household owns 1, 2, 3, or 4 televisions, can be read from the column totals. These numbers were obtained by adding the numbers in each of the columns from the three rows in the central part of the table (those labeled <span class="math inline">\(x = 1, 2, 3\)</span>.)</p>
 </div>
+</div>
+</div>
 <p>The name <strong>marginal distribution</strong> derives from the fact that the marginal distributions are the totals that appear in the margins of tables like <strong>?@tbl-3-4</strong>.</p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution for which the joint pdf is <span class="math inline">\(f\)</span>, then the marginal pdf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> is again determined in the manner shown in <a href="#eq-3-5-1" class="quarto-xref">Equation&nbsp;1</a>, but the sum over all possible values of <span class="math inline">\(Y\)</span> is now replaced by the integral over all possible values of <span class="math inline">\(Y\)</span>.</p>
-<div>
-<table data-quarto-postprocess="true" class="table">
+<table class="caption-top table" data-quarto-postprocess="true">
 <caption>Table 3.4: Joint pmf <span class="math inline">\(f(x, y)\)</span> with marginal pmf’s for <a href="#exm-3-5-2" class="quarto-xref">Example&nbsp;2</a></caption>
 <thead>
 <tr class="header">
@@ -177,7 +224,16 @@ f_1(x) = \sum_{\text{All }y}f(x, y).
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.5.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-2" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Theorem 3.5.2)</strong></span> If <span class="math inline">\(X\)</span> and Y have a continuous joint distribution with joint pdf <span class="math inline">\(f\)</span>, then the marginal pdf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> is</p>
 <p><span id="eq-3-5-2"><span class="math display">\[
@@ -198,6 +254,18 @@ f_2(y) = \int_{-\infty}^{\infty}f(x, y)\, dx \; \text{ for }-\infty &lt; y &lt; 
 <p>The inner integral in the last expression of <a href="#eq-3-5-4" class="quarto-xref">Equation&nbsp;4</a> is a function of <span class="math inline">\(r\)</span> and it can easily be recognized as <span class="math inline">\(f_1(r)\)</span>, where <span class="math inline">\(f_1\)</span> is defined in <a href="#eq-3-5-2" class="quarto-xref">Equation&nbsp;2</a>. It follows that <span class="math inline">\(\Pr(X \leq x) = \int_{-\infty}^{x}f_1(r)dr\)</span>, so <span class="math inline">\(f_1\)</span> is the marginal pdf of <span class="math inline">\(X\)</span>.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Example 3.5.3: Deriving a Marginal pdf)</strong></span> Suppose that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as specified in <strong>?@exm-3-4-8</strong>, namely,</p>
 <p><span class="math display">\[
@@ -236,7 +304,19 @@ f_2(y) = \int_{-\infty}^{\infty}f(x, y)\, dx = \int_{-\sqrt{y}}^{\sqrt{y}}\left(
 \]</span></p>
 <p>This marginal pdf of <span class="math inline">\(Y\)</span> is sketched in <strong>?@fig-3-18</strong>.</p>
 </div>
-<p>  If <span class="math inline">\(X\)</span> has a discrete distribution and <span class="math inline">\(Y\)</span> has a continuous distribution, we can derive the marginal pmf of <span class="math inline">\(X\)</span> and the marginal pdf of <span class="math inline">\(Y\)</span> from the joint pmf/pdf in the same ways that we derived a marginal pmf or a marginal pdf from a joint pmf or a joint pdf. The following result can be proven by combining the techniques used in the proofs of Theorems <a href="#thm-3-5-1" class="quarto-xref">1</a> and <a href="#thm-3-5-2" class="quarto-xref">2</a>.</p>
+</div>
+</div>
+<p>If <span class="math inline">\(X\)</span> has a discrete distribution and <span class="math inline">\(Y\)</span> has a continuous distribution, we can derive the marginal pmf of <span class="math inline">\(X\)</span> and the marginal pdf of <span class="math inline">\(Y\)</span> from the joint pmf/pdf in the same ways that we derived a marginal pmf or a marginal pdf from a joint pmf or a joint pdf. The following result can be proven by combining the techniques used in the proofs of Theorems <a href="#thm-3-5-1" class="quarto-xref">1</a> and <a href="#thm-3-5-2" class="quarto-xref">2</a>.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.5.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-3" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (Theorem 3.5.3)</strong></span> Let <span class="math inline">\(f\)</span> be the joint pmf/pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, with <span class="math inline">\(X\)</span> discrete and <span class="math inline">\(Y\)</span> continuous. Then the marginal pmf of <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[
@@ -247,6 +327,18 @@ f_1(x) = \Pr(X = x) = \int_{-\infty}^{\infty}f(x, y)\, dy, \text{ for all }x,
 f_2(y) = \sum_{x}f(x, y), \text{ for }-\infty &lt; y &lt; \infty.
 \]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-4" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Example 3.5.4: Determining a Marginal pmf and Marginal pdf from a Joint pmf/pdf)</strong></span> Suppose that the joint pmf/pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as in <strong>?@exm-3-4-11</strong>. The marginal pmf of <span class="math inline">\(X\)</span> is obtained by integrating</p>
 <p><span class="math display">\[
@@ -256,7 +348,19 @@ f_1(x) = \int_{0}^{1}\frac{xy^{x-1}}{3}dy = \frac{1}{3},
 f_2(y) = \frac{1}{3} + \frac{2y}{3} + y^2, \text{ for }0 &lt; y &lt; 1.
 \]</span></p>
 </div>
+</div>
+</div>
 <p>Although the marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be derived from their joint distribution, it is not possible to reconstruct the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> from their marginal distributions without additional information. For instance, the marginal pdf’s sketched in Figs. <strong>?@fig-3-17</strong> and <strong>?@fig-3-18</strong> reveal no information about the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In fact, by definition, the marginal distribution of <span class="math inline">\(X\)</span> specifies probabilities for <span class="math inline">\(X\)</span> without regard for the values of any other random variables. This property of a marginal pdf can be further illustrated by another example.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Example 3.5.5: Marginal and Joint Distributions)</strong></span> Suppose that a penny and a nickel are each tossed <span class="math inline">\(n\)</span> times so that every pair of sequences of tosses (<span class="math inline">\(n\)</span> tosses in each sequence) is equally likely to occur. Consider the following two definitions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: (i) <span class="math inline">\(X\)</span> is the number of heads obtained with the penny, and <span class="math inline">\(Y\)</span> is the number of heads obtained with the nickel. (ii) Both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are the number of heads obtained with the penny, so the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are actually identical. In case (i), the marginal distribution of <span class="math inline">\(X\)</span> and the marginal distribution of <span class="math inline">\(Y\)</span> will be identical binomial distributions. The same pair of marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will also be obtained in case (ii). However, the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will not be the same in the two cases. In case (i), <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can take different values. Their joint pmf is</p>
 <p><span class="math display">\[
@@ -273,9 +377,21 @@ f(x, y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 </section>
 <section id="independent-random-variables" class="level3">
 <h3 class="anchored" data-anchor-id="independent-random-variables">Independent Random Variables</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Example 3.5.6: Demands for Utilities)</strong></span> In Examples <strong>?@exm-3-4-15</strong> and <a href="#exm-3-5-1" class="quarto-xref">1</a>, we found the marginal CDFs of water and electric demand were, respectively,</p>
 <p><span class="math display">\[
@@ -291,13 +407,26 @@ F_2(y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 <p>The product of these two functions is precisely the same as the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#exm-3-5-1" class="quarto-xref">Example&nbsp;1</a>. One consequence of this fact is that, for every <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, <span class="math inline">\(\Pr(X \leq x \text{ and } Y \leq y) = \Pr(X \leq x) \Pr(Y \leq y)\)</span>. This equation makes <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> an example of the next definition.</p>
-<p>:::</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition 3.5.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-5-2" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Definition 3.5.2: Independent Random Variables)</strong></span> It is said that two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if, for every two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> of real numbers such that <span class="math inline">\(\{X \in A\}\)</span> and <span class="math inline">\(\{Y \in B\}\)</span> are events,</p>
 <p><span id="eq-3-5-5"><span class="math display">\[
 \Pr(X \in A \text{ and } Y \in B) = \Pr(X \in A)\Pr(Y \in B).
 \tag{5}\]</span></span></p>
+</div>
+</div>
 </div>
 <p>In other words, let <span class="math inline">\(E\)</span> be any event the occurrence or nonoccurrence of which depends only on the value of <span class="math inline">\(X\)</span> (such as <span class="math inline">\(E = \{X \in A\}\)</span>), and let <span class="math inline">\(D\)</span> be any event the occurrence or nonoccurrence of which depends only on the value of <span class="math inline">\(Y\)</span> (such as <span class="math inline">\(D = \{Y \in B\}\)</span>). Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables if and only if <span class="math inline">\(E\)</span> and <span class="math inline">\(D\)</span> are independent events for all such events <span class="math inline">\(E\)</span> and <span class="math inline">\(D\)</span>.</p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, it must be true that</p>
@@ -305,10 +434,32 @@ F_2(y) = \begin{cases}
 \Pr(X \leq x \text{ and } Y \leq y) = \Pr(X \leq x)\Pr(Y \leq y).
 \tag{6}\]</span></span></p>
 <p>Moreover, since all probabilities for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of the type appearing in <a href="#eq-3-5-5" class="quarto-xref">Equation&nbsp;5</a> can be derived from probabilities of the type appearing in <a href="#eq-3-5-6" class="quarto-xref">Equation&nbsp;6</a>, it can be shown that if <a href="#eq-3-5-6" class="quarto-xref">Equation&nbsp;6</a> is satisfied for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> must be independent. The proof of this statement is beyond the scope of this book and is omitted, but we summarize it as the following theorem.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.5.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-4" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 4 (Theorem 3.5.4)</strong></span> Let the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <span class="math inline">\(F\)</span>, let the marginal CDF of <span class="math inline">\(X\)</span> be <span class="math inline">\(F_1\)</span>, and let the marginal CDF of <span class="math inline">\(Y\)</span> be <span class="math inline">\(F_2\)</span>. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if, for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, <span class="math inline">\(F(x, y) = F_1(x)F_2(y)\)</span>.</p>
 </div>
+</div>
+</div>
 <p>For example, the demands for water and electricity in <a href="#exm-3-5-6" class="quarto-xref">Example&nbsp;6</a> are independent. If one returns to <a href="#exm-3-5-1" class="quarto-xref">Example&nbsp;1</a>, one also sees that the product of the marginal pdfs of water and electric demand equals their joint pdf given in <strong>?@eq-3-4-2</strong>. This relation is characteristic of independent random variables whether discrete or continuous.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.5.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-5" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (Theorem 3.5.5)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables that have a joint pmf, pdf, or pmf/pdf <span class="math inline">\(f\)</span>. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be independent if and only if <span class="math inline">\(f\)</span> can be represented in the following form for <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>:</p>
 <p><span id="eq-3-5-7"><span class="math display">\[
@@ -347,17 +498,30 @@ f(x, y) = \frac{f_1(x)}{c_1}c_1f_2(y) = f_1(x)f_2(y).
 <p>(if the integral exists) where the first equality follows from <a href="#def-3-5-2" class="quarto-xref">Definition&nbsp;2</a> and the second is a straightforward rearrangement. We now see that <span class="math inline">\(f_1(x)f_2(y)\)</span> satisfies the conditions needed to be <span class="math inline">\(f(x, y)\)</span> as stated in <strong>?@def-3-4-5</strong>.</p>
 </div>
 </div>
+</div>
+</div>
 <p>A simple corollary follows from <a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;5</a>.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Corollary 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Corollary 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="cor-3-5-1" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (Corollary 3.5.1)</strong></span> Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if the following factorization is satisfied for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
 <p><span id="eq-3-5-9"><span class="math display">\[
 f(x, y) = f_1(x)f_2(y).
 \tag{9}\]</span></span></p>
 </div>
+</div>
+</div>
 <p>As stated in <strong>?@sec-3-2</strong>, in a continuous distribution the values of a pdf can be changed arbitrarily at any countable set of points. Therefore, for such a distribution it would be more precise to state that the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if it is possible to choose versions of <span class="math inline">\(f\)</span>, <span class="math inline">\(f_1\)</span>, and <span class="math inline">\(f_2\)</span> such that <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;9</a> is satisfied for <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>.</p>
 <p><strong>The Meaning of Independence</strong>: We have given a mathematical definition of independent random variables in <a href="#def-3-5-2" class="quarto-xref">Definition&nbsp;2</a>, but we have not yet given any interpretation of the concept of independent random variables. Because of the close connection between independent events and independent random variables, the interpretation of independent random variables should be closely related to the interpretation of independent events. We model two events as independent if learning that one of them occurs does not change the probability that the other one occurs. It is easiest to extend this idea to discrete random variables. Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution. If, for each <span class="math inline">\(y\)</span>, learning that <span class="math inline">\(Y = y\)</span> does not change any of the probabilities of the events <span class="math inline">\(\{X = x\}\)</span>, we would like to say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. From <a href="#cor-3-5-1" class="quarto-xref">Corollary&nbsp;1</a> and the definition of marginal pmf, we see that indeed <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if, for each <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> such that <span class="math inline">\(\Pr(Y = y) &gt; 0\)</span>, <span class="math inline">\(\Pr(X = x \mid Y = y) = \Pr(X = x)\)</span>, that is, learning the value of <span class="math inline">\(Y\)</span> doesn’t change any of the probabilities associated with <span class="math inline">\(X\)</span>. When we formally define conditional distributions in <strong>?@sec-3-6</strong>, we shall see that this interpretation of independent discrete random variables extends to all bivariate distributions. In summary, if we are trying to decide whether or not to model two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as independent, we should think about whether we would change the distribution of <span class="math inline">\(X\)</span> after we learned the value of <span class="math inline">\(Y\)</span> or vice versa.</p>
-<div>
-<table data-quarto-postprocess="true" class="table">
+<table class="caption-top table" data-quarto-postprocess="true">
 <caption>Joint pmf <span class="math inline">\(f(x, y)\)</span> for <a href="#exm-3-5-7" class="quarto-xref">Example&nbsp;7</a></caption>
 <thead>
 <tr class="header">
@@ -419,17 +583,39 @@ f(x, y) = f_1(x)f_2(y).
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.7">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Example 3.5.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-7" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Example 3.5.7: Games of Chance)</strong></span> A carnival game consists of rolling a fair die, tossing a fair coin two times, and recording both outcomes. Let <span class="math inline">\(Y\)</span> stand for the number on the die, and let <span class="math inline">\(X\)</span> stand for the number of heads in the two tosses. It seems reasonable to believe that all of the events determined by the roll of the die are independent of all of the events determined by the flips of the coin. Hence, we can assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables. The marginal distribution of <span class="math inline">\(Y\)</span> is the uniform distribution on the integers <span class="math inline">\(1, \ldots, 6\)</span>, while the distribution of <span class="math inline">\(X\)</span> is the binomial distribution with parameters <span class="math inline">\(2\)</span> and <span class="math inline">\(1/2\)</span>. The marginal pmfs and the joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are given in <strong>?@tbl-3-5</strong>, where the joint pmf was constructed using <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;9</a>. The Total column gives the marginal pmf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span>, and the Total row gives the marginal pmf <span class="math inline">\(f_2\)</span> of <span class="math inline">\(Y\)</span>.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.8">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-8" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Example 3.5.8: Determining Whether Random Variables Are Independent in a Clinical Trial)</strong></span> Return to the clinical trial of depression drugs in <strong>?@exr-3-4-11</strong>. In that trial, a patient is selected at random from the 150 patients in the study and we record <span class="math inline">\(Y\)</span>, an indicator of the treatment group for that patient, and <span class="math inline">\(X\)</span>, an indicator of whether or not the patient relapsed. <strong>?@tbl-3-6</strong> repeats the joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> along with the marginal distributions in the margins. We shall determine whether or not <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</p>
 <p>In <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;9</a>, <span class="math inline">\(f(x, y)\)</span> is the probability in the <span class="math inline">\(x\)</span>th row and the <span class="math inline">\(y\)</span>th column of the table, <span class="math inline">\(f_1(x)\)</span> is the number in the Total column in the <span class="math inline">\(x\)</span>th row, and <span class="math inline">\(f_2(y)\)</span> is the number in the Total row in the <span class="math inline">\(y\)</span>th column. It is seen in the table that <span class="math inline">\(f(1, 2) = 0.087\)</span>, while <span class="math inline">\(f_1(1) = 0.513\)</span>, and <span class="math inline">\(f_2(1) = 0.253\)</span>. Hence, <span class="math inline">\(f(1, 2) \neq f_1(1)f_2(1) = 0.129\)</span>. It follows that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are not independent.</p>
 </div>
+</div>
+</div>
 <p>It should be noted from Examples <a href="#exm-3-5-7" class="quarto-xref">7</a> and <a href="#exm-3-5-8" class="quarto-xref">8</a> that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be independent if and only if the rows of the table specifying their joint pmf are proportional to one another, or equivalently, if and only if the columns of the table are proportional to one another.</p>
-<div>
-<table data-quarto-postprocess="true" class="table">
+<table class="caption-top table" data-quarto-postprocess="true">
 <caption>Proportions marginals in <a href="#exm-3-5-8" class="quarto-xref">Example&nbsp;8</a></caption>
 <thead>
 <tr class="header">
@@ -474,7 +660,16 @@ f(x, y) = f_1(x)f_2(y).
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.9">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Example 3.5.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-9" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Example 3.5.9: Calculating a Probability Involving Independent Random Variables)</strong></span> Suppose that two measurements <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are made of the rainfall at a certain location on May 1 in two consecutive years. It might be reasonable, given knowledge of the history of rainfall on May 1, to treat the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as independent. Suppose that the pdf <span class="math inline">\(g\)</span> of each measurement is as follows:</p>
 <p><span class="math display">\[
@@ -497,6 +692,8 @@ f(x, y) = \begin{cases}
 \]</span></p>
 <p>As a final note, if the two measurements <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> had been made on the same day at nearby locations, then it might not make as much sense to treat them as independent, since we would expect them to be more similar to each other than to historical rainfalls. For example, if we first learn that <span class="math inline">\(X\)</span> is small compared to historical rainfall on the date in question, we might then expect <span class="math inline">\(Y\)</span> to be smaller than the historical distribution would suggest.</p>
 </div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ch03/images/fig-3-19.svg" class="img-fluid figure-img"></p>
@@ -504,6 +701,16 @@ f(x, y) = \begin{cases}
 </figure>
 </div>
 <p><a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;5</a> says that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if, for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, <span class="math inline">\(f\)</span> can be factored into the product of an arbitrary nonnegative function of <span class="math inline">\(x\)</span> and an arbitrary nonnegative function of <span class="math inline">\(y\)</span>. However, it should be emphasized that, just as in <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;9</a>, the factorization in <a href="#eq-3-5-7" class="quarto-xref">Equation&nbsp;7</a> must be satisfied for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (<span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>).</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.10">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-10" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Example 3.5.10: Dependent Random Variables)</strong></span> Suppose that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> has the following form:</p>
 <p><span class="math display">\[
@@ -516,10 +723,34 @@ kx^2y^2 &amp;\text{for }x^2 + y^2 \leq 1, \\
 <p>It is evident that at each point inside the circle <span class="math inline">\(x^2 + y^2 \leq 1\)</span>, <span class="math inline">\(f(x, y)\)</span> can be factored as in <a href="#eq-3-5-7" class="quarto-xref">Equation&nbsp;7</a>. However, this same factorization cannot also be satisfied at every point outside this circle. For example, <span class="math inline">\(f(0.9, 0.9) = 0\)</span>, but neither <span class="math inline">\(f_1(0.9) = 0\)</span> nor <span class="math inline">\(f_2(0.9) = 0\)</span>. (In <a href="#exr-3-5-13" class="quarto-xref">Exercise&nbsp;13</a>, you can verify this feature of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span>.)</p>
 <p>The important feature of this example is that the values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are constrained to lie inside a circle. The joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is positive inside the circle and zero outside the circle. Under these conditions, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> cannot be independent, because for every given value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span>, the possible values of <span class="math inline">\(X\)</span> will depend on <span class="math inline">\(y\)</span>. For example, if <span class="math inline">\(Y = 0\)</span>, then <span class="math inline">\(X\)</span> can have any value such that <span class="math inline">\(X^2 \leq 1\)</span>; if <span class="math inline">\(Y = 1/2\)</span>, then <span class="math inline">\(X\)</span> must have a value such that <span class="math inline">\(X^2 \leq 3/4\)</span>.</p>
 </div>
+</div>
+</div>
 <p><a href="#exm-3-5-10" class="quarto-xref">Example&nbsp;10</a> shows that one must be careful when trying to apply <a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;5</a>. The situation that arose in that example will occur whenever <span class="math inline">\(\{(x, y) \mid f(x, y) &gt; 0\}\)</span> has boundaries that are curved or not parallel to the coordinate axes. There is one important special case in which it is easy to check the conditions of <a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;5</a>. The proof is left as an exercise.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.5.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-6" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 6 (Theorem 3.5.6)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution. Suppose that <span class="math inline">\(\{(x, y) \mid f(x, y) &gt; 0\}\)</span> is a rectangular region <span class="math inline">\(R\)</span> (possibly unbounded) with sides (if any) parallel to the coordinate axes. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if <a href="#eq-3-5-7" class="quarto-xref">Equation&nbsp;7</a> holds for all <span class="math inline">\((x, y) \in R\)</span>.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.5.11">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-11" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (Example 3.5.11: Verifying the Factorization of a Joint pdf)</strong></span> Suppose that the joint pdf <span class="math inline">\(f\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as follows:</p>
 <p><span class="math display">\[
@@ -545,6 +776,8 @@ f_2(y) = \begin{cases}
 \end{cases}
 \]</span></p>
 <p>If we multiply <span class="math inline">\(f_1(x)\)</span> times <span class="math inline">\(f_2(y)\)</span> and compare the product to <span class="math inline">\(f(x, y)\)</span>, we see that <span class="math inline">\(k = 2\)</span>.</p>
+</div>
+</div>
 </div>
 <p><strong>Note: Separate Functions of Independent Random Variables Are Independent.</strong> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(h(X)\)</span> and <span class="math inline">\(g(Y)\)</span> are independent no matter what the functions <span class="math inline">\(h\)</span> and <span class="math inline">\(g\)</span> are. This is true because for every <span class="math inline">\(t\)</span>, the event <span class="math inline">\(\{h(X) \leq t\}\)</span> can always be written as <span class="math inline">\(\{X \in A\}\)</span>, where <span class="math inline">\(A = \{x \mid h(x) \leq t\}\)</span>. Similarly, <span class="math inline">\(\{g(Y) \leq u\}\)</span> can be written as <span class="math inline">\(\{Y \in B\}\)</span>, so <a href="#eq-3-5-6" class="quarto-xref">Equation&nbsp;6</a> for <span class="math inline">\(h(X)\)</span> and <span class="math inline">\(g(Y)\)</span> follows from <a href="#eq-3-5-5" class="quarto-xref">Equation&nbsp;5</a> for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 </section>
@@ -742,18 +975,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -785,7 +1007,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -793,7 +1037,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

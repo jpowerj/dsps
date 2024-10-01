@@ -1,4 +1,3 @@
-
 ## Marginal Distributions {#sec-3-5}
 
 *Earlier in this chapter, we introduced distributions for random variables, and in @sec-3-4 we discussed a generalization to joint distributions of two random variables simultaneously. Often, we start with a joint distribution of two random variables and we then want to find the distribution of just one of them. The distribution of one random variable $X$ computed from a joint distribution is also called the marginal distribution of $X$. Each random variable will have a marginal CDF as well as a marginal pdf or pmf. We also introduce the concept of independent random variables, which is a natural generalization of independent events.
@@ -8,6 +7,7 @@
 We have seen in @thm-3-4-5 that if the joint CDF $F$ of two random variables $X$ and $Y$ is known, then the CDF $F_1$ of the random variable $X$ can be derived from $F$. We saw an example of this derivation in @exm-3-4-15. If $X$ has a continuous
 distribution, we can also derive the pdf of $X$ from the joint distribution.
 
+::: {.callout-tip title="Example 3.5.1"}
 ::: {#exm-3-5-1}
 
 # Example 3.5.1: Demands for Utilities
@@ -31,11 +31,13 @@ f_2(y) = \begin{cases}
 $$
 
 :::
+:::
 
 The ideas employed in @exm-3-5-1 lead to the following definition.
 
 ![Computing $f_1(x)$ from the joint pmf.](ch03/images/fig-3-15.svg)
 
+::: {.callout-note title="Definition 3.5.1"}
 ::: {#def-3-5-1}
 
 # Definition 3.5.1: Marginal CDF/pmf/pdf
@@ -43,9 +45,11 @@ The ideas employed in @exm-3-5-1 lead to the following definition.
 Suppose that $X$ and $Y$ have a joint distribution. The CDF of $X$ derived by @thm-3-4-5 is called the marginal CDF of $X$. Similarly, the pmf or pdf of $X$ associated with the marginal CDF of $X$ is called the marginal pmf or marginal pdf of $X$.
 
 :::
+:::
 
 To obtain a specific formula for the marginal pmf or marginal pdf, we start with a discrete joint distribution.
 
+::: {.callout-caution title="Theorem 3.5.1"}
 ::: {#thm-3-5-1}
 
 # Theorem 3.5.1
@@ -65,7 +69,9 @@ We prove the result for $f_1$, as the proof for $f_2$ is similar. We illustrate 
 :::
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.5.2"}
 ::: {#exm-3-5-2}
 
 # Example 3.5.2: Deriving a Marginal pmf from a Table of Probabilities
@@ -75,6 +81,7 @@ Suppose that $X$ and $Y$ are the random variables in @exm-3-4-3. These are respe
 The marginal pmf $f_1$ of $X$ can be read from the row totals of @tbl-3-4. The numbers were obtained by summing the values in each row of this table from the four columns in the central part of the table (those labeled $y = 1, 2, 3, 4$). In this way, it is found that $f_1(1) = 0.2$, $f_1(2) = 0.6$, $f_1(3) = 0.2$, and $f_1(x) = 0$ for all other values of $x$. This marginal pmf gives the probabilities that a randomly selected household owns 1, 2, or 3 cars. Similarly, the marginal pmf $f_2$ of $Y$, the probabilities that a household owns 1, 2, 3, or 4 televisions, can be read from the column totals. These numbers were obtained by adding the numbers in each of the columns from the three rows in the
 central part of the table (those labeled $x = 1, 2, 3$.)
 
+:::
 :::
 
 The name **marginal distribution** derives from the fact that the marginal distributions are the totals that appear in the margins of tables like @tbl-3-4.
@@ -136,6 +143,7 @@ If $X$ and $Y$ have a continuous joint distribution for which the joint pdf is $
 </table>
 ```
 
+::: {.callout-caution title="Theorem 3.5.2"}
 ::: {#thm-3-5-2}
 
 # Theorem 3.5.2
@@ -166,8 +174,11 @@ $$ {#eq-3-5-4}
 The inner integral in the last expression of @eq-3-5-4 is a function of $r$ and it can easily be recognized as $f_1(r)$, where $f_1$ is defined in @eq-3-5-2. It follows that $\Pr(X \leq x) = \int_{-\infty}^{x}f_1(r)dr$, so $f_1$ is the marginal pdf of $X$.
 
 :::
+
+:::
 :::
 
+::: {.callout-tip title="Example 3.5.3"}
 ::: {#exm-3-5-3}
 
 # Example 3.5.3: Deriving a Marginal pdf
@@ -206,9 +217,11 @@ $$
 This marginal pdf of $Y$ is sketched in @fig-3-18. 
 
 :::
- 
+:::
+
 If $X$ has a discrete distribution and $Y$ has a continuous distribution, we can derive the marginal pmf of $X$ and the marginal pdf of $Y$ from the joint pmf/pdf in the same ways that we derived a marginal pmf or a marginal pdf from a joint pmf or a joint pdf. The following result can be proven by combining the techniques used in the proofs of Theorems [-@thm-3-5-1] and [-@thm-3-5-2].
 
+::: {.callout-caution title="Theorem 3.5.3"}
 ::: {#thm-3-5-3}
 
 # Theorem 3.5.3
@@ -226,7 +239,9 @@ f_2(y) = \sum_{x}f(x, y), \text{ for }-\infty < y < \infty.
 $$
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.5.4"}
 ::: {#exm-3-5-4}
 
 # Example 3.5.4: Determining a Marginal pmf and Marginal pdf from a Joint pmf/pdf
@@ -243,9 +258,11 @@ f_2(y) = \frac{1}{3} + \frac{2y}{3} + y^2, \text{ for }0 < y < 1.
 $$
 
 :::
+:::
 
 Although the marginal distributions of $X$ and $Y$ can be derived from their joint distribution, it is not possible to reconstruct the joint distribution of $X$ and $Y$ from their marginal distributions without additional information. For instance, the marginal pdf's sketched in Figs. [-@fig-3-17] and [-@fig-3-18] reveal no information about the relationship between $X$ and $Y$. In fact, by definition, the marginal distribution of $X$ specifies probabilities for $X$ without regard for the values of any other random variables. This property of a marginal pdf can be further illustrated by another example.
 
+::: {.callout-tip title="Example 3.5.5"}
 ::: {#exm-3-5-5}
 
 # Example 3.5.5: Marginal and Joint Distributions
@@ -269,9 +286,11 @@ f(x, y) = \begin{cases}
 $$
 
 :::
+:::
 
 ### Independent Random Variables
 
+::: {.callout-tip title="Example 3.5.6"}
 ::: {#exm-3-5-6}
 
 # Example 3.5.6: Demands for Utilities
@@ -292,11 +311,11 @@ F_2(y) = \begin{cases}
 $$
 
 :::
+:::
 
 The product of these two functions is precisely the same as the joint CDF of $X$ and $Y$ given in @exm-3-5-1. One consequence of this fact is that, for every $x$ and $y$, $\Pr(X \leq x \text{ and } Y \leq y) = \Pr(X \leq x) \Pr(Y \leq y)$. This equation makes $X$ and $Y$ an example of the next definition.
 
-:::
-
+::: {.callout-note title="Definition 3.5.2"}
 ::: {#def-3-5-2}
 
 # Definition 3.5.2: Independent Random Variables
@@ -307,6 +326,7 @@ $$
 \Pr(X \in A \text{ and } Y \in B) = \Pr(X \in A)\Pr(Y \in B).
 $$ {#eq-3-5-5}
 
+:::
 :::
 
 In other words, let $E$ be any event the occurrence or nonoccurrence of which depends only on the value of $X$ (such as $E = \{X \in A\}$), and let $D$ be any event the occurrence or nonoccurrence of which depends only on the value of $Y$ (such as $D = \{Y \in B\}$). Then $X$ and $Y$ are independent random variables if and only if $E$ and $D$ are independent events for all such events $E$ and $D$.
@@ -319,6 +339,7 @@ $$ {#eq-3-5-6}
 
 Moreover, since all probabilities for $X$ and $Y$ of the type appearing in @eq-3-5-5 can be derived from probabilities of the type appearing in @eq-3-5-6, it can be shown that if @eq-3-5-6 is satisfied for all values of $x$ and $y$, then $X$ and $Y$ must be independent. The proof of this statement is beyond the scope of this book and is omitted, but we summarize it as the following theorem.
 
+::: {.callout-caution title="Theorem 3.5.4"}
 ::: {#thm-3-5-4}
 
 # Theorem 3.5.4
@@ -326,9 +347,11 @@ Moreover, since all probabilities for $X$ and $Y$ of the type appearing in @eq-3
 Let the joint CDF of $X$ and $Y$ be $F$, let the marginal CDF of $X$ be $F_1$, and let the marginal CDF of $Y$ be $F_2$. Then $X$ and $Y$ are independent if and only if, for all real numbers $x$ and $y$, $F(x, y) = F_1(x)F_2(y)$.
 
 :::
+:::
 
 For example, the demands for water and electricity in @exm-3-5-6 are independent. If one returns to @exm-3-5-1, one also sees that the product of the marginal pdfs of water and electric demand equals their joint pdf given in @eq-3-4-2. This relation is characteristic of independent random variables whether discrete or continuous.
 
+::: {.callout-caution title="Theorem 3.5.5"}
 ::: {#thm-3-5-5}
 
 # Theorem 3.5.5
@@ -385,10 +408,13 @@ $$
 (if the integral exists) where the first equality follows from @def-3-5-2 and the second is a straightforward rearrangement. We now see that $f_1(x)f_2(y)$ satisfies the conditions needed to be $f(x, y)$ as stated in @def-3-4-5.
 
 :::
+
+:::
 :::
 
 A simple corollary follows from @thm-3-5-5.
 
+::: {.callout-caution title="Corollary 3.5.1"}
 ::: {#cor-3-5-1}
 
 # Corollary 3.5.1
@@ -399,6 +425,7 @@ $$
 f(x, y) = f_1(x)f_2(y).
 $$ {#eq-3-5-9}
 
+:::
 :::
 
 As stated in @sec-3-2, in a continuous distribution the values of a pdf can be changed arbitrarily at any countable set of points. Therefore, for such a distribution it would be more precise to state that the random variables $X$ and $Y$ are independent if and only if it is possible to choose versions of $f$, $f_1$, and $f_2$ such that @eq-3-5-9 is satisfied for $-\infty < x < \infty$ and $-\infty < y < \infty$.
@@ -470,6 +497,7 @@ As stated in @sec-3-2, in a continuous distribution the values of a pdf can be c
 </table>
 ```
 
+::: {.callout-tip title="Example 3.5.7"}
 ::: {#exm-3-5-7}
 
 # Example 3.5.7: Games of Chance
@@ -477,7 +505,9 @@ As stated in @sec-3-2, in a continuous distribution the values of a pdf can be c
 A carnival game consists of rolling a fair die, tossing a fair coin two times, and recording both outcomes. Let $Y$ stand for the number on the die, and let $X$ stand for the number of heads in the two tosses. It seems reasonable to believe that all of the events determined by the roll of the die are independent of all of the events determined by the flips of the coin. Hence, we can assume that $X$ and $Y$ are independent random variables. The marginal distribution of $Y$ is the uniform distribution on the integers $1, \ldots, 6$, while the distribution of $X$ is the binomial distribution with parameters $2$ and $1/2$. The marginal pmfs and the joint pmf of $X$ and $Y$ are given in @tbl-3-5, where the joint pmf was constructed using @eq-3-5-9. The Total column gives the marginal pmf $f_1$ of $X$, and the Total row gives the marginal pmf $f_2$ of $Y$.
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.5.8"}
 ::: {#exm-3-5-8}
 
 # Example 3.5.8: Determining Whether Random Variables Are Independent in a Clinical Trial
@@ -486,6 +516,7 @@ Return to the clinical trial of depression drugs in @exr-3-4-11. In that trial, 
 
 In @eq-3-5-9, $f(x, y)$ is the probability in the $x$th row and the $y$th column of the table, $f_1(x)$ is the number in the Total column in the $x$th row, and $f_2(y)$ is the number in the Total row in the $y$th column. It is seen in the table that $f(1, 2) = 0.087$, while $f_1(1) = 0.513$, and $f_2(1) = 0.253$. Hence, $f(1, 2) \neq f_1(1)f_2(1) = 0.129$. It follows that $X$ and $Y$ are not independent.
 
+:::
 :::
 
 It should be noted from Examples [-@exm-3-5-7] and [-@exm-3-5-8] that $X$ and $Y$ will be independent if and only if the rows of the table specifying their joint pmf are proportional to one another, or equivalently, if and only if the columns of the table are proportional to one another.
@@ -538,6 +569,7 @@ It should be noted from Examples [-@exm-3-5-7] and [-@exm-3-5-8] that $X$ and $Y
 </table>
 ```
 
+::: {.callout-tip title="Example 3.5.9"}
 ::: {#exm-3-5-9}
 
 # Example 3.5.9: Calculating a Probability Involving Independent Random Variables
@@ -571,11 +603,13 @@ $$
 As a final note, if the two measurements $X$ and $Y$ had been made on the same day at nearby locations, then it might not make as much sense to treat them as independent, since we would expect them to be more similar to each other than to historical rainfalls. For example, if we first learn that $X$ is small compared to historical rainfall on the date in question, we might then expect $Y$ to be smaller than the historical distribution would suggest.
 
 :::
+:::
 
 ![The subset $S_0$ where $x + y \leq 1$ in @exm-3-5-9.](ch03/images/fig-3-19.svg)
 
 @thm-3-5-5 says that $X$ and $Y$ are independent if and only if, for all values of $x$ and $y$, $f$ can be factored into the product of an arbitrary nonnegative function of $x$ and an arbitrary nonnegative function of $y$. However, it should be emphasized that, just as in @eq-3-5-9, the factorization in @eq-3-5-7 must be satisfied for all values of $x$ and $y$ ($-\infty < x < \infty$ and $-\infty < y < \infty$).
 
+::: {.callout-tip title="Example 3.5.10"}
 ::: {#exm-3-5-10}
 
 # Example 3.5.10: Dependent Random Variables
@@ -596,9 +630,11 @@ It is evident that at each point inside the circle $x^2 + y^2 \leq 1$, $f(x, y)$
 The important feature of this example is that the values of $X$ and $Y$ are constrained to lie inside a circle. The joint pdf of $X$ and $Y$ is positive inside the circle and zero outside the circle. Under these conditions, $X$ and $Y$ cannot be independent, because for every given value $y$ of $Y$, the possible values of $X$ will depend on $y$. For example, if $Y = 0$, then $X$ can have any value such that $X^2 \leq 1$; if $Y = 1/2$, then $X$ must have a value such that $X^2 \leq 3/4$.
 
 :::
+:::
 
 @exm-3-5-10 shows that one must be careful when trying to apply @thm-3-5-5. The situation that arose in that example will occur whenever $\{(x, y) \mid f(x, y) > 0\}$ has boundaries that are curved or not parallel to the coordinate axes. There is one important special case in which it is easy to check the conditions of @thm-3-5-5. The proof is left as an exercise.
 
+::: {.callout-caution title="Theorem 3.5.6"}
 ::: {#thm-3-5-6}
 
 # Theorem 3.5.6
@@ -606,7 +642,9 @@ The important feature of this example is that the values of $X$ and $Y$ are cons
 Let $X$ and $Y$ have a continuous joint distribution. Suppose that $\{(x, y) \mid f(x, y) > 0\}$ is a rectangular region $R$ (possibly unbounded) with sides (if any) parallel to the coordinate axes. Then $X$ and $Y$ are independent if and only if @eq-3-5-7 holds for all $(x, y) \in R$.
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.5.11"}
 ::: {#exm-3-5-11}
 
 # Example 3.5.11: Verifying the Factorization of a Joint pdf
@@ -645,6 +683,7 @@ $$
 
 If we multiply $f_1(x)$ times $f_2(y)$ and compare the product to $f(x, y)$, we see that $k = 2$.
 
+:::
 :::
 
 **Note: Separate Functions of Independent Random Variables Are Independent.** If $X$ and $Y$ are independent, then $h(X)$ and $g(Y)$ are independent no matter what the functions $h$ and $g$ are. This is true because for every $t$, the event $\{h(X) \leq t\}$ can always be written as $\{X \in A\}$, where $A = \{x \mid h(x) \leq t\}$. Similarly, $\{g(Y) \leq u\}$ can be written as $\{Y \in B\}$, so @eq-3-5-6 for $h(X)$ and $g(Y)$ follows from @eq-3-5-5 for $X$ and $Y$.

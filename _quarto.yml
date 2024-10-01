@@ -36,7 +36,7 @@ format:
     # Note to self: Quarto callout classes
     # 1. note = definitions (#def)
     # 2. tip = example (#exm)
-    # 3. caution = theorem (#thm)
+    # 3. caution = theorem / corollary (#thm)
     # 4. warning = property (#prp)
   #pdf:
   #  documentclass: scrreprt

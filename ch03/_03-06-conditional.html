@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>conditional</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="_03-06-conditional_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_03-06-conditional_files/libs/quarto-html/quarto.js"></script>
+<script src="_03-06-conditional_files/libs/quarto-html/popper.min.js"></script>
+<script src="_03-06-conditional_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_03-06-conditional_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_03-06-conditional_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_03-06-conditional_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_03-06-conditional_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_03-06-conditional_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_03-06-conditional_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="sec-3-6" class="level2">
+<h2 class="anchored" data-anchor-id="sec-3-6">Conditional Distributions</h2>
+<p><em>We generalize the concept of conditional probability to conditional distributions. Recall that distributions are just collections of probabilities of events determined by random variables. Conditional distributions will be the probabilities of events determined by some random variables conditional on events determined by other random variables. The idea is that there will typically be many random variables of interest in an applied problem. After we observe some of those random variables, we want to be able to adjust the probabilities associated with the ones that have not yet been observed. The conditional distribution of one random variable <span class="math inline">\(X\)</span> given another <span class="math inline">\(Y\)</span> will be the distribution that we would use for <span class="math inline">\(X\)</span> after we learn the value of <span class="math inline">\(Y\)</span>.</em></p>
+<div id="tbl-3-7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Joint PF for <a href="#exm-3-6-1" class="quarto-xref">Example&nbsp;1</a>
+</figcaption>
+<div aria-describedby="tbl-3-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Stolen X</th>
+<th>Brand Y 1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.129</td>
+<td>0.298</td>
+<td>0.161</td>
+<td>0.280</td>
+<td>0.108</td>
+<td>0.976</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.010</td>
+<td>0.010</td>
+<td>0.001</td>
+<td>0.002</td>
+<td>0.001</td>
+<td>0.024</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>0.139</td>
+<td>0.308</td>
+<td>0.162</td>
+<td>0.282</td>
+<td>0.109</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="discrete-conditional-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-conditional-distributions">Discrete Conditional Distributions</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.6.1: Auto Insurance (DeGroot and Schervish, p. 142)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.1: Auto Insurance (DeGroot and Schervish, p.&nbsp;142)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Example 3.6.1: Auto Insurance)</strong></span> Insurance companies keep track of how likely various cars are to be stolen. Suppose that a company in a particular area computes the joint distribution of car brands and the indicator of whether the car will be stolen during a particular year that appears in <a href="#tbl-3-7" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>We let <span class="math inline">\(X = 1\)</span> mean that a car is stolen, and we let <span class="math inline">\(X = 0\)</span> mean that the car is not stolen. We let <span class="math inline">\(Y\)</span> take one of the values from 1 to 5 to indicate the brand of car as indicated in <a href="#tbl-3-7" class="quarto-xref">Table&nbsp;1</a>. If a customer applies for insurance for a particular brand of car, the company needs to compute the distribution of the random variable <span class="math inline">\(X\)</span> as part of its premium determination. The insurance company might adjust their premium according to a risk factor such as likelihood of being stolen. Although, overall, the probability that a car will be stolen is 0.024, if we assume that we know the brand of car, the probability might change quite a bit. This section introduces the formal concepts for addressing this type of problem.</p>
+</div>
+</div>
+</div>
+<p>Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables having a discrete joint distribution for which the joint pmf is <span class="math inline">\(f\)</span>. As before, we shall let <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> denote the marginal pmf’s of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively. After we observe that <span class="math inline">\(Y = y\)</span>, the probability that the random variable <span class="math inline">\(X\)</span> will take a particular value <span class="math inline">\(x\)</span> is specified by the following conditional probability:</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(X = x \mid Y = y) &amp;= \frac{\Pr(X = x \text{ and } Y = y)}{\Pr(Y = y)} \\
+&amp;= \frac{f(x,y)}{f_2(y)}.
+\end{align*}
+\]</span></p>
+<p>In other words, if it is known that <span class="math inline">\(Y = y\)</span>, then the probability that <span class="math inline">\(X = x\)</span> will be updated to the value in <strong>?@eq-3-6-1</strong>. Next, we consider the entire distribution of <span class="math inline">\(X\)</span> after learning that <span class="math inline">\(Y = y\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition 3.6.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.6.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-6-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Definition 3.6.1: Conditional Distribution/pmf)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution with joint pmf <span class="math inline">\(f\)</span>. Let <span class="math inline">\(f_2\)</span> denote the marginal pmf of <span class="math inline">\(Y\)</span>. For each <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_2(y) &gt; 0\)</span>, define</p>
+<p><span id="eq-3-6-2"><span class="math display">\[
+g_1(x \mid y) = \frac{f(x,y)}{f_2(y)}.
+\tag{1}\]</span></span></p>
+<p>Then <span class="math inline">\(g_1\)</span> is called the <strong>conditional pmf of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span></strong>. The discrete distribution whose pmf is <span class="math inline">\(g_1(\cdot \mid y)\)</span> is called the <strong>conditional distribution of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span></strong>.</p>
+</div>
+</div>
+</div>
+<table id="tbl-3-8" class="caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="5" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Brand <span class="math inline">\(Y\)</span></strong></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Stolen <span class="math inline">\(X\)</span></th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.928</td>
+<td>0.968</td>
+<td>0.994</td>
+<td>0.993</td>
+<td>0.991</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.072</td>
+<td>0.032</td>
+<td>0.006</td>
+<td>0.007</td>
+<td>0.009</td>
+</tr>
+</tbody>
+</table>
+<p>We should verify that <span class="math inline">\(g_1(x \mid y)\)</span> is actually a pmf as a function of <span class="math inline">\(x\)</span> for each <span class="math inline">\(y\)</span>. Let <span class="math inline">\(y\)</span> be such that <span class="math inline">\(f_2(y) &gt; 0\)</span>. Then <span class="math inline">\(g_1(x \mid y) \geq 0\)</span> for all <span class="math inline">\(x\)</span> and   <span class="math display">\[
+\sum_{x}g_1(x \mid y) = \frac{1}{f_2(y)}\sum_{x}f(x,y) = \frac{1}{f_2(y)}f_2(y) = 1.
+\]</span></p>
+<p>Notice that we do not bother to define <span class="math inline">\(g_1(x \mid y)\)</span> for those <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_2(y) = 0\)</span>.</p>
+<p>Similarly, if <span class="math inline">\(x\)</span> is a given value of <span class="math inline">\(X\)</span> such that <span class="math inline">\(f_1(x) = \Pr(X = x) &gt; 0\)</span>, and if <span class="math inline">\(g_2(y \mid x)\)</span> is the conditional pmf of <span class="math inline">\(Y\)</span> given that <span class="math inline">\(X = x\)</span>, then</p>
+<p><span id="eq-3-6-3"><span class="math display">\[
+g_2(y \mid x) = \frac{f(x,y)}{f_1(x)}
+\tag{2}\]</span></span></p>
+<p>For each <span class="math inline">\(x\)</span> such that <span class="math inline">\(f_1(x) &gt; 0\)</span>, the function <span class="math inline">\(g_2(y \mid x)\)</span> will be a pmf as a function of <span class="math inline">\(y\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.6.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Example 3.6.2: Calculating a Conditional pmf from a Joint pmf)</strong></span> Suppose that the joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as specified in <strong>?@tbl-3-4</strong> in <strong>?@exm-3-5-2</strong>. We shall determine the conditional pmf of <span class="math inline">\(Y\)</span> given that <span class="math inline">\(X = 2\)</span>.</p>
+<p>The marginal pmf of <span class="math inline">\(X\)</span> appears in the Total column of <strong>?@tbl-3-4</strong>, so <span class="math inline">\(f_1(2) = \Pr(X = 2) = 0.6\)</span>. Therefore, the conditional probability <span class="math inline">\(g_2(y \mid 2)\)</span> that <span class="math inline">\(Y\)</span> will take a particular value <span class="math inline">\(y\)</span> is</p>
+<p><span class="math display">\[
+g_2(y \mid 2) = \frac{f(2, y)}{0.6}.
+\]</span></p>
+<p>It should be noted that for all possible values of <span class="math inline">\(y\)</span>, the conditional probabilities <span class="math inline">\(g_2(y \mid 2)\)</span> must be proportional to the joint probabilities <span class="math inline">\(f(2, y)\)</span>. In this example, each value of <span class="math inline">\(f(2, y)\)</span> is simply divided by the constant <span class="math inline">\(f_1(2) = 0.6\)</span> in order that the sum of the results will be equal to 1. Thus,</p>
+<p><span class="math display">\[
+g_2(1 \mid 2) = 1/2, \; g_2(2 \mid 2) = 0, \; g_2(3 \mid 2) = 1/6, \; g_2(4 \mid 2) = 1/3.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.6.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Example 3.6.3: Auto Insurance)</strong></span> Consider again the probabilities of car brands and cars being stolen in <a href="#exm-3-6-1" class="quarto-xref">Example&nbsp;1</a>. The conditional distribution of <span class="math inline">\(X\)</span> (being stolen) given <span class="math inline">\(Y\)</span> (brand) is given in <strong>?@tbl-3-8</strong>. It appears that Brand 1 is much more likely to be stolen than other cars in this area, with Brand 1 also having a significant chance of being stolen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="continuous-conditional-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-conditional-distributions">Continuous Conditional Distributions</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example 3.6.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Example 3.6.4: Processing Times)</strong></span> A manufacturing process consists of two stages. The first stage takes <span class="math inline">\(Y\)</span> minutes, and the whole process takes <span class="math inline">\(X\)</span> minutes (which includes the first <span class="math inline">\(Y\)</span> minutes). Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint continuous distribution with joint pdf</p>
+<p><span class="math display">\[
+f(x, y) = \begin{cases}
+e^{-x} &amp;\text{for }0 \leq y \leq x &lt; \infty \\
+0 &amp;\text{otherwise.}
+\end{cases}
+\]</span></p>
+<p>After we learn how much time <span class="math inline">\(Y\)</span> that the first stage takes, we want to update our distribution for the total time <span class="math inline">\(X\)</span>. In other words, we would like to be able to compute a conditional distribution for <span class="math inline">\(X\)</span> given <span class="math inline">\(Y = y\)</span>. We cannot argue the same way as we did with discrete joint distributions, because <span class="math inline">\(\{Y = y\}\)</span> is an event with probability 0 for all <span class="math inline">\(y\)</span>.</p>
+</div>
+</div>
+</div>
+<p>  To facilitate the solutions of problems such as the one posed in <a href="#exm-3-6-4" class="quarto-xref">Example&nbsp;4</a>, the concept of conditional probability will be extended by considering the definition of the conditional pmf of <span class="math inline">\(X\)</span> given in <a href="#eq-3-6-2" class="quarto-xref">Equation&nbsp;1</a> and the analogy between a pmf and a pdf</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition 3.6.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.6.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-6-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Definition 3.6.2: Conditional pdf)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution with joint pdf <span class="math inline">\(f\)</span> and respective marginals <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span>. Let <span class="math inline">\(y\)</span> be a value such that <span class="math inline">\(f_2(y) &gt; 0\)</span>. Then the conditional pdf <span class="math inline">\(g_1\)</span> of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> is defined as follows:</p>
+<p><span id="eq-3-6-4"><span class="math display">\[
+g_1(x \mid y) = \frac{f(x,y)}{f_2(y)} \; \text{ for } -\infty &lt; x &lt; \infty.
+\tag{3}\]</span></span></p>
+<p>For values of <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_2(y) = 0\)</span>, we are free to define <span class="math inline">\(g_1(x \mid y)\)</span> however we wish, so long as <span class="math inline">\(g_1(x \mid y)\)</span> is a pdf as a function of <span class="math inline">\(x\)</span>.</p>
+<p>It should be noted that <a href="#eq-3-6-2" class="quarto-xref">Equation&nbsp;1</a> and <a href="#eq-3-6-4" class="quarto-xref">Equation&nbsp;3</a> are identical. However, <a href="#eq-3-6-2" class="quarto-xref">Equation&nbsp;1</a> was derived as the conditional probability that <span class="math inline">\(X = x\)</span> given that <span class="math inline">\(Y = y\)</span>, whereas <a href="#eq-3-6-4" class="quarto-xref">Equation&nbsp;3</a> was defined to be the value of the conditional pdf of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span>. In fact, we should verify that <span class="math inline">\(g_1(x \mid y)\)</span> as defined above really is a pdf</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Theorem 3.6.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.6.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-3-6-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 3.6.1)</strong></span> For each <span class="math inline">\(y\)</span>, <span class="math inline">\(g_1(x \mid y)\)</span> defined in <a href="#def-3-6-2" class="quarto-xref">Definition&nbsp;2</a> is a pdf as a function of <span class="math inline">\(x\)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(f_2(y) = 0\)</span>, then <span class="math inline">\(g_1\)</span> is defined to be any pdf we wish, and hence it is a pdf. If <span class="math inline">\(f_2(y) &gt; 0\)</span>, <span class="math inline">\(g_1\)</span> is defined by <a href="#eq-3-6-4" class="quarto-xref">Equation&nbsp;3</a>. For each such <span class="math inline">\(y\)</span>, it is clear that <span class="math inline">\(g_1(x \mid y) \geq 0\)</span> for all <span class="math inline">\(x\)</span>. Also, if <span class="math inline">\(f_2(y) &gt; 0\)</span>, then</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty}g_1(x \mid y)dx = \frac{\int_{-\infty}^{\infty}f(x,y)dx}{f_2(y)} = \frac{f_2(y)}{f_2(y)} = 1,
+\]</span></p>
+<p>by using the formula for <span class="math inline">\(f_2(y)\)</span> in <strong>?@eq-3-5-3</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stopping point 2024-10-01 -->
+<p>Example 3.6.5 Processing Times. In Example 3.6.4, Y is the time that the first stage of a process takes, while X is the total time of the two stages.We want to calculate the conditional pdf of X given Y . We can calculate the marginal pdf of Y as follows: For each y, the possible values of X are all x ≥ y, so for each y &gt;0, f2(y) =   ∞ y e −xdx = e −y, and f2(y) = 0 fory &lt;0. For each y ≥ 0, the conditional pdf of X given Y = y is then g1(x|y) = f (x, y) f2(y) = e −x e−y = ey−x, for x ≥ y, 3.6 Conditional Distributions 145 Figure 3.20 The conditional pdf g1(x|y0) is proportional to f (x, y0). x y f (x, y) f (x, y0) y0 and g1(x|y) = 0 for x &lt; y. So, for example, if we observe Y = 4 and we want the conditional probability that X ≥ 9, we compute Pr(X ≥ 9|Y = 4) =   ∞ 9 e4−xdx = e −5 = 0.0067.   Definition 3.6.2 has an interpretation that can be understood by considering Fig. 3.20. The joint pdf f defines a surface over the xy-plane for which the height f (x, y) at each point (x, y) represents the relative likelihood of that point. For instance, if it is known that Y = y0, then the point (x, y) must lie on the line y = y0 in the xy-plane, and the relative likelihood of any point (x, y0) on this line is f (x, y0). Hence, the conditional pdf g1(x|y0) ofX should be proportional to f (x, y0). In other words, g1(x|y0) is essentially the same as f (x, y0), but it includes a constant factor 1/[f2(y0)], which is required to make the conditional pdf integrate to unity over all values of x. Similarly, for each value of x such that f1(x) &gt; 0, the conditional pdf of Y given that X = x is defined as follows: g2(y|x) = f (x, y) f1(x) for −∞&lt; y &lt;∞. (3.6.5) This equation is identical to Eq. (3.6.3), which was derived for discrete distributions. If f1(x) = 0, then g2(y|x) is arbitrary so long as it is a pdf as a function of y. Example 3.6.6 Calculating a Conditional pdf from a Joint pdf Suppose that the joint pdf of X and Y is as specified in Example 3.4.8 on page 122.We shall first determine the conditional pdf of Y given that X = x and then determine some probabilities for Y given the specific value X = 1/2. The set S for which f (x, y) &gt; 0 was sketched in Fig. 3.12 on page 123. Furthermore, the marginal pdf f1 was derived in Example 3.5.3 on page 132 and sketched in Fig. 3.17 on page 133. It can be seen from Fig. 3.17 that f1(x) &gt; 0 for−1&lt;x &lt;1 but not for x = 0. Therefore, for each given value of x such that −1&lt; x &lt;0 or 0 &lt; x &lt;1, the conditional pdf g2(y|x) of Y will be as follows: g2(y|x) = ⎧⎨ ⎩ 2y 1− x4 for x2 ≤ y ≤ 1, 0 otherwise. 146 Chapter 3 Random Variables and Distributions In particular, if it is known that X = 1/2, then Pr   Y ≥ 1 4    X = 1 2   = 1 and Pr   Y ≥ 3 4       X = 1 2   =   1 3/4 g2   y       1 2   dy = 7 15 .   Note: A Conditional pdf Is Not the Result of Conditioning on a Set of Probability Zero. The conditional pdf g1(x|y) of X given Y = y is the pdf we would use for X if we were to learn that Y = y. This sounds as if we were conditioning on the event {Y = y}, which has zero probability if Y has a continuous distribution. Actually, for the cases we shall see in this text, the value of g1(x|y) is a limit: g1(x|y) = lim  →0 ∂ ∂x Pr(X ≤ x|y −   &lt; Y ≤ y +  ). (3.6.6) The conditioning event {y −   ≤ Y ≤ y +  } in Eq. (3.6.6) has positive probability if the marginal pdf of Y is positive at y. The mathematics required to make this rigorous is beyond the scope of this text. (See Exercise 11 in this section and Exercises 25 and 26 in Sec. 3.11 for results that we can prove.) Another way to think about conditioning on a continuous random variable is to notice that the conditional pdf’s that we compute are typically continuous as a function of the conditioning variable. This means that conditioning on Y = y or on Y = y +   for small   will produce nearly the same conditional distribution for X. So it does not matter much if we use Y = y as a surogate for Y close to y. Nevertheless, it is important to keep in mind that the conditional pdf of X given Y = y is better thought of as the conditional pdf of X given that Y is very close to y. This wording is awkward, so we shall not use it, but we must remember the distinction between the conditional pdf and conditioning on an event with probability 0. Despite this distinction, it is still legitimate to treat Y as the constant y when dealing with the conditional distribution of X given Y = y. For mixed joint distributions, we continue to use Eqs. (3.6.2) and (3.6.3) to define conditional pmf’s and pdf’s. Definition 3.6.3 Conditional pmf or pdf from Mixed Distribution. Let X be discrete and let Y be continuous with joint pmf/pdf f . Then the conditional pmf ofX given Y = y is defined by Eq. (3.6.2), and the conditional pdf of Y given X = x is defined by Eq. (3.6.3). Construction of the Joint Distribution Example 3.6.7 Defective Parts. Suppose that a certain machine produces defective and nondefective parts, but we do not know what proportion of defectives we would find among all parts that could be produced by this machine. Let P stand for the unknown proportion of defective parts among all possible parts produced by the machine. Ifwe were to learn that P = p, we might be willing to say that the parts were independent of each other and each had probability p of being defective. In other words, if we condition on P = p, then we have the situation described in Example 3.1.9. As in that example, suppose that we examine n parts and let X stand for the number of defectives among the n examined parts. The distribution ofX, assuming that we know P = p, is the binomial distribution with parameters n and p.&nbsp;That is, we can let the binomial pmf (3.1.4) be the conditional pmf of X given P = p, namely, g1(x|p) =</p>
+<p>n x   px(1− p)n−x, for x = 0, . . . , n. 3.6 Conditional Distributions 147 We might also believe thatP has a continuous distribution with pdf such as f2(p) = 1 for 0 ≤ p ≤ 1. (This means that P has the uniform distribution on the interval [0, 1].) We know that the conditional pmf g1 of X given P = p satisfies g1(x|p) = f (x, p) f2(p) , where f is the joint pmf/pdf of X and P. If we multiply both sides of this equation by f2(p), it follows that the joint pmf/pdf of X and P is f (x, p) = g1(x|p)f2(p) =</p>
+<p>n x   px(1− p)n−x, for x = 0, . . . , n, and 0 ≤ p ≤ 1.   The construction in Example 3.6.7 is available in general, as we explain next. Generalizing the Multiplication Rule for Conditional Probabilities Aspecial case of Theorem 2.1.2, the multiplication rule for conditional probabilities, says that if A and B are two events, then Pr(A ∩ B) = Pr(A) Pr(B|A). The following theorem, whose proof is immediate from Eqs. (3.6.4) and (3.6.5), generalizes Theorem 2.1.2 to the case of two random variables. Theorem 3.6.2 Multiplication Rule for Distributions. Let X and Y be random variables such that X has pmf or pdf f1(x) and Y has pmf or pdf f2(y). Also, assume that the conditional pmf or pdf of X given Y = y is g1(x|y) while the conditional pmf or pdf of Y given X = x is g2(y|x). Then for each y such that f2(y) &gt; 0 and each x, f (x, y) = g1(x|y)f2(y), (3.6.7) where f is the joint pmf, pdf, or pmf/pdf of X and Y . Similarly, for each x such that f1(x) &gt; 0 and each y, f (x, y) = f1(x)g2(y|x). (3.6.8) In Theorem 3.6.2, if f2(y0) = 0 for some value y0, then it can be assumed without loss of generality that f (x, y0) = 0 for all values of x. In this case, both sides of Eq. (3.6.7) will be 0, and the fact that g1(x|y0) is not uniquely defined becomes irrelevant. Hence, Eq. (3.6.7) will be satisfied for all values of x and y. A similar statement applies to Eq. (3.6.8). Example 3.6.8 Waiting in a Queue. Let X be the amount of time that a person has to wait for service in a queue. The faster the server works in the queue, the shorter should be the waiting time. Let Y stand for the rate at which the server works, which we will take to be unknown. A common choice of conditional distribution for X given Y = y has conditional pdf for each y &gt;0: g1(x|y) =   ye −xy for x ≥ 0, 0 otherwise. We shall assume that Y has a continuous distribution with pdf f2(y) = e −y fory &gt;0. Now we can construct the joint pdf of X and Y using Theorem 3.6.2: f (x, y) = g1(x|y)f2(y) =   ye −y(x+1) for x ≥ 0, y &gt;0, 0 otherwise.   148 Chapter 3 Random Variables and Distributions Example 3.6.9 Defective Parts. Let X be the number of defective parts in a sample of size n, and let P be the proportion of defectives among all parts, as in Example 3.6.7. The joint pmf/p.d.f of X and P = p was calculated there as f (x, p) = g1(x|p)f2(p) =</p>
+<p>n x   px(1− p)n−x, for x = 0, . . . , n and 0 ≤ p ≤ 1. We could now compute the conditional pdf of P given X = x by first finding the marginal pmf of X: f1(x) =   1 0</p>
+<p>n x   px(1− p)n−xdp, (3.6.9) The conditional pdf of P given X = x is then g2(p|x) = f (x, p) f1(x) = px(1− p)n−x   1 0 qx(1− q)n−xdq , for 0&lt;p &lt;1. (3.6.10) The integral in the denominator of Eq. (3.6.10) can be tedious to calculate, but it can be found. For example, if n = 2 and x = 1, we get   1 0 q(1− q)dq = 1 2 − 1 3 = 1 6 . In this case, g2(p|1) = 6p(1− p) for 0 ≤ p ≤ 1.   Bayes’ Theorem and the Law of Total Probability for Random Variables The calculation done in Eq. (3.6.9) is an example of the generalization of the law of total probability to random variables. Also, the calculation in Eq. (3.6.10) is an example of the generalization of Bayes’ theorem to random variables. The proofs of these results are straightforward and not given here. Theorem 3.6.3 Law of Total Probability for Random Variables. If f2(y) is the marginal pmf or pdf of a random variable Y and g1(x|y) is the conditional pmf or pdf of X given Y = y, then the marginal pmf or pdf of X is f1(x) =   y g1(x|y)f2(y), (3.6.11) if Y is discrete. If Y is continuous, the marginal pmf or pdf of X is f1(x) =   ∞ −∞ g1(x|y)f2(y) dy. (3.6.12) There are versions of Eqs. (3.6.11) and (3.6.12) with x and y switched and the subscripts 1 and 2 switched. These versions would be used if the joint distribution of X and Y were constructed from the conditional distribution of Y given X and the marginal distribution of X. Theorem 3.6.4 Bayes’ Theorem for Random Variables. Iff2(y) is the marginal pmf or pdf of a random variable Y and g1(x|y) is the conditional pmf or pdf of X given Y = y, then the conditional pmf or pdf of Y given X = x is g2(y|x) = g1(x|y)f2(y) f1(x) , (3.6.13) 3.6 Conditional Distributions 149 where f1(x) is obtained from Eq. (3.6.11) or (3.6.12). Similarly, the conditional pmf or pdf of X given Y = y is g1(x|y) = g2(y|x)f1(x) f2(y) , (3.6.14) where f2(y) is obtained from Eq. (3.6.11) or (3.6.12) with x and y switched and with the subscripts 1 and 2 switched. Example 3.6.10 Choosing Points from Uniform Distributions. Suppose that a point X is chosen from the uniform distribution on the interval [0, 1], and that after the valueX = x has been observed (0 &lt; x &lt;1), a point Y is then chosen from the uniform distribution on the interval [x, 1]. We shall derive the marginal pdf of Y . Since X has a uniform distribution, the marginal pdf of X is as follows: f1(x) =   1 for 0 &lt; x &lt;1, 0 otherwise. Similarly, for each value X = x (0 &lt; x &lt;1), the conditional distribution of Y is the uniform distribution on the interval [x, 1]. Since the length of this interval is 1− x, the conditional pdf of Y given that X = x will be g2(y|x) = ⎧⎨ ⎩ 1 1− x for x &lt;y &lt;1, 0 otherwise. It follows from Eq. (3.6.8) that the joint pdf of X and Y will be f (x, y) = ⎧⎨ ⎩ 1 1− x for 0 &lt; x &lt; y &lt;1, 0 otherwise. (3.6.15) Thus, for 0 &lt; y &lt;1, the value of the marginal pdf f2(y) of Y will be f2(y) =   ∞ −∞ f (x, y) dx =   y 0 1 1− x dx =−log(1− y). (3.6.16) Furthermore, since Y cannot be outside the interval 0 &lt; y &lt;1, then f2(y) = 0 for y ≤ 0 or y ≥ 1. This marginal pdf f2 is sketched in Fig. 3.21. It is interesting to note that in this example the function f2 is unbounded. We can also find the conditional pdf of X given Y = y by applying Bayes’ theorem (3.6.14). The product of g2(y|x) and f1(x) was already calculated in Eq. (3.6.15). Figure 3.21 The marginal pdf of Y in Example 3.6.10. y f2(y) 0 1 150 Chapter 3 Random Variables and Distributions The ratio of this product to f2(y) from Eq. (3.6.16) is g1(x|y) = ⎧⎨ ⎩ −1 (1− x) log(1− y) for 0 &lt; x &lt; y, 0 otherwise.   Theorem 3.6.5 Independent Random Variables. Suppose that X and Y are two random variables having a joint pmf, pdf, or pmf/pdf f . Then X and Y are independent if and only if for every value of y such that f2(y) &gt; 0 and every value of x, g1(x|y) = f1(x). (3.6.17) Proof Theorem 3.5.4 says that X and Y are independent if and only if f (x, y) can be factored in the following form for −∞&lt; x &lt;∞and −∞&lt; y &lt;∞: f (x, y) = f1(x)f2(y), which holds if and only if, for all x and all y such that f2(y) &gt; 0, f1(x) = f (x, y) f2(y) . (3.6.18) But the right side of Eq. (3.6.18) is the formula for g1(x|y). Hence, X and Y are independent if and only if Eq. (3.6.17) holds for all x and all y such that f2(y) &gt; 0. Theorem 3.6.5 says that X and Y are independent if and only if the conditional pmf or pdf of X given Y = y is the same as the marginal pmf or pdf of X for all y such that f2(y) &gt; 0. Because g1(x|y) is arbitrary when f2(y) = 0, we cannot expect Eq. (3.6.17) to hold in that case. Similarly, it follows from Eq. (3.6.8) that X and Y are independent if and only if g2(y|x) = f2(y), (3.6.19) for every value of x such that f1(x) &gt; 0. Theorem 3.6.5 and Eq. (3.6.19) give the mathematical justification for the meaning of independence that we presented on page 136. Note: Conditional Distributions Behave Just Like Distributions. As we noted on page 59, conditional probabilities behave just like probabilities. Since distributions are just collections of probabilities, it follows that conditional distributions behave just like distributions. For example, to compute the conditional probability that a discrete random variableX is in some interval [a, b] given Y = y, we must add g1(x|y) for all values of x in the interval. Also, theorems that we have proven or shall prove about distributions will have versions conditional on additional random variables. We shall postpone examples of such theorems until Sec. 3.7 because they rely on joint distributions of more than two random variables. Summary The conditional distribution of one random variable X given an observed value y of another random variable Y is the distribution we would use for X if we were to learn that Y = y. When dealing with the conditional distribution of X given Y = y, it is safe to behave as if Y were the constant y. If X and Y have joint pmf, pdf, or pmf/pdf f (x, y), then the conditional pmf or pdf of X given Y = y is g1(x|y) = 3.6 Conditional Distributions 151 f (x, y)/f2(y), where f2 is the marginal pmf or pdf of Y . When it is convenient to specify a conditional distribution directly, the joint distribution can be constructed from the conditional together with the other marginal. For example, f (x, y) = g1(x|y)f2(y) = f1(x)g2(y|x). In this case, we have versions of the law of total probability and Bayes’ theorem for random variables that allow us to calculate the other marginal and conditional. Two random variables X and Y are independent if and only if the conditional pmf or pdf of X given Y = y is the same as the marginal pmf or pdf of X for all y such that f2(y) &gt; 0. Equivalently, X and Y are independent if and only if the conditional pmf of pdf of Y given X = x is the same as the marginal pmf or pdf of Y for all x such that f1(x) &gt; 0.</p>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<ol type="1">
+<li>Suppose that two random variables X and Y have the joint pdf in Example 3.5.10 on page 139. Compute the conditional pdf of X given Y = y for each y.</li>
+<li>Each student in a certain high school was classified according to her year in school (freshman, sophomore, junior, or senior) and according to the number of times that she had visited a certain museum (never, once, or more than once).The proportions of students in the various classifications are given in the following table: More Never Once than once Freshmen 0.08 0.10 0.04 Sophomores 0.04 0.10 0.04 Juniors 0.04 0.20 0.09 Seniors 0.02 0.15 0.10</li>
+</ol>
+<ol type="a">
+<li>If a student selected at random from the high school is a junior, what is the probability that she has never visited the museum?</li>
+<li>If a student selected at random from the high school has visited the museum three times, what is the probability that she is a senior?</li>
+</ol>
+<ol start="3" type="1">
+<li>Suppose that a point (X, Y ) is chosen at random from the disk S defined as follows: S = {(x, y) : (x − 1)2 + (y + 2)2 ≤ 9}. Determine (a) the conditional pdf of Y for every given value of X, and (b) Pr(Y &gt; 0|X = 2).</li>
+<li>Suppose that the joint pdf of two random variables X and Y is as follows: f (x, y) =   c(x + y2) for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1, 0 otherwise. Determine (a) the conditional pdf of X for every given value of Y , and (b) Pr(X &lt; 1 2 |Y = 1 2 ).</li>
+<li>Suppose that the joint pdf of two points X and Y chosen by the process described in Example 3.6.10 is as given by Eq. (3.6.15). Determine (a) the conditional pdf of X for every given value of Y , and (b) Pr   X&gt; 1 2     Y = 3 4   .</li>
+<li>Suppose that the joint pdf of two random variables X and Y is as follows: f (x, y) =   c sin x for 0 ≤ x ≤ π/2 and 0 ≤ y ≤ 3, 0 otherwise. Determine (a) the conditional pdf of Y for every given value of X, and (b) Pr(1&lt;Y &lt;2|X = 0.73).</li>
+<li>Suppose that the joint pdf of two random variables X and Y is as follows: f (x, y) = ⎧⎪⎨ ⎪⎩ 3 16 (4 − 2x − y) for x &gt;0, y &gt;0, and 2x +y &lt;4, 0 otherwise. Determine (a) the conditional pdf of Y for every given value of X, and (b) Pr(Y ≥ 2|X = 0.5).</li>
+<li>Suppose that a person’s score X on a mathematics aptitude test is a number between 0 and 1, and that his score Y on a music aptitude test is also a number between 0 and 1. Suppose further that in the population of all college students in the United States, the scores X and Y are distributed according to the following joint pdf: f (x, y) =   2 5 (2x + 3y) for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1, 0 otherwise. 152 Chapter 3 Random Variables and Distributions</li>
+</ol>
+<ol type="a">
+<li>What proportion of college students obtain a score greater than 0.8 on the mathematics test?</li>
+<li>If a student’s score on the music test is 0.3, what is the probability that his score on the mathematics test will be greater than 0.8?</li>
+<li>If a student’s score on the mathematics test is 0.3, what is the probability that his score on the music test will be greater than 0.8?</li>
+</ol>
+<ol start="9" type="1">
+<li>Suppose that either of two instruments might be used for making a certain measurement. Instrument 1 yields a measurement whose pdf h1 is h1(x) =   2x for 0 &lt; x &lt;1, 0 otherwise. Instrument 2 yields a measurement whose pdf h2 is h2(x) =   3x2 for 0 &lt; x &lt;1, 0 otherwise. Suppose that one of the two instruments is chosen at random and a measurement X is made with it.</li>
+</ol>
+<ol type="a">
+<li>Determine the marginal pdf of X.</li>
+<li>If the value of the measurement is X = 1/4, what is the probability that instrument 1 was used?</li>
+</ol>
+<ol start="10" type="1">
+<li>In a large collection of coins, the probability X that a head will be obtained when a coin is tossed varies from one coin to another, and the distribution of X in the collection is specified by the following pdf: f1(x) =   6x(1− x) for 0 &lt; x &lt;1, 0 otherwise. Suppose that a coin is selected at random from the collection and tossed once, and that a head is obtained. Determine the conditional pdf of X for this coin.</li>
+<li>The definition of the conditional pdf of X given Y = y is arbitrary if f2(y) = 0. The reason that this causes no serious problem is that it is highly unlikely that we will observe Y close to a value y0 such that f2(y0) = 0. To be more precise, let f2(y0) = 0, and let A0 = [y0 −  , y0 +  ]. Also, let y1 be such that f2(y1) &gt; 0, and let A1 = [y1 −  , y1 +  ]. Assume that f2 is continuous at both y0 and y1. Show that lim  →0 Pr(Y ∈ A0) Pr(Y ∈ A1) = 0. That is, the probability that Y is close to y0 is much smaller than the probability that Y is close to y1.</li>
+<li>Let Y be the rate (calls per hour) at which calls arrive at a switchboard. Let X be the number of calls during a two-hour period. Suppose that the marginal pdf of Y is f2(y) =   e −y if y &gt;0, 0 otherwise, and that the conditional pmf of X given Y = y is g1(x|y) = ⎧⎨ ⎩ (2y)x x! e −2y if x = 0, 1, . . . , 0 otherwise.</li>
+</ol>
+<ol type="a">
+<li> Find themarginal pmf ofX. (Youmay use the formula ∞ 0 yke −y dy = k!.)</li>
+<li>Find the conditional pdf g2(y|0) of Y given X = 0.</li>
+<li>Find the conditional pdf g2(y|1) of Y given X = 1.</li>
+<li>For what values of y is g2(y|1) &gt; g2(y|0)? Does this agree with the intuition that the more calls you see, the higher you should think the rate is?</li>
+</ol>
+<ol start="13" type="1">
+<li>Start with the joint distribution of treatment group and response in Table 3.6 on page 138. For each treatment group, compute the conditional distribution of response given the treatment group. Do they appear to be very similar or quite different?</li>
+</ol>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

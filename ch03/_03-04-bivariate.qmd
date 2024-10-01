@@ -3,6 +3,7 @@
 
 *We generalize the concept of distribution of a random variable to the joint distribution of two random variables. In doing so, we introduce the joint pmf for two discrete random variables, the joint pdf for two continuous random variables, and the joint CDF for any two random variables. We also introduce a joint hybrid of pmf and pdf for the case of one discrete random variable and one continuous random variable.*
 
+::: {.callout-tip title="Example 3.4.1"}
 ::: {#exm-3-4-1}
 
 # Example 3.4.1: Demands for Utilities (DeGroot and Schervish, p. 118)
@@ -10,13 +11,16 @@
 In @exm-3-1-5, we found the distribution of the random variable $X$ that represented the demand for water. But there is another random variable, $Y$, the demand for electricity, that is also of interest. When discussing two random variables at once, it is often convenient to put them together into an ordered pair, $(X, Y)$. As early as @exm-1-5-4, we actually calculated some probabilities associated with the pair $(X, Y)$. In that example, we defined two events $A$ and $B$ that we now can express as $A = \{X \geq 115\}$ and $B = \{Y \geq 110\}$. In @exm-1-5-4, we computed $\Pr(A \cap B)$ and $\Pr(A \cup B)$. We can express $A \cap B$ and $A \cup B$ as events involving the pair $(X, Y)$. For example, define the set of ordered pairs $C = \{(x, y) \mid x \geq 115\text{ and }y \geq 110\}$ so that that the event $\{(X, Y) \in C\} = A \cap B$. That is, the event that the pair of random variables lies in the set $C$ is the same as the intersection of the two events $A$ and $B$. In @exm-1-5-4, we computed $\Pr(A \cap B) = 0.1198$. So, we can now assert that $\Pr((X, Y) \in C) = 0.1198$.
 
 :::
+:::
 
+::: {.callout-note title="Definition 3.4.1"}
 ::: {#def-3-4-1}
 
 # Definition 3.4.1: Joint/Bivariate Distribution (DeGroot and Schervish, p. 118)
 
 Let $X$ and $Y$ be random variables. The **joint distribution** or **bivariate distribution** of $X$ and $Y$ is the collection of all probabilities of the form $\Pr\left( (X, Y) \in C\right)$ for all sets $C$ of pairs of real numbers such that $\{ (X, Y) \in C\}$ is an event.
 
+:::
 :::
 
 It is a straightforward consequence of the definition of the joint distribution of $X$ and $Y$ that this joint distribution is itself a probability measure on the set of ordered pairs of real numbers. The set $\{ (X, Y) \in C\}$ will be an event for every set $C$ of pairs of real numbers that most readers will be able to imagine.
@@ -25,6 +29,7 @@ In this section and the next two sections, we shall discuss convenient ways to c
 
 ### Discrete Joint Distributions
 
+::: {.callout-tip title="Example 3.4.2"}
 ::: {#exm-3-4-2}
 
 # Example 3.4.2: Theater Patrons
@@ -32,8 +37,9 @@ In this section and the next two sections, we shall discuss convenient ways to c
 Suppose that a sample of 10 people is selected at random from a theater with 200 patrons. One random variable of interest might be the number $X$ of people in the sample who are over 60 years of age, and another random variable might be the number $Y$ of people in the sample who live more than 25 miles from the theater. For each ordered pair $(x, y)$ with $x = 0, \ldots, 10$ and $y = 0, \ldots, 10$, we might wish to compute $\Pr( (X, Y) = (x, y))$, the probability that there are $x$ people in the sample who are over 60 years of age and there are $y$ people in the sample who live more than 25 miles away.
 
 :::
+:::
 
-::: {.callout-note}
+::: {.callout-note title="Definition 3.4.2"}
 ::: {#def-3-4-2}
 
 # Definition 3.4.2: Discrete Joint Distribution
@@ -45,6 +51,7 @@ Let $X$ and $Y$ be random variables, and consider the ordered pair $(X, Y)$. If 
 
 The two random variables in @exm-3-4-2 have a discrete joint distribution.
 
+::: {.callout-caution title="Theorem 3.4.1"}
 ::: {#thm-3-4-1}
 
 # Theorem 3.4.1
@@ -56,10 +63,12 @@ If both $X$ and $Y$ have only finitely many possible values, then there will be 
 :::
 
 :::
+:::
 
 When we define continuous joint distribution shortly, we shall see that the obvious
 analog of @thm-3-4-1 is not true.
 
+::: {.callout-note title="Definition 3.4.3"}
 ::: {#def-3-4-3}
 
 # Definition 3.4.3: Joint Probability Mass Function (pmf)
@@ -71,9 +80,11 @@ f(x, y) = \Pr(X = x\text{ and }Y = y).
 $$
 
 :::
+:::
 
 The following result is easy to prove because there are at most countably many pairs $(x, y)$ that must account for all of the probability a discrete joint distribution.
 
+::: {.callout-caution title="Theorem 3.4.2"}
 ::: {#thm-3-4-2}
 
 # Theorem 3.4.2
@@ -95,7 +106,9 @@ $$
 $$
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.4.3"}
 ::: {#exm-3-4-3}
 
 # Example 3.4.3: Specifying a Discrete Joint Distribution by a Table of Probabilities
@@ -164,11 +177,13 @@ $$
 $$
 
 :::
+:::
 
 ![The joint pmf of $X$ and $Y$ in @exm-3-4-3](ch03/images/fig-3-10.jpeg){#fig-3-10}
 
 ### Continuous Joint Distributions
 
+::: {.callout-tip title="Example 3.4.4"}
 ::: {#exm-3-4-4}
 
 # Example 3.4.4: Demands for Utilities
@@ -182,9 +197,11 @@ $$ {#eq-3-4-1}
 assuming that the integral exists.
 
 :::
+:::
 
 If one looks carefully at @eq-3-4-1, one will notice the similarity to @eq-3-2-2 and @eq-3-2-1. We formalize this connection as follows.
 
+::: {.callout-note title="Definition 3.4.4"}
 ::: {#def-3-4-4}
 
 # Definition 3.4.4: Continuous Joint Distribution (DeGroot and Schervish)
@@ -196,8 +213,9 @@ $$
 $$
 
 :::
+:::
 
-::: {.callout-note}
+::: {.callout-note title="Definition 3.4.4"}
 ::: {#def-3-4-4}
 
 # Definition 3.4.4: Continuous Joint Distribution/Joint pdf/Support.
@@ -213,6 +231,7 @@ if the integral exists. The function $f$ is called the **joint probability densi
 :::
 :::
 
+::: {.callout-tip title="Example 3.4.5"}
 ::: {#exm-3-4-5}
 
 # Example 3.4.5: Demands for Utilities.
@@ -227,9 +246,11 @@ f(x,y) = \begin{cases}
 $$
 
 :::
+:::
 
 It is clear from @def-3-4-4 that the joint pdf of two random variables characterizes their joint distribution. The following result is also straightforward.
 
+::: {.callout-caution title="Theorem 3.4.3"}
 ::: {#thm-3-4-3}
 
 # Theorem 3.4.3 (DeGroot and Schervish) 
@@ -247,6 +268,7 @@ $$
 $$
 
 :::
+:::
 
 Any function that satisfies the two displayed formulas in @thm-3-4-3 is the joint pdf for some probability distribution.
 
@@ -258,6 +280,7 @@ In @sec-3-5, we will show that if $X$ and $Y$ have a continuous joint distributi
 
 ![Figure 3.11: An example of a joint pdf](ch03/images/fig-3-11.jpeg){#fig-3-11}
 
+::: {.callout-caution title="Theorem 3.4.4"}
 ::: {#thm-3-4-4}
 
 # Theorem 3.4.4
@@ -272,9 +295,11 @@ According to @def-3-4-4, the probability that a continuous joint distribution as
 :::
 
 :::
+:::
 
 <!-- Stopping point 2023-10-10, 12:15am -->
 
+::: {.callout-tip title="Example 3.4.6"}
 ::: {#exm-3-4-6}
 
 # Example 3.4.6: Not a Continuous Joint Distribution
@@ -282,7 +307,9 @@ According to @def-3-4-4, the probability that a continuous joint distribution as
 It follows from (ii) of @thm-3-4-4 that the probability that $(X, Y)$ will lie on each specified straight line in the plane is 0. If $X$ has a continuous distribution and if $Y = X$, then both $X$ and $Y$ have continuous distributions, but the probability is 1 that $(X, Y)$ lies on the straight line $y = x$. Hence, $X$ and $Y$ cannot have a continuous joint distribution.
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.4.7"}
 ::: {#exm-3-4-7}
 
 # Example 3.4.7: Calculating a Normalizing Constant
@@ -313,7 +340,9 @@ Since the value of this integral must be 1, the value of $c$ must be $21/4$.
 The limits of integration on the last integral in #eq-3-4-3 were determined as follows. We have our choice of whether to integrate $x$ or $y$ as the inner integral, and we chose $y$. So, we must find, for each $x$, the interval of $y$ values over which to integrate. From @fig-3-12, we see that, for each $x$, $y$ runs from the curve where $y = x^2$ to the line where $y = 1$. The interval of $x$ values for the outer integral is from $−1$ to $1$ according to @fig-3-12. If we had chosen to integrate $x$ on the inside, then for each $y$, we see that $x$ runs from $-\sqrt{y}$ to $\sqrt{y}$, while $y$ runs from 0 to 1. The final answer would have been the same.
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.4.8"}
 ::: {#exm-3-4-8}
 
 # Example 3.4.8: Calculating Probabilities from a Joint pdf
@@ -327,11 +356,13 @@ $$
 $$
 
 :::
+:::
 
 ![The support $S$ of $(X, Y)$ in @exm-3-4-8.](ch03/images/fig-3-12.svg){#fig-3-12}
 
 ![The subset $S_0$ of the support $S$ where $x \geq y$ in @exm-3-4-8.](ch03/images/fig-3-13.svg){#fig-3-13}
 
+::: {.callout-tip title="Example 3.4.9"}
 ::: {#exm-3-4-9}
 
 # Example 3.4.9: Determining a Joint pdf by Geometric Methods.
@@ -356,9 +387,11 @@ $$
 Since the area of the circle $S$ is $9\pi$, the value of the constant $c$ must be $1/(9\pi)$.
 
 :::
+:::
 
 ### Mixed Bivariate Distributions
 
+::: {.callout-tip title="Example 3.4.10"}
 ::: {#exm-3-4-10}
 
 # Example 3.4.10: A Clinical Trial
@@ -366,10 +399,12 @@ Since the area of the circle $S$ is $9\pi$, the value of the constant $c$ must b
 Consider a clinical trial (such as the one described in @exm-2-1-12) in which each patient with depression receives a treatment and is followed to see whether they have a relapse into depression. Let $X$ be the indicator of whether or not the first patient is a "success" (no relapse). That is $X = 1$ if the patient does not relapse and $X = 0$ if the patient relapses. Also, let $P$ be the proportion of patients who have no replapse among all patients who might receive the treatment. It is clear that $X$ must have a discrete distribution, but it might be sensible to think of $P$ as a continuous random variable taking its value anywhere in the interval $[0, 1]$. Even though $X$ and $P$ can have neither a joint discrete distribution nor a joint continuous distribution, we can still be interested in the joint distribution of $X$ and $P$.  
 
 :::
+:::
 
 Prior to @exm-3-4-10, we have discussed bivariate distributions that were either discrete or continuous. Occasionally, one must consider a mixed bivariate distribution in which one of the random variables is discrete and the other is continuous. We shall use a function $f(x, y)$ to characterize such a joint distribution in much the
 same way that we use a joint pmf to characterize a discrete joint distribution or a joint pdf to characterize a continuous joint distribution.
 
+::: {.callout-note title="Definition 3.4.5"}
 ::: {#def-3-4-5}
 
 # Definition 3.4.5: Joint pmf/pdf
@@ -382,6 +417,7 @@ $$ {#eq-3-4-4}
 
 if the integral exists. Then the function $f$ is called the *joint pmf/pdf* of $X$ and $Y$.
 
+:::
 :::
 
 Clearly, @def-3-4-5 can be modified in an obvious way if $Y$ is discrete and $X$ is continuous. Every joint pmf/pdf must satisfy two conditions. If $X$ is the discrete random variable with possible values $x_1, x_2, \ldots$ and $Y$ is the continuous random variable, then $f(x, y) \geq 0$ for all $x$, $y$ and
@@ -407,6 +443,7 @@ $$
 
 if the integral exists.
 
+::: {.callout-tip title="Example 3.4.11"}
 ::: {#exm-3-4-11}
 
 # Example 3.4.11: A Joint pmf/pdf
@@ -436,7 +473,9 @@ $$
 $$
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.4.12"}
 ::: {#exm-3-4-12}
 
 # Example 3.4.12: A Clinical Trial.
@@ -460,9 +499,11 @@ $$
 $$
 
 :::
+:::
 
 A more complicated type of joint distribution can also arise in a practical problem.
 
+::: {.callout-tip title="Example 3.4.13"}
 ::: {#exm-3-4-13}
 
 # Example 3.4.13: A Complicated Joint Distribution
@@ -473,6 +514,7 @@ The joint distribution of $X$ and $Y$ in this example is not continuous, because
 text.
 
 :::
+:::
 
 ### Bivariate Cumulative Distribution Functions
 
@@ -480,6 +522,7 @@ The first calculation in @exm-3-4-12, namely, $\Pr(X \leq 0 \text{ and } Y \leq 
 
 ![The probability of a rectangle.](ch03/images/fig-3-14.svg){#fig-3-14}
 
+::: {.callout-note title="Definition 3.4.6"}
 ::: {#def-3-4-6}
 
 # Definition 3.4.6: Joint (Cumulative) Distribution Function/CDF
@@ -490,6 +533,7 @@ $$
 F(x, y) = \Pr(X \leq x \text{ and }Y \leq y).
 $$
 
+:::
 :::
 
 It is clear from @def-3-4-6 that $F(x, y)$ is monotone increasing in $x$ for each fixed $y$ and is monotone increasing in $y$ for each fixed $x$.
@@ -508,6 +552,7 @@ $$
 
 Hence, the probability of the rectangle $C$ sketched in @fig-3-14 is given by the combination of values of $F$ just derived. It should be noted that two sides of the rectangle are included in the set $C$ and the other two sides are excluded. Thus, if there are points or line segments on the boundary of $C$ that have positive probability, it is important to distinguish between the weak inequalities and the strict inequalities in @eq-3-4-6.
 
+::: {.callout-caution title="Theorem 3.4.5"}
 ::: {#thm-3-4-5}
 
 # Theorem 3.4.5
@@ -541,6 +586,7 @@ where the third equality follows from countable additivity and the fact that the
 :::
 
 :::
+:::
 
 Other relationships involving the univariate distribution of $X$, the univariate distribution of $Y$, and their joint bivariate distribution will be presented in the next section.
 
@@ -558,6 +604,7 @@ $$
 
 at every point $(x, y)$ at which these second-order derivatives exist.
 
+::: {.callout-tip title="Example 3.4.14"}
 ::: {#exm-3-4-14}
 
 # Example 3.4.14: Determining a Joint pdf from a Joint CDF
@@ -616,7 +663,9 @@ f(x, y) = \begin{cases}
 $$
 
 :::
+:::
 
+::: {.callout-tip title="Example 3.4.15"}
 ::: {#exm-3-4-15}
 
 # Example 3.4.15: Demands for Utilities
@@ -633,6 +682,7 @@ $$
 
 The reason that we need three cases in the formula for $F(x, y)$ is that the joint pdf in @eq-3-4-2 drops to 0 when $x$ crosses above 200 or when $y$ crosses above 150; hence, we never want to integrate $1/29204$ beyond $x = 200$ or beyond $y = 150$. If one takes the limit as $y \rightarrow \infty$ of $F(x, y)$ (for fixed $4 \leq x \leq 200$), one gets the second case in the formula above, which then is the CDF of $X$, $F_1(x)$. Similarly, if one takes the $\lim_{x \rightarrow \infty} F(x, y)$ (for fixed $1 \leq y \leq 150$), one gets the third case in the formula, which then is the CDF of $Y$, $F_2(y)$.
 
+:::
 :::
 
 ### Summary
@@ -656,8 +706,7 @@ b. Find $\Pr(X \geq Y)$.
 
 # Exercise 3.4.2
 
-Suppose that in an electric display sign there are three light bulbs in the first row and four light bulbs in the second row. Let $X$ denote the number of bulbs in the first row that will be burned out at a specified time $t$, and let $Y$ denote the number of bulbs in the second row that will be burned
-out at the same time $t$. Suppose that the joint pmf of $X$ and $Y$ is as specified in the following table:
+Suppose that in an electric display sign there are three light bulbs in the first row and four light bulbs in the second row. Let $X$ denote the number of bulbs in the first row that will be burned out at a specified time $t$, and let $Y$ denote the number of bulbs in the second row that will be burned out at the same time $t$. Suppose that the joint pmf of $X$ and $Y$ is as specified in the following table:
 
 ```{=html}
 <table>
@@ -804,8 +853,7 @@ b. Suppose that $S_0$ is a subset of the region $S$ having area $\alpha$ and det
 
 # Exercise 3.4.7
 
-Suppose that a point $(X, Y)$ is to be chosen from the square $S$ in the $xy$-plane containing all points $(x, y)$ such that $0 \leq x \leq 1$ and $0 \leq y \leq 1$. Suppose that the probability that the chosen point will be the corner $(0, 0)$ is 0.1, the probability that it will be the corner $(1, 0)$ is 0.2, the probability that it will be the corner $(0, 1)$ is 0.4, and the probability that it will be the corner $(1, 1)$ is 0.1. Suppose also that if the chosen point is not one of the four corners of the square, then it will be an interior point of the square and will be chosen according to a constant pdf
-over the interior of the square. Determine
+Suppose that a point $(X, Y)$ is to be chosen from the square $S$ in the $xy$-plane containing all points $(x, y)$ such that $0 \leq x \leq 1$ and $0 \leq y \leq 1$. Suppose that the probability that the chosen point will be the corner $(0, 0)$ is 0.1, the probability that it will be the corner $(1, 0)$ is 0.2, the probability that it will be the corner $(0, 1)$ is 0.4, and the probability that it will be the corner $(1, 1)$ is 0.1. Suppose also that if the chosen point is not one of the four corners of the square, then it will be an interior point of the square and will be chosen according to a constant pdf over the interior of the square. Determine
 
 (a) $\Pr(X \leq 1/4)$
 (b) $\Pr(X + Y \leq 1)$.
@@ -816,8 +864,7 @@ over the interior of the square. Determine
 
 # Exercise 3.4.8
 
-Suppose that $X$ and $Y$ are random variables such that $(X, Y)$ must belong to the rectangle in the $xy$-plane containing all points $(x, y)$ for which $0 \leq x \leq 3$ and $0 \leq y \leq 4$. Suppose also that the joint CDF of $X$ and $Y$ at every point
-$(x, y)$ in this rectangle is specified as follows:
+Suppose that $X$ and $Y$ are random variables such that $(X, Y)$ must belong to the rectangle in the $xy$-plane containing all points $(x, y)$ for which $0 \leq x \leq 3$ and $0 \leq y \leq 4$. Suppose also that the joint CDF of $X$ and $Y$ at every point $(x, y)$ in this rectangle is specified as follows:
 
 $$
 F(x, y) = \frac{1}{156}xy(x^2 + y).

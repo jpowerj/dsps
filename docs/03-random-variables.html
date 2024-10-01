@@ -278,6 +278,7 @@ window.Quarto = {
   <li><a href="#sec-3-6" id="toc-sec-3-6" class="nav-link" data-scroll-target="#sec-3-6"><span class="header-section-number">3.6</span> Conditional Distributions</a>
   <ul class="collapse">
   <li><a href="#discrete-conditional-distributions" id="toc-discrete-conditional-distributions" class="nav-link" data-scroll-target="#discrete-conditional-distributions">Discrete Conditional Distributions</a></li>
+  <li><a href="#continuous-conditional-distributions" id="toc-continuous-conditional-distributions" class="nav-link" data-scroll-target="#continuous-conditional-distributions">Continuous Conditional Distributions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1364,46 +1365,119 @@ f(x) = \begin{cases}
 <section id="sec-3-4" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="sec-3-4"><span class="header-section-number">3.4</span> Bivariate Distributions</h2>
 <p><em>We generalize the concept of distribution of a random variable to the joint distribution of two random variables. In doing so, we introduce the joint pmf for two discrete random variables, the joint pdf for two continuous random variables, and the joint CDF for any two random variables. We also introduce a joint hybrid of pmf and pdf for the case of one discrete random variable and one continuous random variable.</em></p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.27 (Example 3.4.1: Demands for Utilities (DeGroot and Schervish, p.&nbsp;118))</strong></span> In <a href="#exm-3-1-5" class="quarto-xref">Example&nbsp;<span>3.5</span></a>, we found the distribution of the random variable <span class="math inline">\(X\)</span> that represented the demand for water. But there is another random variable, <span class="math inline">\(Y\)</span>, the demand for electricity, that is also of interest. When discussing two random variables at once, it is often convenient to put them together into an ordered pair, <span class="math inline">\((X, Y)\)</span>. As early as <a href="01-intro.html#exm-1-5-4" class="quarto-xref">Example&nbsp;<span>1.9</span></a>, we actually calculated some probabilities associated with the pair <span class="math inline">\((X, Y)\)</span>. In that example, we defined two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> that we now can express as <span class="math inline">\(A = \{X \geq 115\}\)</span> and <span class="math inline">\(B = \{Y \geq 110\}\)</span>. In <a href="01-intro.html#exm-1-5-4" class="quarto-xref">Example&nbsp;<span>1.9</span></a>, we computed <span class="math inline">\(\Pr(A \cap B)\)</span> and <span class="math inline">\(\Pr(A \cup B)\)</span>. We can express <span class="math inline">\(A \cap B\)</span> and <span class="math inline">\(A \cup B\)</span> as events involving the pair <span class="math inline">\((X, Y)\)</span>. For example, define the set of ordered pairs <span class="math inline">\(C = \{(x, y) \mid x \geq 115\text{ and }y \geq 110\}\)</span> so that that the event <span class="math inline">\(\{(X, Y) \in C\} = A \cap B\)</span>. That is, the event that the pair of random variables lies in the set <span class="math inline">\(C\)</span> is the same as the intersection of the two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. In <a href="01-intro.html#exm-1-5-4" class="quarto-xref">Example&nbsp;<span>1.9</span></a>, we computed <span class="math inline">\(\Pr(A \cap B) = 0.1198\)</span>. So, we can now assert that <span class="math inline">\(\Pr((X, Y) \in C) = 0.1198\)</span>.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.4.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.14 (Definition 3.4.1: Joint/Bivariate Distribution (DeGroot and Schervish, p.&nbsp;118))</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. The <strong>joint distribution</strong> or <strong>bivariate distribution</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is the collection of all probabilities of the form <span class="math inline">\(\Pr\left( (X, Y) \in C\right)\)</span> for all sets <span class="math inline">\(C\)</span> of pairs of real numbers such that <span class="math inline">\(\{ (X, Y) \in C\}\)</span> is an event.</p>
+</div>
+</div>
 </div>
 <p>It is a straightforward consequence of the definition of the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> that this joint distribution is itself a probability measure on the set of ordered pairs of real numbers. The set <span class="math inline">\(\{ (X, Y) \in C\}\)</span> will be an event for every set <span class="math inline">\(C\)</span> of pairs of real numbers that most readers will be able to imagine.</p>
 <p>In this section and the next two sections, we shall discuss convenient ways to characterize and do computations with bivariate distributions. In <a href="#sec-3-7" class="quarto-xref"><span>Section 3.7</span></a>, these considerations will be extended to the joint distribution of an arbitrary finite number of random variables.</p>
 <section id="discrete-joint-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-joint-distributions">Discrete Joint Distributions</h3>
-<div id="exm-3-4-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.28 (Example 3.4.2: Theater Patrons)</strong></span> Suppose that a sample of 10 people is selected at random from a theater with 200 patrons. One random variable of interest might be the number <span class="math inline">\(X\)</span> of people in the sample who are over 60 years of age, and another random variable might be the number <span class="math inline">\(Y\)</span> of people in the sample who live more than 25 miles from the theater. For each ordered pair <span class="math inline">\((x, y)\)</span> with <span class="math inline">\(x = 0, \ldots, 10\)</span> and <span class="math inline">\(y = 0, \ldots, 10\)</span>, we might wish to compute <span class="math inline">\(\Pr( (X, Y) = (x, y))\)</span>, the probability that there are <span class="math inline">\(x\)</span> people in the sample who are over 60 years of age and there are <span class="math inline">\(y\)</span> people in the sample who live more than 25 miles away.</p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.2">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+Example 3.4.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-4-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.28 (Example 3.4.2: Theater Patrons)</strong></span> Suppose that a sample of 10 people is selected at random from a theater with 200 patrons. One random variable of interest might be the number <span class="math inline">\(X\)</span> of people in the sample who are over 60 years of age, and another random variable might be the number <span class="math inline">\(Y\)</span> of people in the sample who live more than 25 miles from the theater. For each ordered pair <span class="math inline">\((x, y)\)</span> with <span class="math inline">\(x = 0, \ldots, 10\)</span> and <span class="math inline">\(y = 0, \ldots, 10\)</span>, we might wish to compute <span class="math inline">\(\Pr( (X, Y) = (x, y))\)</span>, the probability that there are <span class="math inline">\(x\)</span> people in the sample who are over 60 years of age and there are <span class="math inline">\(y\)</span> people in the sample who live more than 25 miles away.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.4.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-2" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.15 (Definition 3.4.2: Discrete Joint Distribution)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables, and consider the ordered pair <span class="math inline">\((X, Y)\)</span>. If there are only finitely or at most countably many different possible values <span class="math inline">\((x, y)\)</span> for the pair <span class="math inline">\((X, Y)\)</span>, then we say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a <strong>discrete joint distribution</strong>.</p>
 </div>
 </div>
 </div>
-</div>
 <p>The two random variables in <a href="#exm-3-4-2" class="quarto-xref">Example&nbsp;<span>3.28</span></a> have a discrete joint distribution.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.4.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.4.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-4-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.10 (Theorem 3.4.1)</strong></span> Suppose that two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> each have a discrete distribution. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>If both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have only finitely many possible values, then there will be only a finite number of different possible values <span class="math inline">\((x, y)\)</span> for the pair <span class="math inline">\((X, Y)\)</span>. On the other hand, if either <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> or both can take a countably infinite number of possible values, then there will also be a countably infinite number of possible values for the pair <span class="math inline">\((X, Y)\)</span>. In all of these cases, the pair <span class="math inline">\((X, Y)\)</span> has a discrete joint distribution.</p>
 </div>
 </div>
+</div>
+</div>
 <p>When we define continuous joint distribution shortly, we shall see that the obvious analog of <a href="#thm-3-4-1" class="quarto-xref">Theorem&nbsp;<span>3.10</span></a> is not true.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.4.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-3" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.16 (Definition 3.4.3: Joint Probability Mass Function (pmf))</strong></span> The <strong>joint probability mass function</strong>, or the <strong>joint pmf</strong>, of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as the function <span class="math inline">\(f\)</span> such that for every point <span class="math inline">\((x, y)\)</span> in the <span class="math inline">\(xy\)</span>-plane,</p>
 <p><span class="math display">\[
 f(x, y) = \Pr(X = x\text{ and }Y = y).
 \]</span></p>
 </div>
+</div>
+</div>
 <p>The following result is easy to prove because there are at most countably many pairs <span class="math inline">\((x, y)\)</span> that must account for all of the probability a discrete joint distribution.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.4.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.4.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-4-2" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.11 (Theorem 3.4.2)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution, <!-- Added, jpj, 2023-09-28 --> and let <span class="math inline">\(\mathcal{R}_{(X,Y)} = \mathcal{R}_X \times \mathcal{R}_Y\)</span>, that is, all possible ordered pairs of values where the first element in the pair is in <span class="math inline">\(\mathcal{R}_X\)</span> and the second element in the pair is in <span class="math inline">\(\mathcal{R}_Y\)</span>.</p>
 <p>If <span class="math inline">\((x, y)\)</span> is not one of the possible values of the pair <span class="math inline">\((X, Y)\)</span>, then <span class="math inline">\(f(x, y) = 0\)</span>. Also,</p>
@@ -1415,6 +1489,18 @@ f(x, y) = \Pr(X = x\text{ and }Y = y).
 \Pr\left( (X,Y) \in C \right) = \sum_{(x,y) \in C}f(x,y).
 \]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.29 (Example 3.4.3: Specifying a Discrete Joint Distribution by a Table of Probabilities)</strong></span> In a certain suburban area, each household reported the number of cars and the number of television sets that they owned. Let <span class="math inline">\(X\)</span> stand for the number of cars owned by a randomly selected household in this area. Let <span class="math inline">\(Y\)</span> stand for the number of television sets owned by that same randomly selected household. In this case, <span class="math inline">\(X\)</span> takes only the values 1, 2, and 3; <span class="math inline">\(Y\)</span> takes only the values 1, 2, 3, and 4; and the joint pmf <span class="math inline">\(f\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as specified in <a href="#tbl-3-2" class="quarto-xref">Table&nbsp;<span>3.2</span></a></p>
 <div id="tbl-3-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
@@ -1478,6 +1564,8 @@ Pr(X \geq 2\text{ and }Y \geq 2) &amp;= f(2, 2) + f (2, 3) + f (2, 4) + f (3, 2)
 \Pr(X = 1) = \sum_{y = 1}^{4}f(1,y) = 0.2.
 \]</span></p>
 </div>
+</div>
+</div>
 <div id="fig-3-10" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1491,6 +1579,16 @@ Figure&nbsp;3.10: The joint pmf of <span class="math inline">\(X\)</span> and <s
 </section>
 <section id="continuous-joint-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="continuous-joint-distributions">Continuous Joint Distributions</h3>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-4" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.30 (Example 3.4.4: Demands for Utilities)</strong></span> Consider again the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in <a href="#exm-3-4-1" class="quarto-xref">Example&nbsp;<span>3.27</span></a>. When we first calculated probabilities for these two random variables back in <a href="01-intro.html#exm-1-5-4" class="quarto-xref">Example&nbsp;<span>1.9</span></a> (even before we named them or called them random variables), we assumed that the probability of each subset of the sample space was proportional to the area of the subset. Since the area of the sample space is 29,204, the probability that the pair <span class="math inline">\((X, Y)\)</span> lies in a region <span class="math inline">\(C\)</span> is the area of <span class="math inline">\(C\)</span> divided by 29,204. We can also write this relation as</p>
 <p><span id="eq-3-4-1"><span class="math display">\[
@@ -1498,19 +1596,37 @@ Figure&nbsp;3.10: The joint pmf of <span class="math inline">\(X\)</span> and <s
 \tag{3.21}\]</span></span></p>
 <p>assuming that the integral exists.</p>
 </div>
+</div>
+</div>
 <p>If one looks carefully at <a href="#eq-3-4-1" class="quarto-xref">Equation&nbsp;<span>3.21</span></a>, one will notice the similarity to <a href="#eq-3-2-2" class="quarto-xref">Equation&nbsp;<span>3.6</span></a> and <a href="#eq-3-2-1" class="quarto-xref">Equation&nbsp;<span>3.5</span></a>. We formalize this connection as follows.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.4.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-4" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.17 (Definition 3.4.4: Continuous Joint Distribution (DeGroot and Schervish))</strong></span> Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a <strong>continuous joint distribution</strong> if there exists a nonnegative function <span class="math inline">\(f\)</span> defined over the entire <span class="math inline">\(xy\)</span>-plane such that for every subset <span class="math inline">\(C\)</span> of the plane,</p>
 <p><span class="math display">\[
 \Pr\left[(X,Y) \in C\right] = \int_C\int f(x,y)~dx~dy.
 \]</span></p>
 </div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.4">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+Definition 3.4.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-4" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.18 (Definition 3.4.4: Continuous Joint Distribution/Joint pdf/Support.)</strong></span> Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a <strong>continuous joint distribution</strong> if there exists a nonnegative function <span class="math inline">\(f\)</span> defined over the entire <span class="math inline">\(xy\)</span>-plane such that for every subset <span class="math inline">\(C\)</span> of the plane,</p>
 <p><span class="math display">\[
@@ -1520,7 +1636,16 @@ Figure&nbsp;3.10: The joint pmf of <span class="math inline">\(X\)</span> and <s
 </div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Example 3.4.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.31 (Example 3.4.5: Demands for Utilities.)</strong></span> In <a href="#exm-3-4-4" class="quarto-xref">Example&nbsp;<span>3.30</span></a>, it is clear from <a href="#eq-3-4-1" class="quarto-xref">Equation&nbsp;<span>3.21</span></a> that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is the function</p>
 <p><span class="math display">\[
@@ -1530,7 +1655,19 @@ f(x,y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 <p>It is clear from <a href="#def-3-4-4" class="quarto-xref">Definition&nbsp;<span>3.18</span></a> that the joint pdf of two random variables characterizes their joint distribution. The following result is also straightforward.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.4.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.4.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-4-3" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.12 (Theorem 3.4.3 (DeGroot and Schervish))</strong></span> A joint PDF must satisfy the following two conditions:</p>
 <p><span class="math display">\[
@@ -1540,6 +1677,8 @@ f(x,y) \geq 0\text{ for }-\infty &lt; x &lt; \infty\text{ and }-\infty &lt; y &l
 <p><span class="math display">\[
 \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\, dx \, dy = 1.
 \]</span></p>
+</div>
+</div>
 </div>
 <p>Any function that satisfies the two displayed formulas in <a href="#thm-3-4-3" class="quarto-xref">Theorem&nbsp;<span>3.12</span></a> is the joint pdf for some probability distribution.</p>
 <p>An example of the graph of a joint pdf is presented in <a href="#fig-3-11" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>.</p>
@@ -1555,6 +1694,16 @@ Figure&nbsp;3.11: Figure 3.11: An example of a joint pdf
 </figcaption>
 </figure>
 </div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.4.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.4.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-4-4" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.13 (Theorem 3.4.4)</strong></span> For every continuous joint distribution on the <span class="math inline">\(xy\)</span>-plane, the following two statements hold:</p>
 <ol type="i">
@@ -1565,10 +1714,34 @@ Figure&nbsp;3.11: Figure 3.11: An example of a joint pdf
 <p><span class="proof-title"><em>Proof</em>. </span>According to <a href="#def-3-4-4" class="quarto-xref">Definition&nbsp;<span>3.18</span></a>, the probability that a continuous joint distribution assigns to a specified region of the <span class="math inline">\(xy\)</span>-plane can be found by integrating the joint pdf <span class="math inline">\(f(x, y)\)</span> over that region, if the integral exists. If the region is a single point, the integral will be 0. By Axiom 3 of probability, the probability for any countable collection of points must also be 0. The integral of a function of two variables over the graph of a continuous function in the <span class="math inline">\(xy\)</span>-plane is also 0.</p>
 </div>
 </div>
+</div>
+</div>
 <!-- Stopping point 2023-10-10, 12:15am -->
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.32 (Example 3.4.6: Not a Continuous Joint Distribution)</strong></span> It follows from (ii) of <a href="#thm-3-4-4" class="quarto-xref">Theorem&nbsp;<span>3.13</span></a> that the probability that <span class="math inline">\((X, Y)\)</span> will lie on each specified straight line in the plane is 0. If <span class="math inline">\(X\)</span> has a continuous distribution and if <span class="math inline">\(Y = X\)</span>, then both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have continuous distributions, but the probability is 1 that <span class="math inline">\((X, Y)\)</span> lies on the straight line <span class="math inline">\(y = x\)</span>. Hence, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> cannot have a continuous joint distribution.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.7">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-7" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.33 (Example 3.4.7: Calculating a Normalizing Constant)</strong></span> Suppose that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is specified as follows:</p>
 <p><span class="math display">\[
@@ -1588,12 +1761,26 @@ cx^2y &amp;\text{for }x^2 \leq y \leq 1, \\
 <p>Since the value of this integral must be 1, the value of <span class="math inline">\(c\)</span> must be <span class="math inline">\(21/4\)</span>.</p>
 <p>The limits of integration on the last integral in #eq-3-4-3 were determined as follows. We have our choice of whether to integrate <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> as the inner integral, and we chose <span class="math inline">\(y\)</span>. So, we must find, for each <span class="math inline">\(x\)</span>, the interval of <span class="math inline">\(y\)</span> values over which to integrate. From <a href="#fig-3-12" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>, we see that, for each <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> runs from the curve where <span class="math inline">\(y = x^2\)</span> to the line where <span class="math inline">\(y = 1\)</span>. The interval of <span class="math inline">\(x\)</span> values for the outer integral is from <span class="math inline">\(−1\)</span> to <span class="math inline">\(1\)</span> according to <a href="#fig-3-12" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>. If we had chosen to integrate <span class="math inline">\(x\)</span> on the inside, then for each <span class="math inline">\(y\)</span>, we see that <span class="math inline">\(x\)</span> runs from <span class="math inline">\(-\sqrt{y}\)</span> to <span class="math inline">\(\sqrt{y}\)</span>, while <span class="math inline">\(y\)</span> runs from 0 to 1. The final answer would have been the same.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.8">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-8" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.34 (Example 3.4.8: Calculating Probabilities from a Joint pdf)</strong></span> For the joint distribution in <a href="#exm-3-4-7" class="quarto-xref">Example&nbsp;<span>3.33</span></a>, we shall now determine the value of <span class="math inline">\(\Pr(X \geq Y)\)</span>.</p>
 <p>The subset <span class="math inline">\(S_0\)</span> of <span class="math inline">\(S\)</span> where <span class="math inline">\(x \geq y\)</span> is sketched in <a href="#fig-3-13" class="quarto-xref">Figure&nbsp;<span>3.13</span></a>. Hence,</p>
 <p><span class="math display">\[
 \Pr(X \geq Y) = \int_{S_0}\int f(x, y) \, dx \, dy = \int_{0}^{1}\int_{x^2}^{x}\frac{21}{4}x^2y \, dy \, dx = \frac{3}{20}.
 \]</span></p>
+</div>
+</div>
 </div>
 <div id="fig-3-12" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1615,6 +1802,16 @@ Figure&nbsp;3.13: The subset <span class="math inline">\(S_0\)</span> of the sup
 </figcaption>
 </figure>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.9">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-9" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.35 (Example 3.4.9: Determining a Joint pdf by Geometric Methods.)</strong></span> Suppose that a point <span class="math inline">\((X, Y)\)</span> is selected at random from inside the circle <span class="math inline">\(x^2 + y^2 \leq 9\)</span>. We shall determine the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>The support of <span class="math inline">\((X, Y)\)</span> is the set <span class="math inline">\(S\)</span> of points on and inside the circle <span class="math inline">\(x^2 + y^2 \leq 9\)</span>. The statement that the point <span class="math inline">\((X, Y)\)</span> is selected at random from inside the circle is interpreted to mean that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is constant over <span class="math inline">\(S\)</span> and is 0 outside <span class="math inline">\(S\)</span>. Thus,</p>
@@ -1630,19 +1827,45 @@ c &amp;\text{for }(x, y) \in S, \\
 \]</span></p>
 <p>Since the area of the circle <span class="math inline">\(S\)</span> is <span class="math inline">\(9\pi\)</span>, the value of the constant <span class="math inline">\(c\)</span> must be <span class="math inline">\(1/(9\pi)\)</span>.</p>
 </div>
+</div>
+</div>
 </section>
 <section id="mixed-bivariate-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="mixed-bivariate-distributions">Mixed Bivariate Distributions</h3>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.10">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-10" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.36 (Example 3.4.10: A Clinical Trial)</strong></span> Consider a clinical trial (such as the one described in <a href="02-conditional-probability.html#exm-2-1-12" class="quarto-xref">Example&nbsp;<span>2.12</span></a>) in which each patient with depression receives a treatment and is followed to see whether they have a relapse into depression. Let <span class="math inline">\(X\)</span> be the indicator of whether or not the first patient is a “success” (no relapse). That is <span class="math inline">\(X = 1\)</span> if the patient does not relapse and <span class="math inline">\(X = 0\)</span> if the patient relapses. Also, let <span class="math inline">\(P\)</span> be the proportion of patients who have no replapse among all patients who might receive the treatment. It is clear that <span class="math inline">\(X\)</span> must have a discrete distribution, but it might be sensible to think of <span class="math inline">\(P\)</span> as a continuous random variable taking its value anywhere in the interval <span class="math inline">\([0, 1]\)</span>. Even though <span class="math inline">\(X\)</span> and <span class="math inline">\(P\)</span> can have neither a joint discrete distribution nor a joint continuous distribution, we can still be interested in the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(P\)</span>.  </p>
 </div>
+</div>
+</div>
 <p>Prior to <a href="#exm-3-4-10" class="quarto-xref">Example&nbsp;<span>3.36</span></a>, we have discussed bivariate distributions that were either discrete or continuous. Occasionally, one must consider a mixed bivariate distribution in which one of the random variables is discrete and the other is continuous. We shall use a function <span class="math inline">\(f(x, y)\)</span> to characterize such a joint distribution in much the same way that we use a joint pmf to characterize a discrete joint distribution or a joint pdf to characterize a continuous joint distribution.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.4.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-5" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.19 (Definition 3.4.5: Joint pmf/pdf)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables such that <span class="math inline">\(X\)</span> is discrete and <span class="math inline">\(Y\)</span> is continuous. Suppose that there is a function <span class="math inline">\(f(x, y)\)</span> defined on the <span class="math inline">\(xy\)</span>-plane such that, for every pair <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> of subsets of the real numbers,</p>
 <p><span id="eq-3-4-4"><span class="math display">\[
 \Pr(X \in A \text{ and } Y \in B) = \int_{B}\sum_{x \in A}f(x,y) \, dy,
 \tag{3.23}\]</span></span></p>
 <p>if the integral exists. Then the function <span class="math inline">\(f\)</span> is called the <em>joint pmf/pdf</em> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
 </div>
 <p>Clearly, <a href="#def-3-4-5" class="quarto-xref">Definition&nbsp;<span>3.19</span></a> can be modified in an obvious way if <span class="math inline">\(Y\)</span> is discrete and <span class="math inline">\(X\)</span> is continuous. Every joint pmf/pdf must satisfy two conditions. If <span class="math inline">\(X\)</span> is the discrete random variable with possible values <span class="math inline">\(x_1, x_2, \ldots\)</span> and <span class="math inline">\(Y\)</span> is the continuous random variable, then <span class="math inline">\(f(x, y) \geq 0\)</span> for all <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and</p>
 <p><span id="eq-3-4-5"><span class="math display">\[
@@ -1658,6 +1881,16 @@ c &amp;\text{for }(x, y) \in S, \\
 \Pr((X, Y) \in C) = \int_{-\infty}^{\infty}\left[ \sum_{x \in C^y}f(x, y) \right]dy,
 \]</span></p>
 <p>if the integral exists.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.11">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-11" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.37 (Example 3.4.11: A Joint pmf/pdf)</strong></span> Suppose that the joint pmf/pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is</p>
 <p><span class="math display">\[
@@ -1676,6 +1909,18 @@ f(x, y) = \frac{xy^{x-1}}{3}, \; \text{ for }x = 1, 2, 3\text{ and }0 &lt; y &lt
 \int_{1/2}^{1}\left[\frac{2}{3}y + y^2\right]dy = \frac{1}{3}\left[1 - \left(\frac{1}{2}\right)^2\right] + \frac{1}{3}\left[1 - \left(\frac{1}{2}\right)^3\right] = 0.5417.
 \]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.12">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.12
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-12" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.38 (Example 3.4.12: A Clinical Trial.)</strong></span> A possible joint pmf/pdf for <span class="math inline">\(X\)</span> and <span class="math inline">\(P\)</span> in <a href="#exm-3-4-10" class="quarto-xref">Example&nbsp;<span>3.36</span></a> is</p>
 <p><span class="math display">\[
@@ -1690,10 +1935,24 @@ f(x, p) = p^x(1-p)^{1-x}, \; \text{ for }x = 0, 1\text{ and }0 &lt; p &lt; 1.
 \Pr(X = 1) = \int_{0}^{1}p \, dp = \frac{1}{2}.
 \]</span></p>
 </div>
+</div>
+</div>
 <p>A more complicated type of joint distribution can also arise in a practical problem.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.13">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.13
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-13" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.39 (Example 3.4.13: A Complicated Joint Distribution)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are the times at which two specific components in an electronic system fail. There might be a certain probability <span class="math inline">\(p\)</span> (<span class="math inline">\(0 &lt; p &lt; 1\)</span>) that the two components will fail at the same time and a certain probability <span class="math inline">\(1 − p\)</span> that they will fail at different times. Furthermore, if they fail at the same time, then their common failure time might be distributed according to a certain pdf <span class="math inline">\(f(x)\)</span>; if they fail at different times, then these times might be distributed according to a certain joint pdf <span class="math inline">\(g(x, y)\)</span>.</p>
 <p>The joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in this example is not continuous, because there is positive probability <span class="math inline">\(p\)</span> that <span class="math inline">\((X, Y)\)</span> will lie on the line <span class="math inline">\(x = y\)</span>. Nor does the joint distribution have a joint pmf/pdf or any other simple function to describe it. There are ways to deal with such joint distributions, but we shall not discuss them in this text.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="bivariate-cumulative-distribution-functions" class="level3">
@@ -1709,11 +1968,23 @@ Figure&nbsp;3.14: The probability of a rectangle.
 </figcaption>
 </figure>
 </div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.4.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.4.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-4-6" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.20 (Definition 3.4.6: Joint (Cumulative) Distribution Function/CDF)</strong></span> The <em>joint Cumulative Distribution Function</em> (<em>joint CDF</em>) of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as the function <span class="math inline">\(F\)</span> such that for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (<span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>),</p>
 <p><span class="math display">\[
 F(x, y) = \Pr(X \leq x \text{ and }Y \leq y).
 \]</span></p>
+</div>
+</div>
 </div>
 <p>It is clear from <a href="#def-3-4-6" class="quarto-xref">Definition&nbsp;<span>3.20</span></a> that <span class="math inline">\(F(x, y)\)</span> is monotone increasing in <span class="math inline">\(x\)</span> for each fixed <span class="math inline">\(y\)</span> and is monotone increasing in <span class="math inline">\(y\)</span> for each fixed <span class="math inline">\(x\)</span>.</p>
 <p>If the joint CDF of two arbitrary random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is <span class="math inline">\(F\)</span>, then the probability that the pair <span class="math inline">\((X, Y)\)</span> will lie in a specified rectangle in the <span class="math inline">\(xy\)</span>-plane can be found from <span class="math inline">\(F\)</span> as follows: For given numbers <span class="math inline">\(a &lt; b\)</span> and <span class="math inline">\(c &lt; d\)</span>,</p>
@@ -1727,6 +1998,16 @@ F(x, y) = \Pr(X \leq x \text{ and }Y \leq y).
 \end{align*}
 \]</span></p>
 <p>Hence, the probability of the rectangle <span class="math inline">\(C\)</span> sketched in <a href="#fig-3-14" class="quarto-xref">Figure&nbsp;<span>3.14</span></a> is given by the combination of values of <span class="math inline">\(F\)</span> just derived. It should be noted that two sides of the rectangle are included in the set <span class="math inline">\(C\)</span> and the other two sides are excluded. Thus, if there are points or line segments on the boundary of <span class="math inline">\(C\)</span> that have positive probability, it is important to distinguish between the weak inequalities and the strict inequalities in <span class="quarto-unresolved-ref">?eq-3-4-6</span>.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.4.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.4.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-4-5" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.14 (Theorem 3.4.5)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint CDF <span class="math inline">\(F\)</span>. The CDF <span class="math inline">\(F_1\)</span> of just the single random variable <span class="math inline">\(X\)</span> can be derived from the joint CDF <span class="math inline">\(F\)</span> as <span class="math inline">\(F_1(x) = \lim_{y \rightarrow \infty} F(x, y)\)</span>. Similarly, the CDF <span class="math inline">\(F_2\)</span> of <span class="math inline">\(Y\)</span> equals <span class="math inline">\(F_2(y) = \lim_{x \rightarrow \infty} F(x, y)\)</span>, for <span class="math inline">\(0 &lt; y &lt; \infty\)</span>.</p>
 <div class="proof">
@@ -1749,6 +2030,8 @@ F_1(x) &amp;= \Pr(X \leq x) = \Pr\left( \bigcup_{n=1}^{\infty}B_n \right) \\
 <p>where the third equality follows from countable additivity and the fact that the <span class="math inline">\(B_n\)</span> events are disjoint, and the last equality follows from the fact that <span class="math inline">\(F(x, y)\)</span> is monotone increasing in <span class="math inline">\(y\)</span> for each fixed <span class="math inline">\(x\)</span>.</p>
 </div>
 </div>
+</div>
+</div>
 <p>Other relationships involving the univariate distribution of <span class="math inline">\(X\)</span>, the univariate distribution of <span class="math inline">\(Y\)</span>, and their joint bivariate distribution will be presented in the next section.</p>
 <p>Finally, if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution with joint pdf <span class="math inline">\(f\)</span>, then the joint CDF at <span class="math inline">\((x, y)\)</span> is</p>
 <p><span class="math display">\[
@@ -1759,6 +2042,16 @@ F(x, y) = \int_{-\infty}^{y}\int_{-\infty}^{x}f(r, s)\, dr \, ds.
 f(x, y) = \frac{\partial^2 F(x, y)}{\partial x \partial y} = \frac{\partial^2F(x,y)}{\partial y \partial x}
 \]</span></p>
 <p>at every point <span class="math inline">\((x, y)\)</span> at which these second-order derivatives exist.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.14">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.14
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-14" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.40 (Example 3.4.14: Determining a Joint pdf from a Joint CDF)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables that take values only in the intervals <span class="math inline">\(0 \leq X \leq 2\)</span> and <span class="math inline">\(0 \leq Y \leq 2\)</span>. Suppose also that the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, for <span class="math inline">\(0 \leq x \leq 2\)</span> and <span class="math inline">\(0 \leq y \leq 2\)</span>, is as follows:</p>
 <p><span id="eq-3-4-7"><span class="math display">\[
@@ -1798,6 +2091,18 @@ f(x, y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.4.15">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.4.15
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-4-15" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.41 (Example 3.4.15: Demands for Utilities)</strong></span> We can compute the joint CDF for water and electric demand in <a href="#exm-3-4-4" class="quarto-xref">Example&nbsp;<span>3.30</span></a> by using the joint pdf that was given in <span class="quarto-unresolved-ref">?eq-3-4-2</span>. If either <span class="math inline">\(x \leq 4\)</span> or <span class="math inline">\(y \leq 1\)</span>, then <span class="math inline">\(F(x, y) = 0\)</span> because either <span class="math inline">\(X \leq x\)</span> or <span class="math inline">\(Y \leq y\)</span> would be impossible. Similarly, if both <span class="math inline">\(x \geq 200\)</span> and <span class="math inline">\(y \geq 150\)</span>, <span class="math inline">\(F(x, y) = 1\)</span> because both <span class="math inline">\(X \leq x\)</span> and <span class="math inline">\(Y \leq y\)</span> would be sure events. For other values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, we compute</p>
 <p><span class="math display">\[
@@ -1808,6 +2113,8 @@ F(x, y) = \begin{cases}
 \end{cases}
 \]</span></p>
 <p>The reason that we need three cases in the formula for <span class="math inline">\(F(x, y)\)</span> is that the joint pdf in <span class="quarto-unresolved-ref">?eq-3-4-2</span> drops to 0 when <span class="math inline">\(x\)</span> crosses above 200 or when <span class="math inline">\(y\)</span> crosses above 150; hence, we never want to integrate <span class="math inline">\(1/29204\)</span> beyond <span class="math inline">\(x = 200\)</span> or beyond <span class="math inline">\(y = 150\)</span>. If one takes the limit as <span class="math inline">\(y \rightarrow \infty\)</span> of <span class="math inline">\(F(x, y)\)</span> (for fixed <span class="math inline">\(4 \leq x \leq 200\)</span>), one gets the second case in the formula above, which then is the CDF of <span class="math inline">\(X\)</span>, <span class="math inline">\(F_1(x)\)</span>. Similarly, if one takes the <span class="math inline">\(\lim_{x \rightarrow \infty} F(x, y)\)</span> (for fixed <span class="math inline">\(1 \leq y \leq 150\)</span>), one gets the third case in the formula, which then is the CDF of <span class="math inline">\(Y\)</span>, <span class="math inline">\(F_2(y)\)</span>.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="summary-3" class="level3">
@@ -2033,6 +2340,16 @@ Table&nbsp;3.3: Proportions in clinical depression study for <a href="#exr-3-4-1
 <section id="deriving-a-marginal-pmf-or-a-marginal-pdf" class="level3">
 <h3 class="anchored" data-anchor-id="deriving-a-marginal-pmf-or-a-marginal-pdf">Deriving a Marginal pmf or a Marginal pdf</h3>
 <p>We have seen in <a href="#thm-3-4-5" class="quarto-xref">Theorem&nbsp;<span>3.14</span></a> that if the joint CDF <span class="math inline">\(F\)</span> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is known, then the CDF <span class="math inline">\(F_1\)</span> of the random variable <span class="math inline">\(X\)</span> can be derived from <span class="math inline">\(F\)</span>. We saw an example of this derivation in <a href="#exm-3-4-15" class="quarto-xref">Example&nbsp;<span>3.41</span></a>. If <span class="math inline">\(X\)</span> has a continuous distribution, we can also derive the pdf of <span class="math inline">\(X\)</span> from the joint distribution.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.42 (Example 3.5.1: Demands for Utilities)</strong></span> Look carefully at the formula for <span class="math inline">\(F(x, y)\)</span> in <a href="#exm-3-4-15" class="quarto-xref">Example&nbsp;<span>3.41</span></a>, specifically the last two branches that we identified as <span class="math inline">\(F_1(x)\)</span> and <span class="math inline">\(F_2(y)\)</span>, the CDFs of the two individual random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It is apparent from those two formulas and <a href="#thm-3-3-5" class="quarto-xref">Theorem&nbsp;<span>3.9</span></a> that the pdf of <span class="math inline">\(X\)</span> alone is</p>
 <p><span class="math display">\[
@@ -2049,6 +2366,8 @@ f_2(y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 <p>The ideas employed in <a href="#exm-3-5-1" class="quarto-xref">Example&nbsp;<span>3.42</span></a> lead to the following definition.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2056,10 +2375,32 @@ f_2(y) = \begin{cases}
 <figcaption>Computing <span class="math inline">\(f_1(x)\)</span> from the joint pmf.</figcaption>
 </figure>
 </div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-5-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.21 (Definition 3.5.1: Marginal CDF/pmf/pdf)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint distribution. The CDF of <span class="math inline">\(X\)</span> derived by <a href="#thm-3-4-5" class="quarto-xref">Theorem&nbsp;<span>3.14</span></a> is called the marginal CDF of <span class="math inline">\(X\)</span>. Similarly, the pmf or pdf of <span class="math inline">\(X\)</span> associated with the marginal CDF of <span class="math inline">\(X\)</span> is called the marginal pmf or marginal pdf of <span class="math inline">\(X\)</span>.</p>
 </div>
+</div>
+</div>
 <p>To obtain a specific formula for the marginal pmf or marginal pdf, we start with a discrete joint distribution.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.15 (Theorem 3.5.1)</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution for which the joint pmf is <span class="math inline">\(f\)</span>, then the marginal pmf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> is</p>
 <p><span id="eq-3-5-1"><span class="math display">\[
@@ -2070,9 +2411,23 @@ f_1(x) = \sum_{\text{All }y}f(x, y).
 <p><span class="proof-title"><em>Proof</em>. </span>We prove the result for <span class="math inline">\(f_1\)</span>, as the proof for <span class="math inline">\(f_2\)</span> is similar. We illustrate the proof in <span class="quarto-unresolved-ref">?fig-3-15</span>. In that figure, the set of points in the dashed box is the set of pairs with first coordinate <span class="math inline">\(x\)</span>. The event <span class="math inline">\(\{X = x\}\)</span> can be expressed as the union of the events represented by the pairs in the dashed box, namely, <span class="math inline">\(B_y = \{X = x \text{ and } Y = y\}\)</span> for all possible <span class="math inline">\(y\)</span>. The <span class="math inline">\(B_y\)</span> events are disjoint and <span class="math inline">\(\Pr(B_y) = f(x, y)\)</span>. Since <span class="math inline">\(\Pr(X = x) = \sum_{\text{All }y}\)</span>, <a href="#eq-3-5-1" class="quarto-xref">Equation&nbsp;<span>3.26</span></a> holds.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.43 (Example 3.5.2: Deriving a Marginal pmf from a Table of Probabilities)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are the random variables in <a href="#exm-3-4-3" class="quarto-xref">Example&nbsp;<span>3.29</span></a>. These are respectively the numbers of cars and televisions owned by a radomly selected household in a certain suburban area. <a href="#tbl-3-2" class="quarto-xref">Table&nbsp;<span>3.2</span></a> gives their joint pmf, and we repeat that table in <span class="quarto-unresolved-ref">?tbl-3-4</span> together with row and column totals added to the margins.</p>
 <p>The marginal pmf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> can be read from the row totals of <span class="quarto-unresolved-ref">?tbl-3-4</span>. The numbers were obtained by summing the values in each row of this table from the four columns in the central part of the table (those labeled <span class="math inline">\(y = 1, 2, 3, 4\)</span>). In this way, it is found that <span class="math inline">\(f_1(1) = 0.2\)</span>, <span class="math inline">\(f_1(2) = 0.6\)</span>, <span class="math inline">\(f_1(3) = 0.2\)</span>, and <span class="math inline">\(f_1(x) = 0\)</span> for all other values of <span class="math inline">\(x\)</span>. This marginal pmf gives the probabilities that a randomly selected household owns 1, 2, or 3 cars. Similarly, the marginal pmf <span class="math inline">\(f_2\)</span> of <span class="math inline">\(Y\)</span>, the probabilities that a household owns 1, 2, 3, or 4 televisions, can be read from the column totals. These numbers were obtained by adding the numbers in each of the columns from the three rows in the central part of the table (those labeled <span class="math inline">\(x = 1, 2, 3\)</span>.)</p>
+</div>
+</div>
 </div>
 <p>The name <strong>marginal distribution</strong> derives from the fact that the marginal distributions are the totals that appear in the margins of tables like <span class="quarto-unresolved-ref">?tbl-3-4</span>.</p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution for which the joint pdf is <span class="math inline">\(f\)</span>, then the marginal pdf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> is again determined in the manner shown in <a href="#eq-3-5-1" class="quarto-xref">Equation&nbsp;<span>3.26</span></a>, but the sum over all possible values of <span class="math inline">\(Y\)</span> is now replaced by the integral over all possible values of <span class="math inline">\(Y\)</span>.</p>
@@ -2128,6 +2483,16 @@ f_1(x) = \sum_{\text{All }y}f(x, y).
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.5.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-2" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.16 (Theorem 3.5.2)</strong></span> If <span class="math inline">\(X\)</span> and Y have a continuous joint distribution with joint pdf <span class="math inline">\(f\)</span>, then the marginal pdf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span> is</p>
 <p><span id="eq-3-5-2"><span class="math display">\[
@@ -2148,6 +2513,18 @@ f_2(y) = \int_{-\infty}^{\infty}f(x, y)\, dx \; \text{ for }-\infty &lt; y &lt; 
 <p>The inner integral in the last expression of <a href="#eq-3-5-4" class="quarto-xref">Equation&nbsp;<span>3.29</span></a> is a function of <span class="math inline">\(r\)</span> and it can easily be recognized as <span class="math inline">\(f_1(r)\)</span>, where <span class="math inline">\(f_1\)</span> is defined in <a href="#eq-3-5-2" class="quarto-xref">Equation&nbsp;<span>3.27</span></a>. It follows that <span class="math inline">\(\Pr(X \leq x) = \int_{-\infty}^{x}f_1(r)dr\)</span>, so <span class="math inline">\(f_1\)</span> is the marginal pdf of <span class="math inline">\(X\)</span>.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.44 (Example 3.5.3: Deriving a Marginal pdf)</strong></span> Suppose that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as specified in <a href="#exm-3-4-8" class="quarto-xref">Example&nbsp;<span>3.34</span></a>, namely,</p>
 <p><span class="math display">\[
@@ -2186,7 +2563,19 @@ f_2(y) = \int_{-\infty}^{\infty}f(x, y)\, dx = \int_{-\sqrt{y}}^{\sqrt{y}}\left(
 \]</span></p>
 <p>This marginal pdf of <span class="math inline">\(Y\)</span> is sketched in <span class="quarto-unresolved-ref">?fig-3-18</span>.</p>
 </div>
-<p>  If <span class="math inline">\(X\)</span> has a discrete distribution and <span class="math inline">\(Y\)</span> has a continuous distribution, we can derive the marginal pmf of <span class="math inline">\(X\)</span> and the marginal pdf of <span class="math inline">\(Y\)</span> from the joint pmf/pdf in the same ways that we derived a marginal pmf or a marginal pdf from a joint pmf or a joint pdf. The following result can be proven by combining the techniques used in the proofs of Theorems <a href="#thm-3-5-1" class="quarto-xref"><span>3.15</span></a> and <a href="#thm-3-5-2" class="quarto-xref"><span>3.16</span></a>.</p>
+</div>
+</div>
+<p>If <span class="math inline">\(X\)</span> has a discrete distribution and <span class="math inline">\(Y\)</span> has a continuous distribution, we can derive the marginal pmf of <span class="math inline">\(X\)</span> and the marginal pdf of <span class="math inline">\(Y\)</span> from the joint pmf/pdf in the same ways that we derived a marginal pmf or a marginal pdf from a joint pmf or a joint pdf. The following result can be proven by combining the techniques used in the proofs of Theorems <a href="#thm-3-5-1" class="quarto-xref"><span>3.15</span></a> and <a href="#thm-3-5-2" class="quarto-xref"><span>3.16</span></a>.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.5.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-3" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.17 (Theorem 3.5.3)</strong></span> Let <span class="math inline">\(f\)</span> be the joint pmf/pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, with <span class="math inline">\(X\)</span> discrete and <span class="math inline">\(Y\)</span> continuous. Then the marginal pmf of <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[
@@ -2197,6 +2586,18 @@ f_1(x) = \Pr(X = x) = \int_{-\infty}^{\infty}f(x, y)\, dy, \text{ for all }x,
 f_2(y) = \sum_{x}f(x, y), \text{ for }-\infty &lt; y &lt; \infty.
 \]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-4" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.45 (Example 3.5.4: Determining a Marginal pmf and Marginal pdf from a Joint pmf/pdf)</strong></span> Suppose that the joint pmf/pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as in <a href="#exm-3-4-11" class="quarto-xref">Example&nbsp;<span>3.37</span></a>. The marginal pmf of <span class="math inline">\(X\)</span> is obtained by integrating</p>
 <p><span class="math display">\[
@@ -2206,7 +2607,19 @@ f_1(x) = \int_{0}^{1}\frac{xy^{x-1}}{3}dy = \frac{1}{3},
 f_2(y) = \frac{1}{3} + \frac{2y}{3} + y^2, \text{ for }0 &lt; y &lt; 1.
 \]</span></p>
 </div>
+</div>
+</div>
 <p>Although the marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be derived from their joint distribution, it is not possible to reconstruct the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> from their marginal distributions without additional information. For instance, the marginal pdf’s sketched in Figs. <span class="quarto-unresolved-ref">?fig-3-17</span> and <span class="quarto-unresolved-ref">?fig-3-18</span> reveal no information about the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In fact, by definition, the marginal distribution of <span class="math inline">\(X\)</span> specifies probabilities for <span class="math inline">\(X\)</span> without regard for the values of any other random variables. This property of a marginal pdf can be further illustrated by another example.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.46 (Example 3.5.5: Marginal and Joint Distributions)</strong></span> Suppose that a penny and a nickel are each tossed <span class="math inline">\(n\)</span> times so that every pair of sequences of tosses (<span class="math inline">\(n\)</span> tosses in each sequence) is equally likely to occur. Consider the following two definitions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: (i) <span class="math inline">\(X\)</span> is the number of heads obtained with the penny, and <span class="math inline">\(Y\)</span> is the number of heads obtained with the nickel. (ii) Both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are the number of heads obtained with the penny, so the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are actually identical. In case (i), the marginal distribution of <span class="math inline">\(X\)</span> and the marginal distribution of <span class="math inline">\(Y\)</span> will be identical binomial distributions. The same pair of marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will also be obtained in case (ii). However, the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will not be the same in the two cases. In case (i), <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can take different values. Their joint pmf is</p>
 <p><span class="math display">\[
@@ -2223,9 +2636,21 @@ f(x, y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 </section>
 <section id="independent-random-variables" class="level3">
 <h3 class="anchored" data-anchor-id="independent-random-variables">Independent Random Variables</h3>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.47 (Example 3.5.6: Demands for Utilities)</strong></span> In Examples <a href="#exm-3-4-15" class="quarto-xref"><span>3.41</span></a> and <a href="#exm-3-5-1" class="quarto-xref"><span>3.42</span></a>, we found the marginal CDFs of water and electric demand were, respectively,</p>
 <p><span class="math display">\[
@@ -2241,13 +2666,26 @@ F_2(y) = \begin{cases}
 \end{cases}
 \]</span></p>
 </div>
+</div>
+</div>
 <p>The product of these two functions is precisely the same as the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#exm-3-5-1" class="quarto-xref">Example&nbsp;<span>3.42</span></a>. One consequence of this fact is that, for every <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, <span class="math inline">\(\Pr(X \leq x \text{ and } Y \leq y) = \Pr(X \leq x) \Pr(Y \leq y)\)</span>. This equation makes <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> an example of the next definition.</p>
-<p>:::</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.5.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="def-3-5-2" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.22 (Definition 3.5.2: Independent Random Variables)</strong></span> It is said that two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if, for every two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> of real numbers such that <span class="math inline">\(\{X \in A\}\)</span> and <span class="math inline">\(\{Y \in B\}\)</span> are events,</p>
 <p><span id="eq-3-5-5"><span class="math display">\[
 \Pr(X \in A \text{ and } Y \in B) = \Pr(X \in A)\Pr(Y \in B).
 \tag{3.30}\]</span></span></p>
+</div>
+</div>
 </div>
 <p>In other words, let <span class="math inline">\(E\)</span> be any event the occurrence or nonoccurrence of which depends only on the value of <span class="math inline">\(X\)</span> (such as <span class="math inline">\(E = \{X \in A\}\)</span>), and let <span class="math inline">\(D\)</span> be any event the occurrence or nonoccurrence of which depends only on the value of <span class="math inline">\(Y\)</span> (such as <span class="math inline">\(D = \{Y \in B\}\)</span>). Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables if and only if <span class="math inline">\(E\)</span> and <span class="math inline">\(D\)</span> are independent events for all such events <span class="math inline">\(E\)</span> and <span class="math inline">\(D\)</span>.</p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, it must be true that</p>
@@ -2255,10 +2693,32 @@ F_2(y) = \begin{cases}
 \Pr(X \leq x \text{ and } Y \leq y) = \Pr(X \leq x)\Pr(Y \leq y).
 \tag{3.31}\]</span></span></p>
 <p>Moreover, since all probabilities for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of the type appearing in <a href="#eq-3-5-5" class="quarto-xref">Equation&nbsp;<span>3.30</span></a> can be derived from probabilities of the type appearing in <a href="#eq-3-5-6" class="quarto-xref">Equation&nbsp;<span>3.31</span></a>, it can be shown that if <a href="#eq-3-5-6" class="quarto-xref">Equation&nbsp;<span>3.31</span></a> is satisfied for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> must be independent. The proof of this statement is beyond the scope of this book and is omitted, but we summarize it as the following theorem.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.5.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-4" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.18 (Theorem 3.5.4)</strong></span> Let the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <span class="math inline">\(F\)</span>, let the marginal CDF of <span class="math inline">\(X\)</span> be <span class="math inline">\(F_1\)</span>, and let the marginal CDF of <span class="math inline">\(Y\)</span> be <span class="math inline">\(F_2\)</span>. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if, for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, <span class="math inline">\(F(x, y) = F_1(x)F_2(y)\)</span>.</p>
 </div>
+</div>
+</div>
 <p>For example, the demands for water and electricity in <a href="#exm-3-5-6" class="quarto-xref">Example&nbsp;<span>3.47</span></a> are independent. If one returns to <a href="#exm-3-5-1" class="quarto-xref">Example&nbsp;<span>3.42</span></a>, one also sees that the product of the marginal pdfs of water and electric demand equals their joint pdf given in <span class="quarto-unresolved-ref">?eq-3-4-2</span>. This relation is characteristic of independent random variables whether discrete or continuous.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.5.5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-5" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.19 (Theorem 3.5.5)</strong></span> Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables that have a joint pmf, pdf, or pmf/pdf <span class="math inline">\(f\)</span>. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be independent if and only if <span class="math inline">\(f\)</span> can be represented in the following form for <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>:</p>
 <p><span id="eq-3-5-7"><span class="math display">\[
@@ -2297,12 +2757,26 @@ f(x, y) = \frac{f_1(x)}{c_1}c_1f_2(y) = f_1(x)f_2(y).
 <p>(if the integral exists) where the first equality follows from <a href="#def-3-5-2" class="quarto-xref">Definition&nbsp;<span>3.22</span></a> and the second is a straightforward rearrangement. We now see that <span class="math inline">\(f_1(x)f_2(y)\)</span> satisfies the conditions needed to be <span class="math inline">\(f(x, y)\)</span> as stated in <a href="#def-3-4-5" class="quarto-xref">Definition&nbsp;<span>3.19</span></a>.</p>
 </div>
 </div>
+</div>
+</div>
 <p>A simple corollary follows from <a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;<span>3.19</span></a>.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Corollary 3.5.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Corollary 3.5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="cor-3-5-1" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 3.1 (Corollary 3.5.1)</strong></span> Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if the following factorization is satisfied for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
 <p><span id="eq-3-5-9"><span class="math display">\[
 f(x, y) = f_1(x)f_2(y).
 \tag{3.34}\]</span></span></p>
+</div>
+</div>
 </div>
 <p>As stated in <a href="#sec-3-2" class="quarto-xref"><span>Section 3.2</span></a>, in a continuous distribution the values of a pdf can be changed arbitrarily at any countable set of points. Therefore, for such a distribution it would be more precise to state that the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if it is possible to choose versions of <span class="math inline">\(f\)</span>, <span class="math inline">\(f_1\)</span>, and <span class="math inline">\(f_2\)</span> such that <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;<span>3.34</span></a> is satisfied for <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>.</p>
 <p><strong>The Meaning of Independence</strong>: We have given a mathematical definition of independent random variables in <a href="#def-3-5-2" class="quarto-xref">Definition&nbsp;<span>3.22</span></a>, but we have not yet given any interpretation of the concept of independent random variables. Because of the close connection between independent events and independent random variables, the interpretation of independent random variables should be closely related to the interpretation of independent events. We model two events as independent if learning that one of them occurs does not change the probability that the other one occurs. It is easiest to extend this idea to discrete random variables. Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution. If, for each <span class="math inline">\(y\)</span>, learning that <span class="math inline">\(Y = y\)</span> does not change any of the probabilities of the events <span class="math inline">\(\{X = x\}\)</span>, we would like to say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. From <a href="#cor-3-5-1" class="quarto-xref">Corollary&nbsp;<span>3.1</span></a> and the definition of marginal pmf, we see that indeed <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if, for each <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> such that <span class="math inline">\(\Pr(Y = y) &gt; 0\)</span>, <span class="math inline">\(\Pr(X = x \mid Y = y) = \Pr(X = x)\)</span>, that is, learning the value of <span class="math inline">\(Y\)</span> doesn’t change any of the probabilities associated with <span class="math inline">\(X\)</span>. When we formally define conditional distributions in <a href="#sec-3-6" class="quarto-xref"><span>Section 3.6</span></a>, we shall see that this interpretation of independent discrete random variables extends to all bivariate distributions. In summary, if we are trying to decide whether or not to model two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as independent, we should think about whether we would change the distribution of <span class="math inline">\(X\)</span> after we learned the value of <span class="math inline">\(Y\)</span> or vice versa.</p>
@@ -2368,12 +2842,36 @@ f(x, y) = f_1(x)f_2(y).
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.7">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-7" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.48 (Example 3.5.7: Games of Chance)</strong></span> A carnival game consists of rolling a fair die, tossing a fair coin two times, and recording both outcomes. Let <span class="math inline">\(Y\)</span> stand for the number on the die, and let <span class="math inline">\(X\)</span> stand for the number of heads in the two tosses. It seems reasonable to believe that all of the events determined by the roll of the die are independent of all of the events determined by the flips of the coin. Hence, we can assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables. The marginal distribution of <span class="math inline">\(Y\)</span> is the uniform distribution on the integers <span class="math inline">\(1, \ldots, 6\)</span>, while the distribution of <span class="math inline">\(X\)</span> is the binomial distribution with parameters <span class="math inline">\(2\)</span> and <span class="math inline">\(1/2\)</span>. The marginal pmfs and the joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are given in <span class="quarto-unresolved-ref">?tbl-3-5</span>, where the joint pmf was constructed using <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;<span>3.34</span></a>. The Total column gives the marginal pmf <span class="math inline">\(f_1\)</span> of <span class="math inline">\(X\)</span>, and the Total row gives the marginal pmf <span class="math inline">\(f_2\)</span> of <span class="math inline">\(Y\)</span>.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.8">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-8" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.49 (Example 3.5.8: Determining Whether Random Variables Are Independent in a Clinical Trial)</strong></span> Return to the clinical trial of depression drugs in <a href="#exr-3-4-11" class="quarto-xref">Exercise&nbsp;<span>3.55</span></a>. In that trial, a patient is selected at random from the 150 patients in the study and we record <span class="math inline">\(Y\)</span>, an indicator of the treatment group for that patient, and <span class="math inline">\(X\)</span>, an indicator of whether or not the patient relapsed. <span class="quarto-unresolved-ref">?tbl-3-6</span> repeats the joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> along with the marginal distributions in the margins. We shall determine whether or not <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</p>
 <p>In <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;<span>3.34</span></a>, <span class="math inline">\(f(x, y)\)</span> is the probability in the <span class="math inline">\(x\)</span>th row and the <span class="math inline">\(y\)</span>th column of the table, <span class="math inline">\(f_1(x)\)</span> is the number in the Total column in the <span class="math inline">\(x\)</span>th row, and <span class="math inline">\(f_2(y)\)</span> is the number in the Total row in the <span class="math inline">\(y\)</span>th column. It is seen in the table that <span class="math inline">\(f(1, 2) = 0.087\)</span>, while <span class="math inline">\(f_1(1) = 0.513\)</span>, and <span class="math inline">\(f_2(1) = 0.253\)</span>. Hence, <span class="math inline">\(f(1, 2) \neq f_1(1)f_2(1) = 0.129\)</span>. It follows that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are not independent.</p>
+</div>
+</div>
 </div>
 <p>It should be noted from Examples <a href="#exm-3-5-7" class="quarto-xref"><span>3.48</span></a> and <a href="#exm-3-5-8" class="quarto-xref"><span>3.49</span></a> that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be independent if and only if the rows of the table specifying their joint pmf are proportional to one another, or equivalently, if and only if the columns of the table are proportional to one another.</p>
 <table class="caption-top table" data-quarto-postprocess="true">
@@ -2421,6 +2919,16 @@ f(x, y) = f_1(x)f_2(y).
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.9">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-9" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.50 (Example 3.5.9: Calculating a Probability Involving Independent Random Variables)</strong></span> Suppose that two measurements <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are made of the rainfall at a certain location on May 1 in two consecutive years. It might be reasonable, given knowledge of the history of rainfall on May 1, to treat the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as independent. Suppose that the pdf <span class="math inline">\(g\)</span> of each measurement is as follows:</p>
 <p><span class="math display">\[
@@ -2443,6 +2951,8 @@ f(x, y) = \begin{cases}
 \]</span></p>
 <p>As a final note, if the two measurements <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> had been made on the same day at nearby locations, then it might not make as much sense to treat them as independent, since we would expect them to be more similar to each other than to historical rainfalls. For example, if we first learn that <span class="math inline">\(X\)</span> is small compared to historical rainfall on the date in question, we might then expect <span class="math inline">\(Y\)</span> to be smaller than the historical distribution would suggest.</p>
 </div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ch03/images/fig-3-19.svg" class="img-fluid figure-img"></p>
@@ -2450,6 +2960,16 @@ f(x, y) = \begin{cases}
 </figure>
 </div>
 <p><a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;<span>3.19</span></a> says that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if, for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, <span class="math inline">\(f\)</span> can be factored into the product of an arbitrary nonnegative function of <span class="math inline">\(x\)</span> and an arbitrary nonnegative function of <span class="math inline">\(y\)</span>. However, it should be emphasized that, just as in <a href="#eq-3-5-9" class="quarto-xref">Equation&nbsp;<span>3.34</span></a>, the factorization in <a href="#eq-3-5-7" class="quarto-xref">Equation&nbsp;<span>3.32</span></a> must be satisfied for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (<span class="math inline">\(-\infty &lt; x &lt; \infty\)</span> and <span class="math inline">\(-\infty &lt; y &lt; \infty\)</span>).</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.10">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-10" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.51 (Example 3.5.10: Dependent Random Variables)</strong></span> Suppose that the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> has the following form:</p>
 <p><span class="math display">\[
@@ -2462,10 +2982,34 @@ kx^2y^2 &amp;\text{for }x^2 + y^2 \leq 1, \\
 <p>It is evident that at each point inside the circle <span class="math inline">\(x^2 + y^2 \leq 1\)</span>, <span class="math inline">\(f(x, y)\)</span> can be factored as in <a href="#eq-3-5-7" class="quarto-xref">Equation&nbsp;<span>3.32</span></a>. However, this same factorization cannot also be satisfied at every point outside this circle. For example, <span class="math inline">\(f(0.9, 0.9) = 0\)</span>, but neither <span class="math inline">\(f_1(0.9) = 0\)</span> nor <span class="math inline">\(f_2(0.9) = 0\)</span>. (In <a href="#exr-3-5-13" class="quarto-xref">Exercise&nbsp;<span>3.68</span></a>, you can verify this feature of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span>.)</p>
 <p>The important feature of this example is that the values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are constrained to lie inside a circle. The joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is positive inside the circle and zero outside the circle. Under these conditions, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> cannot be independent, because for every given value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span>, the possible values of <span class="math inline">\(X\)</span> will depend on <span class="math inline">\(y\)</span>. For example, if <span class="math inline">\(Y = 0\)</span>, then <span class="math inline">\(X\)</span> can have any value such that <span class="math inline">\(X^2 \leq 1\)</span>; if <span class="math inline">\(Y = 1/2\)</span>, then <span class="math inline">\(X\)</span> must have a value such that <span class="math inline">\(X^2 \leq 3/4\)</span>.</p>
 </div>
+</div>
+</div>
 <p><a href="#exm-3-5-10" class="quarto-xref">Example&nbsp;<span>3.51</span></a> shows that one must be careful when trying to apply <a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;<span>3.19</span></a>. The situation that arose in that example will occur whenever <span class="math inline">\(\{(x, y) \mid f(x, y) &gt; 0\}\)</span> has boundaries that are curved or not parallel to the coordinate axes. There is one important special case in which it is easy to check the conditions of <a href="#thm-3-5-5" class="quarto-xref">Theorem&nbsp;<span>3.19</span></a>. The proof is left as an exercise.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.5.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.5.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="thm-3-5-6" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.20 (Theorem 3.5.6)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution. Suppose that <span class="math inline">\(\{(x, y) \mid f(x, y) &gt; 0\}\)</span> is a rectangular region <span class="math inline">\(R\)</span> (possibly unbounded) with sides (if any) parallel to the coordinate axes. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if <a href="#eq-3-5-7" class="quarto-xref">Equation&nbsp;<span>3.32</span></a> holds for all <span class="math inline">\((x, y) \in R\)</span>.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.5.11">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.5.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exm-3-5-11" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.52 (Example 3.5.11: Verifying the Factorization of a Joint pdf)</strong></span> Suppose that the joint pdf <span class="math inline">\(f\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as follows:</p>
 <p><span class="math display">\[
@@ -2491,6 +3035,8 @@ f_2(y) = \begin{cases}
 \end{cases}
 \]</span></p>
 <p>If we multiply <span class="math inline">\(f_1(x)\)</span> times <span class="math inline">\(f_2(y)\)</span> and compare the product to <span class="math inline">\(f(x, y)\)</span>, we see that <span class="math inline">\(k = 2\)</span>.</p>
+</div>
+</div>
 </div>
 <p><strong>Note: Separate Functions of Independent Random Variables Are Independent.</strong> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(h(X)\)</span> and <span class="math inline">\(g(Y)\)</span> are independent no matter what the functions <span class="math inline">\(h\)</span> and <span class="math inline">\(g\)</span> are. This is true because for every <span class="math inline">\(t\)</span>, the event <span class="math inline">\(\{h(X) \leq t\}\)</span> can always be written as <span class="math inline">\(\{X \in A\}\)</span>, where <span class="math inline">\(A = \{x \mid h(x) \leq t\}\)</span>. Similarly, <span class="math inline">\(\{g(Y) \leq u\}\)</span> can be written as <span class="math inline">\(\{Y \in B\}\)</span>, so <a href="#eq-3-5-6" class="quarto-xref">Equation&nbsp;<span>3.31</span></a> for <span class="math inline">\(h(X)\)</span> and <span class="math inline">\(g(Y)\)</span> follows from <a href="#eq-3-5-5" class="quarto-xref">Equation&nbsp;<span>3.30</span></a> for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 </section>
@@ -2656,7 +3202,7 @@ f(x, y) = \begin{cases}
 <div id="tbl-3-7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3.4: Joint PF for Example 3.6.1
+Table&nbsp;3.4: Joint PF for <a href="#exm-3-6-1" class="quarto-xref">Example&nbsp;<span>3.53</span></a>
 </figcaption>
 <div aria-describedby="tbl-3-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2705,7 +3251,7 @@ Table&nbsp;3.4: Joint PF for Example 3.6.1
 </figure>
 </div>
 <section id="discrete-conditional-distributions" class="level3">
-<h3 class="anchored">Discrete Conditional Distributions</h3>
+<h3 class="anchored" data-anchor-id="discrete-conditional-distributions">Discrete Conditional Distributions</h3>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.6.1: Auto Insurance (DeGroot and Schervish, p. 142)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2716,16 +3262,195 @@ Example 3.6.1: Auto Insurance (DeGroot and Schervish, p.&nbsp;142)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Insurance companies keep track of how likely various cars are to be stolen. Suppose that a company in a particular area computes the joint distribution of car brands and the indicator of whether the car will be stolen during a particular year that appears in <a href="#tbl-3-7" class="quarto-xref">Table&nbsp;<span>3.4</span></a>.</p>
-<p>We let <span class="math inline">\(X = 1\)</span> mean that a car is stolen, and we let X = 0 mean that the car is not stolen. We let Y take one of the values from 1 to 5 to indicate the brand of car as indicated in Table 3.7. If a customer applies for insurance for a particular brand of car, the company needs to compute the distribution of the random variable X as part of its premium determination. The insurance company might adjust their premium according to a risk factor such as likelihood of being stolen. Although, overall, the probability that a car will be stolen is 0.024, if we assume that we know the brand of car, the probability might change quite a bit. This section introduces the formal concepts for addressing this type of problem.   Suppose that X and Y are two random variables having a discrete joint distribution for which the joint p.f. is f . As before, we shall let f1 and f2 denote the marginal p.f.’s of X and Y , respectively. After we observe that Y = y, the probability that the random variable X will take a particular value x is specified by the following conditional probability: Pr(X = x|Y = y) = Pr(X = x and Y = y) Pr(Y = y) = f (x, y) f2(y) . (3.6.1) In other words, if it is known that Y = y, then the probability that X = x will be updated to the value in Eq. (3.6.1). Next, we consider the entire distribution of X after learning that Y = y. Definition 3.6.1 Conditional Distribution/p.f. Let X and Y have a discrete joint distribution with joint p.f. f . Let f2 denote the marginal p.f. of Y . For each y such that f2(y) &gt; 0, define g1(x|y) = f (x, y) f2(y) . (3.6.2) Then g1 is called the conditional p.f. of X given Y . The discrete distribution whose p.f. is g1(.|y) is called the conditional distribution of X given that Y = y. 3.6 Conditional Distributions 143 Table 3.8 Conditional p.f. of Y given X for Example 3.6.3 Brand Y Stolen X 1 2 3 4 5 0 0.928 0.968 0.994 0.993 0.991 1 0.072 0.032 0.006 0.007 0.009 We should verify that g1(x|y) is actually a p.f. as a function of x for each y. Let y be such that f2(y) &gt; 0. Then g1(x|y) ≥ 0 for all x and   x g1(x|y) = 1 f2(y)   x f (x, y) = 1 f2(y) f2(y) = 1. Notice that we do not bother to define g1(x|y) for those y such that f2(y) = 0. Similarly, if x is a given value of X such that f1(x) = Pr(X = x)&gt;0, and if g2(y|x) is the conditional p.f. of Y given that X = x, then g2(y|x) = f (x, y) f1(x) . (3.6.3) For each x such that f1(x) &gt; 0, the function g2(y|x) will be a p.f. as a function of y. Example 3.6.2 Calculating a Conditional p.f. from a Joint p.f. Suppose that the joint p.f. of X and Y is as specified in Table 3.4 in Example 3.5.2. We shall determine the conditional p.f. of Y given that X = 2. The marginal p.f. ofX appears in the Total column of Table 3.4, so f1(2) = Pr(X = 2) = 0.6. Therefore, the conditional probability g2(y|2) that Y will take a particular value y is g2(y|2) = f (2, y) 0.6 . It should be noted that for all possible values of y, the conditional probabilities g2(y|2) must be proportional to the joint probabilities f (2, y). In this example, each value of f (2, y) is simply divided by the constant f1(2) = 0.6 in order that the sum of the results will be equal to 1. Thus, g2(1|2) = 1/2, g2(2|2) = 0, g2(3|2) = 1/6, g2(4|2) = 1/3.   Example 3.6.3 Auto Insurance. Consider again the probabilities of car brands and cars being stolen in Example 3.6.1. The conditional distribution of X (being stolen) given Y (brand) is given in Table 3.8. It appears that Brand 1 is much more likely to be stolen than other cars in this area, with Brand 1 also having a significant chance of being stolen.   Continuous Conditional Distributions Example 3.6.4 Processing Times. A manufacturing process consists of two stages. The first stage takes Y minutes, and the whole process takes X minutes (which includes the first 144 Chapter 3 Random Variables and Distributions Y minutes). Suppose that X and Y have a joint continuous distribution with joint p.d.f. f (x, y) =   e −x for 0 ≤ y ≤x &lt;∞, 0 otherwise. After we learn how much time Y that the first stage takes, we want to update our distribution for the total time X. In other words, we would like to be able to compute a conditional distribution for X given Y = y. We cannot argue the same way as we did with discrete joint distributions, because {Y = y} is an event with probability 0 for all y.   To facilitate the solutions of problems such as the one posed in Example 3.6.4, the concept of conditional probability will be extended by considering the definition of the conditional p.f. of X given in Eq. (3.6.2) and the analogy between a p.f. and a p.d.f. Definition 3.6.2 Conditional p.d.f. Let X and Y have a continuous joint distribution with joint p.d.f. f and respective marginals f1 and f2. Let y be a value such that f2(y) &gt; 0. Then the conditional p.d.f. g1 of X given that Y = y is defined as follows: g1(x|y) = f (x, y) f2(y) for −∞&lt; x &lt;∞. (3.6.4) For values of y such that f2(y) = 0, we are free to define g1(x|y) however we wish, so long as g1(x|y) is a p.d.f. as a function of x. It should be noted that Eq. (3.6.2) and Eq. (3.6.4) are identical. However, Eq. (3.6.2) was derived as the conditional probability that X = x given that Y = y, whereas Eq. (3.6.4) was defined to be the value of the conditional p.d.f. of X given that Y = y. In fact, we should verify that g1(x|y) as defined above really is a p.d.f. Theorem 3.6.1 For each y, g1(x|y) defined in Definition 3.6.2 is a p.d.f. as a function of x. Proof If f2(y) = 0, then g1 is defined to be any p.d.f. we wish, and hence it is a p.d.f. If f2(y) &gt; 0, g1 is defined by Eq. (3.6.4). For each such y, it is clear that g1(x|y) ≥ 0 for all x. Also, if f2(y) &gt; 0, then   ∞ −∞ g1(x|y) dx =   ∞ −∞ f (x, y) dx f2(y) = f2(y) f2(y) = 1, by using the formula for f2(y) in Eq. (3.5.3). Example 3.6.5 Processing Times. In Example 3.6.4, Y is the time that the first stage of a process takes, while X is the total time of the two stages.We want to calculate the conditional p.d.f. of X given Y . We can calculate the marginal p.d.f. of Y as follows: For each y, the possible values of X are all x ≥ y, so for each y &gt;0, f2(y) =   ∞ y e −xdx = e −y, and f2(y) = 0 fory &lt;0. For each y ≥ 0, the conditional p.d.f. of X given Y = y is then g1(x|y) = f (x, y) f2(y) = e −x e−y = ey−x, for x ≥ y, 3.6 Conditional Distributions 145 Figure 3.20 The conditional p.d.f. g1(x|y0) is proportional to f (x, y0). x y f (x, y) f (x, y0) y0 and g1(x|y) = 0 for x &lt; y. So, for example, if we observe Y = 4 and we want the conditional probability that X ≥ 9, we compute Pr(X ≥ 9|Y = 4) =   ∞ 9 e4−xdx = e −5 = 0.0067.   Definition 3.6.2 has an interpretation that can be understood by considering Fig. 3.20. The joint p.d.f. f defines a surface over the xy-plane for which the height f (x, y) at each point (x, y) represents the relative likelihood of that point. For instance, if it is known that Y = y0, then the point (x, y) must lie on the line y = y0 in the xy-plane, and the relative likelihood of any point (x, y0) on this line is f (x, y0). Hence, the conditional p.d.f. g1(x|y0) ofX should be proportional to f (x, y0). In other words, g1(x|y0) is essentially the same as f (x, y0), but it includes a constant factor 1/[f2(y0)], which is required to make the conditional p.d.f. integrate to unity over all values of x. Similarly, for each value of x such that f1(x) &gt; 0, the conditional p.d.f. of Y given that X = x is defined as follows: g2(y|x) = f (x, y) f1(x) for −∞&lt; y &lt;∞. (3.6.5) This equation is identical to Eq. (3.6.3), which was derived for discrete distributions. If f1(x) = 0, then g2(y|x) is arbitrary so long as it is a p.d.f. as a function of y. Example 3.6.6 Calculating a Conditional p.d.f. from a Joint p.d.f. Suppose that the joint p.d.f. of X and Y is as specified in Example 3.4.8 on page 122.We shall first determine the conditional p.d.f. of Y given that X = x and then determine some probabilities for Y given the specific value X = 1/2. The set S for which f (x, y) &gt; 0 was sketched in Fig. 3.12 on page 123. Furthermore, the marginal p.d.f. f1 was derived in Example 3.5.3 on page 132 and sketched in Fig. 3.17 on page 133. It can be seen from Fig. 3.17 that f1(x) &gt; 0 for−1&lt;x &lt;1 but not for x = 0. Therefore, for each given value of x such that −1&lt; x &lt;0 or 0 &lt; x &lt;1, the conditional p.d.f. g2(y|x) of Y will be as follows: g2(y|x) = ⎧⎨ ⎩ 2y 1− x4 for x2 ≤ y ≤ 1, 0 otherwise. 146 Chapter 3 Random Variables and Distributions In particular, if it is known that X = 1/2, then Pr   Y ≥ 1 4    X = 1 2   = 1 and Pr   Y ≥ 3 4       X = 1 2   =   1 3/4 g2   y       1 2   dy = 7 15 .   Note: A Conditional p.d.f. Is Not the Result of Conditioning on a Set of Probability Zero. The conditional p.d.f. g1(x|y) of X given Y = y is the p.d.f. we would use for X if we were to learn that Y = y. This sounds as if we were conditioning on the event {Y = y}, which has zero probability if Y has a continuous distribution. Actually, for the cases we shall see in this text, the value of g1(x|y) is a limit: g1(x|y) = lim  →0 ∂ ∂x Pr(X ≤ x|y −   &lt; Y ≤ y +  ). (3.6.6) The conditioning event {y −   ≤ Y ≤ y +  } in Eq. (3.6.6) has positive probability if the marginal p.d.f. of Y is positive at y. The mathematics required to make this rigorous is beyond the scope of this text. (See Exercise 11 in this section and Exercises 25 and 26 in Sec. 3.11 for results that we can prove.) Another way to think about conditioning on a continuous random variable is to notice that the conditional p.d.f.’s that we compute are typically continuous as a function of the conditioning variable. This means that conditioning on Y = y or on Y = y +   for small   will produce nearly the same conditional distribution for X. So it does not matter much if we use Y = y as a surogate for Y close to y. Nevertheless, it is important to keep in mind that the conditional p.d.f. of X given Y = y is better thought of as the conditional p.d.f. of X given that Y is very close to y. This wording is awkward, so we shall not use it, but we must remember the distinction between the conditional p.d.f. and conditioning on an event with probability 0. Despite this distinction, it is still legitimate to treat Y as the constant y when dealing with the conditional distribution of X given Y = y. For mixed joint distributions, we continue to use Eqs. (3.6.2) and (3.6.3) to define conditional p.f.’s and p.d.f.’s. Definition 3.6.3 Conditional p.f. or p.d.f. from Mixed Distribution. Let X be discrete and let Y be continuous with joint p.f./p.d.f. f . Then the conditional p.f. ofX given Y = y is defined by Eq. (3.6.2), and the conditional p.d.f. of Y given X = x is defined by Eq. (3.6.3). Construction of the Joint Distribution Example 3.6.7 Defective Parts. Suppose that a certain machine produces defective and nondefective parts, but we do not know what proportion of defectives we would find among all parts that could be produced by this machine. Let P stand for the unknown proportion of defective parts among all possible parts produced by the machine. Ifwe were to learn that P = p, we might be willing to say that the parts were independent of each other and each had probability p of being defective. In other words, if we condition on P = p, then we have the situation described in Example 3.1.9. As in that example, suppose that we examine n parts and let X stand for the number of defectives among the n examined parts. The distribution ofX, assuming that we know P = p, is the binomial distribution with parameters n and p.&nbsp;That is, we can let the binomial p.f. (3.1.4) be the conditional p.f. of X given P = p, namely, g1(x|p) =</p>
-<p>n x   px(1− p)n−x, for x = 0, . . . , n. 3.6 Conditional Distributions 147 We might also believe thatP has a continuous distribution with p.d.f. such as f2(p) = 1 for 0 ≤ p ≤ 1. (This means that P has the uniform distribution on the interval [0, 1].) We know that the conditional p.f. g1 of X given P = p satisfies g1(x|p) = f (x, p) f2(p) , where f is the joint p.f./p.d.f. of X and P. If we multiply both sides of this equation by f2(p), it follows that the joint p.f./p.d.f. of X and P is f (x, p) = g1(x|p)f2(p) =</p>
-<p>n x   px(1− p)n−x, for x = 0, . . . , n, and 0 ≤ p ≤ 1.   The construction in Example 3.6.7 is available in general, as we explain next. Generalizing the Multiplication Rule for Conditional Probabilities Aspecial case of Theorem 2.1.2, the multiplication rule for conditional probabilities, says that if A and B are two events, then Pr(A ∩ B) = Pr(A) Pr(B|A). The following theorem, whose proof is immediate from Eqs. (3.6.4) and (3.6.5), generalizes Theorem 2.1.2 to the case of two random variables. Theorem 3.6.2 Multiplication Rule for Distributions. Let X and Y be random variables such that X has p.f. or p.d.f. f1(x) and Y has p.f. or p.d.f. f2(y). Also, assume that the conditional p.f. or p.d.f. of X given Y = y is g1(x|y) while the conditional p.f. or p.d.f. of Y given X = x is g2(y|x). Then for each y such that f2(y) &gt; 0 and each x, f (x, y) = g1(x|y)f2(y), (3.6.7) where f is the joint p.f., p.d.f., or p.f./p.d.f. of X and Y . Similarly, for each x such that f1(x) &gt; 0 and each y, f (x, y) = f1(x)g2(y|x). (3.6.8) In Theorem 3.6.2, if f2(y0) = 0 for some value y0, then it can be assumed without loss of generality that f (x, y0) = 0 for all values of x. In this case, both sides of Eq. (3.6.7) will be 0, and the fact that g1(x|y0) is not uniquely defined becomes irrelevant. Hence, Eq. (3.6.7) will be satisfied for all values of x and y. A similar statement applies to Eq. (3.6.8). Example 3.6.8 Waiting in a Queue. Let X be the amount of time that a person has to wait for service in a queue. The faster the server works in the queue, the shorter should be the waiting time. Let Y stand for the rate at which the server works, which we will take to be unknown. A common choice of conditional distribution for X given Y = y has conditional p.d.f. for each y &gt;0: g1(x|y) =   ye −xy for x ≥ 0, 0 otherwise. We shall assume that Y has a continuous distribution with p.d.f. f2(y) = e −y fory &gt;0. Now we can construct the joint p.d.f. of X and Y using Theorem 3.6.2: f (x, y) = g1(x|y)f2(y) =   ye −y(x+1) for x ≥ 0, y &gt;0, 0 otherwise.   148 Chapter 3 Random Variables and Distributions Example 3.6.9 Defective Parts. Let X be the number of defective parts in a sample of size n, and let P be the proportion of defectives among all parts, as in Example 3.6.7. The joint p.f./p.d.f of X and P = p was calculated there as f (x, p) = g1(x|p)f2(p) =</p>
-<p>n x   px(1− p)n−x, for x = 0, . . . , n and 0 ≤ p ≤ 1. We could now compute the conditional p.d.f. of P given X = x by first finding the marginal p.f. of X: f1(x) =   1 0</p>
-<p>n x   px(1− p)n−xdp, (3.6.9) The conditional p.d.f. of P given X = x is then g2(p|x) = f (x, p) f1(x) = px(1− p)n−x   1 0 qx(1− q)n−xdq , for 0&lt;p &lt;1. (3.6.10) The integral in the denominator of Eq. (3.6.10) can be tedious to calculate, but it can be found. For example, if n = 2 and x = 1, we get   1 0 q(1− q)dq = 1 2 − 1 3 = 1 6 . In this case, g2(p|1) = 6p(1− p) for 0 ≤ p ≤ 1.   Bayes’ Theorem and the Law of Total Probability for Random Variables The calculation done in Eq. (3.6.9) is an example of the generalization of the law of total probability to random variables. Also, the calculation in Eq. (3.6.10) is an example of the generalization of Bayes’ theorem to random variables. The proofs of these results are straightforward and not given here. Theorem 3.6.3 Law of Total Probability for Random Variables. If f2(y) is the marginal p.f. or p.d.f. of a random variable Y and g1(x|y) is the conditional p.f. or p.d.f. of X given Y = y, then the marginal p.f. or p.d.f. of X is f1(x) =   y g1(x|y)f2(y), (3.6.11) if Y is discrete. If Y is continuous, the marginal p.f. or p.d.f. of X is f1(x) =   ∞ −∞ g1(x|y)f2(y) dy. (3.6.12) There are versions of Eqs. (3.6.11) and (3.6.12) with x and y switched and the subscripts 1 and 2 switched. These versions would be used if the joint distribution of X and Y were constructed from the conditional distribution of Y given X and the marginal distribution of X. Theorem 3.6.4 Bayes’ Theorem for Random Variables. Iff2(y) is the marginal p.f. or p.d.f. of a random variable Y and g1(x|y) is the conditional p.f. or p.d.f. of X given Y = y, then the conditional p.f. or p.d.f. of Y given X = x is g2(y|x) = g1(x|y)f2(y) f1(x) , (3.6.13) 3.6 Conditional Distributions 149 where f1(x) is obtained from Eq. (3.6.11) or (3.6.12). Similarly, the conditional p.f. or p.d.f. of X given Y = y is g1(x|y) = g2(y|x)f1(x) f2(y) , (3.6.14) where f2(y) is obtained from Eq. (3.6.11) or (3.6.12) with x and y switched and with the subscripts 1 and 2 switched. Example 3.6.10 Choosing Points from Uniform Distributions. Suppose that a point X is chosen from the uniform distribution on the interval [0, 1], and that after the valueX = x has been observed (0 &lt; x &lt;1), a point Y is then chosen from the uniform distribution on the interval [x, 1]. We shall derive the marginal p.d.f. of Y . Since X has a uniform distribution, the marginal p.d.f. of X is as follows: f1(x) =   1 for 0 &lt; x &lt;1, 0 otherwise. Similarly, for each value X = x (0 &lt; x &lt;1), the conditional distribution of Y is the uniform distribution on the interval [x, 1]. Since the length of this interval is 1− x, the conditional p.d.f. of Y given that X = x will be g2(y|x) = ⎧⎨ ⎩ 1 1− x for x &lt;y &lt;1, 0 otherwise. It follows from Eq. (3.6.8) that the joint p.d.f. of X and Y will be f (x, y) = ⎧⎨ ⎩ 1 1− x for 0 &lt; x &lt; y &lt;1, 0 otherwise. (3.6.15) Thus, for 0 &lt; y &lt;1, the value of the marginal p.d.f. f2(y) of Y will be f2(y) =   ∞ −∞ f (x, y) dx =   y 0 1 1− x dx =−log(1− y). (3.6.16) Furthermore, since Y cannot be outside the interval 0 &lt; y &lt;1, then f2(y) = 0 for y ≤ 0 or y ≥ 1. This marginal p.d.f. f2 is sketched in Fig. 3.21. It is interesting to note that in this example the function f2 is unbounded. We can also find the conditional p.d.f. of X given Y = y by applying Bayes’ theorem (3.6.14). The product of g2(y|x) and f1(x) was already calculated in Eq. (3.6.15). Figure 3.21 The marginal p.d.f. of Y in Example 3.6.10. y f2(y) 0 1 150 Chapter 3 Random Variables and Distributions The ratio of this product to f2(y) from Eq. (3.6.16) is g1(x|y) = ⎧⎨ ⎩ −1 (1− x) log(1− y) for 0 &lt; x &lt; y, 0 otherwise.   Theorem 3.6.5 Independent Random Variables. Suppose that X and Y are two random variables having a joint p.f., p.d.f., or p.f./p.d.f. f . Then X and Y are independent if and only if for every value of y such that f2(y) &gt; 0 and every value of x, g1(x|y) = f1(x). (3.6.17) Proof Theorem 3.5.4 says that X and Y are independent if and only if f (x, y) can be factored in the following form for −∞&lt; x &lt;∞and −∞&lt; y &lt;∞: f (x, y) = f1(x)f2(y), which holds if and only if, for all x and all y such that f2(y) &gt; 0, f1(x) = f (x, y) f2(y) . (3.6.18) But the right side of Eq. (3.6.18) is the formula for g1(x|y). Hence, X and Y are independent if and only if Eq. (3.6.17) holds for all x and all y such that f2(y) &gt; 0. Theorem 3.6.5 says that X and Y are independent if and only if the conditional p.f. or p.d.f. of X given Y = y is the same as the marginal p.f. or p.d.f. of X for all y such that f2(y) &gt; 0. Because g1(x|y) is arbitrary when f2(y) = 0, we cannot expect Eq. (3.6.17) to hold in that case. Similarly, it follows from Eq. (3.6.8) that X and Y are independent if and only if g2(y|x) = f2(y), (3.6.19) for every value of x such that f1(x) &gt; 0. Theorem 3.6.5 and Eq. (3.6.19) give the mathematical justification for the meaning of independence that we presented on page 136. Note: Conditional Distributions Behave Just Like Distributions. As we noted on page 59, conditional probabilities behave just like probabilities. Since distributions are just collections of probabilities, it follows that conditional distributions behave just like distributions. For example, to compute the conditional probability that a discrete random variableX is in some interval [a, b] given Y = y, we must add g1(x|y) for all values of x in the interval. Also, theorems that we have proven or shall prove about distributions will have versions conditional on additional random variables. We shall postpone examples of such theorems until Sec. 3.7 because they rely on joint distributions of more than two random variables. Summary The conditional distribution of one random variable X given an observed value y of another random variable Y is the distribution we would use for X if we were to learn that Y = y. When dealing with the conditional distribution of X given Y = y, it is safe to behave as if Y were the constant y. If X and Y have joint p.f., p.d.f., or p.f./p.d.f. f (x, y), then the conditional p.f. or p.d.f. of X given Y = y is g1(x|y) = 3.6 Conditional Distributions 151 f (x, y)/f2(y), where f2 is the marginal p.f. or p.d.f. of Y . When it is convenient to specify a conditional distribution directly, the joint distribution can be constructed from the conditional together with the other marginal. For example, f (x, y) = g1(x|y)f2(y) = f1(x)g2(y|x). In this case, we have versions of the law of total probability and Bayes’ theorem for random variables that allow us to calculate the other marginal and conditional. Two random variables X and Y are independent if and only if the conditional p.f. or p.d.f. of X given Y = y is the same as the marginal p.f. or p.d.f. of X for all y such that f2(y) &gt; 0. Equivalently, X and Y are independent if and only if the conditional p.f. of p.d.f. of Y given X = x is the same as the marginal p.f. or p.d.f. of Y for all x such that f1(x) &gt; 0.</p>
+<div id="exm-3-6-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.53 (Example 3.6.1: Auto Insurance)</strong></span> Insurance companies keep track of how likely various cars are to be stolen. Suppose that a company in a particular area computes the joint distribution of car brands and the indicator of whether the car will be stolen during a particular year that appears in <a href="#tbl-3-7" class="quarto-xref">Table&nbsp;<span>3.4</span></a>.</p>
+<p>We let <span class="math inline">\(X = 1\)</span> mean that a car is stolen, and we let <span class="math inline">\(X = 0\)</span> mean that the car is not stolen. We let <span class="math inline">\(Y\)</span> take one of the values from 1 to 5 to indicate the brand of car as indicated in <a href="#tbl-3-7" class="quarto-xref">Table&nbsp;<span>3.4</span></a>. If a customer applies for insurance for a particular brand of car, the company needs to compute the distribution of the random variable <span class="math inline">\(X\)</span> as part of its premium determination. The insurance company might adjust their premium according to a risk factor such as likelihood of being stolen. Although, overall, the probability that a car will be stolen is 0.024, if we assume that we know the brand of car, the probability might change quite a bit. This section introduces the formal concepts for addressing this type of problem.</p>
+</div>
+</div>
+</div>
+<p>Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables having a discrete joint distribution for which the joint pmf is <span class="math inline">\(f\)</span>. As before, we shall let <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> denote the marginal pmf’s of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively. After we observe that <span class="math inline">\(Y = y\)</span>, the probability that the random variable <span class="math inline">\(X\)</span> will take a particular value <span class="math inline">\(x\)</span> is specified by the following conditional probability:</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(X = x \mid Y = y) &amp;= \frac{\Pr(X = x \text{ and } Y = y)}{\Pr(Y = y)} \\
+&amp;= \frac{f(x,y)}{f_2(y)}.
+\end{align*}
+\]</span></p>
+<p>In other words, if it is known that <span class="math inline">\(Y = y\)</span>, then the probability that <span class="math inline">\(X = x\)</span> will be updated to the value in <span class="quarto-unresolved-ref">?eq-3-6-1</span>. Next, we consider the entire distribution of <span class="math inline">\(X\)</span> after learning that <span class="math inline">\(Y = y\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.6.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.6.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-6-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.23 (Definition 3.6.1: Conditional Distribution/pmf)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a discrete joint distribution with joint pmf <span class="math inline">\(f\)</span>. Let <span class="math inline">\(f_2\)</span> denote the marginal pmf of <span class="math inline">\(Y\)</span>. For each <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_2(y) &gt; 0\)</span>, define</p>
+<p><span id="eq-3-6-2"><span class="math display">\[
+g_1(x \mid y) = \frac{f(x,y)}{f_2(y)}.
+\tag{3.35}\]</span></span></p>
+<p>Then <span class="math inline">\(g_1\)</span> is called the <strong>conditional pmf of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span></strong>. The discrete distribution whose pmf is <span class="math inline">\(g_1(\cdot \mid y)\)</span> is called the <strong>conditional distribution of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span></strong>.</p>
+</div>
+</div>
+</div>
+<table id="tbl-3-8" class="caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="5" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Brand <span class="math inline">\(Y\)</span></strong></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Stolen <span class="math inline">\(X\)</span></th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.928</td>
+<td>0.968</td>
+<td>0.994</td>
+<td>0.993</td>
+<td>0.991</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.072</td>
+<td>0.032</td>
+<td>0.006</td>
+<td>0.007</td>
+<td>0.009</td>
+</tr>
+</tbody>
+</table>
+<p>We should verify that <span class="math inline">\(g_1(x \mid y)\)</span> is actually a pmf as a function of <span class="math inline">\(x\)</span> for each <span class="math inline">\(y\)</span>. Let <span class="math inline">\(y\)</span> be such that <span class="math inline">\(f_2(y) &gt; 0\)</span>. Then <span class="math inline">\(g_1(x \mid y) \geq 0\)</span> for all <span class="math inline">\(x\)</span> and   <span class="math display">\[
+\sum_{x}g_1(x \mid y) = \frac{1}{f_2(y)}\sum_{x}f(x,y) = \frac{1}{f_2(y)}f_2(y) = 1.
+\]</span></p>
+<p>Notice that we do not bother to define <span class="math inline">\(g_1(x \mid y)\)</span> for those <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_2(y) = 0\)</span>.</p>
+<p>Similarly, if <span class="math inline">\(x\)</span> is a given value of <span class="math inline">\(X\)</span> such that <span class="math inline">\(f_1(x) = \Pr(X = x) &gt; 0\)</span>, and if <span class="math inline">\(g_2(y \mid x)\)</span> is the conditional pmf of <span class="math inline">\(Y\)</span> given that <span class="math inline">\(X = x\)</span>, then</p>
+<p><span id="eq-3-6-3"><span class="math display">\[
+g_2(y \mid x) = \frac{f(x,y)}{f_1(x)}
+\tag{3.36}\]</span></span></p>
+<p>For each <span class="math inline">\(x\)</span> such that <span class="math inline">\(f_1(x) &gt; 0\)</span>, the function <span class="math inline">\(g_2(y \mid x)\)</span> will be a pmf as a function of <span class="math inline">\(y\)</span>.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.6.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.54 (Example 3.6.2: Calculating a Conditional pmf from a Joint pmf)</strong></span> Suppose that the joint pmf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is as specified in <span class="quarto-unresolved-ref">?tbl-3-4</span> in <a href="#exm-3-5-2" class="quarto-xref">Example&nbsp;<span>3.43</span></a>. We shall determine the conditional pmf of <span class="math inline">\(Y\)</span> given that <span class="math inline">\(X = 2\)</span>.</p>
+<p>The marginal pmf of <span class="math inline">\(X\)</span> appears in the Total column of <span class="quarto-unresolved-ref">?tbl-3-4</span>, so <span class="math inline">\(f_1(2) = \Pr(X = 2) = 0.6\)</span>. Therefore, the conditional probability <span class="math inline">\(g_2(y \mid 2)\)</span> that <span class="math inline">\(Y\)</span> will take a particular value <span class="math inline">\(y\)</span> is</p>
+<p><span class="math display">\[
+g_2(y \mid 2) = \frac{f(2, y)}{0.6}.
+\]</span></p>
+<p>It should be noted that for all possible values of <span class="math inline">\(y\)</span>, the conditional probabilities <span class="math inline">\(g_2(y \mid 2)\)</span> must be proportional to the joint probabilities <span class="math inline">\(f(2, y)\)</span>. In this example, each value of <span class="math inline">\(f(2, y)\)</span> is simply divided by the constant <span class="math inline">\(f_1(2) = 0.6\)</span> in order that the sum of the results will be equal to 1. Thus,</p>
+<p><span class="math display">\[
+g_2(1 \mid 2) = 1/2, \; g_2(2 \mid 2) = 0, \; g_2(3 \mid 2) = 1/6, \; g_2(4 \mid 2) = 1/3.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.6.3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.55 (Example 3.6.3: Auto Insurance)</strong></span> Consider again the probabilities of car brands and cars being stolen in <a href="#exm-3-6-1" class="quarto-xref">Example&nbsp;<span>3.53</span></a>. The conditional distribution of <span class="math inline">\(X\)</span> (being stolen) given <span class="math inline">\(Y\)</span> (brand) is given in <span class="quarto-unresolved-ref">?tbl-3-8</span>. It appears that Brand 1 is much more likely to be stolen than other cars in this area, with Brand 1 also having a significant chance of being stolen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="continuous-conditional-distributions" class="level3">
+<h3 class="anchored">Continuous Conditional Distributions</h3>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example 3.6.4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 3.6.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-3-6-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.56 (Example 3.6.4: Processing Times)</strong></span> A manufacturing process consists of two stages. The first stage takes <span class="math inline">\(Y\)</span> minutes, and the whole process takes <span class="math inline">\(X\)</span> minutes (which includes the first <span class="math inline">\(Y\)</span> minutes). Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint continuous distribution with joint pdf</p>
+<p><span class="math display">\[
+f(x, y) = \begin{cases}
+e^{-x} &amp;\text{for }0 \leq y \leq x &lt; \infty \\
+0 &amp;\text{otherwise.}
+\end{cases}
+\]</span></p>
+<p>After we learn how much time <span class="math inline">\(Y\)</span> that the first stage takes, we want to update our distribution for the total time <span class="math inline">\(X\)</span>. In other words, we would like to be able to compute a conditional distribution for <span class="math inline">\(X\)</span> given <span class="math inline">\(Y = y\)</span>. We cannot argue the same way as we did with discrete joint distributions, because <span class="math inline">\(\{Y = y\}\)</span> is an event with probability 0 for all <span class="math inline">\(y\)</span>.</p>
+</div>
+</div>
+</div>
+<p>  To facilitate the solutions of problems such as the one posed in <a href="#exm-3-6-4" class="quarto-xref">Example&nbsp;<span>3.56</span></a>, the concept of conditional probability will be extended by considering the definition of the conditional pmf of <span class="math inline">\(X\)</span> given in <a href="#eq-3-6-2" class="quarto-xref">Equation&nbsp;<span>3.35</span></a> and the analogy between a pmf and a pdf</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Definition 3.6.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition 3.6.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-3-6-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.7 (Definition 3.6.2: Conditional pdf)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a continuous joint distribution with joint pdf <span class="math inline">\(f\)</span> and respective marginals <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span>. Let <span class="math inline">\(y\)</span> be a value such that <span class="math inline">\(f_2(y) &gt; 0\)</span>. Then the conditional pdf <span class="math inline">\(g_1\)</span> of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> is defined as follows:</p>
+<p><span id="eq-3-6-4"><span class="math display">\[
+g_1(x \mid y) = \frac{f(x,y)}{f_2(y)} \; \text{ for } -\infty &lt; x &lt; \infty.
+\tag{3.37}\]</span></span></p>
+<p>For values of <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_2(y) = 0\)</span>, we are free to define <span class="math inline">\(g_1(x \mid y)\)</span> however we wish, so long as <span class="math inline">\(g_1(x \mid y)\)</span> is a pdf as a function of <span class="math inline">\(x\)</span>.</p>
+<p>It should be noted that <a href="#eq-3-6-2" class="quarto-xref">Equation&nbsp;<span>3.35</span></a> and <a href="#eq-3-6-4" class="quarto-xref">Equation&nbsp;<span>3.37</span></a> are identical. However, <a href="#eq-3-6-2" class="quarto-xref">Equation&nbsp;<span>3.35</span></a> was derived as the conditional probability that <span class="math inline">\(X = x\)</span> given that <span class="math inline">\(Y = y\)</span>, whereas <a href="#eq-3-6-4" class="quarto-xref">Equation&nbsp;<span>3.37</span></a> was defined to be the value of the conditional pdf of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span>. In fact, we should verify that <span class="math inline">\(g_1(x \mid y)\)</span> as defined above really is a pdf</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Theorem 3.6.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 3.6.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-3-6-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.21 (Theorem 3.6.1)</strong></span> For each <span class="math inline">\(y\)</span>, <span class="math inline">\(g_1(x \mid y)\)</span> defined in <a href="#def-3-6-2" class="quarto-xref">Definition&nbsp;<span>6.7</span></a> is a pdf as a function of <span class="math inline">\(x\)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(f_2(y) = 0\)</span>, then <span class="math inline">\(g_1\)</span> is defined to be any pdf we wish, and hence it is a pdf. If <span class="math inline">\(f_2(y) &gt; 0\)</span>, <span class="math inline">\(g_1\)</span> is defined by <a href="#eq-3-6-4" class="quarto-xref">Equation&nbsp;<span>3.37</span></a>. For each such <span class="math inline">\(y\)</span>, it is clear that <span class="math inline">\(g_1(x \mid y) \geq 0\)</span> for all <span class="math inline">\(x\)</span>. Also, if <span class="math inline">\(f_2(y) &gt; 0\)</span>, then</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty}g_1(x \mid y)dx = \frac{\int_{-\infty}^{\infty}f(x,y)dx}{f_2(y)} = \frac{f_2(y)}{f_2(y)} = 1,
+\]</span></p>
+<p>by using the formula for <span class="math inline">\(f_2(y)\)</span> in <a href="#eq-3-5-3" class="quarto-xref">Equation&nbsp;<span>3.28</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stopping point 2024-10-01 -->
+<p>Example 3.6.5 Processing Times. In Example 3.6.4, Y is the time that the first stage of a process takes, while X is the total time of the two stages.We want to calculate the conditional pdf of X given Y . We can calculate the marginal pdf of Y as follows: For each y, the possible values of X are all x ≥ y, so for each y &gt;0, f2(y) =   ∞ y e −xdx = e −y, and f2(y) = 0 fory &lt;0. For each y ≥ 0, the conditional pdf of X given Y = y is then g1(x|y) = f (x, y) f2(y) = e −x e−y = ey−x, for x ≥ y, 3.6 Conditional Distributions 145 Figure 3.20 The conditional pdf g1(x|y0) is proportional to f (x, y0). x y f (x, y) f (x, y0) y0 and g1(x|y) = 0 for x &lt; y. So, for example, if we observe Y = 4 and we want the conditional probability that X ≥ 9, we compute Pr(X ≥ 9|Y = 4) =   ∞ 9 e4−xdx = e −5 = 0.0067.   Definition 3.6.2 has an interpretation that can be understood by considering Fig. 3.20. The joint pdf f defines a surface over the xy-plane for which the height f (x, y) at each point (x, y) represents the relative likelihood of that point. For instance, if it is known that Y = y0, then the point (x, y) must lie on the line y = y0 in the xy-plane, and the relative likelihood of any point (x, y0) on this line is f (x, y0). Hence, the conditional pdf g1(x|y0) ofX should be proportional to f (x, y0). In other words, g1(x|y0) is essentially the same as f (x, y0), but it includes a constant factor 1/[f2(y0)], which is required to make the conditional pdf integrate to unity over all values of x. Similarly, for each value of x such that f1(x) &gt; 0, the conditional pdf of Y given that X = x is defined as follows: g2(y|x) = f (x, y) f1(x) for −∞&lt; y &lt;∞. (3.6.5) This equation is identical to Eq. (3.6.3), which was derived for discrete distributions. If f1(x) = 0, then g2(y|x) is arbitrary so long as it is a pdf as a function of y. Example 3.6.6 Calculating a Conditional pdf from a Joint pdf Suppose that the joint pdf of X and Y is as specified in Example 3.4.8 on page 122.We shall first determine the conditional pdf of Y given that X = x and then determine some probabilities for Y given the specific value X = 1/2. The set S for which f (x, y) &gt; 0 was sketched in Fig. 3.12 on page 123. Furthermore, the marginal pdf f1 was derived in Example 3.5.3 on page 132 and sketched in Fig. 3.17 on page 133. It can be seen from Fig. 3.17 that f1(x) &gt; 0 for−1&lt;x &lt;1 but not for x = 0. Therefore, for each given value of x such that −1&lt; x &lt;0 or 0 &lt; x &lt;1, the conditional pdf g2(y|x) of Y will be as follows: g2(y|x) = ⎧⎨ ⎩ 2y 1− x4 for x2 ≤ y ≤ 1, 0 otherwise. 146 Chapter 3 Random Variables and Distributions In particular, if it is known that X = 1/2, then Pr   Y ≥ 1 4    X = 1 2   = 1 and Pr   Y ≥ 3 4       X = 1 2   =   1 3/4 g2   y       1 2   dy = 7 15 .   Note: A Conditional pdf Is Not the Result of Conditioning on a Set of Probability Zero. The conditional pdf g1(x|y) of X given Y = y is the pdf we would use for X if we were to learn that Y = y. This sounds as if we were conditioning on the event {Y = y}, which has zero probability if Y has a continuous distribution. Actually, for the cases we shall see in this text, the value of g1(x|y) is a limit: g1(x|y) = lim  →0 ∂ ∂x Pr(X ≤ x|y −   &lt; Y ≤ y +  ). (3.6.6) The conditioning event {y −   ≤ Y ≤ y +  } in Eq. (3.6.6) has positive probability if the marginal pdf of Y is positive at y. The mathematics required to make this rigorous is beyond the scope of this text. (See Exercise 11 in this section and Exercises 25 and 26 in Sec. 3.11 for results that we can prove.) Another way to think about conditioning on a continuous random variable is to notice that the conditional pdf’s that we compute are typically continuous as a function of the conditioning variable. This means that conditioning on Y = y or on Y = y +   for small   will produce nearly the same conditional distribution for X. So it does not matter much if we use Y = y as a surogate for Y close to y. Nevertheless, it is important to keep in mind that the conditional pdf of X given Y = y is better thought of as the conditional pdf of X given that Y is very close to y. This wording is awkward, so we shall not use it, but we must remember the distinction between the conditional pdf and conditioning on an event with probability 0. Despite this distinction, it is still legitimate to treat Y as the constant y when dealing with the conditional distribution of X given Y = y. For mixed joint distributions, we continue to use Eqs. (3.6.2) and (3.6.3) to define conditional pmf’s and pdf’s. Definition 3.6.3 Conditional pmf or pdf from Mixed Distribution. Let X be discrete and let Y be continuous with joint pmf/pdf f . Then the conditional pmf ofX given Y = y is defined by Eq. (3.6.2), and the conditional pdf of Y given X = x is defined by Eq. (3.6.3). Construction of the Joint Distribution Example 3.6.7 Defective Parts. Suppose that a certain machine produces defective and nondefective parts, but we do not know what proportion of defectives we would find among all parts that could be produced by this machine. Let P stand for the unknown proportion of defective parts among all possible parts produced by the machine. Ifwe were to learn that P = p, we might be willing to say that the parts were independent of each other and each had probability p of being defective. In other words, if we condition on P = p, then we have the situation described in Example 3.1.9. As in that example, suppose that we examine n parts and let X stand for the number of defectives among the n examined parts. The distribution ofX, assuming that we know P = p, is the binomial distribution with parameters n and p.&nbsp;That is, we can let the binomial pmf (3.1.4) be the conditional pmf of X given P = p, namely, g1(x|p) =</p>
+<p>n x   px(1− p)n−x, for x = 0, . . . , n. 3.6 Conditional Distributions 147 We might also believe thatP has a continuous distribution with pdf such as f2(p) = 1 for 0 ≤ p ≤ 1. (This means that P has the uniform distribution on the interval [0, 1].) We know that the conditional pmf g1 of X given P = p satisfies g1(x|p) = f (x, p) f2(p) , where f is the joint pmf/pdf of X and P. If we multiply both sides of this equation by f2(p), it follows that the joint pmf/pdf of X and P is f (x, p) = g1(x|p)f2(p) =</p>
+<p>n x   px(1− p)n−x, for x = 0, . . . , n, and 0 ≤ p ≤ 1.   The construction in Example 3.6.7 is available in general, as we explain next. Generalizing the Multiplication Rule for Conditional Probabilities Aspecial case of Theorem 2.1.2, the multiplication rule for conditional probabilities, says that if A and B are two events, then Pr(A ∩ B) = Pr(A) Pr(B|A). The following theorem, whose proof is immediate from Eqs. (3.6.4) and (3.6.5), generalizes Theorem 2.1.2 to the case of two random variables. Theorem 3.6.2 Multiplication Rule for Distributions. Let X and Y be random variables such that X has pmf or pdf f1(x) and Y has pmf or pdf f2(y). Also, assume that the conditional pmf or pdf of X given Y = y is g1(x|y) while the conditional pmf or pdf of Y given X = x is g2(y|x). Then for each y such that f2(y) &gt; 0 and each x, f (x, y) = g1(x|y)f2(y), (3.6.7) where f is the joint pmf, pdf, or pmf/pdf of X and Y . Similarly, for each x such that f1(x) &gt; 0 and each y, f (x, y) = f1(x)g2(y|x). (3.6.8) In Theorem 3.6.2, if f2(y0) = 0 for some value y0, then it can be assumed without loss of generality that f (x, y0) = 0 for all values of x. In this case, both sides of Eq. (3.6.7) will be 0, and the fact that g1(x|y0) is not uniquely defined becomes irrelevant. Hence, Eq. (3.6.7) will be satisfied for all values of x and y. A similar statement applies to Eq. (3.6.8). Example 3.6.8 Waiting in a Queue. Let X be the amount of time that a person has to wait for service in a queue. The faster the server works in the queue, the shorter should be the waiting time. Let Y stand for the rate at which the server works, which we will take to be unknown. A common choice of conditional distribution for X given Y = y has conditional pdf for each y &gt;0: g1(x|y) =   ye −xy for x ≥ 0, 0 otherwise. We shall assume that Y has a continuous distribution with pdf f2(y) = e −y fory &gt;0. Now we can construct the joint pdf of X and Y using Theorem 3.6.2: f (x, y) = g1(x|y)f2(y) =   ye −y(x+1) for x ≥ 0, y &gt;0, 0 otherwise.   148 Chapter 3 Random Variables and Distributions Example 3.6.9 Defective Parts. Let X be the number of defective parts in a sample of size n, and let P be the proportion of defectives among all parts, as in Example 3.6.7. The joint pmf/p.d.f of X and P = p was calculated there as f (x, p) = g1(x|p)f2(p) =</p>
+<p>n x   px(1− p)n−x, for x = 0, . . . , n and 0 ≤ p ≤ 1. We could now compute the conditional pdf of P given X = x by first finding the marginal pmf of X: f1(x) =   1 0</p>
+<p>n x   px(1− p)n−xdp, (3.6.9) The conditional pdf of P given X = x is then g2(p|x) = f (x, p) f1(x) = px(1− p)n−x   1 0 qx(1− q)n−xdq , for 0&lt;p &lt;1. (3.6.10) The integral in the denominator of Eq. (3.6.10) can be tedious to calculate, but it can be found. For example, if n = 2 and x = 1, we get   1 0 q(1− q)dq = 1 2 − 1 3 = 1 6 . In this case, g2(p|1) = 6p(1− p) for 0 ≤ p ≤ 1.   Bayes’ Theorem and the Law of Total Probability for Random Variables The calculation done in Eq. (3.6.9) is an example of the generalization of the law of total probability to random variables. Also, the calculation in Eq. (3.6.10) is an example of the generalization of Bayes’ theorem to random variables. The proofs of these results are straightforward and not given here. Theorem 3.6.3 Law of Total Probability for Random Variables. If f2(y) is the marginal pmf or pdf of a random variable Y and g1(x|y) is the conditional pmf or pdf of X given Y = y, then the marginal pmf or pdf of X is f1(x) =   y g1(x|y)f2(y), (3.6.11) if Y is discrete. If Y is continuous, the marginal pmf or pdf of X is f1(x) =   ∞ −∞ g1(x|y)f2(y) dy. (3.6.12) There are versions of Eqs. (3.6.11) and (3.6.12) with x and y switched and the subscripts 1 and 2 switched. These versions would be used if the joint distribution of X and Y were constructed from the conditional distribution of Y given X and the marginal distribution of X. Theorem 3.6.4 Bayes’ Theorem for Random Variables. Iff2(y) is the marginal pmf or pdf of a random variable Y and g1(x|y) is the conditional pmf or pdf of X given Y = y, then the conditional pmf or pdf of Y given X = x is g2(y|x) = g1(x|y)f2(y) f1(x) , (3.6.13) 3.6 Conditional Distributions 149 where f1(x) is obtained from Eq. (3.6.11) or (3.6.12). Similarly, the conditional pmf or pdf of X given Y = y is g1(x|y) = g2(y|x)f1(x) f2(y) , (3.6.14) where f2(y) is obtained from Eq. (3.6.11) or (3.6.12) with x and y switched and with the subscripts 1 and 2 switched. Example 3.6.10 Choosing Points from Uniform Distributions. Suppose that a point X is chosen from the uniform distribution on the interval [0, 1], and that after the valueX = x has been observed (0 &lt; x &lt;1), a point Y is then chosen from the uniform distribution on the interval [x, 1]. We shall derive the marginal pdf of Y . Since X has a uniform distribution, the marginal pdf of X is as follows: f1(x) =   1 for 0 &lt; x &lt;1, 0 otherwise. Similarly, for each value X = x (0 &lt; x &lt;1), the conditional distribution of Y is the uniform distribution on the interval [x, 1]. Since the length of this interval is 1− x, the conditional pdf of Y given that X = x will be g2(y|x) = ⎧⎨ ⎩ 1 1− x for x &lt;y &lt;1, 0 otherwise. It follows from Eq. (3.6.8) that the joint pdf of X and Y will be f (x, y) = ⎧⎨ ⎩ 1 1− x for 0 &lt; x &lt; y &lt;1, 0 otherwise. (3.6.15) Thus, for 0 &lt; y &lt;1, the value of the marginal pdf f2(y) of Y will be f2(y) =   ∞ −∞ f (x, y) dx =   y 0 1 1− x dx =−log(1− y). (3.6.16) Furthermore, since Y cannot be outside the interval 0 &lt; y &lt;1, then f2(y) = 0 for y ≤ 0 or y ≥ 1. This marginal pdf f2 is sketched in Fig. 3.21. It is interesting to note that in this example the function f2 is unbounded. We can also find the conditional pdf of X given Y = y by applying Bayes’ theorem (3.6.14). The product of g2(y|x) and f1(x) was already calculated in Eq. (3.6.15). Figure 3.21 The marginal pdf of Y in Example 3.6.10. y f2(y) 0 1 150 Chapter 3 Random Variables and Distributions The ratio of this product to f2(y) from Eq. (3.6.16) is g1(x|y) = ⎧⎨ ⎩ −1 (1− x) log(1− y) for 0 &lt; x &lt; y, 0 otherwise.   Theorem 3.6.5 Independent Random Variables. Suppose that X and Y are two random variables having a joint pmf, pdf, or pmf/pdf f . Then X and Y are independent if and only if for every value of y such that f2(y) &gt; 0 and every value of x, g1(x|y) = f1(x). (3.6.17) Proof Theorem 3.5.4 says that X and Y are independent if and only if f (x, y) can be factored in the following form for −∞&lt; x &lt;∞and −∞&lt; y &lt;∞: f (x, y) = f1(x)f2(y), which holds if and only if, for all x and all y such that f2(y) &gt; 0, f1(x) = f (x, y) f2(y) . (3.6.18) But the right side of Eq. (3.6.18) is the formula for g1(x|y). Hence, X and Y are independent if and only if Eq. (3.6.17) holds for all x and all y such that f2(y) &gt; 0. Theorem 3.6.5 says that X and Y are independent if and only if the conditional pmf or pdf of X given Y = y is the same as the marginal pmf or pdf of X for all y such that f2(y) &gt; 0. Because g1(x|y) is arbitrary when f2(y) = 0, we cannot expect Eq. (3.6.17) to hold in that case. Similarly, it follows from Eq. (3.6.8) that X and Y are independent if and only if g2(y|x) = f2(y), (3.6.19) for every value of x such that f1(x) &gt; 0. Theorem 3.6.5 and Eq. (3.6.19) give the mathematical justification for the meaning of independence that we presented on page 136. Note: Conditional Distributions Behave Just Like Distributions. As we noted on page 59, conditional probabilities behave just like probabilities. Since distributions are just collections of probabilities, it follows that conditional distributions behave just like distributions. For example, to compute the conditional probability that a discrete random variableX is in some interval [a, b] given Y = y, we must add g1(x|y) for all values of x in the interval. Also, theorems that we have proven or shall prove about distributions will have versions conditional on additional random variables. We shall postpone examples of such theorems until Sec. 3.7 because they rely on joint distributions of more than two random variables. Summary The conditional distribution of one random variable X given an observed value y of another random variable Y is the distribution we would use for X if we were to learn that Y = y. When dealing with the conditional distribution of X given Y = y, it is safe to behave as if Y were the constant y. If X and Y have joint pmf, pdf, or pmf/pdf f (x, y), then the conditional pmf or pdf of X given Y = y is g1(x|y) = 3.6 Conditional Distributions 151 f (x, y)/f2(y), where f2 is the marginal pmf or pdf of Y . When it is convenient to specify a conditional distribution directly, the joint distribution can be constructed from the conditional together with the other marginal. For example, f (x, y) = g1(x|y)f2(y) = f1(x)g2(y|x). In this case, we have versions of the law of total probability and Bayes’ theorem for random variables that allow us to calculate the other marginal and conditional. Two random variables X and Y are independent if and only if the conditional pmf or pdf of X given Y = y is the same as the marginal pmf or pdf of X for all y such that f2(y) &gt; 0. Equivalently, X and Y are independent if and only if the conditional pmf of pdf of Y given X = x is the same as the marginal pmf or pdf of Y for all x such that f1(x) &gt; 0.</p>
 <section id="exercises-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercises-5">Exercises</h3>
 <ol type="1">
-<li>Suppose that two random variables X and Y have the joint p.d.f. in Example 3.5.10 on page 139. Compute the conditional p.d.f. of X given Y = y for each y.</li>
+<li>Suppose that two random variables X and Y have the joint pdf in Example 3.5.10 on page 139. Compute the conditional pdf of X given Y = y for each y.</li>
 <li>Each student in a certain high school was classified according to her year in school (freshman, sophomore, junior, or senior) and according to the number of times that she had visited a certain museum (never, once, or more than once).The proportions of students in the various classifications are given in the following table: More Never Once than once Freshmen 0.08 0.10 0.04 Sophomores 0.04 0.10 0.04 Juniors 0.04 0.20 0.09 Seniors 0.02 0.15 0.10</li>
 </ol>
 <ol type="a">
@@ -2733,12 +3458,12 @@ Example 3.6.1: Auto Insurance (DeGroot and Schervish, p.&nbsp;142)
 <li>If a student selected at random from the high school has visited the museum three times, what is the probability that she is a senior?</li>
 </ol>
 <ol start="3" type="1">
-<li>Suppose that a point (X, Y ) is chosen at random from the disk S defined as follows: S = {(x, y) : (x − 1)2 + (y + 2)2 ≤ 9}. Determine (a) the conditional p.d.f. of Y for every given value of X, and (b) Pr(Y &gt; 0|X = 2).</li>
-<li>Suppose that the joint p.d.f. of two random variables X and Y is as follows: f (x, y) =   c(x + y2) for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1, 0 otherwise. Determine (a) the conditional p.d.f. of X for every given value of Y , and (b) Pr(X &lt; 1 2 |Y = 1 2 ).</li>
-<li>Suppose that the joint p.d.f. of two points X and Y chosen by the process described in Example 3.6.10 is as given by Eq. (3.6.15). Determine (a) the conditional p.d.f. of X for every given value of Y , and (b) Pr   X&gt; 1 2     Y = 3 4   .</li>
-<li>Suppose that the joint p.d.f. of two random variables X and Y is as follows: f (x, y) =   c sin x for 0 ≤ x ≤ π/2 and 0 ≤ y ≤ 3, 0 otherwise. Determine (a) the conditional p.d.f. of Y for every given value of X, and (b) Pr(1&lt;Y &lt;2|X = 0.73).</li>
-<li>Suppose that the joint p.d.f. of two random variables X and Y is as follows: f (x, y) = ⎧⎪⎨ ⎪⎩ 3 16 (4 − 2x − y) for x &gt;0, y &gt;0, and 2x +y &lt;4, 0 otherwise. Determine (a) the conditional p.d.f. of Y for every given value of X, and (b) Pr(Y ≥ 2|X = 0.5).</li>
-<li>Suppose that a person’s score X on a mathematics aptitude test is a number between 0 and 1, and that his score Y on a music aptitude test is also a number between 0 and 1. Suppose further that in the population of all college students in the United States, the scores X and Y are distributed according to the following joint p.d.f.: f (x, y) =   2 5 (2x + 3y) for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1, 0 otherwise. 152 Chapter 3 Random Variables and Distributions</li>
+<li>Suppose that a point (X, Y ) is chosen at random from the disk S defined as follows: S = {(x, y) : (x − 1)2 + (y + 2)2 ≤ 9}. Determine (a) the conditional pdf of Y for every given value of X, and (b) Pr(Y &gt; 0|X = 2).</li>
+<li>Suppose that the joint pdf of two random variables X and Y is as follows: f (x, y) =   c(x + y2) for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1, 0 otherwise. Determine (a) the conditional pdf of X for every given value of Y , and (b) Pr(X &lt; 1 2 |Y = 1 2 ).</li>
+<li>Suppose that the joint pdf of two points X and Y chosen by the process described in Example 3.6.10 is as given by Eq. (3.6.15). Determine (a) the conditional pdf of X for every given value of Y , and (b) Pr   X&gt; 1 2     Y = 3 4   .</li>
+<li>Suppose that the joint pdf of two random variables X and Y is as follows: f (x, y) =   c sin x for 0 ≤ x ≤ π/2 and 0 ≤ y ≤ 3, 0 otherwise. Determine (a) the conditional pdf of Y for every given value of X, and (b) Pr(1&lt;Y &lt;2|X = 0.73).</li>
+<li>Suppose that the joint pdf of two random variables X and Y is as follows: f (x, y) = ⎧⎪⎨ ⎪⎩ 3 16 (4 − 2x − y) for x &gt;0, y &gt;0, and 2x +y &lt;4, 0 otherwise. Determine (a) the conditional pdf of Y for every given value of X, and (b) Pr(Y ≥ 2|X = 0.5).</li>
+<li>Suppose that a person’s score X on a mathematics aptitude test is a number between 0 and 1, and that his score Y on a music aptitude test is also a number between 0 and 1. Suppose further that in the population of all college students in the United States, the scores X and Y are distributed according to the following joint pdf: f (x, y) =   2 5 (2x + 3y) for 0 ≤ x ≤ 1 and 0 ≤ y ≤ 1, 0 otherwise. 152 Chapter 3 Random Variables and Distributions</li>
 </ol>
 <ol type="a">
 <li>What proportion of college students obtain a score greater than 0.8 on the mathematics test?</li>
@@ -2746,21 +3471,21 @@ Example 3.6.1: Auto Insurance (DeGroot and Schervish, p.&nbsp;142)
 <li>If a student’s score on the mathematics test is 0.3, what is the probability that his score on the music test will be greater than 0.8?</li>
 </ol>
 <ol start="9" type="1">
-<li>Suppose that either of two instruments might be used for making a certain measurement. Instrument 1 yields a measurement whose p.d.f. h1 is h1(x) =   2x for 0 &lt; x &lt;1, 0 otherwise. Instrument 2 yields a measurement whose p.d.f. h2 is h2(x) =   3x2 for 0 &lt; x &lt;1, 0 otherwise. Suppose that one of the two instruments is chosen at random and a measurement X is made with it.</li>
+<li>Suppose that either of two instruments might be used for making a certain measurement. Instrument 1 yields a measurement whose pdf h1 is h1(x) =   2x for 0 &lt; x &lt;1, 0 otherwise. Instrument 2 yields a measurement whose pdf h2 is h2(x) =   3x2 for 0 &lt; x &lt;1, 0 otherwise. Suppose that one of the two instruments is chosen at random and a measurement X is made with it.</li>
 </ol>
 <ol type="a">
-<li>Determine the marginal p.d.f. of X.</li>
+<li>Determine the marginal pdf of X.</li>
 <li>If the value of the measurement is X = 1/4, what is the probability that instrument 1 was used?</li>
 </ol>
 <ol start="10" type="1">
-<li>In a large collection of coins, the probability X that a head will be obtained when a coin is tossed varies from one coin to another, and the distribution of X in the collection is specified by the following p.d.f.: f1(x) =   6x(1− x) for 0 &lt; x &lt;1, 0 otherwise. Suppose that a coin is selected at random from the collection and tossed once, and that a head is obtained. Determine the conditional p.d.f. of X for this coin.</li>
-<li>The definition of the conditional p.d.f. of X given Y = y is arbitrary if f2(y) = 0. The reason that this causes no serious problem is that it is highly unlikely that we will observe Y close to a value y0 such that f2(y0) = 0. To be more precise, let f2(y0) = 0, and let A0 = [y0 −  , y0 +  ]. Also, let y1 be such that f2(y1) &gt; 0, and let A1 = [y1 −  , y1 +  ]. Assume that f2 is continuous at both y0 and y1. Show that lim  →0 Pr(Y ∈ A0) Pr(Y ∈ A1) = 0. That is, the probability that Y is close to y0 is much smaller than the probability that Y is close to y1.</li>
-<li>Let Y be the rate (calls per hour) at which calls arrive at a switchboard. Let X be the number of calls during a two-hour period. Suppose that the marginal p.d.f. of Y is f2(y) =   e −y if y &gt;0, 0 otherwise, and that the conditional p.f. of X given Y = y is g1(x|y) = ⎧⎨ ⎩ (2y)x x! e −2y if x = 0, 1, . . . , 0 otherwise.</li>
+<li>In a large collection of coins, the probability X that a head will be obtained when a coin is tossed varies from one coin to another, and the distribution of X in the collection is specified by the following pdf: f1(x) =   6x(1− x) for 0 &lt; x &lt;1, 0 otherwise. Suppose that a coin is selected at random from the collection and tossed once, and that a head is obtained. Determine the conditional pdf of X for this coin.</li>
+<li>The definition of the conditional pdf of X given Y = y is arbitrary if f2(y) = 0. The reason that this causes no serious problem is that it is highly unlikely that we will observe Y close to a value y0 such that f2(y0) = 0. To be more precise, let f2(y0) = 0, and let A0 = [y0 −  , y0 +  ]. Also, let y1 be such that f2(y1) &gt; 0, and let A1 = [y1 −  , y1 +  ]. Assume that f2 is continuous at both y0 and y1. Show that lim  →0 Pr(Y ∈ A0) Pr(Y ∈ A1) = 0. That is, the probability that Y is close to y0 is much smaller than the probability that Y is close to y1.</li>
+<li>Let Y be the rate (calls per hour) at which calls arrive at a switchboard. Let X be the number of calls during a two-hour period. Suppose that the marginal pdf of Y is f2(y) =   e −y if y &gt;0, 0 otherwise, and that the conditional pmf of X given Y = y is g1(x|y) = ⎧⎨ ⎩ (2y)x x! e −2y if x = 0, 1, . . . , 0 otherwise.</li>
 </ol>
 <ol type="a">
-<li> Find themarginal p.f. ofX. (Youmay use the formula ∞ 0 yke −y dy = k!.)</li>
-<li>Find the conditional p.d.f. g2(y|0) of Y given X = 0.</li>
-<li>Find the conditional p.d.f. g2(y|1) of Y given X = 1.</li>
+<li> Find themarginal pmf ofX. (Youmay use the formula ∞ 0 yke −y dy = k!.)</li>
+<li>Find the conditional pdf g2(y|0) of Y given X = 0.</li>
+<li>Find the conditional pdf g2(y|1) of Y given X = 1.</li>
 <li>For what values of y is g2(y|1) &gt; g2(y|0)? Does this agree with the intuition that the more calls you see, the higher you should think the rate is?</li>
 </ol>
 <ol start="13" type="1">
@@ -2987,7 +3712,7 @@ Example 3.8.8: Microbial Growth (DeGroot and Schervish, p.&nbsp;173)
 <section id="random-variables-with-a-discrete-joint-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="random-variables-with-a-discrete-joint-distribution">Random Variables with a Discrete Joint Distribution</h3>
 <div id="exm-3-9-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.53 (Example 3.9.1: Bull Market)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 3.57 (Example 3.9.1: Bull Market)</strong></span> &nbsp;</p>
 <!-- {.callout-tip title="Example 3.9.1: Bull Market (DeGroot and Schervish, p. 175)"} -->
 <p>Three different investment firms are trying to advertise their mutual funds by showing how many perform better than a recognized standard. Each company has 10 funds, so there are 30 in total. Suppose that the first 10 funds belong to the first firm, the next 10 to the second firm, and the last 10 to the third firm. Let <span class="math inline">\(X_i = 1\)</span> if fund <span class="math inline">\(i\)</span> performs better than the standard and <span class="math inline">\(X_i = 0\)</span> otherwise, for <span class="math inline">\(i = 1, \ldots, 30\)</span>. Then, we are interested in the three functions</p>
 <p><span class="math display">\[
@@ -2999,9 +3724,9 @@ Y_3 &amp;= X_{21} + \cdots + X_{30}.
 \]</span></p>
 <p>We would like to be able to determine the joint distribution of <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span>, and <span class="math inline">\(Y_3\)</span> from the joint distribution of <span class="math inline">\(X_1, \ldots, X_{30}\)</span>.</p>
 </div>
-<p>The general method for solving problems like those of <a href="#exm-3-9-1" class="quarto-xref">Example&nbsp;<span>3.53</span></a> is a straightforward extension of <span class="quarto-unresolved-ref">?thm-3-8-1</span>.</p>
+<p>The general method for solving problems like those of <a href="#exm-3-9-1" class="quarto-xref">Example&nbsp;<span>3.57</span></a> is a straightforward extension of <span class="quarto-unresolved-ref">?thm-3-8-1</span>.</p>
 <div id="thm-3-9-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3.21 (Theorem 3.9.1: Functions of Discrete Random Variables)</strong></span> Suppose that <span class="math inline">\(n\)</span> random variables <span class="math inline">\(X_1, \ldots, X_n\)</span> have a discrete joint distribution for which the joint pmf is <span class="math inline">\(f\)</span>, and that <span class="math inline">\(m\)</span> functions <span class="math inline">\(Y_1, \ldots, Y_m\)</span> of these <span class="math inline">\(n\)</span> random variables are defined as follows:</p>
+<p><span class="theorem-title"><strong>Theorem 3.22 (Theorem 3.9.1: Functions of Discrete Random Variables)</strong></span> Suppose that <span class="math inline">\(n\)</span> random variables <span class="math inline">\(X_1, \ldots, X_n\)</span> have a discrete joint distribution for which the joint pmf is <span class="math inline">\(f\)</span>, and that <span class="math inline">\(m\)</span> functions <span class="math inline">\(Y_1, \ldots, Y_m\)</span> of these <span class="math inline">\(n\)</span> random variables are defined as follows:</p>
 <p><span class="math display">\[
 \begin{align*}
 Y_1 &amp;= r_1(X_1, \ldots, X_n) \\
@@ -3025,7 +3750,7 @@ g(y_1, \ldots, y_m) = \sum_{(x_1, \ldots, x_n) \in A}f(x_1, \ldots, x_n).
 \]</span></p>
 </div>
 <div id="exm-3-9-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.54 (Example 3.9.2: Bull Market)</strong></span> Recall the situation in <a href="#exm-3-9-1" class="quarto-xref">Example&nbsp;<span>3.53</span></a>. Suppose that we want the joint pmf <span class="math inline">\(g\)</span> of <span class="math inline">\((Y_1, Y_2, Y_3)\)</span> at the point <span class="math inline">\((3, 5, 8)\)</span>. That is, we want <span class="math inline">\(g(3, 5, 8) = \Pr(Y_1 = 3, Y_2 = 5, Y_3 = 8)\)</span>. The set <span class="math inline">\(A\)</span> as defined in <a href="#thm-3-9-1" class="quarto-xref">Theorem&nbsp;<span>3.21</span></a> is</p>
+<p><span class="theorem-title"><strong>Example 3.58 (Example 3.9.2: Bull Market)</strong></span> Recall the situation in <a href="#exm-3-9-1" class="quarto-xref">Example&nbsp;<span>3.57</span></a>. Suppose that we want the joint pmf <span class="math inline">\(g\)</span> of <span class="math inline">\((Y_1, Y_2, Y_3)\)</span> at the point <span class="math inline">\((3, 5, 8)\)</span>. That is, we want <span class="math inline">\(g(3, 5, 8) = \Pr(Y_1 = 3, Y_2 = 5, Y_3 = 8)\)</span>. The set <span class="math inline">\(A\)</span> as defined in <a href="#thm-3-9-1" class="quarto-xref">Theorem&nbsp;<span>3.22</span></a> is</p>
 <p><span class="math display">\[
 A = \{ (x_1, \ldots, x_{30}) \mid x_1 + \cdots + x_{10} = 3, x_{11} + \cdots + x_{20} = 5, x_{21} + \cdots + x_{30} = 8 \}.
 \]</span></p>
@@ -3047,24 +3772,24 @@ g(3, 5, 8) = \frac{1360800}{2^{30}} = 1.27 \times 10^{-3}.
 </div>
 <p>  The next result gives an important example of a function of discrete random variables.</p>
 <div id="thm-3-9-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3.22 (Theorem 3.9.2: Binomial and Bernoulli Distributions)</strong></span> Assume that <span class="math inline">\(X_1, \ldots, X_n\)</span> are i.i.d. random variables having the Bernoulli distribution with parameter <span class="math inline">\(p\)</span>. Let <span class="math inline">\(Y = X_1 + \cdots + X_n\)</span>. Then <span class="math inline">\(Y\)</span> has the binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 3.23 (Theorem 3.9.2: Binomial and Bernoulli Distributions)</strong></span> Assume that <span class="math inline">\(X_1, \ldots, X_n\)</span> are i.i.d. random variables having the Bernoulli distribution with parameter <span class="math inline">\(p\)</span>. Let <span class="math inline">\(Y = X_1 + \cdots + X_n\)</span>. Then <span class="math inline">\(Y\)</span> has the binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>It is clear that <span class="math inline">\(Y = y\)</span> if and only if exactly <span class="math inline">\(y\)</span> of <span class="math inline">\(X_1, \ldots, X_n\)</span> equal 1 and the other <span class="math inline">\(n − y\)</span> equal 0. There are <span class="math inline">\(\binom{n}{y}\)</span> distinct possible values for the vector <span class="math inline">\((X_1, \ldots, X_n)\)</span> that have <span class="math inline">\(y\)</span> ones and <span class="math inline">\(n − y\)</span> zeros. Each such vector has probability <span class="math inline">\(p^y(1 − p)^{n−y}\)</span> of being observed; hence the probability that <span class="math inline">\(Y = y\)</span> is the sum of the probabilities of those vectors, namely, <span class="math inline">\(\binom{n}{y}p^y(1-p)^{n-y}\)</span> for <span class="math inline">\(y = 0, \ldots, n\)</span>. From <a href="#def-3-1-7" class="quarto-xref">Definition&nbsp;<span>3.7</span></a>, we see that <span class="math inline">\(Y\)</span> has the binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>.</p>
 </div>
 </div>
 <div id="exm-3-9-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.55 (Example 3.9.3: Sampling Parts)</strong></span> Suppose that two machines are producing parts. For <span class="math inline">\(i = 1, 2\)</span>, the probability is <span class="math inline">\(p_i\)</span> that machine <span class="math inline">\(i\)</span> will produce a defective part, and we shall assume that all parts from both machines are independent. Assume that the first <span class="math inline">\(n_1\)</span> parts are produced by machine 1 and that the last <span class="math inline">\(n_2\)</span> parts are produced by machine 2, with <span class="math inline">\(n = n_1 + n_2\)</span> being the total number of parts sampled. Let <span class="math inline">\(X_i = 1\)</span> if the <span class="math inline">\(i\)</span>th part is defective and <span class="math inline">\(X_i = 0\)</span> otherwise for <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
-<p>Define <span class="math inline">\(Y_1 = X_1 + \cdots + X_{n_1}\)</span> and <span class="math inline">\(Y_2 = X_{n_1+1} + \cdots + X_n\)</span>. These are the total numbers of defective parts produced by each machine. The assumptions stated in the problem allow us to conclude that <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span> are independent according to the note about separate functions of independent random variables on page 140. Furthermore, <a href="#thm-3-9-2" class="quarto-xref">Theorem&nbsp;<span>3.22</span></a> says that <span class="math inline">\(Y_j\)</span> has the binomial distribution with parameters <span class="math inline">\(n_j\)</span> and <span class="math inline">\(p_j\)</span> for <span class="math inline">\(j = 1, 2\)</span>. These two marginal distributions, together with the fact that <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span> are independent, give the entire joint distribution. So, for example, if <span class="math inline">\(g\)</span> is the joint pmf of <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span>, we can compute</p>
+<p><span class="theorem-title"><strong>Example 3.59 (Example 3.9.3: Sampling Parts)</strong></span> Suppose that two machines are producing parts. For <span class="math inline">\(i = 1, 2\)</span>, the probability is <span class="math inline">\(p_i\)</span> that machine <span class="math inline">\(i\)</span> will produce a defective part, and we shall assume that all parts from both machines are independent. Assume that the first <span class="math inline">\(n_1\)</span> parts are produced by machine 1 and that the last <span class="math inline">\(n_2\)</span> parts are produced by machine 2, with <span class="math inline">\(n = n_1 + n_2\)</span> being the total number of parts sampled. Let <span class="math inline">\(X_i = 1\)</span> if the <span class="math inline">\(i\)</span>th part is defective and <span class="math inline">\(X_i = 0\)</span> otherwise for <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
+<p>Define <span class="math inline">\(Y_1 = X_1 + \cdots + X_{n_1}\)</span> and <span class="math inline">\(Y_2 = X_{n_1+1} + \cdots + X_n\)</span>. These are the total numbers of defective parts produced by each machine. The assumptions stated in the problem allow us to conclude that <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span> are independent according to the note about separate functions of independent random variables on page 140. Furthermore, <a href="#thm-3-9-2" class="quarto-xref">Theorem&nbsp;<span>3.23</span></a> says that <span class="math inline">\(Y_j\)</span> has the binomial distribution with parameters <span class="math inline">\(n_j\)</span> and <span class="math inline">\(p_j\)</span> for <span class="math inline">\(j = 1, 2\)</span>. These two marginal distributions, together with the fact that <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span> are independent, give the entire joint distribution. So, for example, if <span class="math inline">\(g\)</span> is the joint pmf of <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span>, we can compute</p>
 <p><span class="math display">\[
 g(y_1, y_2) = \binom{n_1}{y_1}p_1^{y_1}(1-p_1)^{n_1 - y_1}\binom{n_2}{y_2}p_2^{y_2}(1-p_2)^{n_2-y_2},
 \]</span></p>
-<p>for <span class="math inline">\(y_1 = 0, \ldots, n_1\)</span> and <span class="math inline">\(y_2 = 0, \ldots, n_2\)</span>, while <span class="math inline">\(g(y_1, y_2) = 0\)</span> otherwise. There is no need to find a set <span class="math inline">\(A\)</span> as in <a href="#exm-3-9-2" class="quarto-xref">Example&nbsp;<span>3.54</span></a>, because of the simplifying structure of the joint distribution of <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
+<p>for <span class="math inline">\(y_1 = 0, \ldots, n_1\)</span> and <span class="math inline">\(y_2 = 0, \ldots, n_2\)</span>, while <span class="math inline">\(g(y_1, y_2) = 0\)</span> otherwise. There is no need to find a set <span class="math inline">\(A\)</span> as in <a href="#exm-3-9-2" class="quarto-xref">Example&nbsp;<span>3.58</span></a>, because of the simplifying structure of the joint distribution of <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
 </div>
 </section>
 <section id="random-variables-with-a-continuous-joint-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="random-variables-with-a-continuous-joint-distribution">Random Variables with a Continuous Joint Distribution</h3>
 <div id="exm-3-9-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.56 (Example 3.9.4: Total Service Time)</strong></span> Suppose that the first two customers in a queue plan to leave together. Let <span class="math inline">\(X_i\)</span> be the time it takes to serve customer <span class="math inline">\(i\)</span> for <span class="math inline">\(i = 1, 2\)</span>. Suppose also that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent random variables with common distribution having pdf <span class="math inline">\(f(x) = 2e^{-2x}\)</span> for <span class="math inline">\(x &gt; 0\)</span> and 0 otherwise. Since the customers will leave together, they are interested in the total time it takes to serve both of them, namely, <span class="math inline">\(Y = X_1 + X_2\)</span>. We can now find the pdf of <span class="math inline">\(Y\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 3.60 (Example 3.9.4: Total Service Time)</strong></span> Suppose that the first two customers in a queue plan to leave together. Let <span class="math inline">\(X_i\)</span> be the time it takes to serve customer <span class="math inline">\(i\)</span> for <span class="math inline">\(i = 1, 2\)</span>. Suppose also that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent random variables with common distribution having pdf <span class="math inline">\(f(x) = 2e^{-2x}\)</span> for <span class="math inline">\(x &gt; 0\)</span> and 0 otherwise. Since the customers will leave together, they are interested in the total time it takes to serve both of them, namely, <span class="math inline">\(Y = X_1 + X_2\)</span>. We can now find the pdf of <span class="math inline">\(Y\)</span>.</p>
 <p>For each <span class="math inline">\(y\)</span>, let</p>
 <p><span class="math display">\[
 A_y = \{ (x_1, x_2) \mid x_1 + x_2 \leq y \}
@@ -3080,7 +3805,7 @@ G(y) &amp;= \Pr((X_1, X_2) \in A_y) = \int_{0}^{y}\int_{0}^{y-x_2}4e^{-2x_1-2x_2
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ch03/images/fig-3-24.svg" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>The set <span class="math inline">\(A_y\)</span> in <a href="#exm-3-9-4" class="quarto-xref">Example&nbsp;<span>3.56</span></a> and in the proof of <span class="quarto-unresolved-ref">?thm-3-9-4</span>.</figcaption>
+<figcaption>The set <span class="math inline">\(A_y\)</span> in <a href="#exm-3-9-4" class="quarto-xref">Example&nbsp;<span>3.60</span></a> and in the proof of <span class="quarto-unresolved-ref">?thm-3-9-4</span>.</figcaption>
 </figure>
 </div>
 <p>Taking the derivative of <span class="math inline">\(G(y)\)</span> with respect to <span class="math inline">\(y\)</span>, we get the pdf</p>
@@ -3089,22 +3814,22 @@ g(y) = \frac{d}{dy}\left[ 1 - e^{-2y} - ye^{-2y} \right] = 4ye^{-2y},
 \]</span></p>
 <p>for <span class="math inline">\(y &gt; 0\)</span> and 0 otherwise.</p>
 </div>
-<p>The transformation in <a href="#exm-3-9-4" class="quarto-xref">Example&nbsp;<span>3.56</span></a> is an example of a brute-force method that is always available for finding the distribution of a function of several random variables, however, it might be difficult to apply in individual cases.</p>
+<p>The transformation in <a href="#exm-3-9-4" class="quarto-xref">Example&nbsp;<span>3.60</span></a> is an example of a brute-force method that is always available for finding the distribution of a function of several random variables, however, it might be difficult to apply in individual cases.</p>
 <div id="thm-3-9-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3.23 (Theorem 3.9.3: Brute-Force Distribution of a Function)</strong></span> Suppose that the joint pdf of <span class="math inline">\(\mathbf{X} = (X_1, \ldots, X_n)\)</span> is <span class="math inline">\(f(\mathbf{x})\)</span> and that <span class="math inline">\(Y = r(\mathbf{X})\)</span>. For each real number <span class="math inline">\(y\)</span>, define <span class="math inline">\(A_y = \{\mathbf{x} \mid r(\mathbf{x}) \leq y\}\)</span>. Then the CDF <span class="math inline">\(G(y)\)</span> of <span class="math inline">\(Y\)</span> is</p>
+<p><span class="theorem-title"><strong>Theorem 3.24 (Theorem 3.9.3: Brute-Force Distribution of a Function)</strong></span> Suppose that the joint pdf of <span class="math inline">\(\mathbf{X} = (X_1, \ldots, X_n)\)</span> is <span class="math inline">\(f(\mathbf{x})\)</span> and that <span class="math inline">\(Y = r(\mathbf{X})\)</span>. For each real number <span class="math inline">\(y\)</span>, define <span class="math inline">\(A_y = \{\mathbf{x} \mid r(\mathbf{x}) \leq y\}\)</span>. Then the CDF <span class="math inline">\(G(y)\)</span> of <span class="math inline">\(Y\)</span> is</p>
 <p><span id="eq-3-9-1"><span class="math display">\[
 G(y) = \int \cdots_{A_y} \int f(\mathbf{x}) d\mathbf{x}.
-\tag{3.35}\]</span></span></p>
+\tag{3.38}\]</span></span></p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>From the definition of CDF,</p>
 <p><span class="math display">\[
 G(y) = \Pr(Y \leq y) = \Pr\left[ r(\mathbf{X}) \leq y \right] = \Pr(\mathbf{X} \in A_y),
 \]</span></p>
-<p>which equals the right side of <a href="#eq-3-9-1" class="quarto-xref">Equation&nbsp;<span>3.35</span></a> by <span class="quarto-unresolved-ref">?def-3-7-3</span>.</p>
+<p>which equals the right side of <a href="#eq-3-9-1" class="quarto-xref">Equation&nbsp;<span>3.38</span></a> by <span class="quarto-unresolved-ref">?def-3-7-3</span>.</p>
 </div>
 </div>
 <p>If the distribution of <span class="math inline">\(Y\)</span> also is continuous, then the pdf of <span class="math inline">\(Y\)</span> can be found by differentiating the CDF <span class="math inline">\(G(y)\)</span>.</p>
-<p>A popular special case of <a href="#thm-3-9-3" class="quarto-xref">Theorem&nbsp;<span>3.23</span></a> is the following.</p>
+<p>A popular special case of <a href="#thm-3-9-3" class="quarto-xref">Theorem&nbsp;<span>3.24</span></a> is the following.</p>
 <!-- End point, 2024-07-01, 12:20am -->
 <p>Theorem 3.9.4 Linear Function of Two Random Variables. Let X1 and X2 have joint pdf f (x1, x2), and let Y = a1X1 + a2X2 + b with a1  = 0. Then Y has a continuous distribution whose pdf is g(y) =   ∞ −∞ f</p>
 <p>y − b − a2x2 a1 , x2   1 |a1| dx2. (3.9.2) Proof First, we shall find the CDFGof Y whose derivative we will see is the function g in Eq. (3.9.2). For each y, let Ay = {(x1, x2) : a1x1 + a2x2 + b ≤ y}. The set Ay has the same general form as the set in Fig. 3.24.We shall write the integral over the set Ay with x2 in the outer integral and x1 in the inner integral. Assume that a1 &gt; 0. The other case is similar. According to Theorem 3.9.3, G(y) =   Ay   f (x1, x2)dx1dx2 =   ∞ −∞   (y−b−a2x2)/a1 −∞ f (x1, x2)dx1dx2. (3.9.3) For the inner integral, perform the change of variable z = a1x1 + a2x2 + b whose inverse is x1 = (z − b − a2x2)/a1, so that dx1 = dz/a1. The inner integral, after this change of variable, becomes   y −∞ f</p>
@@ -3189,12 +3914,12 @@ Example 3.9.10: Service Time in a Queue (DeGroot and Schervish, p.&nbsp;185)
 <section id="stochastic-processes" class="level3">
 <h3 class="anchored" data-anchor-id="stochastic-processes">Stochastic Processes</h3>
 <div id="exm-3-10-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.57 (Example 3.10.1: Occupied Telephone Lines)</strong></span> Suppose that a certain business office has five telephone lines and that any number of these lines may be in use at any given time. During a certain period of time, the telephone lines are observed at regular intervals of 2 minutes and the number of lines that are being used at each time is noted. Let <span class="math inline">\(X_1\)</span> denote the number of lines that are being used when the lines are first observed at the beginning of the period; let <span class="math inline">\(X_2\)</span> denote the number of lines that are being used when they are observed the second time, 2 minutes later; and in general, for <span class="math inline">\(n = 1, 2, \ldots\)</span>, let <span class="math inline">\(X_n\)</span> denote the number of lines that are being used when they are observed for the <span class="math inline">\(n\)</span>th time.</p>
+<p><span class="theorem-title"><strong>Example 3.61 (Example 3.10.1: Occupied Telephone Lines)</strong></span> Suppose that a certain business office has five telephone lines and that any number of these lines may be in use at any given time. During a certain period of time, the telephone lines are observed at regular intervals of 2 minutes and the number of lines that are being used at each time is noted. Let <span class="math inline">\(X_1\)</span> denote the number of lines that are being used when the lines are first observed at the beginning of the period; let <span class="math inline">\(X_2\)</span> denote the number of lines that are being used when they are observed the second time, 2 minutes later; and in general, for <span class="math inline">\(n = 1, 2, \ldots\)</span>, let <span class="math inline">\(X_n\)</span> denote the number of lines that are being used when they are observed for the <span class="math inline">\(n\)</span>th time.</p>
 </div>
 <div id="def-3-10-1" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.23 (Definition 3.10.1: Stochastic Process)</strong></span> A sequence of random variables <span class="math inline">\(X_1, X_2, \ldots\)</span> is called a <strong>stochastic process</strong> or <strong>random process</strong> with discrete time parameter. The first random variable <span class="math inline">\(X_1\)</span> is called the <strong>initial state</strong> of the process; and for <span class="math inline">\(n = 2, 3, \ldots\)</span>, the random variable <span class="math inline">\(X_n\)</span> is called the <strong>state of the process at time <span class="math inline">\(n\)</span></strong>.</p>
+<p><span class="theorem-title"><strong>Definition 3.24 (Definition 3.10.1: Stochastic Process)</strong></span> A sequence of random variables <span class="math inline">\(X_1, X_2, \ldots\)</span> is called a <strong>stochastic process</strong> or <strong>random process</strong> with discrete time parameter. The first random variable <span class="math inline">\(X_1\)</span> is called the <strong>initial state</strong> of the process; and for <span class="math inline">\(n = 2, 3, \ldots\)</span>, the random variable <span class="math inline">\(X_n\)</span> is called the <strong>state of the process at time <span class="math inline">\(n\)</span></strong>.</p>
 </div>
-<p>In <a href="#exm-3-10-1" class="quarto-xref">Example&nbsp;<span>3.57</span></a>, the state of the process at any time is the number of lines being used at that time. Therefore, each state must be an integer between 0 and 5. Each of the random variables in a stochastic process has a marginal distribution, and the entire process has a joint distribution. For convenience, in this text, we will discuss only joint distributions for finitely many of <span class="math inline">\(X_1, X_2, \ldots\)</span> at a time. The meaning of the phrase “discrete time parameter” is that the process, such as the numbers of occupied phone lines, is observed only at discrete or separated points in time, rather than continuously in time. In <a href="05-special-distributions.html#sec-5-4" class="quarto-xref"><span>Section 5.4</span></a>, we will introduce a different stochastic process (called the Poisson process) with a continuous time parameter.</p>
+<p>In <a href="#exm-3-10-1" class="quarto-xref">Example&nbsp;<span>3.61</span></a>, the state of the process at any time is the number of lines being used at that time. Therefore, each state must be an integer between 0 and 5. Each of the random variables in a stochastic process has a marginal distribution, and the entire process has a joint distribution. For convenience, in this text, we will discuss only joint distributions for finitely many of <span class="math inline">\(X_1, X_2, \ldots\)</span> at a time. The meaning of the phrase “discrete time parameter” is that the process, such as the numbers of occupied phone lines, is observed only at discrete or separated points in time, rather than continuously in time. In <a href="05-special-distributions.html#sec-5-4" class="quarto-xref"><span>Section 5.4</span></a>, we will introduce a different stochastic process (called the Poisson process) with a continuous time parameter.</p>
 <p>In a stochastic process with a discrete time parameter, the state of the process varies in a random manner from time to time. To describe a complete probability model for a particular process, it is necessary to specify the distribution for the initial state <span class="math inline">\(X_1\)</span> and also to specify for each <span class="math inline">\(n = 1, 2, \ldots\)</span> the conditional distribution of the subsequent state <span class="math inline">\(X_{n+1}\)</span> given <span class="math inline">\(X_1, \ldots, X_n\)</span>. These conditional distributions are equivalent to the collection of conditional CDFs of the following form:</p>
 <p><span class="math display">\[
 \Pr(X_{n+1} \leq b \mid X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n).
@@ -4038,6 +4763,7 @@ h_1(x_1 \mid 1) = \begin{cases}
 
 </section>
 </section>
+</div>
 </div>
 </div>
 </section>
