@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: docs
+  pre-render: _pre-set-updated.py
 
 book:
   title: "Probability and Statistics (Fourth Edition)"
@@ -33,6 +34,7 @@ format:
     #theme: default
     #theme: [cosmo, "assets/jj_dsps.scss"]
     theme: cosmo
+    footer: "*Updated {{< env PPOL6805_LAST_UPDATED \"2024-08-28\" >}}*"
     # Note to self: Quarto callout classes
     # 1. note = definitions (#def)
     # 2. tip = example (#exm)
