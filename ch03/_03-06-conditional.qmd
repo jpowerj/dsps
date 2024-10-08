@@ -158,7 +158,7 @@ After we learn how much time $Y$ that the first stage takes, we want to update o
 
 :::
 :::
-  
+
 To facilitate the solutions of problems such as the one posed in @exm-3-6-4, the concept of conditional probability will be extended by considering the definition of the conditional pmf of $X$ given in @eq-3-6-2 and the analogy between a pmf and a pdf
 
 ::: {.callout-note title="Definition 3.6.2"}
@@ -203,49 +203,36 @@ by using the formula for $f_2(y)$ in @eq-3-5-3.
 
 <!-- Stopping point 2024-10-01 -->
 
-Example
-3.6.5
-Processing Times. In Example 3.6.4, Y is the time that the first stage of a process takes,
-while X is the total time of the two stages.We want to calculate the conditional pdf
-of X given Y . We can calculate the marginal pdf of Y as follows: For each y, the
-possible values of X are all x ≥ y, so for each y >0,
-f2(y) =
-  ∞
-y
-e
-−xdx = e
-−y,
-and f2(y) = 0 fory <0. For each y ≥ 0, the conditional pdf of X given Y = y is then
-g1(x|y) = f (x, y)
-f2(y)
-= e
-−x
-e−y
-= ey−x, for x ≥ y,
-3.6 Conditional Distributions 145
-Figure 3.20 The conditional
-pdf g1(x|y0) is proportional
-to f (x, y0).
-x y
-f (x, y)
-f (x, y0)
-y0
-and g1(x|y) = 0 for x < y. So, for example, if we observe Y = 4 and we want the
-conditional probability that X ≥ 9, we compute
-Pr(X ≥ 9|Y = 4) =
-  ∞
-9
-e4−xdx = e
-−5 = 0.0067.  
-Definition 3.6.2 has an interpretation that can be understood by considering
-Fig. 3.20. The joint pdf f defines a surface over the xy-plane for which the height
-f (x, y) at each point (x, y) represents the relative likelihood of that point. For
-instance, if it is known that Y = y0, then the point (x, y) must lie on the line y = y0 in
-the xy-plane, and the relative likelihood of any point (x, y0) on this line is f (x, y0).
-Hence, the conditional pdf g1(x|y0) ofX should be proportional to f (x, y0). In other
-words, g1(x|y0) is essentially the same as f (x, y0), but it includes a constant factor
-1/[f2(y0)], which is required to make the conditional pdf integrate to unity over all
-values of x.
+::: {.callout-tip title="Example 3.6.5"}
+::: {#exm-3-6-5}
+
+# Example 3.6.5: Processing Times
+
+In @exm-3-6-4, $Y$ is the time that the first stage of a process takes, while $X$ is the total time of the two stages. We want to calculate the conditional pdf of $X$ given $Y$. We can calculate the marginal pdf of $Y$ as follows: For each $y$, the possible values of $X$ are all $x \geq y$, so for each $y > 0$,
+
+$$
+f_2(y) = \int_{y}^{\infty}e^{-x}\mathrm{d}x = e^{-y},
+$$
+
+and $f_2(y) = 0$ for $y < 0$. For each $y \geq 0$, the conditional pdf of $X$ given $Y = y$ is then
+
+$$
+g_1(x \mid y) = \frac{f(x,y)}{f_2(y)} = \frac{e^{-x}}{e^{-y}} = e^{y-x}, \; \text{ for }x \geq y,
+$$
+
+and $g_1(x \mid y) = 0$ for $x < y$. So, for example, if we observe $Y = 4$ and we want the conditional probability that $X \geq 9$, we compute
+
+$$
+\Pr(X \geq 9 \mid Y = 4) = \int_{9}^{\infty}e^{4-x}dx = e^{-5} \approx 0.0067.
+$$
+
+:::
+:::
+
+![The conditional pdf $g_1(x \mid y_0)$ is proportional to $f(x, y_0)$.](ch03/images/fig-3-20.svg){width="80%"}
+
+@def-3-6-2 has an interpretation that can be understood by considering @fig-3-20. The joint pdf $f$ defines a surface over the $xy$-plane for which the height $f(x, y)$ at each point $(x, y)$ represents the relative likelihood of that point. For instance, if it is known that $Y = y_0$, then the point $(x, y)$ must lie on the line $y = y0$ in the $xy$-plane, and the relative likelihood of any point $(x, y_0)$ on this line is $f(x, y_0)$. Hence, the conditional pdf $g_1(x \mid y_0)$ of $X$ should be proportional to $f(x, y_0)$. In other words, $g_1(x \mid y_0)$ is essentially the same as $f(x, y_0)$, but it includes a constant factor $1/[f_2(y_0)]$, which is required to make the conditional pdf integrate to unity over all values of $x$.
+
 Similarly, for each value of x such that f1(x) > 0, the conditional pdf of Y given
 that X = x is defined as follows:
 g2(y|x) = f (x, y)
