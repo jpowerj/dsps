@@ -25,6 +25,8 @@ book:
     - 11-linear-statistical-models.qmd
     - 12-simulation.qmd
     - references.qmd
+    - text: "PDF Version <i class='bi bi-box-arrow-up=right'></i>"
+      href: "assets/DeGroot_Schervish_4e.pdf"
 
 bibliography: assets/DeGroot_Schervish.bib
 
