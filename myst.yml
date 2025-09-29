@@ -4,6 +4,8 @@ project:
   id: 3e7d3258-cf97-45a1-8aa3-8f721f50ba06
   title: "Probability and Statistics"
   bibliography: "DeGroot_Schervish.bib"
+  resources:
+    - /static/DeGroot_Schervish_4e.pdf
   # description: "Test"
   # keywords: []
   # authors: [DeGroot, Schervish]
@@ -14,9 +16,10 @@ project:
     heading_2: true
     heading_3: true
   downloads:
-    - url: /static/DeGroot_Schervish_4e.pdf
+    - url: static/DeGroot_Schervish_4e.pdf
       filename: "DeGroot_Schervish_4e.pdf"
       title: "PDF Version"
+      static: true
   toc:
     - file: intro.md
     # - file: ch01/index.md
@@ -55,8 +58,10 @@ project:
     # - file: ch12/index.md
     #   children:
     #     - pattern: "ch12/12-*.md"
-    - url: "static/DeGroot_Schervish_4e.pdf"
+    - url: assets/DeGroot_Schervish_4e.pdf
+      filename: "DeGroot_Schervish_4e.pdf"
       title: "PDF Version"
+      static: true
 site:
   template: book-theme
   title: Probability and Statistics
