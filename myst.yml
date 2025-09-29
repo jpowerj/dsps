@@ -13,6 +13,10 @@ project:
     heading_1: true
     heading_2: true
     heading_3: true
+  downloads:
+    - url: /static/DeGroot_Schervish_4e.pdf
+      filename: "DeGroot_Schervish_4e.pdf"
+      title: "PDF Version"
   toc:
     - file: intro.md
     # - file: ch01/index.md
@@ -51,6 +55,8 @@ project:
     # - file: ch12/index.md
     #   children:
     #     - pattern: "ch12/12-*.md"
+    - url: "static/DeGroot_Schervish_4e.pdf"
+      title: "PDF Version"
 site:
   template: book-theme
   title: Probability and Statistics
