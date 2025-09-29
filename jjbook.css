@@ -17,3 +17,21 @@ a[href="https://mystmd.org/made-with-myst"] {
 figcaption {
   text-align: center !important;
 }
+
+.exr-head {
+  visibility: hidden !important;
+  height: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.exr-head > * {
+  visibility: hidden !important;
+  height: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.proof::before {
+  content: "Proof:";
+}

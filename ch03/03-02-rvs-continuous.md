@@ -1,0 +1,515 @@
+(sec-3-2)=
+# Continuous Distributions
+
+*Next, we focus on random variables that can assume every value in an interval (bounded or unbounded). If a random variable $X$ has associated with it a function $f$ such that the integral of $f$ over each interval gives the probability that X is in the interval, then we call $f$ the probability density function (pdf) of $X$ and we say that $X$ has a continuous distribution.*
+
+(sec-3-2-1)=
+# The Probability Density Function
+
+:::: {prf:example} Demands for Utilities
+:label: exm-3-2-1
+:enumerator: 3.2.1
+
+In @exm-3-1-5, we determined the distribution of the demand for water, $X$. From @fig-3-2, we see that the smallest possible value of $X$ is 4 and the largest is 200. For each interval $C = [c_0, c_1] \subset [4, 200]$, @eq-3-1-2 says that
+
+$$
+\Pr(c_0 \leq X \leq c_1) = \frac{149(c_1-c_0)}{29204} = \frac{c_1 - c_0}{196} = \int_{c_0}^{c_1}\frac{1}{196}dx.
+$$
+
+So, if we define
+
+```{math}
+:label: eq-3-2-1
+:enumerator: 3.2.1
+
+f(v) = \begin{cases}
+\frac{1}{196} &\text{if }4 \leq x \leq 200, \\
+0 &\text{otherwise,}
+\end{cases}
+```
+
+we have that
+
+```{math}
+:label: eq-3-2-2
+:enumerator: 3.2.2
+
+\Pr(c_0 \leq X \leq c_1) = \int_{c_0}^{c_1}f(x)dx.
+```
+
+Because we defined $f(x)$ to be 0 for $x$ outside of the interval $[4, 200]$, we see that @eq-3-2-2 holds for all $c_0 \leq c_1$, even if $c_0 = -\infty$ and/or $c_1 = \infty$.
+
+::::
+ 
+The water demand $X$ in @exm-3-2-1 is an example of the following.
+
+:::: {prf:definition} Continuous Distribution / Random Variable
+:label: def-3-2-1
+:enumerator: 3.2.1
+
+We say that a random variable $X$ has a **continuous distribution** or that $X$ is a **continuous random variable** if there exists a nonnegative function $f$, defined on the real line, such that for every interval of real numbers (bounded or unbounded), the probability that $X$ takes a value in the interval
+is the integral of $f$ over the interval.
+
+::::
+
+For example, in the situation described in @def-3-2-1, for each bounded closed interval $[a, b]$,
+
+```{math}
+:label: eq-3-2-3
+:enumerator: 3.2.3
+
+\Pr(a \leq X \leq b) = \int_{a}^{b}f(x)dx.
+```
+
+Similarly, $\Pr(X \geq a) = \int_{a}^{\infty}f(x)dx$ and $\Pr(X \leq b) = \int_{-\infty}^{b}f(x)dx$.
+
+We see that the function $f$ characterizes the distribution of a continuous random variable in much the same way that the probability mass function characterizes the distribution of a discrete random variable. For this reason, the function $f$ plays an important role, and hence we give it a name.
+
+:::: {prf:definition} Probability Density Function / pdf / Support
+:label: def-3-2-2
+:enumerator: 3.2.2
+
+If $X$ has a continuous distribution, the function $f$ described in @def-3-2-1 is called the **probability density function** (abbreviated **pdf**) of $X$. The closure of the set $\{x \mid f(x) > 0\}$ is called the **support of (the distribution of) $X$**.
+
+::::
+
+@exm-3-2-1 demonstrates that the water demand $X$ has pdf given by @eq-3-2-1.
+
+Every pdf $f$ must satisfy the following two requirements:
+
+```{math}
+:label: eq-3-2-4
+:enumerator: 3.2.4
+
+f(x) \geq 0, \; \text{ for all }x,
+```
+
+and
+
+```{math}
+:label: eq-3-2-5
+:enumerator: 3.2.5
+
+\int_{-\infty}^{\infty}f(x)dx = 1.
+```
+
+A typical pdf is sketched in @fig-3-4. In that figure, the total area under the curve must be 1, and the value of $\Pr(a \leq X \leq b)$ is equal to the area of the shaded region.
+
+**Note: Continuous Distributions Assign Probability 0 to Individual Values**. The integral in @eq-3-2-3 also equals $\Pr(a < X \leq b)$ as well as $\Pr(a < X < b)$ and $\Pr(a \leq X < b)$. Hence, it follows from the definition of continuous distributions that, if $X$ has a continuous distribution, $\Pr(X = a) = 0$ for each number $a$. As we noted on page 20, the fact that $\Pr(X = a) = 0$ does not imply that $X = a$ is impossible. If it did, all values of $X$ would be impossible and $X$ couldn't assume any value. What happens is that the probability in the distribution of $X$ is spread so thinly that we can only see it on sets like nondegenerate intervals. It is much the same as the fact that lines have 0 area in two dimensions, but that does not mean that lines are not there. The two vertical lines indicated under the curve in @fig-3-4 have 0 area, and this signifies that $\Pr(X = a) = \Pr(X = b) = 0$. However, for each $\epsilon > 0$ and each $a$ such that $f(a) > 0$, $\Pr(a − \epsilon \leq X \leq a + \epsilon) \approx 2\epsilon f(a) > 0$.
+
+```{figure} images/fig-3-4.jpeg
+:label: fig-3-4
+:enumerator: 3.4
+:align: center
+:width: 50%
+
+An example of a pdf
+```
+
+<!-- 2023-09-23, 4:58pm -->
+
+(sec-3-2-2)=
+# Nonuniqueness of the PDF
+
+If a random variable $X$ has a continuous distribution, then $\Pr(X = x) = 0$ for every individual value $x$. Because of this property, the values of each pdf can be changed at a finite number of points, or even at certain infinite sequences of points, without changing the value of the integral of the pdf over any subset $A$. In other words, the values of the pdf of a random variable $X$ can be changed arbitrarily at many points without affecting any probabilities involving $X$, that is, without affecting the probability distribution of $X$. At exactly which sets of points we can change a pdf depends on subtle features of the definition of the Riemann integral. We shall not deal with this issue in this text, and we shall only contemplate changes to pdfs at finitely many points.
+
+To the extent just described, the pdf of a random variable is not unique. In many problems, however, there will be one version of the pdf that is more natural than any other because for this version the pdf will, wherever possible, be continuous on the real line. For example, the pdf sketched in @fig-3-4 is a continuous function over the entire real line. This pdf could be changed arbitrarily at a few points without affecting the probability distribution that it represents, but these changes would introduce discontinuities into the pdf without introducing any apparent advantages.
+
+Throughout most of this book, we shall adopt the following practice: If a random variable $X$ has a continuous distribution, we shall give only one version of the pdf of $X$ and we shall refer to that version as **the** pdf of $X$, just as though it had been uniquely determined. It should be remembered, however, that there is some freedom in the selection of the particular version of the pdf that is used to represent each continuous distribution. The most common place where such freedom will arise is in cases like @eq-3-2-1 where the pdf is required to have discontinuities. Without making the function $f$ any less continuous, we could have defined the pdf in that example so that $f(4) = f(200) = 0$ instead of $f(4) = f(200) = 1/196$. Both of these choices lead to the same calculations of all probabilities associated with $X$, and they are both equally valid. Because the support of a continuous distribution is the closure of the set where the pdf is strictly positive, it can be shown that the support is unique. A sensible approach would then be to choose the version of the pdf that was strictly positive on the support whenever possible.
+
+The reader should note that "continuous distribution" is not the name of a distribution, just as "discrete distribution" is not the name of a distribution. There are many distributions that are discrete and many that are continuous. Some distributions of each type have names that we either have introduced or will introduce later.
+
+We shall now present several examples of continuous distributions and their PDFs.
+
+### Uniform Distributions on Intervals
+
+::: {#exm-3-2-2}
+
+# Example 3.2.2: Temperature Forecasts
+
+Television weather forecasters announce high and low temperature forecasts as integer numbers of degrees. These forecasts, however, are the results of very sophisticated weather models that provide more precise forecasts that the television personalities round to the nearest integer for simplicity. Suppose that the forecaster announces a high temperature of y. If we wanted to know what temperature $X$ the weather models actually produced, it might be safe to assume that $X$ was equally likely to be any number in the interval from $y − 1/2$ to $y + 1/2$.  
+
+:::
+
+The distribution of $X$ in @exm-3-2-2 is a special case of the following.
+
+::: {#def-3-2-3}
+
+# Definition 3.2.3: Uniform Distribution on an Interval
+
+Let $a$ and $b$ be two given real numbers such that $a < b$. Let $X$ be a random variable such that it is known that $a \leq X \leq b$ and, for every subinterval of $[a, b]$, the probability that $X$ will belong to that subinterval is proportional to the length of that subinterval. We then say that the random variable $X$ has the **uniform distribution** on the interval $[a, b]$.
+
+:::
+
+A random variable $X$ with the uniform distribution on the interval $[a, b]$ represents the outcome of an experiment that is often described by saying that a point is chosen at random from the interval $[a, b]$. In this context, the phrase "at random" means that the point is just as likely to be chosen from any particular part of the interval as from any other part of the same length.
+
+::: {#thm-3-2-1}
+
+# Theorem 3.2.1: Uniform Distribution PDF
+
+If $X$ has the uniform distribution on an interval $[a, b]$, then the pdf of $X$ is
+
+$$
+f(x) = \begin{cases}
+\frac{1}{b - a} &\text{for }a \leq x \leq b, \\
+0 &\text{otherwise.}
+\end{cases}
+$$ {#eq-3-2-6}
+
+::: {.proof}
+$X$ must take a value in the interval $[a, b]$. Hence, the pdf $f(x)$ of $X$ must be 0 outside of $[a, b]$. Furthermore, since any particular subinterval of $[a, b]$ having a given length is as likely to contain $X$ as is any other subinterval having the same length, regardless of the location of the particular subinterval in $[a, b]$, it follows that $f(x)$ must be constant throughout $[a, b]$, and that interval is then the support of the distribution. Also,
+
+$$
+\int_{-\infty}^{\infty}f(x)dx = \int_{a}^{b}f(x)dx = 1.
+$$ {#eq-3-2-7}
+
+Therefore, the constant value of $f(x)$ throughout $[a, b]$ must be $1/(b − a)$, and the pdf of $X$ must be @eq-3-2-6.
+:::
+
+:::
+
+![The pdf for the uniform distribution on the interval $[a, b]$.](ch03/images/fig-3-5.jpeg){#fig-3-5}
+
+The pdf @eq-3-2-6 is sketched in @fig-3-5. As an example, the random variable $X$ (demand for water) in @exm-3-2-1 has the uniform distribution on the interval $[4, 200]$.
+
+**Note: Density Is Not Probability**. The reader should note that the pdf in @eq-3-2-6 can be greater than 1, particularly if $b − a < 1$. Indeed, pdfs can be unbounded, as we shall see in @exm-3-2-6. The pdf of $X$, $f(x)$, itself does not equal the probability that $X$ is near $x$. The integral of $f$ over values near $x$ gives the probability that $X$ is near $x$, and the integral is never greater than 1.
+
+It is seen from @eq-3-2-6 that the pdf representing a uniform distribution on a given interval is constant over that interval, and the constant value of the pdf is the reciprocal of the length of the interval. It is not possible to define a uniform distribution over an unbounded interval, because the length of such an interval is infinite.
+
+Consider again the uniform distribution on the interval $[a, b]$. Since the probability is 0 that one of the endpoints $a$ or $b$ will be chosen, it is irrelevant whether the distribution is regarded as a uniform distribution on the **closed** interval $a \leq x \leq b$, or as a uniform distribution on the **open** interval $a < x < b$, or as a uniform distribution on the half-open and half-closed interval $(a, b]$ in which one endpoint is included and the other endpoint is excluded.
+
+For example, if a random variable $X$ has the uniform distribution on the interval $[−1, 4]$, then the pdf of $X$ is
+
+$$
+f(x) = \begin{cases}
+1/5 &\text{for }-1 \leq x \leq 4, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+Furthermore,
+
+$$
+\Pr(0 \leq X < 2) = \int_{0}^{2}f(x)dx = \frac{2}{5}.
+$$
+
+Notice that we defined the pdf of $X$ to be strictly positive on the closed interval $[−1, 4]$ and 0 outside of this closed interval. It would have been just as sensible to define the pdf to be strictly positive on the open interval $(−1, 4)$ and 0 outside of this open interval. The probability distribution would be the same either way, including
+the calculation of $\Pr(0 \leq X < 2)$ that we just performed. After this, when there are several equally sensible choices for how to define a pdf, we will simply choose one of them without making any note of the other choices.
+
+### Other Continuous Distributions
+
+::: {#exm-3-2-3}
+
+# Example 3.2.3: Incompletely Specified pdf
+
+Suppose that the pdf of a certain random variable $X$ has the following form:
+
+$$
+f(x) = \begin{cases}
+cx &\text{for }0 < x < 4, \\
+0 &\text{otherwise,}
+\end{cases}
+$$
+
+where $c$ is a given constant. We shall determine the value of $c$.
+
+For every pdf, it must be true that $\int_{-\infty}^{\infty}f(x) = 1$. Therefore, in this example,
+
+$$
+\int_{0}^{4}cx~dx = 8c = 1.
+$$
+
+Hence, $c = 1/8$.
+
+:::
+
+**Note: Calculating Normalizing Constants**. The calculation in @exm-3-2-3 illustrates an important point that simplifies many statistical results. The pdf of $X$ was specified without explicitly giving the value of the constant $c$. However, we were able to figure out what was the value of $c$ by using the fact that the integral of a pdf must
+be 1. It will often happen, especially in @sec-8 where we find sampling distributions of summaries of observed data, that we can determine the pdf of a random variable except for a constant factor. That constant factor must be the unique value such that the integral of the pdf is 1, even if we cannot calculate it directly.
+
+::: {#exm-3-2-4}
+
+# Example 3.2.4: Calculating Probabilities from a PDF (p. 105)
+
+Suppose that the PDF of $X$ is as in @exm-3-2-3, namely,
+
+$$
+f(x) = \begin{cases}
+\frac{x}{8} &\text{for }0 < x < 4, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+We shall now determine the values of $\Pr(1 \leq X \leq 2)$ and $\Pr(X > 2)$. Apply @eq-3-2-3 to get
+
+$$
+\Pr(1 \leq X \leq 2) = \int_1^2 \frac{1}{8}xdx = \frac{3}{16}
+$$
+
+and
+
+$$
+\Pr(X > 2) = \int_2^4 \frac{1}{8}xdx = \frac{3}{4}.
+$$
+
+:::
+
+::: {#exm-3-2-5}
+
+# Example 3.2.5: Unbounded Random Variables
+
+It is often convenient and useful to represent a continuous distribution by a pdf that is positive over an unbounded interval of the real line. For example, in a practical problem, the voltage $X$ in a certain electrical system might be a random variable with a continuous distribution that can be approximately represented by the pdf
+
+$$
+f(x) = \begin{cases}
+0 &\text{for }x \leq 0, \\
+\frac{1}{(1+x)^2} &\text{for }x > 0.
+\end{cases}
+$$ {#eq-3-2-8}
+
+It can be verified that the properties @eq-3-2-4 and @eq-3-2-5 required of all pdfs are satisfied by $f(x)$.
+
+Even though the voltage $X$ may actually be bounded in the real situation, the pdf @eq-3-2-8 may provide a good approximation for the distribution of $X$ over its full range of values. For example, suppose that it is known that the maximum possible value of $X$ is 1000, in which case $\Pr(X > 1000) = 0$. When the pdf @eq-3-2-8 is used, we compute $\Pr(X > 1000) = 0.001$. If @eq-3-2-8 adequately represents the variability of $X$ over the interval $(0, 1000)$, then it may be more convenient to use the pdf @eq-3-2-8 than a pdf that is similar to @eq-3-2-8 for $x \leq 1000$, except for a new normalizing constant, and is 0 for $x > 1000$. This can be especially true if we do not know for sure
+that the maximum voltage is only 1000.
+
+:::
+
+::: {#exm-3-2-6}
+
+# Example 3.2.6: Unbounded PDFs
+
+Since a value of a PDF is a probability density, rather than a probability, such a value can be larger than $1$. In fact, the values of the following PDF are unbounded in the neighborhood of $x = 0$:
+
+$$
+f(x) = \begin{cases}
+\frac{2}{3}x^{-1/3} &\text{for }0 < x < 1, \\
+0 &\text{otherwise.}
+\end{cases}
+$$ {#eq-3-2-9}
+
+It can be verified that even though the PDF @eq-3-2-9 is unbounded, it satisfies the properties @eq-3-2-4 and @eq-3-2-5 required of a PDF.
+
+:::
+
+### Mixed Distributions
+
+Most distributions that are encountered in practical problems are either discrete or continuous. We shall show, however, that it may sometimes be necessary to consider a distribution that is a mixture of a discrete distribution and a continuous distribution.
+
+::: {#exm-3-2-7}
+
+# Example 3.2.7: Truncated Voltage (DeGroot and Schervish, p. 106)
+
+Suppose that in the electrical system considered in @exm-3-2-5, the voltage $X$ is to be measured by a voltmeter that will record the actual value of $X$ if $X \leq 3$ but will simply record the value $3$ if $X > 3$. If we let $Y$ denote the value recorded by the voltmeter, then the distribution of $Y$ can be derived as follows.
+
+First, $\Pr(Y = 3) = \Pr(X \geq 3) = 1/4$. Since the single value $Y = 3$ has probability $1/4$, it follows that $\Pr(0 < Y < 3) = 3/4$. Furthermore, since $Y = X$ for $0 < X < 3$, this probability $3/4$ for $Y$ is distributed over the interval $(0, 3)$ according to the same PDF (3.2.8) as that of $X$ over the same interval. Thus, the distribution of $Y$ is specified by the combination of a PDF over the interval $(0, 3)$ and a positive probability at the point $Y = 3$.
+
+:::
+
+### Summary
+
+A continuous distribution is characterized by its probability density function (PDF). A nonnegative function $f$ is the PDF of the distribution of $X$ if, for every interval $[a, b]$, $\Pr(a \leq X \leq b) = \int_a^b f(x)dx$. Continuous random variables satisfy $\Pr(X = x) = 0$ for every value $x$. If the PDF of a distribution is constant on an interval $[a, b]$ and is 0 off the interval, we say that the distribution is uniform on the interval $[a, b]$.
+
+### Exercises
+
+::: {#exr-3-2-1}
+
+# Exercise 3.2.1
+
+Let X be a random variable with the PDF specified in
+@exm-3-2-6. Compute $\Pr(X \leq 8/27)$.
+
+:::
+
+::: {#exr-3-2-2}
+
+# Exercise 3.2.2
+
+Suppose that the PDF of a random variable $X$ is as
+follows:
+
+$$
+f(x) = \begin{cases}
+\frac{4}{3}(1-x^3) &\text{for }0 < x < 1, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+Sketch this PDF and determine the values of the following
+probabilities:
+
+(a) $\Pr\left(X < \frac{1}{2}\right)$
+
+(b) $\Pr\left(\frac{1}{4} < X < \frac{3}{4}\right)$
+
+(c) $\Pr\left(X > \frac{1}{3}\right)$
+
+:::
+
+::: {#exr-3-2-3}
+
+# Exercise 3.2.3
+
+Suppose that the PDF of a random variable $X$ is as
+follows:
+
+$$
+f(x) = \begin{cases}
+\frac{1}{36}(9 - x^2) &\text{for }-3 \leq x \leq 3, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+Sketch this pdf and determine the values of the following
+probabilities:
+
+(a) $\Pr(X < 0)$
+
+(b) $\Pr(−1 \leq X \leq 1)$
+
+(c) $\Pr(X > 2)$.
+
+:::
+
+::: {#exr-3-2-4}
+
+# Exercise 3.2.4
+
+4. Suppose that the pdf of a random variable $X$ is as follows:
+
+$$
+f(x) = \begin{cases}
+cx^2 &\text{for }1 \leq x \leq 2, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+a. Find the value of the constant $c$ and sketch the pdf.
+b. Find the value of $\Pr(X > 3/2)$.
+
+:::
+
+::: {#exr-3-2-5}
+
+# Exercise 3.2.5
+
+Suppose that the pdf of a random variable $X$ is as follows:
+
+$$
+f(x) = \begin{cases}
+\frac{1}{8}x &\text{for }0 \leq x \leq 4,
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+a. Find the value of $t$ such that $\Pr(X \leq t) = 1/4$.
+b. Find the value of $t$ such that $\Pr(X \geq t) = 1/2$.
+
+:::
+
+::: {#exr-3-2-6}
+
+# Exercise 3.2.6
+
+Let $X$ be a random variable for which the pdf is as given in @exr-3-2-5. After the value of $X$ has been observed, let $Y$ be the integer closest to $X$. Find the pmf of the random variable $Y$.
+
+:::
+
+::: {#exr-3-2-7}
+
+# Exercise 3.2.7
+
+Suppose that a random variable $X$ has the uniform distribution on the interval $[−2, 8]$. Find the pdf of $X$ and
+the value of $\Pr(0 < X < 7)$.
+
+:::
+
+::: {#exr-3-2-8}
+
+# Exercise 3.2.8
+
+Suppose that the pdf of a random variable $X$ is as follows:
+
+$$
+f(x) = \begin{cases}
+ce^{-2x} &\text{for }x > 0, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+(a) Find the value of the constant $c$ and sketch the PDF.
+
+(b) Find the value of $\Pr(1 < X < 2)$.
+
+:::
+
+::: {#exr-3-2-9}
+
+# Exercise 3.2.9
+
+Show that there does not exist any number $c$ such that the following function $f(x)$ would be a pdf:
+
+$$
+f(x) = \begin{cases}
+\frac{c}{1 + x} &\text{for }x > 0, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+:::
+
+::: {#exr-3-2-10}
+
+# Exercise 3.2.10
+
+Suppose that the pdf of a random variable $X$ is as follows:
+
+$$
+f(x) = \begin{cases}
+\frac{c}{(1-x)^{1/2}} &\text{for }0 < x < 1, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+a. Find the value of the constant $c$ and sketch the pdf.
+b. Find the value of $\Pr(X \leq 1/2)$.
+
+:::
+
+::: {#exr-3-2-11}
+
+# Exercise 3.2.11
+
+Show that there does not exist any number $c$ such that the following function $f(x)$ would be a pdf:
+
+$$
+f(x) = \begin{cases}
+\frac{c}{x} &\text{for }0 < x < 1, \\
+0 &\text{otherwise.}
+\end{cases}
+$$
+
+:::
+
+::: {#exr-3-2-12}
+
+# Exercise 3.2.12
+
+In @exm-3-1-3, determine the distribution of the random variable $Y$, the electricity demand. Also, find $\Pr(Y < 50)$.
+
+:::
+
+::: {#exr-3-2-13}
+
+# Exercise 3.2.13
+
+An ice cream seller takes 20 gallons of ice cream in her truck each day. Let $X$ stand for the number of gallons that she sells. The probability is $0.1$ that $X = 20$. If she doesn't sell all 20 gallons, the distribution of $X$ follows a continuous distribution with a pdf of the form
+
+$$
+f(x) = \begin{cases}
+cx &\text{for }0 < x < 20, \\
+0 &\text{otherwise,}
+\end{cases}
+$$
+
+where $c$ is a constant that makes $\Pr(X < 20) = 0.9$. Find the constant $c$ so that $\Pr(X < 20) = 0.9$ as described above.
+
+:::
