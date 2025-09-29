@@ -1,0 +1,61 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 3e7d3258-cf97-45a1-8aa3-8f721f50ba06
+  title: "Preface"
+  # description: "Test"
+  # keywords: []
+  # authors: [DeGroot, Schervish]
+  github: jpowerj/dsps
+  numbering:
+    title: true
+    heading_1: true
+    heading_2: true
+    heading_3: true
+  toc:
+    - file: intro.md
+    - file: ch01/index.md
+      children:
+        - pattern: "ch01/01-*.md"
+    - file: ch02/index.md
+      children:
+        - pattern: "ch02/02-*.md"
+    - file: ch03/index.md
+      children:
+        - pattern: "ch03/03-*.md"
+    - file: ch04/index.md
+      children:
+        - pattern: "ch04/04-*.md"
+    - file: ch05/index.md
+      children:
+        - pattern: "ch05/05-*.md"
+    - file: ch06/index.md
+      children:
+        - pattern: "ch06/06-*.md"
+    - file: ch07/index.md
+      children:
+        - pattern: "ch07/07-*.md"
+    - file: ch08/index.md
+      children:
+        - pattern: "ch08/08-*.md"
+    - file: ch09/index.md
+      children:
+        - pattern: "ch09/09-*.md"
+    - file: ch10/index.md
+      children:
+        - pattern: "ch10/10-*.md"
+    - file: ch11/index.md
+      children:
+        - pattern: "ch11/11-*.md"
+    - file: ch12/index.md
+      children:
+        - pattern: "ch12/12-*.md"
+site:
+  template: book-theme
+  title: Probability and Statistics
+  options:
+    favicon: favicon.png
+    folders: true
+    logo_text: "DeGroot and Schervish, Probability and Statistics"
+    hide_myst_branding: true
+    style: jjbook.css

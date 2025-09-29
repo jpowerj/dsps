@@ -1,0 +1,19 @@
+nav[aria-label="Table of Contents"] a {
+  /* font-size: 10pt !important; */
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+}
+
+nav[aria-label="Document Outline"] a {
+  /* font-size: 10pt !important; */
+  /* font-size: 0.9rem !important; */
+  line-height: 1.1 !important;
+}
+
+a[href="https://mystmd.org/made-with-myst"] {
+  display: none !important;;
+}
+
+figcaption {
+  text-align: center !important;
+}
