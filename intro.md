@@ -123,7 +123,7 @@ The person who checked the accuracy of the book was Anda Gadidov, Kennesaw State
 
 The people at Addison-Wesley and other organizations that helped produce the book were Paul Anagnostopoulos, Patty Bergin, Dana Jones Bettez, Chris Cummings, Kathleen DeChavez, Alex Gay, Leah Goldberg, Karen Hartpence, and Christina Lepre.
 
-If I left anyone out, it was unintentional, and I apologize. Errors inevitably arise in any project like this (meaning a project in which I am involved). For this reason, I shall post information about the book, including a list of corrections, on my Web page, [https://www.stat.cmu.edu/~mark](https://www.stat.cmu.edu/~mark){target="_blank"}, as soon as the book is published. Readers are encouraged to send me any errors that they discover.
+If I left anyone out, it was unintentional, and I apologize. Errors inevitably arise in any project like this (meaning a project in which I am involved). For this reason, I shall post information about the book, including a list of corrections, on my Web page, [https://www.stat.cmu.edu/~mark](https://www.stat.cmu.edu/~mark), as soon as the book is published. Readers are encouraged to send me any errors that they discover.
 
 Mark J. Schervish
 

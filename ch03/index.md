@@ -1,3 +1,4 @@
+(sec-3)=
 # Random Variables and Distributions
 
 Click on a section title below (or use the sidebar on the left) to navigate to that section!

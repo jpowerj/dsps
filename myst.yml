@@ -22,18 +22,18 @@ project:
       static: true
   toc:
     - file: intro.md
-    # - file: ch01/index.md
-    #   children:
-    #     - pattern: "ch01/01-*.md"
-    # - file: ch02/index.md
-    #   children:
-    #     - pattern: "ch02/02-*.md"
+    - file: ch01/index.md
+      children:
+        - pattern: "ch01/01-*.md"
+    - file: ch02/index.md
+      children:
+        - pattern: "ch02/02-*.md"
     - file: ch03/index.md
       children:
         - pattern: "ch03/03-*.md"
-    # - file: ch04/index.md
-    #   children:
-    #     - pattern: "ch04/04-*.md"
+    - file: ch04/index.md
+      children:
+        - pattern: "ch04/04-*.md"
     # - file: ch05/index.md
     #   children:
     #     - pattern: "ch05/05-*.md"

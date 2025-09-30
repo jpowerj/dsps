@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>definition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="02-01_definition_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02-01_definition_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="02-01_definition_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="02-01_definition_files/libs/quarto-html/popper.min.js"></script>
+<script src="02-01_definition_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="02-01_definition_files/libs/quarto-html/anchor.min.js"></script>
+<link href="02-01_definition_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02-01_definition_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="02-01_definition_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="02-01_definition_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="02-01_definition_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<p>(sec-2-1)= # The Definition of Conditional Probability</p>
+<p><em>A major use of probability in statistical inference is the updating of probabilities when certain events are observed. The updated probability of event <span class="math inline">\(A\)</span> after we learn that event <span class="math inline">\(B\)</span> has occurred is the conditional probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>.</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Example 2.1.1: Lottery Ticket)</strong></span> Consider a state lottery game in which six numbers are drawn without replacement from a bin containing the numbers 1–30. Each player tries to match the set of six numbers that will be drawn without regard to the order in which the numbers are drawn. Suppose that you hold a ticket in such a lottery with the numbers 1, 14, 15, 20, 23, and 27. You turn on your television to watch the drawing but all you see is one number, 15, being drawn when the power suddenly goes off in your house. You don’t even know whether 15 was the first, last, or some in-between draw. However, now that you know that 15 appears in the winning draw, the probability that your ticket is a winner must be higher than it was before you saw the draw. How do you calculate the revised probability?</p>
+</div>
+</div>
+</div>
+<p><a href="#exm-2-1-1" class="quarto-xref">Example&nbsp;1</a> is typical of the following situation. An experiment is performed for which the sample space <span class="math inline">\(S\)</span> is given (or can be constructed easily) and the probabilities are available for all of the events of interest. We then learn that some event <span class="math inline">\(B\)</span> has occuured, and we want to know how the probability of another event <span class="math inline">\(A\)</span> changes after we learn that <span class="math inline">\(B\)</span> has occurred. In <a href="#exm-2-1-1" class="quarto-xref">Example&nbsp;1</a>, the event that we have learned is <span class="math inline">\(B = \{\text{one of the numbers drawn is }15\}\)</span>. We are certainly interested in the probability of</p>
+<p><span class="math display">\[
+A = \{\text{the numbers 1, 14, 15, 20, 23, and 27 are drawn}\},
+\]</span></p>
+<p>and possibly other events.</p>
+<p>If we know that the event <span class="math inline">\(B\)</span> has occurred, then we know that the outcome of the experiment is one of those included in <span class="math inline">\(B\)</span>. Hence, to evaluate the probability that <span class="math inline">\(A\)</span> will occur, we must consider the set of those outcomes in <span class="math inline">\(B\)</span> that also result in the occurrence of <span class="math inline">\(A\)</span>. As sketched in <strong>?@fig-2-1</strong>, this set is precisely the set <span class="math inline">\(A \cap B\)</span>. It is therefore natural to calculate the revised probability of <span class="math inline">\(A\)</span> according to the following definition.</p>
+<p>```hqcronet images/fig-2-1.svg :label: fig-2-1 :enumerator: 2.1 :align: center :width: 50%</p>
+<p>The outcomes in the event <span class="math inline">\(B\)</span> that also belong to the event <span class="math inline">\(A\)</span></p>
+<pre><code>
+::: {.callout-tip}
+::: {#def-2-1-1}
+
+# Definition 2.1.1: Conditional Probability
+
+Suppose that we learn that an event $B$ has occurred and that we wish to compute the probability of another event $A$ taking into account that we know that $B$ has occurred. The new probability of $A$ is called the **conditional probability** of the event $A$ given that the event $B$ has occurred and is denoted $\Pr(A \mid B)$. If $\Pr(B) &gt; 0$, we compute this probability as
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}.
+$$ {#eq-2-1-1}
+
+The conditional probability $\Pr(A \mid B)$ is not defined if $\Pr(B) = 0$.
+
+:::
+:::
+
+For convenience, the notation in @def-2-1-1 is read simply as the conditional probability of $A$ given $B$. @eq-2-1-1 indicates that $\Pr(A \mid B)$ is computed as the proportion of the total probability $\Pr(B)$ that is represented by $\Pr(A \cap B)$, intuitively the proportion of $B$ that is also part of $A$.
+
+::: {.callout-tip}
+::: {#exm-2-1-2}
+
+# Example 2.1.2: Lottery Ticket.
+
+In @exm-2-1-1, you learned that the event
+
+$$
+B = \{\text{one of the numbers drawn is }15\}
+$$
+
+has occurred. You want to calculate the probability of the event $A$ that your ticket is a winner. Both events $A$ and $B$ are expressible in the sample space that consists of the $\binom{30}{6} = 30!/(6!24!)$ possible combinations of 30 items taken six at a time, namely, the unordered draws of six numbers from 1–30. The event $B$ consists of combinations that include 15. Since there are 29 remaining numbers from which to choose the other five in the winning draw, there are $\binom{29}{5}$ outcomes in $B$. It follows that
+
+$$
+\Pr(B) = \frac{\binom{29}{5}}{\binom{30}{6}} = \frac{29!24!6!}{30!5!24!} = 0.2.
+$$
+
+The event $A$ that your ticket is a winner consists of a single outcome that is also in $B$, so $A \cap B = A$, and
+
+$$
+\Pr(A \cap B) = \Pr(A) = \frac{1}{\binom{30}{6}} = \frac{6!24!}{30!} = 1.68 \times 10^{-6}.
+$$
+
+It follows that the conditional probability of $A$ given $B$ is
+
+$$
+\Pr(A \mid B) = \frac{\frac{6!24!}{30!}}{0.2} = 8.4 \times 10^{-6}.
+$$
+
+This is five times as large as $\Pr(A)$ before you learned that $B$ had occurred.  
+
+:::
+:::
+
+@def-2-1-1 for the conditional probability $\Pr(A \mid B)$ is worded in terms of the subjective interpretation of probability in @sec-1-2. @eq-2-1-1 also has a simple meaning in terms of the frequency interpretation of probability. According to the frequency interpretation, if an experimental process is repeated a large number of times, then the proportion of repetitions in which the event $B$ will occur is approximately $\Pr(B)$ and the proportion of repetitions in which both the event $A$ and the event $B$ will occur is approximately $\Pr(A \cap B)$. Therefore, among those repetitions in which the event $B$ occurs, the proportion of repetitions in which the event $A$ will also occur is approximately equal to
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}
+$$
+
+::: {.callout-tip}
+::: {#exm-2-1-3}
+
+# Example 2.1.3: Rolling Dice
+
+Suppose that two dice were rolled and it was observed that the sum $T$ of the two numbers was odd. We shall determine the probability that $T$ was less than 8.
+
+If we let $A$ be the event that $T &lt; 8$ and let $B$ be the event that $T$ is odd, then $A \cap B$ is the event that $T$ is 3, 5, or 7. From the probabilities for two dice given at the end of @sec-1-6, we can evaluate $\Pr(A \cap B)$ and $\Pr(B)$ as follows:
+
+$$
+\begin{align*}
+\Pr(A \cap B) &amp;= \frac{2}{36} + \frac{4}{36} + \frac{6}{36} = \frac{12}{36} = \frac{1}{3}, \\
+\Pr(B) &amp;= \frac{2}{36} + \frac{4}{36} + \frac{6}{36} + \frac{4}{36} + \frac{2}{36} = \frac{18}{36} = \frac{1}{2}.
+\end{align*}
+$$
+
+Hence,
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)} = \frac{2}{3}.
+$$
+
+:::
+:::
+
+::: {.callout-tip}
+::: {#exm-2-1-4}
+
+# Example 2.1.4: A Clinical Trial
+
+It is very common for patients with episodes of depression to have a recurrence within two to three years. @prien_drug_1984 studied three treatments for depression: imipramine, lithium carbonate, and a combination. As is traditional in such studies (called clinical trials), there was also a group of patients who received a placebo. (A placebo is a treatment that is supposed to be neither helpful nor harmful. Some patients are given a placebo so that they will not know that they did not receive one of the other treatments. None of the other patients knew which treatment or placebo they received, either.) In this example, we shall consider 150 patients who entered the study after an episode of depression that was classified as "unipolar" (meaning that there was no manic disorder). They were divided into the four groups (three treatments plus placebo) and followed to see how many had recurrences of depression. @tbl-2-1 summarizes the results. If a patient were selected at random from this study and it were found that the patient received the placebo treatment, what is the conditional probability that the patient had a relapse? Let $B$ be the event that the patient received the placebo, and let $A$ be the event that the patient had a relapse. We can calculate $\Pr(B) = 34/150$ and $\Pr(A \cap B) = 24/150$ directly from the table. Then $\Pr(A \mid B) = 24/34 = 0.706$. On the other hand, if the randomly selected patient is found to have received lithium (call this event $C$) then $\Pr(C) = 38/150$, $\Pr(A \cap C) = 13/150$, and $\Pr(A \mid C) = 13/38 = 0.342$. Knowing which treatment a patient received seems to make a difference to the probability of relapse. In @sec-10, we shall study methods for being more precise about how much of a difference it makes.  
+
+:::
+:::
+
+```{=html}
+&lt;table&gt;
+&lt;caption&gt;&lt;span data-qmd="Results of the clinical depression study in @exm-2-1-4 {#tbl-2-1}"&gt;&lt;/span&gt;&lt;/caption&gt;
+&lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th colspan="3" align="center" style="border-bottom: 1px solid black;"&gt;Treatment Group&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Response&lt;/th&gt;
+        &lt;th&gt;Imipramine&lt;/th&gt;
+        &lt;th&gt;Lithium&lt;/th&gt;
+        &lt;th&gt;Combination&lt;/th&gt;
+        &lt;th&gt;Placebo&lt;/th&gt;
+        &lt;th&gt;Total&lt;/th&gt;
+    &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Relapse&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+        &lt;td&gt;13&lt;/td&gt;
+        &lt;td&gt;22&lt;/td&gt;
+        &lt;td&gt;24&lt;/td&gt;
+        &lt;td&gt;77&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;No relapse&lt;/td&gt;
+        &lt;td&gt;22&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+        &lt;td&gt;16&lt;/td&gt;
+        &lt;td&gt;10&lt;/td&gt;
+        &lt;td&gt;73&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Total&lt;/td&gt;
+        &lt;td&gt;40&lt;/td&gt;
+        &lt;td&gt;38&lt;/td&gt;
+        &lt;td&gt;38&lt;/td&gt;
+        &lt;td&gt;34&lt;/td&gt;
+        &lt;td&gt;150&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-5" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Example 2.1.5: Rolling Dice Repeatedly)</strong></span> Suppose that two dice are to be rolled repeatedly and the sum <span class="math inline">\(T\)</span> of the two numbers is to be observed for each roll. We shall determine the probability <span class="math inline">\(p\)</span> that the value <span class="math inline">\(T = 7\)</span> will be observed before the value <span class="math inline">\(T = 8\)</span> is observed.</p>
+<p>The desired probability <span class="math inline">\(p\)</span> could be calculated directly as follows: We could assume that the sample space <span class="math inline">\(S\)</span> contains all sequences of outcomes that terminate as soon as either the sum <span class="math inline">\(T = 7\)</span> or the sum <span class="math inline">\(T = 8\)</span> is obtained. Then we could find the sum of the probabilities of all the sequences that terminate when the value <span class="math inline">\(T = 7\)</span> is obtained.</p>
+<p>However, there is a simpler approach in this example.We can consider the simple experiment in which two dice are rolled. If we repeat the experiment until either the sum <span class="math inline">\(T = 7\)</span> or the sum <span class="math inline">\(T = 8\)</span> is obtained, the effect is to restrict the outcome of the experiment to one of these two values. Hence, the problem can be restated as follows: Given that the outcome of the experiment is either <span class="math inline">\(T = 7\)</span> or <span class="math inline">\(T = 8\)</span>, determine the probability <span class="math inline">\(p\)</span> that the outcome is actually <span class="math inline">\(T = 7\)</span>.</p>
+<p>If we let <span class="math inline">\(A\)</span> be the event that <span class="math inline">\(T = 7\)</span> and let <span class="math inline">\(B\)</span> be the event that the value of <span class="math inline">\(T\)</span> is either 7 or 8, then <span class="math inline">\(A \cap B = A\)</span> and</p>
+<p><span class="math display">\[
+p = \Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)} = \frac{\Pr(A)}{\Pr(B)}.
+\]</span></p>
+<p>From the probabilities for two dice given in <strong>?@exm-1-6-5</strong>, <span class="math inline">\(\Pr(A) = 6/36\)</span> and <span class="math inline">\(\Pr(B) = (6/36) + (5/36) = 11/36\)</span>. Hence, <span class="math inline">\(p = 6/11\)</span>.</p>
+</div>
+</div>
+</div>
+<section id="the-multiplication-rule-for-conditional-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="the-multiplication-rule-for-conditional-probabilities">The Multiplication Rule for Conditional Probabilities</h3>
+<p>In some experiments, certain conditional probabilities are relatively easy to assign directly. In these experiments, it is then possible to compute the probability that both of two events occur by applying the next result that follows directly from <strong>?@eq-2-1-1</strong> and the analogous definition of <span class="math inline">\(\Pr(B \mid A)\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-1-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Theorem 2.1.1: Multiplication Rule for Conditional Probabilities)</strong></span> Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be events. If <span class="math inline">\(\Pr(B) &gt; 0\)</span>, then</p>
+<p><span class="math display">\[
+\Pr(A \cap B) = \Pr(B)\Pr(A \mid B).
+\]</span></p>
+<p>If <span class="math inline">\(\Pr(A) &gt; 0\)</span>, then</p>
+<p><span class="math display">\[
+\Pr(A \cap B) = \Pr(A)\Pr(B \mid A).
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Example 2.1.6: Selecting Two Balls)</strong></span> Suppose that two balls are to be selected at random, without replacement, from a box containing <span class="math inline">\(r\)</span> red balls and <span class="math inline">\(b\)</span> blue balls. We shall determine the probability <span class="math inline">\(p\)</span> that the first ball will be red and the second ball will be blue.</p>
+<p>Let <span class="math inline">\(A\)</span> be the event that the first ball is red, and let <span class="math inline">\(B\)</span> be the event that the second ball is blue. Obviously, <span class="math inline">\(\Pr(A) = r/(r + b)\)</span>. Furthermore, if the event <span class="math inline">\(A\)</span> has occurred, then one red ball has been removed from the box on the first draw. Therefore, the probability of obtaining a blue ball on the second draw will be</p>
+<p><span class="math display">\[
+\Pr(B \mid A) = \frac{b}{r + b - 1}.
+\]</span></p>
+<p>It follows that</p>
+<p><span class="math display">\[
+\Pr(A \cap B) = \frac{r}{r + b}\cdot \frac{b}{r + b - 1}.
+\]</span></p>
+<p>The principle that has just been applied can be extended to any finite number of events, as stated in the following theorem.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-1-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Theorem 2.1.2: Multiplication Rule for Conditional Probabilities)</strong></span> Suppose that <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> are events such that <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1}) &gt; 0\)</span>. Then</p>
+<p><span id="eq-2-1-2"><span class="math display">\[
+\begin{align*}
+&amp;\Pr(A_1 \cap A_2 \cap \cdots \cap A_n) \\
+&amp;=\Pr(A_1)\Pr(A_2 \mid A_1)\Pr(A_3 \mid A_1 \cap A_2)\cdots \Pr(A_n \mid A_1 \cap A_2 \cap \cdots \cap A_{n-1}).
+\end{align*}
+\tag{1}\]</span></span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The product of probabilities on the right side of <a href="#eq-2-1-2" class="quarto-xref">Equation&nbsp;1</a> is equal to</p>
+<p><span class="math display">\[
+\Pr(A_1)\cdot \frac{\Pr(A_1 \cap A_2)}{\Pr(A_1)} \cdot \frac{\Pr(A_1 \cap A_2 \cap A_3)}{\Pr(A_1 \cap A_2)}\cdots \frac{\Pr(A_1 \cap A_2 \cap \cdots \cap A_n)}{\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1})}.
+\]</span></p>
+<p>Since <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1}) &gt; 0\)</span>, each of the denominators in this product must be positive. All of the terms in the product cancel each other except the final numerator <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_n)\)</span>, which is the left side of <a href="#eq-2-1-2" class="quarto-xref">Equation&nbsp;1</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Example 2.1.7: Selcting Four Balls)</strong></span> Suppose that four balls are selected one at a time, without replacement, from a box containing <span class="math inline">\(r\)</span> red balls and <span class="math inline">\(b\)</span> blue balls (<span class="math inline">\(r \geq 2\)</span>, <span class="math inline">\(b \geq 2\)</span>). We shall determine the probability of obtaining the sequence of outcomes red, blue, red, blue.</p>
+<p>If we let <span class="math inline">\(R_j\)</span> denote the event that a red ball is obtained on the <span class="math inline">\(j\)</span>th draw and let <span class="math inline">\(B_j\)</span> denote the event that a blue ball is obtained on the <span class="math inline">\(j\)</span>th draw (<span class="math inline">\(j = 1, \ldots, 4\)</span>), then</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(R_1 \cap B_2 \cap R_3 \cap B_4) &amp;= \Pr(R_1)\Pr(B_2 \mid R_1)\Pr(R_3 \mid R_1 \cap B_2)\Pr(B_4 \mid R_1 \cap B_2 \cap R_3) \\
+&amp;= \frac{r}{r+b} \cdot \frac{b}{r + b - 1} \cdot \frac{r-1}{r + b - 2} \cdot \frac{b - 1}{r + b - 3}.
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Note: Conditional Probabilities Behave Just Like Probabilities</strong>. In all of the situations that we shall encounter in this text, every result that we can prove has a conditional version given an event <span class="math inline">\(B\)</span> with <span class="math inline">\(\Pr(B) &gt; 0\)</span>. Just replace all probabilities by conditional probabilities given <span class="math inline">\(B\)</span> and replace all conditional probabilities given other events <span class="math inline">\(C\)</span> by conditional probabilities given <span class="math inline">\(C \cap B\)</span>. For example, <strong>?@thm-1-5-3</strong> says that <span class="math inline">\(\Pr(A^c) = 1 − \Pr(A)\)</span>. It is easy to prove that <span class="math inline">\(\Pr(A^c \mid B) = 1 − \Pr(A \mid B)\)</span> if <span class="math inline">\(\Pr(B) &gt; 0\)</span>. (See Exercises <a href="#exr-2-1-11" class="quarto-xref">11</a> and <a href="#exr-2-1-12" class="quarto-xref">12</a> in this section.) Another example is <a href="#thm-2-1-3" class="quarto-xref">Theorem&nbsp;3</a>, which is a conditional version of the multiplication rule <a href="#thm-2-1-2" class="quarto-xref">Theorem&nbsp;2</a>. Although a proof is given for <a href="#thm-2-1-3" class="quarto-xref">Theorem&nbsp;3</a>, we shall not provide proofs of all such conditional theorems, because their proofs are generally very similar to the proofs of the unconditional versions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-1-3" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Theorem 2.1.3)</strong></span> Suppose that <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span>, <span class="math inline">\(B\)</span> are events such that <span class="math inline">\(\Pr(B) &gt; 0\)</span> and <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1} \mid B) &gt; 0\)</span>. Then</p>
+<p><span id="eq-2-1-3"><span class="math display">\[
+\begin{align*}
+\Pr(A_1 \cap A_2 \cap \cdots \cap A_n \mid B) = &amp;\Pr(A_1 \mid B)\Pr(A_2 \mid A_1 \cap B)\cdots \\
+&amp;\cdot \Pr(A_n \mid A_1 \cap A_2 \cap \cdots \cap A_{n-1} \cap B).
+\end{align*}
+\tag{2}\]</span></span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The product of probabilities on the right side of <a href="#eq-2-1-3" class="quarto-xref">Equation&nbsp;2</a> is equal to</p>
+<p><span class="math display">\[
+\frac{\Pr(A_1 \cap B)}{\Pr(B)} \cdot \frac{\Pr(A_1 \cap A_2 \cap B)}{\Pr(A_1 \cap B)} \cdots \frac{\Pr(A_1 \cap A_2 \cap \cdots \cap A_n \cap B)}{\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1} \cap B)}.
+\]</span></p>
+<p>Since <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1} \mid B) &gt; 0\)</span>, each of the denominators in this product must be positive. All of the terms in the product cancel each other except the first denominator and the final numerator to yield <span class="math inline">\(\Pr(A_1 \cap A_2 \cap \cdots \cap A_n \cap B) / \Pr(B)\)</span>, which is the left side of <a href="#eq-2-1-3" class="quarto-xref">Equation&nbsp;2</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="conditional-probability-and-partitions" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-probability-and-partitions">Conditional Probability and Partitions</h3>
+<p><strong>?@thm-1-4-11</strong> shows how to calculate the probability of an event by partitioning the sample space into two events <span class="math inline">\(B\)</span> and <span class="math inline">\(B^c\)</span>. This result easily generalizes to larger partitions, and when combined with <a href="#thm-2-1-1" class="quarto-xref">Theorem&nbsp;1</a> it leads to a very powerful tool for calculating probabilities.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-2-1-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Definition 2.1.2: Partition)</strong></span> Let <span class="math inline">\(S\)</span> denote the sample space of some experiment, and consider <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1, \ldots, B_k\)</span> in <span class="math inline">\(S\)</span> such that <span class="math inline">\(B_1, \ldots, B_k\)</span> are disjoint and <span class="math inline">\(\bigcup_{i=1}^kB_i = S\)</span>. It is said that these events form a <strong>partition</strong> of <span class="math inline">\(S\)</span>.</p>
+</div>
+</div>
+</div>
+<p>Typically, the events that make up a partition are chosen so that an important source of uncertainty in the problem is reduced if we learn which event has occurred.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Example 2.1.8: Selecting Bolts)</strong></span> Two boxes contain long bolts and short bolts. Suppose that one box contains 60 long bolts and 40 short bolts, and that the other box contains 10 long bolts and 20 short bolts. Suppose also that one box is selected at random and a bolt is then selected at random from that box. We would like to determine the probability that this bolt is long.  </p>
+</div>
+</div>
+</div>
+<p>Partitions can facilitate the calculations of probabilities of certain events.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-2-1-4" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Theorem 2.1.4: Law of Total Probability)</strong></span> Suppose that the events <span class="math inline">\(B_1, \ldots, B_k\)</span> form a partition of the space <span class="math inline">\(S\)</span> and <span class="math inline">\(\Pr(B_j) &gt; 0\)</span> for <span class="math inline">\(j = 1, \ldots, k\)</span>. Then, for every event <span class="math inline">\(A\)</span> in <span class="math inline">\(S\)</span>,</p>
+<p><span id="eq-2-1-4"><span class="math display">\[
+\Pr(A) = \sum_{j=1}^k \Pr(B_j)\Pr(A \mid B_j).
+\tag{3}\]</span></span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The events <span class="math inline">\(B_1 \cap A, B_2 \cap A, \ldots, B_k \cap A\)</span> will form a partition of <span class="math inline">\(A\)</span>, as illustrated in <a href="#fig-2-2" class="quarto-xref">Figure&nbsp;1</a>. Hence, we can write</p>
+<p><span class="math display">\[
+A = (B_1 \cap A) \cup (B_2 \cap A) \cup \cdots \cup (B_k \cap A).
+\]</span></p>
+<p>Furthermore, since the <span class="math inline">\(k\)</span> events on the right side of this equation are disjoint,</p>
+<p><span class="math display">\[
+\Pr(A) = \sum_{j=1}^k \Pr(B_j \cap A).
+\]</span></p>
+<p>Finally, if <span class="math inline">\(\Pr(B_j) &gt; 0\)</span> for <span class="math inline">\(j = 1, \ldots, k\)</span>, then <span class="math inline">\(\Pr(B_j \cap A) = \Pr(B_j)\Pr(A \mid B_j)\)</span> and it follows that <a href="#eq-2-1-4" class="quarto-xref">Equation&nbsp;3</a> holds.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="fig-2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ch02/images/fig-2-2.svg" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The intersections of <span class="math inline">\(A\)</span> with events <span class="math inline">\(B_1, \ldots, B_5\)</span> of a partition in the proof of <a href="#thm-2-1-4" class="quarto-xref">Theorem&nbsp;4</a>
+</figcaption>
+</figure>
+</div>
+<!-- Stopping point, 2023-08-30 -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-9" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Example 2.1.9: Selecting Bolts)</strong></span> In <a href="#exm-2-1-8" class="quarto-xref">Example&nbsp;5</a>, let <span class="math inline">\(B_1\)</span> be the event that the first box (the one with 60 long and 40 short bolts) is selected, let <span class="math inline">\(B_2\)</span> be the event that the second box (the one with 10 long and 20 short bolts) is selected, and let <span class="math inline">\(A\)</span> be the event that a long bolt is selected. Then</p>
+<p><span class="math display">\[
+\Pr(A) = \Pr(B_1) \Pr(A \mid B_1) + \Pr(B_2) \Pr(A \mid B_2).
+\]</span></p>
+<p>Since a box is selected at random, we know that <span class="math inline">\(\Pr(B_1) = \Pr(B_2) = 1/2\)</span>. Furthermore, the probability of selecting a long bolt from the first box is <span class="math inline">\(\Pr(A \mid B_1) = 60/100 = 3/5\)</span>, and the probability of selecting a long bolt from the second box is <span class="math inline">\(\Pr(A \mid B_2) = 10/30 = 1/3\)</span>. Hence,</p>
+<p><span class="math display">\[
+\Pr(A) = \frac{1}{2}\cdot \frac{3}{5} + \frac{1}{2} \cdot \frac{1}{3} = \frac{7}{15}.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-10" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Example 2.1.10: Achieving a High Score)</strong></span> Suppose that a person plays a game in which his score must be one of the 50 numbers <span class="math inline">\(1, 2, \ldots, 50\)</span> and that each of these 50 numbers is equally likely to be his score. The first time he plays the game, his score is <span class="math inline">\(X\)</span>. He then continues to play the game until he obtains another score <span class="math inline">\(Y\)</span> such that <span class="math inline">\(Y \geq X\)</span>. We will assume that, conditional on previous plays, the 50 scores remain equally likely on all subsequent plays. We shall determine the probability of the event <span class="math inline">\(A\)</span> that <span class="math inline">\(Y = 50\)</span>.</p>
+<p>For each <span class="math inline">\(i = 1, \ldots, 50\)</span>, let <span class="math inline">\(B_i\)</span> be the event that <span class="math inline">\(X = i\)</span>. Conditional on <span class="math inline">\(B_i\)</span>, the value of <span class="math inline">\(Y\)</span> is equally likely to be any one of the numbers <span class="math inline">\(i, i + 1, \ldots, 50\)</span>. Since each of these <span class="math inline">\((51− i)\)</span> possible values for <span class="math inline">\(Y\)</span> is equally likely, it follows that</p>
+<p><span class="math display">\[
+\Pr(A \mid B_i) = \Pr(Y = 50 \mid B_i) = \frac{1}{51-i}.
+\]</span></p>
+<p>Furthermore, since the probability of each of the 50 values of <span class="math inline">\(X\)</span> is <span class="math inline">\(1/50\)</span>, it follows that <span class="math inline">\(\Pr(B_i) = 1/50\)</span> for all <span class="math inline">\(i\)</span> and</p>
+<p><span class="math display">\[
+\Pr(A) = \sum_{i=1}^{50}\frac{1}{50}\cdot\frac{1}{51-i} = \frac{1}{50}\left(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{50}\right) = 0.0900.
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Note: Conditional Version of Law of Total Probability</strong>. The law of total probability has an analog conditional on another event <span class="math inline">\(C\)</span>, namely,</p>
+<p><span id="eq-2-1-5"><span class="math display">\[
+\Pr(A \mid C) = \sum_{j=1}^k \Pr(B_j \mid C)\Pr(A \mid B_j \cap C).
+\tag{4}\]</span></span></p>
+<p>The reader can prove this in <a href="#exr-2-1-17" class="quarto-xref">Exercise&nbsp;17</a>.</p>
+<p><strong>Augmented Experiment</strong>: In some experiments, it may not be clear from the initial description of the experiment that a partition exists that will facilitate the calculation of probabilities. However, there are many such experiments in which such a partition exists if we imagine that the experiment has some additional structure. Consider the following modification of Examples <a href="#exm-2-1-8" class="quarto-xref">5</a> and <a href="#exm-2-1-9" class="quarto-xref">6</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-11" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (Example 2.1.11: Selecting Bolts)</strong></span> There is one box of bolts that contains some long and some short bolts. A manager is unable to open the box at present, so she asks her employees what is the composition of the box. One employee says that it contains 60 long bolts and 40 short bolts. Another says that it contains 10 long bolts and 20 short bolts. Unable to reconcile these opinions, the manager decides that each of the employees is correct with probability <span class="math inline">\(1/2\)</span>. Let <span class="math inline">\(B_1\)</span> be the event that the box contains 60 long and 40 short bolts, and let <span class="math inline">\(B_2\)</span> be the event that the box contains 10 long and 20 short bolts. The probability that the first bolt selected is long is now calculated precisely as in <a href="#exm-2-1-9" class="quarto-xref">Example&nbsp;6</a>.</p>
+</div>
+</div>
+</div>
+<p>In <a href="#exm-2-1-11" class="quarto-xref">Example&nbsp;8</a>, there is only one box of bolts, but we believe that it has one of two possible compositions. We let the events <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> determine the possible compositions. This type of situation is very common in experiments.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-12" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (Example 2.1.12: A Clinical Trial)</strong></span> Consider a clinical trial such as the study of treatments for depression in <strong>?@exm-2-1-4</strong>. As in many such trials, each patient has two possible outcomes, in this case relapse and no relapse. We shall refer to relapse as “failure” and no relapse as “success.” For now, we shall consider only patients in the imipramine treatment group. If we knew the effectiveness of imipramine, that is, the proportion <span class="math inline">\(p\)</span> of successes among all patients who might receive the treatment, then we might model the patients in our study as having probability <span class="math inline">\(p\)</span> of success. Unfortunately, we do not know <span class="math inline">\(p\)</span> at the start of the trial. In analogy to the box of bolts with unknown composition in <a href="#exm-2-1-11" class="quarto-xref">Example&nbsp;8</a>, we can imagine that the collection of all available patients (from which the 40 imipramine patients in this trial were selected) has two or more possible compositions. We can imagine that the composition of the collection of patients determines the proportion that will be success. For simplicity, in this example, we imagine that there are 11 different possible compositions of the collection of patients. In particular, we assume that the proportions of success for the 11 possible compositions are <span class="math inline">\(0, 1/10, \ldots, 9/10, 1\)</span>. (We shall be able to handle more realistic models for <span class="math inline">\(p\)</span> in <strong>?@sec-3</strong>.) For example, if we knew that our patients were drawn from a collection with the proportion <span class="math inline">\(3/10\)</span> of successes, we would be comfortable saying that the patients in our sample each have success probability <span class="math inline">\(p = 3/10\)</span>. The value of <span class="math inline">\(p\)</span> is an important source of uncertainty in this problem, and we shall partition the sample space by the possible values of <span class="math inline">\(p\)</span>. For <span class="math inline">\(j = 1, \ldots, 11\)</span>, let <span class="math inline">\(B_j\)</span> be the event that our sample was drawn from a collection with proportion <span class="math inline">\((j − 1)/10\)</span> of successes. We can also identify <span class="math inline">\(B_j\)</span> as the event <span class="math inline">\(\{p = (j − 1)/10\}\)</span>.</p>
+<p>Now, let <span class="math inline">\(E_1\)</span> be the event that the first patient in the imipramine group has a success. We defined each event <span class="math inline">\(B_j\)</span> so that <span class="math inline">\(\Pr(E_1 \mid B_j) = (j − 1)/10\)</span>. Supppose that, prior to starting the trial, we believe that <span class="math inline">\(\Pr(B_j) = 1/11\)</span> for each <span class="math inline">\(j\)</span>. It follows that</p>
+<p><span id="eq-2-1-6"><span class="math display">\[
+\Pr(E_1) = \sum_{j=1}^{11}\frac{1}{11}\frac{j-1}{10} = \frac{55}{110} = \frac{1}{2},
+\tag{5}\]</span></span></p>
+<p>where the second equality uses the fact that $_{j=1}^n j = n(n+1)/2</p>
+</div>
+</div>
+</div>
+<p>The events <span class="math inline">\(B_1, B_2, \ldots, B_{11}\)</span> in <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a> can be thought of in much the same way as the two events <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> that determine the mixture of long and short bolts in <a href="#exm-2-1-11" class="quarto-xref">Example&nbsp;8</a>. There is only one box of bolts, but there is uncertainty about its composition. Similarly in <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a>, there is only one group of patients, but we believe that it has one of 11 possible compositions determined by the events <span class="math inline">\(B_1, B_2, \ldots, B_{11}\)</span>. To call these events, they must be subsets of the sample space for the experiment in question. That will be the case in <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a> if we imagine that the experiment consists not only of observing the numbers of successes and failures among the patients but also of potentially observing enough additional patients to be able to compute <span class="math inline">\(p\)</span>, possibly at some time very far in the future. Similarly, in <a href="#exm-2-1-11" class="quarto-xref">Example&nbsp;8</a>, the two events <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> are subsets of the sample space if we imagine that the experiment consists not only of observing one sample bolt but also of potentially observing the entire composition of the box.</p>
+<p>Throughout the remainder of this text, we shall implicitly assume that experiments are augmented to include outcomes that determine the values of quantities such as <span class="math inline">\(p\)</span>. We shall not require that we ever get to observe the complete outcome of the experiment so as to tell us precisely what <span class="math inline">\(p\)</span> is, but merely that there is an experiment that includes all of the events of interest to us, including those that determine quantities like <span class="math inline">\(p\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-2-1-3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Definition 2.1.3: Augmented Experiment)</strong></span> If desired, any experiment can be augmented to include the potential or hypothetical observation of as much additional information as we would find useful to help us calculate any probabilities that we desire.</p>
+</div>
+</div>
+</div>
+<p><a href="#def-2-1-3" class="quarto-xref">Definition&nbsp;2</a> is worded somewhat vaguely because it is intended to cover a wide variety of cases. Here is an explicit application to <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-2-1-13" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Example 2.1.13: A Clinical Trial)</strong></span> In <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a>, we could explicitly assume that there exists an infinite sequence of patients who could be treated with imipramine even though we will observe only finitely many of them. We could let the sample space consist of infinite sequences of the two symbols <span class="math inline">\(S\)</span> and <span class="math inline">\(F\)</span> such as <span class="math inline">\((S, S, F, S, F, F, F, \ldots)\)</span>. Here <span class="math inline">\(S\)</span> in coordinate <span class="math inline">\(i\)</span> means that the <span class="math inline">\(i\)</span>th patient is a success, and <span class="math inline">\(F\)</span> stands for failure. So, the event <span class="math inline">\(E_1\)</span> in <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a> is the event that the first coordinate is <span class="math inline">\(S\)</span>. The example sequence above is then in the event <span class="math inline">\(E_1\)</span>. To accommodate our interpretation of <span class="math inline">\(p\)</span> as the proportion of successes, we can assume that, for every such sequence, the proportion of <span class="math inline">\(S\)</span>’s among the first <span class="math inline">\(n\)</span> coordinates gets close to one of the numbers <span class="math inline">\(0, 1/10, \ldots, 9/10, 1\)</span> as <span class="math inline">\(n\)</span> increases. In this way, <span class="math inline">\(p\)</span> is explicitly the limit of the proportion of successes we would observe if we could find a way to observe indefinitely. In <a href="#exm-2-1-12" class="quarto-xref">Example&nbsp;9</a>, <span class="math inline">\(B_2\)</span> is the event consisting of all the outcomes in which the limit of the proportion of <span class="math inline">\(S\)</span>’s equals <span class="math inline">\(1/10\)</span>, <span class="math inline">\(B_3\)</span> is the set of outcomes in which the limit is <span class="math inline">\(2/10\)</span>, etc. Also, we observe only the first 40 coordinates of the infinite sequence, but we still behave as if <span class="math inline">\(p\)</span> exists and could be determined if only we could observe forever.</p>
+</div>
+</div>
+</div>
+<p>In the remainder of the text, there will be many experiments that we assume are augmented. In such cases, we will mention which quantities (such as <span class="math inline">\(p\)</span> in <a href="#exm-2-1-13" class="quarto-xref">Example&nbsp;10</a>) would be determined by the augmented part of the experiment even if we do not explicitly mention that the experiment is augmented.</p>
+</section>
+<section id="the-game-of-craps" class="level3">
+<h3 class="anchored" data-anchor-id="the-game-of-craps">The Game of Craps</h3>
+<p>We shall conclude this section by discussing a popular gambling game called craps. One version of this game is played as follows: A player rolls two dice, and the sum of the two numbers that appear is observed. If the sum on the first roll is 7 or 11, the player wins the game immediately. If the sum on the first roll is 2, 3, or 12, the player loses the game immediately. If the sum on the first roll is 4, 5, 6, 8, 9, or 10, then the two dice are rolled again and again until the sum is either 7 or the original value. If the original value is obtained a second time before 7 is obtained, then the player wins. If the sum 7 is obtained before the original value is obtained a second time, then the player loses.</p>
+<p>We shall now compute the probability <span class="math inline">\(\Pr(W)\)</span>, where <span class="math inline">\(W\)</span> is the event that the player will win. Let the sample space <span class="math inline">\(S\)</span> consist of all possible sequences of sums from the rolls of dice that might occur in a game. For example, some of the elements of <span class="math inline">\(S\)</span> are <span class="math inline">\((4, 7)\)</span>, <span class="math inline">\((11)\)</span>, <span class="math inline">\((4, 3, 4)\)</span>, <span class="math inline">\((12)\)</span>, <span class="math inline">\((10, 8, 2, 12, 6, 7)\)</span>, etc. We see that <span class="math inline">\((11) \in W\)</span> but <span class="math inline">\((4, 7) \in W^c\)</span>, etc. We begin by noticing that whether or not an outcome is in <span class="math inline">\(W\)</span> depends in a crucial way on the first roll. For this reason, it makes sense to partition <span class="math inline">\(W\)</span> according to the sum on the first roll. Let <span class="math inline">\(B_i\)</span> be the event that the first roll is <span class="math inline">\(i\)</span> for <span class="math inline">\(i = 2, \ldots, 12\)</span>.</p>
+<p><a href="#thm-2-1-4" class="quarto-xref">Theorem&nbsp;4</a> tells us that <span class="math inline">\(\Pr(W) = \sum_{i=2}^{12}\Pr(B_i)\Pr(W \mid B_i)\)</span>. Since <span class="math inline">\(\Pr(B_i)\)</span> for each <span class="math inline">\(i\)</span> was computed in <strong>?@exm-1-6-5</strong>, we need to determine <span class="math inline">\(\Pr(W \mid B_i)\)</span> for each <span class="math inline">\(i\)</span>. We begin with <span class="math inline">\(i = 2\)</span>. Because the player loses if the first roll is 2, we have <span class="math inline">\(\Pr(W \mid B_2) = 0\)</span>. Similarly, <span class="math inline">\(\Pr(W \mid B_3) = 0 = \Pr(W \mid B_{12})\)</span>. Also, <span class="math inline">\(\Pr(W \mid B_7) = 1\)</span> because the player wins if the first roll is 7. Similarly, <span class="math inline">\(\Pr(W \mid B_{11}) = 1\)</span>.</p>
+<p>For each first roll <span class="math inline">\(i \in \{4, 5, 6, 8, 9, 10\}\)</span>, <span class="math inline">\(\Pr(W \mid B_i)\)</span> is the probability that, in a sequence of dice rolls, the sum <span class="math inline">\(i\)</span> will be obtained before the sum 7 is obtained. As described in <a href="#exm-2-1-5" class="quarto-xref">Example&nbsp;2</a>, this probability is the same as the probability of obtaining the sum <span class="math inline">\(i\)</span> when the sum must be either <span class="math inline">\(i\)</span> or 7. Hence,</p>
+<p><span class="math display">\[
+\Pr(W \mid B_i) = \frac{\Pr(B_i)}{\Pr(B_i \cup B_7)}.
+\]</span></p>
+<p>We compute the necessary values here:</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(W \mid B_4) &amp;= \frac{\frac{3}{36}}{\frac{3}{36} + \frac{6}{36}} = \frac{1}{3}, \; \Pr(W \mid B_5) &amp;= \frac{\frac{4}{36}}{\frac{4}{36} + \frac{6}{36}} = \frac{2}{5}, \\
+\Pr(W \mid B_6) &amp;= \frac{\frac{5}{36}}{\frac{5}{36} + \frac{6}{36}} = \frac{5}{11}, \; \Pr(W \mid B_8) &amp;= \frac{\frac{5}{36}}{\frac{5}{36} + \frac{6}{36}} = \frac{5}{11}, \\
+\Pr(W \mid B_9) &amp;= \frac{\frac{4}{36}}{\frac{4}{36} + \frac{6}{36}} = \frac{2}{5}, \; \Pr(W \mid B_{10}) &amp;= \frac{\frac{3}{36}}{\frac{3}{36} + \frac{6}{36}} = \frac{1}{3}.
+\end{align*}
+\]</span></p>
+<p>Finally, we compute the sum <span class="math inline">\(\sum_{i=2}^{12}\Pr(B_i)\Pr(W \mid B_i)\)</span>:</p>
+<p><span class="math display">\[
+\begin{align*}
+\Pr(W) &amp;= \sum_{i=2}^{12}\Pr(B_i)\Pr(W \mid B_i) = 0 + 0 + \frac{3}{36}\frac{1}{3} + \frac{4}{36}\frac{2}{5} + \frac{5}{36}\frac{5}{11} + \frac{6}{36} \\
+&amp;+ \frac{5}{36}\frac{5}{11} + \frac{4}{36}\frac{2}{5} + \frac{3}{36}\frac{1}{3} + \frac{2}{36} + 0 = \frac{2928}{5940} = 0.493.
+\end{align*}
+\]</span></p>
+<p>Thus, the probability of winning in the game of craps is slightly less than <span class="math inline">\(1/2\)</span>.</p>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>The revised probability of an event <span class="math inline">\(A\)</span> after learning that event <span class="math inline">\(B\)</span> (with <span class="math inline">\(\Pr(B) &gt; 0\)</span>) has occurred is the conditional probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>, denoted by <span class="math inline">\(\Pr(A \mid B)\)</span> and computed as <span class="math inline">\(\Pr(A \cap B) / \Pr(B)\)</span>. Often it is easy to assess a conditional probability, such as <span class="math inline">\(\Pr(A \mid B)\)</span>, directly. In such a case, we can use the multiplication rule for conditional probabilities to compute <span class="math inline">\(\Pr(A \cap B) = \Pr(B)\Pr(A \mid B)\)</span>. All probability results have versions conditional on an event <span class="math inline">\(B\)</span> with <span class="math inline">\(\Pr(B) &gt; 0\)</span>: Just change all probabilities so that they are conditional on <span class="math inline">\(B\)</span> in addition to anything else they were already conditional on. For example, the multiplication rule for conditional probabilities becomes <span class="math inline">\(\Pr(A_1 \cap A_2 \mid B) = \Pr(A_1 \mid B)\Pr(A_2 \mid A_1 \cap B)\)</span>. A partition is a collection of disjoint events whose union is the whole sample space. To be most useful, a partition is chosen so that an important source of uncertainty is reduced if we learn which one of the partition events occurs. If the conditional probability of an event <span class="math inline">\(A\)</span> is available given each event in a partition, the law of total probability tells how to combine these conditional probabilities to get <span class="math inline">\(\Pr(A)\)</span>.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<div id="exr-2-1-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Exercise 2.1.1)</strong></span> If <span class="math inline">\(A \subset B\)</span> with <span class="math inline">\(\Pr(B) &gt; 0\)</span>, what is the value of <span class="math inline">\(\Pr(A \mid B)\)</span>?</p>
+</div>
+<div id="exr-2-1-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Exercise 2.1.2)</strong></span> If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint events and <span class="math inline">\(\Pr(B) &gt; 0\)</span>, what is the value of <span class="math inline">\(\Pr(A \mid B)\)</span>?</p>
+</div>
+<div id="exr-2-1-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Exercise 2.1.3)</strong></span> If <span class="math inline">\(S\)</span> is the sample space of an experiment and <span class="math inline">\(A\)</span> is any event in that space, what is the value of <span class="math inline">\(\Pr(A \mid S)\)</span>?</p>
+</div>
+<div id="exr-2-1-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Exercise 2.1.4)</strong></span> Each time a shopper purchases a tube of toothpaste, he chooses either brand <span class="math inline">\(A\)</span> or brand <span class="math inline">\(B\)</span>. Suppose that for each purchase after the first, the probability is <span class="math inline">\(1/3\)</span> that he will choose the same brand that he chose on his preceding purchase and the probability is <span class="math inline">\(2/3\)</span> that he will switch brands. If he is equally likely to choose either brand <span class="math inline">\(A\)</span> or brand <span class="math inline">\(B\)</span> on his first purchase, what is the probability that both his first and second purchases will be brand <span class="math inline">\(A\)</span> and both his third and fourth purchases will be brand <span class="math inline">\(B\)</span>?</p>
+</div>
+<div id="exr-2-1-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Exercise 2.1.5)</strong></span> A box contains <span class="math inline">\(r\)</span> red balls and <span class="math inline">\(b\)</span> blue balls. One ball is selected at random and its color is observed. The ball is then returned to the box and <span class="math inline">\(k\)</span> additional balls of the same color are also put into the box. A second ball is then selected at random, its color is observed, and it is returned to the box together with <span class="math inline">\(k\)</span> additional balls of the same color. Each time another ball is selected, the process is repeated. If four balls are selected, what is the probability that the first three balls will be red and the fourth ball will be blue?</p>
+</div>
+<div id="exr-2-1-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Exercise 2.1.6)</strong></span> A box contains three cards. One card is red on both sides, one card is green on both sides, and one card is red on one side and green on the other. One card is selected from the box at random, and the color on one side is observed. If this side is green, what is the probability that the other side of the card is also green?</p>
+</div>
+<div id="exr-2-1-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Exercise 2.1.7)</strong></span> Consider again the conditions of <strong>?@exr-1-10-2</strong> of <strong>?@sec-1-10</strong>. If a family selected at random from the city subscribes to newspaper <span class="math inline">\(A\)</span>, what is the probability that the family also subscribes to newspaper <span class="math inline">\(B\)</span>?</p>
+</div>
+<div id="exr-2-1-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8 (Exercise 2.1.8)</strong></span> Consider again the conditions of <strong>?@exr-1-10-2</strong> of <strong>?@sec-1-10</strong>. If a family selected at random from the city subscribes to at least one of the three newspapers <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>, what is the probability that the family subscribes to newspaper <span class="math inline">\(A\)</span>?</p>
+</div>
+<div id="exr-2-1-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9 (Exercise 2.1.9)</strong></span> Suppose that a box contains one blue card and four red cards, which are labeled <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span>. Suppose also that two of these five cards are selected at random, without replacement.</p>
+<ol type="a">
+<li>If it is known that card <span class="math inline">\(A\)</span> has been selected, what is the probability that both cards are red?</li>
+<li>If it is known that at least one red card has been selected, what is the probability that both cards are red?</li>
+</ol>
+</div>
+<div id="exr-2-1-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10 (Exercise 2.1.10)</strong></span> Consider the following version of the game of craps: The player rolls two dice. If the sum on the first roll is 7 or 11, the player wins the game immediately. If the sum on the first roll is 2, 3, or 12, the player loses the game immediately. However, if the sum on the first roll is 4, 5, 6, 8, 9, or 10, then the two dice are rolled again and again until the sum is either 7 or 11 or the original value. If the original value is obtained a second time before either 7 or 11 is obtained, then the player wins. If either 7 or 11 is obtained before the original value is obtained a second time, then the player loses. Determine the probability that the player will win this game.</p>
+</div>
+<div id="exr-2-1-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11 (Exercise 2.1.11)</strong></span> For any two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with <span class="math inline">\(\Pr(B) &gt; 0\)</span>, prove that <span class="math inline">\(\Pr(A^c \mid B) = 1 − \Pr(A \mid B)\)</span>.</p>
+</div>
+<div id="exr-2-1-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12 (Exercise 2.1.12)</strong></span> For any three events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(D\)</span>, such that <span class="math inline">\(\Pr(D) &gt; 0\)</span>, prove that <span class="math inline">\(\Pr(A \cup B \mid D) = \Pr(A \mid D) + \Pr(B \mid D) − \Pr(A \cap
+B \mid D)\)</span>.</p>
+</div>
+<div id="exr-2-1-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13 (Exercise 2.1.13)</strong></span> A box contains three coins with a head on each side, four coins with a tail on each side, and two fair coins. If one of these nine coins is selected at random and tossed once, what is the probability that a head will be obtained?</p>
+</div>
+<div id="exr-2-1-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14 (Exercise 2.1.14)</strong></span> A machine produces defective parts with three different probabilities depending on its state of repair. If the machine is in good working order, it produces defective parts with probability 0.02. If it is wearing down, it produces defective parts with probability 0.1. If it needs maintenance, it produces defective parts with probability 0.3. The probability that the machine is in good working order is 0.8, the probability that it is wearing down is 0.1, and the probability that it needs maintenance is 0.1. Compute the probability that a randomly selected part will be defective.</p>
+</div>
+<div id="exr-2-1-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 15 (Exercise 2.1.15)</strong></span> The percentages of voters classed as Liberals in three different election districts are divided as follows: in the first district, 21 percent; in the second district, 45 percent; and in the third district, 75 percent. If a district is selected at random and a voter is selected at random from that district, what is the probability that she will be a Liberal?</p>
+</div>
+<div id="exr-2-1-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16 (Exercise 2.1.16)</strong></span> Consider again the shopper described in <a href="#exr-2-1-4" class="quarto-xref">Exercise&nbsp;4</a>. On each purchase, the probability that he will choose the same brand of toothpaste that he chose on his preceding purchase is <span class="math inline">\(1/3\)</span>, and the probability that he will switch brands is <span class="math inline">\(2/3\)</span>. Suppose that on his first purchase the probability that he will choose brand <span class="math inline">\(A\)</span> is <span class="math inline">\(1/4\)</span> and the probability that he will choose brand <span class="math inline">\(B\)</span> is <span class="math inline">\(3/4\)</span>. What is the probability that his second purchase will be brand <span class="math inline">\(B\)</span>?</p>
+</div>
+<div id="exr-2-1-17" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17 (Exercise 2.1.17)</strong></span> Prove the conditional version of the law of total probability (<a href="#eq-2-1-5" class="quarto-xref">Equation&nbsp;4</a>).</p>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
