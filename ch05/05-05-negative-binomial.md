@@ -1,5 +1,5 @@
 (sec-5-5)=
-# The Negative Binomial Distributions
+# 5.5 The Negative Binomial Distributions
 
 (sec-5-5-0)=
 # Overview
@@ -26,9 +26,10 @@ of Bernoulli trials is available. Call the two possible outcomes success and fai
 with p being the probability of success. In this section, we shall study the distribution
 of the total number of failures that will occur before exactly r successes have been
 obtained, where r is a fixed positive integer.
-Theorem
-5.5.1
-Sampling until a Fixed Number of Successes. Suppose that an infinite sequence of
+
+## Theorem 5.5.1: Sampling until a Fixed Number of Successes
+
+Suppose that an infinite sequence of
 Bernoulli trials with probability of success p are available. The number X of failures
 that occur before the rth success has the following p.d.f.:
 f (x|r, p) =

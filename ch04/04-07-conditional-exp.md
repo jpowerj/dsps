@@ -106,108 +106,102 @@ E(Y|x) 0.609 1.057 1.317 1.442 1.538 1.533 1.75 2
 Table 4.2 Joint p.f. f (x, y) of X and Y in Example 4.7.2 together with marginal
 p.f.’s f1(x) and f2(y)
 
-
 The random variable that takes the value 0.609 when the sampled household has one
 member, takes the value 1.057 when the sampled household has two members, and
 so on, is the random variable E(Y|X).  
 
 ## Example 4.7.3: A Clinical Trial
 
-Consider a clinical trial in which a number of patients will be treated
-and each patient will have one of two possible outcomes: success or failure. Let P
-be the proportion of successes in a very large collection of patients, and let Xi
+Consider a clinical trial in which a number of patients will be treated and each patient will have one of two possible outcomes: success or failure. Let $P$ be the proportion of successes in a very large collection of patients, and let Xi
 = 1
+
 if the ith patient is a success and Xi
+
 = 0 if not. Assume that the random variables
+
 X1, X2, . . . are conditionally independent given P = p with Pr(Xi
 = 1|P = p) = p.
+
 Let X = X1 + . . . + Xn, which is the number of patients out of the first n who are
 successes. We now compute the conditional mean of X given P. The patients are
 independent and identically distributed conditional on P = p. Hence, the conditional
 distribution of X given P = p is the binomial distribution with parameters n and p.
-As we saw in Sec. 4.2, the mean of this binomial distribution is np, so E(X|p) = np
-and E(X|P) = nP . Later, we will show how to compute the conditional mean of P
+
+As we saw in @sec-4-2, the mean of this binomial distribution is np, so E(X|p) = np and E(X|P) = nP . Later, we will show how to compute the conditional mean of P
 given X. This can be used to predict P after observing X.  
-Note: The Conditional Mean of Y Given X Is a Random Variable. Because E(Y|X)
+
+## Note: The Conditional Mean of Y Given X Is a Random Variable
+
+Because E(Y|X)
 is a function of the random variable X, it is itself a random variable with its own
 probability distribution, which can be derived from the distribution of X. On the
 other hand, h(x) = E(Y|x) is a function of x that can be manipulated like any other
 function. The connection between the two is that when one substitutes the random
 variable X for x in h(x), the result is h(X) = E(Y|X).
+
 We shall now show that the mean of the random variable E(Y|X) must be E(Y).
+
 A similar calculation shows that the mean of E(X|Y) must be E(X).
-Theorem
-4.7.1
-Law of Total Probability for Expectations. Let X and Y be random variables such that
+
+## Theorem 4.7.1: Law of Total Probability for Expectations
+
+Let X and Y be random variables such that
 Y has finite mean. Then
 E[E(Y|X)]= E(Y). (4.7.3)
+
 Proof We shall assume, for convenience, that X and Y have a continuous joint
 distribution. Then
 E[E(Y|X)]=
   ∞
 −∞
 E(Y|x)f1(x) dx
-=
-  ∞
-−∞
-  ∞
-−∞
+
 yg2(y|x)f1(x) dy dx.
 Since g2(y|x) = f (x, y)/f1(x), it follows that
 E[E(Y|X)]=
-  ∞
-−∞
-  ∞
-−∞
+
 yf(x, y) dy dx = E(Y).
+
 The proof for a discrete distribution or a more general type of distribution is similar.
-Example
-4.7.4
-Household Survey. At the end of Example 4.7.2, we described the random variable
+
+## Example 4.7.4: Household Survey
+
+At the end of Example 4.7.2, we described the random variable
 E(Y|X). Its distribution can be constructed from that description. It has a discrete distribution
 that takes the eight values of E(Y|x) listed near the end of that example with
 corresponding probabilities f1(x) for x = 1, . . . , 8. To be specific, let Z = E(Y|X),
 then Pr[Z = E(Y|x)]= f1(x) for x = 1, . . . , 8. The specific values are
-4.7 Conditional Expectation 259
+
 z 0.609 1.057 1.317 1.442 1.538 1.533 1.75 2
 Pr(Z = z) 0.092 0.140 0.164 0.208 0.208 0.120 0.048 0.020
 We can compute E(Z) = 0.609 × 0.092 + . . . + 2 × 0.020 = 1.348. The reader can
 verify that E(Y) = 1.348 by using the values of f2(y) in Table 4.2.  
-Example
-4.7.5
-A Clinical Trial. In Example 4.7.3, we let X be the number of patients out of the
+
+## Example 4.7.5: A Clinical Trial
+
+In Example 4.7.3, we let X be the number of patients out of the
 first n who are successes. The conditional mean of X given P = p was computed as
 E(X|p) = np, where P is the proportion of successes in a large population of patients.
 If the distribution of P is uniform on the interval [0, 1], then the marginal expected
-value of X is E[E(X|P)]= E(nP ) = n/2. We will see how to calculate E(P|X) in
-Example 4.7.8.  
-Example
-4.7.6
+value of X is E[E(X|P)]= E(nP ) = n/2. We will see how to calculate E(P|X) in @exm-4-7-8.
+
+## Example 4.7.6
+
 Choosing Points from Uniform Distributions. Suppose that a point X is chosen in
 accordance with the uniform distribution on the interval [0, 1]. Also, suppose that
-after the valueX = x has been observed (0<x <1), a point Y is chosen in accordance
-with a uniform distribution on the interval [x, 1]. We shall determine the value
+after the valueX = x has been observed ($0 < x < 1$), a point Y is chosen in accordance with a uniform distribution on the interval [x, 1]. We shall determine the value
 of E(Y).
+
 For each given value of x (0 < x <1), E(Y|x) will be equal to the midpoint
 (1/2)(x + 1) of the interval [x, 1]. Therefore, E(Y|X) = (1/2)(X + 1) and
 E(Y) = E[E(Y|X)]= 1
-2
-[E(X) + 1]= 1
-2
 
-
-1
-2
-+ 1
- 
-= 3
-4
-.  
 When manipulating the conditional distribution given X = x, it is safe to act as if
 X is the constant x. This fact, which can simplify the calculation of certain conditional
 means, is now stated without proof.
-Theorem
-4.7.2
+
+## Theorem 4.7.2
+
 Let X and Y be random variables, and let Z = r(X, Y) for some function r. The
 conditional distribution of Z given X = x is the same as the conditional distribution
 of r(x, Y) given X = x.
@@ -220,14 +214,14 @@ E(Z|x) = E(r(x, Y)|x) =
 E{E[r(X, Y)|X]} = E[r(X, Y)], (4.7.4)
 
 by letting Z = r(X, Y) and noting that E{E(Z|X)} = E(Z).
+
 We can define, in a similar manner, the conditional expectation of r(X, Y) given
 Y and the conditional expectation of a function r(X1, . . . , Xn) of several random
 variables given one or more of the variables X1, . . . , Xn.
 
 ## Example 4.7.7: Linear Conditional Expectation
 
-Suppose that E(Y|X) = aX + b for some constants a
-and b. We shall determine the value of E(XY) in terms of E(X) and E(X2).
+Suppose that E(Y|X) = aX + b for some constants a and b. We shall determine the value of E(XY) in terms of E(X) and E(X2).
 By Eq. (4.7.4), E(XY) = E[E(XY|X)]. Furthermore, since X is considered to be
 given and fixed in the conditional expectation,
 E(XY|X) = XE(Y|X) = X(aX + b) = aX2 + bX.
@@ -293,14 +287,14 @@ h(x)f1(x) dx, and the corresponding expression using $d^*$ is
 
 $h^*(x)f_1(x) dx$.
 
-So, the
-proof will be complete if we can prove that
+So, the proof will be complete if we can prove that
 
 $$
 h(x)f1(x) dx \leq h(x)f1(x) dx.
 $$
 
 (4.7.7)
+
 Clearly, @eq-4-7-7 holds if we can show that $h(x) \leq h^*(x)$ for all $x$.
 
 That is, the proof is complete if we can show that $E{[Y − d(X)]2|x} \leq E{[Y − d(X)]2|x}$.
@@ -312,16 +306,18 @@ $$
 E{[Y − d(x)]2|x} ≤ E{[Y − d^*(x)]2|x}.
 $$
 
-These last expressions are nothing more than the M.S.E.’s for two different predictions d(x) and d(x) of Y calculated using the conditional distribution of Y given X = x. As discussed in Sec. 4.5, the
-M.S.E. of such a prediction is smallest if the prediction is the mean of the distribution
+These last expressions are nothing more than the M.S.E.’s for two different predictions d(x) and d(x) of Y calculated using the conditional distribution of Y given X = x.
+
+As discussed in @sec-4-5, the M.S.E. of such a prediction is smallest if the prediction is the mean of the distribution
 of Y . In this case, that mean is the mean of the conditional distribution of Y given
-X = x. Since d(x) is the mean of the conditional distribution of Y given X = x, it must
-have smaller M.S.E. than every other prediction $d^*(x)$. Hence, $h(x) \leq h^*(x)$ for all x.
+X = x.
+
+Since $d(x)$ is the mean of the conditional distribution of Y given X = x, it must have smaller M.S.E. than every other prediction $d^*(x)$. Hence, $h(x) \leq h^*(x)$ for all $x$.
 
 If the value X = x is observed and the value E(Y|x) is predicted for Y , then
-the M.S.E. of this predicted value will be Var(Y |x), from Definition 4.7.3. It follows
-from Eq. (4.7.6) that if the prediction is to be made by using the function d(X) =
-E(Y|X), then the overall M.S.E., averaged over all the possible values of X, will be
+the M.S.E. of this predicted value will be Var(Y |x), from @def-4-7-3. It follows
+from Eq. (4.7.6) that if the prediction is to be made by using the function d(X) = E(Y|X), then the overall M.S.E., averaged over all the possible values of X, will be
+
 E[Var(Y |X)].
 
 If the value of Y must be predicted without any information about the value of
@@ -332,18 +328,26 @@ the M.S.E. that can be achieved by using the observation X is
 
 Var(Y ) − E[Var(Y |X)]. (4.7.8)
 
-This reduction provides a measure of the usefulness of X in predicting Y . It is shown
-in Exercise 11 at the end of this section that this reduction can also be expressed as $\text{Var}[\mathbb{E}[Y \mid X]]$.
+This reduction provides a measure of the usefulness of X in predicting Y . It is shown in @exr-4-7-11 at the end of this section that this reduction can also be expressed as $\text{Var}[\mathbb{E}[Y \mid X]]$.
 
 It is important to distinguish carefully between the overall M.S.E., which is
+
 E[Var(Y |X)],
+
 and the M.S.E. of the particular prediction to be made when X = x,
-which is Var(Y |x). Before the value of X has been observed, the appropriate value
-for the M.S.E. of the complete process of observing X and then predicting Y is
-E[Var(Y |X)]. After a particular value x of X has been observed and the prediction
+which is
+
+Var(Y |x).
+
+Before the value of X has been observed, the appropriate value for the M.S.E. of the complete process of observing X and then predicting Y is
+E[Var(Y |X)].
+
+After a particular value x of X has been observed and the prediction
 E(Y|x) has been made, the appropriate measure of the M.S.E. of this prediction is
-Var(Y |x). A useful relationship between these values is given in the following result,
-whose proof is left to Exercise 11.
+
+Var(Y |x).
+
+A useful relationship between these values is given in the following result, whose proof is left to @exr-4-7-11.
 
 ## Theorem 4.7.4: Law of Total Probability for Variances
 
@@ -368,21 +372,16 @@ value of X and then predict P. To do this, we shall need the conditional distrib
 of P given X = x. Bayes’ theorem for random variables (3.6.13) tells us that the
 conditional p.d.f. of P given X = x is
 
-g2(p|x) = g1(x|p)f2(p)
-f1(x)
-, (4.7.9)
+
 
 where g1(x|p) is the conditional p.f. of X given P = p, namely, the binomial p.f.
 
-g1(x|p) =
- 40
-x
+
  
 px(1− p)40−x for x = 0, . . . , 40, f2(p) = 1 for $0 < p < 1$ is the marginal pdf of $P$, and
 $f_1(x)$ is the marginal pmf of $X$ obtained from the law of total probability
 
-Figure 4.12 The conditional p.d.f. of P given X = 18 in Example 4.7.8. The marginal
-p.d.f. of P (prior to observing X) is also shown.
+
 
 This last integral looks difficult to compute. However, there is a simple formula for
 integrals of this form, namely,
@@ -437,10 +436,13 @@ $$
 Notice that the largest possible value of Var(P |x) is 0.005814
 when x = 20 and is still much less than 1/12.
 
-A result similar to Theorem 4.7.3 holds if we are trying to minimize the M.A.E.
-(mean absolute error) of our prediction rather than the M.S.E. In Exercise 16, you
-can prove that the predictor that minimizes M.A.E. is d(X) equal to the median of
+A result similar to @thm-4-7-3 holds if we are trying to minimize the MAE (mean absolute error) of our prediction rather than the M.S.E. In @exr-4-7-16, you can prove that the predictor that minimizes M.A.E. is d(X) equal to the median of
 the conditional distribution of Y given X.
+
+## Figure 4.12
+
+The conditional p.d.f. of P given X = 18 in Example 4.7.8. The marginal
+p.d.f. of P (prior to observing X) is also shown.
 
 # Summary
 
@@ -450,8 +452,9 @@ Likewise, the conditional variance Var(Y |x) of Y given X = x is the variance of
 the conditional distribution. The law of total probability for expectations says that
 E[E(Y|X)]= E(Y). If we will observe X and then need to predict Y , the predictor
 that leads to the smallest M.S.E. is the conditional mean E(Y|X).
-264 Chapter 4 Expectation
-Exercises
+
+# Exercises
+
 1. Consider again the situation described in Example
 4.7.8. Compute the M.S.E. when using E(P|x) to predict
 P after observing X = 18. How much smaller is this than

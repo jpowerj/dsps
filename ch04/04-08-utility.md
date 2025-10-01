@@ -74,31 +74,27 @@ U(60) + 1
 U(50) + 1
 3
 U(40). (4.8.2)
-266 Chapter 4 Expectation
-Figure 4.13 The utility
+
+## Figure 4.13
+
+The utility
 function for Example 4.8.2.
- 400
- 400
- 300
- 200
- 100
-100
-100
- 500
- 200 200 400 x
-U(x)
+
 The person would prefer the gamble for which the expected utility of the gain, as
 specified by Eq. (4.8.1) or Eq. (4.8.2), is larger.
 As a specific example, consider the following utility function that penalizes losses
 to a much greater extent than it rewards gains:
+
 U(x) =
  
 100 log(x + 100) − 461 if x ≥ 0,
 x if x <0.
 (4.8.3)
+
 This function was chosen to be differentiable at x = 0, continuous everywhere, increasing,
 concave forx >0, and linear forx <0.Agraph of U(x) is given in Fig. 4.13.
 Using this specific U, we compute
+
 E[U(X)]= 1
 2
 [100 log(600) − 461]+ 1
@@ -112,13 +108,14 @@ E[U(Y)]= 1
 3
 [100 log(140) − 461]
 = 40.4.
+
 We see that a person with the utility function in Eq. (4.8.3) would prefer Y to X.
  
-Here, we formalize the principle that underlies the choice between gambles
-illustrated in Example 4.8.1.
-Definition
-4.8.2
-Maximizing Expected Utility. We say that a person chooses between gambles by
+Here, we formalize the principle that underlies the choice between gambles illustrated in Example 4.8.1.
+
+## Definition 4.8.2: Maximizing Expected Utility
+
+We say that a person chooses between gambles by
 maximizing expected utility if the following conditions hold. There is a utility function
 U, and when the person must choose between any two gambles X and Y , he will
 prefer X to Y if E[U(X)]>E[U(Y)] and will be indifferent between X and Y if
@@ -129,12 +126,11 @@ If one adopts a utility function, then one can (at least in principle) make choi
 between gambles by maximizing expected utility. The computational algorithms necessary
 to perform the maximization often provide a practical challenge. Conversely,
 if one makes choices between gambles in such a way that certain reasonable criteria
-apply, then one can prove that there exists a utility function such that the choices
-4.8 Utility 267
-correspond to maximizing expected utility. We shall not consider this latter problem
-in detail here; however, it is discussed by DeGroot (1970) and Schervish (1995,
+apply, then one can prove that there exists a utility function such that the choices correspond to maximizing expected utility. We shall not consider this latter problem in detail here; however, it is discussed by DeGroot (1970) and Schervish (1995,
 chapter 3) along with other aspects of the theory of utility.
-Examples of Utility Functions
+
+# Examples of Utility Functions
+
 Since it is reasonable to assume that every person prefers a larger gain to a smaller
 gain, we shall assume that every utility function U(x) is an increasing function of
 the gain x. However, the shape of the function U(x) will vary from person to person
@@ -142,16 +138,21 @@ and will depend on each person’s willingness to risk losses of various amounts
 attempting to increase his gains.
 For example, consider two gambles X and Y for which the gains have the following
 probability distributions:
+
 Pr(X =−3) = 0.5, Pr(X = 2.5) = 0.4, Pr(X = 6) = 0.1 (4.8.4)
+
 and
+
 Pr(Y =−2) = 0.3, Pr(Y = 1) = 0.4, Pr(Y = 3) = 0.3. (4.8.5)
+
 We shall assume that a person must choose one of the following three decisions:
 (i) accept gamble X, (ii) accept gamble Y , or (iii) do not accept either gamble. We
 shall now determine the decision that a person would choose for three different utility
 functions.
-Example
-4.8.3
-Linear Utility Function. Suppose that U(x) = ax + b for some constants a and b, where
+
+## Example 4.8.3: Linear Utility Function
+
+Suppose that U(x) = ax + b for some constants a and b, where
 a >0. In this case, for every gamble X, E[U(X)]= aE(X) + b. Hence, for every two
 gambles X and Y , E[U(X)]>E[U(Y)] if and only if E(X) > E(Y). In other words, a
 person who has a linear utility function will always choose a gamble for which the
@@ -165,9 +166,10 @@ expected gain from choosing not to accept either gamble is clearly 0. Since E(Y)
 E(X) > 0, it follows that a person who has a linear utility function would choose to
 accept gamble Y . If gamble Y were not available, then the person would prefer to
 accept gamble X rather than not to gamble at all.  
-Example
-4.8.4
-Cubic Utility Function. Suppose that a person’s utility function is U(x) = x3 for−∞<
+
+## Example 4.8.4: Cubic Utility Function
+
+Suppose that a person’s utility function is U(x) = x3 for−∞<
 x <∞. Then for the gambles defined by Eqs. (4.8.4) and (4.8.5),
 E[U(X)]= (0.5)(−3)3 + (0.4)(2.5)3 + (0.1)(6)3 = 14.35
 and
@@ -176,10 +178,10 @@ Furthermore, the utility of not accepting either gamble is U(0) = 03 = 0. Since
 E[U(X)]>E[U(Y)]> 0, it follows that the person would choose to accept gamble X.
 If gamble X were not available, the person would prefer to accept gamble Y rather
 than not to gamble at all.  
-268 Chapter 4 Expectation
-Example
-4.8.5
-Logarithmic Utility Function. Suppose that a person’s utility function isU(x) = log(x +
+
+## Example 4.8.5: Logarithmic Utility Function
+
+Suppose that a person’s utility function isU(x) = log(x +
 4) forx >−4. Since limx→−4 log(x + 4)=−∞, a person who has this utility function
 cannot choose a gamble in which there is any possibility of her gain being −4 or less.
 For the gambles X and Y defined by Eqs. (4.8.4) and (4.8.5),
@@ -190,7 +192,9 @@ Furthermore, the utility of not accepting either gamble isU(0) = log 4 = 1.3863.
 E[U(Y)]>U(0)>E[U(X)], it follows that the person would choose to accept gamble
 Y . If gamble Y were not available, the person would prefer not to gamble at all rather
 than to accept gamble X.  
-Selling a Lottery Ticket
+
+# Selling a Lottery Ticket
+
 Suppose that a person has a lottery ticket from which she will receive a random gain
 of X dollars, where X has a specified probability distribution.We shall determine the
 number of dollars for which the person would be willing to sell this lottery ticket.
@@ -201,9 +205,10 @@ x0 dollars as a certain gain rather than accept the random gain X from the lotte
 ticket if and only if U(x0) > E[U(X)]. Hence, the person would be willing to sell the
 lottery ticket for any amount x0 such that U(x0) > E[U(X)]. If U(x0) = E[U(X)], she
 would be equally willing to either sell the lottery ticket or accept the random gain X.
-Example
-4.8.6
-Quadratic Utility Function. Suppose that U(x) = x2 for x ≥ 0, and suppose that the
+
+## Example 4.8.6: Quadratic Utility Function
+
+Suppose that U(x) = x2 for x ≥ 0, and suppose that the
 person has a lottery ticket from which she will win either 36 dollars with probability
 1/4 or 0 dollars with probability 3/4. For how many dollars x0 would she be willing to
 sell this lottery ticket?
@@ -217,14 +222,16 @@ U(0) = 1
 (362) + 3
 4
 (0) = 324.
+
 Therefore, the person would be willing to sell the lottery ticket for any amount x0
 such that U(x0) = x2
 0 > 324. Hence, x0 > 18. In other words, although the expected
 gain from the lottery ticket in this example is only 9 dollars, the person would not
 sell the ticket for less than 18 dollars.  
-Example
-4.8.7
-Square Root Utility Function. Suppose now that U(x) = x1/2 for x ≥ 0, and consider
+
+## Example 4.8.7: Square Root Utility Function
+
+Suppose now that U(x) = x1/2 for x ≥ 0, and consider
 again the lottery ticket described in Example 4.8.6. The expected utility of the gain
 from the lottery ticket in this case is
 E[U(X)]= 1
@@ -236,14 +243,16 @@ U(0) = 1
 (6) + 3
 4
 (0) = 1.5.
+
 Therefore, the person would be willing to sell the lottery ticket for any amount x0
 such that U(x0) = x
 1/2
 0 > 1.5. Hence, x0 > 2.25. In other words, although the expected
 gain from the lottery ticket in this example is 9 dollars, the person would be willing
 to sell the ticket for as little as 2.25 dollars.  
-4.8 Utility 269
-Some Statistical Decision Problems
+
+# Some Statistical Decision Problems
+
 Much of the theory of statistical inference (the subject of Chapters 7–11 of this
 text) deals with problems in which one has to make one of several available choices.
 Generally, which choice is best depends on some random variable that has not yet
@@ -254,9 +263,10 @@ prediction of a random variable Y . Which prediction will be best depends on the
 value of Y that we do not yet know. Random variables like −|Y − d| and −(Y − d)2
 are gambles, and the choice of gamble that minimizes M.A.E. or M.S.E. is the choice
 that maximizes an expected utility.
-Example
-4.8.8
-Predicting a Random Variable. Suppose that Y is a random variable that we need
+
+## Example 4.8.8: Predicting a Random Variable
+
+Suppose that Y is a random variable that we need
 to predict. For each possible prediction d, there is a gamble Xd
 =−|Y − d| that
 specifies our gain when we are being judged by absolute error. Alternatively, if we
@@ -272,10 +282,11 @@ variableW that we could observe before predicting. That is, our prediction would
 a function d(W), and Xd
 =−|Y − d(W)| or Zd
 =−[Y − d(W)]2 would be the gamble
-whose expected utility we would want to compute.  
-Example
-4.8.9
-Bounding a Random Variable. Suppose that Y is a random variable and that we are
+whose expected utility we would want to compute.
+
+## Example 4.8.9: Bounding a Random Variable
+
+Suppose that Y is a random variable and that we are
 interested in whether or not Y ≤ c for some constant c. For example, Y could be
 the random variable P in our clinical trial Example 4.7.3.We might be interested in
 whether or not P ≤ p0, where p0 is the probability that a patient will be a success
@@ -283,6 +294,7 @@ without any help from the treatment being studied. Suppose that we have to make
 one of two available decisions:
 (t) continue to promote the treatment, or
 (a) abandon the treatment.
+
 If we choose t , suppose that we stand to gain
 Xt
 =
@@ -301,67 +313,49 @@ x if x <0.
 Then U(0) = 0 and
 E[U(Xt)]=−106 Pr(P ≤ p0) + [106]0.8 Pr(P > p0)
 = 104.8 − (106 + 104.8) Pr(P ≤ p0).
-270 Chapter 4 Expectation
+
+
 So, E[U(Xt)]> 0 if Pr(P ≤ p0) < 104.8/(106 + 104.8) = 0.0594. It makes sense that t is
 better than a if Pr(P ≤ p0) is small. The reason is that the utility of choosing t over a
 is only positive whenP >p0. This example is in the spirit of hypothesis testing, which
 will be the subject of Chapter 9.  
-Example
-4.8.10
-Investment. In Example 4.2.2, we compared two possible stock purchases based
+
+## Example 4.8.10: Investment
+
+In Example 4.2.2, we compared two possible stock purchases based
 on their expected returns and value at risk, VaR. Suppose that the investor has a
 nonlinear utility function for dollars. To be specific, suppose that the utility of a return
 of x would equal U(x) given in Eq. (4.8.6). We can calculate the expected utility of
 the return from each of the two possible stock purchases in Example 4.2.2 to decide
 which is more favorable. If R is the return per share and we buy s shares, then the
 return is X = sR, and the expected utility of the return is
-E[U(sR)]=
-  0
-−∞
-srf (r) dr +
-  ∞
-0
+
 (sr)0.8f (r) dr, (4.8.7)
+
 where f is the p.d.f. of R. For the first stock, the return per share is R1 distributed
 uniformly on the interval [−10, 20], and the number of shares would be s1= 120. This
 makes (4.8.7) equal to
-E[U(120R1)]=
-  0
-−10
-120r
-30
-dr +
-  20
-0
-(120r)0.8
-30
-dr =−12.6.
+
 For the second stock, the return per share is R2 distributed uniformly on the interval
 [−4.5, 10], and the number of shares would be s2 = 200. This makes (4.8.7) equal to
-E[U(200R2)]=
-  0
-−4.5
-200r
-14.5
-dr +
-  10
-0
-(200r)0.8
-14.5
-dr = 27.9.
+
 With this utility function, the expected utility of the first stock purchase is actually
 negative because the big gains (up to 120 ×20 =2400) add less to the utility (24000.8 =
 506) than the big losses (up to 120×−10=−1200) take away from the utility. The
 second stock purchase has positive expected utility, so it would be the preferred
 choice in this example.  
-Summary
+
+# Summary
+
 When we have to make choices in the face of uncertainty, we need to assess what our
 gains and losses will be under each of the uncertain possibilities. Utility is the value
 to us of those gains and losses. For example, if X represents the random gain from
 a possible choice, then U(X) is the value to us of the random gain we would receive
 if we were to make that choice. We should make the choice such that E[U(X)] is as
 large as possible.
-Exercises
+
+# Exercises
+
 1. Let α >0. A decision maker has a utility function for
 money of the form
 U(x) =
@@ -374,7 +368,7 @@ ticket pays $500 with probability 0.001, and it pays $0 with
 probability 0.999. What would the values of α have to be
 in order for this decision maker to prefer buying the ticket
 to not buying it?
-4.8 Utility 271
+
 2. Consider three gambles X, Y, and Z for which the
 probability distributions of the gains are as follows:
 Pr(X = 5) = Pr(X = 25) = 1/2,
@@ -461,6 +455,7 @@ x if x ≥ 0,
 −x if x <0.
 Prove that the value of d that maximizes expected utility
 is a median of the distribution of Y .
+
 17. Reconsider the conditions of Example 4.8.9. This
 time, suppose that p0 = 1/2 and
 U(x) =

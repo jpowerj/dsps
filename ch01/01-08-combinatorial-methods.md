@@ -520,7 +520,7 @@ The United States Senate contains two senators from each of the 50 states. **(a)
 
 ::: {#exr-1-8-17}
 
-# Exerise 1.8.17
+## Exercise 1.8.17
 
 A deck of 52 cards contains four aces. If the cards are shuffled and distributed in a random manner to four players so that each player receives 13 cards, what is the probability that all four aces will be received by the same player?
 

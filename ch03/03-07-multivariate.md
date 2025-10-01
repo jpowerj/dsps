@@ -439,23 +439,25 @@ Pr(X1<X2 < . . .<Xn) = 1
 
 
 (sec-3-7-5)=
-# Conditional Distributions
+# 3.7.5 Conditional Distributions
 
 Suppose that n random variables X1, . . . , Xn have a continuous joint distribution for
 which the joint p.d.f. is f and that f0 denotes the marginal joint p.d.f. of thek <nrandom
 variablesX1, . . . ,Xk. Then for all values of x1, . . . , xk such that f0(x1, . . . , xk) >
 0, the conditional p.d.f. of (Xk+1, . . . , Xn) given that X1 = x1, . . . , Xk
 = xk is defined
-160 Chapter 3 Random Variables and Distributions
+
 as follows:
+
 gk+1...n(xk+1, . . . , xn
 |x1, . . . , xk) = f (x1, x2, . . . , xn)
 f0(x1, . . . , xk)
-.
+
 The definition above generalizes to arbitrary joint distributions as follows.
-Definition
-3.7.7
-Conditional p.f., p.d.f., or p.f./p.d.f. Suppose that the random vectorX = (X1, . . . ,Xn)
+
+## Definition 3.7.7: Conditional p.f., p.d.f., or p.f./p.d.f
+
+Suppose that the random vectorX = (X1, . . . ,Xn)
 is divided into two subvectors Y and Z, where Y is a k-dimensional random vector
 comprising k of the n random variables in X, and Z is an (n − k)-dimensional random
 vector comprising the other n − k random variables in X. Suppose also that the
@@ -463,60 +465,36 @@ n-dimensional joint p.f., p.d.f., or p.f./p.d.f. of (Y, Z) is f and that the mar
 dimensional p.f., p.d.f., or p.f./p.d.f. ofZ is f2. Then for every given point z ∈ Rn−k such
 that f2(z) > 0, the conditional k-dimensional p.f., p.d.f., or p.f./p.d.f. g1 of Y given
 Z = z is defined as follows:
+
 g1( y|z) = f (y, z)
 f2(z)
 for y ∈ Rk. (3.7.8)
+
 Eq. (3.7.8) can be rewritten as
+
 f (y, z) = g1( y|z)f2(z), (3.7.9)
+
 which allows construction of the joint distribution from a conditional distribution and
 a marginal distribution. As in the bivariate case, it is safe to assume that f (y, z) = 0
 whenever f2(z) = 0. Then Eq. (3.7.9) holds for all y and z even though g1( y|z) is not
 uniquely defined.
-Example
-3.7.14
-Service Times in a Queue. In Example 3.7.9, we calculated the marginal bivariate
+
+## Example 3.7.14: Service Times in a Queue
+
+In Example 3.7.9, we calculated the marginal bivariate
 distribution of two service timesZ = (X1, X2).We can now find the conditional threedimensional
 p.d.f. of Y = (X3, X4, X5) given Z = (x1, x2) for every pair (x1, x2) such
 that x1, x2 > 0:
 g1(x3, x4, x5|x1, x2) = f (x1, . . . , x5)
 f12(x1, x2)
-=
+
 
 
 for x3, x4, x5 > 0, and 0 otherwise. The joint p.d.f. in (3.7.10) looks like a bunch of
 symbols, but it can be quite useful. Suppose that we observe X1 = 4 and X2 = 6. Then
-g1(x3, x4, x5|4.6) =
+g1(x3, x4, x5|4.6) 
 
-
-We can now calculate the conditional probability that X3 > 3 given X1 = 4, X2 = 6:
-
-Pr(X3 > 3|X1 = 4, X2 = 6) =
-  ∞
-3
-  ∞
-0
-  ∞
-0
-10,360
-(12 + x3 + x4 + x5)6
-dx5dx4dx3
-=
-  ∞
-3
-  ∞
-0
-20,736
-(12 + x3 + x4)5
-dx4dx3
-=
-  ∞
-3
-5184
-(12 + x3)4
-dx3
-= 1728
-153
-= 0.512.
+We can now calculate the conditional probability that X3 > 3 given X1 = 4, X2 = 6
 
 Compare this to the calculation of Pr(X3 > 3) = 0.4 at the end of Example 3.7.9.
 After learning that the first two service times are a bit longer than three time units, we
@@ -525,26 +503,26 @@ observations. If the first two service times had been small, the conditional pro
 that X3 > 3 would have been smaller than 0.4. For example, Pr(X3 > 3|X1 = 1, X2 =
 1.5) = 0.216.  
 
-## Example 3.7.15
+## Example 3.7.15: Determining a Marginal Bivariate pdf
 
-Determining a Marginal Bivariate p.d.f. Suppose that Z is a random variable for which
+Suppose that Z is a random variable for which
 the p.d.f. f0 is as follows:
 f0(z) =
- 
-2e
-−2z for z > 0,
-0 otherwise.
-(3.7.11)
+
+
 Suppose, furthermore, that for every given value Z = z > 0 two other random variablesX1
 andX2 are independent and identically distributed and the conditional p.d.f.
 of each of these variables is as follows:
+
 g(x|z) =
  
 ze
 −zx for x >0,
 0 otherwise.
 (3.7.12)
+
 We shall determine the marginal joint p.d.f. of (X1, X2).
+
 Since X1 and X2 are i.i.d. for each given value of Z, their conditional joint p.d.f.
 when Z = z > 0 is
 g12(x1, x2|z) =
@@ -552,122 +530,88 @@ g12(x1, x2|z) =
 z2e
 −z(x1+x2) for x1, x2 > 0,
 0 otherwise.
+
 The joint p.d.f. f of (Z, X1, X2) will be positive only at those points (z, x1, x2)
 such that x1, x2, z>0. It now follows that, at every such point,
 f (z, x1, x2) = f0(z)g12(x1, x2|z) = 2z2e
 −z(2+x1+x2).
+
 For x1 > 0 and x2 > 0, the marginal joint p.d.f. f12(x1, x2) of X1 and X2 can be
 determined either using integration by parts or some special results that will arise
 in Sec. 5.7:
-f12(x1, x2) =
 
-for x1, x2 > 0. The reader will note that this p.d.f. is the same as the marginal bivariate
+f12(x1, x2) = for x1, x2 > 0.
+
+The reader will note that this p.d.f. is the same as the marginal bivariate
 p.d.f. of (X1, X2) found in Eq. (3.7.5).
 From this marginal bivariate p.d.f., we can evaluate probabilities involving X1
 and X2, such as Pr(X1 + X2 < 4). We have
-Pr(X1 + X2 < 4) =
-  4
-0
-  4−x2
-0
-4
-(2 + x1 + x2)3
-dx1 dx2 = 4
-9
-.  
 
-## Example 3.7.16
-Service Times in a Queue.
+## Example 3.7.16: Service Times in a Queue
 
-We can think of the random variable Z in Example 3.7.15
-as the rate at which customers are served in the queue of Example 3.7.5. With this
+We can think of the random variable Z in @exm-3-7-15 as the rate at which customers are served in the queue of Example 3.7.5. With this
 interpretation, it is useful to find the conditional distribution of the rate Z after we
 observe some of the service times such as X1 and X2.
 For every value of z, the conditional p.d.f. of Z given X1 = x1 and X2 = x2 is
-g0(z|x1, x2) = f (z, x1, x2)
-f12(x1, x2)
-=
- 
-1
-2 (2 + x1 + x2)3z2e
-−z(2+x1+x2) for z > 0,
-0 otherwise.
-(3.7.13)
-Finally, we shall evaluate Pr(Z ≤ 1|X1 = 1, X2 = 4). We have
-Pr(Z ≤ 1|X1 = 1, X2 = 4) =
-  1
-0
-g0(z|1, 4) dz
-=
-  1
-0
-171.5z2e
-−7z dz = 0.9704.  
-Law of Total Probability and Bayes’ Theorem Example 3.7.15 contains an example
-of the multivariate version of the law of total probability, while Example 3.7.16
+
+Finally, we shall evaluate Pr(Z ≤ 1|X1 = 1, X2 = 4). We have 
+
+# Law of Total Probability and Bayes’ Theorem
+
+@exm-3-7-15 contains an example of the multivariate version of the law of total probability, while Example 3.7.16
 contains an example of the multivariate version of Bayes’ theorem. The proofs of
 the general versions are straightforward consequences of Definition 3.7.7.
-Theorem
-3.7.5
-Multivariate Law of Total Probability and Bayes’ Theorem. Assume the conditions and
+
+## Theorem 3.7.5: Multivariate Law of Total Probability and Bayes’ Theorem
+
+Assume the conditions and
 notation given in Definition 3.7.7. If Z has a continuous joint distribution, the marginal
 p.d.f. of Y is
 
-
-g1( y|z)f2(z) dz, (3.7.14)
-and the conditional p.d.f. of Z given Y = y is
-g2(z|y) = g1( y|z)f2(z)
-f1( y)
-. (3.7.15)
 If Z has a discrete joint distribution, then the multiple integral in (3.7.14) must be
 replaced by a multiple summation. If Z has a mixed joint distribution, the multiple
 integral must be replaced by integration over those coordinates with continuous
 distributions and summation over those coordinates with discrete distributions.
-Conditionally Independent Random Variables In Examples 3.7.15 and 3.7.16, Z is
-the single random variableZ and Y = (X1, X2). These examples also illustrate the use
+
+# Conditionally Independent Random Variables
+
+In @exm-3-7-15 and @exm-3-7-16, $Z$ is the single random variableZ and Y = (X1, X2). These examples also illustrate the use
 of conditionally independent random variables. That is, X1 and X2 are conditionally
 independent given Z = z for all z > 0. In Example 3.7.16, we said that Z was the
 rate at which customers were served.When this rate is unknown, it is a major source
 of uncertainty. Partitioning the sample space by the values of the rate Z and then
 conditioning on each value of Z removes a major source of uncertainty for part of
 the calculation.
+
 In general, conditional independence for random variables is similar to conditional
 independence for events.
 
-## Definition 3.7.8
-Conditionally Independent Random Variables.
+## Definition 3.7.8: Conditionally Independent Random Variables
 
-Let Z be a random vector with joint
-p.f., p.d.f., or p.f./p.d.f. f0(z). Several random variables X1, . . . , Xn are conditionally
+Let Z be a random vector with joint p.f., p.d.f., or p.f./p.d.f. f0(z). Several random variables X1, . . . , Xn are conditionally
 independent given Z if, for all z such that f0(z) > 0, we have
-g(x|z) =
-!n
-i=1
-gi(xi
-|z),
+
+
 where g(x|z) stands for the conditional multivariate p.f., p.d.f., or p.f./p.d.f. of X given
 Z = z and gi(xi
 |z) stands for the conditional univariate p.f. or p.d.f. of Xi given Z = z.
-In Example 3.7.15, gi(xi
-|z) = ze
-−zxi for xi > 0 and i = 1, 2.
-Example
-3.7.17
-A Clinical Trial. In Example 3.7.8, the joint p.f./p.d.f. given there was constructed by
-assuming that X1, . . . , Xm were conditionally independent given P = p each with
-the same conditional p.f., gi(xi
-|p) = pxi(1− p)1−xi for xi
-∈ {0, 1} and that P had
-the uniform distribution on the interval [0, 1]. These assumptions produce, in the
-notation of Definition 3.7.8,
-g(x|p) =
- 
-px1+...+xm(1− p)40−x1−...−xm for all xi
-∈ {0, 1} and 0 ≤ p ≤ 1,
-0 otherwise,
-for 0 ≤ p ≤ 1. Combining this with the marginal p.d.f. of P, f2(p) = 1 for 0 ≤ p ≤ 1
+
+In Example 3.7.15, gi(xi|z) = ze−zxi for xi > 0 and i = 1, 2.
+
+## Example 3.7.17: A Clinical Trial
+
+In @exm-3-7-8, the joint p.f./p.d.f. given there was constructed by assuming that X1, . . . , Xm were conditionally independent given P = p each with the same conditional p.f., gi(xi|p) = pxi(1− p)1−xi for xi∈ {0, 1} and that P had the uniform distribution on the interval [0, 1]. These assumptions produce, in the notation of @def-3-7-8,
+
+g(x|p) = 
+
+for 0 ≤ p ≤ 1.
+
+Combining this with the marginal p.d.f. of P, f2(p) = 1 for 0 ≤ p ≤ 1
 and 0 otherwise, we get the joint p.f./p.d.f. given in Example 3.7.8.  
-Conditional Versions of Past and Future Theorems We mentioned earlier that
+
+# Conditional Versions of Past and Future Theorems
+
+We mentioned earlier that
 conditional distributions behave just like distributions. Hence, all theorems that we
 have proven and will prove in the future have conditional versions. For example,
 the law of total probability in Eq. (3.7.14) has the following version conditional on
@@ -681,9 +625,10 @@ notation, the conditional version of Bayes’ theorem is
 g2(z|y, w) = g1( y|z, w)f2(z|w)
 f1( y|w)
 . (3.7.17)
-Example
-3.7.18
-Conditioning on Random Variables in Sequence. In Example 3.7.15, we found the
+
+## Example 3.7.18: Conditioning on Random Variables in Sequence
+
+In @exm-3-7-15, we found the
 conditional p.d.f. of Z given (X1, X2) = (x1, x2). Suppose now that there are three
 more observations available, X3, X4, and X5, and suppose that all of X1, . . . , X5
 are conditionally i.i.d. given Z = z with p.d.f. g(x|z). We shall use the conditional
@@ -694,7 +639,7 @@ p.d.f.’s in the discussion immediately preceding this example. Since X1, . . .
 conditionally i.i.d. given Z, we have that g1( y|z, w) does not depend on w. In fact,
 g1( y|z, w) = g(x3|z)g(x4|z)g(x5|z) = z3e
 −z(x3+x4+x5),
-164 Chapter 3 Random Variables and Distributions
+
 for x3, x4, x5 > 0. We also need the conditional p.d.f. of Z given W = w, which was
 calculated in Eq. (3.7.13), and we now denote it
 f2(z|w) = 1
@@ -706,6 +651,7 @@ two. This was calculated in Example 3.7.14, and we now denote it
 f1( y|w) = 60(2 + x1 + x2)3
 (2 + x1 + . . . + x5)6
 .
+
 Now combine these using Bayes’ theorem (3.7.17) to obtain
 g2(z| y, w) =
 z3e
@@ -719,13 +665,19 @@ z3e
 (2 + x1 + . . . + x5)6z5e
 −z(2+x1+...+x5),
 for z > 0.  
-Note: Simple Rule for Creating Conditional Versions of Results. If you ever wish to
+
+## Note: Simple Rule for Creating Conditional Versions of Results
+
+If you ever wish to
 determine the conditional version givenW = w of a result that you have proven, here
 is a simple method. Just add “conditional onW = w” to every probabilistic statement
 in the result. This includes all probabilities, c.d.f.’s, quantiles, names of distributions,
 p.d.f.’s, p.f.’s, and so on. It also includes all future probabilistic concepts that we
 introduce in later chapters (such as expected values and variances in Chapter 4).
-Note: Independence is a Special Case of Conditional Independence. Let X1, . . . ,
+
+## Note: Independence is a Special Case of Conditional Independence
+
+Let X1, . . . ,
 Xn be independent random variables, and let W be a constant random variable.
 That is, there is a constant c such that Pr(W = c) = 1. Then X1, . . . , Xn are also
 conditionally independent given W = c. The proof is straightforward and is left to
@@ -733,10 +685,12 @@ the reader (Exercise 15). This result is not particularly interesting in its own
 Its value is the following: If we prove a result for conditionally independent random
 variables or conditionally i.i.d. random variables, then the same result will hold for
 independent random variables or i.i.d. random variables as the case may be.
-Histograms
-Example
-3.7.19
-Rate of Service. In Examples 3.7.5 and 3.7.6, we considered customers arriving at a
+
+# Histograms
+
+## Example 3.7.19: Rate of Service
+
+In Examples 3.7.5 and 3.7.6, we considered customers arriving at a
 queue and being served. Let Z stand for the rate at which customers were served,
 and we let X1, X2, . . . stand for the times that the successive customers requrired for
 service. Assume that X1, X2, . . . are conditionally i.i.d. given Z = z with p.d.f.
@@ -748,7 +702,8 @@ assume that X1, . . . , Xn will be observed for some large value n, and we want 
 think about what these observations tell us about Z. To be specific, suppose that we
 observe n = 100 service times. The first 10 times are listed here:
 1.39, 0.61, 2.47, 3.35, 2.56, 3.60, 0.32, 1.43, 0.51, 0.94.
-3.7 Multivariate Distributions 165
+
+
 The smallest and largest observed service times from the entire sample are 0.004 and
 9.60, respectively. It would be nice to have a graphical display of the entire sample
 of n = 100 service times without having to list them separately.  
@@ -756,11 +711,11 @@ The histogram, defined below, is a graphical display of a collection of numbers.
 It is particularly useful for displaying the observed values of a collection of random
 variables that have been modeled as conditionally i.i.d.
 
-## Definition 3.7.9
+## Definition 3.7.9: Histogram
 
-Histogram. Let x1, . . . , xn be a collection of numbers that all lie between two values
+Let x1, . . . , xn be a collection of numbers that all lie between two values
 
- Choose some integer k ≥ 1 and divide
+Choose some integer k ≥ 1 and divide
 the interval [a, b] into k equal-length subintervals of length (b − a)/k. For each
 subinterval, count how many of the numbers x1, . . . , xn are in the subinterval. Let
 ci be the count for subinterval i for i = 1, . . . , k. Choose a number r >0. (Typically,
@@ -768,6 +723,7 @@ r = 1 or r = n or r = n(b − a)/k.) Draw a two-dimensional graph with the horiz
 axis running from a to b. For each subinterval i = 1, . . . , k draw a rectangular bar of
 width (b − a)/k and height equal to ci/r over the midpoint of the ith interval. Such
 a graph is called a histogram.
+
 The choice of the number r in the definition of histogram depends on what one
 wishes to be displayed on the vertical axis. The shape of the histogram is identical
 regardless of what value one chooses for r.With r = 1, the height of each bar is the raw
@@ -776,32 +732,21 @@ the height of each bar is the proportion of the set of numbers in each subinterv
 and the vertical axis displays proportions. With r = n(b − a)/k, the area of each bar
 is the proportion of the set of numbers in each subinterval.
 
-## Example 3.7.20
+## Example 3.7.20: Rate of Service
 
-Rate of Service. Then = 100 observed service times in Example 3.7.19 all lie between
-0 and 10. It is convenient, in this example, to draw a histogram with horizontal axis
+The $n = 100$ observed service times in @exm-3-7-19 all lie between 0 and 10. It is convenient, in this example, to draw a histogram with horizontal axis
 running from 0 to 10 and divided into 10 subintervals of length 1 each. Other choices
-are possible, but this one will do for illustration. Figure 3.22 contains the histogram of
+are possible, but this one will do for illustration.
+
+@fig-3-22 contains the histogram of
 the 100 observed service times with r = 100. One sees that the numbers of observed
 service times in the subintervals decrease as the center of the subinterval increses.
 This matches the behavior of the conditional p.d.f. g(x|z) of the service times as a
 function of x for fixed z.  
+
 Histograms are useful as more than just graphical displays of large sets of numbers.
 After we see the law of large numbers (Theorem 6.2.4), we can show that the
-Figure 3.22 Histogram
-of service times for Example
-3.7.20 with a = 0, b = 10,
-k = 10, and r = 100.
-0.05
-0
-0.10
-0.15
-0.20
-0.25
-0.30
-2 4 6 8 10
-Time
-Proportion
+
 
 histogram of a large (conditionally) i.i.d. sample of continuous random variables is
 an approximation to the (conditional) p.d.f. of the random variables in the sample,
@@ -812,17 +757,22 @@ case, one would typically let the height of each bar be ci/ri , where ci is the 
 and ri is proportional to the length of the ith subinterval. In this way, the area of each
 bar is still proportional to the count or proportion in each subinterval.
 
+
+## Figure 3.22
+Histogram
+of service times for Example
+3.7.20 with a = 0, b = 10,
+k = 10, and r = 100.
+
 (sec-3-7-8)=
-# Summary
+# 3.7.8 Summary
 
 A finite collection of random variables is called a random vector. We have defined
 joint distributions for arbitrary random vectors. Every random vector has a joint c.d.f.
 Continuous random vectors have a joint p.d.f. Discrete random vectors have a joint
 p.f. Mixed distribution random vectors have a joint p.f./p.d.f. The coordinates of an
 n-dimensional random vector X are independent if the joint p.f., p.d.f., or p.f./p.d.f.
-f (x) factors into
-"n
-i=1 fi(xi).
+f (x) factors into ni=1 fi(xi).
 We can compute marginal distributions of subvectors of a random vector, and
 we can compute the conditional distribution of one subvector given the rest of the
 vector.We can construct a joint distribution for a random vector by piecing together
@@ -831,15 +781,12 @@ rest given the first part. There are versions of Bayes’ theorem and the law of
 probability for random vectors.
 An n-dimensional random vector X has coordinates that are conditionally independent
 given Z if the conditional p.f., p.d.f., or p.f./p.d.f. g(x|z) of X given Z = z
-factors into
-"n
-i=1 gi(xi
-|z). There are versions of Bayes’ theorem, the law of total
+factors into i=1 gi(xi |z). There are versions of Bayes’ theorem, the law of total
 probability, and all future theorems about random variables and random vectors
 conditional on an arbitrary additional random vector.
 
 (sec-3-7-9)=
-# Exercises
+# 3.7.9 Exercises
 
 1. Suppose that three random variables X1, X2, and X3
 have a continuous joint distribution with the following
@@ -859,22 +806,20 @@ X1 = 1
 4, X2 = 3
 4
  
-.
+
 2. Suppose that three random variables X1, X2, and X3
 have a mixed joint distribution with p.f./p.d.f.:
 f (x1, x2, x3)
-=
-⎧⎪⎨
-⎪⎩
-cx
-1+x2+x3
-1 (1− x1)3−x2−x3 if 0 < x1 < 1
-and x2, x3 ∈ {0, 1},
+
 0 otherwise.
 (Notice that X1 has a continuous distribution and X2 and
-X3 have discrete distributions.) Determine (a) the value of
-the constant c; (b) the marginal joint p.f. of X2 and X3; and
-(c) the conditional p.d.f. of X1 given X2 = 1 and X3 = 1.
+X3 have discrete distributions.) Determine
+
+* (a) the value of
+the constant c;
+* (b) the marginal joint p.f. of X2 and X3; and
+* (c) the conditional p.d.f. of X1 given X2 = 1 and X3 = 1.
+
 3. Suppose that three random variables X1, X2, and X3
 have a continuous joint distribution with the following
 joint p.d.f.: f (x1, x2, x3) =
@@ -884,6 +829,7 @@ ce
 0 otherwise.
 Determine (a) the value of the constant c; (b) the marginal
 joint p.d.f. ofX1 andX3; and (c) Pr(X1<1|X2 =2, X3 =1).
+
 4. Suppose that a point (X1, X2, X3) is chosen at random,
 that is, in accordance with the uniform p.d.f., from the
 following set S:
@@ -928,12 +874,15 @@ in parallel if a necessary and sufficient condition for
 the system to function properly is that at least one of the
 n components functions properly. The probability that the
 system will function properly is called the reliability of the
-system. Determine the reliability of the system, (a) assuming
-that the components are connected in series, and (b)
-assuming that the components are connected in parallel.
+system. Determine the reliability of the system,
+
+* (a) assuming that the components are connected in series, and
+* (b) assuming that the components are connected in parallel.
+
 6. Suppose that the n random variables X1 . . . , Xn form a
 random sample from a discrete distribution for which the
 p.f. is f . Determine the value of Pr(X1 = X2 = . . . = Xn).
+
 7. Suppose that the n random variablesX1, . . . , Xn form a
 random sample from a continuous distribution for which
 the p.d.f. is f . Determine the probability that at least k
@@ -941,19 +890,20 @@ of these n random variables will lie in a specified interval
 a ≤ x ≤ b.
 8. Suppose that the p.d.f. of a random variable X is as
 follows:
-f (x) = 1
-n!xne
-−x for x >0
-0 otherwise.
+
 Suppose also that for any given value X = x (x >0), the n
 random variables Y1, . . . , Yn are i.i.d. and the conditional
 p.d.f. g of each of them is as follows:
+
 g(y|x) = 1
 x for 0 < y < x,
 0 otherwise.
-Determine (a) the marginal joint p.d.f. of Y1, . . . , Yn and
-(b) the conditional p.d.f. of X for any given values of
+Determine
+
+* (a) the marginal joint p.d.f. of Y1, . . . , Yn and
+* (b) the conditional p.d.f. of X for any given values of
 Y1, . . . , Yn.
+
 9. Let X be a random variable with a continuous distribution.
 Let X1 = X2 = X.
 a. Prove that both X1 and X2 have a continuous distribution.
@@ -963,10 +913,12 @@ joint distribution.
 Let X = (X1, . . . , X5) and compute the conditional p.d.f.
 of Z given X = x directly in one step, as if all of X were
 observed at the same time.
+
 11. Suppose that X1, . . . , Xn are independent. Let k < n
 and let i1, . . . , ik be distinct integers between 1 and n.
 Prove that Xi1, . . . , Xik
 are independent.
+
 12. Let X be a random vector that is split into three parts,
 X = (Y, Z, W). Suppose that X has a continuous joint
 distribution with p.d.f. f ( y, z, w). Let g1( y, z|w) be the
@@ -979,21 +931,19 @@ Z = z for all z with the conditional p.d.f. g(x|z) in Eq.
 (3.7.12). Also, let the marginal p.d.f. of Z be f0 in
 Eq. (3.7.11). Prove that the conditional p.d.f. of X3 given
 (X1, X2) = (x1, x2) is
-  ∞
-0
+
 g(x3|z)g0(z|x1, x2) dz, where g0 is
 defined in Eq. (3.7.13). (You can prove this even if you
 cannot compute the integral in closed form.)
-14. Consider the situation described in Example 3.7.14.
+
+14. Consider the situation described in @exm-3-7-14.
+
 Suppose that X1 = 5 and X2 = 7 are observed.
-a. Compute the conditional p.d.f. ofX3 given (X1, X2)=
-(5, 7). (You may use the result stated in Exercise 12.)
-b. Find the conditional probability that X3 > 3 given
-(X1, X2) = (5, 7) and compare it to the value of
-Pr(X3 > 3) found in Example 3.7.9. Can you suggest
-a reason why the conditional probability should be
-higher than the marginal probability?
-15. LetX1, . . . , Xn be independent random variables, and
+
+* a. Compute the conditional p.d.f. of X3 given (X1, X2)=(5, 7). (You may use the result stated in @exr-3-7-12.)
+* b. Find the conditional probability that X3 > 3 given (X1, X2) = (5, 7) and compare it to the value of Pr(X3 > 3) found in Example 3.7.9. Can you suggest a reason why the conditional probability should be higher than the marginal probability?
+
+15. Let X1, . . . , Xn be independent random variables, and
 let W be a random variable such that Pr(W = c) = 1 for
 some constant c. Prove that X1, . . . , Xn are conditionally
 independent given W = c.

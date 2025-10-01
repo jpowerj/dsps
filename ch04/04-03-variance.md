@@ -287,27 +287,32 @@ obtain the following corollary.
 
 If X1, . . . , Xn are independent random variables with finite means, and if a1, . . . , an
 and b are arbitrary constants, then
-Var(a1X1 + . . . + anXn
-+ b) = a2
-1 Var(X1) + . . . + a2
-n Var(Xn).
 
 ## Example 4.3.7: Investment Portfolio
 
-An investor with $100,000 to invest wishes to construct a portfolio
-consisting of shares of one or both of two available stocks and possibly some
-fixed-rate investments. Suppose that the two stocks have random rates of return R1
-and R2 per share for a period of one year. Suppose that R1 has a distribution with
-mean 6 and variance 55, while R2 has mean 4 and variance 28. Suppose that the first
-stock costs $60 per share and the second costs $48 per share. Suppose that money
-can also be invested at a fixed rate of 3.6 percent per year. The portfolio will consist
-of s1 shares of the first stock, s2 shares of the second stock, and all remaining money
-($s3) invested at the fixed rate. The return on this portfolio will be
-s1R1 + s2R2 + 0.036s3,
+An investor with \$100,000 to invest wishes to construct a portfolio consisting of shares of one or both of two available stocks and possibly some fixed-rate investments.
+
+Suppose that the two stocks have random rates of return $R_1$ and $R_2$ per share for a period of one year. Suppose that R1 has a distribution with mean 6 and variance 55, while R2 has mean 4 and variance 28.
+
+Suppose that the first stock costs \$60 per share and the second costs \$48 per share. Suppose that money can also be invested at a fixed rate of 3.6 percent per year. The portfolio will consist of s1 shares of the first stock, s2 shares of the second stock, and all remaining money (\$$s_3$) invested at the fixed rate. The return on this portfolio will be
+
+s1R1 + s2R2 + 0.036$s_3$,
+
 where the coefficients are constrained by
 60s1 + 48s2 + s3 = 100,000, (4.3.2)
 
-Figure 4.7 The set of all
+as well as s1, s2, s3 ≥ 0. For now, we shall assume that R1 and R2 are independent. The
+mean and the variance of the return on the portfolio will be
+E(s1R1 + s2R2 + 0.036s3) = 6s1 + 4s2 + 0.036s3,
+Var(s1R1 + s2R2 + 0.036s3) = 55s2
+1
++ 28s2
+2.
+
+
+## Figure 4.7
+
+The set of all
 means and variances of
 investment portfolios in
 Example 4.3.7. The solid
@@ -327,22 +332,15 @@ Variance of portfolio return
 5 107
 2.55 107
 
-as well as s1, s2, s3 ≥ 0. For now, we shall assume that R1 and R2 are independent. The
-mean and the variance of the return on the portfolio will be
-E(s1R1 + s2R2 + 0.036s3) = 6s1 + 4s2 + 0.036s3,
-Var(s1R1 + s2R2 + 0.036s3) = 55s2
-1
-+ 28s2
-2.
-
 One method for comparing a class of portfolios is to say that portfolio A is at least
 as good as portfolio B if the mean return for A is at least as large as the mean return
 for B and if the variance for A is no larger than the variance of B. (See Markowitz,
 1987, for a classic treatment of such methods.) The reason for preferring smaller
 variance is that large variance is associated with large deviations from the mean,
 and for portfolios with a common mean, some of the large deviations are going to
-have to be below the mean, leading to the risk of large losses. Figure 4.7 is a plot
-of the pairs (mean, variance) for all of the possible portfolios in this example. That
+have to be below the mean, leading to the risk of large losses.
+
+@fig-4-7 is a plot of the pairs (mean, variance) for all of the possible portfolios in this example. That
 is, for each (s1, s2, s3) that satisfy (4.3.2), there is a point in the outlined region of
 Fig. 4.7. The points to the right and toward the bottom are those that have the largest
 mean return for a fixed variance, and the ones that have the smallest variance for
@@ -356,7 +354,7 @@ variance larger than 2.55× 107, and every portfolio with variance less than 2.5
 must have mean return smaller than 7000.  
 
 (sec-4-3-3)=
-## 4.3.3 The Variance of a Binomial Distribution
+# 4.3.3 The Variance of a Binomial Distribution
 
 We shall now consider again the method of generating a binomial distribution presented in @sec-4-2. Suppose that a box contains red balls and blue balls, and that the proportion of red balls is $p$ ($0 \leq p \leq 1$). Suppose also that a random sample of $n$ balls
 is selected from the box with replacement. For i = 1, . . . , n, let Xi
@@ -366,7 +364,9 @@ that is selected is red, and let Xi
 balls in the sample, then X = X1 + . . . + Xn and X will have the binomial distribution
 with parameters n and p.
 
-Figure 4.8 Two binomial
+## Figure 4.8
+
+Two binomial
 distributions with the same
 mean (2.5) but different
 variances.
@@ -433,20 +433,12 @@ distribution.
 
 Let X have the Cauchy distribution. The c.d.f. F of X can
 be found using a trigonometric substitution in the following integral:
-F(x) =
-  x
-−∞
-dy
-π(1+ y2)
-= 1
-2
-+ tan−1(x)
-π
-,
+
 where tan−1(x) is the principal inverse of the tangent function, taking values from
 −π/2 to π/2 as x runs from −∞ to ∞. The quantile function of X is then F
 −1(p) =
-tan[π(p − 1/2)] for 0<p <1. The IQR is
+tan[π(p − 1/2)] for $0 < p < 1$. The IQR is
+
 F
 −1(0.75) − F
 −1(0.25) = tan(π/4) − tan(−π/4) = 2.
@@ -470,6 +462,7 @@ that exists for every distribution.
 
 1. Suppose that X has the uniform distribution on the
 interval [0, 1]. Compute the variance of X.
+
 2. Suppose that one word is selected at random from the
 sentence the girl put on her beautiful red hat. If X
 denotes the number of letters in the word that is selected,

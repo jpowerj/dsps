@@ -567,7 +567,7 @@ We will use set theory for the mathematical model of events. Outcomes of an expe
 
 ::: {#exr-1-4-1}
 
-# Exercise 1.4.1
+## Exercise 1.4.1
 
 Suppose that $A \subset B$. Show that $B^c \subset A^c$.
 
@@ -575,7 +575,7 @@ Suppose that $A \subset B$. Show that $B^c \subset A^c$.
 
 ::: {#exr-1-4-2}
 
-# Exercise 1.4.2
+## Exercise 1.4.2
 
 Prove the distributive properties in @thm-1-4-10.
 
@@ -583,7 +583,7 @@ Prove the distributive properties in @thm-1-4-10.
 
 ::: {#exr-1-4-3}
 
-# Exercise 1.4.3
+## Exercise 1.4.3
 
 Prove De Morgan's laws (@thm-1-4-9).
 
@@ -591,7 +591,7 @@ Prove De Morgan's laws (@thm-1-4-9).
 
 ::: {#exr-1-4-4}
 
-# Exercise 1.4.4
+## Exercise 1.4.4
 
 Prove @thm-1-4-11.
 
@@ -599,7 +599,7 @@ Prove @thm-1-4-11.
 
 ::: {#exr-1-4-5}
 
-# Exercise 1.4.5
+## Exercise 1.4.5
 
 For every collection of events $A_i (i \in I)$, show that
  
@@ -611,7 +611,7 @@ $$
 
 ::: {#exr-1-4-6}
 
-# Exercise 1.4.6
+## Exercise 1.4.6
 
 Suppose that one card is to be selected from a deck of 20 cards that contains 10 red cards numbered from 1 to 10 and 10 blue cards numbered from 1 to 10. Let $A$ be the event that a card with an even number is selected, let $B$ be the event that a blue card is selected, and let $C$ be the event that a card with a number less than 5 is selected. Describe the sample space $S$ and describe each of the following events both in words and as subsets of $S$:
 
@@ -625,7 +625,7 @@ Suppose that one card is to be selected from a deck of 20 cards that contains 10
 
 ::: {#exr-1-4-7}
 
-# Exercise 1.4.7
+## Exercise 1.4.7
 
 Suppose that a number $x$ is to be selected from the real line $S$, and let $A$, $B$, and $C$ be the events represented by the following subsets of $S$, where the notation $\{x : p(x)\}$ denotes the set containing every point $x$ for which the property $p$ following the colon is satisfied:
 
@@ -649,7 +649,7 @@ Describe each of the following events as a set of real numbers:
 
 ::: {#exr-1-4-8}
 
-# Exercise 1.4.8
+## Exercise 1.4.8
 
 A simplified model of the human blood-type system
 has four blood types: A, B, AB, and O. There are two antigens, anti-A and anti-B, that react with a person's blood in different ways depending on the blood type. Anti-A reacts with blood types A and AB, but not with B and O. Anti-B reacts with blood types B and AB, but not with A and O. Suppose that a person's blood is sampled and tested with the two antigens. Let $A$ be the event that the blood reacts with anti-A, and let $B$ be the event that it reacts with anti-B. Classify the person's blood type using
