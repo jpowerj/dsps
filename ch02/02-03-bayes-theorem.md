@@ -276,9 +276,23 @@ Using the values of $\Pr(B_j \mid A)$ in @fig-2-3 and the fact that $\Pr(E_{41} 
 
 The calculation at the end of @exm-2-3-7 is typical of what happens after observing many conditionally independent events with the same conditional probability of occurrence. The conditional probability of the next event given those that were observed tends to be close to the observed frequency of occurrence among the observed events. Indeed, when there is substantial data, the choice of prior probabilities becomes far less important.
 
-![The posterior probabilities of partition elements after 40 patients in @exm-2-3-7.](ch02/images/fig-2-3.jpeg){#fig-2-3}
+```{figure} images/fig-2-3.svg
+:label: fig-2-3
+:enumerator: 2.3
+:align: center
+:width: 50%
 
-![The posterior probabilities of partition elements after 40 patients in @exm-2-3-8. The X characters mark the values of the posterior probabilities calculated in @exm-2-3-7.](ch02/images/fig-2-4.jpeg){#fig-2-4}
+The posterior probabilities of partition elements after 40 patients in @exm-2-3-7
+```
+
+```{figure} images/fig-2-4.svg
+:label: fig-2-4
+:enumerator: 2.4
+:align: center
+:width: 50%
+
+The posterior probabilities of partition elements after 40 patients in @exm-2-3-8. The x characters mark the values of the posterior probabilities calculated in @exm-2-3-7
+```
 
 ::: {#exm-2-3-8}
 
