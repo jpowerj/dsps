@@ -1,14 +1,20 @@
 (sec-3-1)=
-# Random Variables and Discrete Distributions
+# 3.1 Random Variables and Discrete Distributions
+
+(sec-3-1-0)=
+# Overview
 
 *A random variable is a real-valued function defined on a sample space. Random variables are the main tools used for modeling unknown quantities in statistical analyses. For each random variable $X$ and each set $C$ of real numbers, we could calculate the probability that $X$ takes its value in $C$. The collection of all of these probabilities is the distribution of $X$. There are two major classes of distributions and random variables: discrete (this section) and continuous (@sec-3-2). Discrete distributions are those that assign positive probability to at most countably many different values. A discrete distribution can be characterized by its probability mass function (pmf), which specifies the probability that the random variable takes each of the different possible values. A random variable with a discrete distribution will be called a discrete random variable.*
 
 (sec-3-1-1)=
-# Definition of a Random Variable
+# 3.1.1 Definition of a Random Variable
 
 :::: {prf:example} Tossing a Coin
 :label: exm-3-1-1
 :enumerator: 3.1.1
+:::{.head}
+## Example 3.1.1: Tossing a Coin
+:::
 
 Consider an experiment in which a fair coin is tossed 10 times. In this experiment, the sample space $S$ can be regarded as the set of outcomes consisting of the 210 different sequences of 10 heads and/or tails that are possible. We might be interested in the number of heads in the observed outcome. We can let $X$ stand for the real-valued function defined on $S$ that counts the number of heads in each outcome. For example, if $s$ is the sequence `HHTTTHTTTH`, then $X(s) = 4$. For each possible sequence $s$ consisting of 10 heads and/or tails, the value $X(s)$ equals the number of heads in the sequence. The possible values for the function $X$ are $0, 1, \ldots, 10$.
 

@@ -1,0 +1,734 @@
+(sec-3-9)=
+# 3.9 Functions of Two or More Random Variables
+
+(sec-3-9-0)=
+# Overview
+
+*When we observe data consisting of the values of several random variables, we need to summarize the observed values in order to be able to focus on the information in the data. Summarizing consists of constructing one or a few functions of the random variables that capture the bulk of the information. In this section, we describe the techniques needed to determine the distribution of a function of two or more random variables.*
+
+(sec-3-9-1)=
+# 3.9.1 Random Variables with a Discrete Joint Distribution
+
+:::: {prf:example} Bull Market (p. 175)
+:label: exm-3-9-1
+:enumerator: 3.9.1
+
+Three different investment firms are trying to advertise their mutual funds by showing how many perform better than a recognized standard. Each company has 10 funds, so there are 30 in total. Suppose that the first 10 funds belong to the first firm, the next 10 to the second firm, and the last 10 to the third firm. Let $X_i = 1$ if fund $i$ performs better than the standard and $X_i = 0$ otherwise, for $i = 1, \ldots, 30$. Then, we are interested in the three functions
+
+$$
+\begin{align*}
+Y_1 &= X_1 + \cdots + X_{10}, \\
+Y_2 &= X_{11} + \cdots + X_{20} \\
+Y_3 &= X_{21} + \cdots + X_{30}.
+\end{align*}
+$$
+
+We would like to be able to determine the joint distribution of $Y_1$, $Y_2$, and $Y_3$ from the joint distribution of $X_1, \ldots, X_{30}$.
+
+::::
+
+The general method for solving problems like those of @exm-3-9-1 is a straightforward extension of @thm-3-8-1.
+
+:::: {prf:theorem} Functions of Discrete Random Variables
+:label: thm-3-9-1
+:enumerator: 3.9.1
+
+Suppose that $n$ random variables $X_1, \ldots, X_n$ have a discrete joint distribution for which the joint pmf is $f$, and that $m$ functions $Y_1, \ldots, Y_m$ of these $n$ random variables are defined as follows:
+
+$$
+\begin{align*}
+Y_1 &= r_1(X_1, \ldots, X_n) \\
+Y_2 &= r_2(X_1, \ldots, X_n), \\
+&\vdots \\
+Y_m &= r_m(X_1, \ldots, X_n).
+\end{align*}
+$$
+
+For given values $y_1, \ldots, y_m$ of the $m$ random variables $Y_1, \ldots, Y_m$, let $A$ denote the set of all points $(x_1, \ldots, x_n)$ such that
+
+$$
+\begin{align*}
+r_1(x_1, \ldots, x_n) &= y_1, \\
+r_2(x_1, \ldots, x_n) &= y_2, \\
+&\vdots \\
+r_m(x_1, \ldots, x_n) &= y_m.
+\end{align*}
+$$
+
+Then the value of the joint pmf $g$ of $Y_1, \ldots, Y_m$ is specified at the point $(y_1, \ldots, y_m)$ by the relation
+
+$$
+g(y_1, \ldots, y_m) = \sum_{(x_1, \ldots, x_n) \in A}f(x_1, \ldots, x_n).
+$$
+
+::::
+
+:::: {prf:example} Bull Market
+:label: exm-3-9-2
+:enumerator: 3.9.2
+
+Recall the situation in @exm-3-9-1. Suppose that we want the joint pmf $g$ of $(Y_1, Y_2, Y_3)$ at the point $(3, 5, 8)$. That is, we want $g(3, 5, 8) = \Pr(Y_1 = 3, Y_2 = 5, Y_3 = 8)$. The set $A$ as defined in @thm-3-9-1 is
+
+$$
+A = \{ (x_1, \ldots, x_{30}) \mid x_1 + \cdots + x_{10} = 3, x_{11} + \cdots + x_{20} = 5, x_{21} + \cdots + x_{30} = 8 \}.
+$$
+
+Two of the points in the set $A$ are
+
+$$
+\begin{align*}
+&(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0), \\
+&(1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1).
+\end{align*}
+$$
+
+A counting argument like those developed in @sec-1-8 can be used to discover that there are
+
+$$
+\binom{10}{3}\binom{10}{5}\binom{10}{8} = 1360800
+$$
+
+points in $A$. Unless the joint distribution of $X_1, \ldots, X_{30}$ has some simple structure, it will be extremely tedious to compute $g(3, 5, 8)$ as well as most other values of $g$. For example, if all of the $2^{30}$ possible values of the vector $(X_1, \ldots, X_{30})$ are equally likely, then
+
+$$
+g(3, 5, 8) = \frac{1360800}{2^{30}} = 1.27 \times 10^{-3}.
+$$
+
+::::
+ 
+The next result gives an important example of a function of discrete random variables.
+
+:::: {prf:theorem} Binomial and Bernoulli Distributions
+:label: thm-3-9-2
+:enumerator: 3.9.2
+
+Assume that $X_1, \ldots, X_n$ are i.i.d. random variables having the Bernoulli distribution with parameter $p$. Let $Y = X_1 + \cdots + X_n$. Then $Y$ has the binomial distribution with parameters $n$ and $p$.
+
+::: {.proof}
+
+It is clear that $Y = y$ if and only if exactly $y$ of $X_1, \ldots, X_n$ equal 1 and the other $n − y$ equal 0. There are $\binom{n}{y}$ distinct possible values for the vector $(X_1, \ldots, X_n)$ that have $y$ ones and $n − y$ zeros. Each such vector has probability $p^y(1 − p)^{n−y}$ of being observed; hence the probability that $Y = y$ is the sum of the probabilities of those vectors, namely, $\binom{n}{y}p^y(1-p)^{n-y}$ for $y = 0, \ldots, n$. From @def-3-1-7, we see that $Y$ has the binomial distribution with parameters $n$ and $p$.
+
+:::
+
+::::
+
+:::: {prf:example} Sampling Parts
+:label: exm-3-9-3
+:enumerator: 3.9.3
+
+Suppose that two machines are producing parts. For $i = 1, 2$, the probability is $p_i$ that machine $i$ will produce a defective part, and we shall assume that all parts from both machines are independent. Assume that the first $n_1$ parts are produced by machine 1 and that the last $n_2$ parts are produced by machine 2, with $n = n_1 + n_2$ being the total number of parts sampled. Let $X_i = 1$ if the $i$th part is defective and $X_i = 0$ otherwise for $i = 1, \ldots, n$.
+
+Define $Y_1 = X_1 + \cdots + X_{n_1}$ and $Y_2 = X_{n_1+1} + \cdots + X_n$. These are the total numbers of defective parts produced by each machine. The assumptions stated in the problem allow us to conclude that $Y_1$ and $Y_2$ are independent according to the note about separate functions of independent random variables on page 140. Furthermore, @thm-3-9-2 says that $Y_j$ has the binomial distribution with parameters $n_j$ and $p_j$ for $j = 1, 2$. These two marginal distributions, together with the fact that $Y_1$ and $Y_2$ are independent, give the entire joint distribution. So, for example, if $g$ is the joint pmf of $Y_1$ and $Y_2$, we can compute
+
+$$
+g(y_1, y_2) = \binom{n_1}{y_1}p_1^{y_1}(1-p_1)^{n_1 - y_1}\binom{n_2}{y_2}p_2^{y_2}(1-p_2)^{n_2-y_2},
+$$
+
+for $y_1 = 0, \ldots, n_1$ and $y_2 = 0, \ldots, n_2$, while $g(y_1, y_2) = 0$ otherwise. There is no need to find a set $A$ as in @exm-3-9-2, because of the simplifying structure of the joint distribution of $X_1, \ldots, X_n$.
+
+::::
+
+(sec-3-9-2)=
+# Random Variables with a Continuous Joint Distribution
+
+:::: {prf:example} Total Service Time
+:label: exm-3-9-4
+:enumerator: 3.9.4
+:::{.head}
+## Example 3.9.4: Total Service Time
+:::
+
+Suppose that the first two customers in a queue plan to leave together. Let $X_i$ be the time it takes to serve customer $i$ for $i = 1, 2$. Suppose also that $X_1$ and $X_2$ are independent random variables with common distribution having pdf $f(x) = 2e^{-2x}$ for $x > 0$ and 0 otherwise. Since the customers will leave together, they are interested in the total time it takes to serve both of them, namely, $Y = X_1 + X_2$. We can now find the pdf of $Y$.
+
+For each $y$, let
+
+$$
+A_y = \{ (x_1, x_2) \mid x_1 + x_2 \leq y \}
+$$
+
+Then $Y \leq y$ if and only if $(X_1, X_2) \in A_y$. The set $A_y$ is pictured in @fig-3-24. If we let $G(y)$ denote the CDF of $Y$, then, for $y > 0$,
+
+$$
+\begin{align*}
+G(y) &= \Pr((X_1, X_2) \in A_y) = \int_{0}^{y}\int_{0}^{y-x_2}4e^{-2x_1-2x_2}dx_1dx_2 \\
+&= \int_{0}^{y}2e^{-2x_2}\left[ 1 - e^{-2(y-x_2)} \right]dx_2 = \int_{0}^{y}\left[ 2e^{-2x_2} - 2e^{-2y} \right]dx_2 \\
+&= 1 - e^{-2y} - 2ye^{-2y}.
+\end{align*}
+$$
+
+```{figure} images/fig-3-24.svg
+:label: fig-3-24
+:enumerator: 3.24
+:align: center
+:width: 60%
+
+The set $A_y$ in @exm-3-9-4 and in the proof of @thm-3-9-4
+```
+
+Taking the derivative of $G(y)$ with respect to $y$, we get the pdf
+
+$$
+g(y) = \frac{d}{dy}\left[ 1 - e^{-2y} - ye^{-2y} \right] = 4ye^{-2y},
+$$
+
+for $y > 0$ and 0 otherwise.
+
+::::
+
+The transformation in @exm-3-9-4 is an example of a brute-force method that is always available for finding the distribution of a function of several random variables, however, it might be difficult to apply in individual cases.
+
+:::: {prf:theorem} Brute-Force Distribution of a Function
+:label: thm-3-9-3
+:enumerator: 3.9.3
+
+Suppose that the joint pdf of $\mathbf{X} = (X_1, \ldots, X_n)$ is $f(\mathbf{x})$ and that $Y = r(\mathbf{X})$. For each real number $y$, define $A_y = \{\mathbf{x} \mid r(\mathbf{x}) \leq y\}$. Then the CDF $G(y)$ of $Y$ is
+
+$$
+G(y) = \int \cdots_{A_y} \int f(\mathbf{x}) d\mathbf{x}.
+$$ {#eq-3-9-1}
+
+::: {.proof}
+
+From the definition of CDF,
+
+$$
+G(y) = \Pr(Y \leq y) = \Pr\left[ r(\mathbf{X}) \leq y \right] = \Pr(\mathbf{X} \in A_y),
+$$
+
+which equals the right side of @eq-3-9-1 by @def-3-7-3.
+
+:::
+
+::::
+
+If the distribution of $Y$ also is continuous, then the pdf of $Y$ can be found by differentiating the CDF $G(y)$.
+
+A popular special case of @thm-3-9-3 is the following.
+
+<!-- End point, 2024-07-01, 12:20am -->
+
+:::: {prf:theorem} Linear Function of Two Random Variables
+:label: thm-3-9-4
+:enumerator: 3.9.4
+
+Let X1 and X2 have joint pdf f (x1, x2),
+and let Y = a1X1 + a2X2 + b with a1  = 0. Then Y has a continuous distribution whose
+pdf is
+
+::: {.proof}
+
+First, we shall find the CDFGof Y whose derivative we will see is the function
+g in Eq. (3.9.2). For each y, let Ay
+= {(x1, x2) : a1x1 + a2x2 + b ≤ y}. The set Ay has
+the same general form as the set in Fig. 3.24.We shall write the integral over the set
+Ay with x2 in the outer integral and x1 in the inner integral. Assume that a1 > 0. The
+other case is similar. According to Theorem 3.9.3,
+
+For the inner integral, perform the change of variable z = a1x1 + a2x2 + b whose
+inverse is x1 = (z − b − a2x2)/a1, so that dx1 = dz/a1. The inner integral, after this
+change of variable, becomes
+
+We can now substitute this expression for the inner integral into Eq. (3.9.3):
+
+Let g(z) denote the inner integral on the far right side of Eq. (3.9.4). Then we have
+, whose derivative is g(y), the function in Eq. (3.9.2).
+:::
+
+::::
+
+The special case of @thm-3-9-4 in which X1 and X2 are independent, a1 = a2 = 1,
+and b = 0 is called convolution.
+
+:::: {prf:definition} Convolution
+:label: def-3-9-1
+:enumerator: 3.9.1
+
+Let X1 and X2 be independent continuous random variables and let
+Y = X1 + X2. The distribution of Y is called the convolution of the distributions of
+X1 and X2. The pdf of Y is sometimes called the convolution of the pdf’s of X1 and
+X2.
+If we let the pdf of Xi be fi for i = 1, 2 in Definition 3.9.1, then Theorem 3.9.4 (with
+a1 = a2 = 1 and b = 0) says that the pdf of Y = X1 + X2 is
+
+Equivalently, by switching the names of X1 and X2, we obtain the alternative form
+for the convolution:
+
+::::
+
+The pdf found in Example 3.9.4 is the special case of (3.9.5) with f1(x) = f2(x) =
+ for x >0 and 0 otherwise.
+
+:::: {prf:example} An Investment Portfolio
+:label: exm-3-9-5
+:enumerator: 3.9.5
+
+Suppose that an investor wants to purchase both stocks and
+bonds. Let X1 be the value of the stocks at the end of one year, and let X2 be the
+value of the bonds at the end of one year. Suppose that X1 and X2 are independent.
+Let X1 have the uniform distribution on the interval [1000, 4000], and let X2 have the
+uniform distribution on the interval [800, 1200]. The sum Y = X1 + X2 is the value at
+the end of the year of the portfolio consisting of both the stocks and the bonds. We
+shall find the pdf of Y . The function f1(z)f2(y − z) in Eq. (3.9.6) is
+
+
+
+We need to integrate the function in Eq. (3.9.7) over z for each value of y to get
+the marginal pdf of Y .
+
+It is helpful to look at a graph of the set of $(y, z)$ pairs for which the function in Eq. (3.9.7) is positive. @fig-3-25 shows the region shaded. For $1800 < y \leq 2200$, we must integrate $z$ from 1000 to y − 800.
+For $2200 < y \leq 4800$, we must integrate z from y − 1200 to y − 800.
+For $4800 < y < 5200$, we must integrate $z$ from y − 1200 to 4000.
+Since the function in @eq-3-9-7 is constant when it is positive, the integral equals the constant times the length of the interval of z values. So, the pdf of $Y$ is
+
+
+
+::::
+
+As another example of the brute-force method, we consider the largest and
+smallest observations in a random sample.These functions give an idea of how spread
+out the sample is. For example, meteorologists often report record high and low temperatures for specific days as well as record high and low rainfalls for months and years.
+
+```{figure} images/fig-3-25.svg
+:label: fig-3-25
+:enumerator: 3.25
+:align: center
+:width: 50%
+
+The region where the function in @eq-3-9-7 is positive
+```
+
+:::: {prf:example} Maximum and Minimum of a Random Sample
+:label: exm-3-9-6
+:enumerator: 3.9.6
+
+Suppose that X1, . . . , Xn form a random
+sample of size n from a distribution for which the pdf is f and the CDF is F. The
+largest value Yn and the smallest value Y1 in the random sample are defined as follows:
+
+Consider Yn first. Let Gn stand for its CDF, and let gn be its pdf For every given
+value of y (−∞< y <∞),
+
+where the third equality follows from the fact that the Xi are independent and
+the fourth follows from the fact that all of the Xi have the same CDF F. Thus,
+Gn(y) = [F(y)]n.
+
+Now, gn can be determined by differentiating the CDF Gn. The result is
+gn(y) = n[F(y)]n−1f (y) for −∞< y <∞.
+
+Next, consider Y1 with CDF G1 and pdf g1. For every given value of $y$
+
+G1(y) = Pr(Y1 ≤ y) = 1− Pr(Y1> y)
+
+Thus, G1(y) = 1− [1− F(y)]n.
+
+Then g1 can be determined by differentiating the CDF G1. The result is
+
+g1(y) = n[1− F(y)]n−1f (y) for $−\infty < y < \infty$.
+
+::::
+
+```{figure} images/fig-3-26
+:label: fig-3-26
+:enumerator: 3.26
+:align: center
+:width: 50%
+
+The pdf of the uniform distribution on the
+interval [0, 1] together with
+the pdf’s of the minimum
+and maximum of samples
+of size n = 5. The pdf of
+the range of a sample of size
+n = 5 (see Example 3.9.7) is
+also included.
+```
+
+@fig-3-26 shows the pdf of the uniform distribution on the interval [0, 1] together with the pdf’s of Y1 and Yn for the case n = 5. It also shows the pdf of Y5 − Y1, which will be derived in @exm-3-9-7. Notice that the pdf of Y1 is highest near 0 and lowest near 1, while the opposite is true of the pdf of Yn, as one would expect.
+
+Finally, we shall determine the joint distribution of Y1 and Yn. For every pair of values (y1, yn) such that $−\infty < y_1 < y_n < \infty$, the event $\{Y1 \leq y1\} \cap \{Y_n \leq yn\}$ is the same as $\{Y_n \leq y_n\} \cap \{Y_1 > y_1\}^c$.
+
+If G denotes the bivariate joint CDF of Y1 and Yn, then
+
+The bivariate joint pdf g of Y1 and Yn can be found from the relation
+
+g(y1, yn) = n(n − 1)[F(yn) − F(y1)]n−2f (y1)f (yn). (3.9.9)
+
+Also, for all other values of y1 and yn, g(y1, yn) = 0.  
+
+A popular way to describe how spread out is a random sample is to use the distance from the minimum to the maximum, which is called the range of the random
+sample. We can combine the result from the end of Example 3.9.6 with Theorem 3.9.4
+to find the pdf of the range.
+
+:::: {prf:example} The Distribution of the Range of a Random Sample
+:label: exm-3-9-7
+:enumerator: 3.9.7
+
+Consider the same situation as in @exm-3-9-6. The random variable W = Yn - Y1 is called the range of the sample.
+
+::::
+
+The joint pdf g(y1, yn) of Y1 and Yn was presented in @eq-3-9-9.
+
+We can now apply @thm-3-9-4 with a1=−1, a2 = 1, and b = 0 to get the pdf h of W:
+
+where, for the last equality, we have made the change of variable z = yn
+
+Here is a special case in which the integral of Eq. 3.9.10 can be computed in closed form.
+
+:::: {prf:example} The Range of a Random Sample from a Uniform Distribution
+:label: exm-3-9-8
+:enumerator: 3.9.8
+
+Suppose that the n random
+variables X1, . . . , Xn form a random sample from the uniform distribution on the
+interval [0, 1]. We shall determine the pdf of the range of the sample.
+In this example,
+f (x) =
+ 
+1 for 0 < x <1,
+0 otherwise,
+Also, F(x) = x for 0 < x <1. We can write g(y1, yn) from Eq. (3.9.9) in this case as
+
+0 otherwise.
+
+Therefore, in Eq. (3.9.10), g(z, z + w) = 0 unless $0 < w < 1$ and $0 < z < 1 − w$. For values of w and z satisfying these conditions, g(z, w + z) = n(n − 1)wn−2. The pdf
+in Eq. (3.9.10) is then, for $0 < w <1$,
+
+Otherwise, h(w) = 0. This pdf is shown in Fig. 3.26 for the case n = 5. 
+
+::::
+
+## Direct Transformation of a Multivariate pdf
+
+Next, we state without proof a generalization of Theorem 3.8.4 to the case of several
+random variables. The proof of Theorem 3.9.5 is based on the theory of differentiable
+one-to-one transformations in advanced calculus.
+
+:::: {prf:theorem} Multivariate Transformation
+:label: thm-3-9-5
+:enumerator: 3.9.5
+
+Let X1, . . . , Xn have a continuous joint distribution
+for which the joint pdf is f . Assume that there is a subset S of Rn such that
+Pr[(X1, . . . , Xn) ∈ S]= 1. Define n new random variables Y1, . . . , Yn as follows:
+
+(3.9.11)
+
+where we assume that the n functions r1, . . . , rn define a one-to-one differentiable
+transformation of S onto a subset T of Rn. Let the inverse of this transformation be
+given as follows:
+
+
+(3.9.12)
+
+Then the joint pdf g of Y1, . . . , Yn is
+
+(3.9.13)
+
+and $|J|$ denotes the absolute value of the determinant $J$.
+
+::::
+
+Thus, the joint pdf g(y1, . . . , yn) is obtained by starting with the joint pdf
+f (x1, . . . , xn), replacing each value xi by its expression si(y1, . . . , yn) in terms of
+y1, . . . , yn, and then multiplying the result by |J |. This determinant J is called the
+Jacobian of the transformation specified by the equations in (3.9.12).
+
+## Note: The Jacobian Is a Generalization of the Derivative of the Inverse.
+
+@eq-3-8-3 and @eq-3-9-13 are very similar. The former gives the pdf of a single function of a
+single random variable. Indeed, if n = 1 in (3.9.13), J = ds1(y1)/dy1 and Eq. (3.9.13)
+becomes the same as (3.8.3). The Jacobian merely generalizes the derivative of the
+inverse of a single function of one variable to n functions of n variables.
+
+:::: {prf:example} The Joint pdf of the Quotient and the Product of Two Random Variables
+:label: exm-3-9-9
+:enumerator: 3.9.9
+:::{.head}
+## Example 3.9.9: The Joint pdf of the Quotient and the Product of Two Random Variables
+:::
+
+Suppose that
+two random variables X1 and X2 have a continuous joint distribution for which the
+joint pdf is as follows:
+
+0 otherwise.
+
+We shall determine the joint pdf of two new random variables Y1 and Y2, which are
+defined by the relations
+Y1 = X1
+X2
+and Y2 = X1X2.
+In the notation of Theorem 3.9.5, we would say that Y1 = r1(X1, X2) and Y2 =
+r2(X1, X2), where
+r1(x1, x2) = x1
+x2
+and r2(x1, x2) = x1x2. (3.9.14)
+The inverse of the transformation in Eq. (3.9.14) is found by solving the equations
+y1 = r1(x1, x2) and y2 = r2(x1, x2) for x1 and x2 in terms of y1 and y2. The result is
+x1 = s1(y1, y2) = (y1y2)1/2,
+x2 = s2(y1, y2) =
+
+
+Let S denote the set of points (x1, x2) such that 0 < x1 < 1 and 0 < x2 < 1, so that
+Pr[(X1, X2) ∈ S]= 1. Let T be the set of (y1, y2) pairs such that (y1, y2) ∈ T if and only
+if (s1(y1, y2), s2(y1, y2)) ∈ S. Then Pr[(Y1, Y2) ∈ T ]= 1. The transformation defined by
+the equations in (3.9.14) or, equivalently, by the equations in (3.9.15) specifies a oneto-
+one relation between the points in S and the points in T .
+
+::::
+
+Figure 3.27 The sets S and T in Example 3.9.9.
+
+We shall now show how to find the set T . We know that $(x_1, x_2) \in S$ if and only
+if the following inequalities hold:
+
+x1 > 0, x1 < 1, x2 > 0, and x2 < 1. (3.9.16)
+
+We can substitute the formulas for x1 and x2 in terms of y1 and y2 from Eq. (3.9.15)
+into the inequalities in (3.9.16) to obtain
+
+The first inequality transforms to (y1> 0 and y2 > 0) or (y1< 0 and y2 < 0). However,
+since y1 = x1/x2, we cannot have y1 < 0, so we get only y1 > 0 and y2 > 0. The third
+inequality in (3.9.17) transforms to the same thing. The second inequality in (3.9.17)
+becomes y2 < 1/y1. The fourth inequality becomes y2 < y1. The region T where
+(y1, y2) satisfy these new inequalities is shown in the right panel of Fig. 3.27 with
+the set S in the left panel.
+For the functions in (3.9.15),
+
+Since y1 > 0 throughout the set T , |J| = 1/(2y1).
+The joint pdf g(y1, y2) can now be obtained directly from Eq. (3.9.13) in the
+following way: In the expression for f (x1, x2), replace x1 with (y1y2)1/2, replace x2
+
+with (y2/y1)1/2, and multiply the result by |J| = 1/(2y1).
+
+:::: {prf:example} Service Time in a Queue (DeGroot and Schervish, p. 185)
+:label: exm-3-9-10
+:enumerator: 3.9.10
+
+Let X be the time that the server in a single-server queue
+will spend on a particular customer, and let Y be the rate at which the server can
+operate. A popular model for the conditional distribution of X given Y = y is to say
+that the conditional pdf of X given Y = y is
+
+0 otherwise.
+
+::::
+
+Let Y have the pdf f2(y). The joint pdf of (X, Y ) is then g1(x|y)f2(y). Because
+1/Y can be interpreted as the average service time, Z = XY measures how quickly,
+compared to average, that the customer is served. For example, Z = 1 corresponds
+to an average service time, while Z >1 means that this customer took longer than
+average, and Z <1 means that this customer was served more quickly than the
+average customer. If we want the distribution of Z, we could compute the joint pdf
+of (Z, Y ) directly using the methods just illustrated.We could then integrate the joint
+pdf over y to obtain the marginal pdf of Z. However, it is simpler to transform the
+conditional distribution of X given Y = y into the conditional distribution of Z given
+Y = y, since conditioning on Y = y allows us to treat Y as the constant y. Because
+X = Z/Y, the inverse transformation is x = s(z), where s(z) = z/y. The derivative of
+this is 1/y, and the conditional pdf of Z given Y = y is
+
+Because Y is a rate, Y ≥ 0 and X = Z/Y > 0 if and only if Z >0. So,
+
+Notice that h1 does not depend on y, so Z is independent of Y and h1 is the marginal
+pdf of Z. The reader can verify all of this in Exercise 17.  
+
+## Note: Removing Dependence
+
+The formula Z = XY in @exm-3-9-10 makes it look as if Z should depend on Y . In reality, however, multiplying X by Y removes the
+dependence thatX already has on Y and makes the result independent of Y . This type
+of transformation that removes the dependence of one random variable on another
+is a very powerful technique for finding marginal distributions of transformations of
+random variables.
+
+In @exm-3-9-10, we mentioned that there was another, more straightforward
+but more tedious, way to compute the distribution of Z. That method, which is useful
+in many settings, is to transform (X, Y ) into (Z, W) for some uninteresting random
+variable W and then integrate w out of the joint pdf All that matters in the choice
+of W is that the transformation be one-to-one with differentiable inverse and that
+the calculations are feasible. Here is a specific example.
+
+:::: {prf:example} One Function of Two Variables
+:label: exm-3-9-11
+:enumerator: 3.9.11
+:::{.head}
+## Example 3.9.11: One Function of Two Variables
+:::
+
+In Example 3.9.9, suppose that we were interested
+only in the quotient Y1 = X1/X2 rather than both the quotient and the product
+Y2 = X1X2. Since we already have the joint pdf of (Y1, Y2), we will merely integrate
+y2 out rather than start from scratch. For each value of y1 > 0, we need to look at the
+set T in Fig. 3.27 and find the interval of y2 values to integrate over. For 0 < y1 < 1,
+186 Chapter 3 Random Variables and Distributions
+we integrate over $0 < y_2 < y_1$. For y1 > 1, we integrate over $0 < y_2 < 1/y_1$. (For $y_1 = 1$ both intervals are the same.) So, the marginal pdf of Y1 is
+
+::::
+
+There are other transformations that would have made the calculation of g1 simpler
+if that had been all we wanted. See @exr-3-9-21 for an example.  
+
+Theorem
+3.9.6
+Linear Transformations.
+
+LetX = (X1, . . . , Xn) have a continuous joint distribution for
+which the joint pdf is f . Define Y = (Y1, . . . , Yn) by
+Y = AX, (3.9.19)
+where A is a nonsingular n × n matrix. Then Y has a continuous joint distribution
+with pdf
+
+where A−1 is the inverse of A.
+
+Proof Each Yi is a linear combination of X1, . . . , Xn. Because A is nonsingular, the
+transformation in Eq. (3.9.19) is a one-to-one transformation of the entire space Rn
+onto itself. At every point y ∈ Rn, the inverse transformation can be represented by
+the equation
+
+x = A−1y. (3.9.21)
+
+The Jacobian J of the transformation that is defined by Eq. (3.9.21) is simply J =
+det A−1. Also, it is known from the theory of determinants that
+det A−1 = 1
+det A
+
+Therefore, at every point y ∈ Rn, the joint pdf g(y) can be evaluated in the following
+way, according to Theorem 3.9.5: First, for i = 1, . . . , n, the component xi in
+f (x1, . . . , xn) is replaced with the ith component of the vector A−1y. Then, the result
+is divided by |det A|. This produces Eq. (3.9.20).
+
+(sec-3-9-3)=
+# Summary
+
+We extended the construction of the distribution of a function of a random variable to the case of several functions of several random variables. If one only wants the distribution of one function r1 of n random variables, the usual way to find this is to
+first find n − 1additional functions r2, . . . , rn so that the n functions together compose
+a one-to-one transformation. Then find the joint pdf of the n functions and finally
+find the marginal pdf of the first function by integrating out the extra n − 1variables.
+The method is illustrated for the cases of the sum and the range of several random
+variables.
+
+
+(sec-3-9-4)=
+# Exercises
+
+:::: {exercise}
+:label: exr-3-9-1
+:enumerator: 3.9.1
+:::{.exr-head}
+## Exercise 3.9.1
+:::
+
+Suppose that X1 and X2 are i.i.d. random variables and
+that each of them has the uniform distribution on the
+interval [0, 1]. Find the pdf of Y = X1 + X2.
+
+::::
+
+2. For the conditions of Exercise 1, find the pdf of the
+average (X1 + X2)/2.
+
+3. Suppose that three random variables X1, X2, and X3
+have a continuous joint distribution for which the joint
+pdf is as follows:
+
+
+Suppose also that Y1 = X1, Y2 = X1X2, and Y3 = X1X2X3.
+Find the joint pdf of Y1, Y2, and Y3.
+
+4. Suppose that X1 and X2 have a continuous joint distribution
+for which the joint pdf is as follows:
+f (x1, x2) =
+ 
+x1 + x2 for 0 < x1 < 1 and 0 < x2 < 1,
+0 otherwise.
+Find the pdf of Y = X1X2.
+
+5. Suppose that the joint pdf of X1 and X2 is as given in
+Exercise 4. Find the pdf of Z = X1/X2.
+
+6. Let X and Y be random variables for which the joint
+pdf is as follows:
+
+Find the pdf of Z = X + Y .
+
+7. Suppose that X1 and X2 are i.i.d. random variables and
+that the pdf of each of them is as follows:
+
+0 otherwise.
+Find the pdf of Y = X1 − X2.
+
+8. Suppose that X1, . . . ,Xn form a random sample of size
+n from the uniform distribution on the interval [0, 1] and
+that Yn
+= max {X1, . . . , Xn
+}. Find the smallest value of n
+such that
+
+$\Pr\{Y_n \geq 0.99\} \geq 0.95$.
+
+9. Suppose that the n variables X1, . . . , Xn form a random
+sample from the uniform distribution on the interval [0, 1]
+and that the random variables Y1 and Yn are defined as
+in Eq. (3.9.8). Determine the value of
+
+$\Pr(Y_1 \leq 0.1 \text{ and } Y_n \leq 0.8)$.
+
+10. For the conditions of Exercise 9, determine the value
+of Pr(Y1 ≤ 0.1 and Yn
+≥ 0.8).
+
+11. For the conditions of Exercise 9, determine the probability
+that the interval from Y1 to Yn will not contain the
+point 1/3.
+
+12. Let W denote the range of a random sample of n
+observations from the uniform distribution on the interval
+[0, 1]. Determine the value of Pr(W > 0.9).
+
+13. Determine the pdf of the range of a random sample
+of n observations from the uniform distribution on the
+interval [−3, 5].
+
+14. Suppose that X1, . . . , Xn form a random sample of n
+observations from the uniform distribution on the interval
+[0, 1], and let Y denote the second largest of the observations.
+Determine the pdf of Y.
+
+Hint: First determine the
+CDF G of Y by noting that
+
+G(y) = Pr(Y ≤ y)
+= Pr(At least n − 1 observations ≤ y).
+
+15. Show that if X1, X2, . . . , Xn are independent random
+variables and if Y1 = r1(X1), Y2 = r2(X2), . . . , Yn
+= rn(Xn),
+then Y1, Y2, . . . , Yn are also independent random variables.
+
+16. Suppose that X1, X2, . . . ,X5 are five random variables
+for which the joint pdf can be factored in the following
+form for all points (x1, x2, . . . , x5) ∈ R5:
+
+f (x1, x2, . . . , x5) = g(x1, x2)h(x3, x4, x5),
+where g and h are certain nonnegative functions. Show
+that if Y1 = r1 (X1, X2) and Y2 = r2 (X3, X4, X5), then the
+random variables Y1 and Y2 are independent.
+
+17. In Example 3.9.10, use the Jacobian method (3.9.13)
+to verify that Y and Z are independent and that @eq-3-9-18 is the marginal pdf of Z.
+
+18. Let the conditional pdf of X given Y be g1(x|y) =
+3x2/y3 for 0 < x < y and 0 otherwise. Let the marginal
+pdf of Y be f2(y), where f2(y) = 0 for y ≤ 0 but is otherwise
+unspecified. Let Z = X/Y . Prove that Z and Y are
+independent and find the marginal pdf of Z.
+
+19. Let X1 and X2 be as in Exercise 7. Find the pdf of
+Y = X1 + X2.
+
+20. If a2 = 0 in Theorem 3.9.4, show that Eq. (3.9.2) becomes
+the same as Eq. (3.8.1) with a = a1 and f = f1.
+
+21. In Examples 3.9.9 and 3.9.11, find the marginal pdf
+of Z1 = X1/X2 by first transforming to Z1 and Z2 = X1 and
+then integrating z2 out of the joint pdf

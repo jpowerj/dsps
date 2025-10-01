@@ -1,10 +1,13 @@
 (sec-3-7)=
-# Multivariate Distributions
+# 3.7 Multivariate Distributions
+
+(sec-3-7-0)=
+# Overview
 
 *In this section, we shall extend the results that were developed in Sections 3.4, 3.5, and 3.6 for two random variables $X$ and $Y$ to an arbitrary finite number $n$ of random variables $X_1, \ldots,X_n$. In general, the joint distribution of more than two random variables is called a multivariate distribution. The theory of statistical inference (the subject of the part of this book beginning with Chapter 7) relies on mathematical models for observable data in which each observation is a random variable. For this reason, multivariate distributions arise naturally in the mathematical models for data. The most commonly used model will be one in which the individual data random variables are conditionally independent given one or two other random variables.*
 
 (sec-3-7-1)=
-# Joint Distributions
+# 3.7.1 Joint Distributions
 
 :::: {prf:example} A Clinical Trial
 :label: exm-3-7-1

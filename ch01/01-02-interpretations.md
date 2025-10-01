@@ -1,20 +1,17 @@
 (sec-1-2)=
-# Interpretations of Probability
+# 1.2 Interpretations of Probability
+
+(sec-1-2-0)=
+# Overview
 
 *This section describes three common operational interpretations of probability. Although the interpretations may seem incompatible, it is fortunate that the calculus of probability (the subject matter of the first six chapters of this book) applies equally well no matter which interpretation one prefers.*
 
 In addition to the many formal applications of probability theory, the concept of probability enters our everyday life and conversation. We often hear and use such expressions as "It probably will rain tomorrow afternoon," "It is very likely that the plane will arrive late," or "The chances are good that he will be able to join us for dinner this evening." Each of these expressions is based on the concept of the probability, or the likelihood, that some specific event will occur.
 
-Despite the fact that the concept of probability is such a common and natural part of our experience, no single scientific interpretation of the term probability is
-accepted by all statisticians, philosophers, and other authorities. Through the years,
-each interpretation of probability that has been proposed by some authorities has
-been criticized by others. Indeed, the true meaning of probability is still a highly
-controversial subject and is involved in many current philosophical discussions pertaining
-to the foundations of statistics. Three different interpretations of probability
-will be described here. Each of these interpretations can be very useful in applying
-probability theory to practical problems.
+Despite the fact that the concept of probability is such a common and natural part of our experience, no single scientific interpretation of the term probability is accepted by all statisticians, philosophers, and other authorities. Through the years, each interpretation of probability that has been proposed by some authorities has been criticized by others. Indeed, the true meaning of probability is still a highly controversial subject and is involved in many current philosophical discussions pertaining to the foundations of statistics. Three different interpretations of probability will be described here. Each of these interpretations can be very useful in applying probability theory to practical problems.
 
-### The Frequency Interpretation of Probability
+(sec-1-2-1)=
+# 1.2.1 The Frequency Interpretation of Probability
 
 In many problems, the probability that some specific outcome of a process will be
 obtained can be interpreted to mean the relative frequency with which that outcome
@@ -22,22 +19,18 @@ would be obtained if the process were repeated a large number of times under sim
 conditions. For example, the probability of obtaining a head when a coin is tossed is
 considered to be 1/2 because the relative frequency of heads should be approximately
 1/2 when the coin is tossed a large number of times under similar conditions. In other
-words, it is assumed that the proportion of tosses on which a head is obtained would
-be approximately 1/2.
+words, it is assumed that the proportion of tosses on which a head is obtained would be approximately $1/2$.
 
 Of course, the conditions mentioned in this example are too vague to serve as the
 basis for a scientific definition of probability. First, a “large number” of tosses of the
-coin is specified, but there is no definite indication of an actual number that would be considered large enough. Second, it is stated that the coin should be tossed each
-time “under similar conditions,” but these conditions are not described precisely. The
+coin is specified, but there is no definite indication of an actual number that would be considered large enough. Second, it is stated that the coin should be tossed each time “under similar conditions,” but these conditions are not described precisely. The
 conditions under which the coin is tossed must not be completely identical for each
 toss because the outcomes would then be the same, and there would be either all
 heads or all tails. In fact, a skilled person can toss a coin into the air repeatedly and
 catch it in such a way that a head is obtained on almost every toss. Hence, the tosses
 must not be completely controlled but must have some “random” features.
 
-Furthermore, it is stated that the relative frequency of heads should be “approximately
-1/2,” but no limit is specified for the permissible variation from 1/2. If a coin
-were tossed 1,000,000 times, we would not expect to obtain exactly 500,000 heads.
+Furthermore, it is stated that the relative frequency of heads should be "approximately $1/2$", but no limit is specified for the permissible variation from $1/2$. If a coin were tossed 1,000,000 times, we would not expect to obtain exactly 500,000 heads.
 Indeed, we would be extremely surprised if we obtained exactly 500,000 heads. On
 the other hand, neither would we expect the number of heads to be very far from
 500,000. It would be desirable to be able to make a precise statement of the likelihoods
@@ -52,7 +45,8 @@ to the probability that a specific acquaintance will get married within the next
 years or to the probability that a particular medical research project will lead to the
 development of a new treatment for a certain disease within a specified period of time.
 
-### The Classical Interpretation of Probability
+(sec-1-2-2)=
+# 1.2.2 The Classical Interpretation of Probability
 
 The classical interpretation of probability is based on the concept of equally likely
 outcomes. For example, when a coin is tossed, there are two possible outcomes: a
@@ -77,7 +71,8 @@ project will be successful, the possible outcomes would not typically be conside
 to be equally likely, and a different method is needed for assigning probabilities to
 these outcomes.
 
-### The Subjective Interpretation of Probability
+(sec-1-2-3)=
+# 1.2.3 The Subjective Interpretation of Probability
 
 According to the subjective, or personal, interpretation of probability, the probability
 that a person assigns to a possible outcome of some process represents her own judgment of the likelihood that the outcome will be obtained. This judgment will be
@@ -131,4 +126,6 @@ in the conclusions drawn from the experimental data. The mathematical theory of
 probability and statistics can play an important part in these choices, decisions, and
 conclusions.
 
-**Note: The Theory of Probability Does Not Depend on Interpretation**. The mathematical theory of probability is developed and presented in Chapters 1–6 of this book without regard to the controversy surrounding the different interpretations of the term probability. This theory is correct and can be usefully applied, regardless of which interpretation of probability is used in a particular problem. The theories and techniques that will be presented in this book have served as valuable guides and tools in almost all aspects of the design and analysis of effective experimentation.
+## Note: The Theory of Probability Does Not Depend on Interpretation
+
+The mathematical theory of probability is developed and presented in Chapters 1–6 of this book without regard to the controversy surrounding the different interpretations of the term probability. This theory is correct and can be usefully applied, regardless of which interpretation of probability is used in a particular problem. The theories and techniques that will be presented in this book have served as valuable guides and tools in almost all aspects of the design and analysis of effective experimentation.

@@ -1,24 +1,33 @@
 (sec-1-4)=
-# Set Theory
+# 1.4 Set Theory
+
+(sec-1-4-0)=
+# Overview
 
 *This section develops the formal mathematical model for events, namely, the theory of sets. Several important concepts are introduced, namely, element, subset, empty set, intersection, union, complement, and disjoint sets.*
 
 (sec-1-4-1)=
-# The Sample Space
+# 1.4.1 The Sample Space
 
-::: {prf:definition} Sample Space
+:::: {prf:definition} Sample Space
 :label: def-1-4-1
 :enumerator: 1.4.1
+:::{.head}
+## Definition 1.4.1: Sample Space
+:::
 
 The collection of all possible outcomes of an experiment is called the **sample space** of the experiment.
 
-:::
+::::
 
 The sample space of an experiment can be thought of as a **set**, or collection, of different possible outcomes; and each outcome can be thought of as a **point**, or an **element**, in the sample space. Similarly, events can be thought of as **subsets** of the sample space.
 
 :::: {prf:example} Rolling a Die
 :label: exm-1-4-1
 :enumerator: 1.4.1
+:::{.head}
+## Example 1.4.1: Rolling a Die
+:::
 
 When a six-sided die is rolled, the sample space can be regarded as containing the six numbers 1, 2, 3, 4, 5, 6, each representing a possible side of the die that shows after the roll. Symbolically, we write
 
@@ -35,7 +44,7 @@ One event $A$ is that an even number is obtained, and it can be represented as t
 Because we can interpret outcomes as elements of a set and events as subsets of a set, the language and concepts of set theory provide a natural context for the development of probability theory. The basic ideas and notation of set theory will now be reviewed.
 
 (sec-1-4-2)=
-# Relations of Set Theory
+# 1.4.2 Relations of Set Theory
 
 Let $S$ denote the sample space of some experiment. Then each possible outcome $s$ of the experiment is said to be a member of the space $S$, or to belong to the space $S$. The statement that s is a member of $S$ is denoted symbolically by the relation $s \in S$.
 
@@ -59,6 +68,7 @@ The first of the three conditions can be stated immediately.
 
 ::: {prf:criterion}
 :label: cnd-1
+:enumerator: 1
 
 The sample space S must be an event.
 
@@ -69,6 +79,9 @@ That is, we must include the sample space $S$ in our collection of events. The o
 :::: {prf:definition} Containment
 :label: def-1-4-2
 :enumerator: 1.4.2
+:::{.head}
+## Definition 1.4.2: Containment
+:::
 
 It is said that a set $A$ is **contained in** another set $B$ if every element of the set $A$ also belongs to the set $B$. This relation between two events is expressed symbolically by the expression $A \subset B$, which is the set-theoretic expression for saying that $A$ is a subset of $B$. Equivalently, if $A \subset B$, we may say that $B$ **contains** $A$ and may write $B \supset A$.
 
@@ -78,31 +91,37 @@ For events, to say that $A \subset B$ means that if $A$ occurs then so does $B$.
 
 The proof of the following result is straightforward and is omitted.
 
-:::{prf:theorem}
+:::: {prf:theorem}
 :label: thm-1-4-1
 :enumerator: 1.4.1
+:::{.head}
+## Theorem 1.4.1
+:::
 
 Let $A$, $B$, and $C$ be events. Then $A \subseteq S$. If $A \subseteq B$ and $B \subseteq A$, then $A = B$. If $A \subseteq B$ and $B \subseteq C$, then $A \subseteq C$.
 
-:::
+::::
 
-:::{prf:example} Rolling a Die
+:::: {prf:example} Rolling a Die
 :label: exm-1-4-2
 :enumerator: 1.4.2
+:::{.head}
+## Example 1.4.2: Rolling a Die
+:::
 
 In @exm-1-4-1, suppose that $A$ is the event that an even number is obtained and $C$ is the event that a number greater than 1 is obtained. Since $A = \{2, 4, 6\}$ and $C = \{2, 3, 4, 5, 6\}$, it follows that $A \subseteq C$.
 
-:::
+::::
 
 **The Empty Set**: Some events are impossible. For example, when a die is rolled, it is impossible to obtain a negative number. Hence, the event that a negative number will be obtained is defined by the subset of $S$ that contains no outcomes.
 
-:::{prf:definition} Empty Set
+:::: {prf:definition} Empty Set
 :label: def-1-4-3
 :enumerator: 1.4.3
 
 The subset of $S$ that contains no elements is called the **empty set**, or **null set**, and it is denoted by the symbol $\varnothing$.
 
-:::
+::::
 
 In terms of events, the empty set is any event that cannot occur.
 
@@ -118,12 +137,16 @@ _Proof_: Let $A$ be an arbitrary event. Since the empty set $\varnothing$ contai
 
 **Finite and Infinite Sets**: Some sets contain only finitely many elements, while others have infinitely many elements. There are two sizes of infinite sets that we need to distinguish.
 
-:::{prf:definition} Countable / Uncountable
+:::: {prf:definition} Countable / Uncountable
 :label: def-1-4-4
+:enumerator: 1.4.4
+:::{.head}
+## Definition 1.4.4: Countable / Uncountable
+:::
 
 An infinite set $A$ is **countable** if there is a one-to-one correspondence between the elements of $A$ and the set of natural numbers $\{1, 2, 3, \ldots\}$. A set is **uncountable** if it is neither finite nor countable. If we say that a set has **at most countably many** elements, we mean that the set is either finite or countable.
 
-:::
+::::
 
 Examples of countably infinite sets include the integers, the even integers, the odd integers, the prime numbers, and any infinite sequence. Each of these can be put in one-to-one correspondence with the natural numbers. For example, the following function $f$ puts the integers in one-to-one correspondence with the natural numbers:
 
@@ -138,7 +161,8 @@ f(n) = \begin{cases}
 
 Every infinite sequence of distinct items is a countable set, as its indexing puts it in one-to-one correspondence with the natural numbers. Examples of uncountable sets include the real numbers, the positive reals, the numbers in the interval $[0, 1]$, and the set of all ordered pairs of real numbers. An argument to show that the real numbers are uncountable appears at the end of this section. Every subset of the integers has at most countably many elements.
 
-# Operations of Set Theory
+(sec-1-4-3)=
+# 1.4.3 Operations of Set Theory
 
 :::{prf:definition} Complement
 :label: def-1-4-5
@@ -190,9 +214,12 @@ A sketch of this type is called a **Venn diagram**.
 
 Some properties of the complement are stated without proof in the next result.
 
-:::{prf:theorem}
+:::: {prf:theorem}
 :label: thm-1-4-3
 :enumerator: 1.4.3
+:::{.head}
+## Theorem 1.4.3
+:::
 
 Let $A$ be an event. Then
 
@@ -203,7 +230,7 @@ Let $A$ be an event. Then
 
 The empty event $\varnothing$ is an event.
 
-:::
+::::
 
 :::{prf:definition} Union of Two Sets
 :label: def-1-4-6
@@ -344,7 +371,7 @@ The following result concerning the intersection of three events is straightforw
 ::: {.callout-tip}
 ::: {#thm-1-4-8}
 
-# Theorem 1.4.8: Associative Property
+## Theorem 1.4.8: Associative Property
 
 For every three events A, B, and C, the following associative
 relations are satisfied:
@@ -356,7 +383,7 @@ A ∩ B ∩ C = (A ∩ B) ∩ C = A ∩ (B ∩ C).
 ::: {.callout-tip}
 ::: {#def-1-4-10}
 
-# Definition 1.4.10: Disjoint/Mutually Exclusive
+## Definition 1.4.10: Disjoint/Mutually Exclusive
 
 It is said that two sets A and B are disjoint, or mutually
 exclusive, if A and B have no outcomes in common, that is, if A ∩ B = ∅. The sets
@@ -448,7 +475,9 @@ Sample space for water and electric demand in @exm-1-4-5
 
 ![Partition of $A \cup B$ in @thm-1-4-11](images/fig-1-6.svg){#fig-1-6 width="50%"}
 
-**Additional Properties of Sets**: The proof of the following useful result is left to @exr-1-4-3 in this section.
+## Additional Properties of Sets
+
+The proof of the following useful result is left to @exr-1-4-3 in this section.
 
 :::{prf:theorem} De Morgan's Laws
 :label: thm-1-4-9
@@ -478,7 +507,7 @@ The following result is useful for computing probabilities of events that can be
 ::: {.callout-tip}
 ::: {#thm-1-4-11}
 
-# Theorem 1.4.11: Partitioning a Set
+## Theorem 1.4.11: Partitioning a Set
 
 For every two sets $A$ and $B$, $A \cap B$ and $A \cap B^c$ are disjoint and
 
@@ -495,7 +524,7 @@ $$
 :::
 :::
 
-### Proof That the Real Numbers Are Uncountable
+## Proof That the Real Numbers Are Uncountable
 
 We shall show that the real numbers in the interval $[0, 1)$ are uncountable. Every larger set is a fortiori uncountable. For each number $x \in [0, 1)$, define the sequence $\{a_n(x)\}_{n=1}^{\infty}$ as follows. First, $a_1(x) = \lfloor{}10x \rfloor$, where $\lfloor y \rfloor$ stands for the greatest integer less than or equal to $y$ (round non-integers down to the closest integer below). Then set $b_1(x) = 10x − a_1(x)$, which will again be in $[0, 1)$. For $n > 1$, $a_n(x) = \lfloor{}10b_{n−1}(x)\rfloor{}$ and $b_n(x) = 10b_{n−1}(x) − a_n(x)$. It is easy to see that the sequence $\{a_n(x)\}_{n=1}^{\infty}$ gives a
 decimal expansion for $x$ in the form
@@ -528,11 +557,13 @@ $$
 An array of a countable collection of sequences of digits with the diagonal underlined.
 :::
 
-### Summary
+(sec-1-4-4)=
+# 1.4.4 Summary
 
 We will use set theory for the mathematical model of events. Outcomes of an experiment are elements of some sample space $S$, and each event is a subset of $S$. Two events both occur if the outcome is in the intersection of the two sets. At least one of a collection of events occurs if the outcome is in the union of the sets. Two events cannot both occur if the sets are disjoint. An event fails to occur if the outcome is in the complement of the set. The empty set stands for every event that cannot possibly occur. The collection of events is assumed to contain the sample space, the complement of each event, and the union of each countable collection of events.
 
-### Exercises
+(sec-1-4-5)=
+# 1.4.5 Exercises
 
 ::: {#exr-1-4-1}
 

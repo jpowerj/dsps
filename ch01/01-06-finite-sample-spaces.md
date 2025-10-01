@@ -1,18 +1,24 @@
 (sec-1-6)=
-# Finite Sample Spaces
+# 1.6 Finite Sample Spaces
+
+(sec-1-6-0)=
+# Overview
 
 *The simplest experiments in which to determine and derive probabilities are those that involve only finitely many possible outcomes. This section gives several examples to illustrate the important concepts from @sec-1-5 in finite sample spaces.*
 
-::: {prf:example} Current Population Survey
+:::: {prf:example} Current Population Survey
 :label: exm-1-6-1
 :enumerator: 1.6.1
+:::{.head}
+## Example 1.6.1: Current Population Survey
+:::
 
 Every month, the Census Bureau conducts a survey of the United States population in order to learn about labor-force characteristics. Several pieces of information are collected on each of about 50,000 households. One piece of information is whether or not someone in the household is actively looking for employment but currently not employed. Suppose that our experiment consists of selecting three households at random from the 50,000 that were surveyed in a particular month and obtaining access to the information recorded during the survey. (Due to the confidential nature of information obtained during the Current Population Survey, only researchers in the Census Bureau would be able to perform the experiment just described.) The outcomes that make up the sample space $S$ for this experiment can be described as lists of three three distinct numbers from 1 to 50,000. For example (300, 1, 24602) is one such list where we have kept track of the order in which the three households were selected. Clearly, there are only finitely many such lists. We can assume that each list is equally likely to be chosen, but we need to be able to count how many such lists there are. We shall learn a method for counting the outcomes for this example in @sec-1-7.
 
-:::
-:::
+::::
 
-### Requirements of Probabilities
+(sec-1-6-1)=
+# 1.6.1 Requirements of Probabilities
 
 In this section, we shall consider experiments for which there are only a finite number of possible outcomes. In other words, we shall consider experiments for which the sample space $S$ contains only a finite number of points $s_1, \ldots, s_n$. In an experiment of this type, a probability measure on $S$ is specified by assigning a probability $p_i$ to each point $s_i \in S$. The number $p_i$ is the probability that the outcome of the experiment will be $s_i$ ($i = 1, \ldots, n$). In order to satisfy the axioms of probability, the numbers $p_1, \ldots, p_n$ must satisfy the following two conditions:
 
@@ -28,10 +34,12 @@ $$
 
 The probability of each event $A$ can then be found by adding the probabilities $p_i$ of all outcomes $s_i$ that belong to $A$. This is the general version of @exm-1-5-2.
 
-::: {.callout-tip}
-::: {#exm-1-6-2}
-
-# Example 1.6.2: Fiber Breaks
+:::: {prf:example} Fiber Breaks
+:label: exm-1-6-2
+:enumerator: 1.6.2
+:::{.head}
+## Example 1.6.2: Fiber Breaks
+:::
 
 Consider an experiment in which five fibers having different lengths are subjected to a testing process to learn which fiber will break first. Suppose that the lengths of the five fibers are 1, 2, 3, 4, and 5 inches, respectively. Suppose also that the probability that any given fiber will be the first to break is proportional to the length of that fiber. We shall determine the probability that the length of the fiber that breaks first is not more than 3 inches.
 
@@ -41,10 +49,10 @@ $$
 \Pr(A) = p_1 + p_2 + p_3 = \frac{1}{15} + \frac{2}{15} + \frac{3}{15} = \frac{2}{5}.
 $$
 
-:::
-:::
+::::
 
-### Simple Sample Spaces
+(sec-1-6-2)=
+# 1.6.2 Simple Sample Spaces
 
 A sample space $S$ containing $n$ outcomes $s_1, \ldots, s_n$ is called a simple sample space if the probability assigned to each of the outcomes $s_1, \ldots, s_n$ is $1/n$. If an event $A$ in this simple sample space contains exactly $m$ outcomes, then
 
@@ -54,7 +62,7 @@ $$
 
 ::: {#exm-1-6-3}
 
-# Example 1.6.3: Tossing Coins
+## Example 1.6.3: Tossing Coins
 
 Suppose that three fair coins are tossed simultaneously. We shall determine the probability of obtaining exactly two heads.
 
@@ -137,17 +145,17 @@ $$
 
 ::::
 
-(sec-1-6-4)=
-# Summary
+(sec-1-6-3)=
+# 1.6.3 Summary
 
 A simple sample space is a finite sample space $S$ such that every outcome in $S$ has the same probability. If there are $n$ outcomes in a simple sample space $S$, then each one must have probability $1/n$. The probability of an event $E$ in a simple sample space is the number of outcomes in $E$ divided by $n$. In the next three sections, we will present some useful methods for counting numbers of outcomes in various events.
 
-(sec-1-6-5)=
-# Exercises
+(sec-1-6-4)=
+# 1.6.4 Exercises
 
 ::: {#exr-1-6-1}
 
-# Exercise 1.6.1
+## Exercise 1.6.1
 
 If two balanced dice are rolled, what is the probability that the sum of the two numbers that appear will be odd?
 

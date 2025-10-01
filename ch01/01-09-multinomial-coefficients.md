@@ -1,12 +1,15 @@
 (sec-1-9)=
-# Multinomial Coefficients
+# 1.9 Multinomial Coefficients
+
+(sec-1-9-0)=
+# Overview
 
 *We learn how to count the number of ways to partition a finite set into more than two disjoint subsets. This generalizes the binomial coefficients from @sec-1-8. The generalization is useful when outcomes consist of several parts selected from a fixed number of distinct types. We begin with a fairly simple example that will illustrate the general ideas of this section.*
 
 ::: {.callout-tip}
 ::: {#exm-1-9-1}
 
-# Example 1.9.1: Choosing Committees
+## Example 1.9.1: Choosing Committees
 
 Suppose that 20 members of an organization are to be divided into three committees $A$, $B$, and $C$ in such a way that each of the committees $A$ and $B$ is to have eight members and committee $C$ is to have four members. We shall determine the number of different ways in which members can be assigned to these committees. Notice that each of the 20 members gets assigned to one and only one committee.
 
@@ -38,7 +41,7 @@ where the last formula follows from writing the binomial coefficients in terms o
 ::: {.callout-tip}
 ::: {#def-1-9-1}
 
-# Definition 1.9.1: Multinomial Coefficients
+## Definition 1.9.1: Multinomial Coefficients
 
 The number
 
@@ -56,7 +59,7 @@ The name **multinomial coefficient** derives from the appearance of the symbol i
 ::: {.callout-tip}
 ::: {#thm-1-9-1}
 
-# Theorem 1.9.1: Multinomial Theorem
+## Theorem 1.9.1: Multinomial Theorem
 
 For all numbers $x_1, \ldots, x_k$ and each positive integer $n$,
 
@@ -78,7 +81,7 @@ $$
 ::: {.callout-tip}
 ::: {#exm-1-9-2}
 
-# Example 1.9.2: Choosing Committees
+## Example 1.9.2: Choosing Committees
 
 In @exm-1-9-1, we see that the solution obtained there is the same as the multinomial coefficient for which $n = 20$, $k = 3$, $n_1 = n_2 = 8$, and $n_3 = 4$, namely,
 
@@ -98,7 +101,7 @@ $$
 ::: {.callout-tip}
 ::: {#exm-1-9-3}
 
-# Example 1.9.3: Rolling Dice
+## Example 1.9.3: Rolling Dice
 
 Suppose that 12 dice are to be rolled. We shall determine the probability $p$ that each of the six different numbers will appear twice.
 
@@ -120,7 +123,7 @@ $$
 ::: {.callout-tip}
 ::: {#exm-1-9-4}
 
-# Example 1.9.4: Playing Cards
+## Example 1.9.4: Playing Cards
 
 A deck of 52 cards contains 13 hearts. Suppose that the cards are shuffled and distributed among four players $A$, $B$, $C$, and $D$ so that each player receives 13 cards. We shall determine the probability $p$ that player $A$ will receive six hearts, player $B$ will receive four hearts, player $C$ will receive two hearts, and player $D$ will receive one heart.
 
@@ -165,15 +168,17 @@ which produces the same value as the one obtained by the first method of solutio
 :::
 :::
 
-### Summary
+(sec-1-9-1)=
+# 1.9.1 Summary
 
 Multinomial coefficients generalize binomial coefficients. The coefficient $\binom{n}{n_1, \ldots, n_k}$ is the number of ways to partition a set of $n$ items into distinguishable subsets of sizes $n_1, \ldots, n_k$ where $n_1 + \cdots + n_k = n$. It is also the number of arrangements of $n$ items of $k$ different types for which $n_i$ are of type $i$ for $i = 1, \ldots, k$. @exm-1-9-4 illustrates another important point to remember about computing probabilities: There might be more than one correct method for computing the same probability.
 
-### Exercises
+(sec-1-9-2)=
+# 1.9.2 Exercises
 
 ::: {#exr-1-9-1}
 
-# Exercise 1.9.1
+## Exercise 1.9.1
 
 Three pollsters will canvas a neighborhood with 21 houses. Each pollster will visit seven of the houses. How many different assignments of pollsters to houses are possible?
 

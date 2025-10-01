@@ -1,10 +1,13 @@
 (sec-3-5)=
-# Marginal Distributions
+# 3.5 Marginal Distributions
 
-*Earlier in this chapter, we introduced distributions for random variables, and in @sec-3-4 we discussed a generalization to joint distributions of two random variables simultaneously. Often, we start with a joint distribution of two random variables and we then want to find the distribution of just one of them. The distribution of one random variable $X$ computed from a joint distribution is also called the marginal distribution of $X$. Each random variable will have a marginal CDF as well as a marginal pdf or pmf. We also introduce the concept of independent random variables, which is a natural generalization of independent events.
+(sec-3-5-0)=
+# Overview
+
+*Earlier in this chapter, we introduced distributions for random variables, and in @sec-3-4 we discussed a generalization to joint distributions of two random variables simultaneously. Often, we start with a joint distribution of two random variables and we then want to find the distribution of just one of them. The distribution of one random variable $X$ computed from a joint distribution is also called the marginal distribution of $X$. Each random variable will have a marginal CDF as well as a marginal pdf or pmf. We also introduce the concept of independent random variables, which is a natural generalization of independent events.*
 
 (sec-3-5-1)=
-# Deriving a Marginal pmf or a Marginal pdf
+# 3.5.1 Deriving a Marginal pmf or a Marginal pdf
 
 We have seen in @thm-3-4-5 that if the joint CDF $F$ of two random variables $X$ and $Y$ is known, then the CDF $F_1$ of the random variable $X$ can be derived from $F$. We saw an example of this derivation in @exm-3-4-15. If $X$ has a continuous
 distribution, we can also derive the pdf of $X$ from the joint distribution.
@@ -12,7 +15,7 @@ distribution, we can also derive the pdf of $X$ from the joint distribution.
 ::: {.callout-tip title="Example 3.5.1"}
 ::: {#exm-3-5-1}
 
-# Example 3.5.1: Demands for Utilities
+## Example 3.5.1: Demands for Utilities
 
 Look carefully at the formula for $F(x, y)$ in @exm-3-4-15, specifically the last two branches that we identified as $F_1(x)$ and $F_2(y)$, the CDFs of the two individual random variables $X$ and $Y$. It is apparent from those two formulas and @thm-3-3-5 that the pdf of $X$ alone is
 

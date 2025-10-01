@@ -1,5 +1,8 @@
 (sec-3-4)=
-# Bivariate Distributions
+# 3.4 Bivariate Distributions
+
+(sec-3-4-0)=
+# Overview
 
 *We generalize the concept of distribution of a random variable to the joint distribution of two random variables. In doing so, we introduce the joint pmf for two discrete random variables, the joint pdf for two continuous random variables, and the joint CDF for any two random variables. We also introduce a joint hybrid of pmf and pdf for the case of one discrete random variable and one continuous random variable.*
 
@@ -24,7 +27,7 @@ It is a straightforward consequence of the definition of the joint distribution 
 In this section and the next two sections, we shall discuss convenient ways to characterize and do computations with bivariate distributions. In @sec-3-7, these considerations will be extended to the joint distribution of an arbitrary finite number of random variables.
 
 (sec-3-4-1)=
-# Discrete Joint Distributions
+# 3.4.1 Discrete Joint Distributions
 
 :::: {prf:example} Theater Patrons
 :label: exm-3-4-2
@@ -248,10 +251,12 @@ In @sec-3-5, we will show that if $X$ and $Y$ have a continuous joint distributi
 An example of a joint pdf
 ```
 
-::: {.callout-caution title="Theorem 3.4.4"}
-::: {#thm-3-4-4}
-
-# Theorem 3.4.4
+:::: {prf:theorem}
+:label: thm-3-4-4
+:enumerator: 3.4.4
+:::{.head}
+## Theorem 3.4.4
+:::
 
 For every continuous joint distribution on the $xy$-plane, the following two statements hold:
 
@@ -262,25 +267,27 @@ ii. Let $f$ be a continuous function of one real variable defined on a (possibly
 According to @def-3-4-4, the probability that a continuous joint distribution assigns to a specified region of the $xy$-plane can be found by integrating the joint pdf $f(x, y)$ over that region, if the integral exists. If the region is a single point, the integral will be 0. By Axiom 3 of probability, the probability for any countable collection of points must also be 0. The integral of a function of two variables over the graph of a continuous function in the $xy$-plane is also 0.
 :::
 
-:::
-:::
+::::
 
 <!-- Stopping point 2023-10-10, 12:15am -->
 
-::: {.callout-tip title="Example 3.4.6"}
-::: {#exm-3-4-6}
-
-# Example 3.4.6: Not a Continuous Joint Distribution
+:::: {prf:example} Not a Continuous Joint Distribution
+:label: exm-3-4-6
+:enumerator: 3.4.6
+:::{.head}
+## Example 3.4.6: Not a Continuous Joint Distribution
+:::
 
 It follows from (ii) of @thm-3-4-4 that the probability that $(X, Y)$ will lie on each specified straight line in the plane is 0. If $X$ has a continuous distribution and if $Y = X$, then both $X$ and $Y$ have continuous distributions, but the probability is 1 that $(X, Y)$ lies on the straight line $y = x$. Hence, $X$ and $Y$ cannot have a continuous joint distribution.
 
-:::
-:::
+::::
 
-::: {.callout-tip title="Example 3.4.7"}
-::: {#exm-3-4-7}
-
-# Example 3.4.7: Calculating a Normalizing Constant
+:::: {prf:example} Calculating a Normalizing Constant
+:label: exm-3-4-7
+:enumerator: 3.4.7
+:::{.head}
+## Example 3.4.7: Calculating a Normalizing Constant
+:::
 
 Suppose that the joint pdf of $X$ and $Y$ is specified as follows:
 
@@ -307,8 +314,7 @@ Since the value of this integral must be 1, the value of $c$ must be $21/4$.
 
 The limits of integration on the last integral in #eq-3-4-3 were determined as follows. We have our choice of whether to integrate $x$ or $y$ as the inner integral, and we chose $y$. So, we must find, for each $x$, the interval of $y$ values over which to integrate. From @fig-3-12, we see that, for each $x$, $y$ runs from the curve where $y = x^2$ to the line where $y = 1$. The interval of $x$ values for the outer integral is from $−1$ to $1$ according to @fig-3-12. If we had chosen to integrate $x$ on the inside, then for each $y$, we see that $x$ runs from $-\sqrt{y}$ to $\sqrt{y}$, while $y$ runs from 0 to 1. The final answer would have been the same.
 
-:::
-:::
+::::
 
 ::: {.callout-tip title="Example 3.4.8"}
 ::: {#exm-3-4-8}

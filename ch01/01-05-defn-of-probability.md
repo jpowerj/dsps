@@ -1,10 +1,13 @@
 (sec-1-5)=
-# The Definition of Probability
+# 1.5 The Definition of Probability
+
+(sec-1-5-0)=
+# Overview
 
 *We begin with the mathematical definition of probability and then present some useful results that follow easily from the definition.*
 
 (sec-1-5-1)=
-# Axioms and Basic Theorems
+# 1.5.1 Axioms and Basic Theorems
 
 In this section, we shall present the mathematical, or axiomatic, definition of probability. In a given experiment, it is necessary to assign to each event $A$ in the sample space $S$ a number $\Pr(A)$ that indicates the probability that $A$ will occur. In order to satisfy the mathematical definition of probability, the number $\Pr(A)$ that is assigned must satisfy three specific axioms. These axioms ensure that the number $\Pr(A)$ will have certain properties that we intuitively expect a probability to have under each of the various interpretations described in @sec-1-2.
 
@@ -122,7 +125,7 @@ Consider the infinite sequence of events $A_1, A_2, \ldots$, in which $A_1, \ldo
 ::::
 
 (sec-1-5-2)=
-# Further Properties of Probability
+# 1.5.2 Further Properties of Probability
 
 From the axioms and theorems just given, we shall now derive four other general properties of probability measures. Because of the fundamental nature of these four properties, they will be presented in the form of four theorems, each one of which is easily proved.
 
@@ -312,7 +315,7 @@ $$
 will have positive probability, but that probability will go to 0 as $\epsilon$ goes to 0.
 
 (sec-1-5-3)=
-# Summary
+# 1.5.3 Summary
 
 We have presented the mathematical definition of probability through the three axioms. The axioms require that every event have nonnegative probability, that the whole sample space have probability 1, and that the union of an infinite sequence of disjoint events have probability equal to the sum of their probabilities. Some important results to remember include the following:
 
@@ -324,7 +327,7 @@ We have presented the mathematical definition of probability through the three a
 It does not matter how the probabilities were determined. As long as they satisfy the three axioms, they must also satisfy the above relations as well as all of the results that we prove later in the text.
 
 (sec-1-5-4)=
-# Exercises
+# 1.5.4 Exercises
 
 :::: {exercise}
 :label: exr-1-5-1

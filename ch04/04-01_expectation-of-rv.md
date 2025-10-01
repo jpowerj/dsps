@@ -1,29 +1,33 @@
 (sec-4-1)=
-# The Expectation of a Random Variable
+# 4.1 The Expectation of a Random Variable
+
+(sec-4-1-0)=
+# Overview
 
 *The distribution of a random variable $X$ contains all of the probabilistic information about $X$. The entire distribution of $X$, however, is usually too cumbersome for presenting this information. Summaries of the distribution, such as the average value, or expected value, can be useful for giving people an idea of where we expect $X$ to be without trying to describe the entire distribution. The expected value also plays an important role in the approximation methods that arise in @sec-6.*
 
 (sec-4-1-1)=
-# Expectation for a Discrete Distribution
+# 4.1.1 Expectation for a Discrete Distribution
 
-::: {.callout-tip title="Example 4.1.1"}
-::: {#exm-4-1-1}
-
-# Example 4.1.1: Fair Price for a Stock
+:::: {prf:example} Fair Price for a Stock
+:label: exm-4-1-1
+:enumerator: 4.1.1
+:::{.head}
+## Example 4.1.1: Fair Price for a Stock
+:::
 
 An investor is considering whether or not to invest \$18 per share in a stock for one year. The value of the stock after one year, in dollars, will be $18 + X$, where $X$ is the amount by which the price changes over the year. At present $X$ is unknown, and the investor would like to compute an "average value" for $X$ in order to compare the return she expects from the investment to what she would get by putting the \$18 in the bank at 5% interest.
 
-:::
-:::
+::::
 
 The idea of finding an average value as in @exm-4-1-1 arises in many applications that involve a random variable. One popular choice is what we call the **mean** or **expected value** or **expectation**.
 
 The intuitive idea of the mean of a random variable is that it is the weighted average of the possible values of the random variable with the weights equal to the probabilities.
 
-::: {.callout-tip title="Example 4.1.2"}
+:::: {.callout-tip title="Example 4.1.2"}
 ::: {#exm-4-1-2}
 
-# Example 4.1.2: Stock Price Change
+## Example 4.1.2: Stock Price Change
 
 Suppose that the change in price of the stock in @exm-4-1-1 is a random variable $X$ that can assume only the four different values $−2$, $0$, $1$, and
 $4$, and that $\Pr(X = −2) = 0.1$, $\Pr(X = 0) = 0.4$, $\Pr(X = 1) = 0.3$, and $\Pr(X = 4) = 0.2$.
@@ -36,14 +40,14 @@ $$
 The investor now compares this with the interest that would be earned on \$18 at 5\% for one year, which is $18 \times 0.05 = 0.9$ dollars. From this point of view, the price of \$18 seems fair.
 
 :::
-:::
+::::
 
 The calculation in @exm-4-1-2 generalizes easily to every random variable that assumes only finitely many values. Possible problems arise with random variables that assume more than finitely many values, especially when the collection of possible values is unbounded.
 
-::: {.callout-note title="Definition 4.1.1"}
+:::: {.callout-note title="Definition 4.1.1"}
 ::: {#def-4-1-1}
 
-# Definition 4.1.1: Mean of Bounded Discrete Random Variable.
+## Definition 4.1.1: Mean of Bounded Discrete Random Variable.
 
 Let $X$ be a bounded discrete random variable whose pmf is $f$. The expectation of $X$, denoted by $\mathbb{E}[X]$, is a number defined as follows:
 
@@ -52,16 +56,16 @@ $$
 $$ {#eq-4-1-1}
 
 :::
-:::
+::::
 
 The expectation of $X$ is also referred to as the **mean** of $X$ or the **expected value** of $X$.
 
 In @exm-4-1-2, $\mathbb{E}(X) = 0.9$. Notice that $0.9$ is not one of the possible values of $X$ in that example. This is typically the case with discrete random variables.
 
-::: {.callout-tip title="Example 4.1.3"}
+:::: {.callout-tip title="Example 4.1.3"}
 ::: {#exm-4-1-3}
 
-# Example 4.1.3: Bernoulli Random Variable.
+## Example 4.1.3: Bernoulli Random Variable.
 
 Let $X$ have the Bernoulli distribution with parameter $p$, that is, assume that $X$ takes only the two values 0 and 1 with $\Pr(X = 1) = p$. Then the mean of X is
 
@@ -70,14 +74,14 @@ $$
 $$
 
 :::
-:::
+::::
 
 If $X$ is unbounded, it might still be possible to define $\mathbb{E}[X]$ as the weighted average of its possible values. However, some care is needed.
 
-::: {.callout-note title="Definition 4.1.2"}
+:::: {.callout-note title="Definition 4.1.2"}
 ::: {#def-4-1-2}
 
-# Definition 4.1.2: Mean of General Discrete Random Variable.
+## Definition 4.1.2: Mean of General Discrete Random Variable.
 
 Let $X$ be a discrete random variable whose pmf is $f$. Suppose that at least one of the following sums is finite:
  
@@ -94,15 +98,15 @@ $$ {#eq-4-1-3}
 If both of the sums in @eq-4-1-2 are infinite, then $\mathbb{E}[X]$ does not exist.
 
 :::
-:::
+::::
 
 The reason that the expectation fails to exist if both of the sums in @eq-4-1-2 are infinite is that, in such cases, the sum in @eq-4-1-3 is not well-defined. It is known from calculus that the sum of an infinite series whose positive and negative terms both add to infinity either fails to converge or can be made to converge to many different values by rearranging the terms in different orders. We don't want the meaning of expected value to depend on arbitrary choices about what order to add numbers. If only one of two sums in @eq-4-1-3 is infiinte, then the expected value is also infinite with the same sign as that of the sum that is infinite. If both sums are finite, then the sum
 in @eq-4-1-3 converges and doesn't depend on the order in which the terms are added.
 
-::: {.callout-tip title="Example 4.1.4"}
+:::: {.callout-tip title="Example 4.1.4"}
 ::: {#exm-4-1-4}
 
-# Example 4.1.4: The Mean of $X$ Does Not Exist.
+## Example 4.1.4: The Mean of $X$ Does Not Exist.
 
 Let $X$ be a random variable whose pmf is
 
@@ -122,12 +126,14 @@ $$
 hence, $\mathbb{E}[X]$ does not exist.
 
 :::
+::::
+
+:::: {prf:example} An Infinite Mean
+:label: exm-4-1-5
+:enumerator: 4.1.5
+:::{.head}
+## Example 4.1.5: An Infinite Mean
 :::
-
-::: {.callout-tip title="Example 4.1.5"}
-::: {#exm-4-1-5}
-
-# Example 4.1.5: An Infinite Mean
 
 Let $X$ be a random variable whose pmf is
 
@@ -146,19 +152,19 @@ $$
 
 We say that the mean of $X$ is **infinite** in this case.
 
-:::
-:::
+::::
 
 **Note: The Expectation of $X$ Depends Only on the Distribution of $X$**: Although $\mathbb{E}[X]$ is called the expectation of $X$, it depends only on the distribution of $X$. Every two random variables that have the same distribution will have the same expectation even if they have nothing to do with each other. For this reason, we shall often refer to the expectation of a distribution even if we do not have in mind a random variable with that distribution.
 
-### Expectation for a Continuous Distribution
+(sec-4-1-2)=
+# 4.1.2 Expectation for a Continuous Distribution
 
 The idea of computing a weighted average of the possible values can be generalized to continuous random variables by using integrals instead of sums. The distinction between bounded and unbounded random variables arises in this case for the same reasons.
 
 ::: {.callout-note title="Definition 4.1.3"}
 ::: {#def-4-1-3}
 
-# Definition 4.1.3: Mean of Bounded Continuous Random Variable
+## Definition 4.1.3: Mean of Bounded Continuous Random Variable
 
 Let $X$ be a bounded continuous random variable whose pdf is $f$. The **expectation** of $X$, denoted $\mathbb{E}[X]$, is defined as follows:
 

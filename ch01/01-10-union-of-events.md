@@ -1,5 +1,8 @@
 (sec-1-10)=
-# The Probability of a Union of Events
+# 1.10 The Probability of a Union of Events
+
+(sec-1-10-0)=
+# Overview
 
 *The axioms of probability tell us directly how to find the probability of the union of disjoint events. @thm-1-5-7 showed how to find the probability for the union of two arbitrary events. This theorem is generalized to the union of an arbitrary finite collection of events.*
 
@@ -19,12 +22,13 @@ $$
 
 In this section, we shall extend this result, first to three events and then to an arbitrary finite number of events.
 
-### The Union of Three Events
+(sec-1-10-1)=
+# 1.10.1 The Union of Three Events
 
 ::: {.callout-tip}
 ::: {#thm-1-10-1}
 
-# Theorem 1.10.1
+## Theorem 1.10.1
 
 For every three events $A_1$, $A_2$, and $A_3$,
 
@@ -80,7 +84,7 @@ Substitute @eq-1-10-3, $\Pr(B) = \Pr(A_3)$, and @eq-1-10-5 into @eq-1-10-2 to co
 ::: {.callout-tip}
 ::: {#exm-1-10-1}
 
-# Example 1.10.1: Student Enrollment
+## Example 1.10.1: Student Enrollment
 
 Among a group of 200 students, 137 students are enrolled in a mathematics class, 50 students are enrolled in a history class, and 124 students are enrolled in a music class. Furthermore, the number of students enrolled in both the mathematics and history classes is 33, the number enrolled in both the history and music classes is 29, and the number enrolled in both the mathematics and music classes is 92. Finally, the number of students enrolled in all three classes is 18. We shall determine the probability that a student selected at random from the group of 200 students will be enrolled in at least one of the three classes.
 
@@ -100,14 +104,17 @@ It follows from @eq-1-10-1 that $\Pr(A_1 \cup A_2 \cup A_3) = 175/200 = 7/8$.
 :::
 :::
 
-### The Union of a Finite Number of Events
+(sec-1-10-2)=
+# 1.10.2 The Union of a Finite Number of Events
 
 A result similar to @thm-1-10-1 holds for any arbitrary finite number of events, as shown by the following theorem.
 
-::: {.callout-tip}
-::: {#thm-1-10-2}
-
-# Theorem 1.10.2
+:::: {prf:theorem}
+:label: thm-1-10-2
+:enumerator: 1.10.2
+:::{.head}
+## Theorem 1.10.2
+:::
 
 For every $n$ events $A_1, \ldots, A_n$,
 
@@ -120,6 +127,7 @@ $$
 $$ {#eq-1-10-6}
 
 ::: {.proof}
+
 The proof proceeds by induction. In particular, we first establish that @eq-1-10-6 is true for $n = 1$ and $n = 2$. Next, we show that if there exists $m$ such that @eq-1-10-6 is true for all $n \leq m$, then @eq-1-10-6 is also true for $n = m + 1$. The case of $n = 1$ is trivial, and the case of $n = 2$ is @thm-1-5-7. To complete the proof, assume that @eq-1-10-6 is true for all $n \leq m$. Let $A_1, \ldots, A_{m+1}$ be events. Define $A = \bigcup_{i=1}^mA_i$ and $B = A_{m + 1}$. @thm-1-5-7 says that
 
 $$
@@ -144,16 +152,16 @@ $$
 A \cap B = \left( \bigcup_{i=1}^mA_i \right) \cap A_{m+1} = \bigcup_{i=1}^m (A_i \cap A_{m+1}).
 $$ {#eq-1-10-9}
 
-The union in @eq-1-10-9 contains $m$ events, and hence we can apply @eq-1-10-6 with $n = m$ and each $A_i$ replaced by $A_i \cap A_{m+1}$. The result is that $− \Pr(A \cap B)$ equals all but the first term in @eq-1-10-8.
+The union in @eq-1-10-9 contains $m$ events, and hence we can apply @eq-1-10-6 with $n = m$ and each $A_i$ replaced by $A_i \cap A_{m+1}$. The result is that $−\Pr(A \cap B)$ equals all but the first term in @eq-1-10-8.
 
 :::
 
-:::
-:::
+::::
 
 The calculation in @thm-1-10-2 can be outlined as follows: First, take the sum of the probabilities of the $n$ individual events. Second, subtract the sum of the probabilities of the intersections of all possible pairs of events; in this step, there will be $\binom{n}{2}$ different pairs for which the probabilities are included. Third, add the probabilities of the intersections of all possible groups of three of the events; there will be $\binom{n}{3}$ intersections of this type. Fourth, subtract the sum of the probabilities of the intersections of all possible groups of four of the events; there will be $\binom{n}{4}$ intersections of this type. Continue in this way until, finally, the probability of the intersection of all $n$ events is either added or subtracted, depending on whether $n$ is an odd number or an even number.
 
-### The Matching Problem
+(sec-1-10-3)=
+# 1.10.3 The Matching Problem
 
 Suppose that all the cards in a deck of $n$ different cards are placed in a row, and that the cards in another similar deck are then shuffled and placed in a row on top of the cards in the original deck. It is desired to determine the probability $p_n$ that there will be at least one match between the corresponding cards from the two decks. The same problem can be expressed in various entertaining contexts. For example, we could suppose that a person types $n$ letters, types the corresponding addresses on $n$ envelopes, and then places the $n$ letters in the $n$ envelopes in a random manner. It could be desired to determine the probability $p_n$ that at least one letter will be placed in the correct envelope. As another example, we could suppose that the photographs of $n$ famous film actors are paired in a random manner with $n$ photographs of the same actors taken when they were babies. It could then be desired to determine the probability $p_n$ that the photograph of at least one actor will be paired correctly with this actor's own baby photograph.
 
@@ -196,7 +204,8 @@ The exact values of $p_n$, as given in @eq-1-10-10, will form an oscillating seq
 
 The values of $p_n$ converge to the limit very rapidly. In fact, for $n = 7$ the exact value $p_7$ and the limiting value of $p_n$ agree to four decimal places. Hence, regardless of whether seven letters are placed at random in seven envelopes or seven million letters are placed at random in seven million envelopes, the probability that at least one letter will be placed in the correct envelope is $0.6321$.
 
-### Summary
+(sec-1-10-4)=
+# 1.10.4 Summary
 
 We generalized the formula for the probability of the union of two arbitrary events to the union of finitely many events. As an aside, there are cases in which it is easier to compute $\Pr(A_1 \cup \cdots \cup A_n)$ as $1 − \Pr(A_1^c \cap \cdots \cap A_n^c)$ using the fact that $\left(A_1 \cup \cdots \cup A_n\right)^c = A_1^c \cap \cdots \cap A_n^c$.
 

@@ -1,5 +1,8 @@
 (sec-1-7)=
-# Counting Methods
+# 1.7 Counting Methods
+
+(sec-1-7-0)=
+# Overview
 
 *In simple sample spaces, one way to calculate the probability of an event involves counting the number of outcomes in the event and the number of outcomes in the sample space. This section presents some common methods for counting the number of outcomes in a set. These methods rely on special structure that exists in many common experiments, namely, that each outcome consists of several parts and that it is relatively easy to count how many possibilities there are for each of the parts.*
 
@@ -15,7 +18,7 @@ Three cities with routes between them in @exm-1-7-1
 ```
 
 (sec-1-7-1)
-# Multiplication Rule
+# 1.7.1 Multiplication Rule
 
 :::: {prf:example} Routes Between Cities
 :label: exm-1-7-1
@@ -90,7 +93,7 @@ Suppose that an experiment has $k$ parts ($k \geq 2$), that the $i$th part of th
 
 ::: {#exm-1-7-4}
 
-# Example 1.7.4: Tossing Several Coins
+## Example 1.7.4: Tossing Several Coins
 
 Suppose that we toss six coins. Each outcome in $S$ will consist of a sequence of six heads and tails, such as `HTTHHH`. Since there are two possible outcomes for each of the six coins, the total number of outcomes in $S$ will be $2^6 = 64$. If head and tail are considered equally likely for each coin, then $S$ will be a simple sample space. Since there is only one outcome in $S$ with six heads and no tails, the probability of obtaining heads on all six coins is $1/64$. Since there are six outcomes in $S$ with one head and five tails, the probability of obtaining exactly one head is $6/64 = 3/32$.
 
@@ -98,19 +101,22 @@ Suppose that we toss six coins. Each outcome in $S$ will consist of a sequence o
 
 ::: {#exm-1-7-5}
 
-# Example 1.7.5: Combination Lock
+## Example 1.7.5: Combination Lock
 
 A standard combination lock has a dial with tick marks for 40 numbers from 0 to 39. The combination consists of a sequence of three numbers that must be dialed in the correct order to open the lock. Each of the 40 numbers may appear in each of the three positions of the combination regardless of what the other two positions contain. It follows that there are $40^3 = 64,000$ possible combinations. This number is supposed to be large enough to discourage would-be thieves from trying every combination.  
 
 :::
 
-**Note: The Multiplication Rule Is Slightly More General**. In the statements of Theorems [-@thm-1-7-1] and [-@thm-1-7-2], it is assumed that each possible outcome in each part of the experiment can occur regardless of what occurs in the other parts of the experiment. Technically, all that is necessary is that the **number** of possible outcomes for each part of the experiment not depend on what occurs on the other parts. The discussion of permutations below is an example of this situation.
+## Note: The Multiplication Rule Is Slightly More General
 
-### Permutations
+In the statements of Theorems [-@thm-1-7-1] and [-@thm-1-7-2], it is assumed that each possible outcome in each part of the experiment can occur regardless of what occurs in the other parts of the experiment. Technically, all that is necessary is that the **number** of possible outcomes for each part of the experiment not depend on what occurs on the other parts. The discussion of permutations below is an example of this situation.
+
+(sec-1-7-2)=
+# 1.7.2 Permutations
 
 ::: {#exm-1-7-6}
 
-# Example 1.7.6: Sampling without Replacement
+## Example 1.7.6: Sampling without Replacement
 
 Consider an experiment in which a card is selected and removed from a deck of $N$ different cards, a second card is then selected and removed from the remaining $N − 1$ cards, and finally a third card is selected from the remaining $N − 2$ cards. Each outcome consists of the three cards in the order selected. A process of this kind is called *sampling without replacement*, since a card that is drawn is not replaced in the deck before the next card is selected. In this experiment, any one of the $N$ cards could be selected first. Once this card has been removed, any one of the other $N − 1$ cards could be selected second. Therefore, there are $N(N − 1)$ possible outcomes for the first two selections. Finally, for every given outcome of
 the first two selections, there are $N − 2$ other cards that could possibly be selected third. Therefore, the total number of possible outcomes for all three selections is $N(N − 1)(N − 2)$.
@@ -121,7 +127,7 @@ The situation in @exm-1-7-6 can be generalized to any number of selections witho
 
 ::: {#def-1-7-1}
 
-# Definition 1.7.1: Permutations
+## Definition 1.7.1: Permutations
 
 Suppose that a set has $N$ elements. Suppose that an experiment consists of selecting $K$ of the elements one at a time without replacement. Let each outcome consist of the $K$ elements in the order selected. Each such outcome is called a permutation of $N$ elements taken $K$ at a time. We denote the number of distinct such permutations by the symbol $P_{n, k}$.
 
@@ -131,7 +137,7 @@ By arguing as in @exm-1-7-6, we can figure out how many different permutations t
 
 ::: {#thm-1-7-3}
 
-# Theorem 1.7.3: Number of Permutations
+## Theorem 1.7.3: Number of Permutations
 
 The number of permutations of $N$ elements taken $k$ at a time is $P_{N, k} = N(N − 1)\cdots (N − k + 1)$.
 
@@ -139,7 +145,7 @@ The number of permutations of $N$ elements taken $k$ at a time is $P_{N, k} = N(
 
 ::: {#exm-1-7-7}
 
-# Example 1.7.7: Current Population Survey.
+## Example 1.7.7: Current Population Survey
 
 @thm-1-7-3 allows us to count the number of points in the sample space of @exm-1-6-1. Each outcome in $S$ consists of a permutation of $N = 50,000$ elements taken $k = 3$ at a time. Hence, the sample space $S$ in that example consists of
 
@@ -176,7 +182,7 @@ With this definition, it follows that the relation $P_{N, k} = N!/(N-k)!$ will b
 
 ::: {#thm-1-7-4}
 
-# Theorem 1.7.4: Permutations
+## Theorem 1.7.4: Permutations
 
 The number of distinct orderings of $k$ items selected without replacement from a collection of $N$ different items ($0 \leq k \leq N$) is
 
@@ -188,7 +194,7 @@ $$
 
 ::: {#exm-1-7-8}
 
-# Example 1.7.8: Choosing Officers
+## Example 1.7.8: Choosing Officers
 
 Suppose that a club consists of 25 members and that a president and a secretary are to be chosen from the membership. We shall determine the total possible number of ways in which these two positions can be filled.
 
@@ -198,7 +204,7 @@ Since the positions can be filled by first choosing one of the 25 members to be 
 
 ::: {#exm-1-7-9}
 
-# Example 1.7.9: Arranging Books
+## Example 1.7.9: Arranging Books
 
 Suppose that six different books are to be arranged on a shelf. The number of possible permutations of the books is $6! = 720$.
 
@@ -206,7 +212,7 @@ Suppose that six different books are to be arranged on a shelf. The number of po
 
 ::: {#exm-1-7-10}
 
-# Example 1.7.10: Sampling with Replacement
+## Example 1.7.10: Sampling with Replacement
 
 Consider a box that contains $N$ balls numbered $1, \ldots, n$. First, one ball is selected at random from the box and its number is noted. This ball is then put back in the box and another ball is selected (it is possible that the same ball will be selected again). As many balls as desired can be selected in this way. This process is called *sampling with replacement*. It is assumed that each of the $N$ balls is equally likely to be selected at each stage and that all selections are made independently of each other.
 
@@ -216,7 +222,7 @@ Suppose that a total of $k$ selections are to be made, where $k$ is a given posi
 
 ::: {#exm-1-7-11}
 
-# Example 1.7.11: Obtaining Different Numbers
+## Example 1.7.11: Obtaining Different Numbers
 
 For the experiment in @exm-1-7-10, we shall determine the probability of the event $E$ that each of the $k$ balls that are selected will have a different number.
 
@@ -228,9 +234,12 @@ $$
 
 :::
 
-**Note: Using Two Different Methods in the Same Problem**. @exm-1-7-11 illustrates a combination of techniques that might seem confusing at first. The method used to count the number of outcomes in the sample space was based on sampling with replacement, since the experiment allows repeat numbers in each outcome. The method used to count the number of outcomes in the event $E$ was permutations (sampling without replacement) because $E$ consists of those outcomes without repeats. It often happens that one needs to use different methods to count the numbers of outcomes in different subsets of the sample space. The birthday problem, which follows, is another example in which we need more than one counting method in the same problem.
+## Note: Using Two Different Methods in the Same Problem
 
-### The Birthday Problem {#sec-bday-problem}
+@exm-1-7-11 illustrates a combination of techniques that might seem confusing at first. The method used to count the number of outcomes in the sample space was based on sampling with replacement, since the experiment allows repeat numbers in each outcome. The method used to count the number of outcomes in the event $E$ was permutations (sampling without replacement) because $E$ consists of those outcomes without repeats. It often happens that one needs to use different methods to count the numbers of outcomes in different subsets of the sample space. The birthday problem, which follows, is another example in which we need more than one counting method in the same problem.
+
+(sec-1-7-3)=
+# 1.7.3 The Birthday Problem
 
 In the following problem, which is often called the birthday problem, it is required to determine the probability $p$ that at least two people in a group of $k$ people will have the same birthday, that is, will have been born on the same day of the same month but not necessarily in the same year. For the solution presented here, we assume that the birthdays of the $k$ people are unrelated (in particular, we assume that twins are not present) and that each of the 365 days of the year is equally likely to be the birthday of any person in the group. In particular, we ignore the fact that the birth rate actually varies during the year and we assume that anyone actually born on February 29 will consider his birthday to be another day, such as March 1.
 
@@ -261,7 +270,7 @@ Numerical values of this probability $p$ for various values of k are given in @t
 
 The calculation in this example illustrates a common technique for solving probability problems. If one wishes to compute the probability of some event $A$, it might be more straightforward to calculate $\Pr(A^c)$ and then use the fact that $\Pr(A) = 1 − \Pr(A^c)$. This idea is particularly useful when the event $A$ is of the form "at least $N$ things happen" where $N$ is small compared to how many things could happen.
 
-### Stirling's Formula
+## Stirling's Formula
 
 For large values of $n$, it is nearly impossible to compute $n!$. For $n \geq 70$, $n! > 10^{100}$ and cannot be represented on many scientific calculators. In most cases for which $n!$ is needed with a large value of $n$, one only needs the ratio of $n!$ to another large number $a_n$. A common example of this is $P_{n,k}$ with large $n$ and not so large $k$, which equals $n!/(n − k)!$. In such cases, we can notice that
 
@@ -273,7 +282,7 @@ Compared to computing $n!$, it takes a much larger $n$ before $\log(n!)$ becomes
 
 ::: {#thm-1-7-5}
 
-# Theorem 1.7.5: Stirling's Formula
+## Theorem 1.7.5: Stirling's Formula
 
 Let
 
@@ -303,7 +312,8 @@ The exact calculation yields $3.938 \times 10^35$. The approximation and the exa
 
 :::
 
-### Summary
+(sec-1-7-4)=
+# 1.7.4 Summary
 
 Suppose that the following conditions are met:
 
@@ -313,7 +323,8 @@ Suppose that the following conditions are met:
 
 Under these conditions, there are $n_1 \cdots n_k$ elements of the set. The third condition requires only that the number of possibilities for $x_i$ be $n_i$ no matter what the earlier parts are. For example, for $i = 2$, it does **not** require that the same $n_2$ possibilities be available for $x_2$ regardless of what $x_1$ is. It only requires that the **number** of possibilities for $x_2$ be $n_2$ no matter what $x_1$ is. In this way, the general rule includes the multiplication rule, the calculation of permutations, and sampling with replacement as special cases. For permutations of $m$ items $k$ at a time, we have $n_i = m − i + 1$ for $i = 1, \ldots, k$ and the $n_i$ possibilities for part $i$ are just the $n_i$ items that have not yet appeared in the first $i − 1$ parts. For sampling with replacement from $m$ items, we have $n_i = m$ for all $i$, and the $m$ possibilities are the same for every part. In the next section, we shall consider how to count elements of sets in which the parts of each element are not distinguishable.
 
-### Exercises
+(sec-1-7-5)=
+# 1.7.5 Exercises
 
 ::: {#exr-1-7-1}
 

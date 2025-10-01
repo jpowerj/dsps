@@ -1,15 +1,20 @@
 (sec-1-11)=
-# Statistical Swindles
+# 1.11 Statistical Swindles
+
+(sec-1-11-0)=
+# Overview
 
 *This section presents some examples of how one can be misled by arguments that require one to ignore the calculus of probability.*
 
-### Misleading Use of Statistics
+(sec-1-11-1)=
+# 1.11.1 Misleading Use of Statistics
 
 The field of statistics has a poor image in the minds of many people because there is a widespread belief that statistical data and statistical analyses can easily be manipulated in an unscientific and unethical fashion in an effort to show that a particular conclusion or point of view is correct. We all have heard the sayings that "There are three kinds of lies: lies, damned lies, and statistics" (@twain_mark_1924, p. 246, says that this line has been attributed to Benjamin Disraeli) and that "you can prove anything with statistics."
 
 One benefit of studying probability and statistics is that the knowledge we gain enables us to analyze statistical arguments that we read in newspapers, magazines, or elsewhere. We can then evaluate these arguments on their merits, rather than accepting them blindly. In this section, we shall describe three schemes that have been used to induce consumers to send money to the operators of the schemes in exchange for certain types of information. The first two schemes are not strictly statistical in nature, but they are strongly based on undertones of probability.
 
-### Perfect Forecasts
+(sec-1-11-2)=
+# 1.11.2 Perfect Forecasts
 
 Suppose that one Monday morning you receive in the mail a letter from a firm with which you are not familiar, stating that the firm sells forecasts about the stock market for very high fees. To indicate the firm's ability in forecasting, it predicts that a particular stock, or a particular portfolio of stocks, will rise in value during the coming week. You do not respond to this letter, but you do watch the stock market during the week and notice that the prediction was correct. On the following Monday morning you receive another letter from the same firm containing another prediction, this one specifying that a particular stock will drop in value during the coming week. Again the prediction proves to be correct.
 
@@ -21,7 +26,8 @@ The fallacy here is that you may have seen only a relatively small number of the
 
 By following this procedure with several different groups of 128 clients, and starting new groups each week, the firm may be able to generate enough positive responses from clients for it to realize significant profits.
 
-### Guaranteed Winners
+(sec-1-11-3)=
+# 1.11.3 Guaranteed Winners
 
 There is another scheme that is somewhat related to the one just described but that is even more elegant because of its simplicity. In this scheme, a firm advertises that for a fixed fee, usually 10 or 20 dollars, it will send the client its forecast of the winner of any upcoming baseball game, football game, boxing match, or other sports event that the client might specify. Furthermore, the firm offers a money-back guarantee that this forecast will be correct; that is, if the team or person designated as the winner in the forecast does not actually turn out to be the winner, the firm will return the full fee to the client.
 
@@ -31,7 +37,8 @@ On the other hand, the client can very well lose. He presumably purchases the fi
 
 Thus, when there are "guaranteed winners," only the firm is guaranteed to win. In fact, the firm knows that it will be able to keep the fees from all the clients for whom the forecasts were correct.
 
-### Improving Your Lottery Chances
+(sec-1-11-4)=
+# 1.11.4 Improving Your Lottery Chances
 
 State lotteries have become very popular in America. People spend millions of dollars each week to purchase tickets with very small chances of winning medium to enormous prizes. With so much money being spent on lottery tickets, it should not be surprising that a few enterprising individuals have concocted schemes to cash in on the probabilistic naïveté of the ticket-buying public. There are now several books and videos available that claim to help lottery players improve their performance. People actually pay money for these items. Some of the advice is just common sense, but some of it is misleading and plays on subtle misconceptions about probability.
 

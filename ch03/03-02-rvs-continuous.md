@@ -1,5 +1,8 @@
 (sec-3-2)=
-# Continuous Distributions
+# 3.2 Continuous Distributions
+
+(sec-3-2-0)=
+# Overview
 
 *Next, we focus on random variables that can assume every value in an interval (bounded or unbounded). If a random variable $X$ has associated with it a function $f$ such that the integral of $f$ over each interval gives the probability that X is in the interval, then we call $f$ the probability density function (pdf) of $X$ and we say that $X$ has a continuous distribution.*
 
@@ -9,6 +12,9 @@
 :::: {prf:example} Demands for Utilities
 :label: exm-3-2-1
 :enumerator: 3.2.1
+:::{.head}
+## Example 3.2.1: Demands for Utilities
+:::
 
 In @exm-3-1-5, we determined the distribution of the demand for water, $X$. From @fig-3-2, we see that the smallest possible value of $X$ is 4 and the largest is 200. For each interval $C = [c_0, c_1] \subset [4, 200]$, @eq-3-1-2 says that
 
@@ -121,11 +127,12 @@ The reader should note that "continuous distribution" is not the name of a distr
 
 We shall now present several examples of continuous distributions and their PDFs.
 
-### Uniform Distributions on Intervals
+(sec-3-2-3)=
+# Uniform Distributions on Intervals
 
 ::: {#exm-3-2-2}
 
-# Example 3.2.2: Temperature Forecasts
+## Example 3.2.2: Temperature Forecasts
 
 Television weather forecasters announce high and low temperature forecasts as integer numbers of degrees. These forecasts, however, are the results of very sophisticated weather models that provide more precise forecasts that the television personalities round to the nearest integer for simplicity. Suppose that the forecaster announces a high temperature of y. If we wanted to know what temperature $X$ the weather models actually produced, it might be safe to assume that $X$ was equally likely to be any number in the interval from $y − 1/2$ to $y + 1/2$.  
 
@@ -135,7 +142,7 @@ The distribution of $X$ in @exm-3-2-2 is a special case of the following.
 
 ::: {#def-3-2-3}
 
-# Definition 3.2.3: Uniform Distribution on an Interval
+## Definition 3.2.3: Uniform Distribution on an Interval
 
 Let $a$ and $b$ be two given real numbers such that $a < b$. Let $X$ be a random variable such that it is known that $a \leq X \leq b$ and, for every subinterval of $[a, b]$, the probability that $X$ will belong to that subinterval is proportional to the length of that subinterval. We then say that the random variable $X$ has the **uniform distribution** on the interval $[a, b]$.
 
@@ -172,7 +179,9 @@ Therefore, the constant value of $f(x)$ throughout $[a, b]$ must be $1/(b − a)
 
 The pdf @eq-3-2-6 is sketched in @fig-3-5. As an example, the random variable $X$ (demand for water) in @exm-3-2-1 has the uniform distribution on the interval $[4, 200]$.
 
-**Note: Density Is Not Probability**. The reader should note that the pdf in @eq-3-2-6 can be greater than 1, particularly if $b − a < 1$. Indeed, pdfs can be unbounded, as we shall see in @exm-3-2-6. The pdf of $X$, $f(x)$, itself does not equal the probability that $X$ is near $x$. The integral of $f$ over values near $x$ gives the probability that $X$ is near $x$, and the integral is never greater than 1.
+## Note: Density Is Not Probability
+
+The reader should note that the pdf in @eq-3-2-6 can be greater than 1, particularly if $b − a < 1$. Indeed, pdfs can be unbounded, as we shall see in @exm-3-2-6. The pdf of $X$, $f(x)$, itself does not equal the probability that $X$ is near $x$. The integral of $f$ over values near $x$ gives the probability that $X$ is near $x$, and the integral is never greater than 1.
 
 It is seen from @eq-3-2-6 that the pdf representing a uniform distribution on a given interval is constant over that interval, and the constant value of the pdf is the reciprocal of the length of the interval. It is not possible to define a uniform distribution over an unbounded interval, because the length of such an interval is infinite.
 
@@ -196,7 +205,8 @@ $$
 Notice that we defined the pdf of $X$ to be strictly positive on the closed interval $[−1, 4]$ and 0 outside of this closed interval. It would have been just as sensible to define the pdf to be strictly positive on the open interval $(−1, 4)$ and 0 outside of this open interval. The probability distribution would be the same either way, including
 the calculation of $\Pr(0 \leq X < 2)$ that we just performed. After this, when there are several equally sensible choices for how to define a pdf, we will simply choose one of them without making any note of the other choices.
 
-### Other Continuous Distributions
+(sec-3-2-4)
+# Other Continuous Distributions
 
 ::: {#exm-3-2-3}
 
@@ -304,11 +314,13 @@ First, $\Pr(Y = 3) = \Pr(X \geq 3) = 1/4$. Since the single value $Y = 3$ has pr
 
 :::
 
-### Summary
+(sec-3-2-5)=
+# Summary
 
 A continuous distribution is characterized by its probability density function (PDF). A nonnegative function $f$ is the PDF of the distribution of $X$ if, for every interval $[a, b]$, $\Pr(a \leq X \leq b) = \int_a^b f(x)dx$. Continuous random variables satisfy $\Pr(X = x) = 0$ for every value $x$. If the PDF of a distribution is constant on an interval $[a, b]$ and is 0 off the interval, we say that the distribution is uniform on the interval $[a, b]$.
 
-### Exercises
+(sec-3-2-6)=
+# Exercises
 
 ::: {#exr-3-2-1}
 

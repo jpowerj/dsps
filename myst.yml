@@ -10,11 +10,15 @@ project:
   # keywords: []
   # authors: [DeGroot, Schervish]
   github: jpowerj/dsps
-  numbering:
-    title: true
-    heading_1: true
-    heading_2: true
-    heading_3: true
+  # numbering:
+  #   title: true
+  #   heading_1: true
+  #   heading_2:
+  #     enabled: true
+  #     # start: 1
+  #   heading_3:
+  #     enabled: true
+  #     # start: 1
   downloads:
     - url: static/DeGroot_Schervish_4e.pdf
       filename: "DeGroot_Schervish_4e.pdf"

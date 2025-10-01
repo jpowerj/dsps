@@ -1,5 +1,5 @@
 (sec-1)=
-# Introduction to Probability
+# Chapter 1: Introduction to Probability
 
 Click on a section title below (or use the sidebar on the left) to navigate to that section!
 

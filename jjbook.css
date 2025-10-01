@@ -18,6 +18,18 @@ figcaption {
   text-align: center !important;
 }
 
+.head {
+  visibility: hidden !important;
+  height: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.bhead {
+  visibility: hidden !important;
+  height: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
 .exr-head {
   visibility: hidden !important;
   height: 0px !important;

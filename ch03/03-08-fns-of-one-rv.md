@@ -1,10 +1,13 @@
 (sec-3-8)=
-# Functions of a Random Variable
+# 3.8 Functions of a Random Variable
+
+(sec-3-8-0)=
+# Overview
 
 *Often we find that after we compute the distribution of a random variable $X$, we really want the distribution of some function of $X$. For example, if $X$ is the rate at which customers are served in a queue, then $1/X$ is the average waiting time. If we have the distribution of $X$, we should be able to determine the distribution of $1/X$ or of any other function of X. How to do that is the subject of this section.*
 
 (sec-3-8-1)=
-# Random Variable with a Discrete Distribution
+# 3.8.1 Random Variable with a Discrete Distribution
 
 :::: {prf:example} Distance from the Middle (p. 168)
 :label: exm-3-8-1

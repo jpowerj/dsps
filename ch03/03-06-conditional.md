@@ -1,5 +1,8 @@
 (sec-3-6)=
-# Conditional Distributions
+# 3.6 Conditional Distributions
+
+(sec-3-6-0)=
+# Overview
 
 *We generalize the concept of conditional probability to conditional distributions. Recall that distributions are just collections of probabilities of events determined by random variables. Conditional distributions will be the probabilities of events determined by some random variables conditional on events determined by other random variables. The idea is that there will typically be many random variables of interest in an applied problem. After we observe some of those random variables, we want to be able to adjust the probabilities associated with the ones that have not yet been observed. The conditional distribution of one random variable $X$ given another $Y$ will be the distribution that we would use for $X$ after we learn the value of $Y$.*
 
@@ -12,7 +15,7 @@
 : Joint PF for @exm-3-6-1 {#tbl-3-7}
 
 (sec-3-6-1)=
-# Discrete Conditional Distributions
+# 3.6.1 Discrete Conditional Distributions
 
 :::: {prf:example} Auto Insurance
 :label: exm-3-6-1

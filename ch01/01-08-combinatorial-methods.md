@@ -1,9 +1,13 @@
 (sec-1-8)=
-# Combinatorial Methods
+# 1.8 Combinatorial Methods
+
+(sec-1-8-0)=
+# Overview
 
 *Many problems of counting the number of outcomes in an event amount to counting how many subsets of a certain size are contained in a fixed set. This section gives examples of how to do such counting and where it can arise.*
 
-### Combinations
+(sec-1-8-1)=
+# 1.8.1 Combinations
 
 ::: {.callout-tip}
 ::: {#exm-1-8-1}
@@ -85,7 +89,8 @@ $$
 
 Examples [-@exm-1-8-2] and [-@exm-1-8-3] illustrate the difference and relationship between combinations and permutations. In @exm-1-8-3, we count the same group of people in a different order as a different outcome, while in @exm-1-8-2, we count the same group in different orders as the same outcome. The two numerical values differ by a factor of $8!$, the number of ways to reorder each of the combinations in @exm-1-8-2 to get a permutation in @exm-1-8-3.
 
-### Binomial Coefficients
+(sec-1-8-2)=
+# 1.8.2 Binomial Coefficients
 
 ::: {.callout-tip}
 ::: {#def-1-8-2}
@@ -235,7 +240,9 @@ $$
 :::
 :::
 
-**Note: Using Two Different Methods in the Same Problem**. Part (a) of @exm-1-8-7 is another example of using two different counting methods in the same problem. Part (b) illustrates another general technique. In this part, we broke the event of interest into several disjoint subsets and counted the numbers of outcomes separately for each subset and then added the counts together to get the total. In many problems, it can require several applications of the same or different counting methods in order to count the number of outcomes in an event. The next example is one in which the elements of an event are formed in two parts (multiplication rule), but we need to perform separate combination calculations to determine the numbers of outcomes for each part.
+## Note: Using Two Different Methods in the Same Problem
+
+Part (a) of @exm-1-8-7 is another example of using two different counting methods in the same problem. Part (b) illustrates another general technique. In this part, we broke the event of interest into several disjoint subsets and counted the numbers of outcomes separately for each subset and then added the counts together to get the total. In many problems, it can require several applications of the same or different counting methods in order to count the number of outcomes in an event. The next example is one in which the elements of an event are formed in two parts (multiplication rule), but we need to perform separate combination calculations to determine the numbers of outcomes for each part.
 
 ::: {.callout-tip}
 ::: {#exm-1-8-8}
@@ -294,7 +301,7 @@ In the following example, whether one counts the same items in different orders 
 ::: {.callout-tip}
 ::: {#exm-1-8-11}
 
-# Example 1.8.11: Lottery Tickets
+## Example 1.8.11: Lottery Tickets
 
 In a lottery game, six numbers from 1 to 30 are drawn at random from a bin without replacement, and each player buys a ticket with six different numbers from 1 to 30. If all six numbers drawn match those on the player's ticket, the player wins. We assume that all possible draws are equally likely. One way to construct a sample space for the experiment of drawing the winning combination is to consider the possible sequences of draws. That is, each outcome consists of an ordered subset of six numbers chosen from the 30 available numbers. There are $P_{30,6} = 30!/24!$ such outcomes. With this sample space $S$, we can calculate probabilities for events such as
 
@@ -328,7 +335,7 @@ In the sample space $S'$, the event $A$ has this same probability because it has
 ::: {.callout-tip}
 ::: {#exm-1-8-12}
 
-# Example 1.8.12: Tossing Coins
+## Example 1.8.12: Tossing Coins
 
 An experiment consists of tossing a coin two times. If we want to distinguish $H$ followed by $T$ from $T$ followed by $H$, we should use the sample space $S = \{HH, HT, TH, TT\}$, which might naturally be assumed a simple sample space. On the other hand, we might be interested solely in the number of $H$'s tossed. In this case, we might consider the smaller sample space $S' = \{0, 1, 2\}$ where each outcome
 merely counts the number of $H$'s. The outcomes 0 and 2 in $S'$ each correspond to a single outcome in $S$, but $1 \in S'$ corresponds to the event $\{HT, TH\} \subset S$ with two outcomes. If we think of $S$ as a simple sample space, then $S'$ will not be a simple sample space, because the outcome 1 will have probability $1/2$ while the other two outcomes each have probability $1/4$.
@@ -340,7 +347,7 @@ There are situations in which one would be justified in treating $S'$ as a simpl
 
 @exm-1-8-6 is another case of two different sample spaces in which each outcome in one sample space corresponds to a different number of outcomes in the other space. See @exr-1-9-12 in @sec-1-9 for a more complete analysis of @exm-1-8-6.
 
-### The Tennis Tournament
+## The Tennis Tournament
 
 We shall now present a difficult problem that has a simple and elegant solution. Suppose that $n$ tennis players are entered in a tournament. In the first round, the players are paired one against another at random. The loser in each pair is eliminated from the tournament, and the winner in each pair continues into the second round. If the number of players $n$ is odd, then one player is chosen at random before the pairings are made for the first round, and that player automatically continues into the second round. All the players in the second round are then paired at random. Again, the loser in each pair is eliminated, and the winner in each pair continues into the third round. If the number of players in the second round is odd, then one of these players is chosen at random before the others are paired, and that player automatically continues into the third round. The tournament continues in this way until only two players remain in the final round. They then play against each other, and the winner of this match is the winner of the tournament. We shall assume that all $n$ players have equal ability, and we shall determine the probability $p$ that two specific players $A$ and $B$ will ever play against each other during the tournament.
 
@@ -354,15 +361,17 @@ $$
 p = \frac{n-1}{\binom{n}{2}} = \frac{2}{n}.
 $$
 
-### Summary
+(sec-1-8-3)=
+# 1.8.3 Summary
 
 We showed that the number of size $k$ subsets of a set of size $n$ is $\binom{n}{k} = n!/[k!(n-k)!]$. This turns out to be the number of possible samples of size $k$ drawn without replacement from a population of size $n$ as well as the number of arrangements of $n$ items of two types with $k$ of one type and $n − k$ of the other type. We also saw several examples in which more than one counting technique was required at different points in the same problem. Sometimes, more than one technique is required to count the elements of a single set.
 
-### Exercises
+(sec-1-8-4)=
+# 1.8.4 Exercises
 
 ::: {#exr-1-8-1}
 
-# Exercise 1.8.1
+## Exercise 1.8.1
 
 Two pollsters will canvas a neighborhood with 20
 houses. Each pollster will visit 10 of the houses.How many different assignments of pollsters to houses are possible?

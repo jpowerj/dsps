@@ -1,17 +1,21 @@
 (sec-2-1)=
-# The Definition of Conditional Probability
+# 2.1 The Definition of Conditional Probability
+
+(sec-2-1-1)=
+# Introduction
 
 *A major use of probability in statistical inference is the updating of probabilities when certain events are observed. The updated probability of event $A$ after we learn that event $B$ has occurred is the conditional probability of $A$ given $B$.*
 
-::: {.callout-note}
-::: {#exm-2-1-1}
-
-# Example 2.1.1: Lottery Ticket
+:::: {prf:example} Lottery Ticket
+:label: exm-2-1-1
+:enumerator: 2.1.1
+:::{.exr-head}
+## Example 2.1.1: Lottery Ticket
+:::
 
 Consider a state lottery game in which six numbers are drawn without replacement from a bin containing the numbers 1–30. Each player tries to match the set of six numbers that will be drawn without regard to the order in which the numbers are drawn. Suppose that you hold a ticket in such a lottery with the numbers 1, 14, 15, 20, 23, and 27. You turn on your television to watch the drawing but all you see is one number, 15, being drawn when the power suddenly goes off in your house. You don't even know whether 15 was the first, last, or some in-between draw. However, now that you know that 15 appears in the winning draw, the probability that your ticket is a winner must be higher than it was before you saw the draw. How do you calculate the revised probability?
 
-:::
-:::
+::::
 
 @exm-2-1-1 is typical of the following situation. An experiment is performed for which the sample space $S$ is given (or can be constructed easily) and the probabilities are available for all of the events of interest. We then learn that some event $B$ has occuured, and we want to know how the probability of another event $A$ changes after we learn that $B$ has occurred. In @exm-2-1-1, the event that we have learned is $B = \{\text{one of the numbers drawn is }15\}$. We are certainly interested in the probability
 of
@@ -33,28 +37,34 @@ If we know that the event $B$ has occurred, then we know that the outcome of the
 The outcomes in the event $B$ that also belong to the event $A$
 ```
 
-::: {.callout-tip}
-::: {#def-2-1-1}
-
-# Definition 2.1.1: Conditional Probability
+:::: {prf:definition} Conditional Probability
+:label: def-2-1-1
+:enumerator: 2.1.1
+:::{.exr-head}
+## Definition 2.1.1: Conditional Probability
+:::
 
 Suppose that we learn that an event $B$ has occurred and that we wish to compute the probability of another event $A$ taking into account that we know that $B$ has occurred. The new probability of $A$ is called the **conditional probability** of the event $A$ given that the event $B$ has occurred and is denoted $\Pr(A \mid B)$. If $\Pr(B) > 0$, we compute this probability as
 
-$$
+```{math}
+:label: eq-2-1-1
+:enumerator: 2.1.1
+
 \Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}.
-$$ {#eq-2-1-1}
+```
 
 The conditional probability $\Pr(A \mid B)$ is not defined if $\Pr(B) = 0$.
 
-:::
-:::
+::::
 
 For convenience, the notation in @def-2-1-1 is read simply as the conditional probability of $A$ given $B$. @eq-2-1-1 indicates that $\Pr(A \mid B)$ is computed as the proportion of the total probability $\Pr(B)$ that is represented by $\Pr(A \cap B)$, intuitively the proportion of $B$ that is also part of $A$.
 
-::: {.callout-tip}
-::: {#exm-2-1-2}
-
-# Example 2.1.2: Lottery Ticket.
+:::: {prf:example} Lottery Ticket
+:label: exm-2-1-2
+:enumerator: 2.1.2
+:::{.bhead}
+## Example 2.1.2: Lottery Ticket
+:::
 
 In @exm-2-1-1, you learned that the event
 
@@ -82,8 +92,7 @@ $$
 
 This is five times as large as $\Pr(A)$ before you learned that $B$ had occurred.  
 
-:::
-:::
+::::
 
 @def-2-1-1 for the conditional probability $\Pr(A \mid B)$ is worded in terms of the subjective interpretation of probability in @sec-1-2. @eq-2-1-1 also has a simple meaning in terms of the frequency interpretation of probability. According to the frequency interpretation, if an experimental process is repeated a large number of times, then the proportion of repetitions in which the event $B$ will occur is approximately $\Pr(B)$ and the proportion of repetitions in which both the event $A$ and the event $B$ will occur is approximately $\Pr(A \cap B)$. Therefore, among those repetitions in which the event $B$ occurs, the proportion of repetitions in which the event $A$ will also occur is approximately equal to
 
@@ -91,10 +100,12 @@ $$
 \Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}
 $$
 
-::: {.callout-tip}
-::: {#exm-2-1-3}
-
-# Example 2.1.3: Rolling Dice
+:::: {prf:example} Rolling Dice
+:label: exm-2-1-3
+:enumerator: 2.1.3
+:::{.head}
+## Example 2.1.3: Rolling Dice
+:::
 
 Suppose that two dice were rolled and it was observed that the sum $T$ of the two numbers was odd. We shall determine the probability that $T$ was less than 8.
 
@@ -113,20 +124,25 @@ $$
 \Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)} = \frac{2}{3}.
 $$
 
-:::
-:::
+::::
 
-::: {.callout-tip}
-::: {#exm-2-1-4}
-
-# Example 2.1.4: A Clinical Trial
-
-It is very common for patients with episodes of depression to have a recurrence within two to three years. @prien_drug_1984 studied three treatments for depression: imipramine, lithium carbonate, and a combination. As is traditional in such studies (called clinical trials), there was also a group of patients who received a placebo. (A placebo is a treatment that is supposed to be neither helpful nor harmful. Some patients are given a placebo so that they will not know that they did not receive one of the other treatments. None of the other patients knew which treatment or placebo they received, either.) In this example, we shall consider 150 patients who entered the study after an episode of depression that was classified as "unipolar" (meaning that there was no manic disorder). They were divided into the four groups (three treatments plus placebo) and followed to see how many had recurrences of depression. @tbl-2-1 summarizes the results. If a patient were selected at random from this study and it were found that the patient received the placebo treatment, what is the conditional probability that the patient had a relapse? Let $B$ be the event that the patient received the placebo, and let $A$ be the event that the patient had a relapse. We can calculate $\Pr(B) = 34/150$ and $\Pr(A \cap B) = 24/150$ directly from the table. Then $\Pr(A \mid B) = 24/34 = 0.706$. On the other hand, if the randomly selected patient is found to have received lithium (call this event $C$) then $\Pr(C) = 38/150$, $\Pr(A \cap C) = 13/150$, and $\Pr(A \mid C) = 13/38 = 0.342$. Knowing which treatment a patient received seems to make a difference to the probability of relapse. In @sec-10, we shall study methods for being more precise about how much of a difference it makes.  
-
-:::
+:::: {prf:example} A Clinical Trial
+:label: exm-2-1-4
+:enumerator: 2.1.4
+::: {.head}
+## Example 2.1.4: A Clinical Trial
 :::
 
-```{=html}
+It is very common for patients with episodes of depression to have a recurrence within two to three years. @prien_drug_1984 studied three treatments for depression: imipramine, lithium carbonate, and a combination. As is traditional in such studies (called clinical trials), there was also a group of patients who received a placebo. (A placebo is a treatment that is supposed to be neither helpful nor harmful. Some patients are given a placebo so that they will not know that they did not receive one of the other treatments. None of the other patients knew which treatment or placebo they received, either.)
+
+In this example, we shall consider 150 patients who entered the study after an episode of depression that was classified as "unipolar" (meaning that there was no manic disorder). They were divided into the four groups (three treatments plus placebo) and followed to see how many had recurrences of depression. @tbl-2-1 summarizes the results.
+
+If a patient were selected at random from this study and it were found that the patient received the placebo treatment, what is the conditional probability that the patient had a relapse?
+
+Let $B$ be the event that the patient received the placebo, and let $A$ be the event that the patient had a relapse. We can calculate $\Pr(B) = 34/150$ and $\Pr(A \cap B) = 24/150$ directly from the table. Then $\Pr(A \mid B) = 24/34 = 0.706$. On the other hand, if the randomly selected patient is found to have received lithium (call this event $C$) then $\Pr(C) = 38/150$, $\Pr(A \cap C) = 13/150$, and $\Pr(A \mid C) = 13/38 = 0.342$. Knowing which treatment a patient received seems to make a difference to the probability of relapse. In @sec-10, we shall study methods for being more precise about how much of a difference it makes.  
+
+::::
+
 <table>
 <caption><span data-qmd="Results of the clinical depression study in @exm-2-1-4 {#tbl-2-1}"></span></caption>
 <thead>
@@ -172,12 +188,13 @@ It is very common for patients with episodes of depression to have a recurrence 
     </tr>
 </tbody>
 </table>
-```
 
-::: {.callout-tip}
-::: {#exm-2-1-5}
-
-# Example 2.1.5: Rolling Dice Repeatedly
+:::: {prf:example} Rolling Dice Repeatedly
+:label: exm-2-1-5
+:enumerator: 2.1.5
+:::{.head}
+## Example 2.1.5: Rolling Dice Repeatedly
+:::
 
 Suppose that two dice are to be rolled repeatedly and the sum $T$ of the two numbers is to be observed for each roll. We shall determine the probability $p$ that the value $T = 7$ will be observed before the value $T = 8$ is observed.
 
@@ -193,17 +210,19 @@ $$
 
 From the probabilities for two dice given in @exm-1-6-5, $\Pr(A) = 6/36$ and $\Pr(B) = (6/36) + (5/36) = 11/36$. Hence, $p = 6/11$.
 
-:::
-:::
+::::
 
-### The Multiplication Rule for Conditional Probabilities
+(sec-2-1-2)=
+# The Multiplication Rule for Conditional Probabilities
 
 In some experiments, certain conditional probabilities are relatively easy to assign directly. In these experiments, it is then possible to compute the probability that both of two events occur by applying the next result that follows directly from @eq-2-1-1 and the analogous definition of $\Pr(B \mid A)$.
 
-::: {.callout-tip}
-::: {#thm-2-1-1}
-
-# Theorem 2.1.1: Multiplication Rule for Conditional Probabilities
+:::: {prf:theorem} Multiplication Rule for Conditional Probabilities
+:label: thm-2-1-1
+:enumerator: 2.1.1
+:::{.head}
+## Theorem 2.1.1
+:::
 
 Let $A$ and $B$ be events. If $\Pr(B) > 0$, then
 
@@ -217,13 +236,14 @@ $$
 \Pr(A \cap B) = \Pr(A)\Pr(B \mid A).
 $$
 
-:::
-:::
+::::
 
-::: {.callout-tip}
-::: {#exm-2-1-6}
-
-# Example 2.1.6: Selecting Two Balls
+:::: {prf:example} Selecting Two Balls
+:label: exm-2-1-6
+:enumerator: 2.1.6
+:::{.head}
+## Example 2.1.6: Selecting Two Balls
+:::
 
 Suppose that two balls are to be selected at random, without replacement, from a box containing $r$ red balls and $b$ blue balls. We shall determine the probability $p$ that the first ball will be red and the second ball will be blue.
 
@@ -241,13 +261,14 @@ $$
 
 The principle that has just been applied can be extended to any finite number of events, as stated in the following theorem.
 
-:::
-:::
+::::
 
-::: {.callout-tip}
-::: {#thm-2-1-2}
-
-# Theorem 2.1.2: Multiplication Rule for Conditional Probabilities
+:::: {prf:theorem} Multiplication Rule for Conditional Probabilities
+:label: thm-2-1-2
+:enumerator: 2.1.2
+:::{.head}
+## Theorem 2.1.2
+:::
 
 Suppose that $A_1, A_2, \ldots, A_n$ are events such that $\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1}) > 0$. Then
 
@@ -268,13 +289,14 @@ $$
 Since $\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1}) > 0$, each of the denominators in this product must be positive. All of the terms in the product cancel each other except the final numerator $\Pr(A_1 \cap A_2 \cap \cdots \cap A_n)$, which is the left side of @eq-2-1-2.
 :::
 
-:::
-:::
+::::
 
-::: {.callout-tip}
-::: {#exm-2-1-7}
-
-# Example 2.1.7: Selcting Four Balls
+:::: {prf:example} Selecting Four Balls
+:label: exm-2-1-7
+:enumerator: 2.1.7
+:::{.head}
+## Example 2.1.7: Selecting Four Balls
+:::
 
 Suppose that four balls are selected one at a time, without replacement, from a box containing $r$ red balls and $b$ blue balls ($r \geq 2$, $b \geq 2$). We shall determine the probability of obtaining the sequence of outcomes red, blue, red, blue.
 
@@ -287,15 +309,18 @@ $$
 \end{align*}
 $$
 
+::::
+
+## Note: Conditional Probabilities Behave Just Like Probabilities
+
+In all of the situations that we shall encounter in this text, every result that we can prove has a conditional version given an event $B$ with $\Pr(B) > 0$. Just replace all probabilities by conditional probabilities given $B$ and replace all conditional probabilities given other events $C$ by conditional probabilities given $C \cap B$. For example, @thm-1-5-3 says that $\Pr(A^c) = 1 − \Pr(A)$. It is easy to prove that $\Pr(A^c \mid B) = 1 − \Pr(A \mid B)$ if $\Pr(B) > 0$. (See Exercises [-@exr-2-1-11] and [-@exr-2-1-12] in this section.) Another example is @thm-2-1-3, which is a conditional version of the multiplication rule @thm-2-1-2. Although a proof is given for @thm-2-1-3, we shall not provide proofs of all such conditional theorems, because their proofs are generally very similar to the proofs of the unconditional versions.
+
+:::: {prf:theorem}
+:label: thm-2-1-3
+:enumerator: 2.1.3
+:::{.head}
+## Theorem 2.1.3
 :::
-:::
-
-**Note: Conditional Probabilities Behave Just Like Probabilities**. In all of the situations that we shall encounter in this text, every result that we can prove has a conditional version given an event $B$ with $\Pr(B) > 0$. Just replace all probabilities by conditional probabilities given $B$ and replace all conditional probabilities given other events $C$ by conditional probabilities given $C \cap B$. For example, @thm-1-5-3 says that $\Pr(A^c) = 1 − \Pr(A)$. It is easy to prove that $\Pr(A^c \mid B) = 1 − \Pr(A \mid B)$ if $\Pr(B) > 0$. (See Exercises [-@exr-2-1-11] and [-@exr-2-1-12] in this section.) Another example is @thm-2-1-3, which is a conditional version of the multiplication rule @thm-2-1-2. Although a proof is given for @thm-2-1-3, we shall not provide proofs of all such conditional theorems, because their proofs are generally very similar to the proofs of the unconditional versions.
-
-::: {.callout-tip}
-::: {#thm-2-1-3}
-
-# Theorem 2.1.3
 
 Suppose that $A_1, A_2, \ldots, A_n$, $B$ are events such that $\Pr(B) > 0$ and $\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1} \mid B) > 0$. Then
 
@@ -316,41 +341,45 @@ $$
 Since $\Pr(A_1 \cap A_2 \cap \cdots \cap A_{n-1} \mid B) > 0$, each of the denominators in this product must be positive. All of the terms in the product cancel each other except the first denominator and the final numerator to yield $\Pr(A_1 \cap A_2 \cap \cdots \cap A_n \cap B) / \Pr(B)$, which is the left side of @eq-2-1-3.
 :::
 
-:::
-:::
+::::
 
-### Conditional Probability and Partitions
+(sec-2-1-3)=
+# Conditional Probability and Partitions
 
 @thm-1-4-11 shows how to calculate the probability of an event by partitioning the sample space into two events $B$ and $B^c$. This result easily generalizes to larger partitions, and when combined with @thm-2-1-1 it leads to a very powerful tool for calculating probabilities.
 
-::: {.callout-tip}
-::: {#def-2-1-2}
-
-# Definition 2.1.2: Partition
+:::: {prf:definition}
+:label: def-2-1-2
+:enumerator: 2.1.2
+:::{.head}
+## Definition 2.1.2: Partition
+:::
 
 Let $S$ denote the sample space of some experiment, and consider $k$ events $B_1, \ldots, B_k$ in $S$ such that $B_1, \ldots, B_k$ are disjoint and $\bigcup_{i=1}^kB_i = S$. It is said that these events form a **partition** of $S$.
 
-:::
-:::
+::::
 
 Typically, the events that make up a partition are chosen so that an important source of uncertainty in the problem is reduced if we learn which event has occurred.
 
-::: {.callout-tip}
-::: {#exm-2-1-8}
-
-# Example 2.1.8: Selecting Bolts
+:::: {prf:example} Selecting Bolts
+:label: exm-2-1-8
+:enumerator: 2.1.8
+:::{.head}
+## Example 2.1.8: Selecting Bolts
+:::
 
 Two boxes contain long bolts and short bolts. Suppose that one box contains 60 long bolts and 40 short bolts, and that the other box contains 10 long bolts and 20 short bolts. Suppose also that one box is selected at random and a bolt is then selected at random from that box. We would like to determine the probability that this bolt is long.  
 
-:::
-:::
+::::
 
 Partitions can facilitate the calculations of probabilities of certain events.
 
-::: {.callout-tip}
-::: {#thm-2-1-4}
-
-# Theorem 2.1.4: Law of Total Probability
+:::: {prf:theorem} Law of Total Probability
+:label: thm-2-1-4
+:enumerator: 2.1.4
+:::{.head}
+## Theorem 2.1.4: Law of Total Probability
+:::
 
 Suppose that the events $B_1, \ldots, B_k$ form a partition of the space $S$ and $\Pr(B_j) > 0$ for $j = 1, \ldots, k$. Then, for every event $A$ in $S$,
 
@@ -374,8 +403,7 @@ $$
 Finally, if $\Pr(B_j) > 0$ for $j = 1, \ldots, k$, then $\Pr(B_j \cap A) = \Pr(B_j)\Pr(A \mid B_j)$ and it follows that @eq-2-1-4 holds.
 :::
 
-:::
-:::
+::::
 
 ```{figure} images/fig-2-2.svg
 :label: fig-2-2
@@ -388,10 +416,12 @@ The intersections of $A$ with events $B_1, \ldots, B_5$ of a partition in the pr
 
 <!-- Stopping point, 2023-08-30 -->
 
-::: {.callout-tip}
-::: {#exm-2-1-9}
-
-# Example 2.1.9: Selecting Bolts
+:::: {prf:example} Selecting Bolts
+:label: exm-2-1-9
+:enumerator: 2.1.9
+:::{.head}
+## Example 2.1.9: Selecting Bolts
+:::
 
 In @exm-2-1-8, let $B_1$ be the event that the first box (the one with 60 long and 40 short bolts) is selected, let $B_2$ be the event that the second box (the one with 10 long and 20 short bolts) is selected, and let $A$ be the event that a long bolt is selected. Then
 
@@ -405,13 +435,14 @@ $$
 \Pr(A) = \frac{1}{2}\cdot \frac{3}{5} + \frac{1}{2} \cdot \frac{1}{3} = \frac{7}{15}.
 $$
 
-:::
-:::
+::::
 
-::: {.callout-tip}
-::: {#exm-2-1-10}
-
-# Example 2.1.10: Achieving a High Score
+:::: {prf:example} Achieving a High Score
+:label: exm-2-1-10
+:enumerator: 2.1.10
+:::{.head}
+## Example 2.1.10
+:::
 
 Suppose that a person plays a game in which his score must be one of the 50 numbers $1, 2, \ldots, 50$ and that each of these 50 numbers is equally likely to be his score. The first time he plays the game, his score is $X$. He then continues to play the game until he obtains another score $Y$ such that $Y \geq X$. We will assume that, conditional on previous plays, the 50 scores remain equally likely on all subsequent plays. We shall determine the probability of the event $A$ that $Y = 50$.
 
@@ -427,10 +458,11 @@ $$
 \Pr(A) = \sum_{i=1}^{50}\frac{1}{50}\cdot\frac{1}{51-i} = \frac{1}{50}\left(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{50}\right) = 0.0900.
 $$
 
-:::
-:::
+::::
 
-**Note: Conditional Version of Law of Total Probability**. The law of total probability has an analog conditional on another event $C$, namely,
+## Note: Conditional Version of Law of Total Probability
+
+The law of total probability has an analog conditional on another event $C$, namely,
 
 $$
 \Pr(A \mid C) = \sum_{j=1}^k \Pr(B_j \mid C)\Pr(A \mid B_j \cap C).
@@ -440,22 +472,29 @@ The reader can prove this in @exr-2-1-17.
 
 **Augmented Experiment**: In some experiments, it may not be clear from the initial description of the experiment that a partition exists that will facilitate the calculation of probabilities. However, there are many such experiments in which such a partition exists if we imagine that the experiment has some additional structure. Consider the following modification of Examples [-@exm-2-1-8] and [-@exm-2-1-9].
 
-::: {.callout-tip}
-::: {#exm-2-1-11}
-
-# Example 2.1.11: Selecting Bolts
-
-There is one box of bolts that contains some long and some short bolts. A manager is unable to open the box at present, so she asks her employees what is the composition of the box. One employee says that it contains 60 long bolts and 40 short bolts. Another says that it contains 10 long bolts and 20 short bolts. Unable to reconcile these opinions, the manager decides that each of the employees is correct with probability $1/2$. Let $B_1$ be the event that the box contains 60 long and 40 short bolts, and let $B_2$ be the event that the box contains 10 long and 20 short bolts. The probability that the first bolt selected is long is now calculated precisely as in @exm-2-1-9.
-
+:::: {prf:example} Selecting Bolts
+:label: exm-2-1-11
+:enumerator: 2.1.11
+:::{.head}
+## Example 2.1.11: Selecting Bolts
 :::
-:::
+
+There is one box of bolts that contains some long and some short bolts. A manager is unable to open the box at present, so she asks her employees what is the composition of the box.
+
+One employee says that it contains 60 long bolts and 40 short bolts. Another says that it contains 10 long bolts and 20 short bolts. Unable to reconcile these opinions, the manager decides that each of the employees is correct with probability $1/2$.
+
+Let $B_1$ be the event that the box contains 60 long and 40 short bolts, and let $B_2$ be the event that the box contains 10 long and 20 short bolts. The probability that the first bolt selected is long is now calculated precisely as in @exm-2-1-9.
+
+::::
 
 In @exm-2-1-11, there is only one box of bolts, but we believe that it has one of two possible compositions. We let the events $B_1$ and $B_2$ determine the possible compositions. This type of situation is very common in experiments.
 
-::: {.callout-tip}
-::: {#exm-2-1-12}
-
-# Example 2.1.12: A Clinical Trial
+:::: {prf:example} A Clinical Trial
+:label: exm-2-1-12
+:enumerator: 2.1.12
+:::{.bhead}
+## Example 2.1.12: A Clinical Trial
+:::
 
 Consider a clinical trial such as the study of treatments for depression in @exm-2-1-4. As in many such trials, each patient has two possible outcomes, in this case relapse and no relapse. We shall refer to relapse as "failure" and no relapse as "success." For now, we shall consider only patients in the imipramine treatment group. If we knew the effectiveness of imipramine, that is, the proportion $p$ of successes among all patients who might receive the treatment, then we might model the patients in our study as having probability $p$ of success. Unfortunately, we do not know $p$ at the start of the trial. In analogy to the box of bolts with unknown composition in @exm-2-1-11, we can imagine that the collection of all available patients (from which the 40 imipramine patients in this trial were selected) has two or more possible compositions. We can imagine that the composition of the collection of patients determines the proportion that will be success. For simplicity, in this example, we imagine that there are 11 different possible compositions of the collection of patients. In particular, we assume that the proportions of success for the 11 possible compositions are $0, 1/10, \ldots, 9/10, 1$. (We shall be able to handle more realistic models for $p$ in @sec-3.) For example, if we knew that our patients were drawn from a collection with the proportion $3/10$ of successes, we would be comfortable saying that the patients in our sample each have success probability $p = 3/10$. The value of $p$ is an important source of uncertainty in this problem, and we shall partition the sample space by the possible values of $p$. For $j = 1, \ldots, 11$, let $B_j$ be the event that our sample was drawn from a collection with proportion $(j − 1)/10$ of successes. We can also identify $B_j$ as the event $\{p = (j − 1)/10\}$.
 
@@ -467,38 +506,39 @@ $$ {#eq-2-1-6}
 
 where the second equality uses the fact that $\sum_{j=1}^n j = n(n+1)/2
 
-:::
-:::
+::::
 
 The events $B_1, B_2, \ldots, B_{11}$ in @exm-2-1-12 can be thought of in much the same way as the two events $B_1$ and $B_2$ that determine the mixture of long and short bolts in @exm-2-1-11. There is only one box of bolts, but there is uncertainty about its composition. Similarly in @exm-2-1-12, there is only one group of patients, but we believe that it has one of 11 possible compositions determined by the events $B_1, B_2, \ldots, B_{11}$. To call these events, they must be subsets of the sample space for the experiment in question. That will be the case in @exm-2-1-12 if we imagine that the experiment consists not only of observing the numbers of successes and failures among the patients but also of potentially observing enough additional patients to be able to compute $p$, possibly at some time very far in the future. Similarly, in @exm-2-1-11, the two events $B_1$ and $B_2$ are subsets of the sample space if we imagine that the experiment consists not only of observing one sample bolt but also of potentially observing the entire composition of the box.
 
 Throughout the remainder of this text, we shall implicitly assume that experiments are augmented to include outcomes that determine the values of quantities such as $p$. We shall not require that we ever get to observe the complete outcome of the experiment so as to tell us precisely what $p$ is, but merely that there is an experiment that includes all of the events of interest to us, including those that determine quantities like $p$.
 
-::: {.callout-tip}
-::: {#def-2-1-3}
-
-# Definition 2.1.3: Augmented Experiment
+:::: {prf:definition} Augmented Experiment
+:label: def-2-1-3
+:enumerator: 2.1.3
+::: {.head}
+## Definition 2.1.3: Augmented Experiment
+:::
 
 If desired, any experiment can be augmented to include the potential or hypothetical observation of as much additional information as we would find useful to help us calculate any probabilities that we desire.
 
-:::
-:::
+::::
 
 @def-2-1-3 is worded somewhat vaguely because it is intended to cover a wide variety of cases. Here is an explicit application to @exm-2-1-12.
 
-::: {.callout-tip}
-::: {#exm-2-1-13}
-
-# Example 2.1.13: A Clinical Trial
+:::: {prf:example} A Clinical Trial
+:label: exm-2-1-13
+:enumerator: 2.1.13
+:::{.bhead}
+## Example 2.1.13: A Clinical Trial
+:::
 
 In @exm-2-1-12, we could explicitly assume that there exists an infinite sequence of patients who could be treated with imipramine even though we will observe only finitely many of them. We could let the sample space consist of infinite sequences of the two symbols $S$ and $F$ such as $(S, S, F, S, F, F, F, \ldots)$. Here $S$ in coordinate $i$ means that the $i$th patient is a success, and $F$ stands for failure. So, the event $E_1$ in @exm-2-1-12 is the event that the first coordinate is $S$. The example sequence above is then in the event $E_1$. To accommodate our interpretation of $p$ as the proportion of successes, we can assume that, for every such sequence, the proportion of $S$'s among the first $n$ coordinates gets close to one of the numbers $0, 1/10, \ldots, 9/10, 1$ as $n$ increases. In this way, $p$ is explicitly the limit of the proportion of successes we would observe if we could find a way to observe indefinitely. In @exm-2-1-12, $B_2$ is the event consisting of all the outcomes in which the limit of the proportion of $S$'s equals $1/10$, $B_3$ is the set of outcomes in which the limit is $2/10$, etc. Also, we observe only the first 40 coordinates of the infinite sequence, but we still behave as if $p$ exists and could be determined if only we could observe forever.
 
-:::
-:::
+::::
 
 In the remainder of the text, there will be many experiments that we assume are augmented. In such cases, we will mention which quantities (such as $p$ in @exm-2-1-13) would be determined by the augmented part of the experiment even if we do not explicitly mention that the experiment is augmented.
 
-### The Game of Craps
+## The Game of Craps
 
 We shall conclude this section by discussing a popular gambling game called craps. One version of this game is played as follows: A player rolls two dice, and the sum of the two numbers that appear is observed. If the sum on the first roll is 7 or 11, the player wins the game immediately. If the sum on the first roll is 2, 3, or 12, the player loses the game immediately. If the sum on the first roll is 4, 5, 6, 8, 9, or 10, then the two dice are rolled again and again until the sum is either 7 or the original value. If the original value is obtained a second time before 7 is obtained, then the player wins. If the sum 7 is obtained before the original value is obtained a second time, then the player loses.
 
@@ -533,27 +573,35 @@ $$
 
 Thus, the probability of winning in the game of craps is slightly less than $1/2$.
 
-### Summary
+(sec-2-1-4)=
+# Summary
 
 The revised probability of an event $A$ after learning that event $B$ (with $\Pr(B) > 0$) has occurred is the conditional probability of $A$ given $B$, denoted by $\Pr(A \mid B)$ and computed as $\Pr(A \cap B) / \Pr(B)$. Often it is easy to assess a conditional probability, such as $\Pr(A \mid B)$, directly. In such a case, we can use the multiplication rule for conditional probabilities to compute $\Pr(A \cap B) = \Pr(B)\Pr(A \mid B)$. All probability results have versions conditional on an event $B$ with $\Pr(B) > 0$: Just change all probabilities so that they are conditional on $B$ in addition to anything else they were already conditional on. For example, the multiplication rule for conditional probabilities becomes $\Pr(A_1 \cap A_2 \mid B) = \Pr(A_1 \mid B)\Pr(A_2 \mid A_1 \cap B)$. A partition is a collection of disjoint events whose union is the whole sample space. To be most useful, a partition is chosen so that an important source of uncertainty is reduced if we learn which one of the partition events occurs. If the conditional probability of an event $A$ is available given each event in a partition, the law of total probability tells how to combine these conditional probabilities to get $\Pr(A)$.
 
-### Exercises
+(sec-2-1-5)=
+# Exercises
 
-::: {#exr-2-1-1}
-
-# Exercise 2.1.1
+:::: {exercise}
+:label: exr-2-1-1
+:enumerator: 2.1.1
+::: {.exr-head}
+## Exercise 2.1.1
+:::
 
 If $A \subset B$ with $\Pr(B) > 0$, what is the value of $\Pr(A \mid B)$?
 
+::::
+
+:::: {exercise}
+:label: exr-2-1-2
+:enumerator: 2.1.2
+:::{.exr-head}
+## Exercise 2.1.2
 :::
-
-::: {#exr-2-1-2}
-
-# Exercise 2.1.2
 
 If $A$ and $B$ are disjoint events and $\Pr(B) > 0$, what is the value of $\Pr(A \mid B)$?
 
-:::
+::::
 
 ::: {#exr-2-1-3}
 
