@@ -58,10 +58,8 @@ project:
     # - file: ch12/index.md
     #   children:
     #     - pattern: "ch12/12-*.md"
-    - url: assets/DeGroot_Schervish_4e.pdf
-      filename: "DeGroot_Schervish_4e.pdf"
+    - url: "https://jjacobs.me/dsps-pdf"
       title: "PDF Version"
-      static: true
 site:
   template: book-theme
   title: Probability and Statistics

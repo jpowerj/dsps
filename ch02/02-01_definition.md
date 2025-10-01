@@ -377,7 +377,14 @@ Finally, if $\Pr(B_j) > 0$ for $j = 1, \ldots, k$, then $\Pr(B_j \cap A) = \Pr(B
 :::
 :::
 
-![The intersections of $A$ with events $B_1, \ldots, B_5$ of a partition in the proof of @thm-2-1-4](ch02/images/fig-2-2.svg){#fig-2-2 width="50%"}
+```{figure} images/fig-2-2.svg
+:label: fig-2-2
+:enumerator: 2.2
+:align: center
+:width: 50%
+
+The intersections of $A$ with events $B_1, \ldots, B_5$ of a partition in the proof of @thm-2-1-4
+```
 
 <!-- Stopping point, 2023-08-30 -->
 
