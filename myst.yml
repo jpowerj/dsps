@@ -38,9 +38,9 @@ project:
     - file: ch04/index.md
       children:
         - pattern: "ch04/04-*.md"
-    # - file: ch05/index.md
-    #   children:
-    #     - pattern: "ch05/05-*.md"
+    - file: ch05/index.md
+      children:
+        - pattern: "ch05/05-*.md"
     # - file: ch06/index.md
     #   children:
     #     - pattern: "ch06/06-*.md"
